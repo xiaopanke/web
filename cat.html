@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>canvas版 哈哈……龙猫</title>
+  <style>
+	*{margin:0;padding: 0px;}
+  </style>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="600"></canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById('myCanvas');
+	var context = canvas.getContext('2d');
+
+	var pi = Math.PI;
+	
+	function PI(deg){
+		return deg/180*Math.PI;
+	}
+
+	//上半身子
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#5f6058';//线的颜色 
+	context.fillStyle = "#737260";
+	context.lineCap = 'round';
+	context.moveTo(55, 424 );
+	context.bezierCurveTo(28, 420, 32, 263, 88, 200);
+	context.quadraticCurveTo(96, 197, 93, 183);
+	context.bezierCurveTo(114, 142, 110, 148, 147, 119);
+	context.bezierCurveTo(123, 76, 134, 37, 153, 19);
+	context.bezierCurveTo(175, 42, 182, 70, 173, 105);
+	context.bezierCurveTo(196, 98, 228, 97, 262, 105);
+	context.bezierCurveTo(257, 74, 276, 34, 290, 19);
+	context.bezierCurveTo(307, 50, 309, 84, 284, 114);
+	context.quadraticCurveTo(303, 133, 313, 164);
+	context.quadraticCurveTo(327, 180, 327, 193);
+	context.bezierCurveTo(363, 224, 428, 360, 357, 428);
+	context.bezierCurveTo(367, 392, 364, 340, 355, 308);
+	context.bezierCurveTo(287, 215, 111, 228, 72, 312);
+	context.quadraticCurveTo(53, 382,55, 424);
+	context.stroke();
+	context.fill();
+	//左眼睛
+	context.beginPath();
+	context.arc(159,156,20,0,2*Math.PI);
+	context.strokeStyle = '#000';
+	context.fillStyle = "#cdd2d6";
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.arc(162,156,7,0,2*Math.PI);
+	context.fillStyle = "#000";
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.arc(159,155,2,0,2*Math.PI);
+	context.fillStyle = "#fff";
+	context.shadowBlur = 4;
+	context.shadowColor = "#eaeaea";
+	context.stroke();
+	context.fill();
+	//右眼睛
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.arc(277,157,20,0,2*Math.PI);
+	context.strokeStyle = '#000';
+	context.fillStyle = "#cdd2d6";
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.arc(274,157,7,0,2*Math.PI);
+	context.fillStyle = "#000";
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.arc(272,156,2,0,2*Math.PI);
+	context.fillStyle = "#fff";
+	context.shadowBlur = 4;
+	context.shadowColor = "#eaeaea";
+	context.stroke();
+	context.fill();
+	//鼻子
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#737260";
+	context.lineCap = 'round';
+	context.moveTo(196, 156 );
+	context.bezierCurveTo(217, 147, 217, 147, 239, 156);
+	context.stroke();
+	context.fill();
+	context.beginPath(); 
+	context.fillStyle = "#000";
+	context.lineCap = 'round';
+	context.moveTo(205, 160 );
+	context.bezierCurveTo(220, 155, 220, 155, 233, 160);
+	context.bezierCurveTo(228, 161, 225, 161, 220, 166);
+	context.bezierCurveTo(216, 162, 212, 162, 205, 160);
+	context.stroke();
+	context.fill();
+	context.beginPath(); 
+	context.fillStyle = "#000";
+	context.lineCap = 'round';
+	context.moveTo(211, 210 );
+	context.bezierCurveTo(220, 206, 220, 206, 228, 209);
+	context.stroke();
+	context.fill();
+	//胡子
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(47, 157);
+	context.bezierCurveTo(73, 157, 116, 165, 125, 169);
+	context.quadraticCurveTo(124, 171,124, 172);
+	context.bezierCurveTo(110, 167, 88, 162, 47, 157);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(26, 175);
+	context.bezierCurveTo(70, 173, 102, 178, 116, 183);
+	context.quadraticCurveTo(114, 185,114, 186);
+	context.bezierCurveTo(101, 181, 77, 178, 26, 175);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(33, 205);
+	context.bezierCurveTo(68, 197, 86, 197, 101, 197);
+	context.quadraticCurveTo(100, 199,100, 200);
+	context.bezierCurveTo(83, 199, 76, 200, 33, 205);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(357, 150);
+	context.bezierCurveTo(319, 159, 315, 161, 301, 169);
+	context.quadraticCurveTo(304, 170,304, 171);
+	context.bezierCurveTo(315, 164, 325, 160,357, 150);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(381, 176);
+	context.bezierCurveTo(340, 173, 321, 174, 305, 176);
+	context.quadraticCurveTo(304, 178,304, 179);
+	context.bezierCurveTo(318, 177, 332, 176,381, 176);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(377, 197);
+	context.bezierCurveTo(339, 186, 322, 186, 310, 185);
+	context.quadraticCurveTo(310, 188,310, 189);
+	context.bezierCurveTo(330, 188, 339, 189,377, 197);
+	context.fill();
+	context.stroke();
+	//肚子和肚子上的纹纹
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#e1db9d";
+	context.lineCap = 'round';
+	context.moveTo(357, 427);
+	context.bezierCurveTo(367, 392, 364, 340, 355, 308);
+	context.bezierCurveTo(287, 215, 111, 228, 72, 312);
+	context.quadraticCurveTo(53, 382,55, 424);
+	context.bezierCurveTo(80, 520, 314,520,357, 427);
+	context.fill();
+	context.stroke();
+	//
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#72725a";
+	context.lineCap = 'round';
+	context.moveTo(105, 290);
+	context.bezierCurveTo(114, 278, 122, 269, 139, 262);
+	context.bezierCurveTo(167, 263, 154, 281, 138, 275);
+	context.bezierCurveTo(121, 284, 108, 295, 105, 290);
+	context.fill();
+	context.stroke();
+	//
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#72725a";
+	context.lineCap = 'round';
+	context.moveTo(183, 266);
+	context.bezierCurveTo(196, 254, 194, 253, 211, 253);
+	context.bezierCurveTo(235, 267, 230, 272, 211, 263);
+	context.bezierCurveTo(175, 266, 189, 273, 183, 266);
+	context.fill();
+	context.stroke();
+	//
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#72725a";
+	context.lineCap = 'round';
+	context.moveTo(259, 271);
+	context.bezierCurveTo(270, 260, 270, 258, 285, 260);
+	context.bezierCurveTo(307, 281, 301, 284, 283, 268);
+	context.bezierCurveTo(271, 274, 264, 276, 259, 271);
+	context.fill();
+	context.stroke();
+	//
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#72725a";
+	context.lineCap = 'round';
+	context.moveTo(90, 329);
+	context.bezierCurveTo(97, 314, 101, 308, 111, 306);
+	context.bezierCurveTo(130, 315, 125, 320, 111, 318);
+	context.bezierCurveTo(102, 324, 98, 328, 90, 329);
+	context.fill();
+	context.stroke();
+	//
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#72725a";
+	context.lineCap = 'round';
+	context.moveTo(152, 309);
+	context.bezierCurveTo(161, 300, 171, 294, 178, 295);
+	context.bezierCurveTo(197, 310, 190, 312, 175, 306);
+	context.bezierCurveTo(167, 308, 159, 313, 152, 309);
+	context.fill();
+	context.stroke();
+	//
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#72725a";
+	context.lineCap = 'round';
+	context.moveTo(218, 303);
+	context.bezierCurveTo(225, 294, 233, 290, 242, 289);
+	context.bezierCurveTo(265, 305, 260, 307, 243, 302);
+	context.bezierCurveTo(235, 305, 225, 307, 218, 303);
+	context.fill();
+	context.stroke();
+	//
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#72725a";
+	context.lineCap = 'round';
+	context.moveTo(289, 312);
+	context.bezierCurveTo(294, 303, 301, 299, 310, 300);
+	context.bezierCurveTo(329, 321, 324, 324, 309, 311);
+	context.bezierCurveTo(303, 312, 295, 315, 289, 312);
+	context.fill();
+	context.stroke();
+	//左脚
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#73725e";
+	context.lineCap = 'round';
+	context.moveTo(88, 489);
+	context.bezierCurveTo(72, 460, 89, 426, 116, 421);
+	context.bezierCurveTo(152, 423, 170, 462, 171, 488);
+	context.bezierCurveTo(160, 530, 110, 531, 88, 489);
+	context.fill();
+	context.stroke();
+	//左脚掌
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.arc(140,494,20,0,2*Math.PI);
+	context.lineWidth = 4;//线的宽度
+	context.strokeStyle = '#000';
+	context.stroke();
+	context.fill();
+	//左脚指
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#a2a2a0";
+	context.lineCap = 'round';
+	context.moveTo(147, 482);
+	context.quadraticCurveTo(153, 472,148, 457);
+	context.moveTo(147, 482);
+	context.quadraticCurveTo(140, 470,148, 457);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#a2a2a0";
+	context.lineCap = 'round';
+	context.moveTo(133, 485);
+	context.quadraticCurveTo(134, 474,124, 460);
+	context.moveTo(133, 485);
+	context.quadraticCurveTo(124, 478,124, 460);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#a2a2a0";
+	context.lineCap = 'round';
+	context.moveTo(122, 495);
+	context.quadraticCurveTo(119, 483,109, 472);
+	context.moveTo(122, 495);
+	context.quadraticCurveTo(109, 486,109, 472);
+	context.fill();
+	context.stroke();
+	//右脚
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#73725e";
+	context.lineCap = 'round';
+	context.moveTo(336, 488);
+	context.bezierCurveTo(347, 454, 323, 416, 291, 424);
+	context.bezierCurveTo(263, 445, 253, 463, 254, 488);
+	context.bezierCurveTo(261, 518, 311, 524, 336, 488);
+	context.fill();
+	context.stroke();
+	//右脚掌
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.arc(279,487,20,0,2*Math.PI);
+	context.lineWidth = 4;//线的宽度
+	context.strokeStyle = '#000';
+	context.stroke();
+	context.fill();
+	
+	//右脚指
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#a2a2a0";
+	context.lineCap = 'round';
+	context.moveTo(268, 479);
+	context.quadraticCurveTo(273, 465,270, 456);
+	context.moveTo(268, 479);
+	context.quadraticCurveTo(265, 465,270, 456);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#a2a2a0";
+	context.lineCap = 'round';
+	context.moveTo(278, 474);
+	context.quadraticCurveTo(283, 465,278, 453);
+	context.moveTo(278, 474);
+	context.quadraticCurveTo(272, 464,278, 453);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#a2a2a0";
+	context.lineCap = 'round';
+	context.moveTo(290, 479);
+	context.quadraticCurveTo(299, 475,300, 460);
+	context.moveTo(290, 479);
+	context.quadraticCurveTo(291, 468,300, 460);
+	context.fill();
+	context.stroke();
+	//左手指
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(43, 436);
+	context.bezierCurveTo(41, 429, 41, 423, 44, 415);
+	context.quadraticCurveTo(46, 418,47, 419);
+	context.bezierCurveTo(45, 424, 44, 427, 44, 438);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(50, 441);
+	context.bezierCurveTo(48, 434, 48, 428, 50, 420);
+	context.quadraticCurveTo(51, 421,53, 423);
+	context.bezierCurveTo(53, 430, 51, 443, 50, 441);
+	context.fill();
+	context.stroke();
+	//右手指
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(358, 447);
+	context.bezierCurveTo(362, 435, 361, 430, 360, 426);
+	context.quadraticCurveTo(358, 426,356, 427);
+	context.bezierCurveTo(357, 434, 358, 436, 358, 447);
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#9a9a9a";
+	context.lineCap = 'round';
+	context.moveTo(366, 443);
+	context.bezierCurveTo(369, 434, 369, 427, 365, 422);
+	context.quadraticCurveTo(364, 424,362, 424);
+	context.bezierCurveTo(365, 430, 366, 433,366, 443);
+	context.fill();
+	context.stroke();
+
+	
+	
+
+</script>
+</body>
+</html>
