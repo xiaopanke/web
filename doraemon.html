@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>canvas版 哈哈……龙猫</title>
+  <style>
+	*{margin:0;padding: 0px;}
+  </style>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="600"></canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById('myCanvas');
+	var context = canvas.getContext('2d');
+
+	var pi = Math.PI;
+	
+	function PI(deg){
+		return deg/180*Math.PI;
+	}
+	//大脸
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(212,189,155,-1.25*Math.PI,0.25*Math.PI);
+	context.strokeStyle = '#000';
+	var myGradient = context.createRadialGradient(381,61,290,330,41,500); 
+	myGradient.addColorStop(0, "#1dc3ec");  
+	myGradient.addColorStop(1, "#084f62");
+	context.fillStyle = myGradient;
+	context.stroke();
+	context.fill();
+	//小脸
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 2;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.fillStyle = "#fff";
+	context.lineCap = 'round';
+	context.moveTo(139,128);
+	context.lineTo(288,128);
+	context.bezierCurveTo(354,153,354,268,300,300);
+	context.lineTo(124,300);
+	context.bezierCurveTo(73,261,73,160,139,128);
+	context.fill();
+	context.stroke();
+	//右眼
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(250,115,37,1*Math.PI,2*Math.PI);
+	context.lineTo(287,133);
+	context.arc(250,134,37,0*Math.PI,1*Math.PI);
+	context.lineTo(213,115);
+	context.strokeStyle = '#000';
+	context.fillStyle = '#fff';
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.arc(234,139,8,0*Math.PI,2*Math.PI);
+	context.fillStyle = '#000';
+	context.stroke();
+	context.fill();
+	//左眼
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(176,115,37,1*Math.PI,2*Math.PI);
+	context.lineTo(213,133);
+	context.arc(176,134,37,0*Math.PI,1*Math.PI);
+	context.lineTo(139,115);
+	context.strokeStyle = '#000';
+	context.fillStyle = '#fff';
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.arc(194,139,8,0*Math.PI,2*Math.PI);
+	context.fillStyle = '#000';
+	context.stroke();
+	context.fill();
+	//鼻子
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(213,170,13,0*Math.PI,2*Math.PI);
+	context.strokeStyle = '#000';
+	context.fillStyle = '#c93e00';
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.arc(219,167,3,0*Math.PI,2*Math.PI);
+	context.lineWidth = 1;
+	context.strokeStyle = '#fff';
+	context.fillStyle = '#fff';
+	context.shadowOffsetX = 0; // 阴影Y轴偏移
+  	context.shadowOffsetY = 0; // 阴影X轴偏移
+  	context.shadowBlur = 6; // 模糊尺寸
+  	context.shadowColor = 'rgba(255, 255, 255, 0.9)'; // 颜色
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 1;
+	context.arc(213,150,120,0.25*Math.PI,0.75*Math.PI);
+	context.strokeStyle = '#000';
+	context.fillStyle = '#000';
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.lineWidth = 1;
+	context.arc(213,144,123,0.25*Math.PI,0.75*Math.PI);
+	context.strokeStyle = '#fff';
+	context.fillStyle = '#fff';
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.moveTo(213,185);
+	context.lineTo(213,269);
+	context.stroke();
+	//胡子
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.moveTo(108,167);
+	context.lineTo(164,188);
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.moveTo(106,198);
+	context.lineTo(166,198);
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.moveTo(108,229);
+	context.lineTo(164,208);
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.moveTo(269,188);
+	context.lineTo(325,169);
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.moveTo(267,198);
+	context.lineTo(326,198);
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 3;//线的宽度
+	context.strokeStyle = '#000';//线的颜色 
+	context.moveTo(268,209);
+	context.lineTo(324,229);
+	context.stroke();
+	//衣服
+	context.beginPath();
+	context.lineWidth=5;
+	context.strokeStyle='#000';
+	context.moveTo(100,323);
+	context.lineTo(53,356);
+	context.lineTo(81,399);
+	context.lineTo(100,386);
+	context.lineTo(100,480);
+	context.lineTo(202,481);
+	context.arc(213,481,10,1*Math.PI,2*Math.PI);
+	context.lineTo(323,480);
+	context.lineTo(323,386);
+	context.lineTo(344,399);
+	context.lineTo(372,356);
+	context.lineTo(325,323);
+	context.shadowOffsetX = -3; // 阴影Y轴偏移
+  	context.shadowOffsetY = 2; // 阴影X轴偏移
+  	context.shadowBlur =20; // 模糊尺寸
+  	context.shadowColor = 'rgba(0,0,0, 0.3)'; // 颜色
+  	var myGradient = context.createRadialGradient(400,350,200,400,350,330); 
+	myGradient.addColorStop(0, "#1dc3ec");  
+	myGradient.addColorStop(1, "#084f62");
+	context.fillStyle = myGradient;
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.shadowBlur = 0;
+	context.lineWidth = 5;
+	context.arc(213,368,85,1.75*Math.PI,1.25*Math.PI);
+	context.strokeStyle = '#000';
+	context.fillStyle = '#fff';
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(213,368,66,0*Math.PI,1*Math.PI);
+	context.lineTo(279,368);
+	context.strokeStyle = '#000';
+	context.fillStyle = '#fff';
+	context.stroke();
+	context.fill();
+	//脖子
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(106,311,10,0.5*Math.PI,1.5*Math.PI);
+	context.lineTo(320,301);
+	context.arc(317,311,10,1.5*Math.PI,0.5*Math.PI);
+	context.lineTo(105,321);
+	context.strokeStyle = '#000';
+	var myGradient = context.createLinearGradient(213,305,213,320); 
+	myGradient.addColorStop(0, "#bd3600");  
+	myGradient.addColorStop(1, "#810500");
+	context.fillStyle = myGradient;
+	context.stroke();
+	context.fill();
+	//手
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(47,389,33,0,2*Math.PI);
+	context.strokeStyle = '#000';
+	var myGradient = context.createLinearGradient(66,383,39,398); 
+	myGradient.addColorStop(0,"#e3e3e3");  
+	myGradient.addColorStop(0.6,"#fff");  
+	myGradient.addColorStop(1,"#e3e3e3");
+	context.fillStyle = myGradient;
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.lineWidth = 5;
+	context.arc(375,387,33,0,2*Math.PI);
+	context.strokeStyle = '#000';
+	var myGradient = context.createLinearGradient(390,370,366,394); 
+	myGradient.addColorStop(0,"#e3e3e3");  
+	myGradient.addColorStop(0.6,"#fff");  
+	myGradient.addColorStop(1,"#e3e3e3");
+	context.fillStyle = myGradient;
+	context.stroke();
+	context.fill();
+	//脚
+	context.beginPath();
+	context.lineWidth = 5;
+	context.moveTo(102,480);
+	context.lineTo(201,480);
+	context.arc(195,496,16,1.5*Math.PI,0.5*Math.PI);
+	context.lineTo(93,513);
+	context.bezierCurveTo(73,506,79,485,102,480);
+	context.strokeStyle = '#000';
+	var myGradient = context.createLinearGradient(120,499,100,499);  
+	myGradient.addColorStop(0,"#fff");  
+	myGradient.addColorStop(1,"#c3c3c3");
+	context.fillStyle = myGradient;
+	context.stroke();
+	context.fill();
+	context.beginPath();
+	context.lineWidth = 5;
+	context.moveTo(323,480);
+	context.lineTo(227,480);
+	context.arc(232,496,16,1.5*Math.PI,0.5*Math.PI,true);
+	context.lineTo(336,513);
+	context.bezierCurveTo(352,506,349,487,323,480);
+	context.strokeStyle = '#000';
+	var myGradient = context.createLinearGradient(250,496,220,499);  
+	myGradient.addColorStop(0,"#fff");  
+	myGradient.addColorStop(1,"#c3c3c3");
+	context.fillStyle = myGradient;
+	context.stroke();
+	context.fill();
+	//衣服折子
+	context.beginPath();
+	context.lineWidth = 2.5;
+	context.moveTo(99,373);
+	context.lineTo(99,386);
+	context.strokeStyle = '#000';
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 2.5;
+	context.moveTo(324,373);
+	context.lineTo(324,386);
+	context.strokeStyle = '#000';
+	context.stroke();
+	//领子上的口子
+	context.beginPath();
+	context.lineWidth = 3;
+	context.arc(213,330,20,0,2*Math.PI);
+	context.strokeStyle = '#000';
+	var myGradient = context.createLinearGradient(205,335,205,346);  
+	myGradient.addColorStop(0,"#f6ee27");  
+	myGradient.addColorStop(1,"#b3ab04");
+	context.fillStyle = myGradient;
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 3;
+	context.moveTo(193,321);
+	context.lineTo(230,321);
+	context.strokeStyle = '#000';
+	context.stroke();
+	context.beginPath();
+	context.lineWidth = 2.5;
+	context.moveTo(192,329);
+	context.lineTo(231,329);
+	context.strokeStyle = '#000';
+	context.stroke();
+	context.beginPath();
+	context.lineWidth =3;
+	context.moveTo(213,340);
+	context.lineTo(213,351);
+	context.strokeStyle = '#000';
+	context.stroke();
+	context.beginPath();
+	context.lineWidth =3;
+	context.arc(213,339,5,0,2*Math.PI);
+	context.strokeStyle = '#000';
+	context.fillStyle="#000";
+	context.fill();
+	context.stroke();
+	context.beginPath();
+	context.lineWidth =1;
+	context.arc(221,319,3,0,2*Math.PI);
+	context.strokeStyle = '#fff';
+	context.fillStyle="#fff";
+	context.shadowOffsetX = 0; // 阴影Y轴偏移
+  	context.shadowOffsetY = 0; // 阴影X轴偏移
+  	context.shadowBlur = 6; // 模糊尺寸
+  	context.shadowColor = 'rgba(255, 255, 255, 0.3)'; // 颜色
+	context.fill();
+	context.stroke();
+
+</script>
+</body>
+</html>
