@@ -6,6 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/swiper.min.css" />
+<script>
+	//自适应改变fontSize;
+    (function(win,doc){
+        function change(){
+            doc.documentElement.style.fontSize=doc.documentElement.clientWidth/16+'px';
+        }
+        change();
+        win.addEventListener('resize',change,false);
+    })(window,document);
+</script>
 <script src="js/swiper-3.3.1.min.js"></script>
 <script src="js/index.js"></script>
 </head>
