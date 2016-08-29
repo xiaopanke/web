@@ -12,7 +12,7 @@ body{font-family: 'Microsoft Yahei';}
 input{ outline:none; border:none; background:none; }
 html{font-size: 20px;}
 /*header区域*/
-header{ height: 10rem; background:#f5fafd; padding-top:0.125rem; }
+header{ background:#f5fafd; padding-top:0.125rem; }
 .logo {width: 5.5rem; padding: 0.125rem 0; margin:0 auto;}
 .logo a{display: block;
     height: 2.1rem;
