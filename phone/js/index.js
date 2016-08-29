@@ -1,12 +1,5 @@
 window.onload=function(){
-	//自适应改变fontSize;
-    (function(win,doc){
-        function change(){
-            doc.documentElement.style.fontSize=doc.documentElement.clientWidth/16+'px';
-        }
-        change();
-        win.addEventListener('resize',change,false);
-    })(window,document);
+	
 	//adv轮播
 	(function(){
 		var mySwiper = new Swiper('.swiper-container',{
