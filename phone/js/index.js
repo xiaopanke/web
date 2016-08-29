@@ -1,5 +1,5 @@
 window.onload=function(){
-	
+	window.addEventListener('resize',change,false);
 	//adv轮播
 	(function(){
 		var mySwiper = new Swiper('.swiper-container',{
