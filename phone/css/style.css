@@ -64,7 +64,7 @@ header img{ width:16rem; margin-top:0.5rem;}
 .item2 .aside span{ width:0.75rem; height:0.75rem; float:left; background:url(../img/bg1.png) no-repeat center; background-size:100% 100%;  margin:0.9rem 0.3rem 0 0.2rem;}
 .item2 .aside .phone{ background-image:url(../img/bg2.png);}
 .item2 .aside div input{ width:4.25rem; height:0.85rem; margin-top:0.9rem; font-size:0.6rem;}
-.item2 .btn{ height:1rem; width:4.75rem; background:#015aff; color:#fff; margin-top:0.75rem; margin-left:0.3rem; font-size:0.3rem; border-radius:0.25rem;}
+.item2 .btn{ height:1rem; width:4.75rem; background:#015aff; color:#fff; margin-top:0.75rem; margin-left:0.3rem; font-size:0.7rem; border-radius:0.25rem;}
 /*swiper*/
 .swiper{ height:10rem; background:#000; text-align:center;}
 .swiper h3{ color:#fff; text-align:center; font-weight:normal; line-height:2.75rem; font-size:0.9rem;}
@@ -75,7 +75,7 @@ header img{ width:16rem; margin-top:0.5rem;}
 .pay .sub{ width:14rem; margin:0 auto; font-size:0.6rem;}
 .job h2{ line-height:2.5rem; text-align:center; font-size:0.9rem;}
 .job p{ background:#ebf5ff; padding:0.75rem 1.5rem; font-size:0.6rem;}
-.job a{ display:block; width:6.2rem; line-height:1.35rem; background:#eea939; color:#fff; font-size:0.5rem; margin:1rem auto; border-radius:0.675rem; text-align:center;}
+.job a{ display:block; width:6.2rem; line-height:1.35rem; background:#eea939; color:#fff; font-size:0.7rem; margin:1rem auto; border-radius:0.675rem; text-align:center;}
 .pay .round{ width:5rem; height:5rem; background:url(../img/round2.png); text-align:center; background-size:100% 100%; font-size:12px; margin-left:0.8rem; margin-top:1rem;}
 .pay .round p{ padding-top:2rem;}
 .pay .jobmon{margin-top: 0.8rem;}
