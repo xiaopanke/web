@@ -27,7 +27,7 @@ header img{ width:16rem; margin-top:0.5rem;}
 .adv{ text-align:center; padding-top:0.65rem; padding-bottom:2rem;}
 .adv h2{ color:#8290ad; font-size:0.75rem; font-weight:normal; line-height:1.425rem;}	.adv p{ font-size:12px; line-height:0.4rem; color:#4c4c4c; margin-bottom:0.75rem;}
 .adv .hd{ width:11rem; margin:0 auto;}
-.adv .hd span{ width:2.175rem; float:left; margin:0 0.625rem; position:relative;}
+.adv .hd span{ width:2.175rem; float:left; margin:0 0.625rem; position:relative;border-radius:50%;}
 .adv .hd b{ height:2.175rem; border-radius:50%; display:block; background-size:100% 100%;}
 .adv .hd .one{ background-image: url(../img/adv_bg1.png);}
 .adv .hd .two{ background-image:url(../img/adv_bg2.png);}
