@@ -37,7 +37,7 @@ header img{ width:16rem; margin-top:0.5rem;}
 .adv .hd .two_i{ border-bottom-color:#4ec19d;}
 .adv .hd .cur i{ display:block;}
 .adv p{  display:none; margin-top:0.925rem;}
-.adv p em{ font-style:normal; display:block; border-radius:0.65rem; background:#eea939; color:#fff; line-height:1.3rem;width:11rem; margin:0 auto; font-size:0.3rem;}
+.adv p em{ font-style:normal; display:block; border-radius:0.65rem; background:#eea939; color:#fff; line-height:1.3rem;width:11rem; margin:0 auto; font-size:12px;}
 .adv p .one{ background:#4cb4c7;}
 .adv p .two{ background:#4ec19d;}
 .adv .show{ display:block;}
