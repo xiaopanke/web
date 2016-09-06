@@ -75,7 +75,7 @@ header img{ width:16rem; margin-top:0.5rem;}
 .teacher{ text-align:center;}
 .teacher h3{ line-height:2.65rem;font-size: 0.9rem;}
 .teacher .swiper-wrapper{ margin:0 auto;}
-.teacher  .pic{ margin-right:0.5rem; margin-left:2rem;}
+.teacher  .pic{ margin-right:0.5rem; margin-left:2rem; width:3.25rem; height:4rem;}
 .teacher .txt{ font-size:0.75rem; line-height:1.2rem;}
 .job h2{ line-height:2.5rem; text-align:center; font-size:0.9rem;}
 .job p{ background:#c7e3fe; padding:0.75rem 1.5rem; font-size:0.6rem;}
