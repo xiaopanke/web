@@ -19,9 +19,9 @@ header{ background:#f5fafd; padding-top:0.125rem; }
     background: url(../img/logo.png);
     text-indent: -999em;background-size: 100% 100%;}
 header h2{ text-align: center; font-size: 0.75rem; font-weight: normal; line-height: 1.25rem; }
-header p{ text-align: center; line-height: 1rem; font-size: 0.6rem; }
+header p{padding-left: 3rem; text-align: center; line-height: 1rem; font-size: 0.6rem; }
 header p b{ font-weight: normal; color: #fd0303; }
-header p strong{ margin-left: 0.2rem; width:3.5rem; height:1rem; background:url(../img/word.png); display:inline-block; background-size:100% 100%;}
+header p strong{ margin-left: 0.2rem; width:3.5rem; height:1rem; background:url(../img/word.png);  background-size:100% 100%;}
 header img{ width:16rem; margin-top:0.5rem;}
 /*adv*/
 .adv{ text-align:center; padding-top:0.65rem; padding-bottom:2rem;}
@@ -72,13 +72,13 @@ header img{ width:16rem; margin-top:0.5rem;}
 .it h3{ color:#fff; text-align:center; font-weight:normal; line-height:2.75rem; font-size:0.9rem;}
 .it img{ width:11rem; height:6rem;}
 /*teacher*/
-.teacher{ text-align:center; position:relative; margin-bottom:3rem;}
+.teacher{ text-align:center; position:relative; padding-bottom:3rem; overflow:hidden;}
 .teacher h3{ line-height:2.65rem;font-size: 0.9rem;}
 .teacher .swiper-wrapper{ margin:0 auto;}
 .teacher  .pic{ margin-right:0.5rem; margin-left:2rem; width:3.25rem; height:4rem;}
 .teacher .txt{ font-size:0.75rem; line-height:1rem;}
-.teacher .swiper-container2 .btn { bottom:-2.3rem;}
-.teacher .btn span{ width:2rem; height:2rem; opacity:1;}
+.teacher .swiper-container2 .btn { bottom:0.3rem;}
+.teacher .btn span{ width:2rem; height:2rem; opacity:1; border:1px solid #fff;}
 .teacher .btn .swiper-pagination-bullet-active{ border:1px solid #00a0e9;}
 .teacher .btn span img{ width:2rem; height:2rem;}
 .job h2{ background:#ebf5ff; line-height:2.5rem; text-align:center; font-size:0.9rem;}
