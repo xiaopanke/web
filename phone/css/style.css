@@ -58,7 +58,7 @@ header img{ width:16rem; margin-top:0.5rem;}
 .item img{ width:6.5rem;    margin: 0.5rem 0.2rem;}
 /*item2*/
 .item2{ height:10rem;}
-.item2 .aside{ width:5.5rem;}
+.item2 .aside{ width:7rem;}
 .item2 h2{ font-size:0.9rem; text-align:right; line-height:1.5rem; padding-top:0.85rem;}
 .item2 p{ font-size:0.6rem; text-align:right; color:#0159ff; margin-bottom:0.25rem;}
 .item2 img{ width:8rem; margin-top:0.975rem; }
@@ -72,12 +72,16 @@ header img{ width:16rem; margin-top:0.5rem;}
 .it h3{ color:#fff; text-align:center; font-weight:normal; line-height:2.75rem; font-size:0.9rem;}
 .it img{ width:11rem; height:6rem;}
 /*teacher*/
-.teacher{ text-align:center;}
+.teacher{ text-align:center; position:relative; margin-bottom:3rem;}
 .teacher h3{ line-height:2.65rem;font-size: 0.9rem;}
 .teacher .swiper-wrapper{ margin:0 auto;}
 .teacher  .pic{ margin-right:0.5rem; margin-left:2rem; width:3.25rem; height:4rem;}
-.teacher .txt{ font-size:0.75rem; line-height:1.2rem;}
-.job h2{ line-height:2.5rem; text-align:center; font-size:0.9rem;}
+.teacher .txt{ font-size:0.75rem; line-height:1rem;}
+.teacher .swiper-container2 .btn { bottom:-2.3rem;}
+.teacher .btn span{ width:2rem; height:2rem; opacity:1;}
+.teacher .btn .swiper-pagination-bullet-active{ border:1px solid #00a0e9;}
+.teacher .btn span img{ width:2rem; height:2rem;}
+.job h2{ background:#ebf5ff; line-height:2.5rem; text-align:center; font-size:0.9rem;}
 .job p{ background:#c7e3fe; padding:0.75rem 1.5rem; font-size:0.6rem;}
 .job a{ display:block; width:7rem; line-height:1.35rem; background:#eea939; color:#fff; font-size:0.7rem; margin:1rem auto; border-radius:0.675rem; text-align:center;}
 .job p b{font-size: 1rem;color: #ff0202;font-weight: normal;}

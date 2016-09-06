@@ -9,6 +9,19 @@ window.onload=function(){
 			nextButton:'.swiper-button-next',
 		  });	
 	})();
+	(function(){
+		var mySwiper = new Swiper('.swiper-container2',{
+			loop: true,
+			autoplay: 1000,
+			prevButton:'.swiper-button-prev',
+			nextButton:'.swiper-button-next',
+			pagination : '.swiper-pagination',
+			paginationClickable: true,
+  paginationBulletRender: function (index, className) {
+      return '<span class="' + className + '"><img src="./img/man_btn'+(index + 1)+'.png" /></span>';
+  }
+		  });	
+	})();
 	/*tab*/
 	(function(){
 		var oTab=document.getElementById('tab');
