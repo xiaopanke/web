@@ -26,7 +26,7 @@ header img{ width:16rem; margin-top:0.5rem;}
 /*adv*/
 .adv{ text-align:center; padding-top:0.65rem; padding-bottom:2rem;}
 .adv h2{ color:#8290ad; font-size:0.75rem; font-weight:normal; line-height:1.425rem;}	
-.adv h3{ font-size:0.4rem; font-weight:normal; margin-bottom:0.3rem; color:#4c4c4c;}
+.adv h3{ font-size:0.6rem; font-weight:normal; margin-bottom:0.3rem; color:#4c4c4c;}
 .adv p{ font-size:0.6rem; line-height:0.4rem; color:#4c4c4c; margin-bottom:0.75rem;}
 .adv .hd{ width:11rem; margin:0 auto;}
 .adv .hd span{ width:2.175rem; float:left; margin:0 0.625rem; position:relative;border-radius:50%;}
