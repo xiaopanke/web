@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<title>智能社 - www.zhinengshe.com</title>
+<link rel="stylesheet" type="text/css" href="css/global.css">
+<style>
+#btn{width: 50px;height: 50px;display: block;margin-top: 100px;}
+#box{width: 366px;height: 366px; margin: 50px auto;border:1px solid #000;}
+#box li{width: 100px;height: 100px;background: #ccc;border:1px solid #000; float: left;margin: 10px;}
+</style>
+<script src="js/move.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var oDiv=document.getElementById('box');
+	var aLi=oDiv.children;
+	var arr=[];
+	for(var i=0;i<aLi.length;i++){
+		var left=aLi[i].offsetLeft;
+		var top=aLi[i].offsetTop;
+		arr.push({
+			left:left,
+			top:top
+		});
+	}
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].style.position='absolute';
+		aLi[i].style.top=arr[i].top+'px';
+		aLi[i].style.left=arr[i].left+'px';
+		aLi[i].style.margin=0;
+	}
+	console.log(arr);
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		var timer=null;
+		var n=0;
+		timer=setInterval(function(){
+			(function(index){
+				move(aLi[n],{top:0,left:0,width:0,height:0},{
+					complete:function(){
+						if(index==aLi.length-1){
+							sss();
+						}
+					}
+				});
+				n++;
+				if(n==aLi.length){
+					clearInterval(timer);
+				}
+			})(n);
+		},100);
+	}
+	function sss(){
+		var timer=null;
+		var n=aLi.length-1;
+		timer=setInterval(function(){
+			var r=rnm(0,256);
+			var g=rnm(0,256);
+			var b=rnm(0,256);
+			aLi[n].style.background='rgb('+r+','+g+','+b+')';
+			//alert(r+'+'+g+'+'+b);
+			move(aLi[n],{
+				top:arr[n].top,
+				left:arr[n].left,
+				width:100,
+				height:100
+			});
+			n--;
+			if(n==-1){
+				clearInterval(timer);
+			}
+		},100);
+	}
+	function rnm(n,m){
+		return Math.floor(Math.random()*(m-n)+n);
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="nav">
+	<div class="wrap">
+		<ul>
+			<li><a href="index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+			<li style="padding: 18px 0px 0px 600px;"><img src="images/qiuzhi.gif"></li>
+			<li class="tel">TEL:15810992376</li>
+		</ul>
+	</div>
+</div>
+<input type="button" value="点我" id="btn" />
+<ul id="box">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

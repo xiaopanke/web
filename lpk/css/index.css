@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+body { overflow-x: hidden; }
+#carouse{ width:980px; height:400px; position:relative;  overflow:hidden;margin: auto;  padding-top: 0px;}
+#carouse ul{ position:absolute; left:0; top:0px;}
+#carouse ul li{ float:left; width:980px; height:400px;}
+#carouse ul li a{display: block;width: 100%;height: 100%;}
+#carouse ul li a.carouse_1{background:url(../images/0.jpg) no-repeat;}
+#carouse ul li a.carouse_2{background:url(../images/1.jpg) no-repeat;}
+#carouse ul li a.carouse_3{background:url(../images/2.jpg) no-repeat;}
+#carouse ul li a.carouse_4{background:url(../images/3.jpg) no-repeat;}
+#carouse ul li a.carouse_5{background:url(../images/4.jpg) no-repeat;}
+#carouse .btn{ transition:.2s all ease;}
+#carouse .prev,#carouse .next{position:absolute;  top:50%; z-index:2; height:80px; line-height:80px; background:rgba(0,0,0,0.6); color:#fff; width:80px; text-align:center; margin-top:-40px; display:-none;}
+#carouse .prev{ left:0;}
+#carouse .next{ right:0;}
+#carouse .btn:hover{ background:rgba(221, 80, 71,0.4);}
+
+#carouse ol{ position:absolute; width:120px; left:50%; margin-left:-60px; bottom:10px;}
+#carouse ol li{ width:20px; height:20px; background:rgb(221, 80, 71); float:left; margin:2px; text-align:center; text-indent:-9999px; border-radius:50%;}
+#carouse ol li.active{ background:#fff;}
+#baidu { width: 100%; height: 450px; background: red; overflow: hidden; position: relative; margin: auto; }
+#baidu #baiduanniu a { background: red; display: block; width: 45px; height: 100px; position: absolute; top: 43%; cursor: pointer; overflow: hidden; }
+#baidu #baiduanniu #leftanniu { background: url(../images/sprite.png) no-repeat; left: 10px; }
+#baidu #baiduanniu #rightanniu { background: url(../images/sprite1.png) no-repeat; right: 10px; }
+#baidu #baiduxinxi { height: 40px; width: 100%; background: black; position: absolute; bottom: 0; left: 0; opacity: 0.6; filter: alpha(opacity = 60); }
+#baidu #baiduwenzi { position: absolute; bottom: 0; left: 0; color: white; line-height: 40px; text-indent: 10px; font-weight: bold; }
+#baidu #xiaoyuandian { position: absolute; bottom: 12px; right: 51px; }
+#baidu #xiaoyuandian ul { list-style: none; }
+#baidu #xiaoyuandian ul li { cursor: pointer; float: left; width: 12px; height: 12px; background: url(../images/shuziban.png) no-repeat -7px -124px; margin-right: 2px; }
+#baidu #xiaoyuandian ul li.cur { background-position: -25px -124px; }
+#content { width: 957px; margin: 0px auto; }
+#content .biaoti { width: 957px; height: 268px; padding-bottom: 50px; }
+#box1 { padding-left: 110px; width: 707px; padding-right: 140px; }
+#fixed { width: 68px; height: 1535px; background: url(../images/tiao.png) no-repeat scroll 0px 130px transparent; top: 0px; left: 193px; float: left; }
+#fixed ul { list-style: none outside none; }
+#fixed ul li { height: 445px; line-height: 445px; padding-left: 50px; }
+#fixed ul li.cur { background: url(../images/jiantou.png) no-repeat scroll 22px 150px transparent; }
+ul li a { cursor: pointer; }
+h3 { font-size: 60px; }
+#js-gotop{width: 30px;height:70px;position: fixed;bottom:0;right: 0;display: inline-block;cursor: pointer;}
+#wrap { float: right; width: 479px; }
+#wrap img { padding-bottom: 116px; }
+#footer { width: 947px; height: 600px; margin: 55px auto 0px; position: relative; }
+#footer .tu { background: url(../images/lianxifangshi.png) no-repeat scroll 0% 0% transparent; width: 947px; height: 77px; }
+#footer .me { width: 159px; height: 176px; padding-top: 80px; padding-left: 174px; }
+#footer .xinxi { position: absolute; top: 127px; left: 504px; width: 250px; height: 250px; background: url(../images/icons.png) no-repeat scroll 0% 0% transparent; }
+#footer .xinxi p { font: 18px/2 "微软雅黑", "宋体"; color: rgb(234, 93, 85); margin-bottom: 15px; padding-left: 90px; padding-top: 16px; }

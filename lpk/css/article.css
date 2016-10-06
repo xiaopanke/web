@@ -1,0 +1,5 @@
+#box{width: 480px;margin: auto;text-align: left;margin-top: 100px;margin-bottom: 50px;border-bottom: 1px solid rgb(221, 80, 71);padding-bottom: 40px;}
+#box{color: rgb(221, 80, 71);}
+#box h4{padding-bottom: 30px;}
+#box p {line-height: 30px;color: #fff;font: 14px/30px "微软雅黑", "宋体";}
+#box p a{text-decoration: underline;}

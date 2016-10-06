@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+* { padding: 0px; margin: 0px;list-style: none; }
+img { border: 0px none; }
+a{text-decoration: none;}
+.fl { float: left; }
+.fr { float: right; }
+.cl { clear: both; }
+body { background: url(../images/bj.png) repeat scroll 0% 0% transparent; }
+#content { width: 900px; overflow: hidden; margin: 0px auto; }
+#nav { height: 55px; background: url(../images/navbj.jpg) repeat-x scroll 0% 0% transparent; position: fixed; top: 0px; left: 0px; width: 100%; z-index: 2; overflow: hidden; }
+#nav .wrap { width: 957px; margin: 0px auto; }
+#nav .wrap ul { list-style: none outside none; }
+#nav .wrap ul li { float: left; width: 114px; }
+#nav .wrap ul li a { font: 16px/55px "微软雅黑", "宋体"; }
+#nav .wrap ul li a:link, #nav .wrap ul li a:visited { color: rgb(255, 255, 255); text-decoration: none; }
+#nav .wrap ul li a:hover { color: rgb(217, 78, 71); }
+#nav .wrap ul li.tel { font: 16px/55px "微软雅黑", "宋体"; color: rgb(221, 80, 71); }
+#nav_like{ height: 70px;}

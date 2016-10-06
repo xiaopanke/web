@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社 - www.zhinengshe.com</title>
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<link rel="stylesheet" type="text/css" href="css/global.css">
+<style type="text/css">
+#box{width: 400px;height: 300px;margin: 120px auto;position: relative;}
+#content{width: 360px;height: 100%;background: #ccc;position: relative;float: left;overflow: hidden;}
+#div1{width: 30px;height: 240px;background: #ccc;position: relative;float: right;margin-top: 30px;}
+#text{position: absolute;top:0;left: 0;width: 360px;}
+#text p{text-align: center;color: rgb(221, 80, 71);}
+#span1{position: absolute;top:0px;left: 0;background: red;width: 100%;display: block}
+#up,#down{height: 30px;width: 30px;position: absolute;right: 0px;text-align: center;line-height: 30px;display:block;z-index: 555;background: green; }
+#up{top:0;}
+#down{bottom: 0px;}
+</style>
+<script type="text/javascript" src="js/wheel.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var oContent=document.getElementById('content');
+	var oDiv1=document.getElementById('div1');
+	var oText=document.getElementById('text');
+	var oSpan=document.getElementById('span1');
+	var oUp=document.getElementById('up');
+	var oDown=document.getElementById('down');
+	var nTextMaxTop=oText.offsetHeight-oContent.offsetHeight;
+
+	var nSpanHeight=oText.offsetHeight/oDiv1.offsetHeight;
+	if(oText.offsetHeight<content.offsetHeight){
+		oSpan.style.height=oDiv1.offsetHeight+'px';
+	}else{
+		oSpan.style.height=oDiv1.offsetHeight/nSpanHeight+'px';
+	}
+	var nMaxTop=oDiv1.offsetHeight-oSpan.offsetHeight;
+
+	oSpan.onmousedown=function(ev){
+		var oEvent=ev||event;
+		var disY=oEvent.clientY-oSpan.offsetTop;
+		document.onmousemove=function(ev){
+			var oEvent=ev||event;
+			var top=oEvent.clientY-disY;
+			sss(top);
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+			//oSpan.releaseCapture&&oSpan.releaseCapture();
+		}
+		//oSpan.setCapture&&oSpan.setCapture();
+		return false;
+	}
+	oDown.onclick=function(){
+		var top=oSpan.offsetTop;
+		top+=10;
+		sss(top);
+		return false;
+	}
+	oUp.onclick=function(){
+		var top=oSpan.offsetTop;
+		top-=10;
+		sss(top);
+		return false;
+	}
+	function sss(top){
+		if(top<0){
+			top=0;
+		}else if(top>nMaxTop){
+			top=nMaxTop;
+		}
+		var scale=top/nMaxTop;
+		oSpan.style.top=top+'px';
+		oText.style.top=-nTextMaxTop*scale+'px';
+	}
+	wheel(oText,function(down){
+		var top=oSpan.offsetTop;
+		if(down){
+			top-=10;
+			sss(top);
+		}else{
+			top+=10;
+			sss(top);
+		}
+	})
+}
+</script>
+</head>
+
+<body>
+<div id="nav">
+	<div class="wrap">
+		<ul>
+			<li><a href="index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+			<li><a href="javascript:;" id="js-">作品案例</a></li>
+			<li><a href="javascript:;">联系方式</a></li>
+			<li style="padding: 18px 0px 0px 310px;"><img src="images/qiuzhi.gif"></li>
+			<li class="tel">TEL:15810992376</li>
+		</ul>
+	</div>
+</div>
+<div id="box">
+	<a href="javascript:'" id="up">上</a>
+	<a href="javascript:'" id="down">下</a>
+	<div id="content">
+		<div id="text">
+			<p>明天会更好</p>
+			<p>演唱：卓依婷</p>
+
+			<p>轻轻敲醒沉睡的心灵</p>
+			<p>慢慢张开你的眼睛</p>
+			<p>看看忙碌的世界</p>
+			<p>是否依然孤独的转个不停</p>
+			<p>春风不解风情</p>
+			<p>吹动少年的心</p>
+			<p>让昨日脸上的泪痕</p>
+			<p>随记忆风干了</p>
+			<p>抬头寻找天空的翅膀</p>
+			<p>候鸟出现它的影迹</p>
+			<p>带来远处的饥荒</p>
+			<p>无情的战火依然存在的消息</p>
+			<p>玉山白雪飘零</p>
+			<p>燃烧少年的心</p>
+			<p>使真情溶化成音符</p>
+			<p>倾诉遥远的祝福</p>
+
+			<p>唱出你的热情</p>
+			<p>伸出你的双手</p>
+			<p>让我拥抱着你的梦</p>
+			<p>让我拥有你真心的面孔</p>
+			<p>让我们的笑容</p>
+			<p>充满着青春的骄傲</p>
+			<p>为明天献出虔诚的祈祷</p>
+
+			<p>谁能不顾自己的家园</p>
+			<p>抛开记忆中的童年</p>
+			<p>谁能忍心看那昨日的忧愁</p>
+			<p>带走我们的笑容</p>
+			<p>青春不解红尘</p>
+			<p>胭脂沾染了灰</p>
+			<p>让久违不见的泪水</p>
+			<p>滋润了你的面容</p>
+			<p>唱出你的热情</p>
+			<p>伸出你的双手</p>
+			<p>让我拥抱着你的梦</p>
+			<p>让我拥有你真心的面孔</p>
+			<p>让我们的笑容</p>
+			<p>充满着青春的骄傲</p>
+			<p>为明天献出虔诚的祈祷</p>
+			<p>轻轻敲醒沉睡的心灵</p>
+			<p>慢慢张开你的眼睛</p>
+			<p>看看忙碌的世界</p>
+			<p>是否依然孤独的转个不停</p>
+			<p>日出唤醒清晨</p>
+			<p>大地光彩重生</p>
+			<p>让和风拂出的音响</p>
+			<p>谱成生命的乐章</p>
+
+			<p>唱出你的热情</p>
+			<p>伸出你的双手</p>
+			<p>让我拥抱着你的梦</p>
+			<p>让我拥有你真心的面孔</p>
+			<p>让我们的笑容</p>
+			<p>充满着青春的骄傲</p>
+			<p>让我们期待着明天会更好</p>
+			<p>唱出你的热情</p>
+			<p>伸出你的双手</p>
+			<p>让我拥抱着你的梦</p>
+			<p>让我拥有你真心的面孔</p>
+			<p>让我们的笑容</p>
+			<p>充满着青春的骄傲</p>
+			<p>让我们期待着明天会更好</p>
+			<p>唱出你的热情</p>
+			<p>伸出你的双手</p>
+			<p>让我拥抱着你的梦</p>
+			<p>让我拥有你真心的面孔</p>
+		</div>	
+	</div>
+	<div id="div1">
+		<span id="span1"></span>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社 - www.zhinengshe.com</title>
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<link rel="stylesheet" type="text/css" href="css/global.css">
+<style type="text/css">
+#box{margin:0 auto; margin-top: 120px;width: 960px;}
+#box div { overflow:hidden; position:relative; width:200px; height:200px; background:#ccc; margin:20px; float:left; }
+#box div a{display: block;}
+#box div span { position:absolute; top:0; left:-200px; width:100%; height:100%; background:rgba(221, 80, 71,0.7);font-size: 30px;line-height: 200px;text-align: center; }
+#box div span a{color: #fff;}
+#box div img{width: 200px;height: 200px;}
+</style>
+<script type="text/javascript" src='js/move.js'></script>
+<script>
+window.onload=function (){
+	var oDiv=document.getElementById('box');
+	var aDiv=oDiv.getElementsByTagName('div');
+	var aSpan=oDiv.getElementsByTagName('span');
+	
+	for (var i=0; i<aDiv.length; i++)
+	{
+		enter(aDiv[i], aSpan[i]);
+		leave(aDiv[i], aSpan[i]);
+	}
+	
+	function enter(oDiv, oSpan){
+		oDiv.onmouseenter=function (ev){
+			var oEvent=ev || event;
+			var n=dealDiv(oDiv, oEvent);
+			
+			switch(n)
+			{
+				case 0: // right
+					oSpan.style.left='200px';
+					oSpan.style.top='0';
+					
+					move(oSpan, {left:0, top:0});
+					break;
+					
+				case 1: // bottom
+					oSpan.style.left='0';
+					oSpan.style.top='200px';
+					
+					move(oSpan, {left:0, top:0});
+					break;
+					
+				case 2: // left
+					oSpan.style.left='-200px';
+					oSpan.style.top='0';
+					
+					move(oSpan, {left:0, top:0});
+					break;
+					
+				case 3: // top
+					oSpan.style.left='0';
+					oSpan.style.top='-200px';
+					
+					move(oSpan, {left:0, top:0});
+					break;
+			};
+		};
+	}
+	
+	function leave(oDiv, oSpan){
+		
+		oDiv.onmouseleave=function (ev){
+			var oEvent=ev || event;
+			var n=dealDiv(oDiv, oEvent);
+			
+			switch(n)
+			{
+				case 0: // right
+					move(oSpan, {left:200});
+					break;
+					
+				case 1: // bottom
+					move(oSpan, {top:200});
+					break;
+					
+				case 2: // left
+					
+					move(oSpan, {left:-200});
+					break;
+					
+				case 3: // top
+					move(oSpan, {top:-200});
+					break;
+			};
+		};
+	}
+	
+	function dealDiv(obj, ev)
+	{
+		var x=obj.offsetWidth/2+obj.offsetLeft-ev.clientX;
+		var y=obj.offsetHeight/2+obj.offsetTop-ev.clientY;
+		
+		// 测试与效果无关
+		var oTest=document.getElementById('test');
+		
+		return Math.round((Math.atan2(y, x)*180/Math.PI+180)/90)%4;
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="nav">
+	<div class="wrap">
+		<ul>
+			<li><a href="index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+			<li style="padding: 18px 0px 0px 600px;"><img src="images/qiuzhi.gif"></li>
+			<li class="tel">TEL:15810992376</li>
+		</ul>
+	</div>
+</div>
+<div id="box">
+	<div>
+		<a href="accordion.html"><img src="images/girl1.jpg"></a>
+		<span><a href="accordion.html">手风琴</a></span>
+	</div>
+	<div>
+		<a href="caseshow.html"><img src="images/girl2.jpg"></a>
+		<span><a href="caseshow.html">案例展示</a></span>
+	</div>
+	<div>
+		<a href="blockmove.html"><img src="images/girl3.jpg"></a>
+		<span><a href="blockmove.html">分块运动</a></span>
+	</div>
+	<div>
+		<a href="collectdiv.html"><img src="images/girl4.jpg"></a>
+		<span><a href="collectdiv.html">收集盒子</a></span>
+	</div>
+	<div>
+		<a href="applemenu .html"><img src="images/girl5.jpg"></a>
+		<span><a href="applemenu.html">苹果菜单</a></span>
+	</div>
+	<div>
+		<a href="clock.html"><img src="images/girl6.jpg"></a>
+		<span><a href="clock.html">运动时钟</a></span>
+	</div>
+	<div>
+		<a href="randomcat.html"><img src="images/girl7.jpg"></a>
+		<span><a href="randomcat.html">随机美人</a></span>
+	</div>
+	<div>
+		<a href="dragcat.html"><img src="images/girl8.jpg"></a>
+		<span><a href="dragcat.html">拖拽贱猫</a></span>
+	</div>
+</div>
+</body>
+</html>

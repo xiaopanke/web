@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<title>智能社 - www.zhinengshe.com</title>
+<link rel="stylesheet" type="text/css" href="css/global.css">
+<style>
+#box { position:relative; width:680px; height:170px; border:1px solid red; margin:200px auto; overflow: hidden;}
+#box ul { position:absolute; top:0; left:0; }
+#box li { list-style:none; float:left; width:150px; height:150px; padding:10px; }
+#box img { display:block; width:100%; }
+#box a { position:absolute; height:100%; width:50%; }
+#box #next { right:0; }
+#box #prev { left:0; }
+</style>
+<script>
+window.onload=function (){
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	var left=0;
+	
+	oUl.innerHTML+=oUl.innerHTML;
+	oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+	
+	var w=oUl.offsetWidth/2;
+	
+	var timer=null;
+	
+	var oNext=document.getElementById('next');
+	oNext.onmouseover=function (){
+		clearInterval(timer);
+		timer=setInterval(function (){
+			left+=4;   //0 //4
+			
+			if (left < 0)
+			{
+				oUl.style.left=left%w+'px';
+			}
+			else
+			{
+				oUl.style.left=left%w-w+'px'; 
+			}
+			
+			
+		}, 30);
+	};
+	
+	timer=setInterval(function (){
+			left+=4;   //0 //4
+			
+			if (left < 0)
+			{
+				oUl.style.left=left%w+'px';
+			}
+			else
+			{
+				oUl.style.left=left%w-w+'px';
+			}
+			
+			
+		}, 30);
+	
+	
+	var oPrev=document.getElementById('prev');
+	oPrev.onmouseover=function (){
+		clearInterval(timer);
+		timer=setInterval(function (){
+			left-=4;//-4
+			
+			if (left < 0)
+			{
+				oUl.style.left=left%w+'px';
+			}
+			else
+			{
+				oUl.style.left=left%w-w+'px';
+			}
+		}, 30);
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<div id="nav">
+	<div class="wrap">
+		<ul>
+			<li><a href="index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+			<li style="padding: 18px 0px 0px 600px;"><img src="images/qiuzhi.gif"></li>
+			<li class="tel">TEL:15810992376</li>
+		</ul>
+	</div>
+</div>
+<div id="box">
+	<ul id="ul1">
+		<li><img src="images/girl1.jpg"></li>
+		<li><img src="images/girl2.jpg"></li>
+		<li><img src="images/girl3.jpg"></li>
+		<li><img src="images/girl4.jpg"></li>
+	</ul>
+	<a href="javascript:;" id="prev"></a>
+	<a href="javascript:;" id="next"></a>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+ul{display:-none;}
+ul ul{padding-left:12px;}
+span{padding-left:18px; line-height:16px; font-size:12px; display:inline-block;}
+span.child{background:url(img/jj.png) 0 0 no-repeat; height:16px; line-height:16px; font-size:12px; display:inline-block; padding-left:18px;}
+span.child_open{background:url(img/jj.png) 0 -16px no-repeat; height:16px; line-height:16px; font-size:12px; display:inline-block; padding-left:18px;}
+</style>
+<script src="ajax.js"></script>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('tree');
+	var oS=oDiv.getElementsByTagName('span')[0];
+	
+	
+	oS.onclick=getTree;
+	
+	function getTree()
+	{
+		var _this=this;
+		
+		this.className='child_open';
+		
+		ajax('tree.php?act=get_tree&id='+this.getAttribute('_tree_id'), function (str){
+			var json=eval('('+str+')');
+			
+			if(json.child.length)
+			{
+				var oUl=document.createElement('ul');
+				
+				for(var i=0;i<json.child.length;i++)
+				{
+					var oLi=document.createElement('li');
+					
+					oLi.innerHTML='<span class="child" _tree_id="'+json.child[i].id+'">'+json.child[i].name+'</span>';
+					
+					oLi.children[0].onclick=getTree;
+					
+					oUl.appendChild(oLi);
+				}
+				
+				_this.parentNode.appendChild(oUl);
+			}
+			else
+			{
+				_this.className='';
+			}
+			_this.onclick=null;
+		});
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="tree">
+	<ul style="display:block;">
+    	<li>
+        	<span class="child" _tree_id="1">tree1</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

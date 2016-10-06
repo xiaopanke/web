@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0; padding:0;}
+input{outline:none; border:none;}
+html{overflow-y:scroll;}
+#div1 {width:430px; margin:50px auto;}
+#txt1 {width:418px; height:14px; font-size:14px; padding:9px 5px; border:#999 solid 1px; box-shadow:inset 0 0 6px #CCC;}
+#ul1 {width:428px; border:1px solid #817F82; display:none; margin-top:-1px;}
+#ul1 li {font-size:14px; padding:6px 8px; list-style:none;}
+#ul1 li:active{background-color: rgb(238, 238, 238);}
+</style>
+<title>智能课堂 —— 百度JSONp接口测试</title>
+<script>
+window.onload=function ()
+{
+	var oTxt=document.getElementById('txt1');
+	var oUl=document.getElementById('ul1');
+	var oScript=null;
+	
+	oTxt.onkeyup=function ()
+	{
+		if(oScript)
+		{
+			document.body.removeChild(oScript);
+		}
+		
+		oScript=document.createElement('script');
+		
+		oScript.type='text/javascript';
+		oScript.src='http://suggestion.baidu.com/su?wd='+encodeURI(oTxt.value)+'&cb=mySucc&t='+new Date().getTime();
+		
+		document.body.appendChild(oScript);
+	};
+	
+	window.mySucc=function (json)
+	{
+		var w=json.q;
+		var arr=json.s;
+		var oUl=document.getElementById('ul1');
+		
+		if(arr.length)
+		{
+			oUl.style.display='block';
+			oUl.innerHTML='';
+			
+			for(var i=0;i<arr.length;i++)
+			{
+				var oLi=document.createElement('li');
+				
+				oLi.innerHTML=arr[i].replace(new RegExp(w, 'ig'), '<strong>'+w+'</strong>');
+				
+				oLi.onmouseover=function ()
+				{
+					this.style.background='#EEE';
+				};
+				oLi.onmouseout=function ()
+				{
+					this.style.background='';
+				};
+				
+				oUl.appendChild(oLi);
+			}
+		}
+		else
+		{
+			oUl.style.display='none';
+		}
+	}
+};
+
+
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<input id="txt1" type="text" />
+    <ul id="ul1"></ul>
+</div>
+</body>
+</html>

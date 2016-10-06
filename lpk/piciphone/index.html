@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iPhone手机图片查看器</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css">
+<script src="../js/move.js"></script>
+<script>
+window.onload=function(){
+	var oWrap=document.getElementById('wrap');
+	var oUl=oWrap.children[0];
+	var aLi=oUl.children;
+	
+	var iNow=0;
+	
+	oUl.onmousedown=function(ev){
+		var oEvent=ev || event;
+		var disX=oEvent.clientX-oUl.offsetLeft;
+		
+		var downX=oEvent.clientX;
+		
+		document.onmousemove=function(ev){
+			var oEvent=ev || event;
+			
+			oUl.style.left=oEvent.clientX-disX+'px';
+		};
+		
+		document.onmouseup=function(ev){
+			var oEvent=ev || event;
+			document.onmousemove=null;
+			document.onmouseup=null;
+			
+			var upX=oEvent.clientX;
+			
+			//alert(downX-upX);
+			if(Math.abs(downX-upX)<50){ //不换，当前
+				//oUl.style.left=-iNow*aLi[0].offsetWidth+'px';
+				move(oUl,{left:-iNow*aLi[0].offsetWidth});
+			}else{
+				if(downX>upX){  //++
+					iNow++;
+					if(iNow==aLi.length){
+						iNow=aLi.length-1;
+					}
+					move(oUl,{left:-iNow*aLi[0].offsetWidth});
+				}else{
+					iNow--;	
+					if(iNow==-1){
+						iNow=0;	
+					}
+					move(oUl,{left:-iNow*aLi[0].offsetWidth});
+				}
+			}
+		};
+		return false;
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="nav">
+	<div class="wrap">
+		<ul>
+			<li><a href="../index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+			<li style="padding: 18px 0px 0px 600px;"><img src="../images/qiuzhi.gif"></li>
+			<li class="tel">TEL:15810992376</li>
+		</ul>
+	</div>
+</div>
+<div id="iphone">
+	<div id="wrap">
+		<ul>
+			<li style="background:url(images/pic1.png);" title="智能课堂"></li>
+			<li style="background:url(images/pic2.png);" title="智能课堂"></li>
+			<li style="background:url(images/pic3.png);" title="智能课堂"></li>
+			<li style="background:url(images/pic4.png);" title="智能课堂"></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社 - www.zhinengshe.com</title>
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<link rel="stylesheet" type="text/css" href="../css/global.css">
+<link rel="stylesheet" type="text/css" href="../css/article.css">
+</head>
+<body>
+<div id="nav">
+	<div class="wrap">
+		<ul>
+			<li><a href="../index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+			<li style="padding: 18px 0px 0px 600px;"><img src="../images/qiuzhi.gif"></li>
+			<li class="tel">TEL:15810992376</li>
+		</ul>
+	</div>
+</div>
+<div id="box">
+	<h4>linear-gradient(线性渐变),radial-gradient(径向重复)</h4>
+	<p>linear-gradient: 线性渐变 </p>
+	<p>backround:linear-gradient() url(url) no-repeat 0 0;语法跟以前css2里面的backround一样，只不过在#色值换成了linear-gradient属性， 属性变为可控制。linear为渐变类型</p><br/>
+	<p>例子：</p>
+	<p>-moz-linear-gradient(开始位置,（具体颜色值  该颜色开始位置）,（具体颜色值  该颜色开始位置）,...)</p>
+	<p>开始位置：表示开始位置,  top-从上到下   left-从左到右  0deg-表示0角度   10px 10px;</p>
+	<p>具体颜色值：#色值 或者 rgba(0,0,0,1) 或者 rgb(0,0,0);</p>
+	<p>该颜色开始位置：当前颜色具体位置比如:50%</p>
+	<p>-moz-linear-gradient(80deg,rgba(200,200,200,0.8) 80px,rgba(200,0,220,0.8));</p><br/>
+	<p>-o-linear-gradient(开始位置,（具体颜色值  该颜色开始位置）,（具体颜色值  该颜色开始位置）,...)</p>
+	<p> 开始位置：表示开始位置,  top-从上到下   left-从左到右  0deg-表示0角度   10px 10px;</p>
+	<p>具体颜色值：#色值 或者 rgba(0,0,0,1) 或者 rgb(0,0,0);</p>
+	<p>该颜色开始位置：当前颜色具体位置比如:50%</p>
+	<p>-moz-linear-gradient(80deg,rgba(200,200,200,0.8) 80px,rgba(200,0,220,0.8));</p><br/>
+	<p>-webkit-linear-gradient(开始位置,（具体颜色值  该颜色开始位置）,（具体颜色值  该颜色开始位置）,...)新写法</p>
+	<p> 开始位置：表示开始位置,  top-从上到下   left-从左到右  0deg-表示0角度   10px 10px;</p>
+	<p>具体颜色值：#色值 或者 rgba(0,0,0,1) 或者 rgb(0,0,0);</p>
+	<p>该颜色开始位置：当前颜色具体位置比如:50%</p>
+	<p>-moz-linear-gradient(80deg,rgba(200,200,200,0.8) 80px,rgba(200,0,220,0.8)); </p><br/>
+	<p>-webkit-gradient(渐变类型, 开始渐变位置(x y) ,结束渐变位置（x y）, 开始颜色值(from(颜色值)),(中间过度颜色(color-stop(渐变的位置,该点颜色值))),结束颜色值(to(颜色值));</p><br/>
+	<p>渐变类型：渐变类型</p>
+	<p>开始渐变位置：开始渐变位置（x  y）</p>
+	<p>结束渐变位置：结束渐变位置(x  y)</p>
+	<p>开始颜色值：开始渐变位置颜色值 from(rgba(0,0,0,1)或者#色值)</p>
+	<p>中间过度颜色：过度颜色值 color-stop(渐变的位置,颜色值)   渐变位置：0-1之间的值    颜色值：rgba()或者#色值</p>
+	<p>结束颜色值：结束颜色值 to(rgba()或者#色值)    </p><br/>
+	<p> -webkit-gradient(linear, 0% 0% ,20% 100%, from(rgba(255,255,255,0)),color-stop(0.75,rgba(255,255,255,0.2)), to(rgba(255,255,255,0.5)))</p><br/>
+	<p>Webkit径向渐变有所区别于线型渐变</p>
+	<p>-webkit-gradient(radial, center center ,0 ,center center ,800, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.5)))</p><br/>
+	<p>这玩意不是很理解：0 原点？   800半径？</p>
+
+
+</div>
+</body>
+</html>

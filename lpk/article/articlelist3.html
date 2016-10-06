@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社 - www.zhinengshe.com</title>
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<link rel="stylesheet" type="text/css" href="../css/global.css">
+<link rel="stylesheet" type="text/css" href="../css/article.css">
+</head>
+<body>
+<div id="nav">
+	<div class="wrap">
+		<ul>
+			<li><a href="../index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+			<li style="padding: 18px 0px 0px 600px;"><img src="../images/qiuzhi.gif"></li>
+			<li class="tel">TEL:15810992376</li>
+		</ul>
+	</div>
+</div>
+<div id="box">
+	<h4>简单多站点php配置方法</h4>
+	<p>wamp环境下如何配置可以支持多个站点同时运行？</p>
+	<p>下载wamp软件 地址：http://www.crsky.com/soft/10723.html 下载完成并安装，我安装在c磁盘中。</p><br/>
+	<p>1、完成之后 找到C:\wamp\bin\apache\Apache2.2.11\conf编辑httpd.conf，查找Include conf/extra/httpd-vhosts.conf，把前面注释符号“#”删掉。</p>
+	<p>2、编辑httpd-vhosts.conf，C:\wamp\bin\apache\Apache2.2.11\conf\extra 把里面的内容清空掉，换成下面的内容：</p><br/>
+	<p>我的两个站点本地路径：E:/vread/vread_static_test/1/ 和 E:/vread/vread_app/</p><br/>
+	<p>NameVirtualHost *:80  //这句绝对得不能去掉，去掉之后认识第一个</p><br/>
+	<p><VirtualHost *:80></p>
+	<p>ServerName test.vread.com</p>
+	<p>ServerAlias test.vread.com</p>
+	<p>DocumentRoot "E:/vread/vread_static_test/1/"</p>
+	<p></VirtualHost></p>
+	<p><VirtualHost *:80></p>
+	<p>ServerName app.vread.com</p>
+	<p>ServerAlias app.vread.com</p>
+	<p>DocumentRoot "E:/vread/vread_app/"</p>
+	<p></VirtualHost></p><br/>
+	<p>说明一下，NameVirtualHost *:80和中的*为当前服务器IP，如果有固定IP可以用IP把*替换掉，我这里使用的是动态IP，所以用*，我看apache帮助文档的时候，一直认为这里的*为对应的域名，这个想法应该是错误的，因为我填上域名的时候一直没有设置成功。ServerName这个填域名，DocumentRoot填 ServerName上域名对应的根目录。</p><br/>
+	<p>这时候访问域名会出现403权限错误，我的D盘用的是NTFS，对应的文件夹everyone的权限都是全部控制，所以不存在系统权限的问题。 </p>
+	<p>问题出在httpd.conf上。</p><br/>
+	<p>编辑httpd.conf，找到DocumentRoot "c:/wamp/www/"这项，这是默认根目录路径，但是要更改的不是这个，一直往下找，找到<Directory "c:/wamp/www/">，然后干掉，复制下面的这段并粘贴到此处即可</p><br/>
+	<p><Directory /></p>
+	<p>Options FollowSymLinks</p>
+	<p>AllowOverride none</p>
+	<p>Order deny,allow</p>
+	<p>Deny from all</p>
+	<p>Allow from all</p>
+	<p></Directory></p><br/>
+	<p>保存httpd.conf和httpd-vhosts.conf，然后重启Apache。之后就是绑定我们站点。例如我绑定的：</p><br/>
+	<p>127.0.0.1 test.vread.com</p>
+	<p>127.0.0.1 app.vread.com</p><br/>
+	<p>这样就实现了单IP多域名多站点的功能。</p>
+
+
+</div>
+</body>
+</html>
