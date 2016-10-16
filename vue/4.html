@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<script>
+	window.onload=function(){
+		var c=new Vue({
+			el:'.box',
+			data:{ //数据
+				msg:'haha',
+				gaga:'xixi',
+				json:{a:'aa',b:'bb'},
+				arr:['apple','pear','pingguo']
+
+			},
+			methods:{ //方法
+				show:function(){
+					alert();
+					this.arr.push('xixi');
+				},
+			}
+		});
+		console.log(c);
+	};
+	</script>
+</head>
+<body>
+	<div class="box">
+		<input type="button" value="按钮" v-on:click="show();">
+		<ul v-for="i in arr">
+			<li>{{i}}</li>
+		</ul>
+	</div>
+
+</body>
+</html>

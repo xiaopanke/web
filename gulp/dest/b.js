@@ -1,0 +1,1 @@
+function haha(n,o){alert(n+o)}window.onload=function(){document.onclick=function(){haha(12,3)}};

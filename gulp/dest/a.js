@@ -1,0 +1,1 @@
+function sum(n,o){alert(n+o)}window.onload=function(){document.onclick=function(){sum(12,3)}};

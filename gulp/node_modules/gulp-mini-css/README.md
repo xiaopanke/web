@@ -1,0 +1,38 @@
+## gulp-mini-css
+> css minfy plugin
+
+## Usage
+
+```
+var css = require('gulp-mini-css');
+
+gulp.task('css', function(){
+    gulp.src(dest+'/*.css')
+        .pipe(css({ext:'-min.css'}))
+        .pipe(gulp.dest(dest));
+});
+
+```
+
+配合less编译：
+
+
+```
+gulp.task('css', function(){
+    gulp.src(src+'/*.less')
+        .pipe(less())
+        .pipe(gulp.dest(dest))
+        .pipe(css({ext:'-min.css'}))
+        .pipe(gulp.dest(dest));
+});
+
+```
+
+自动编译：
+
+```
+gulp.task('watch', function() {
+    gulp.watch(src+'/**/*.less', ['css']);
+});
+
+```
