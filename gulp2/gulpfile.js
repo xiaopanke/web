@@ -23,7 +23,7 @@ gulp.task('uglify:img',function(){
 	.pipe(gulp.dest('build/img'));
 });
 gulp.task('uglify:html',function(){
-	gulp.src('src/index.html')
+	gulp.src('src/*.html')
 	.pipe(htmlmin({collapseWhitespace: true}))
 	.pipe(gulp.dest('build'));
 });
