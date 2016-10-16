@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+a{ text-decoration:none; color:#666;}
+img{ vertical-align:top; border:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clearfix:after{ content:''; display:block; clear:both; }
+body{ font:12px 'Microsoft Yahei';}
+input{ outline:none; border:none; background:none;}
+.w{ width:960px; margin:0 auto;}
+
+
+
+
+
+

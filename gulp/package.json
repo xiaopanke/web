@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "gulp-mini-css": "0.0.3",
+    "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
     "pump": "^1.0.1"
   },
