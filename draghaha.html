@@ -21,7 +21,9 @@ window.onload=function(){
     function ballDarg(id){
         id.addEventListener('touchmove', function(event) {
         event.preventDefault();//阻止其他事件
-        // 如果这个元素的位置内只有一个手指的话
+        // 如果这个元素的位置内只有一个手
+            //
+            // 指的话
         if (event.targetTouches.length == 1) {
             var touch = event.touches[0],
             moveX,moveY,winWh = window.innerWidth - $(id).width(),winHt = window.innerHeight - $(id).height();
