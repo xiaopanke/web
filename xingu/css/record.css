@@ -1,0 +1,5 @@
+.record{ padding-left: 1rem; border-top: #EFEFF4 .5rem solid;}
+.record li{ border-bottom: 1px solid #DBDBDB; line-height: 2.75rem; font-size: .75rem;}
+.record span{ float: left; color: #888;}
+.record b{ float: right; font-weight: normal; padding-right: 1rem;}
+.record .weight{ font-weight: bold;}

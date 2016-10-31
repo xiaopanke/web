@@ -1,0 +1,23 @@
+h3{background: #FAFAFA; line-height: 2.2rem;border-bottom: #EFEFF4 .5rem solid;font-size: .8rem; font-weight: normal;}
+h3 i{background: #FF5F57; width: 3px; height: 17px; float: left; margin-right: .6rem; margin-top: .675rem;}
+.intro { font-size: .75rem; line-height: 1.3rem;  padding: .75rem 0 .75rem 1rem;}
+.intro span{ float: left; color: #888;}
+.intro em{ float: right; margin-right: 1rem;}
+.intro strong{border-top: 1px solid #DBDBDB; display: block;  margin-top: .75rem; margin-bottom: .75rem;}
+.intro b{ margin-left: .5rem; float: left; font-weight: normal;}
+.intro .marl{ margin-left: 4rem;}
+.profile{ margin: 1rem; margin-bottom: 3rem; font-size: .75rem; line-height: 1.2rem;}
+.profile p{margin-bottom: 1rem;}
+/*一键申购*/
+.gobuy{ line-height: 2.75rem; position: fixed;bottom: 0;left: 0; width: 100%; background: #333; }
+.gobuy b{ font-size: .6rem;color: #FFF; float: left; font-weight: normal;}
+.gobuy b:first-child{padding-left: .6rem;}
+.btn_reduce,.btn_add{ width: 1.75rem; height: 1.75rem; background: url(../img/reduce2.png);float:left; background-size: 100% 100%;}
+.btn_add{ background-image: url(../img/add2.png);}
+.numbox{ margin:.5rem .25rem 0;}
+.numin{ width: 3.825rem; border-top: 1px solid #d2d2d2;  float: left; border-bottom: 1px solid #d2d2d2; padding-left: 0.675rem;font-size:.7rem; font-weight: normal;box-sizing:border-box; line-height: 1.75rem; color: #fff;}
+.gobuy a{ width: 5.25rem; background: #F24637; color: #fff; float: right; font-size: .85rem; text-align: center;}
+
+/*小小提示框*/
+.tipbox{background: #FFF5EB; font-size: .85rem; line-height: 2.75rem; display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center; color: #FBA736;}
+.tipbox span{ width: 1.2rem; height: 1.2rem;background: url(../img/tip2.png); background-size: 100% 100%; margin-top: .75rem; margin-right: .44rem;}

@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>新股申购</title>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/waiting.css" />
+<script type="text/javascript">
+
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+   window.onload=function(){
+        window.addEventListener('resize',change,false);
+   }
+        
+</script>
+</head>
+<body>
+    <header class="clearfix">   
+        <div class="hd_l fl">
+            <p>您账户可申购额度为(股)</p>
+            <ul class="clearfix">    
+                <li class="fl">
+                    <strong class="num shAmount">--</strong>
+                    <span class="type">沪市</span>
+                </li>     
+                <li class="fl">
+                    <strong class="num szAmount">--</strong>
+                    <span class="type">深市</span>
+                </li>   
+            </ul>   
+        </div>
+        <div class="hd_r fr">
+            <ul>
+                <li class="clearfix">
+                    <span class="fl">可用余额</span>
+                    <i class="fr enableBalance">--万元</i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">中签需缴</span>
+                    <i class="fr needPayBalance ">--元</i>
+                </li>
+            </ul>
+            <a href="#" class="btn" >中签缴款</a>
+        </div>
+    </header>
+    <section class="con">
+        <div class="clearfix tab_btn">
+            <span class="cur">今日申购</span>
+            <span>待申购</span>
+            <span>申购记录</span>
+        </div>
+        <div class="waiting"></div>
+        <p class="waitingtxt">新股申购功能火速上线中，敬请期待!</p>
+        
+    </section>
+</body>
+</html>

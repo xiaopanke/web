@@ -1,0 +1,20 @@
+.paylist .seldate{ font-size: .7rem; text-align: center; line-height: 1.75rem;margin: .85rem 0 .875rem .6rem;}
+.paylist .seldate input{    height: 1.75rem; float: left; color: #3996F2; width: 5.95rem;border: 1px solid #D2D2D2;}
+.paylist .seldate span{float: left; color: #fff; width: 4.225rem;border:1px solid #F24637; color:#F24637;border-radius: 4px; margin-left: .75rem;}
+.paylist .seldate i{ float: left; color: #B2B2B2; margin: 0 3px;}
+.paylist .date{ line-height: 1.2rem;background: #FAFAFA; padding-left: .75rem; font-size: .6rem; border-bottom: 1px solid #DBDBDB; }
+.paylist li{ position: relative; margin-top: .9rem;}
+.paylist .msg{ margin-left: .75rem; border-bottom: 1px solid #DBDBDB; font-size: .7rem; line-height: 1.1rem; padding-bottom: 1rem;}
+.paylist li:last-child .msg{border-bottom: none;}
+.paylist .msg .paysta{ float: left;padding: 0 .3rem; font-weight: normal;font-size: .6rem; margin-left: .75rem; line-height: .95rem;border:1px solid #333; border-radius: 2px; text-align: center;}
+.paylist .msg .paystaok{ color: #F24637; border-color: #F24637;}
+.paylist p em{width: 5.5rem; margin-left: .5rem; background: red; float: left;}
+.paylist .msg span{ float: left; color: #878C92;}
+.paylist .msg .type2{width: 3rem; text-align: right; background: yellow;}
+.paylist .msg h3{ font-size: .8rem; line-height: 1rem; margin-bottom: .25rem; }
+.paylist .msg h3 span{ color: #333;}
+.paylist .msg .type{ width: 1.2rem; line-height:0.95rem;border: 1px solid #3996F2;
+border-radius: 0.475rem; float: left; font-size: .55rem; text-align: center; color: #3996F2; margin-right: .25rem;}
+.paylist .msg .orange{ border-color: #FF7100; color: #FF7100;}
+.paylist .icon_r{ width: .275rem; height: .55rem; position: absolute; top:50%; margin-top:-.3rem; right: .75rem; background: url(../img/arrow.png); background-size: 100% 100%; }
+

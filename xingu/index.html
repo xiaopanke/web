@@ -1,0 +1,371 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>新股申购</title>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js
+"></script>
+<script type="text/javascript">
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+   $(function(){
+        window.addEventListener('resize',change,false);
+        //弹窗
+        $('.gobtn').click(function(){
+            $('body').addClass('md-dialog-show');
+        });
+        $('.dlg-btn-wrap .submit,.dlg-btn-wrap .dlg-close,.focus-dlg').click(function(){
+            $('body').removeClass('md-dialog-show');
+        });
+        $('.focus-dlg div').unbind().click(function (e) {
+            e.stopPropagation();
+        });
+        //小圆形按钮
+        $('.con .open .icon_l').toggle(function(){
+            $(this).addClass('choose');
+        },function(){
+            $(this).removeClass('choose');
+        });
+        //加股按钮
+        $('.btn_add').click(function(){
+            $(this).prev().html(parseInt($(this).prev().html())+500);
+            return false;
+        });
+        //减股按钮
+        $('.btn_reduce').click(function(){
+            $(this).next().html(parseInt($(this).next().html())-500);
+            //判断
+            if(parseInt($(this).next().html())<=0){
+                $(this).next().html(0);
+            }
+             return false;
+        });
+        //点击每个申购，跳详情页
+        $('.con .todaylist .open div').click(function(){
+            window.location.href='https://www.baidu.com/';
+        });
+        $('.con .todaylist .close div').click(function(){
+             return false;
+        });
+        //tab
+        $('.tab_btn span').click(function(){
+            $('.tab_btn span').removeClass('cur');
+            $('.tab_bd').hide();
+            $(this).addClass('cur');
+            $('.tab_bd').eq($(this).index()).show();
+        });
+        //阻止冒泡
+        $('.con .msg .numbox .numin').click(function(e){
+            e.stopPropagation();
+        });
+        //头部数据请求
+        
+        //url: 'http://jrj.yun.pingan.com/sapi/v2/ipo/queryIpoFund',
+        var domain = 'http://zqttest.yun.pingan.com';
+        var queryBankAccountDetail = function(){
+
+            setTimeout(function(){
+              jrj.jsCallNative('130', JSON.stringify({
+                    method: 'get',
+                    url: domain+'/sapi/v2/ipo/queryIpoFund',
+                    params: {
+                    },
+                    callback: 'callbackFunc',
+                    version:'3.10.0'
+             }));
+
+             },200);
+       }
+        queryBankAccountDetail();
+
+         window.callbackFunc =function(bankAccountInfo){
+             setTimeout(function(){
+                 bankAccountInfo = convertToJsonObject(bankAccountInfo);
+                 //alert(bankAccountInfo.retcode);
+                 
+             },0);
+               // console.log(JSON.stringify(bankAccountInfo));
+                //alert(JSON.stringify(bankAccountInfo));
+
+
+            }
+        //ios和安卓不一样
+        var convertToJsonObject = function(str){
+            if(typeof str != 'object'){
+              return JSON.parse(str);
+            }else{
+              return str;
+            }
+        }    
+   });
+</script>
+</head>
+<body>
+    <header class="clearfix">   
+        <div class="hd_l fl">
+            <p>您账户可申购额度为(股)</p>
+            <ul class="clearfix">    
+                <li class="fl">
+                    <strong class="num">30000</strong>
+                    <span class="type">沪市</span>
+                </li>     
+                <li class="fl">
+                    <strong class="num">50000</strong>
+                    <span class="type">深市</span>
+                </li>   
+            </ul>   
+        </div>
+        <div class="hd_r fr">
+            <ul>
+                <li class="clearfix">
+                    <span class="fl">可用余额</span>
+                    <i class="fr">194.56万</i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">中签需缴</span>
+                    <i class="fr">99999.65元</i>
+                </li>
+            </ul>
+            <a href="#" class="btn" >中签缴款</a>
+        </div>
+    </header>
+    <section class="con">
+        <div class="clearfix tab_btn">
+            <span class="cur">今日申购</span>
+            <span>待申购</span>
+            <span>申购记录</span>
+        </div>
+        <!--今日申购-->  
+        <div class="todaylist tab_bd">
+            <ul>
+                <li class="clearfix open">
+                    <span class="icon_l fl choose"></span>
+                    <div class="msg fl">
+                        <h3 class="clearfix">
+                            <i class="type">沪</i><span>雄帝科技  300546</span>
+                        </h3>  
+                        <p class="clearfix">
+                            <span>申购价格</span>
+                            <em>20.43</em>
+                            <span>可申购</span>
+                            <em>10800股</em>
+                        </p> 
+                        <div class="num clearfix">
+                            <span>申购数量</span>
+                            <div class="numbox fl">
+                                <input type="button" class="btn_reduce" />
+                                <b class="numin">1000</b>
+                                <input type="button" class="btn_add" />
+                            </div>
+                            <span>股</span>
+                        </div>
+                    </div>
+                    <span class="icon_r fl"></span>
+                </li>
+                <li class="clearfix close">
+                    <span class="icon_l fl"></span>
+                    <div class="msg fl">
+                        <h3 class="clearfix">
+                            <i class="type orange">深</i><span>雄帝科技  300546</span>
+                        </h3>  
+                        <p class="clearfix">
+                            <span>申购价格</span>
+                            <em>20.43</em>
+                            <span>可申购</span>
+                            <em>10800股</em>
+                        </p> 
+                    </div>
+                    <span class="icon_r fl"></span>
+                </li>
+            </ul>
+            <p class="newrule"><a href="#">打新规则，一看就会</a></p>
+            <input type="button" value="一键申购" class="gobtn" />
+        </div>
+        <!--待申购-->
+        <div class="waitlist tab_bd">
+            <div class="inlist">
+                <p class="date">2016-09-19 周三</p>
+                <ul>
+                    <li>
+                        <div class="msg">
+                            <h3 class="clearfix">
+                                <i class="type">沪</i><span>雄帝科技  300546</span>
+                            </h3>  
+                            <p class="clearfix">
+                                <span>申购价格</span>
+                                <em>20.43</em>
+                                <span class="type2">市盈率</span>
+                                <em>22.98</em>
+                            </p> 
+                            <p class="clearfix">
+                                <span>股份上限</span>
+                                <em>17500股</em>
+                                <span class="type2">顶格市值</span>
+                                <em>2175,000.00</em>
+                            </p> 
+                        </div>
+                        <span class="icon_r fl"></span>
+                    </li>
+                    <li>
+                        <div class="msg">
+                            <h3 class="clearfix">
+                                <i class="type orange">深</i><span>雄帝科技  300546</span>
+                            </h3>  
+                            <p class="clearfix">
+                                <span>申购价格</span>
+                                <em>20.43</em>
+                                <span class="type2">市盈率</span>
+                                <em>22.98</em>
+                            </p> 
+                            <p class="clearfix">
+                                <span>股份上限</span>
+                                <em>17500股</em>
+                                <span class="type2">顶格市值</span>
+                                <em>2175,000.00</em>
+                            </p> 
+                        </div>
+                        <span class="icon_r fl"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="inlist">
+                <p class="date">2016-09-19 周三</p>
+                <ul>
+                    <li>
+                        <div class="msg">
+                            <h3 class="clearfix">
+                                <i class="type">沪</i><span>雄帝科技  300546</span>
+                            </h3>  
+                            <p class="clearfix">
+                                <span>申购价格</span>
+                                <em>20.43</em>
+                                <span class="type2">市盈率</span>
+                                <em>22.98</em>
+                            </p> 
+                            <p class="clearfix">
+                                <span>股份上限</span>
+                                <em>17500股</em>
+                                <span class="type2">顶格市值</span>
+                                <em>2175,000.00</em>
+                            </p> 
+                        </div>
+                        <span class="icon_r fl"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--申购记录-->
+        <div class="mybuy tab_bd">
+            <div class="seldate clearfix">
+                <input type="date"  value="2014-01-13"  />
+                <i>-</i>
+                <input type="date"  value="2016-01-13"  />
+                <span>查询</span>
+            </div>
+            <div class="inlist">
+                <p class="date">2016-09-19 周三</p>
+                <ul>
+                    <li>
+                        <div class="msg">
+                            <h3 class="clearfix">
+                                <i class="type">沪</i><span>雄帝科技  300546</span><em class="paysta">已缴款</em>
+                            </h3>  
+                            <p class="clearfix">
+                                <span>申购价</span>
+                                <em>20.43</em>
+                                <span class="type2">市盈率</span>
+                                <em>22.98</em>
+                            </p> 
+                            <p class="clearfix">
+                                <span>申购数</span>
+                                <em>17500股</em>
+                                <span class="type2">应缴款</span>
+                                <em>2175,000.00</em>
+                            </p> 
+                        </div>
+                        <span class="icon_r fl"></span>
+                        <span class="status"></span>
+                    </li>
+                    <li>
+                        <div class="msg">
+                            <h3 class="clearfix">
+                                <i class="type orange">深</i><span>雄帝科技  300546</span><em class="paysta paystaok">已缴款</em>
+                            </h3>  
+                            <p class="clearfix">
+                                <span>申购价</span>
+                                <em>20.43</em>
+                                <span class="type2">市盈率</span>
+                                <em>22.98</em>
+                            </p> 
+                            <p class="clearfix">
+                                <span>申购数</span>
+                                <em>17500股</em>
+                                <span class="type2">应缴款</span>
+                                <em>2175,000.00</em>
+                            </p> 
+                        </div>
+                        <span class="icon_r fl"></span>
+                        <span class="status no"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="inlist">
+                <p class="date">2016-09-19 周三</p>
+                <ul>
+                    <li>
+                        <div class="msg">
+                            <h3 class="clearfix">
+                                <i class="type">沪</i><span>雄帝科技  300546</span>
+                            </h3>  
+                            <p class="clearfix">
+                                <span>申购价</span>
+                                <em>20.43</em>
+                                <span class="type2">市盈率</span>
+                                <em>22.98</em>
+                            </p> 
+                            <p class="clearfix">
+                                <span>申购数</span>
+                                <em>17500股</em>
+                                <span class="type2">应缴款</span>
+                                <em>2175,000.00</em>
+                            </p> 
+                        </div>
+                        <span class="icon_r fl"></span>
+                        <span class="status done"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="nothing"></div>
+        
+    </section>   
+    <!--弹窗-->
+    <div class="focus-dlg">
+        <div class="dlg-con">
+            <!--<div class="tit red">您已经成功申购xxxx1000股，xxxx2000股，请耐心等待中签结果。</div>
+            <p class="subtit">xxxx为创业板股票，您没有申购权限；xxxx您已经申购过1000股，不能再次申购。</p>-->
+            <div class="msg clearfix">
+                <span class="fl">您即将申购：</span>
+                <ul class="fl">
+                    <li>兄弟科技 1000股</li>
+                    <li>常熟银行 12000股</li>
+                </ul>   
+            </div>
+            <div class="dlg-btn-wrap layout-box">
+                <!--<a class="dlg-btn dlg-close">取消</a>-->
+                <a class="dlg-btn submit">确认</a>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+</body>
+</html>
