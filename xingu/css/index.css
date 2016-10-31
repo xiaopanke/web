@@ -10,7 +10,7 @@ header .hd_r{ width: 6.6rem;margin-top: 1.1rem; margin-right: .6rem;}
 header .hd_r li{ line-height: }
 header .hd_r li span{ font-size: .6rem; color: #888;}
 header .hd_r li i{ font-size: .7rem; }
-header .hd_r .btn{border: 1px solid #FF5F57;border-radius: 8px; text-align: center; display: block; margin:.4rem auto 0; color: #F24637; font-size: .7rem; padding:.2rem 0 .18rem;}
+header .hd_r .btn{border: 1px solid #FF5F57;border-radius: 8px; text-align: center; display: block; margin:.4rem auto 0; color: #F24637; font-size: .7rem; padding:.2rem 0 .16rem;}
 header .hd_r{}
 /*con*/
 .con .tab_btn {border-radius: 4px 0 0 4px; width: 17.6rem; margin:.5rem auto 0; border-left: 1px solid #ccc;}
