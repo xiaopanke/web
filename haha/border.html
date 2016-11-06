@@ -32,6 +32,45 @@
                 box-sizing: border-box;
                 height:1px;
             }
+        .box4{width: 10rem;height:10rem; margin:10px;
+            position: relative; border-left:1px solid #000;}
+        .box4:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #000;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            pointer-events: none;
+            -webkit-transform: scale(.5);
+            transform: scale(.5);
+            width: 200%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height:200%;
+        }
+        .box5{width: 10rem;height:10rem; margin:10px;
+            position: relative; border-left:1px solid #000;}
+        .box5:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #000;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            pointer-events: none;
+            -webkit-transform: scale(.5);
+            transform: scale(.5);
+            width: 200%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height:200%;
+            border-radius: 5rem;
+        }
 
     </style>
     <script type="text/javascript">
@@ -50,5 +89,8 @@
 <div class="box11">11border:1px</div>
 <div class="box2"><div class="box2in">2</div></div>
 <div class="box3">3</div>
+<div class="box4">4</div>
+<div class="box5">
+    border-radius: 5rem;</div>
 </body>
 </html>
