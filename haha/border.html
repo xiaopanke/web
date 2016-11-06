@@ -7,9 +7,9 @@
     <meta name="format-detection" content="telephone=no" />
     <title>border</title>
     <style>
-        .box11{width: 10rem;height:10rem; background: #ccc; border:1px solid #000; border-radius:2rem; margin: 10px;}
-        .box1{width: 10rem;height:10rem; background: #ccc; border:0.5px solid #000; border-radius:2rem; margin: 10px;}
-        .box2{width: 10rem;height:10rem; background: #ccc; border-radius:2rem; margin: 10px;
+        .box11{width: 10rem;height:10rem; border:1px solid #000; border-radius:2rem; margin: 10px;}
+        .box1{width: 10rem;height:10rem; border:0.5px solid #000; border-radius:2rem; margin: 10px;}
+        .box2{width: 10rem;height:10rem; border-radius:2rem; margin: 10px;
             position: relative;}
         .box2in{ width:20rem; height: 20rem; border:1px solid #000; -webkit-transform: scale(.5);
             transform: scale(.5); position: absolute;top:-5rem;left:-5rem; border-radius: 4rem;}
@@ -47,9 +47,9 @@
     </script>
 </head>
 <body>
-<div class="box1"></div>
-<div class="box11"></div>
-<div class="box2"><div class="box2in"></div></div>
-<div class="box3"></div>
+<div class="box1">1border:0.5px </div>
+<div class="box11">11border:1px</div>
+<div class="box2"><div class="box2in">2</div></div>
+<div class="box3">3</div>
 </body>
 </html>
