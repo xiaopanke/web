@@ -14,16 +14,14 @@
         .box2in{ width:20rem; height: 20rem; border:1px solid #000; -webkit-transform: scale(.5);
             transform: scale(.5); position: absolute;top:-5rem;left:-5rem; border-radius: 4rem;}
         .box3{width: 10rem;height:10rem; background: #ccc; border-radius:2rem; margin:10px;
-            position: relative;}
+            position: relative; border-left:1px solid #000;}
             .box3:after {
                 content: ' ';
                 display: block;
                 position: absolute;
                 top: 0;
-                right: -100%;
-                bottom: -100%;
                 left: 0;
-                border: 0 solid #000;
+                border-bottom: 1px solid #000;
                 -webkit-transform-origin: 0 0;
                 transform-origin: 0 0;
                 pointer-events: none;
@@ -32,6 +30,7 @@
                 width: 200%;
                 -webkit-box-sizing: border-box;
                 box-sizing: border-box;
+                height:1px;
             }
 
     </style>
