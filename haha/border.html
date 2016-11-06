@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>border</title>
+    <style>
+        .box1{width: 10rem;height:10rem; background: #ccc; border:1px solid #000; border-radius:2rem; margin: 10px;}
+        .box2{width: 10rem;height:10rem; background: #ccc; border:1px solid #000; border-radius:2rem; margin:10px;}
+    </style>
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        /*计算字体大小*/
+        function change(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+        }
+        change();
+        $(function(){
+            window.addEventListener('resize',change,false);
+        });
+    </script>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+</html>
