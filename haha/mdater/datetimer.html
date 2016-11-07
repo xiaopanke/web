@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>演示：基于zepto的移动端日期和时间选择控件</title>
+<meta name="keywords" content="zepto" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<link rel="stylesheet" type="text/css" href="http://www.helloweba.com/demo/css/main.css" />
+<link rel="stylesheet" href="zepto.mdatetimer.css">
+<style type="text/css">
+.demo{width:360px;margin:50px auto 10px auto;padding:10px;}
+.demo p{line-height:30px;}
+.demo h3{font-size:24px;text-align:center;padding:10px}
+@media (max-width: 480px){
+	.demo{width:360px;margin:50px auto 10px auto;padding:10px;}
+	.demo img{width:90%}
+	.demo h3{font-size:1.5em;line-height:1.9em}
+}
+
+</style>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+</div>
+
+<div id="main">
+   <h2 class="top_title"><a href="http://www.helloweba.com/view-blog-349.html">基于zepto的移动端日期和时间选择控件</a></h2>
+   <div class="demo">
+		<p><a href="index.html">日期选择</a>  || 日期时间选择</p>
+		<br/>
+		<input type="text" id="picktime" value="" readonly="readonly">
+		<br/>
+		
+	</div>
+</div>
+<script src="zepto.min.js"></script>
+<script src="zepto.mdatetimer.js"></script>
+<script type="text/javascript">
+$('#picktime').mdatetimer({
+		mode : 2, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
+		format : 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
+		years : [2000, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017], //年份数组
+		nowbtn : true, //是否显示现在按钮
+		onOk : function(){
+			//alert('OK');
+		},  //点击确定时添加额外的执行函数 默认null
+		onCancel : function(){
+			alert('A');
+		} //点击取消时添加额外的执行函数 默认null
+	});	
+</script>
+
+<div id="footer">
+    <p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+</div>
+</body>
+</html>

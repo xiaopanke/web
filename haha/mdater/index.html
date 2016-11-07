@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>演示：基于zepto的移动端日期和时间选择控件</title>
+<meta name="keywords" content="zepto" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<link rel="stylesheet" type="text/css" href="http://www.helloweba.com/demo/css/main.css" />
+<link rel="stylesheet" href="zepto.mdater.css">
+<style type="text/css">
+.demo{width:360px;margin:50px auto 10px auto;padding:10px;}
+.demo p{line-height:30px;}
+.demo h3{font-size:24px;text-align:center;padding:10px}
+@media (max-width: 480px){
+	.demo{width:360px;margin:50px auto 10px auto;padding:10px;}
+	.demo img{width:90%}
+	.demo h3{font-size:1.5em;line-height:1.9em}
+}
+
+</style>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+</div>
+
+<div id="main">
+   <h2 class="top_title"><a href="http://www.helloweba.com/view-blog-349.html">基于zepto的移动端日期和时间选择控件</a></h2>
+   <div class="demo">
+		<p>日期选择  || <a href="datetimer.html">日期时间选择</a></p>
+		<br/>
+		<input class="in" type="text" readonly="readonly" />
+<br /><br />
+<input class="in" type="text" readonly="readonly" />
+<br /><br />
+<input id="in2" type="text" readonly="readonly" />
+	</div>
+</div>
+<script src="zepto.min.js"></script>
+<script src="zepto.mdater.js"></script>
+<script type="text/javascript">
+$('.in').mdater({
+	minDate : new Date(2015, 12, 13)
+});
+$('#in2').mdater({
+	minDate : new Date(2015, 2, 10)
+});
+</script>
+
+<div id="footer">
+    <p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+</div>
+</body>
+</html>
