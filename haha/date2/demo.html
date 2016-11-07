@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="stylesheet" href="css/normalize3.0.2.min.css" />
+<link rel="stylesheet" href="css/style.css?v=7" />
+<link href="css/mobiscroll.css" rel="stylesheet" />
+<link href="css/mobiscroll_date.css" rel="stylesheet" />
+<title>兼容PC和移动设备的日期选择jquery插件</title>
+</head>
+
+<body>
+
+  <section id="form">
+    <form action="">
+
+      <label>出生日期：</label>
+      <input type="text" name="USER_AGE" id="USER_AGE" readonly class="input" placeholder="请填写你的出生日期" />
+      <div class="clear h10"></div>
+      <input type="submit" id="tj" class="submit" value="提交" />
+    </form>
+  </section>
+<script src="js/jquery.min.js"></script> 
+<script src="js/mobiscroll_date.js" charset="gb2312"></script> 
+<script src="js/mobiscroll.js"></script> 
+<script type="text/javascript">
+$(function () {
+	var currYear = (new Date()).getFullYear();	
+	var opt={};
+	opt.date = {preset : 'date'};
+	opt.datetime = {preset : 'datetime'};
+	opt.time = {preset : 'time'};
+	opt.default = {
+		theme: 'android-ics light', //皮肤样式
+		display: 'modal', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		nowText: "今天",
+		startYear: currYear - 50, //开始年份
+		endYear: currYear + 10 //结束年份
+	};
+
+	$("#USER_AGE").mobiscroll($.extend(opt['date'], opt['default']));
+
+});
+</script>
+<center>
+  <span style="font-size:15px; font-weight:bold; text-align:center; line-height:25px; color:#000; width:100%">兼容PC和移动设备的日期选择jquery插件<br />
+  <a href="http://www.jq-school.com" target="_blank" style="color:#000">JquerySchool</a>网站出品（<a href="http://www.jq-school.com" style="color:#000" target="_blank">http://www.jq-school.com</a>） <br />
+   <a href="http://api.jq-school.com/" target="_blank" style="color:#000">在线API帮助文档</a> <br />
+  <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=47d9817e9e09f61b288b8ad6d33fb18cbd659ca6773f663918d6e5d3a2981a12">官方网站学习交流QQ群<img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" style="width:90px; height:22px;" alt="jquery学堂3群群" width="90" height="22" title="jquery学堂3群"></a></span>
+</center>
+</body>
+</html>
