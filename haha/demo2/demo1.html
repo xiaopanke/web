@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Mobiscroll</title>
+
+    <!-- jQuery Include -->
+     <script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    
+    
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link href="css/mobiscroll.custom-2.17.0.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/mobiscroll.custom-2.17.0.min.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        /* Demo Page styling, you can ignore this in your implementation */
+        body { padding: 0; margin: 0; font-size: 16px; font-family: arial, verdana, sans-serif; }
+        input, select { width: 100%; padding: .625em; margin: 0 0 .625em 0; border: 1px solid #aaa; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+        .header { padding: .625em; background: #5185a8;}
+        .header h1 { margin: 0; padding: 0; color: #fff; text-align: center; font-size: 1.25em; font-weight: bold; text-shadow: 1px 1px 1px #000; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        .content { padding: 1em; }
+
+        /* Listview demo styling */
+        .mbsc-lv-cont { margin: 1em -1em; }
+    </style>
+
+    <script>
+        $(function () {
+
+            function init() {
+                
+                // Select demo initialization
+                $('#demo_select').mobiscroll().select({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Date demo initialization
+                $('#demo_date').mobiscroll().date({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Date & Time demo initialization
+                $('#demo_datetime').mobiscroll().datetime({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    minDate: new Date(2014,3,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-17-0/datetime#!opt-minDate
+                    maxDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),   // More info about maxDate: http://docs.mobiscroll.com/2-17-0/datetime#!opt-maxDate
+                    stepMinute: 5  // More info about stepMinute: http://docs.mobiscroll.com/2-17-0/datetime#!opt-stepMinute
+                });
+                
+                // Time demo initialization
+                $('#demo_time').mobiscroll().time({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Rating demo initialization
+                $('#demo_rating').mobiscroll().rating({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    label: 'Rating'  // More info about label: http://docs.mobiscroll.com/2-17-0/rating#!opt-label
+                });
+                
+                // Rating With Text demo initialization
+                $('#demo_ratingtext').mobiscroll().rating({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    label: 'Rating',  // More info about label: http://docs.mobiscroll.com/2-17-0/rating#!opt-label
+                    order: 'asc',  // More info about order: http://docs.mobiscroll.com/2-17-0/rating#!opt-order
+                    values: ['Very Bad','Bad','Ok','Good','Very Good']  // More info about values: http://docs.mobiscroll.com/2-17-0/rating#!opt-values
+                });
+                
+                // Image & text demo initialization
+                $('#demo_image_text').mobiscroll().image({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    labels: ['Cars'],  // More info about labels: http://docs.mobiscroll.com/2-17-0/image#!opt-labels
+                    enhance: true  // More info about enhance: http://docs.mobiscroll.com/2-17-0/image#!opt-enhance
+                });
+                
+                // Icon & text demo initialization
+                $('#demo_icon_text').mobiscroll().image({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    enhance: true  // More info about enhance: http://docs.mobiscroll.com/2-17-0/image#!opt-enhance
+                });
+                
+                // Image demo initialization
+                $('#demo_image').mobiscroll().image({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    enhance: true,  // More info about enhance: http://docs.mobiscroll.com/2-17-0/image#!opt-enhance
+                    minWidth: 60  // More info about minWidth: http://docs.mobiscroll.com/2-17-0/image#!opt-minWidth
+                });
+                
+                // Treelist demo initialization
+                $('#demo_treelist').mobiscroll().treelist({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    labels: ['Region', 'Country', 'City']  // More info about labels: http://docs.mobiscroll.com/2-17-0/list#!opt-labels
+                });
+                
+                // Distance demo initialization
+                $('#demo_distance').mobiscroll().distance({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Speed demo initialization
+                $('#demo_speed').mobiscroll().speed({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Temperature demo initialization
+                $('#demo_temperature').mobiscroll().temperature({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Mass demo initialization
+                $('#demo_mass').mobiscroll().mass({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Force demo initialization
+                $('#demo_force').mobiscroll().force({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Calendar demo initialization
+                $('#demo_calendar').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Calandar & Date demo initialization
+                $('#demo_calendar_date').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['calendar', 'date']  // More info about controls: http://docs.mobiscroll.com/2-17-0/calendar#!opt-controls
+                });
+                
+                // Calendar & Date & Time demo initialization
+                $('#demo_calendar_datetime').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['calendar', 'date', 'time']  // More info about controls: http://docs.mobiscroll.com/2-17-0/calendar#!opt-controls
+                });
+                
+                // Timespan demo initialization
+                $('#demo_timespan').mobiscroll().timespan({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Countdown demo initialization
+                $('#demo_countdown').mobiscroll().timer({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    countDirection: 'down',   // More info about countDirection: http://docs.mobiscroll.com/2-17-0/timer#!opt-countDirection
+                    targetTime: 300  // More info about targetTime: http://docs.mobiscroll.com/2-17-0/timer#!opt-targetTime
+                });
+                
+                // Color demo initialization
+                $('#demo_color').mobiscroll().color({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Date Range demo initialization
+                $('#demo_range').mobiscroll().range({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Time Range demo initialization
+                $('#demo_range_time').mobiscroll().range({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['time']  // More info about controls: http://docs.mobiscroll.com/2-17-0/range#!opt-controls
+                });
+                
+                // Date & Time Range demo initialization
+                $('#demo_range_datetime').mobiscroll().range({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['date', 'time']  // More info about controls: http://docs.mobiscroll.com/2-17-0/range#!opt-controls
+                });
+                
+                // Scroller demo initialization
+                $('#demo_scroller').mobiscroll({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    wheels: [  // More info about wheels: http://docs.mobiscroll.com/2-17-0/scroller#!opt-wheels
+                         [ {
+                              label: 'Label 1',
+                              keys: [1, 2, 3],
+                              values: ['x', 'y', 'z']
+                         },
+                         {
+                              label: 'Label 2',
+                              keys: [1, 2],
+                              values: ['a', 'b']
+                         } ],
+                         [ {
+                              label: 'Label 3',
+                              values: [1, 2]
+                         },
+                         {
+                              label: 'Label 4',
+                              values: [4, 5]
+                         }
+                    ]
+               ]});
+                
+                // Listview demo initialization
+                $('#demo_listview').mobiscroll().listview({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    stages: [   // More info about stages: http://docs.mobiscroll.com/2-17-0/listview#!opt-stages
+                        { 
+                            percent: -20, 
+                            color: 'red', 
+                            icon: 'remove', 
+                            action: function (li, inst) { inst.remove(li); return false; } 
+                        }, 
+                        { 
+                            percent: 20, 
+                            color: 'green', 
+                            icon: 'checkmark', 
+                            action: function (li) { li.css('text-decoration', 'line-through'); } 
+                        } 
+                    ]
+                });
+                
+                // Number demo initialization
+                $('#demo_number').mobiscroll().number({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Decimal Numpad demo initialization
+                $('#demo_numpad1').mobiscroll().numpad({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    preset: 'decimal'  // More info about preset: http://docs.mobiscroll.com/2-17-0/numpad#!opt-preset
+                });
+                
+                // Timespan Numpad demo initialization
+                $('#demo_numpad2').mobiscroll().numpad({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    preset: 'timespan'  // More info about preset: http://docs.mobiscroll.com/2-17-0/numpad#!opt-preset
+                });
+                
+                // Menustrip options demo initialization
+                $('#demo_menustrip').mobiscroll().menustrip({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Menustrip tab demo initialization
+                $('#demo_menustrip_tab').mobiscroll().menustrip({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    type: 'tabs'  // More info about type: http://docs.mobiscroll.com/2-17-0/menustrip#!opt-type
+                });
+                
+                // Menustrip menu demo initialization
+                $('#demo_image_menu').mobiscroll().menustrip({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    type: 'menu'  // More info about type: http://docs.mobiscroll.com/2-17-0/menustrip#!opt-type
+                });
+                
+                // Widget confirm demo initialization
+                $('#demo_widget').mobiscroll().widget({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    buttons: [ 'ok', 'cancel' ]  // More info about buttons: http://docs.mobiscroll.com/2-17-0/widget#!opt-buttons
+                });
+
+                $('#show-widget').click(function () { $('#demo_widget').mobiscroll('show') });
+                
+                // Forms demo initialization
+                $('#demo_form').mobiscroll().form({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+            }    
+
+            // -------------------------------------------------------------------
+            // Demo page code START, you can ignore this in your implementation
+            var demo, theme, mode, display, lang;
+            
+            $('.settings').on('change', function() {
+                demo = $('#demo').val();
+                theme = $('#theme').val() || $.mobiscroll.defaults.theme,
+                mode = $('#mode').val(),
+                display = $('#display').val(),
+                lang = $('#language').val();
+
+                $('.demo-cont').hide();
+                $("#demo_cont_" + demo).show();
+                
+                init();
+            });
+
+            $('#demo').trigger('change');
+            // Demo page code END
+            // -------------------------------------------------------------------
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Mobiscroll</h1>
+    </div>
+
+    <div class="content">
+        <!-- ------------------------------------------------------------------ -->
+        <!-- Demo configurator markup START, ignore this in your implementation -->
+        <div>
+            <label for="theme">Theme</label>
+            <select name="theme" id="theme" class="settings">
+                <option value="">Default / Auto</option>
+                <option value="mobiscroll">Mobiscroll</option>
+            </select>
+        </div>
+        <div>
+            <label for="mode">Mode</label>
+            <select name="mode" id="mode" class="settings">
+                <option value="scroller">Scroller</option>
+                <option value="clickpick">Clickpick</option>
+                <option value="mixed">Mixed</option>
+            </select>
+        </div>
+        <div>
+            <label for="display">Display</label>
+            <select name="display" id="display" class="settings">
+                <option value="modal">Modal</option>
+                <option value="inline">Inline</option>
+                <option value="bubble">Bubble</option>
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+            </select>
+        </div>
+        <div>
+            <label for="language">Language</label>
+            <select name="language" id="language" class="settings">
+                <option value="">English</option>
+                <option value="zh">Chinese</option>
+            </select>
+        </div>
+        <div>
+            <label for="demo">Demo</label>
+            <select name="demo" id="demo" class="settings">
+                <option value="select" selected>Select</option>
+                <option value="date" >Date</option>
+                <option value="datetime" >Date & Time</option>
+                <option value="time" >Time</option>
+                <option value="rating" >Rating</option>
+                <option value="ratingtext" >Rating With Text</option>
+                <option value="image_text" >Image & text</option>
+                <option value="image_icon" >Icon & text</option>
+                <option value="image" >Image</option>
+                <option value="treelist" >Treelist</option>
+                <option value="distance" >Distance</option>
+                <option value="speed" >Speed</option>
+                <option value="temperature" >Temperature</option>
+                <option value="mass" >Mass</option>
+                <option value="force" >Force</option>
+                <option value="calendar" >Calendar</option>
+                <option value="calendar_date" >Calandar & Date</option>
+                <option value="calendar_datetime" >Calendar & Date & Time</option>
+                <option value="timespan" >Timespan</option>
+                <option value="countdown" >Countdown</option>
+                <option value="color" >Color</option>
+                <option value="range" >Date Range</option>
+                <option value="range_time" >Time Range</option>
+                <option value="range_datetime" >Date & Time Range</option>
+                <option value="scroller" >Scroller</option>
+                <option value="listview" >Listview</option>
+                <option value="number" >Number</option>
+                <option value="numpad1" >Decimal Numpad</option>
+                <option value="numpad2" >Timespan Numpad</option>
+                <option value="menustrip" >Menustrip options</option>
+                <option value="menustrip_tab" >Menustrip tab</option>
+                <option value="menustrip_menu" >Menustrip menu</option>
+                <option value="widget" >Widget confirm</option>
+                <option value="form" >Forms</option>
+            </select>
+        </div>
+        <!-- Demo configurator markup END -->
+        <!-- ------------------------------------------------------------------ -->
+
+    
+        <!-- Select demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_select">
+            <label for="demo_select">Try Select</label>
+            <select name="Cities" id="demo_select" data-role="none">
+                <option value="">Please Select</option>
+                <option value="1">Atlanta</option>
+                <option value="2">Berlin</option>
+                <option value="3">Boston</option>
+                <option value="4">Chicago</option>
+                <option value="5">London</option>
+                <option value="6">Los Angeles</option>
+                <option value="7">New York</option>
+                <option value="8">Paris</option>
+                <option value="9">San Francisco</option>
+            </select>   
+        </div>
+    
+        <!-- Date demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_date">
+            <label for="demo_date">Try Date</label>
+            <input type="text" id="demo_date" />  
+        </div>
+    
+        <!-- Date & Time demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_datetime">
+            <label for="demo_datetime">Try Date & Time</label>
+            <input type="text" id="demo_datetime" />  
+        </div>
+    
+        <!-- Time demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_time">
+            <label for="demo_time">Try Time</label>
+            <input type="text" id="demo_time" />  
+        </div>
+    
+        <!-- Rating demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_rating">
+            <label for="demo_rating">Try Rating</label>
+            <input type="text" id="demo_rating" />  
+        </div>
+    
+        <!-- Rating With Text demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_ratingtext">
+            <label for="demo_ratingtext">Try Rating With Text</label>
+            <input type="text" id="demo_ratingtext" />  
+        </div>
+    
+        <!-- Image & text demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_image_text">
+            <label for="demo_image_text">List</label>
+            <ul id="demo_image_text" >
+                <li><img src="http://demo.mobiscroll.com/Content/img/BMW_logo.png" /><p>BMW</p></li>
+                <li><img src="http://demo.mobiscroll.com/Content/img/Dacia_logo.png" /><p>Dacia</p></li>
+                <li><img src="http://demo.mobiscroll.com/Content/img/Ferrari_logo.png" /><p>Ferrari</p></li>
+                <li><img src="http://demo.mobiscroll.com/Content/img/Mercedes_logo.png" /><p>Mercedes</p></li>
+            </ul>   
+        </div>
+    
+        <!-- Icon & text demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_image_icon">
+            <label for="icon_text_dummy">List</label>
+            <ul id="demo_icon_text"  >
+                <li data-val="Share" data-icon="share"><p>Share</p></li>
+                <li data-val="Bookmark" data-icon="star"><p>Bookmark</p></li>
+                <li data-val="Flag" data-icon="flag"><p>Flag</p></li>
+                <li data-val="Download" data-icon="download"><p>Download</p></li>
+                <li data-val="Delete" data-icon="remove"><p>Delete</p></li>
+            </ul>   
+        </div>
+    
+        <!-- Image demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_image">
+            <label for="demo_image_dummy">List</label>
+            <ul id="demo_image" >
+                <li data-val="BMW"><img src="http://demo.mobiscroll.com/Content/img/BMW_logo.png" /></li>
+                <li data-val="Dacia"><img src="http://demo.mobiscroll.com/Content/img/Dacia_logo.png" /></li>
+                <li data-val="Ferrari"><img src="http://demo.mobiscroll.com/Content/img/Ferrari_logo.png" /></li>
+                <li data-val="Mercedes"><img src="http://demo.mobiscroll.com/Content/img/Mercedes_logo.png" /></li>
+            </ul>   
+        </div>
+    
+        <!-- Treelist demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_treelist">
+            <label for="demo_treelist_dummy">Try Treelist</label>
+            <ul id="demo_treelist">
+                <li>America
+                    <ul>
+                        <li>USA
+                            <ul>
+                                <li>Washington</li>
+                                <li>Florida</li>
+                                <li>Los Angeles</li>
+                                <li>San Francisco</li>
+                            </ul>
+                        </li>
+                        <li>Canada
+                            <ul>
+                                <li>Vancouver</li>
+                                <li>Winnipeg</li>
+                                <li>Calgary</li>
+                            </ul>
+                        </li>
+                        <li>Brazil
+                            <ul>
+                                <li>Rio de Janeiro</li>
+                                <li>Sao Paolo</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Europe
+                    <ul>
+                        <li>France
+                            <ul>
+                                <li>Paris</li>
+                                <li>Toulouse</li>
+                                <li>Marseille</li>
+                                <li>Lyon</li>
+                            </ul>
+                        </li>
+                        <li>Germany
+                            <ul>
+                                <li>Berlin</li>
+                                <li>Frankfurt</li>
+                                <li>Hamburg</li>
+                            </ul>
+                        </li>
+                        <li>Spain
+                            <ul>
+                                <li>Madrid</li>
+                                <li>Barcelona</li>
+                                <li>Saragosa</li>
+                            </ul>
+                        </li>
+                        <li>Italy
+                            <ul>
+                                <li>Rome</li>
+                                <li>Palermo</li>
+                                <li>Genoa</li>
+                                <li>Torino</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Asia
+                    <ul>
+                        <li>China
+                            <ul>
+                                <li>Shanghai</li>
+                                <li>Hong Kong</li>
+                                <li>Beijing</li>
+                            </ul>
+                        </li>
+                        <li>Japan
+                            <ul>
+                                <li>Tokyo</li>
+                                <li>Kagoshima</li>
+                                <li>Osaka</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>   
+        </div>
+    
+        <!-- Distance demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_distance">
+            <label for="demo_distance">Try Distance</label>
+            <input type="text" id="demo_distance" />  
+        </div>
+    
+        <!-- Speed demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_speed">
+            <label for="demo_speed">Try Speed</label>
+            <input type="text" id="demo_speed" />  
+        </div>
+    
+        <!-- Temperature demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_temperature">
+            <label for="demo_temperature">Try Temperature</label>
+            <input type="text" id="demo_temperature" />  
+        </div>
+    
+        <!-- Mass demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_mass">
+            <label for="demo_mass">Try Mass</label>
+            <input type="text" id="demo_mass" />  
+        </div>
+    
+        <!-- Force demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_force">
+            <label for="demo_force">Try Force</label>
+            <input type="text" id="demo_force" />  
+        </div>
+    
+        <!-- Calendar demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar">
+            <label for="demo_calendar">Try Calendar</label>
+            <input type="text" id="demo_calendar" />  
+        </div>
+    
+        <!-- Calandar & Date demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar_date">
+            <label for="demo_calendar_date">Try Calandar & Date</label>
+            <input type="text" id="demo_calendar_date" />  
+        </div>
+    
+        <!-- Calendar & Date & Time demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar_datetime">
+            <label for="demo_calendar_datetime">Try Calendar & Date & Time</label>
+            <input type="text" id="demo_calendar_datetime" />  
+        </div>
+    
+        <!-- Timespan demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_timespan">
+            <label for="demo_timespan">Try Timespan</label>
+            <input type="text" id="demo_timespan" />  
+        </div>
+    
+        <!-- Countdown demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_countdown">
+            <label for="demo_countdown">Try Countdown</label>
+            <input type="text" id="demo_countdown" />  
+        </div>
+    
+        <!-- Color demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_color">
+            <label for="demo_color">Try Color</label>
+            <input type="text" id="demo_color" />  
+        </div>
+    
+        <!-- Date Range demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_range">
+            <label for="demo_range">Try Date Range</label>
+            <input type="text" id="demo_range" />  
+        </div>
+    
+        <!-- Time Range demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_range_time">
+            <label for="demo_range_time">Try Time Range</label>
+            <input type="text" id="demo_range_time" />  
+        </div>
+    
+        <!-- Date & Time Range demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_range_datetime">
+            <label for="demo_range_datetime">Try Date & Time Range</label>
+            <input type="text" id="demo_range_datetime" />  
+        </div>
+    
+        <!-- Scroller demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_scroller">
+            <label for="demo_scroller">Try Scroller</label>
+            <input type="text" id="demo_scroller" />  
+        </div>
+    
+        <!-- Listview demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_listview">
+            <h2>To do list</h2><p>Swipe left or right </p>
+            <ul id="demo_listview" class="listview">
+                <li>Take out the trash</li>
+                <li>Buy flowers</li>
+                <li>Implement listview component</li>
+            </ul>   
+        </div>
+    
+        <!-- Number demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_number">
+            <label for="demo_number">Try Number</label>
+            <input type="text" id="demo_number" />  
+        </div>
+    
+        <!-- Decimal Numpad demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_numpad1">
+            <label for="demo_numpad1">Try Decimal Numpad</label>
+            <input type="text" id="demo_numpad1" />  
+        </div>
+    
+        <!-- Timespan Numpad demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_numpad2">
+            <label for="demo_numpad2">Try Timespan Numpad</label>
+            <input type="text" id="demo_numpad2" />  
+        </div>
+    
+        <!-- Menustrip options demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_menustrip">
+            <ul id="demo_menustrip">
+                <li data-selected="true" data-icon="connection">Wi-Fi</li>
+                <li data-icon="ion-bluetooth">Bluetooth</li>
+                <li data-icon="location">Location</li>
+                <li data-icon="fa-rotate-left"><span>Screen<br/>rotation</span></li>
+                <li data-selected="true" data-icon="volume-medium">Sound</li>
+                <li data-icon="download">Data</li>
+                <li data-icon="foundation-minus-circle"><span>Blocking<br/>mode</span></li>
+                <li data-icon="airplane"><span>Airplane<br />mode</span></li>
+                <li data-selected="true" data-icon="fa-leaf"><span>Power<br/>saving</span></li>
+                <li data-icon="alarm2">Alarm</li>
+                <li data-icon="ion-android-system-windows"><span>Multi<br/>window</span></li>
+            </ul>   
+        </div>
+    
+        <!-- Menustrip tab demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_menustrip_tab">
+            <ul id="demo_menustrip_tab" style="display:none;">
+                <li data-selected="true" data-icon="calendar"></li>
+                <li data-icon="newspaper"></li>
+                <li data-icon="image2"></li>
+                <li data-icon="camera"></li>
+                <li data-icon="map"></li>
+                <li data-icon="download"></li>
+                <li data-icon="alarm2"></li>
+                <li data-icon="play"></li>
+                <li data-icon="mobile"></li>
+                <li data-icon="drawer"></li>
+            </ul>   
+        </div>
+    
+        <!-- Menustrip menu demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_menustrip_menu">
+            <ul id="demo_image_menu" style="display:none;">
+                <li>Location</li>
+                <li>Sound</li>
+                <li>Screen rotation</li>
+                <li>Bluetooth</li>
+                <li>Settings</li>
+                <li>Reading mode</li>
+                <li>Mobile data</li>
+                <li>Blocking mode</li>
+                <li>Power saving</li>
+                <li>Multi window</li>
+            </ul>   
+        </div>
+    
+        <!-- Widget confirm demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_widget">
+            <div id="demo_widget">
+                <h3 class="md-text-center" style="text-align: center">Title</h3>
+                <p class="md-text-center">Are you feeling good today?</p>
+            </div> 
+            <button id="show-widget">Show widget</button>   
+        </div>
+    
+        <!-- Forms demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_form">
+            <div id="demo_form">
+                <div class="mbsc-divider">Text field</div>
+
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" type="text" placeholder="Name" />
+                </div>
+
+                <label>
+                    Email
+                    <input type="email" placeholder="email@www.com" />
+                    <span class="mbsc-err-msg">An error occurred</span>
+                </label>
+
+                <label>
+                    Password
+                    <input type="password" placeholder="Password" data-icon="lock2" data-icon-align="" />
+                    <span class="mbsc-err-msg">An error occurred</span>
+                </label>
+
+                <label>
+                    <input type="text" placeholder="Right icon" data-icon="plus" data-icon-align="right" />
+                    <span class="mbsc-err-msg">An error occurred</span>
+                </label>
+
+                <label class="mbsc-err">
+                    <input type="text" placeholder="Left icon and error" data-icon="plus" data-icon-align="left" />
+                    <span class="mbsc-err-msg">An error occurred</span>
+                </label>
+
+                <label>
+                    <input type="text" placeholder="Disabled" disabled>
+                </label>
+
+                <div class="mbsc-divider">Mulitline text</div>
+
+                <label>
+                    Label
+                    <textarea></textarea>
+                </label>
+
+                <label>
+                    <textarea data-icon="plus" data-icon-align="right"></textarea>
+                </label>
+
+                <label>
+                    Label
+                    <textarea data-icon="plus" data-icon-align="left"></textarea>
+                </label>
+
+                <label>
+                    <textarea placeholder="disabled" disabled></textarea>
+                </label>
+
+                <div class="mbsc-divider">Select</div>
+
+                <label>
+                    Label
+                    <select>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </label>
+                <label>
+                    <select>
+                        <option value="opel">Opel</option>
+                        <option value="renault">Renault</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </label>
+                <label>
+                    <select data-icon="plus" data-icon-align="left">
+                        <option value="opel">Peugeot</option>
+                        <option value="renault">Renault</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </label>
+                <label>
+                    <select data-icon="plus" data-icon-align="right">
+                        <option value="opel">Saab</option>
+                        <option value="renault">Renault</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </label>
+                <label>
+                    <select disabled>
+                        <option value="opel">Opel</option>
+                        <option value="renault">Renault</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </label>
+
+                <div class="mbsc-divider">Checkbox</div>
+
+                <label>
+                    Check 1
+                    <span class="mbsc-desc">This is description for checkbox 1</span>
+                    <input type="checkbox" checked>
+                </label>
+                <label>
+                    Check 2
+                    <span class="mbsc-desc">This is description for checkbox 2</span>
+                    <input type="checkbox">
+                </label>
+                <label>
+                    <input type="checkbox" disabled> Disabled
+                </label>
+                <label>
+                    <input type="checkbox" checked disabled> Disabled and checked
+                </label>
+
+                <div class="mbsc-divider">Switch</div>
+
+                <label>
+                    <input data-role="switch" type="checkbox"> Wifi
+                    <span class="mbsc-desc">This is description for wifi</span>
+                </label>
+
+                <label>
+                    <input data-role="switch" type="checkbox" checked> Bluetooth
+                    <span class="mbsc-desc">This is description for bt</span>
+                </label>
+                <label>
+                    <input data-role="switch" type="checkbox" disabled> Disabled OFF
+                </label>
+
+                <label>
+                    <input data-role="switch" type="checkbox" checked disabled> Disabled
+                </label>
+
+                <div class="mbsc-divider">Radio</div>
+
+                <label>
+                    <input type="radio" name="group"> Label1
+                    <span class="mbsc-desc">This is description for radio 1</span>
+                </label>
+                <label>
+                    <input type="radio" name="group"> Label2
+                    <span class="mbsc-desc">This is description for radio 2</span>
+                </label>
+                <label>
+                    <input type="radio" name="group"> Label3
+                </label>
+                <label>
+                    <input type="radio" name="group" disabled> Disabled
+                </label>
+                <label>
+                    <input type="radio" name="group" checked disabled> Disabled checked
+                </label>
+
+                <div class="mbsc-divider">Buttons</div>
+
+                <div class="mbsc-btn-group">
+                    <button>Button</button>
+                    <button data-icon="plus"></button>
+                    <button data-icon="plus">Button icon</button>
+                    <button disabled>Disabled</button>
+                    <button class="mbsc-btn-flat">Button flat</button>
+                    <button class="mbsc-btn-flat" data-icon="arrow-left5">Flat icon</button>
+                    <button class="mbsc-btn-flat" data-icon="arrow-left5"></button>
+                    <button class="mbsc-btn-flat" data-icon="key2" disabled></button>
+                    <button class="mbsc-btn-flat" disabled>Flat disabled</button>
+                </div>
+
+                <div class="mbsc-padding">
+                    <button class="mbsc-btn-block">Full width</button>
+                </div>
+
+                <div class="mbsc-divider">Slider</div>
+                
+                <label>
+                    Steps
+                    <input type="range" value="50" min="0" max="100" step="25" data-step-labels="[0, 25, 50, 75, 100]">
+                </label>
+                
+                <div class="mbsc-divider">Stepper</div>
+                
+                <div>
+                    <label for="md-adults">Adults</label>
+                    <span class="mbsc-desc">From 14 years</span>
+                    <input id="md-adults" type="number" data-role="stepper" min="1" value="1" max="15" />
+                </div>
+                
+                <div class="mbsc-divider">Progress</div>
+                
+                <label>
+                    <progress value="35" max="100" data-icon='{ "left": "cloud-download" }' data-val="right"></progress>
+                </label>
+                
+                <div class="mbsc-divider">Segmented</div>
+                <label>
+                    Featured
+                    <input type="radio" data-role="segmented" data-icon="star3" name="app" checked>
+                </label>
+                <label>
+                    Explore
+                    <input type="radio" data-role="segmented" data-icon="map" name="app">
+                </label>
+                <label>
+                    Updates
+                    <input type="radio" data-role="segmented" data-icon="globe" name="app">
+                </label>
+            </div>   
+        </div>
+    
+    </div>
+</body>
+</html>
