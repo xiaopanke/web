@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+        div{
+            width:100px;
+            height:100px;
+        }
+        .div1{
+            background: red;
+        }
+        .div2{
+            background: blue;
+            position: absolute;
+            right: 0;
+            top:0;
+        }
+    </style>
+    <script>
+        function drag(oDiv){
+            var x=0;
+            var y=0;
+            oDiv.addEventListener('touchstart',function(ev){
+                var disX=ev.targetTouches[0].pageX-x;
+                var disY=ev.targetTouches[0].pageY-y;
+
+                //alert(ev.targetTouches[0].identifier);
+
+                function fnMove(ev){
+                    x=ev.targetTouches[0].pageX-disX;
+                    y=ev.targetTouches[0].pageY-disY;
+
+                    oDiv.style.WebkitTransform='translate3d('+x+'px,'+y+'px,0px)';
+                }
+                function fnEnd(){
+                    document.removeEventListener('touchmove',fnMove,false);
+                    document.removeEventListener('touchend',fnEnd,false);
+                }
+                document.addEventListener('touchmove',fnMove,false);
+                document.addEventListener('touchend',fnEnd,false);
+
+                ev.preventDefault();
+            },false);
+        }
+        document.addEventListener('DOMContentLoaded',function(){
+            var aDiv=document.querySelectorAll('div');
+
+            for(var i=0; i<aDiv.length; i++){
+                drag(aDiv[i]);
+            }
+        },false);
+    </script>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+</body>
+</html>
