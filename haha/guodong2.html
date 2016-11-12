@@ -1,0 +1,246 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>京东、淘宝晒单</title>
+    <style>
+        @charset "utf-8";
+        /*
+        @名称: base
+        @功能: 重设浏览器默认样式
+        */
+        /* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+        html{
+            color:#000;background:#fff;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        /* 内外边距通常让各个浏览器样式的表现位置不同 */
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,arti
+        cle,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+            margin:0;padding:0;
+            color:#333;
+        }
+        /* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+            display:block;
+        }
+        /* HTML5 媒体文件跟 img 保持一致 */
+        audio,canvas,video {
+            display: inline-block;*display: inline;*zoom: 1;
+        }
+        /* 要注意表单元素并不继承父级 font 的问题 */
+        body,button,input,select,textarea{
+            font:12px/1.5 tahoma,arial,\\5b8b\\4f53;
+        }
+        input,select,textarea{
+            font-size:100%;
+        }
+        /* 去掉各Table cell 的边距并让其边重合 */
+        table{
+            border-collapse:collapse;border-spacing:0;
+        }
+        /* IE bug fixed: th 不继承 text-align*/
+        th{
+            text-align:inherit;
+        }
+        /* 去除默认边框 */
+        fieldset,img{
+            border:0;
+        }
+        /* ie6 7 8(q) bug 显示为行内表现 */
+        iframe{
+            display:block;
+        }
+        /* 去掉 firefox 下此元素的边框 */
+        abbr,acronym{
+            border:0;font-variant:normal;
+        }
+        /* 一致的 del 样式 */
+        del {
+            text-decoration:line-through;
+        }
+        address,caption,cite,code,dfn,em,th,var {
+            font-style:normal;
+            font-weight:500;
+        }
+        /* 去掉列表前的标识, li 会继承 */
+        ol,ul {
+            list-style:none;
+        }
+        /* 对齐是排版最重要的因素, 别让什么都居中 */
+        caption,th {
+            text-align:left;
+        }
+        /* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+        h1,h2,h3,h4,h5,h6 {
+            font-size:100%;
+            font-weight:500;
+        }
+        q:before,q:after {
+            content:'';
+        }
+        /* 统一上标和下标 */
+        sub, sup {
+            font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;
+        }
+        sup {top: -0.5em;}
+        sub {bottom: -0.25em;}
+        a{
+            color: #333;
+        }
+        /* 让链接在 hover 状态下显示下划线 */
+        a:hover {
+            text-decoration:underline;
+            color: #c00;
+        }
+        /* 默认不显示下划线，保持页面简洁 */
+        ins,a {
+            text-decoration:none;
+        }
+        /* 清理浮动 */
+        .fn-clear:after {
+            visibility:hidden;
+            display:block;
+            font-size:0;
+            content:" ";
+            clear:both;
+            height:0;
+        }
+        .fn-clear {
+            zoom:1; /* for IE6 IE7 */
+        }
+        /* 隐藏, 通常用来与 JS 配合 */
+        body .fn-hide {
+            display:none;
+        }
+        /* 设置内联, 减少浮动带来的bug */
+        .fn-left,.fn-right {
+            display:inline;
+        }
+        .fn-left {
+            float:left;
+        }
+        .fn-right {
+            float:right;
+        }
+        #club{width:888px;height:190px;margin:40px auto;border:1px solid #dddddd;border-radius:5px 5px 0px 0px;}
+        #club .modle{width:443px;height:190px;border-right:1px solid #dddddd;float:left;}
+        #club .modle_right{border-right:none;float:right;}
+        #club .modle .modle_title{width:443px;height:29px;line-height:29px;font-size:12px;font-weight:bold;background:#f3f3f3;}
+        #club .modle .modle_title span{padding-left:7px;}
+        #club .modle .modle_con{width:423px;margin:0 auto;height:160px;overflow:hidden;}
+        #club .modle .modle_con ul li{border-bottom:1px #DDD dotted;position:relative;}
+        #club .modle .modle_con .modle_img{width:50px;height:79px;text-align:center;}
+        #club .modle .modle_con .modle_img img{margin-top:14px;}
+        #club .modle .modle_con .modle_img i{display:block;width:15px;height:17px;background:url(../image/buy.png)no-repeat;position:absolute;top:10px;left:60px;}
+        #club .modle .modle_con .modle_text{width:337px;height:60px;overflow:hidden;margin-top:15px;padding-left:8px;}
+        #club .modle .modle_con .modle_text p a{color:#005ea7;}
+        #club .modle .modle_con .modle_text div a{color:#999999;}
+    </style>
+</head>
+<body>
+<div id="club">
+    <div class="modle" id="modle_left">
+        <h2 class="modle_title"><span>热门晒单</span></h2>
+        <div class="modle_con">
+            <ul>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho1。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">11111111111</a></p>
+                        <div><a href="">速度很快。信号很好，而且设置方便。最关键的是，能看到流量使用了多</a></div>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho2。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">22222222222</a></p>
+                        <div><a href="">速度很快。信号很好，而且设置方便。最关键的是，能看到流量使用了多</a></div>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho1。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">33333333333333</a></p>
+                        <div><a href="">速度很快。信号很好，而且设置方便。最关键的是，能看到流量使用了多</a></div>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho2。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">444444444444444</a></p>
+                        <div><a href="">速度很快。信号很好，而且设置方便。最关键的是，能看到流量使用了多</a></div>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho3。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">555555555555</a></p>
+                        <div><a href="">速度很快。信号很好，而且设置方便。最关键的是，能看到流量使用了多</a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modle modle_right" id="modle_right">
+        <h2 class="modle_title"><span>热门晒单</span></h2>
+        <div class="modle_con">
+            <ul>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho1。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">1111111111111111111</a></p>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho2。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">2222</a></p>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho3。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">333</a></p>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho1。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">444444</a></p>
+                    </div>
+                </li>
+                <li class="fn-clear">
+                    <div class="modle_img fn-left"><a href="###"><img src="image/ho2。jpg"></a><i></i></div>
+                    <div class="modle_text fn-right">
+                        <p><a href="###">5555</a></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><!--club end-->
+<script type="text/javascript" src="jquery-1.7.2.js"></script>
+<script>
+    $(function(){
+        function scollDown(id,time){
+            var liHeight=$("#"+id+" ul li").height();
+            var time=time||1000;
+            setInterval(function(){
+                /*$("#"+id+" ul").prepend($("#"+id+" ul li:last").css("height","0px").animate({
+                 height:liHeight+"px"
+                 },"slow"));*/
+                $("#"+id+" ul").animate({'margin-top':-liHeight+'px'},function(){
+                    $("#"+id+" ul  li:first").appendTo($("#"+id+" ul"));
+                    $("#"+id+" ul").css('margin-top',0);
+                })
+            },time);
+
+        }
+        scollDown("modle_left");
+        scollDown("modle_right",3000);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;}
+        .box{
+            width: 200px;
+            height: 200px;border:5px solid red; position: relative; margin: 20px auto; overflow: hidden;}
+        ul{ position: absolute;top:0; left:0; animation:mymove 5s infinite  linear;}
+        li{ background: yellow;
+            margin-bottom: 20px; list-style: none;}
+        @keyframes mymove
+        {
+            0 {top:0px;}
+            100% {top:-612px;}
+        }
+        @-webkit-keyframes mymove /* Safari 和 Chrome */
+        {
+            0 {top:0px;}
+            100% {top:-612px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>dfdsf dsfds fdsf dsfs wr wersdfdsewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfds fdsf dsfsffs wr werewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfdssdsfsfssfsfsfsdffsd fdsf dsfs wr werewdfdsfds fsr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfds dfsffdsf dsfs wr wedfsdfrewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfdsfsfs fdsf dsfs wr wersdfs fsd ffewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfsfsdfsds fdsf dsfs wr werfsdfewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfds fdfsdfsf dsfs wr werfsewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsffsdfds fdsf dsfs wr wefsdfsdsfrewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfds fdsf dsfs wr werewr ewrewr ewre dsf dssd fdsfds f</li>
+            <li>dfdsf dsfds sdfsdfdsf dsfs wr wedfsdfrewr ewrewr ewre dsf dssd fdsfds f</li>
+        </ul>
+    </div>
+</body>
+</html>
