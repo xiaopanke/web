@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="textml; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title></title>
+    <style>
+        #div1{ width:100px; height: 100px; background: red;position: absolute;left: 0;top:0; }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var oDiv=document.getElementById('div1');
+            oDiv.addEventListener('touchstart',function(ev){
+
+                var disX=ev.targetTouches[0].pageX-oDiv.offsetLeft;
+                var disY=ev.targetTouches[0].pageY-oDiv.offsetTop;
+                function fnMove(ev){
+                    var x=ev.targetTouches[0].pageX-disX;
+                    var y=ev.targetTouches[0].pageY-disY;
+                    oDiv.style.left=x+'px';
+                    oDiv.style.top=y+'px';
+                }
+                function fnend(){
+                    oDiv.removeEventListener('touchmove',fnMove,false);
+                    oDiv.removeEventListener('touchend',fnend,false);
+                }
+                oDiv.addEventListener('touchmove',fnMove,false);
+                oDiv.addEventListener('touchend',fnend,false);
+            },false);
+        },false);
+    </script>
+</head>
+<body>
+<div id="div1">123在复方丹参 堙是非得失 地</div>
+</body>
+<html>
