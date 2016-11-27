@@ -12,28 +12,28 @@
     <script>
         document.addEventListener('DOMContentLoaded',function(){
             var oDiv=document.getElementById('div1');
+            var x=0;
+            var y=0;
             oDiv.addEventListener('touchstart',function(ev){
 
-                var disX=ev.targetTouches[0].pageX-oDiv.offsetLeft;
-                var disY=ev.targetTouches[0].pageY-oDiv.offsetTop;
+                var disX=ev.targetTouches[0].pageX-x;
+                var disY=ev.targetTouches[0].pageY-y;
                 function fnMove(ev){
-                    var x=ev.targetTouches[0].pageX-disX;
-                    var y=ev.targetTouches[0].pageY-disY;
-                    oDiv.style.left=x+'px';
-                    oDiv.style.top=y+'px';
+                    x=ev.targetTouches[0].pageX-disX;
+                    y=ev.targetTouches[0].pageY-disY;
+                    oDiv.style.WebkitTransform='translate('+x+'px,'+y+'px)';
                 }
                 function fnend(){
-                    oDiv.removeEventListener('touchmove',fnMove,false);
-                    oDiv.removeEventListener('touchend',fnend,false);
+                    document.removeEventListener('touchmove',fnMove,false);
+                    document.removeEventListener('touchend',fnend,false);
                 }
-                oDiv.addEventListener('touchmove',fnMove,false);
-                oDiv.addEventListener('touchend',fnend,false);
-                ev.preventDefault();
+                document.addEventListener('touchmove',fnMove,false);
+                document.addEventListener('touchend',fnend,false);
             },false);
         },false);
     </script>
 </head>
 <body>
-<div id="div1">123在复2</div>
+<div id="div1">123在复方丹参 堙是2123地</div>
 </body>
 <html>
