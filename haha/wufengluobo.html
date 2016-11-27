@@ -1,0 +1,98 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="textml; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title></title>
+    <style>
+        *{ margin:0; padding:0;   }
+        html{font-size:20px}
+        #box{width:16rem; height:7.5rem; overflow: hidden; margin:0 auto;}
+        ul{ width:96rem;  overflow: hidden;transform: translate3d(-16rem,0,0); }
+        li{width:16rem; float: left; height: 7.5rem;text-align: center; font-size:2rem; line-height: 7.5rem;}
+    </style>
+    <script>
+        (function(win,doc){
+            function change(){
+                doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+            }
+            change();
+            win.addEventListener('resize',change,false);
+        })(window,document);
+        document.addEventListener('DOMContentLoaded',function(){
+            var oUl=document.querySelector('#box ul');
+            var aLi=oUl.children;
+            var x=-iNow*aLi[0].offsetWidth;
+            var iNow=1;
+            var bready=true;
+            oUl.addEventListener('touchstart',function(ev){
+                if(bready==false)return;
+                bready=false;
+                console.log(iNow+'@@'+111);
+                oUl.style.WebkitTransition='none';
+                var downX=ev.targetTouches[0].pageX;
+                var disX=downX-x;
+                function fnmove(ev){
+                    console.log(iNow+'@@'+222);
+                    x=ev.targetTouches[0].pageX-disX;
+                    oUl.style.WebkitTransform='translateX('+x+'px)';
+                }
+                function fnend(ev){
+
+                    console.log(iNow+'@@'+333);
+                    document.removeEventListener('touchmove',fnmove,false);
+                    document.removeEventListener('touchend',fnend,false);
+                    var upX=ev.changedTouches[0].pageX;
+                    oUl.style.WebkitTransition='.2s all ease';
+                    if(Math.abs(upX-downX)>50){
+
+                        if(downX>upX){
+                            iNow++;
+                            if(iNow==aLi.length){iNow=aLi.length-1;}
+                        }else{
+                            iNow--;
+                            if(iNow==-1){iNow=0;}
+
+                        };
+                    }
+                    x=-iNow*aLi[0].offsetWidth;
+                    oUl.style.WebkitTransform='translate3d('+x+'px,0,0)';
+                    function tend(){
+                        bready=true;
+                        oUl.removeEventListener('transitionend',tend,false);
+                        if(iNow==5){
+                            iNow=1;
+                            x=-iNow*aLi[0].offsetWidth;oUl.style.WebkitTransition='none';0000
+                            oUl.style.WebkitTransform='transitionend('+x+'px,0,0)';
+                        }
+                        if(iNow==0){
+                            iNow=4;
+                            x=-iNow*aLi[0].offsetWidth;oUl.style.WebkitTransition='none';0000
+                            oUl.style.WebkitTransform='transitionend('+x+'px,0,0)';
+                        }
+                    }
+                    oUl.addEventListener('transitionend',tend,false);
+                    document.title=iNow;
+                }
+                document.addEventListener('touchmove',fnmove,false);
+                document.addEventListener('touchend',fnend,false);
+                ev.preventDefault();
+            },false);
+        },false);
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li style="background:blue;">33</li>
+        <li style="background:red;">00</li>
+        <li style="background:purple;">11</li>
+        <li style="background:yellow;">22</li>
+        <li style="background:blue;">33</li>
+        <li style="background:red;">00</li>
+    </ul>
+</div>
+</body>
+<html>
