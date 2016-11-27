@@ -8,14 +8,13 @@
     <title></title>
     <style>
         #div1{ width:100px; height: 100px; background: red;position: absolute;left: 0;top:0; }
+        #div2{ width:100px; height: 100px; background: blue;position: absolute;right: 0;top:0; }
     </style>
     <script>
-        document.addEventListener('DOMContentLoaded',function(){
-            var oDiv=document.getElementById('div1');
+        function drag(oDiv){
             var x=0;
             var y=0;
             oDiv.addEventListener('touchstart',function(ev){
-
                 var disX=ev.targetTouches[0].pageX-x;
                 var disY=ev.targetTouches[0].pageY-y;
                 function fnMove(ev){
@@ -29,11 +28,19 @@
                 }
                 document.addEventListener('touchmove',fnMove,false);
                 document.addEventListener('touchend',fnend,false);
+                ev.preventDefault();
             },false);
+        }
+        document.addEventListener('DOMContentLoaded',function(){
+            var aDiv=document.querySelectorAll('div');
+            for(var i=0;i<aDiv.length;i++){
+                drag(aDiv[i])
+            }
         },false);
     </script>
 </head>
 <body>
-<div id="div1">123在复方丹参 堙是2123地</div>
+<div id="div1">123在复方丹参 堙是非得失 地</div>
+<div class="" id="div2">sdfds</div>
 </body>
 <html>
