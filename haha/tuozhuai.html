@@ -17,14 +17,20 @@
             oDiv.addEventListener('touchstart',function(ev){
                 var disX=ev.targetTouches[0].pageX-x;
                 var disY=ev.targetTouches[0].pageY-y;
+                console.log(ev);
+                var id=ev.targetTouches[0].identifier;
                 function fnMove(ev){
-                    x=ev.targetTouches[0].pageX-disX;
-                    y=ev.targetTouches[0].pageY-disY;
-                    oDiv.style.WebkitTransform='translate('+x+'px,'+y+'px)';
+                    if(ev.targetTouches[0].indentifier==id){
+                        x=ev.targetTouches[0].pageX-disX;
+                        y=ev.targetTouches[0].pageY-disY;
+                        oDiv.style.WebkitTransform='translate('+x+'px,'+y+'px)';
+                    }
                 }
-                function fnend(){
-                    document.removeEventListener('touchmove',fnMove,false);
-                    document.removeEventListener('touchend',fnend,false);
+                function fnend(ev){
+                    if(ev.changedTouches[0].identifier==id){
+                        document.removeEventListener('touchmove',fnMove,false);
+                        document.removeEventListener('touchend',fnend,false);
+                    }
                 }
                 document.addEventListener('touchmove',fnMove,false);
                 document.addEventListener('touchend',fnend,false);
