@@ -1,0 +1,13 @@
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;}
+.hide{ display:none !important;}
+.show{ display:block !important;}

@@ -1,0 +1,250 @@
+#!/bin/bash
+
+# export BUILD_ID=dontKillMePlease
+
+uname=`uname`
+user=`whoami`
+
+echo $user,$env,$feature,$branch
+
+function p() {
+  if [ "$user" = "jenkins" ]; then
+    echo $1
+  else
+    echo -e "\033[32m$1\033[0m"
+  fi
+}
+
+function perr() {
+  if [ "$user" = "jenkins" ]; then
+    echo $1
+  else
+    echo -e "\033[31m$1\033[0m"
+  fi
+}
+
+function pwarn() {
+  if [ "$user" = "jenkins" ]; then
+    echo $1
+  else
+    echo -e "\033[33m$1\033[0m"
+  fi
+}
+
+function pinfo() {
+  if [ "$user" = "jenkins" ]; then
+    echo $1
+  else
+    echo -e "\033[36m$1\033[0m"
+  fi
+}
+
+function get_port() {
+  port=$(node -e "var fs=require('fs');var data=JSON.parse(fs.readFileSync('package.json'));console.log(data.deployConfig['$1'] ? data.deployConfig['$1'].port : '')")
+}
+
+function get_valid_port() {
+  count=$(cat $ver_path | grep "^"$feature:$branch" " | wc -l)
+  if [ "$count" != "0" ]; then
+    port=`cat $ver_path | grep "^"$feature:$branch" " | awk '{print $3}'`
+  else
+    is_use="1"
+    while [ $is_use = "1" ]
+    do
+      let "port+=1"
+      is_use=$(cat $ver_path | grep "^"$feature:".* $port$" | wc -l)
+    done
+  fi
+}
+
+get_port $feature
+
+if [ "$port" = "" ]; then
+  echo 'feature not found'
+  exit 1
+fi
+
+errstr="__error__"
+
+
+version=$(node -e "var fs=require('fs');var data=JSON.parse(fs.readFileSync('package.json'));console.log(data.version)")
+if [ "$feature" != "z3tougu" ]; then
+  package_path="/data/www/packages"
+  ver_path="$package_path/$feature.$env.version"
+  sudo mkdir -p $package_path
+  if [ -f $package_path/$feature-$version.tar.bzip2 ]; then
+    echo "package $feature-$version exists."
+    exit 1
+  fi
+  get_valid_port
+fi
+echo version=$(echo $version) > /tmp/$feature.profile
+pinfo 'current version: '$version
+
+yarn config set registry https://registry.npm.taobao.org
+code="1"
+while [ "$code" != "0" ]
+do
+  yarn install
+  code=$?
+  if [ "$code" != "0" ]; then
+    pinfo 'retry install modules...'
+    rm -rf node_modules
+    sleep 5s
+  fi
+done
+pinfo 'yarn install done.'
+
+rm -rf dist/$feature/*.*
+rm -rf dist/$feature/ftp
+export JRJ_FEATURE=$feature
+
+pinfo 'JRJ_FEATURE='$JRJ_FEATURE
+pinfo 'JRJ_FEATURE='JRJ_FEATURE
+
+npm run build -- --env=$feature
+if [ "$?" != "0" ]; then
+  exit 1
+fi
+
+
+pinfo 'npm build done.'
+npm run buildserver -- --env=$feature,$port
+if [ "$?" != "0" ]; then
+  exit 1
+fi
+pinfo 'npm buildserver done.'
+pinfo 'checking for new files'
+newfiles=()
+ftp -n 117.121.12.155 <<f1 >>/dev/null
+quote USER shihuang.piao.ftp.img
+quote PASS n6i7&FOy^q
+mkdir jrjimg/assets/$feature
+mkdir jrjimg/assets/$feature/images
+bye
+f1
+
+for file in $(ls dist/$feature/*)
+do
+  if [ -f $file ]; then
+    filename=${file##*/}
+    status=$(curl -I -w %{http_code} -o /dev/null -s "http://i0.jrjimg.cn/assets/$feature/$filename")
+    if [ $status = 404 ]; then
+      pinfo "$filename transfered"
+      newfiles[${#newfiles[@]}]=$file
+      mkdir -p dist/$feature/ftp/
+      cp $file dist/$feature/ftp/
+    fi
+  fi
+done
+
+if [ -d dist/$feature/images ]; then
+  for file in $(ls dist/$feature/images/*)
+  do
+    if [ -f $file ]; then
+      filename=${file##*/}
+      status=$(curl -I -w %{http_code} -o /dev/null -s "http://i0.jrjimg.cn/assets/$feature/images/$filename")
+      if [ $status = 404 ]; then
+        pinfo "$filename transfered"
+        mkdir -p dist/$feature/ftp/images/
+        cp $file dist/$feature/ftp/images/
+      fi
+    fi
+  done
+fi
+
+if [ ${#newfiles[@]} -gt 0 ]; then
+  pinfo 'has new files.'
+  ftp -n 117.121.12.155 <<f2 >>/dev/null
+quote USER shihuang.piao.ftp.img
+quote PASS n6i7&FOy^q
+prompt
+cd jrjimg/assets/$feature/
+lcd dist/$feature/ftp/
+mput *
+bye
+f2
+  if [ -d dist/$feature/ftp/images ]; then
+    ftp -n 117.121.12.155 <<f3 >>/dev/null
+quote USER shihuang.piao.ftp.img
+quote PASS n6i7&FOy^q
+prompt
+cd jrjimg/assets/$feature/images/
+lcd dist/$feature/ftp/images/
+mput *
+bye
+f3
+  fi
+  for file in ${newfiles[*]}
+  do
+    if [ -f $file ]; then
+      filename=${file##*/}
+      status="404"
+      pinfo "waiting for $filename"
+      while [ "$status" != "200" ]
+      do
+        status=$(curl -I -w %{http_code} -o /dev/null -s "http://i0.jrjimg.cn/assets/$feature/$filename")
+        wait
+        if [ "$status" != "200" ]; then
+          sleep 5s
+        fi
+      done
+    fi
+  done
+fi
+
+if [ "$feature" = "z3tougu" ]; then
+  while [ -f /tmp/version.lock ]
+  do
+    echo 'waiting for version lock'
+    sleep 5s
+  done
+  touch /tmp/version.lock
+  curl -o version "ftp://shihuang.piao.ftp.img:n6i7&FOy^q@117.121.12.155/jrjimg/fe/$env/version"
+  count=$(cat version | grep "^"$feature" " | wc -l)
+  if [ "$count" = "0" ]; then
+    echo $feature" "$version >> version
+  else
+    sed -i "s/"$feature" .*/"$feature" "$version"/g" version
+  fi
+  rm -f *.bzip2
+  tar -cjf $feature-$version.tar.bzip2 *
+  ftp -n 117.121.12.155 <<f3 >>/dev/null
+quote USER shihuang.piao.ftp.img
+quote PASS n6i7&FOy^q
+prompt
+cd jrjimg/fe/$env
+mput $feature-$version.tar.bzip2
+mput version
+bye
+f3
+  rm -f /tmp/version.lock
+  rm -f $feature-$version.tar.bzip2
+else
+  while [ -f /tmp/version.lock ]
+  do
+    echo 'waiting for version lock'
+    sleep 5s
+  done
+  touch /tmp/version.lock
+  sudo touch $ver_path
+  count=$(cat $ver_path | grep "^"$feature:$branch" " | wc -l)
+  if [ "$count" = "0" ]; then
+    sudo sh -c "echo '$feature:$branch $version $port' >> $ver_path"
+  else
+    sudo sed -i "s/"$feature:$branch" .*/"$feature:$branch" "$version" "$port"/g" $ver_path
+  fi
+  rm -f /tmp/version.lock
+  rm -f *.bzip2
+  for file in $(ls ./)
+  do
+    if [ "$file" != "dist" -a "$file" != "node_modules" ]; then
+      rm -rf $file
+    fi
+  done
+  tar -cjf $feature-$version.tar.bzip2 *
+  sudo mv $feature-$version.tar.bzip2 $package_path
+  if [ "$env" = "test" ]; then
+    ssh -p 62222 admin@127.0.0.1 "NODE_ENV=test feature=$feature port=$port sh /home/admin/pull.sh"
+  fi
+fi

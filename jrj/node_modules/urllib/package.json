@@ -1,0 +1,36 @@
+{
+  "name": "urllib",
+  "version": "0.5.1",
+  "description": "Help in opening URLs (mostly HTTP) in a complex world — basic and digest authentication, redirections, cookies and more.",
+  "keywords": [ "urllib", "http", "urlopen", "curl", "wget", "request", "https" ],
+  "author": "fengmk2 <fengmk2@gmail.com> (http://github.com/fengmk2)",
+  "homepage": "http://github.com/TBEDP/urllib",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TBEDP/urllib.git"
+  },
+  "scripts": {
+    "test": "make test-all",
+    "blanket": { "pattern": "urllib/lib" },
+    "travis-cov": { "threshold": 98 }
+  },
+  "dependencies": {
+    "buffer-concat": "0.0.1",
+    "debug": "0.7.2"
+  },
+  "devDependencies": {
+    "should": ">=0.4.2",
+    "pedding": "*",
+    "formstream": "*",
+    "agentkeepalive": "*",
+    "node-patch": "*",
+    "blanket": "*",
+    "travis-cov": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*",
+    "mocha": ">=0.14.1"
+  },
+  "engines": { "node": ">= 0.6.10" },
+  "license": "MIT"
+}
