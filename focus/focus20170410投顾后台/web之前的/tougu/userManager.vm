@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/dialog.effect.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+	<script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="/js/usemanage.js"></script>
+    <script type="text/javascript">
+        
+    </script>
+</head>
+<body id="maodian_1">
+    <!--# include virtual="/site_top_header.html" -->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">金融界证券通</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的证券通</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+                        
+
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-left">
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span class="fr"><a href="#" class="stop">管理</a></span>
+                        <span><span>全部账户</span><i class="btn-refresh ml10 stop"></i></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            <a href="" class="btn btn-addaccount">增加其他交易账户</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>我的自选股</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>投顾服务</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <ul class="menu-list menu-list-services">
+                            <li>
+                                <a href="#" class="item-1">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-2">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-3">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <h2 class="block-title">用户统计</h2>
+                <div class="statistic-block statistic-block-2 mt10 clearfix">
+                    <div class="statistic-block-item statistic-block-item-1">
+                        <p>我的签约用户</p>
+                        <p class="num">169</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-2">
+                        <p>本周新增签约用户</p>
+                        <p class="num">10</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-3">
+                        <p>我的粉丝数</p>
+                        <p class="num">100</p>
+                    </div>
+                </div>
+                <div class="my-points my-member-wrap mt25">
+                    <ul class="tab tab-364 clearfix">
+                        <li id="menu_1" class="cur">我的签约用户</li>
+                        <li id="menu_2" class="">我的粉丝</li>
+                        <li class="btns">
+                            <a href="#" class="btn btn-123-40" id="btn-send-all" data-type="user">向签约用户群发</a>
+                        </li>
+                    </ul>
+                    <div id="con_1" class="tab-cnt clearfix">
+                        <div class="sort-bar clearfix mt10">
+                            <span class="op">
+                                <a href="" class="btn-setting">设定我的签约条件</a>
+                            </span>
+                
+                        </div>
+						<div id="data_1">
+						</div>
+                        
+                        <div class="pager" id="pager_1"></div>
+                    </div>
+                    <div id="con_2" class="tab-cnt clearfix need-to-answer" style="display:none;">
+                        <div class="sort-bar clearfix mt10">
+                            <span class="op">
+                                <a href="" class="btn-setting">设定我的签约条件</a>
+                            </span>
+                            
+                        </div>
+                        <div id="data_2">
+						</div>
+                        
+                        <div class="pager" id="pager_2"></div>
+                    </div>
+                    <div class="loading tc middle">
+                        <img src="http://i0.jrjimg.cn/zqt/loading.gif" alt="" width="50" height="50" />
+                        <span>正在加载...</span>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>
+

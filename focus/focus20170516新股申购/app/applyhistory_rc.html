@@ -1,0 +1,457 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no,initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>申购记录</title>
+    <style type="text/css">
+.focus-dlg,.md-overlay{position:fixed;top:0;left:0}.dlg-con .dlg-btn,.dlg-con .shengou,.dlg-time .tit,.nothing,.tipsuccess{text-align:center}blockquote,body,button,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,pre,table,td,textarea,th,ul{margin:0;padding:0}address,cite,em,i{font-style:normal}body{-webkit-appearance:none;background:#fff}li{list-style:none}a{color:#535862;text-decoration:none}img{vertical-align:top;border:0}input[type=button],input[type=submit],input[type=reset]{cursor:pointer}input{outline:0;border:none;background-color:transparent;color:#fff;FILTER:alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none}.dlg-con,.dlg-time,.tipsuccess{border-radius:4px}.dlg-con .dlg-btn:first-child,.dlg-time .dlg-btn:first-child{border-right:1px solid #d5d5d5}body,html{font:20px/1rem 'Microsoft Yahei';color:#333}.clearfix:after{display:block;content:'';clear:both}.fl{float:left}.fr{float:right}.bsbb{box-sizing:border-box}.focus-dlg{width:100%;height:100%;z-index:2000;opacity:0;visibility:hidden;-moz-transform:scale(.5);-ms-transform:scale(.5);-o-transform:scale(.5);-webkit-transform:scale(.5);transform:scale(.5);-moz-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);-o-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);-webkit-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);transition:transform .3s cubic-bezier(.17,.67,.42,1.22);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center}.md-dialog-show .focus-dlg{visibility:visible;opacity:1;-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);-webkit-transform:scale(1);transform:scale(1)}.md-dialog-show .md-overlay{opacity:1;visibility:visible;-moz-transition:all 1s;-o-transition:all 1s;-webkit-transition:all 1s;transition:all 1s}.dlg-con .zhuanjian{font-size:.7rem;padding:.5rem 1rem}.dlg-con .zhuanjian i{width:.8rem;height:.8rem;background:url(img/tip.png) no-repeat;background-size:100% 100%;float:left;margin-top:2px;margin-right:2px}.md-overlay{width:100%;height:100%;visibility:hidden;z-index:1000;opacity:0;background:rgba(0,0,0,.75);-webkit-transition:all .3s;-moz-transition:all .3s;transition:all .3s}.dlg-con{background:#f5f5f5;width:89.3%;position:relative;padding-bottom:3rem}.dlg-con .tit{display:none;margin:1.575rem 1.25rem .5rem;line-height:1rem;font-size:.8rem;font-weight:400;color:#333}.dlg-con .red{color:#F24637}.dlg-con .subtit{margin:0 1.25rem 1rem;color:#F24637;font-size:.7rem;display:none;padding-top:.5rem}.dlg-con .subtit em{width:.675rem;height:.675rem;background:url(img/tip3.png) no-repeat;display:inline-block;vertical-align:top}.dlg-con .dlg-btn-wrap{width:100%;position:absolute;bottom:0;left:0;border-top:1px solid #d5d5d5}.layout-box{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flexbox;display:box}.dlg-con .msg,.tipsuccess{display:none}.dlg-con .dlg-btn{height:2.475rem;line-height:2.475rem;font-size:.8rem;color:#3996F2;-webkit-box-flex:1;-webkit-flex:1;-moz-flex:1;-ms-flex:1;flex:1}.dlg-con .msg span{margin:1.5rem .25rem 0 1.5rem;font-size:.7rem}.dlg-con .msg ul{margin-top:1.3rem}.dlg-con .msg li{font-size:.8rem;line-height:1.2rem}.dlg-con .shengou{display:none;line-height:1rem;font-size:.8rem;font-weight:400;color:#333;padding:.8rem 0 .3rem}.nothing{font-size:.8rem;width:8rem;height:6rem;background:url(img/nothing.png) center center no-repeat;background-size:6rem 6rem;margin:1rem auto 0;padding-top:13rem}.tipsuccess{width:13rem;line-height:2.5rem;background:rgba(0,0,0,.68);color:#fff;font-size:.8rem;position:fixed;top:50%;left:50%;margin-left:-6.5rem;margin-top:-1.25rem}.dlg-time{background:#f5f5f5;width:89.3%;height:12.1875rem;position:relative}.dlg-time .tit{font-size:1.0625rem;padding:.9375rem 0}.dlg-time .dlg-btn-wrap{width:100%;height:3.125rem;position:absolute;bottom:0;left:0;border-top:1px solid #d5d5d5}.dlg-time .dlg-btn{height:3rem;line-height:3rem;text-align:center;font-size:.875rem;color:#878C92;-webkit-box-flex:1;-webkit-flex:1;-moz-flex:1;-ms-flex:1;flex:1}.dlg-time .dlg-btn:active,.dlg-time .dlg-btn:hover{background:#ddd}.dlg-time .slider-wrap{padding:1rem 1.40625rem}
+.con .tab_btn:before,header .hd_r .btn:before{content:'';display:block;left:0;-webkit-transform-origin:0 0;pointer-events:none;top:0}header{height:6rem;border-bottom:#EFEFF4 .5rem solid;display: none;}.con .tab_btn{ display: none;width:17.6rem;margin:.5rem auto 0;position:relative;overflow:hidden}.con .msg h3,.con .todaylist p{margin-bottom:.25rem}.con .tab_btn:before{position:absolute;height:200%;border:1px solid #333;transform-origin:0 0;-webkit-transform:scale(.5);transform:scale(.5);-webkit-box-sizing:border-box;box-sizing:border-box;width:200%;border-radius:8px}.con .tab_btn span:before,.con .todaylist li:before{content:'';left:0;-webkit-transform-origin:0 0;pointer-events:none;-webkit-transform:scale(.5);display:block}.con .todaylist{padding-bottom:2.4rem;display: none;}.con .todaylist li{position:relative;padding-bottom:1rem}.con .todaylist li:before{position:absolute;bottom:0;width:200%;border-bottom:1px solid #dbdbdb;transform-origin:0 0;transform:scale(.5);-webkit-box-sizing:border-box;box-sizing:border-box}.con .date:before,.con .msg .numbox .numin:before{-webkit-transform-origin:0 0;-webkit-transform:scale(.5);-webkit-box-sizing:border-box;content:'';pointer-events:none}.con .todaylist .close .icon_l,.con .todaylist .close .msg{opacity:.4}.con .todaylist .icon_l{width:1.2rem;height:1.2rem;position:absolute;top:50%;margin-top:-.6rem;left:.75rem;border:1px solid #d2d2d2;border-radius:50%}.con .todaylist .choose{background:url(img/choose.png) center center no-repeat;background-size:.7rem auto;border:1px solid #f24637}.con .icon_r{width:.275rem;height:.55rem;position:absolute;top:50%;margin-top:-.3rem;right:.75rem;background:url(img/arrow.png);background-size:100% 100%}.con .status{position:absolute;right:1rem;top:0;width:3.1rem;height:1.75rem;background:url(img/yes.png) no-repeat;background-size:100% 100%}.con .skewicon0{background-image:url(img/done.png)}.con .skewicon1{background-image:url(img/no.png)}.con .skewicon2{background-image:url(img/yes.png)}.con .todaylist .msg{margin-left:2.95rem;margin-top:1rem;width:15rem}.con .msg h3{font-size:.8rem;line-height:1rem}.con .msg h3 span{color:#333}.con .msg .paysta{float:left;padding:0 .3rem;font-weight:400;font-size:.6rem;margin-left:.75rem;line-height:.95rem;border:1px solid #333;border-radius:2px}.con .msg .paystacolor0,.con .msg .paystacolor1{color:#F24637;border-color:#F24637}.con .msg .paystacolor2,.con .msg .paystacolor3{color:#333;border-color:#333}.con .msg .type{width:1.2rem;line-height:.95rem;border:1px solid #3996F2;border-radius:.8rem;float:left;font-size:.55rem;text-align:center;margin-right:.25rem}.con .msg .color1{border-color:#ff7100;color:#ff7100}.con .msg .color2{border-color:#3996f2;color:#3996f2}.con .msg .color3{border-color:#ffb300;color:#ffb300}.con .todaylist span{font-size:.7rem;color:#888;float:left;margin-right:.2rem}.con .todaylist em{font-size:.7rem;float:left;margin-right:.85rem}.con .msg .num{line-height:1.75rem}.con .msg .numbox{margin-right:.25rem}.btn_add,.btn_reduce{width:1.75rem;height:1.75rem;background:url(img/reduce.png);float:left;background-size:100% 100%}.btn_add{background-image:url(img/add.png)}.con .msg .numbox .numin{width:3.825rem;float:left;padding-left:.675rem;font-size:.7rem;font-weight:400;line-height:1.75rem;color:#333;position:relative}.con .msg .numbox .numin:before{display:block;position:absolute;left:0;top:0;height:200%;width:200%;border-bottom:1px solid #d2d2d2;border-top:1px solid #d2d2d2;transform-origin:0 0;transform:scale(.5);box-sizing:border-box}.applysuccess{position:absolute;width:3.77rem;height:1.825rem;background:url(img/applysuccess.png) center no-repeat;right:1rem;top:.5rem;display:none;background-size:100% 100%}.waitlist{display:none;margin-top:.75rem}.con .date{line-height:1.2rem;background:#FAFAFA;padding-left:.75rem;font-size:.6rem;position:relative}.con .date:before{display:block;position:absolute;left:0;bottom:0;width:200%;height:0;border-bottom:1px solid #DBDBDB;transform-origin:0 0;transform:scale(.5);box-sizing:border-box}.mybuy li,.waitlist li{position:relative;margin-top:.9rem}.mybuy .msg,.waitlist .msg{margin-left:.75rem;border-bottom:1px solid #DBDBDB;font-size:.7rem;line-height:1.1rem;padding-bottom:1rem}.mybuy li:last-child .msg,.waitlist li:last-child .msg{border-bottom:none}.mybuy p em,.waitlist p em{width:5.5rem;margin-left:.5rem;float:left}.mybuy .msg span,.waitlist .msg span{float:left;color:#888}.mybuy .msg .type2,.waitlist .msg .type2{width:3rem;text-align:right}.mybuy .seldate{font-size:.7rem;text-align:center;line-height:1.75rem;margin:.85rem .6rem .875rem .6rem}.mybuy .seldate b{float:left;position:relative}.mybuy .seldate input{padding-left:.3rem;font-size:.6rem;height:1.75rem;color:#3996F2;width:6rem;border-radius:0}.mybuy .seldate b:before{content:'';display:block;position:absolute;left:0;top:0;width:200%;height:200%;border:1px solid #D2D2D2;-webkit-transform-origin:0 0;transform-origin:0 0;pointer-events:none;-webkit-transform:scale(.5);transform:scale(.5);-webkit-box-sizing:border-box;box-sizing:border-box}.mybuy .seldate span{float:right;color:#fff;width:4.225rem;background:#F24637;border-radius:4px;}.mybuy .seldate i{float:left;color:#B2B2B2;margin:0 3px}.con .newrule{text-align:right;padding-right:.75rem;padding-top:.25rem}.con .newrule a{color:#3996F2;text-decoration:underline;font-size:.6rem}.con .gobtn{display:none;width:100%;background:#F24637;color:#fff;line-height:2.4rem;font-size:.85rem;position:fixed;bottom:0;left:0;border-radius:0}.con .gobtn_off{background:#dbdbdb}
+    </style>
+    <script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+    <script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/fastclick.js"></script>
+    <script>
+    function compateDate(e,t){var n=e.split("-"),o=new Date(parseInt(n[0]),parseInt(n[1]),parseInt(n[2])),r=o.getTime(),c=t.split("-"),a=new Date(parseInt(c[0]),parseInt(c[1]),parseInt(c[2])),i=a.getTime();return r-i}function setdateval(e){return e.getFullYear()+"-"+toDub(e.getMonth()+1)+"-"+toDub(e.getDate())}function toDub(e){return e<10?"0"+e:e+""}function changenull(e){var t=e+"";t=t.replace(/null万股?/g,"--");var n=t.replace(/null[万股]?/g,"--");return n}function ipotype(e){switch(e){case"1":ipoMkticon="深";break;case"2":ipoMkticon="沪";break;case"3":ipoMkticon="创"}return ipoMkticon}function paystutas(e){var t;switch(e){case"0":t="待缴款";break;case"1":t="部分缴款";break;case"2":t="全部缴款";break;case"3":t="弃购"}return t}function errorMsg(e,t){$(".focus-dlg").html($("#dlg-error").html()),$(".focus-dlg").find("p").text(e),$("body").addClass("md-dialog-show"),setTimeout(function(){$(".dlg-btn").click(function(e){e.preventDefault(),t&&t(),$("body").removeClass("md-dialog-show")})},60)}function change(){document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+"px"}function getQueryString(e){var t=new RegExp("(^|&)"+e+"=([^&]*)(&|$)","i"),n=window.location.search.substr(1).match(t);return null!=n?unescape(n[2]):null}function three0(e){return e+""==0?"0.00":e}var convertToJsonObject=function(e){return"object"!=typeof e?JSON.parse(e):e};document.setTitle=function(e){document.title=e;var t=document.createElement("iframe");t.src="https://js.jrjimg.cn/zqt-red-1000/images/bg.png",t.style.display="none",t.onload=function(){setTimeout(function(){t.remove()},9)},document.body.appendChild(t)};function doublenum(num){var num=num+"";if(num.indexOf(".")!=-1){var len=num.substring(num.indexOf(".")+1).length;if(len==0){return num+"00"}else{if(len==1){return num+"0"}else{return parseFloat(num).toFixed(2)}}}else{if(num=="--"){return"--"}else{return num+".00"}}};
+    </script>
+    <script>
+        window.onload=function(){
+            var domain1 = 'https://zqtrc.yun.pingan.com';
+
+            setTimeout(function(){
+
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'get',
+                    url: domain1 + '/sapi/v2/account/checkLogin',
+                    params: {},
+                    callback: 'callbackchuangye',
+                    version:'3.10.0'
+                }));
+
+            },200);
+
+            window.callbackchuangye=function(transResp){
+
+                setTimeout(function(){
+
+
+                    transResp=convertToJsonObject(transResp);
+                    if(transResp.retcode==0) {
+                        if(transResp.data.loginCode==1){
+                            change(),
+                            "addEventListener" in document && document.addEventListener("DOMContentLoaded",
+                            function() {
+                                FastClick.attach(document.body)
+                            },
+                            !1),
+                            $(function() {
+                                function t() {
+                                    $(".gobtn").addClass("gobtn_off");
+                                    var t = function() {
+                                        setTimeout(function() {
+                                            jrj.jsCallNative("130", JSON.stringify({
+                                                method: "get",
+                                                url: domain1 + "/sapi/v2/ipo/queryApplyListToday",
+                                                params: {},
+                                                callback: "callbacktodayinfo",
+                                                version: "3.10.0"
+                                            }))
+                                        },
+                                        20)
+                                    };
+                                    window.callbacktodayinfo = function(t) {
+                                        setTimeout(function() {
+                                            function s() {
+                                                0 == $(".choose_pa").length ? $(".gobtn").addClass("gobtn_off") : $(".gobtn").removeClass("gobtn_off")
+                                            }
+                                            t = convertToJsonObject(t);
+                                            var a = t.data,
+                                            n = "";
+                                            if (0 == t.retcode) {
+                                                if (0 == a.list.length) return $(".todaylist ul").html('<div class="nothing">今日无新股申购</div>'),
+                                                void $(".gobtn").hide();
+                                                $(".gobtn").show();
+                                                for (var e = 0; e < a.list.length; e++) {
+                                                    var o = a.list[e],
+                                                    l = ipotype(o.ipoMkt);
+                                                    n += '<li class="clearfix open choose_pa" dataAmount="' + o.canApplyAmount + '" applyAmount="' + o.applyAmount + '" buyCeil="' + o.buyCeil + '" dataapplystatus="'+o.applyStatus+'" dataapplyStatusName="'+o.applyStatusName+'"><span class="icon_l fl choose"></span><div class="msg fl" databuycount="' + o.buyCode + '"><h3 class="clearfix"><i class="type color' + o.ipoMkt + '">' + l + '</i><span><i class="stockName">' + o.stockName + '</i> <i class="buyCode">' + o.buyCode + '</i></span></h3><p class="clearfix"><span>申购价格</span><em class="issPrc">' + doublenum(changenull(o.issPrc)) + '</em><span class="applysucctxt">可申购</span><em class="canApplyAmount">' + o.canApplyAmount + '股</em></p><div class="num clearfix"><span>申购数量</span><div class="numbox fl"><strong class="btn_reduce" datacount="' + o.tradeMktRef + '"></strong><b class="numin" data-count="' + o.canApplyAmount + '">' + o.canApplyAmount + '</b><strong class="btn_add" datacount="' + o.tradeMktRef + '"></strong></div><span>股</span></div></div><span class="icon_r fl"></span><em class="applysuccess"></em></li>'
+                                                }
+                                                n = changenull(n),
+                                                $(".todaylist ul").html(n),
+                                                $(".todaylist li").each(function() {
+                                                    0 == $(this).attr("dataAmount") && ($(this).removeClass("open").addClass("close"), $(this).find(".num").hide(), $(this).find(".icon_l").removeClass("choose"), $(this).removeClass("choose_pa"))
+                                                }),
+                                                $(".todaylist li").each(function() {
+                                                    $(this).attr("applyAmount") > 0 ? ($(this).removeClass("open").addClass("close"), $(this).find(".num").hide(), $(this).find(".applysuccess").show(), $(this).find(".canApplyAmount").html($(this).attr("applyAmount") + "股"), $(this).find(".applysucctxt").html("已申购"), $(this).find(".icon_l").removeClass("choose"), $(this).removeClass("choose_pa")) : 1e4 * parseFloat($(this).attr("buyCeil")) < $(this).attr("dataAmount") && ($(this).find(".canApplyAmount").html(parseFloat($(this).attr("buyCeil")) + "万股"), $(this).find(".numin").html(1e4 * parseFloat($(this).attr("buyCeil"))).data("count", 1e4 * parseFloat($(this).attr("buyCeil"))), $(this).find(".applysucctxt").html("顶格申购"))
+                                                }),
+                                                $(".todaylist li").each(function() { 
+                                                    if($(this).attr("dataapplystatus")==0){
+                                                        $(this).find(".applysuccess").show().css('background-image','url(img/applyfail.png)');
+                                                        $(this).find(".applysucctxt").html($(this).attr("dataapplyStatusName"));
+                                                        $(this).find(".canApplyAmount").hide();
+                                                        $(this).removeClass("open").addClass("close");
+                                                        $(this).find(".num").hide();
+                                                        $(this).find(".icon_l").removeClass("choose");
+                                                        $(this).removeClass("choose_pa")
+                                                    }
+                                                }),
+                                                s();
+                                                $(".con .open .icon_l").each(function(){
+                                                    var oo=$(this);
+                                                    $(this).click(function(){
+                                                        if(oo.hasClass('choose')){
+                                                            oo.removeClass("choose"),
+                                                                oo.parent().removeClass("choose_pa"),
+                                                            0 == $(".choose_pa").length && $(".gobtn").addClass("gobtn_off")
+                                                        }else{
+                                                            return 0 == oo.parent("li").find(".numin").html() ? ($(".tipsuccess").show().html("申购数量不可为0"), void setTimeout(function() {
+                                                                    $(".tipsuccess").hide()
+                                                                },
+                                                                3e3)) : (oo.addClass("choose"), oo.parent().addClass("choose_pa"), void $(".gobtn").removeClass("gobtn_off"))
+                                                        }
+                                                    });
+                                                });
+                                                $(".btn_add").click(function() {
+                                                    return $(this).prev().html(parseInt($(this).prev().html()) + 500 * parseInt($(this).attr("datacount"))),
+                                                    $(this).parents(".msg").prev(".icon_l").addClass("choose"),
+                                                    $(this).parents(".msg").parent("li").addClass("choose_pa"),
+                                                    s(),
+                                                    parseInt($(this).prev().html()) >= parseInt($(this).prev().data("count")) && $(this).prev().html($(this).prev().data("count")),
+                                                    !1
+                                                }),
+                                                $(".btn_reduce").click(function() {
+                                                    return $(this).next().html(parseInt($(this).next().html()) - 500 * parseInt($(this).attr("datacount"))),
+                                                    parseInt($(this).next().html()) <= 0 && ($(this).next().html(0), $(this).parents(".msg").prev(".icon_l").removeClass("choose"), $(this).parents(".msg").parent("li").removeClass("choose_pa")),
+                                                    s(),
+                                                    !1
+                                                }),
+                                                $(".con .todaylist .msg").each(function() { 
+                                                    var odiv=$(this);
+                                                    $(this).click(function(){
+                                                        window.location.href = i + "/sapi/page/ipodetail.jspa?buyCode=" + odiv.attr("databuycount") + "&fillApplyAmount=1"+"&dataapplystatus="+odiv.parent("li").attr('dataapplystatus')+"&dataapplyStatusName="+encodeURI(odiv.parent("li").attr('dataapplyStatusName'))
+                                                    });
+                                                    
+                                                }),
+                                                $(".con .msg .numbox .numin").click(function(t) {
+                                                    t.stopPropagation()
+                                                })
+                                            }
+                                        },
+                                        0)
+                                    }
+                                }
+                                function s() {
+                                    var t = function() {
+                                        setTimeout(function() {
+                                            jrj.jsCallNative("130", JSON.stringify({
+                                                method: "get",
+                                                url: domain1 + "/sapi/v2/ipo/queryApplyListFeature",
+                                                params: {},
+                                                callback: "callbackwaitinfo",
+                                                version: "3.10.0"
+                                            }))
+                                        },
+                                        20)
+                                    };
+                                    t(),
+                                    window.callbackwaitinfo = function(t) {
+                                        setTimeout(function() {
+                                            t = convertToJsonObject(t);
+                                            var s = t.data,
+                                            a = "";
+                                            if (0 == t.retcode) {
+                                                if (0 == s.list.length) return void $(".waitlist").html('<div class="nothing">今日无待申购</div>');
+                                                for (var n = 0; n < s.list.length; n++) {
+                                                    a += '<div class="inlist"><p class="date">' + s.list[n].onlAplDate + " " + s.list[n].onlAplWeek + "</p><ul>";
+                                                    for (var e = 0; e < s.list[n].list.length; e++) {
+                                                        var o = s.list[n].list[e],
+                                                        l = ipotype(o.ipoMkt);
+                                                        a += '<li databuycount="' + o.buyCode + '"><div class="msg"><h3 class="clearfix"><i class="type color' + o.ipoMkt + '">' + l + "</i><span>" + o.stockName + "  " + o.buyCode + '</span></h3><p class="clearfix"><span>申购价格</span><em>' + doublenum(changenull(o.issPrc)) + '</em><span class="type2">市盈率</span><em>' + o.peCeilAft + '</em></p><p class="clearfix"><span>股份上限</span><em>' + o.buyCeil + '万股</em><span class="type2">顶格市值</span><em>' + o.topMarketValue + '万</em></p></div><span class="icon_r fl"></span></li>'
+                                                    }
+                                                    a += "</ul></div>"
+                                                }
+                                                a = changenull(a),
+                                                $(".waitlist").html(a),
+                                                $(".waitlist li").each(function() { 
+                                                    var oli=$(this);
+                                                    oli.click(function(){
+                                                        window.location.href = i + "/sapi/page/ipodetail.jspa?buyCode=" + oli.attr("databuycount") + "&fillApplyAmount=0&dataapplystatus=abc&dataapplyStatusName=2131";
+                                                    });
+                                                })
+                                            }
+                                        },
+                                        0)
+                                    }
+                                };
+                                a();
+                                function a() {
+                                    var t = new Date,
+                                    s = setdateval(t);
+                                    $(".newtime").val(s);
+                                    var a = t.getTime(),
+                                    n = a - 5184e5;
+                                    t.setTime(n),
+                                    $(".prevtime").val(setdateval(t));
+                                    var e = new Date;
+                                    e.setMonth(e.getMonth() - 3);
+                                    var o = setdateval(e);
+                                    $(".seldate span").click(function() {
+                                        var t = $(".prevtime").val(),
+                                        a = $(".newtime").val();
+                                        if (compateDate(t, a) > 0) return $(".tipsuccess").html("请确保结束时间大于开始时间").show(),
+                                        void setTimeout(function() {
+                                            $(".tipsuccess").hide()
+                                        },
+                                        2e3);
+                                        if (compateDate(t, s) > 0 || compateDate(a, s) > 0 || compateDate(t, o) < 0 || isNaN(compateDate(t, a))) return $(".tipsuccess").html("暂时只能查询最近三个月的记录").show(),
+                                        void setTimeout(function() {
+                                            $(".tipsuccess").hide()
+                                        },
+                                        2e3);
+                                        var n = function() {
+                                            setTimeout(function() {
+                                                jrj.jsCallNative("130", JSON.stringify({
+                                                    method: "get",
+                                                    url: domain1 + "/sapi/v2/ipo/queryApplyListHistory",
+                                                    params: {
+                                                        beginDate: t,
+                                                        endDate: a
+                                                    },
+                                                    callback: "callbackdateinfo",
+                                                    version: "3.10.0"
+                                                }))
+                                            },
+                                            20)
+                                        };
+                                        n()
+                                    });
+                                    var l = function() {
+                                        setTimeout(function() {
+                                            jrj.jsCallNative("130", JSON.stringify({
+                                                method: "get",
+                                                url: domain1 + "/sapi/v2/ipo/queryApplyListHistory",
+                                                params: {},
+                                                callback: "callbackmybuyinfo",
+                                                version: "3.10.0"
+                                            }))
+                                        },
+                                        20)
+                                    };
+                                    l(),
+                                    window.callbackmybuyinfo = window.callbackdateinfo = function(t) {
+                                        setTimeout(function() {
+                                            t = convertToJsonObject(t);
+                                            var s = t.data,
+                                            a = "";
+                                            if (0 == t.retcode) {
+                                                if (0 == s.list.length) return void $(".mybuylist").html('<div class="nothing">无申购记录</div>');
+                                                for (var n = 0; n < s.list.length; n++) {
+                                                    a += '<div class="inlist"><p class="date">' + s.list[n].applyDate + " " + s.list[n].applyDateOfWeek + "</p><ul>";
+                                                    for (var e = 0; e < s.list[n].list.length; e++) {
+                                                        var o = s.list[n].list[e],
+                                                        l = ipotype(o.ipoMkt);
+                                                        a += '<li databuycount="' + o.buyCode + '"><div class="msg"><h3 class="clearfix"><i class="type color' + o.ipoMkt + '">' + l + "</i><span>" + o.stockName + "  " + o.buyCode + '</span><em class="paysta paystacolor' + o.payStatus + '">' + paystutas(o.payStatus) + '</em></h3><p class="clearfix"><span>申购价</span><em>' + doublenum(o.issPrice) + '</em><span class="type2">中签数</span><em>' + o.appliedSuccessStockAmount + '</em></p><p class="clearfix"><span>申购数</span><em>' + o.applyAmount + '股</em><span class="type2">应缴款</span><em>' + o.shouldPayment + '</em></p></div><span class="icon_r fl"></span><span class="status skewicon' + o.appliedStatus + '"></span></li>'
+                                                    }
+                                                    a += "</ul></div>"
+                                                }
+                                                a = changenull(a);
+                                                $(".mybuylist").html(a),
+                                                a = "",
+                                                $(".paysta").each(function() {
+                                                    "undefined" == $(this).html() || "null" == $(this).html() ? $(this).hide() : $(this).show()
+                                                }),
+                                                $(".mybuylist li").click(function() {
+                                                    window.location.href = "record_rc.html?buyCode=" + $(this).attr("databuycount")
+                                                })
+                                            }
+                                        },
+                                        0)
+                                    }
+                                }
+                                window.addEventListener("resize", change, !1),
+                                $(".dlg-btn-wrap .submit,.dlg-btn-wrap .dlg-close,.focus-dlg").click(function() {
+                                    $("body").removeClass("md-dialog-show")
+                                }),
+                                $(".focus-dlg div").unbind().click(function(t) {
+                                    t.stopPropagation()
+                                });
+                                var i = location.protocol + "//" + location.host,
+                                n = [];
+                                $(".newrule a").click(function() {
+                                    window.location.href = i + "/sapi/page/iporule.jspa"
+                                }),
+                                $(".hd_r .btn").click(function() {
+                                    window.location.href = i + "/sapi/page/ipopay.jspa"
+                                });
+                                var e = function() {
+                                    setTimeout(function() {
+                                        jrj.jsCallNative("130", JSON.stringify({
+                                            method: "get",
+                                            url: domain1 + "/sapi/v2/ipo/queryIpoFund",
+                                            params: {},
+                                            callback: "callbackheadinfo",
+                                            version: "3.10.0"
+                                        }))
+                                    },
+                                    20)
+                                };
+                                e(),
+                                window.callbackheadinfo = function(t) {
+                                    setTimeout(function() {
+                                        t = convertToJsonObject(t);
+                                        var s = t.data;
+                                        if (0 == t.retcode) {
+                                            $(".shAmount").html(s.shAmount),
+                                            $(".szAmount").html(s.szAmount),
+                                            $(".needPayBalance").html(three0(s.needPayBalance) + "元");
+                                            var a = s.enableBalance;
+                                            a = a > 1e4 ? (a / 1e4).toFixed(2) + "万": three0(a) + "元",
+                                            $(".enableBalance").html(a)
+                                        }
+                                    },
+                                    0)
+                                },
+                                t(),
+                                $(".gobtn").click(function() {
+                                    if (n.length = 0, 0 != $(".choose_pa").length) {
+                                        $("body").addClass("md-dialog-show");
+                                        for (var s = "",
+                                        a = 0; a < $(".choose_pa").length; a++) {
+                                            var e = $(".choose_pa").eq(a),
+                                            o = "";
+                                            o = 1 == e.find(".btn_add").attr("datacount") ? "SZ": "SH",
+                                            n.push({
+                                                stockcode: e.find(".buyCode").html(),
+                                                stockName: e.find(".stockName").html(),
+                                                entrustPrice: e.find(".issPrc").html(),
+                                                entrustAmount: e.find(".numin").html(),
+                                                exchangeType: o
+                                            }),
+                                            s += "<li>" + e.find(".stockName").html() + " " + e.find(".numin").html() + "股</li>"
+                                        }
+                                        $(".dlg-con ul").html(s),
+                                        $(".dlg-con .msg").show(),
+                                        $(".dlg-close").show(),
+                                        $(".dlg-con .tit,.dlg-con .subtit").hide(),
+                                        s = "",
+                                        $(".submit").hide(),
+                                        $(".submitbtn").show(),
+                                        $(".submitbtn").unbind().click(function() {
+                                            var s = function() {
+                                                setTimeout(function() {
+                                                    jrj.jsCallNative("130", JSON.stringify({
+                                                        method: "post",
+                                                        url: domain1 + "/sapi/v2/ipo/ipobatchapply",
+                                                        params: n,
+                                                        header: {
+                                                            "Content-Type": "application/json"
+                                                        },
+                                                        callback: "callbackgobtninfo",
+                                                        version: "3.10.0"
+                                                    }))
+                                                },
+                                                20)
+                                            };
+                                            s(),
+                                            window.callbackgobtninfo = function(s) {
+                                                setTimeout(function() {
+                                                    if (s = convertToJsonObject(s), 0 == s.retcode) {
+                                                        $(".dlg-con .msg").hide();
+                                                        for (var a = "",
+                                                        i = 0; i < s.data.list.length; i++) {
+                                                            var n = s.data.list[i];
+                                                            $("body").addClass("md-dialog-show"),
+                                                            $(".dlg-close").hide(),
+                                                            0 == n.applyStatus ? $(".dlg-con .tit").show().html(n.applyMsg) : (a += n.applyMsg + "<br />", $(".dlg-con .subtit").show().html(a))
+                                                        }
+                                                        a = "",
+                                                        $(".submit").show(),
+                                                        $(".submitbtn").hide()
+                                                    } else errorMsg(s.msg);
+                                                    t()
+                                                },
+                                                0)
+                                            }
+                                        })
+                                    }
+                                })
+                            })
+                        }else if(transResp.data.loginCode==-1){
+                            jrj.jsCallNative('134', JSON.stringify({}));
+                        }
+                    }
+
+                },0);
+            };
+
+
+        };
+
+
+    </script>
+    <script type="text/template" id="dlg-error"><div class="dlg-time" style="height:8rem;">
+    <p style="text-align: center;margin-top: 1.5rem;"></p>
+    <div class="dlg-btn-wrap layout-box">
+        <a class="dlg-btn submiterror" style="color:#3996F2">确认</a>
+    </div>
+    </div></script>
+</head>
+<body>
+<header class="clearfix">
+    <div class="hd_l fl">
+        <p>您账户可申购额度为(股)</p>
+        <ul class="clearfix">
+            <li class="fl"><strong class="num shAmount"></strong> <span class="type">沪市</span></li>
+            <li class="fl"><strong class="num szAmount"></strong> <span class="type">深市</span></li>
+        </ul>
+    </div>
+    <div class="hd_r fr">
+        <ul>
+            <li class="clearfix"><span class="fl">可用余额</span> <i class="fr enableBalance"></i></li>
+            <li class="clearfix"><span class="fl">中签需缴</span> <i class="fr needPayBalance"></i></li>
+        </ul>
+        <a href="javascript:;" class="btn">中签缴款</a>
+    </div>
+</header>
+<section class="con">
+    <div class="clearfix tab_btn">
+        <span class="cur">今日申购</span>
+        <span>待申购</span>
+        <span>申购记录</span>
+    </div>
+    <div class="todaylist tab_bd">
+        <ul></ul>
+        <p class="newrule"><a href="javascript:;">打新规则，一看就会</a></p>
+        <input type="button" value="一键申购" class="gobtn gobtn_off" />
+    </div>
+    <div class="waitlist tab_bd"></div>
+    <div class="mybuy tab_bd">
+        <div class="seldate clearfix">
+            <b><input type="date" value="2014-01-13" class="prevtime" /></b>
+            <i>-</i>
+            <b><input type="date" value="2016-01-13" class="newtime" /></b>
+            <span>查询</span>
+        </div>
+        <div class="mybuylist"></div>
+    </div>
+</section>
+<div class="focus-dlg">
+    <div class="dlg-con">
+        <div class="tit"></div>
+        <p class="subtit red"><em></em></p>
+        <div class="msg clearfix">
+            <span class="fl">您即将申购：</span>
+            <ul class="fl"></ul>
+        </div>
+        <div class="dlg-btn-wrap layout-box">
+            <a class="dlg-btn dlg-close">取消</a>
+            <a class="dlg-btn submit">确认</a>
+            <a class="dlg-btn submitbtn">确认</a>
+        </div>
+    </div>
+</div>
+<div class="md-overlay"></div>
+<div class="tipsuccess"></div>
+</body>
+</html>

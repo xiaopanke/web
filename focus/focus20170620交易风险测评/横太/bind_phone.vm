@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>恒泰交易</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style>
+	body{
+		background:#fff;}
+       .query {
+/* background: #fff; */
+-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; 
+width: 100%;
+ margin:0;
+ border:none;
+/* overflow: hidden; */
+padding-top: 0px;
+}
+.logo{
+	width:30%;
+           min-width:200px;
+            background: red;
+	display:block;
+     margin:30px auto;
+}
+/*.logodiv{
+     background: url(images/sep.jpg) no-repeat center center;
+     background-size: 40%;
+     margin: 30px auto;
+     height: 50px;
+     width: 100%;
+}
+*/
+    .query .query-password li{
+		width:90%;}
+		.query footer span{
+			width:90%;
+			display:block;
+			-moz-border-radius: 5px;
+
+-webkit-border-radius:5px; 
+ border-radius:5px;
+  margin:0px auto;
+  float:none;
+  color:#de3031;
+  border:1px solid #999999;
+  padding:0 10px;}
+.query footer{
+	 width:100%;
+	 border:none;
+	 background:none;
+	 line-height:48px;
+	}
+	
+	.query .query-password li{
+		border:none;
+		border-bottom:1px solid #d1d1d1;
+		-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; }
+    </style>
+	
+</head>
+<body>
+	<section class="query">
+		<form id="bindform" name="bindform" action="/stockauth/bindForm.jspa" method="post"> 
+		<input type="hidden" name="p" value="$!{p}" />
+        <input type="hidden" name="s" value="$!{s}" />
+        <img class="logo" src="/stockauth/images/logo.jpg" alt=""/>
+	    
+	    <ul class="query-password">
+	    	<li>
+	    	    <span>资金账号</span>
+	    	    <span class="tr PWD">
+	    	       <input type="text" id="fundaccount" name="fundaccount"  maxlength="30"  value="">
+	    	       <p>
+	    	       	 请输入账号
+	    	       </p>
+	    	    </span>
+	    	</li>
+	    	<li>
+	    	    <span>交易密码</span>
+	    	    <span class="tr PWD">
+	    	       <input type="password" id="password" name="password" value="" maxlength="20" >
+	    	       <p>
+	    	       	 请输入密码
+	    	       </p>
+	    	    </span>
+	    	</li>
+	    </ul>
+	    <footer>
+	    	<span class="form-submit">立即绑定</span>
+	    </footer>
+	    </form>
+	    
+	    <form id="cpform" style="display:none" name="bindform" action="/stockauth/syxMobilePage.jspa" method="post"> 
+		<input type="hidden" name="p" value="$!{pp}" />
+        <input type="hidden" name="s" value="$!{sign}" />
+        <input type="hidden" name="fund_id" value="$!{fund_id}" />
+        <input type="hidden" id = "cp_choose" name="choose" value="0" />
+        
+	    </form>
+	</section>
+	<script>
+      $("span.form-submit").click(function(){
+    		$("#bindform").submit();
+      });
+	  
+      $(function() {
+	  // check: 0=评测通过，-1=没有进行评测， -2 = 评测即将过期，-3=评测已过期
+	  var check = '$!{check}';
+	  if(check == '-1'){
+	  	var con;
+		con=confirm("没有进行风险测评？");
+		if(con==true){
+			goToCp();
+		}else{
+			goToIndex();
+		}
+	  }else if(check == '-2'){
+	  var con;
+		con=confirm("风险评测即将过期？");
+		if(con==true){
+			goToCp();
+		}else{
+			goToIndex();
+		}
+	  }else if(check == '-3'){
+	  var con;
+		con=confirm("风险评测已过期？");
+		if(con==true){
+			goToCp();
+		}else{
+			goToIndex();
+		}
+	  }
+	  
+	  function goToCp(){
+	  	$("#cp_choose").val(1);
+		$("#cpform").submit();
+	  }
+	  
+	  function goToIndex(){
+	  	$("#cpform").submit();
+	  }
+	  
+	  $("input[type=text]").blur(function(){
+                  var value=$(this).val();
+                  if (value=="") {
+                           $(this).siblings("p").show();
+                  } else{
+                           $(this).val(value);
+                  }
+        }); 
+		
+            $(".PWD p").on('touchend', function (e){
+                 $(this).hide();
+                 $(this).siblings("input").focus();
+                 e.preventDefault();
+            })
+        $("input[type=password]").blur(function(){
+                  var value=$(this).val();
+                  if (value=="") {
+                           $(this).siblings("p").show();
+                  } else{
+                           $(this).val(value);
+                  }
+        });
+		
+       /*$("input[type=text]").on('touchend',function(e){
+                   $(this).val("");
+                   $(this).focus();
+                     e.preventDefault();
+           
+        });
+        $("input[type=text]").blur(function(){
+                   var value=$(this).val();
+                  if(value==""){
+                            $(this).val("请输入账户");
+                  }else{
+                            $(this).val(value);
+                  }
+        });
+		*/
+      })
+	</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发现战队</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="战队详情" />
+    <meta name="description" content="战队详情" />
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus_zixuangu/flexible.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/css/find_team.css?v=0"> -->
+<!--     <link rel="stylesheet" type="text/css" href="css/find_team.css"> -->
+<style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+body, button, input, select, textarea { font:12px/24px "Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, em, i { font-style: normal; }
+li { list-style: none; }
+a { text-decoration: none; }
+a:link { text-decoration: none; }
+a:active{  background:none !important;  }
+legend { color: #000; }
+fieldset, img { border: 0; }
+button, input, select, textarea { font-size: 100%; line-height: normal; }
+table { border-collapse: collapse; border-spacing: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+.clearfix:after, .wrapper:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+body { margin: 0; padding: 0;  background: #efeff4;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.fl{float: left;}.fr{float: right;}
+.disnone{  display: none;}
+.fall {color: #2DC678 !important;}
+.up {color: #F24637 !important;}
+.outer{width: 100%;overflow: hidden;}
+/*战队信息*/
+.team_list{height: 4.7733rem;background-color: #fff;margin-top: 0.2667rem;padding-left: 0.4rem;padding-right: 0.4rem;}
+.team_header{width: 100%;height: 0.88rem;padding-top: 0.48rem;}
+.team_header>i{display: block;width: 0.4267rem;height:0.4267rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/team_tui.png');background-size: 0.4267rem 0.4267rem;float: left;margin-left: 0.2667rem;}
+.teamNumberOne{display: block;width: 0.5067rem;height: 0.56rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/teamNumberOne.png');background-size: 0.5067rem 0.56rem;float: left; }
+.teamNumberTwo{display: block;width: 0.5067rem;height: 0.56rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/teamNumberTwo.png');background-size: 0.5067rem 0.56rem;float: left; }
+.teamNumberThree{display: block;width: 0.5067rem;height: 0.56rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/teamNumberThree.png');background-size: 0.5067rem 0.56rem;float: left; }
+.team_header>p{font-size: 0.4533rem;line-height: 0.4667rem; color: #333333;font-weight: 600;float: left;}
+.team_header>img{width: 1.3333rem;height: 0.4267rem;margin-left: 0.1067rem;display: block;float: left;}
+.team_list ul{width: 100%;height: 1.9467rem;background: #f7f7f7;}
+.team_list ul li{width: 33.33%;float: left;text-indent: 0.5333rem;padding-top: 0.4267rem;height: 1.0133rem;position: relative;}
+.team_list ul li p{font-size: 0.32rem;line-height: 0.3333rem;color: #888888;margin-top: 0.2667rem;position: absolute;bottom: 0;}
+.team_list ul li:first-child span{font-size: 0.5867rem;color: #333333;font-weight: 600;}
+.team_list ul li:first-child +li span,.team_list ul li:first-child +li +li span{font-size: 0.4267rem;color: #333333;margin-top: 0.1067rem;display: block;}
+.team_leader{width: 100%;height: 1.0667rem;padding-top: 0.4rem;}
+.team_leader>div{width: 0.64rem;height: 0.64rem;border-radius: 50%;background-color: red;float: left;overflow: hidden;}
+.team_leader>div img{width: 0.64rem;height: 0.64rem;}
+.team_leader>p{font-size: 0.3733rem;line-height: 0.64rem;color: #333333;margin-left: 0.2133rem; float: left;}
+.team_leader>.join_this_team{display: block;height: 0.7467rem;width: 2.6667rem;background: url("https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/joinTeam.png") no-repeat;background-size: 100% 100%; float: right;font-size: 0.32rem;color: #fff;line-height: 0.7467rem;text-align: center;margin-top: -0.07rem;}
+.team_leader>.join_me_team{display: block;height: 0.7467rem;width: 2.6667rem;background: url("https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/join_me_team.png") no-repeat;background-size: 100% 100%; float: right;font-size: 0.32rem;color: #fff;line-height: 0.7467rem;text-align: center;margin-top: -0.07rem;}
+.a{width: 3.4667rem height: 0.8533rem;font-size: 0.3467rem;line-height: 0.36rem;margin-top: 0.4533rem;text-align: center;margin-top:0.4rem;}
+._v-container>._v-content>.pull-to-refresh-layer[data-v-ecaca2b0]{margin-top: -100px !important;}
+.warn_over{width: 5rem; position:fixed;left: 50%;bottom: 10%; z-index: 25;font-size: 0.4rem;line-height: 0.4rem; height: 0.4rem ;margin-left: -2.5rem;background-color: #282001;text-align: center;border-radius: 0.1rem;color: #fff;opacity: 0.8;padding: 0.2rem 0;}
+.gif{display: block;width:2.9333rem;height: 2.4533rem;margin: 0 auto;margin-top: 40%; }
+.innerBox{display: none;} 
+</style>
+</head>
+<body>
+<div class="outer" id="app">
+	<scroller :on-refresh="refresh" :on-infinite="infinite"
+    style="padding-top: 44px;">
+    <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/gif0.gif" class="gif">
+    <div class="innerBox">
+		<div class="team_list" v-for='item in list' >
+			<div class="team_header" :teamId="item.teamId" @click="goTeamDetail">
+				<p>{{item.teamName}}</p>
+				<img :src="moneyPic[item.advantageDesc]" v-show="item.advantageDesc">
+				<i v-show="item.recommend"></i>
+			</div>
+			<ul :teamId="item.teamId" @click="goTeamDetail">
+				<li>
+					<span :class="{up:(item.teamProfit > 0),fall:(item.teamProfit< 0)}">{{item.teamProfit.toFixed(2)}}%</span>
+					<p>总收益</p>
+				</li>
+				<li>
+					<span>{{item.membersNum}}</span>
+					<p>成员数</p>
+				</li>
+				<li>
+					<span>{{item.tradeCapital.toFixed(2)}}万</span>
+					<p>操盘金</p>
+				</li>
+			</ul>
+			<div class="team_leader">
+				<div  @click="goLeader"  :tgId="item.tgId"><img  :src="item.tgImgUrl"></div>
+				<p  @click="goLeader"  :tgId="item.tgId">{{item.tgName}}</p>
+				<span class="join_this_team"  v-show="item.joinStatus=='2'"  :teamId="item.teamId" @click='jointhisTeam' ></span>
+				<span class="join_me_team" v-show="item.joinStatus=='1'"   :teamId="item.teamId" @click="goTeamDetail" ></span>
+			</div>
+		</div>    	
+    </div>
+
+	</scroller>	
+	<div class="warn_over disnone">不能离开战队</div>
+</div>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/js/vue.min.js'></script>
+<script type="text/javascript" src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/vue-scroller.min.js'></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			list:[],
+			moneyPic:{
+				"5倍红包":"https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/fiveMoney.png",
+				"3倍红包":"https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/threeMoney.png",
+				"2倍红包":"https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/twoMoney.png"
+			},
+			teamId:0,
+			pn:1
+			
+		},
+		beforeCreate:function(){},
+		created:function(){},
+		computed:{},
+		mounted:function(){
+				this.loadRefresh();
+			},
+		methods:{
+			goTeamDetail:function(){
+				var teamId = $(event.currentTarget).attr('teamId');
+				window.location.href='http://itougu.jrj.com.cn/activity/app/team_detail.jspa?teamId='+teamId+''
+			},
+			jointhisTeam:function(){
+            // 参加战队
+            var self = this ;
+	          if(window.localStorage.getItem("ssoId") != "null"){
+	              var ssoId = window.localStorage.getItem("ssoId");
+	              var token = window.localStorage.getItem("token");
+	              var teamId = $(event.currentTarget).attr('teamId');
+	              $.ajax({
+	               url: ' http://itougu.jrj.com.cn/match/v7/team/joinTeam.jspa',
+	               type: 'get',
+	               data:{
+	                 userId:ssoId,
+	                 teamId:teamId
+	               },
+	               dataType: 'json',
+	               success:function(jsondata){ 
+	                 console.log(jsondata)
+	                 if(jsondata.retCode=='0'){
+	                    $('.warn_over').html("报名成功！")
+	                    $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                                self.loadRefresh();
+                            },2000); 
+	                 }else{
+	                    $('.warn_over').html(jsondata.msg)
+	                    $('.warn_over').show();
+	                     setTimeout(function(){
+	                        $('.warn_over').fadeOut();
+	                    },2000); 
+	                 }
+	               }
+	              })
+	            }else{
+	               jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+	              }
+			},
+			refresh: function (done) {
+                var self = this;
+                var ssoId = window.localStorage.getItem("ssoId");
+                setTimeout(function () {
+					self.loadRefresh();
+                    done();
+                }, 1500)
+            },
+            loadRefresh:function(){
+            	var that = this;
+                window.devId = '$!{devId}';
+                window.myStocks = []; 
+                window.source = '$!{source}';
+                window.appver = '$!{appver}';
+				var ssoId = '$!{ssoId}'; 
+                var token = '$!{spToken}';                 
+				if(ssoId=="null"){
+					ssoId = window.localStorage.getItem("ssoId");
+					token = window.localStorage.getItem("token");        	
+                } 
+				$.ajax({
+					url: 'http://itougu.jrj.com.cn/match/v7/team/queryDiscoveryTeam.jspa',
+					type: 'get',
+					data:{
+						userId:ssoId,
+						pn:1,
+						ps:10
+					},
+					dataType: 'json',
+					success:function(jsondata){
+						if(jsondata.retCode=='0'){
+							that.list=jsondata.teamList;
+							console.log(jsondata.teamList.length)
+							console.log(JSON.stringify(jsondata.teamList))
+						}
+					}
+
+				})
+			
+		        setTimeout(function(){
+		          $(".gif").hide();
+		          $('.innerBox').show();   
+		          $(".redEnvelope").show();       
+		        },1000) 
+            },
+            infinite: function (done) {
+	            var that = this
+	            var ssoId = window.localStorage.getItem("ssoId");
+	            setTimeout(function () {
+	                var url = 'http://itougu.jrj.com.cn/match/v7/team/queryDiscoveryTeam.jspa';
+	                var pn = that.pn;    
+	                // 判断当前是总收益还是月收益
+	                    pn++;
+	                    that.pn=pn;
+	                    $.ajax({
+	                        url:  url,
+	                        type: 'get',
+	                        data:{
+								userId:ssoId,
+								pn:pn,
+								ps:10
+	                        },
+	                        dataType: 'json',
+	                        success:function(jsondata){
+	                        	console.log(pn)
+	                            if(jsondata.retCode=="0"){
+                                    for(var i = 0 ;i < jsondata.teamList.length ; i++){
+
+                                        that.list.push(jsondata.teamList[i]);
+                                    } 	                                        
+                                    if(jsondata.teamList.length <= 10){
+                                    	console.log("hahaha")
+                                        setTimeout(function(){
+                                        	done(true)
+                                        },1500)
+                                        return;
+	                                }                                        
+	                            }else{
+                                    setTimeout(function(){
+                                    	done(true)
+                                    },1500)
+                                    return;	
+	                            }
+	                        }
+	                    }) 
+	              done();
+	            }, 1500)
+	        },
+	        goLeader:function(){
+              // 去投顾主页
+              var tgId = $(event.currentTarget).attr("tgId");
+              jrj.jsCallNative("113",JSON.stringify({id:tgId})) 
+            },
+
+		}
+	})
+
+
+
+</script>
+</body>
+</html>

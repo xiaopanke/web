@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset = "UTF-8"/>
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<meta pragma = "cache-control" content = "no-cache, no-store, must-revalidate"/>
+		
+		<style type = "text/css">
+			html, body{
+				margin: 0;
+				padding: 0;
+				position: relative;
+			}
+			canvas{
+				position: absolute;
+				box-shadow: 0 0 0.5em #CCCCCC;
+			}
+			#canvas1{
+				z-index: 2;
+				position: absolute;
+				left: 0;
+				top: 100px;
+			}
+			#canvas2{
+				z-index: 1;
+				background: black;
+				position: absolute;
+				left: 0;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="" id="save_href">
+			<img src="" id="save_img" style="z-index: 10">
+		</a>
+		<canvas id = "canvas1" width = "100%" height = "80%"></canvas>
+		<canvas id = "canvas2" width = "100%" height = "80%"></canvas>
+		
+		
+		<script type = "text/javascript" src = "data.js"></script>
+		<script type = "text/javascript" src = "console.js"></script>
+		<script type = "text/javascript" src = "k.js"></script>
+		<script type = "text/javascript">
+		(function(){
+			var getOffsetLeftPage = function(ele){//获取距离页面左边的距离，即实际横坐标，以像素为单位
+			       var lt = ele.offsetLeft;
+			       while(ele = ele.offsetParent)
+			              lt += ele.offsetLeft;
+			      
+			       return lt;
+			};
+			var getOffsetTopPage = function(ele){//获取距离页面顶端的距离，即实际纵坐标，以像素为单位
+			       var tp = ele.offsetTop;
+			       while(ele = ele.offsetParent)
+			                     tp += ele.offsetTop;
+			      
+			       return tp;
+			};
+			var getScrolledLeft = function(ele){
+			       var sl = ele.scrollLeft;
+			       while(ele = ele.parentNode)
+			              sl += ele.scrollLeft == undefined? 0: ele.scrollLeft;
+			       return sl;
+			};
+			var getScrolledTop = function(ele){
+			       var st = ele.scrollTop;
+			       while(ele = ele.parentNode)
+			              st += ele.scrollTop == undefined? 0: ele.scrollTop;
+			       return st;
+			};
+	
+			var canvas1 = document.querySelector("#canvas1");
+			var canvas2 = document.querySelector("#canvas2");
+			window.ctx = canvas1.getContext("2d");
+			window.ctx2 = canvas2.getContext('2d');
+			//让canvas充满屏幕
+			ctx.canvas.width  = window.innerWidth;
+            ctx.canvas.height = window.innerHeight-100;
+            ctx2.canvas.width  = window.innerWidth;
+            ctx2.canvas.height = window.innerHeight-100;
+			var data = [];
+			for(var i = window.data.length - 1 - 112; i <= window.data.length - 1; i++){
+				var d = window.data[i];
+				data.push({time: new Date(d[0]).toLocaleDateString(), closingPrice: d[1], topPrice: d[2], bottomPrice: d[3], openingPrice: d[4], volume: d[5]});
+			}
+			
+			var k = new K(canvas1);
+			k.setDatas(data);
+			//k.renderK({offsetLeft: 50, height: canvas1.height * 0.7, offsetLeft: 80, offsetBottom: 0, labelRenderSpan: -1});
+			//k.renderV({offsetLeft: 50, height: canvas1.height * 0.28, y: canvas1.height * 0.72, offsetLeft: 80, offsetTop: 0, labelRenderSpan: 20, plotHorizontalLineNumber: 0});
+			
+			var x = 0, y = 0;
+			k.render({x: x, y: y, offsetLeft: 30, labelRenderSpan: 20});
+			var timer;
+			var f = function(e){
+				var clientX = e instanceof TouchEvent? e.changedTouches[0].clientX: e.clientX, clientY = e instanceof TouchEvent? e.changedTouches[0].clientY: e.clientY;
+				
+				var left = getOffsetLeftPage(canvas1) - getScrolledLeft(canvas1);
+				var top = getOffsetTopPage(canvas1) - getScrolledTop(canvas1);
+				
+				left = clientX - left;
+				top = clientY - top;
+				
+				var meta = k.getRenderMetadata();
+				//console.log(left, ops.x + ops.offsetLeft, ops.x + ops.width - ops.offsetRight);
+				
+				/* 根据位置计算对应的数据索引 */
+				if(left <= (x + meta.k_offsetLeft) || (left >= (x + meta.k_width - meta.k_offsetRight))){
+					console.warn("not in region");
+					return;
+				}
+				var _x = left - x - meta.k_offsetLeft;
+				var index = Math.floor(_x / (meta.k_barWidth + meta.k_barGap));
+				
+				console.log("render ", index ,'苑');
+				
+				K.setCanvas({canvas: canvas2});
+				K.clear();
+				
+				var opts = {
+					startX: x + meta.k_offsetLeft + index * (meta.k_barWidth + meta.k_barGap) + Math.floor(meta.k_barWidth / 2) + 0.5,
+					endX: x + meta.k_offsetLeft + index * (meta.k_barWidth + meta.k_barGap) + Math.floor(meta.k_barWidth / 2) + 0.5,
+					startY: y + meta.k_offsetTop + 0.5,
+					endY: y + meta.k_height + meta.v_height - meta.v_offsetBottom + 0.5,
+					
+					strokeStyle: "white"
+				};
+				
+				K.drawSolidLine(opts);
+			};
+			canvas1.addEventListener("touchstart", function(e){
+				// clearTimeout(timer);
+				// timer = setTimeout(function(){f(e)}, 100);
+				f(e);
+			});
+			canvas1.addEventListener("touchmove", function(e){
+				// clearTimeout(timer);
+				// timer = setTimeout(function(){f(e)}, 100);
+				
+				f(e);
+			});
+		})();
+		var canvas1 = document.querySelector("#canvas1");
+		var pen = canvas1.getContext('2d');
+		canvas1.onmousedown = function(e){
+			var e = e || window.event;
+			pen.moveTo(e.clientX-canvas1.offsetLeft,e.clientY-canvas1.offsetTop);
+			pen.strokeStyle = 'red';
+			document.onmousemove = function(e){
+				var e = e || window.event;
+				pen.lineTo(e.clientX-canvas1.offsetLeft,e.clientY-canvas1.offsetTop);
+				pen.stroke();
+			};
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}
+
+		var saveImg = document.querySelector('.save');
+		saveImg.onclick = function(){
+		    var svaeHref = document.getElementById("save_href");
+		    /*
+		     * 传入对应想要保存的图片格式的mime类型
+		     * 常见：image/png，image/gif,image/jpg,image/jpeg
+		     */
+		    var img = document.getElementById("save_img");
+		    var tempSrc = canvas1.toDataURL("image/png");
+		    svaeHref.href=tempSrc; 
+		    img.src=tempSrc;  
+		}
+		</script>
+	</body>
+</html>

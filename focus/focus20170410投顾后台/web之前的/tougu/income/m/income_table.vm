@@ -1,0 +1,51 @@
+
+
+	#foreach($order in $list)
+		#if($!{type} != 'send')
+		            <ul>
+					<li>
+					    <div class="item">
+					        <p>$!order.user_name</p>
+					    </div>
+					    <div class="item">
+					        <time>$!order.ctime_display</time>
+					    </div>
+					</li>
+					 <li>
+					     <div class="item">
+					         <div class="text">$!order.type_show_desc</div>
+					     </div>
+					     <div class="item">
+					         <em>+$!order.reward_display</em>
+					     </div>
+					 </li>
+					
+					 </ul>
+		#else
+				<ul>
+					<li>
+					    <div class="item">
+					        <p>$!order.bill_period</p>
+					    </div>
+					    <div class="item">
+					        <time>$!order.ctime</time>
+					    </div>
+					</li>
+					 <li>
+					     <div class="item">
+					         <div class="text">合计奖金：$!order.total_reward</div>
+					     </div>
+					     <div class="item">
+					         <em>实发奖金：$!order.give_reward</em>
+					     </div>
+					 </li>
+					
+					 </ul>
+		#end
+	#end
+#if($!{list.size()} == 0 && $!{total} == 0)
+		<div class='no-date'>
+			<i class='i-purse'></i>
+			<div class='text'>暂无收入明细</div>
+		</div>
+#end

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<title>海通证券简介</title>
+<link rel="stylesheet" href="//js.jrjimg.cn/common/zt-base-min.css" />
+<style>
+body{ background:#efefef; }
+.logohead{ border-bottom:1px solid #cacaca; overflow:hidden; }
+.logohead img{ display:block; width:100%; margin:0 auto; }
+
+.tab tr{ border-bottom:1px solid #cacaca; }
+.tab td{  padding:5px 0;text-align:center;}
+.tab td img{ display:block; width:60%; margin:0 auto;}
+.tab td p{ height:55px; display:box; display:-webkit-box; -webkit-box-pack:center; box-pack:center; box-align:center; -webkit-box-align:center; font-size:.875rem; color:#7a7a7a;}
+.tab td p i{ font-size:.75rem;}
+
+.khzb{ padding-top:10px;}
+.khzb img{ display:block; width:100%; margin:0 auto; }
+.tsbox{ width:100%;position: fixed;top: 0;right: 0;z-index: 300;}
+        .tsbox img {width: 98%;height: auto;display: block;margin: 0 auto;} 
+        .bgbig {width: 100%;height: 100%;background: url(//i0.jrjimg.cn/wap2014/wxbug/bgbig.png) repeat;position: fixed;top: 0;left: 0;z-index: 290;}
+</style>
+</head>
+<body>
+<div class="logohead"><img src="https://t.jrj.com.cn/stock/mobile/haitonglogo.png" /></div>
+<div class="iconbox">
+	<table class='tab' cellpadding="0" cellspacing="0" width="100%" border="0">
+    	<tr><td><p>万2.5交易佣金</p><img src="//i0.jrjimg.cn/tg_wapapp/icon13.png" /></td><td><p>7*24全天候开户</p><img src="//i0.jrjimg.cn/tg_wapapp/icon14.png" /></td></tr>
+        <tr><td><p>360度全方位服务</i></p><img src="//i0.jrjimg.cn/tg_wapapp/icon15.png" /></td><td><p>开户流程更简单</p><img src="//i0.jrjimg.cn/tg_wapapp/icon16.png" /></td></tr>
+    </table>
+</div>
+<div class="khzb"><img src="https://i0.jrjimg.cn/zqt-m/openAccount/images/zbbottom_ht.png?a" /></div>
+<!--open account : start-->
+<script>
+    var brokerId = 'HAITZQ' , AppName=getCookie('appver') ? 'itougu' : 'other';
+
+    function getCookie(name)
+            {
+            var bikky = document.cookie;
+            name += "=";
+            var i = 0;
+            while (i < bikky.length)
+            {
+            var offset = i + name.length;
+            if (bikky.substring(i, offset) == name)
+            {
+            var endstr = bikky.indexOf(";", offset);
+            if (endstr == -1) endstr = bikky.length;
+            return unescape(bikky.substring(offset, endstr));
+            }
+            i = bikky.indexOf(" ", i) + 1;
+            if (i == 0) break;
+            }
+            return null;
+        }
+</script>
+<script src="//i0.jrjimg.cn/zqt-m/openAccount/broker-open-account-https.js"></script>
+<!--open account : end-->
+</body>
+</html>

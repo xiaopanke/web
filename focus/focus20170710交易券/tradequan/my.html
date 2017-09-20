@@ -1,0 +1,319 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>我的交易券</title>
+  <style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#333; text-decoration: none; }
+a:hover{text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333; }
+body{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+
+
+.main {padding:0 .75rem;}
+.main a {color: #3c80f0;font-size: .75rem;text-decoration: underline;margin-top: 1rem;}
+.main ul li { margin-top: 1rem;}
+.main ul li img { width: 15rem;height: 5rem;margin-left: 1.3rem;margin-right: 1.1rem;}
+.abv .guize {text-align:center;font-size:.75rem;margin-top:1.4rem}
+.abv .guize a{ color: #666;}
+.abv .goquan {text-align:center;margin-top:2.2rem}
+.abv .goquan a{text-decoration: underline;color: #333; font-size: .75rem;}
+
+.layer { display: none; background: black; opacity: 0.6;position: fixed;top: 0;left: 0;width: 100%;height: 100%; }
+.alert {display: none; position: fixed;top: 50%;left: 50%;width: 15.5rem;background: #ffffff;margin-top: -4.4rem;margin-left: -7.75rem;border-radius: 2px; padding-bottom: 1rem;}
+.alert .title { font-size: .8rem;color: #333333;text-align: center;margin: 1rem 0;}
+.alert .content { color: #333333;font-size: .7rem;line-height: 1rem;padding: 0 .9rem; display: none;}
+.alert .button { width: 9.5rem;height: 1.5rem;background-color: #3996f2;color:#fff;text-align:center;margin: 1.2rem auto 0;line-height: 1.5rem;border-radius: 4px;}
+.chacha { background: url(https://i0.jrjimg.cn/zqt-m/myticket/img/chacha.png) no-repeat center center #fff;background-size: 60% 60%;width: 1.5rem;height: 1.5rem;position: absolute;border-radius: 50%;top: -1.8rem;right: 0;}
+
+
+.quan{ height: 4.75rem; background:url(https://i0.jrjimg.cn/zqt-m/myticket/img/go.png) no-repeat; background-size: 100% 100%; width:14.9rem; margin:0 auto; }
+.quan .meg {width:11.3rem; color: #fff;}
+.quan .tips{ font-size: .5rem; margin-left: 1.7rem;}
+.quan .tips span{float: left;}
+.quan .tips i{float: left;width:1.5rem; background: url(https://i0.jrjimg.cn/zqt-m/myticket/img/arrow.png) no-repeat 0 -2.15rem; background-size: 100% auto; height: 1rem;}
+.quan{}
+.quan .up em{float: left;font-size: 1.7rem;line-height: 2rem;margin-left: 1rem;margin-top: .9rem;}
+.quan .up b{float: left;font-size: 2.6rem;  font-weight: normal;    margin-left: -.2rem;margin-top: 1.2rem;}
+.quan .up strong{float: left;font-size: 1.3rem; line-height: 2rem;margin-top: .9rem;margin-right: .2rem;}
+.quan .up .tit{float: left;margin-top: 1.3rem;font-size: .9rem !important;  line-height: 1.5rem;}
+.quan time{ display: block;margin-left: 1.7rem;font-size: .6rem;}
+.quan .aside{width:3.4rem;text-align: center;}
+.quan .aside span{ display: block;width:1.4rem; font-size: 1.2rem; color: #654500;text-align: center; line-height: 1.4rem; margin:.5rem auto 0;}
+.quan .aside em{ display: block;width:1.6rem; background: url(https://i0.jrjimg.cn/zqt-m/myticket/img/arrow.png) no-repeat; background-size: 100% auto; height: 1rem; margin: 0 auto;}
+
+.quan0{}
+.quan0 .up .tit{ font-size: 1rem; margin-left: .4rem;}
+.quan0 time{ font-size: .75rem;}
+.quan10 .up b{ margin-left:-.5rem;font-size:2.2rem; }
+.quan10 .up em{ font-size:1rem; }
+.quan10 .up strong{ font-size:1.1rem; }
+.noquan{width:10rem; margin:5rem auto 0;background:url(https://i0.jrjimg.cn/zqt-m/myticket/img/waiting.png) no-repeat center 0;background-size: 4.425rem auto; padding-top: 4.5rem; text-align: center;font-size: .85rem; color: #333; display:none;}
+.nihuigou .up em,.nihuigou .up b,.nihuigou .up strong{ display: none;}
+.nihuigou .up .tit {    font-size: 1rem !important;margin-left: 1.7rem;margin-top: 1rem;}
+
+.footer{ font-size: .7rem; color: #333;text-align: center; position: fixed;bottom: 1rem; width: 100%; display: none;}
+
+.shuoming{ display: none; position: fixed;top:50%;left:50%;width:16.75rem; margin-left: -8.375rem;background: #fff;border-radius: 5px; }
+.shuoming p{font-size: .7rem; line-height: 1rem; color: #666;padding:1.5rem 1.3rem;}
+.shuoming .chacha{ top: .4rem;right: .3rem}
+.shuoming p{ display: none;}
+  </style>
+ </head>
+ <body>
+ <div class="main">
+   <div class="clearfix">
+     <a class="fr" href="http://itougu.jrj.com.cn/match/v7/h5/myRedList.jspa">我的红包</a>
+   </div>
+   <div class="abv">
+     <ul class="myticketlist">
+      <!--<li>
+         <div class="quan quan0 nihuigou">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em></em>
+                      <b></b>
+                      <strong></strong>
+                      <div class="tit">逆回购翻倍加息券</div>
+                  </div>
+                  <time>有效期至：2017-06-10</time>
+                  <p class="tips clearfix"><span>代金券使用规则</span><i></i></p>
+              </div>
+              <div class="fr aside">
+                <span>兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>
+       <li>
+         <div class="quan quan2">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>2</b>
+                      <strong>万</strong>
+                      <div class="tit">交易额鼓励金</div>
+                  </div>
+                  <time>有效期至：2017-06-10</time>
+                  <p class="tips clearfix"><span>代金券使用规则</span><i></i></p>
+              </div>
+              <div class="fr aside">
+                <span>兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>
+       <li>
+         <div class="quan quan5">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>5</b>
+                      <strong>万</strong>
+                      <div class="tit">交易额鼓励金</div>
+                  </div>
+                  <time>有效期至：2017-06-10</time>
+                  <p class="tips clearfix"><span>代金券使用规则</span><i></i></p>
+              </div>
+              <div class="fr aside">
+                <span>兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>
+       <li>
+         <div class="quan quan10">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>10</b>
+                      <strong>万</strong>
+                      <div class="tit">交易额鼓励金</div>
+                  </div>
+                  <time>有效期至：2017-06-10</time>
+                  <p class="tips clearfix"><span>代金券使用规则</span><i></i></p>
+              </div>
+              <div class="fr aside">
+                <span>兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>-->
+     </ul>
+     <div class="noquan">暂无可用交易券</div>
+     <p class="goquan"><a href="dui.html">已兑现和已过期的券</a></p>
+     <p class="guize"><a href="guize.html">使用规则></a></p>
+   </div>
+
+   <div class="layer"></div>
+   
+   <div class="alert">
+         <p class="title">您尚未达到兑现条件</p>
+         <p class="content txt2">于交易券有效期内在金融界用平安证券完成首笔交易（买入或卖出）即可兑现。</p>
+         <p class="content txt4">于交易券有效期内在金融界用平安证券完成第2笔交易（买入或卖出）即可兑现。</p>
+         <p class="content txt5">于交易券有效期内在金融界用平安证券完成第３笔交易（买入或卖出）即可兑现。</p>
+         <p class="content txt6"></p>
+         <p class="content txt7"></p>
+         <p class="button">确定</p>
+   </div>
+   <div class="shuoming">
+    <em class="chacha"></em>
+      <p class="p2">在金融界用平安证券完成首笔A股交易（买入、卖出皆可）后，点击“兑现”按钮，即可兑现<br />兑现后的现金可点击“我的红包”查看<br />若有其他疑问，请拨打热线电话 <a href="tel:4001661188">4001661188</a></p>
+      <p class="p4">在金融界用平安证券完成第2笔A股交易（买入、卖出皆可）后，点击“兑现”按钮，即可兑现<br />
+兑现后的现金可点击“我的红包”查看<br />若有其他疑问，请拨打热线电话 <a href="tel:4001661188">4001661188</a></p>
+      <p class="p5">在金融界用平安证券完成第3笔A股交易（买入、卖出皆可）后，点击“兑现”按钮，即可兑现<br />兑现后的现金可点击“我的红包”查看<br />若有其他疑问，请拨打热线电话 <a href="tel:4001661188">4001661188</a></p>
+      <p class="p6">在金融界用平安证券完成一笔A股交易（买入、卖出皆可），资金不小于<em></em>万元，即可兑现<i></i>元现金<br />做完符合条件的交易后点击“兑现”按钮，即可兑现<br />兑现后的现金可点击“我的红包”查看<br />若有其他疑问，请拨打热线电话 <a href="tel:4001661188">4001661188</a></p>
+      <p class="p7">在金融界做一笔逆回购，不限深沪，即可获得一天利息翻倍的福利（最高十万资金）<br >翻倍的利息会以现金形式发放<br >做完逆回购之后点击“兑现”按钮，即可兑现<br >兑现后的现金可点击“我的红包”查看<br >若做过多笔逆回购，按交易券有效期内做的第一笔结算。<br >若有其他疑问，请拨打热线电话 <a href="tel:4001661188">4001661188</a></p>
+      
+   </div>
+ </div>
+ <p class="footer">交易券通过活动领取和后台发放<br />敬请关注“交易助手”官方号</p> 
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script> 
+  <script>
+$(function(){
+    function change(){
+      document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    //我的可兑现券列表
+    var myticketlist= function() {
+        setTimeout(function() {
+            jrj.jsCallNative("130", JSON.stringify({
+              method: "get",
+              url: 'https://t.jrj.com.cn/activities/ticket/queryMyTickets?status=0',
+              params: {},
+              callback: "callbackmyticketlist",
+              version: "6.2.0"
+            }))
+        },20)
+    };
+    myticketlist();
+    window.callbackmyticketlist = function(v) { 
+        setTimeout(function() {
+            v=convertToJsonObject(v);
+            //alert(JSON.stringify(v));
+            if(v.retcode==0){ 
+                if(v.data.items.length==0){
+                    $('.noquan,.footer').show();
+                    return;
+                }
+                var str='';
+                for(var i=0;i<v.data.items.length;i++){
+                    var o=v.data.items[i];
+                    str+='<li><div class="quan quan'+changeprice(o.displayPrice)[0]+' '+(o.ticketType==7 ? 'nihuigou' : '')+'"><div class="fl meg" data-ticketType="'+o.ticketType+'"><div class="up clearfix"><em>￥</em><b data-ticketPrice="'+o.ticketPrice+'">'+changeprice(o.displayPrice)[0]+'</b><strong>'+changeprice(o.displayPrice)[1]+'</strong><div class="tit">'+o.ticketName+'</div></div><time>有效期至：'+hahatime(o.endTime)+'</time><p class="tips clearfix"><span>代金券使用规则</span><i></i></p></div><div class="fr aside"  data-ticketType="'+o.ticketType+'"   data-ticketNo="'+o.ticketNo+'"><span>兑现</span><em></em></div></div></li>';
+                }
+                $('.myticketlist').html(str);
+            }else if(v.retcode==700010){
+              window.reload();
+            }    
+        },0)
+    }
+    //点击出来弹层
+    $('.myticketlist').delegate('.meg','click',function(){
+        $('.shuoming p').hide();
+        $('.layer,.shuoming').show();
+        $('.shuoming .p'+$(this).attr('data-ticketType')).show();
+        if($(this).attr('data-ticketType')==6){
+            var bhtml=$(this).find('b').html();
+            if(bhtml==2){
+              $('.shuoming p em').html('2');
+              $('.shuoming p i').html('5');
+            }else if(bhtml==5){
+              $('.shuoming p em').html('5');
+              $('.shuoming p i').html('10');
+            }else if(bhtml==10){
+              $('.shuoming p em').html('10');
+              $('.shuoming p i').html('20');
+            }
+            
+        }
+        $('.shuoming').css('margin-top',-$('.shuoming').height()/2);
+    }) 
+
+    //点击去兑换
+    $('.myticketlist').delegate('.aside','click',function(){
+        var o=$(this);
+        var goduihuan= function() {
+            setTimeout(function() {
+                jrj.jsCallNative("130", JSON.stringify({
+                  method: "get",
+                  url: 'https://t.jrj.com.cn/activities/ticket/cash',
+                  params: {
+                    ticketNo:o.attr('data-ticketNo')
+                  },
+                  callback: "callbackgodui",
+                  version: "6.2.0"
+                }))
+            },20)
+        };
+          
+        goduihuan();
+        window.callbackgodui = function(v) { 
+            setTimeout(function() {
+                v=convertToJsonObject(v);
+                if(v.retcode==0){
+                    //去兑换成功页
+                    o.remove();
+                    if($('.myticketlist li').length==0){
+                       $('.noquan,.footer').show();
+                    }
+                    window.location.href='success.html?ticketNo='+o.attr('data-ticketNo');
+                }else{
+                    $('.layer ,.alert').show();
+                    $('.alert .txt'+o.attr('data-ticketType')).show();
+                    $('.alert').css('margin-top',-$('.alert').height()/2);
+                }
+            },0)
+        }
+    })
+
+    //关闭弹层
+    $('.chacha,.button').unbind().click(function(){
+        $('.layer ,.alert,.alert .content,.shuoming').hide();
+    });
+    var convertToJsonObject = function(str){
+        if(typeof str != 'object'){
+          return JSON.parse(str);
+        }else{
+          return str;
+        }
+    }
+    function hahatime (inputTime) {  
+        var inputTime=Number(inputTime);  
+        var date = new Date(inputTime);  
+        var y = date.getFullYear();    
+        var m = date.getMonth() + 1;    
+        m = m < 10 ? ('0' + m) : m;    
+        var d = date.getDate();    
+        d = d < 10 ? ('0' + d) : d;      
+        return y + '-' + m + '-' + d;    
+    };
+    function changeprice(n){
+      n=n.substring(0,n.indexOf('.'));//5.00
+      if(n.length<3){
+        return [n,'元'];
+      }else{
+        n=n/10000;
+        return [n,'万']
+      }
+    }
+});
+</script>
+</body>
+</html>

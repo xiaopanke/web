@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>恒泰交易</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	
+</head>
+<body>
+	<section class="cancel">
+	    <form id="sellform" name="sellform" action="/stockauth/sellForm.jspa" method="post">  
+			<input type="hidden" name="brokerId" value="$!{tradeVo.brokerId}" />
+			<input type="hidden" name="userId" value="$!{tradeVo.userId}" />
+			<input type="hidden" name="fundAccount" value="$!{tradeVo.fundAccount}" />
+			<input type="hidden" name="stockCode" value="$!{tradeVo.stockcode}" />
+			<input type="hidden" name="exchangeType" value="$!{confirm.exchangeType}" />
+    	    <ul class="purchase">
+    	    	<li>
+    	    	   <span>账户</span><span class="tr">$!{tradeVo.stockAccount}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>股票名称</span><span class="tr">$!{tradeVo.stockName}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>股票代码</span><span class="tr">$!{tradeVo.stockcode}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>委托数量</span><span class="tr">$!{tradeVo.entrustAmount}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>委托价格</span><span class="tr">$!{tradeVo.entrustPrice}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>委托方向</span><span class="tr">$!{tradeVo.entrustBs}</span>
+    	    	</li>
+    	    </ul>
+    	    <ul class="password">
+    	    	<li>
+    	    	    <span>交易密码</span>
+    	    	    <span class="tr PWD">
+    	    	       <input type="password" name="password" value="" maxlength="20">
+    	    	       <p>
+    	    	       	 请输入密码
+    	    	       </p>
+    	    	    </span>
+    	    	</li>
+    	    </ul>
+    	    <ul class="sure">
+    	    	<li>
+    	    		<span class="tc form-submit">确认</span>
+    	    	</li>
+            </ul>
+		</form>
+	</section>
+	 <script>
+	  $("span.form-submit").click(function(){
+    		 	// 可操作性标志
+	var enableFlag = '$!{confirm.enableFlag}';
+	//双录标志
+	var needVideoFlag = '$!{confirm.needVideoFlag}';
+	
+	//风险匹配标志.
+	var eligInvestkindFlag = '$!{confirm.eligInvestkindFlag}';
+	var eligTermFlag = '$!{confirm.eligTermFlag}';
+	var eligRiskFlag = '$!{confirm.eligRiskFlag}';
+	
+	
+	alert(enableFlag + "-----" + needVideoFlag +"---"+eligInvestkindFlag+"---"+eligTermFlag+"------"+eligRiskFlag);
+	
+	if(enableFlag == 0){
+    			alert("不可以委托。")
+    			return ;
+	}
+	
+	if(needVideoFlag == 1){
+    			alert("去双录吧！ 兄弟");
+    			return;
+    }
+    
+    if(eligInvestkindFlag==1&&eligTermFlag==1&&eligRiskFlag==1){
+    					$("#buyform").submit();
+    }else{
+    		var msg="";
+            if(eligInvestkindFlag==0){
+		   		 msg = msg + "投资品种标志不匹配,";
+		   	  }
+		   	  if(eligTermFlag==0){
+		   		 msg = msg + "投资周期标志不匹配,";
+		   	 }
+		   	 if(eligRiskFlag==0){
+		   	     msg = msg + "风险标志不匹配";
+		   	  }
+		   	  alert(msg);
+    }
+      });
+	  
+	  
+      $(function() {
+            $(".PWD p").on('touchend', function (e){
+                 $(this).hide();
+                 $(this).siblings("input").focus();
+                 e.preventDefault();
+            })
+      	$("input[type=password]").blur(function(){
+                  var value=$(this).val();
+                  if (value=="") {
+                           $(this).siblings("p").show();
+                  } else{
+                           $(this).val(value);
+                  }
+      	});
+      })
+	</script>
+</body>
+</html>

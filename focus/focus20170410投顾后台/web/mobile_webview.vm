@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>爱投顾-回答详情</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link href="http://js.jrjimg.cn/zqt-m/css/zqt-m.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-m/js/jquery-1.9.1.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-m/js/modernizr.custom.46516.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-m/js/img-resize.js"></script>
+
+    <script>
+      $(function () {
+        $('.playbtn').click(function () {
+          var voice = $('#voice' + $(this).data('id'))[0];
+          if (voice.paused) {
+            voice.play();
+            $(this).removeClass('play').addClass('pause');
+          } else {
+            voice.pause();
+            voice.currentTime = 0;
+            $(this).removeClass('pause').addClass('play');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <section class="qa-block qa-block-first qa-block-question">
+      <header class="qa-block-question-title">
+        <div class="info-box middle">
+          <i class="icon icon-question"></i><a href="" class="link">$!ask.ausername：</a>
+        </div>
+        <div class="time-box">$dateUtils.diffTime4m($ask.ctime)</div>
+      </header>
+      <div class="qa-block-question-cnt">
+        <p>$!ask.content</p>
+      </div>
+      <div class="tr"><span class="reply-count">$!total人回答</span></div>
+    </section>
+    
+    #foreach($a in $answers)
+      #set ($u = $a.adviserUser)
+      #set($img = "http://i5.jrjimg.cn/sys/default_s.jpg")
+      #if(!$objectUtils.isNull($u))
+        #set($img = $u.headImage)
+      #end
+
+      #if($velocityCount != $answers.size())
+      <section class="viewpoint-block">
+      #else
+      <section class="viewpoint-block viewpoint-block-last">
+      #end
+        <header class="viewpoint-title">         
+          <a href="http://www.userdetail.com/$!a.userId" class="avatar">
+            <img src="$!img" alt="$!a.username" width="100%" />
+          </a>
+          <div class="info-box">
+            <div class="name middle"><a href="http://www.userdetail.com/$!a.userId" class="link">$!a.username</a><i class="icon icon-v"></i></div>
+            <div class="title">
+              #set ($u = $a.a.adviserUser)
+              #if(!$objectUtils.isNull($u))
+                #if($u.type == 1)
+                <span>财经名人</span>
+                #else
+                <span>投资顾问</span>
+                #end
+                <span>$!u.company</span>
+              #else
+                <span>投资顾问</span>
+              #end
+            </div>
+          </div>
+          <div class="time-box">$!dateUtils.diffNow($a.ctime)</div>
+        </header>
+        <div class="qa-cnt">
+          #if(!$objectUtils.isNull($a.content))
+          <p>$!a.content</p>
+          #end
+          #if(!$objectUtils.isNull($a.voiceMp3))
+          <div class="voice-block">
+            <audio id="voice1" class="voice" controls="">
+              <source src="${a.voiceMp3}" type="audio/mpeg" />
+            </audio>
+            <div class="middle">
+              <button class="playbtn" data-id="1"></button>
+              <span class="voice-time">$!a.voicelength</span>
+            </div>
+          </div>                              
+          #end
+          #if(!$objectUtils.isNull($a.againAsk))
+            #set ($aa = $a.againAsk)
+            <div class="qa-replay-block">
+              <em class="arrow-up"></em>
+              #if($aa.hasAgainanswer == -1)
+              <div class="qa-replay-item qa-replay-item-last">
+              #else
+              <div class="qa-replay-item">
+              #end                  
+                <p><a href="#" class="link">$!aa.againaskUsername</a>追问：$!aa.content</p>
+              </div>
+              #if($aa.hasAgainanswer == 1)
+              <div class="qa-replay-item qa-replay-item-last">
+                #if(!$objectUtils.isNull($aa.againanswerContent))
+                <p><a href="#" class="link">$!aa.againanswerUsername</a>回答：$!aa.againanswerContent</p>
+                #end
+                #if(!$objectUtils.isNull($aa.againanswerVoiceMp3))
+                <a href="#" class="link">$!aa.againanswerUsername</a>
+                <div class="voice-block">
+                  <audio id="voice1" class="voice">
+                    <source src="${aa.againanswerVoiceMp3}" type="audio/mpeg" />
+                  </audio>
+                  <div class="middle">
+                    <button class="playbtn" data-id="$a.id"></button>
+                    <span class="voice-time">$!aa.againanswerVoicelength</span>
+                  </div>
+                </div>
+                #end
+              </div>                
+              #end
+            </div>
+            #end           
+
+            #if($a.evaluate >= 1)
+              #if(!$objectUtils.isNull($a.evaContent))
+              <div class="comment">评价：$!a.evaContent</div>
+              #end            
+              <div class="rating middle">
+                <span>评分：</span>
+                #foreach($foo in [1..$a.evaluate])
+                <i class="icon icon-star"></i>
+                #end
+                #if($a.evaluate<5)
+                  #foreach($foo in [$a.evaluate..4])
+                  <i class="icon icon-unstar"></i>
+                  #end
+                #end
+              </div>
+            #end               
+          </div>
+        </section>
+      #end
+  </body>
+</html>

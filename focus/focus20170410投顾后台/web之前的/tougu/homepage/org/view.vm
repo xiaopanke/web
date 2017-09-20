@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾-金融界-最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-agency.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+</head>
+<body onload="initBody();">
+    <!--site_top_compact.html start-->
+    <div class="site-top-v2-compact clearfix"><div class="wrapper"><span class="site-top-v2-inner fr before-login"><a class="fl">登录</a><span class="site-top-v2-split">|</span><a class="fl" href="javascript:void(0)">注册</a></span><a href="/" class="site-logo-compact"></a></div></div>
+    <!--site_top_compact.html end-->
+	<input type="hidden" id="orgId" value="$!{orgId}">
+    <div class="wrapper agency-bg">
+        <!--\#include virtual="/account/organization/$!{orgId}/info.html" -->
+        <ul class="agency-nav">
+            <li><a href="/account/organization/$!{orgId}/">主页</a></li>
+            <li><a href="/account/organization/$!{orgId}/3">直播</a></li>
+            <li style="display:none;"><a href="/account/organization/$!{orgId}/4">组合跟投</a></li>
+            <li><a href="/account/organization/$!{orgId}/2">回答</a></li>
+            <li class="cur"><a href="/account/organization/$!{orgId}/1">观点</a></li>
+            <li><a href="/account/organization/$!{orgId}/5">投资内参</a></li>
+            <li><a href="/account/organization/$!{orgId}/6">投顾</a></li>
+        </ul>
+    </div>
+
+    <div class="agency-main wrapper clearfix">
+        <div class="agency-main-left">
+            <!--日志: start-->
+            <div class="agency-block agency-block-log">
+                <h3 class="m-tit-row" id="tit">
+                    <span class="tit">TA的观点</span>
+                    <span class="s-tit"><span class="highlight" id="view_count">0</span>篇</span>
+                </h3>
+                <ul class="article-list" id="contentList">
+                </ul>
+                <div id="pagerId" class="pager pager-v2"></div>
+            </div>
+            <!--日志: end-->
+        </div>
+        <div class="agency-main-right">
+           <!--\#include virtual="/account/organization/$!{orgId}/right.html" -->
+        </div>
+    </div>
+
+    <!--页面js: start-->
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/bdshare-stylish.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/AMD/seajs-Config.js"></script>
+    <script>
+    	function initBody(){
+			loadData(1);
+		}
+		
+		//type:adviser   fans  view  answer   portfolio
+    	//id : 数字的标签ID
+    	//txt:可不传，数字后跟的文字。
+    	function gettypenum(id ,type){
+    			$('#'+id).html($('#'+type+'_num_label').html());
+    	}
+		gettypenum('adviser_count','adviser');
+		function StringBuffer(){
+			this.data_ = [];
+		}
+		StringBuffer.prototype.append = function(){
+			this.data_.push(arguments[0]);
+			return this;
+		}
+		StringBuffer.prototype.toString = function(){
+			return this.data_.join("");
+		} 
+		
+		Date.prototype.format = function (format) { 
+			var o = { 
+				"M+": this.getMonth() + 1, 
+				"d+": this.getDate(), 
+				"h+": this.getHours(), 
+				"m+": this.getMinutes(), 
+				"s+": this.getSeconds(), 
+				"q+": Math.floor((this.getMonth() + 3) / 3), 
+				"S": this.getMilliseconds() 
+			} 
+			if (/(y+)/.test(format)) { 
+				format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length)); 
+			} 
+			for (var k in o) { 
+				if (new RegExp("(" + k + ")").test(format)) { 
+					format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)); 
+				} 
+			} 
+			return format; 
+		} 
+		
+		function getFormatDateByLong(l, pattern) { 
+			return new Date(l).format(pattern); 
+		}
+    
+    	function loadData(p){
+    		var dataTag = 0;
+			var orgId=$("#orgId").val();
+			var jsurl = "http://itougu.jrj.com.cn/organization/view/view_"+orgId+"_"+p+".js";
+			//$.getScript(jsurl, function() {
+			$.ajax({
+				type : "get",
+				url : jsurl,
+				async : false,
+				dataType : "script",
+				timeout : 10000,
+				success : function(d, textStatus) {
+				if (typeof(vdata)!='undefined' && vdata!=null && vdata!='null' && vdata!=undefined && vdata.list!=undefined) { 
+					var content = new StringBuffer();
+					
+					$("#pagerId").show();
+					$.each(vdata.list, function(idx, obj){
+							dataTag = 1;
+							content.append('<li class="clearfix">');
+							content.append('<div class="fl browse-info">');
+							content.append('<em>'+obj.readCount+'</em>');
+							content.append('<span>浏览</span>');
+							content.append('</div>');
+							content.append('<div class="fl note-details">');
+							content.append('<h3><a href="/view/'+obj.id+'.jspa" class="hot" target="_blank">'+obj.username+'：'+obj.title+'</a></h3>');
+							content.append('<p class="time">'+getFormatDateByLong(obj.mtime,"MM-dd hh:mm")+'</p>');
+							content.append('<p class="txt">'+obj.summary+'  <a href="/view/'+obj.id+'.jspa" class="b-link" target="_blank">查看全部</a></p>');
+							content.append('<p class="remark-row">');
+                            content.append('<span class="agree" action-value="viewid='+obj.id+'&adUserid='+obj.userid+'">赞 ( <em>'+obj.likeCount+'</em> )</span>');
+                            content.append('<a href="/view/'+obj.id+'.jspa" target="_blank"><span class="remark">评论 ( <em>'+obj.commentCount+'</em> )</span></a>');
+                            content.append('<span class="bdshare-stylish fl" data-style="popup" data-shareitems="weibo|qzone|qq|wechat" data-tag="share_'+obj.id+'" data-url="http://itougu.jrj.com.cn/view/'+obj.id+'.jspa" data-text="'+obj.title+'（分享自：金融界爱投顾）" data-desc="'+obj.summary+'" data-pic="http://js.jrjimg.cn/zqt-red-1000/images/site-logo-compact.png"><span class="share bdshare-stylish-trigger">分享</span></span>');
+                            content.append('</p>');
+							content.append('</div>');
+							content.append('</li>');
+					});
+					
+					$('#contentList').empty().append(content.toString());
+					
+					gettypenum('view_count','view');
+					//$('#view_num_label').html(vdata.totalRecord);
+					//$('#view_count').html(vdata.totalRecord);
+					
+					$('.article-list').on('click', function(e){
+		    			var $target = $(e.target);
+		    			if($target.hasClass('agree')){
+		    				if(!$target.hasClass('praise-disable')){
+			    				JRJ.ui.isLogin(function(){
+				    				$.ajax({
+										url : "/view/likePoint.jspa",
+										type : "POST",
+										data : $target.attr('action-value'),
+										dataType : "json",
+										success : function(data){
+											if(data.ret==0){
+												var num = $target.find('em').text();
+												num= isNaN(num) ? 1: ++num;
+												var html = '赞 ( <em>' + num + '</em> )';
+												var tmpl = '<span class="highlight f16">+1</span>',
+							                    _left = $target.offset().left,
+							                    _top = $target.offset().top;
+								                $(tmpl).css({ position: 'absolute', left: (_left + 40) + 'px', top: _top + 'px', opacity: 1, 'z-index': 110 }).appendTo($('body'))
+								                .animate({ opacity: 0, top: '-=50' }, 1000);
+												$target.html(html);
+												$target.addClass('praise-disable');
+											}else{
+											}
+										},
+										error : function(msg){
+										}
+									});
+								});
+							}
+		    			}
+		    		});
+					
+					$("#pagerId").pagefoot({
+			            pagesize:10,
+			            count:vdata.totalRecord<200?vdata.totalRecord:200,
+			            css:"",
+			            current : p,
+			            displaynum : 5,
+			            displaylastNum :2,
+			            previous:"上一页",
+			            next:"下一页",
+			            enableArrowKey: true,
+			            paging:function(page){
+		            		var p = page.current;
+		            		loadData(p)
+		            		window.location.hash="tit";
+			            }
+			        });
+					
+					JRJ.util.JRJShareWidget.init({
+		                tmpl_style_popup: ['<span class="share bdshare-stylish-trigger">分享</span>',
+		                            '<div class="bdsharebuttonbox-wrap">',
+		                                '{bdshare}',
+		                                '<div class="bdshare-stylish-qrcode" style="display:none;"></div>',
+		                            '</div>'].join('')
+		            });
+				}
+				}
+			});	
+			
+			if(dataTag == 0){
+				$('#contentList').empty().append('<div class="empty-cont">机构正在酝酿精品内容</div>');
+			}
+		}
+    
+        
+         $(function () {
+            JRJ.util.JRJShareWidget.init({
+                tmpl_style_popup: ['<span class="share bdshare-stylish-trigger">分享</span>',
+                            '<div class="bdsharebuttonbox-wrap">',
+                                '{bdshare}',
+                                '<div class="bdshare-stylish-qrcode" style="display:none;"></div>',
+                            '</div>'].join('')
+            });
+        });
+         $(function(){
+			F.hoverCls( '.tgHeadImage_right' , 'itgid_right' );
+		});
+         seajs.use(['ExpandHelper'], function (expandHelper) {
+            expandHelper.execute({
+                selector: '#intro',
+                minHeight: 110
+            });
+        });
+         
+    </script>
+    <!--页面js: end-->
+    <!--common-footer-v2.html start-->
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+    <!--common-footer-v2.html end-->
+</body>
+</html>

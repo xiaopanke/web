@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>我的收入</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache, must-revalidate">
+<meta http-equiv="Cache" content="no-cache">
+    <link href="http://js.jrjimg.cn/zqt-m/css/zqt-m.min.css?v2-20150506.1614" rel="stylesheet" />
+	<script type="text/javascript">
+		function jumpUrl(type) {
+			window.location= "/account/income/m/incomeList.jspa?"+
+					"userId=$!userId&type="+type;
+		}
+	</script>
+	<style>
+		.income-count ul li a{
+			text-decoration: none;
+			color:black;
+		}
+	</style>
+</head>
+<body  class="gray-bg">
+    <article id="Content">
+       <section class="red-bg">
+           <h2 class="title white">当前未发放</h2>
+           <div class="income-price">
+               <i class="i-price"></i><span>$!totalLeft</span>
+           </div>
+       </section>
+        <article>
+            <article class="income-count">
+                <ul>
+                    <li style="width:50%;">
+                        <h3>总收入</h3>
+                        <div class="price" onclick="jumpUrl('total');"><i class="i-price i-20"></i><em>$!total</em></div>
+                    </li>
+                    <li style="width:50%;">
+                        <h3  onclick="jumpUrl('send');">已发放金额</h3>
+                        <div class="price" onclick="jumpUrl('send');"><i class="i-price i-20"></i><em>$!totalGiven</em></div>
+                        <!-- <div class="ylb" onclick="window.location='http://itougu.jrj.com.cn/ylb/tx.jspa';">去盈利宝提现</div> -->
+                        
+                    </li>
+                </ul>
+            </article>
+            <article class="income-count">
+                <ul>
+                    <li onclick="jumpUrl('today');" style="width:33%;">
+                        <h3>昨日</h3>
+                        <em>$!dayTotal</em>
+                    </li>
+                    <li  onclick="jumpUrl('last7');" style="width:33%;">
+                        <h3>近7天</h3>
+                        <em>$!weekTotal</em>
+                    </li>
+                    <li  onclick="jumpUrl('last30');" style="width:33%;">
+                        <h3>近30天</h3>
+                        <em>$!monthTotal</em>
+                    </li>
+                </ul>
+            </article>
+        </article>
+    </article>
+</body>
+</html>

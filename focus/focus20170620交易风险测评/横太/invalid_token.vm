@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>恒泰交易</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	
+</head>
+<body>
+	<section class="query">
+	<form id="initpwdform" name="initpwdform" action="/stockauth/initpwdForm.jspa" method="post">  
+		<input type="hidden" name="brokerId" value="$!{brokerId}" />
+		<input type="hidden" name="userId" value="$!{userId}" />
+		<input type="hidden" name="fundAccount" value="$!{fundAccount}" />
+		<input type="hidden" name="action" id="action" value="" />
+	    <p class="wran">为保证账户资金安全请重新输入交易密码</p>
+	    <ul class="query-password">
+	    	<li>
+	    	    <span>交易密码</span>
+	    	    <span class="tr PWD">
+	    	       <input type="password" name="password" value="" maxlength="20"> 
+	    	       <p>
+	    	       	 请输入密码
+	    	       </p>
+	    	    </span>
+	    	</li>
+	    </ul>
+	    <footer>
+	    	<span  class="tc form-cancel">取消</span>
+	    	<span  style="border:none"  class="tc form-submit">确认</span>
+	    </footer>
+	</form>
+	
+	 <form id="cpform" style="display:none" name="bindform" action="/stockauth/syxMobilePage.jspa" method="post"> 
+		<input type="hidden" name="userToken" value="$!{userToken}" />
+        <input type="hidden" name="userId" value="$!{userId}" />
+        <input type="hidden" name="fund_id" value="$!{fundAccount}" />
+        <input type="hidden" name="from" value="1" />
+        <input type="hidden" id = "cp_choose" name="choose" value="0" />
+	    </form>
+	</section>
+	<script>
+      $("span.form-submit").click(function(){
+    		$("#initpwdform").submit();
+      });
+       $("span.form-cancel").click(function(){
+       		$("#action").val("cancel");
+    		$("#initpwdform").submit();
+      });
+ 
+      $(function() {
+      
+      // check: 0=评测通过，-1=没有进行评测， -2 = 评测即将过期，-3=评测已过期
+	  var check = '$!{check}';
+	  if(check == '-1'){
+	  	var con;
+		con=confirm("没有进行风险测评？");
+		if(con==true){
+			goToCp();
+		}else{
+			goToIndex();
+		}
+	  }else if(check == '-2'){
+	  var con;
+		con=confirm("风险评测即将过期？");
+		if(con==true){
+			goToCp();
+		}else{
+			goToIndex();
+		}
+	  }else if(check == '-3'){
+	  var con;
+		con=confirm("风险评测已过期？");
+		if(con==true){
+			goToCp();
+		}else{
+			goToIndex();
+		}
+	  }
+      
+        
+	  function goToCp(){
+	  	$("#cp_choose").val(1);
+		$("#cpform").submit();
+	  }
+	  
+	  function goToIndex(){
+	  	$("#cpform").submit();
+	  }
+      
+            $(".PWD p").on('touchend', function (e){
+                 $(this).hide();
+                 $(this).siblings("input").focus();
+                 e.preventDefault();
+            })
+      	$("input[type=password]").blur(function(){
+                  var value=$(this).val();
+                  if (value=="") {
+                           $(this).siblings("p").show();
+                  } else{
+                           $(this).val(value);
+                  }
+      	});
+      })
+	</script>
+</body>
+</html>

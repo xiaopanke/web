@@ -1,0 +1,43 @@
+			<!--广告-->
+			#if($!{img} && $!{img.length()}>0)
+            <div class="agency-side-block agency-side-block-ads">
+                <a href="$!{link}" target="_blank"><img src="$!{img}" alt="" /></a>
+            </div>
+            #end
+            <!--广告-->
+            <!--机构介绍-->
+            #if($!{img} && $!{img.length()}>0)
+            <div class="agency-side-block agency-side-block-intr mt15">
+           	#else
+           	<div class="agency-side-block agency-side-block-intr">
+           	#end
+                <ul class="intr-list">
+                    <li>
+                        <h4 class="o-tit o-tit-1">机构公告</h4>
+                        <p>#if($!{notice}) $!{notice} #else 欢迎关注$!{org.orgShortName}! #end</p>
+                    </li>
+                    <li>
+                        <h4 class="o-tit o-tit-2">关于$!{org.orgShortName}</h4>
+                        <p id="intro">$!{org.orgSummary}</p>
+                    </li>
+                </ul>
+            </div>
+            <!--机构介绍-->
+            <!--投顾列表-->
+            #if($!{set} && $!{set.size()}>0)
+            <div class="agency-tougulist mt15">
+                <div class="agency-tougulist-tit">
+                    <span class="more fr"><a class="highlight" id="adviser_count" href="/account/organization/$!{org.id}/6">71</a>个</span>
+                    <span>TA的投顾</span>
+                </div>
+                <div class="agency-tougulist-cnt clearfix">
+                	#foreach($a in $!{set})
+                    <div class="item">
+                        <a href="/account/adviser/$!{userMap.get($!{a}).loginId}/" class="avatar"><img src="$!{userMap.get($!{a}).headImage}" class="tgHeadImage_right" itgid_right="$!{userMap.get($!{a}).loginId}" alt="" /></a>
+                        <p><a href="/account/adviser/$!{userMap.get($!{a}).loginId}/">$!{userMap.get($!{a}).userName}</a></p>
+                    </div>
+                    #end
+                </div>
+            </div>
+            #end
+            <!--投顾列表-->

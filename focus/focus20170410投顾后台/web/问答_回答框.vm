@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾</title>
+    <meta name="keywords" content="爱投顾" />
+    <meta name="description" content="爱投顾" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/styles-v2.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+	
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/dialog.effect.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig-compact-answer.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.form.js"></script>
+    <script type="text/javascript">
+    
+	$(function(){
+        $('#btnSubmit').click(function (e) {
+			e.preventDefault();
+			
+			var me = $(this);
+			//me.attr('disabled', 'true');
+			$(window.editor.editorDocument).click();
+			var html = editor.getHtml();
+			var texthtml = editor.getText();
+			var rg = new RegExp("^&nbsp;*");
+			var str = window.editor.getText().replace(rg, '');
+			for(var br = '<br'; str.indexOf(br) == 0; str = str.substring(str.indexOf('>') + 1));
+			var length = window.editor.length;
+			if(length<10){
+				JRJ.MiniAlerts.prompt({
+				  message: "<p>回复内容太短了</p>"
+			    });
+			    return false;
+			}else if(length>500){
+				JRJ.MiniAlerts.prompt({
+					message: "<p>您回答的内容已经超限，再精简一下吧</p>"
+				});
+				return false;
+			}else{ //成功
+				$("#cont").val(html); 
+			 	$("#textcont").val(texthtml); 
+			 	var options = {  
+	                success: callBackGraFunc,
+	                error: function() {
+	                  me.removeAttr('disabled');
+	                }
+	            };  
+	              
+	            // jquery.form 提交表单  
+	            $('#form1').ajaxSubmit(options);
+			}
+		});
+	
+	});
+	
+	function callBackGraFunc(responseText, statusText) {
+//	 	if (responseText > 0){
+//	 		JRJ.MiniAlerts.prompt({
+//               message: "<p>回答成功</p>"
+//           });
+//    		frameElement._thisDialog.close();
+//    		if(window.membership && window.membership.update) {
+//	 		  	window.membership.update();
+//	 		} else if(window.parent.membership && window.parent.membership.update) {
+//	 		  	window.parent.membership.update();
+//	 		}
+//	 		window.parent.location.reload();
+//	 	}
+		//parent.answerDialog.close();
+		//setTimeout(function(){
+			if (responseText > 0){
+				parent.answerOne();
+			}else{
+				parent.answerNo();
+			}
+		//},500);
+		//frameElement._thisDialog.close();
+	}
+    </script>
+</head>
+
+<body style="background:#fff;">
+<div class="dialog-ques-answer">
+	<div class="dialog-ask-new-inner clearfix">
+		<div id="ask-block" >
+			<form action="saveAnswer.jspa" method="post" id="form1">
+				<div class="dialog-ask-new-left">
+					<div class="replay-tit clearfix">$!askcontent</div>
+					<div class='edit'>
+						#if($!stock)
+							<span class='zhang' risedrop='1'><i></i>看涨</span>
+							<span class='di' risedrop='-1'><i></i>看跌</span>
+						#else
+							<span>看涨</span>
+							<span>看跌</span>
+						#end
+					</div>
+					<div class="row-1">
+						<div class="editor-wrap" style="height:200px;">
+							<script>
+							
+							function getByteLen(val) { //返回val的字节长度 
+								var len = 0; 
+								val = val.split('');
+								for (var i = 0; i < val.length; i++) { 
+									if (val[i].match(/[^\x00-\xff]/ig) != null) //全角 
+										len += 2; 
+									else 
+										len += 1; 
+								} 
+								return len; 
+							}
+							function getByteVal(val, max) { //返回val在规定字节长度max内的值 
+								var returnValue='',byteValLen = 0; 
+								val = val.split('')
+								for (var i = 0; i < val.length; i++) { 
+									if (val[i].match(/[^\x00-\xff]/ig) != null) 
+										byteValLen += 2; 
+									else 
+										byteValLen += 1; 
+									if (byteValLen > max) 
+									break; 
+									returnValue += val[i]; 
+								} 
+								return returnValue; 
+							}
+							
+							var tit = $('.replay-tit');
+							if(getByteLen(tit.text())>110){
+								tit.text(getByteVal(tit.text(),110)+'...');
+							}
+							
+							var zhangdi = $('.edit span') , _select = false;
+							zhangdi.each(function( i ){
+								if(this.className.indexOf('cur')>-1){
+									_select = true;
+								}
+								$(this).click(function(){
+									if(_select == true && this.className.indexOf('cur')>-1){
+										$(this).removeClass('cur');
+										_select = false;
+									}else if(_select == true){
+										zhangdi.removeClass('cur')
+										$(this).addClass('cur');
+									}else{
+										_select = true;
+										zhangdi.removeClass('cur')
+										$(this).addClass('cur');
+									}
+									if(_select){
+										$("#risedrop").val((i==0?1:-1)); 
+									}else{
+										//不选择
+									}
+									
+								});
+							});
+							
+							
+							/**
+							var edit = $('.edit span');
+							edit.each(function( i ){
+								$(this).click(function(){
+									edit.removeClass('cur');
+									$(this).addClass('cur');
+									$("#risedrop").val($(this).attr("risedrop")); 
+								});
+							});
+							**/
+							
+							var editor = new JRJEditor("editor1", 550, 200, "default", '');
+							var sBasePath = '/jsp/portal/mngr/';
+							JRJEditConfig.BasePath = sBasePath;
+							JRJEditConfig.UploadImage = true;
+							JRJEditConfig.UploadFile = true;
+							editor.create({
+								hasNumCheck: true,
+								num: 500
+							});
+							editor.setHtml('<div class="watermark"><p style="color:#999;">1、简明扼要虽好，分析要有理有据更为重要，也更易获得采纳；</p><p style="color:#999;">2、禁止发布违法违规内容；</p><p style="color:#999;">3、禁止无依据的太水回答，如果断加仓持有、高抛低吸、反弹卖/买等；</p></div>');
+							</script>
+						</div>
+					</div>
+					<input type="hidden" name="risedrop" id="risedrop" style="display:none"/> 
+					<input type="hidden" name="cont" id="cont" style="display:none"/> 
+			        <input type="hidden" name="textcont" id="textcont" style="display:none"/>
+			        <input type="hidden" name="aid" id="aid" style="display:none" value="$!{aid}"/> 
+			        <input type="hidden" name="uid" id="uid" style="display:none" value="$!{uid}"/> 
+			        <input type="hidden" name="username" id="username" style="display:none" value="$!{username}"/>
+					<div class='footer'>
+						<a id='btnSubmit' class='btn btn-89-31'>提交</a>
+					</div>
+				</div>
+			</form> 
+			<div class="dialog-ask-new-right">
+			
+				#if($!stock)
+					<div class='dialog-replay'>
+						<div class='dialog-aside'>
+							<h3>个股诊断分析</h3>
+							<a href='/ques/inquiry/$!{stockCode}.jspa' class='tag' target='_blank'>$!stockName</a>
+						</div>
+						<p>可以查看股票近期一周的技术走势、事件、题材概念、龙虎榜信息。帮助您更客观、更快捷地了解股票特点，第一时间更好回答股民问题。</p>
+					</div>
+				#else
+					<h3>参考回答示例，更易被用户采纳</h3>
+					<p>淘气天尊：个股形态问题不大，而缩量是一个个股启动的契机，如果大盘维稳，个股没有什么利空...</p>
+					<p>不败女王： 可以观察一下。没看到主力出货。以后买股票最好买月线低的股票。这个高了点...</p>
+					<p>周延聪：投资者，你好，际华集团的走势比较稳健，近期的成交量萎缩，短期来看，还是区间盘整...</p>
+				#end
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{announcement.title}-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{announcement.title},爱投顾,金融界" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="baidu-site-verification" content="yI0AN38rhk" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor-simple-2.css" rel="stylesheet" />
+    <!--# include virtual="/v2/common_head_css.html" --> 
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/comment.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+    <!--观点css: start-->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-viewpoint.min.css" rel="stylesheet" />
+    <!--观点css: end-->
+</head>
+<body>
+    <!--# include virtual="/v2/site_top_compact.html" -->
+    <!-- 面包屑 -->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="/account/ptann/list.jspa">平台公告</a>
+            <span>&gt;</span>
+            <span class="cur">公告详情</span>
+        </div>
+    </div>
+    <!-- 面包屑end  -->
+    <div class="site-main-v2">
+        <div class="wrapper">
+		<input id="viewid" type="hidden" value="$announcement.id" />
+		<input id="title" type="hidden" value="$announcement.title" />
+        <div class="vp-main clearfix">
+            <div class="left">
+                <div class="vp-article">
+                    <h1>$announcement.title</h1>
+                    <div class="vp-article-cnt">
+                        $announcement.content
+                    </div>
+                    <div class="vp-article-note">
+                        <span>【风险提示：以上内容仅代表个人观点，不构成投资建议，股市有风险，投资需谨慎！】</span>
+                    </div>
+                </div>
+                <div class="pager pager-v2" id="blockPageId3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--以下替换为：common_head_js.html-->
+    <!--# include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/dialog-coupon.js"></script>
+	<script src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/management/report.js"></script>
+
+    <!--页面js-->
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/counter.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/mouseenterDelay.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor.min.js"></script>
+<!--# include virtual="/v2/common-footer-v2.html" -->
+
+</body>
+</html>

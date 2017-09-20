@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾-金融界-最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+
+   	<!--\#include virtual="/v2/common_head_css.html" -->
+   	<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/waves.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-agency.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--site_top_compact.html start-->
+    <!--\#include virtual="/v2/site_top_compact.html" -->
+    <!--site_top_compact.html end-->
+
+    <div class="wrapper agency-bg">
+        <!--\#include virtual="/account/organization/$!{orgId}/info.html" -->
+        <ul class="agency-nav">
+            <li><a href="/account/organization/$!{orgId}/">主页</a></li>
+            <li><a href="/account/organization/$!{orgId}/3">直播</a></li>
+            <li style="display:none;"><a href="/account/organization/$!{orgId}/4">组合跟投</a></li>
+            <li><a href="/account/organization/$!{orgId}/2">回答</a></li>
+            <li><a href="/account/organization/$!{orgId}/1">观点</a></li>
+            <li><a href="/account/organization/$!{orgId}/5">投资内参</a></li>
+            <li class="cur"><a href="/account/organization/$!{orgId}/6">投顾</a></li>
+        </ul>
+    </div>
+
+    <div class="agency-main wrapper clearfix">
+        <div class="agency-main-left">
+            <!--投顾列表: start-->
+            <div class="agency-block">
+                <h3 class="m-tit-row">
+                	<span class="s-tit"><a href="#"><em class="hot num" id="adviser_num"></em></a>人</span>
+                    <span class="tit">投顾列表</span>
+                </h3>
+                <div class="agency-tougu-list">
+                	#foreach($a in $!set)
+                    <div class="item clearfix">
+                        <div class="col-1">
+                            <img src="$!{userMap.get($!{a}).headImage}" alt="" class="tgHeadImage" itgid="$!{userMap.get($!{a}).loginId}" />
+                        </div>
+                        <div class="col-2">
+                            <p class="name"><a href="/account/adviser/$!{userMap.get($!{a}).loginId}/">$!{userMap.get($!{a}).userName}</a></p>
+                            <p class="desc"data-cutoff="true" data-cutoff-limit="160" data-cutoff-ellipse="..." title="$!{userMap.get($!{a}).intro}">$!{userMap.get($!{a}).intro}</p>
+                        </div>
+                        <div class="col-3">
+                            <a href="/account/adviser/$!{userMap.get($!{a}).loginId}/" class="btn">查看</a>
+                        </div>
+                    </div>
+                    #end
+                    #if($!{count} == 0)
+                    	<div class="agency-empty middle">
+	                        <img src="http://js.jrjimg.cn/zqt-red-1000/images/v3/error-icon.png" alt="" width="35" height="35" />
+	                        <span>机构暂无投资顾问信息</span>
+	                    </div>
+	                    	
+                    #end
+                </div>
+                
+                <div id="pagerId" class="pager pager-v2" #if($!{count}<10) style="display:none;" #end>
+                </div>
+            </div>
+            <!--投顾列表: end-->
+        </div>
+        <div class="agency-main-right">
+            <!--\#include virtual="/account/organization/$!{orgId}/right.html" -->
+        </div>
+    </div>
+
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <!--页面js: start-->
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/AMD/seajs-Config.js"></script>
+    <script>
+        
+        $("#pagerId").pagefoot({
+            pagesize:$!{pageSize},
+            count:$!{count},
+            css:"",
+            current : $!{page},
+            displaynum : 5,
+            displaylastNum :2,
+            previous:"上一页",
+            next:"下一页",
+            enableArrowKey: true,
+            paging:function(page){
+            		var p = page.current;
+            		window.location = '/account/organization/$!{orgId}/6?page='+p;
+            }
+        });
+        $(function () { 
+        	F.hoverCls( '.tgHeadImage' , 'itgid' );
+        	F.hoverCls( '.tgHeadImage_right' , 'itgid_right' );
+        });
+        function gettypenum(id ,type ,txt){
+    			txt = txt||'';
+    			$('#'+id).html($('#'+type+'_num_label').html()+txt);
+    	}
+        gettypenum('adviser_count','adviser');
+        gettypenum('adviser_num','adviser');
+        
+        seajs.use(['ExpandHelper'], function (expandHelper) {
+            expandHelper.execute({
+                selector: '#intro',
+                minHeight: 110
+            });
+        });
+        
+    </script>
+    <!--页面js: end-->
+     
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+{
+    "retCode": 0,
+    "msg": "",
+    "teamList": [
+        {
+            "teamId": 1,
+            "teamName": "股往今来代表最强",
+            "declaration":"必胜",
+            "recommend": 1,
+            "advantageDesc": "",
+            "teamProfit": 30.02,
+            "membersNum": 8773,
+            "tradeCapital": 300.32,
+            "tgId": 1111111111111,
+            "tgName": "紫气东来",
+            "tgImgUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "joinStatus": 0
+        },
+        {
+            "teamId": 2,
+            "teamName": "股往今来",
+            "declaration":"必胜",
+            "recommend": 1,
+            "advantageDesc": "5倍红包",
+            "teamProfit": 31.02,
+            "membersNum": 3000,
+            "tradeCapital": 400.32,
+            "tgId": 1111111111112,
+            "tgName": "紫气东来2",
+            "tgImgUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "joinStatus": 1
+        },
+        {
+            "teamId": 3,
+            "teamName": "股往今来代表最强2",
+            "declaration":"必胜",
+            "recommend": 0,
+            "advantageDesc": "3倍红包",
+            "teamProfit": 30.02,
+            "membersNum": 4000,
+            "tradeCapital": 102.12,
+            "tgId": 1111111111113,
+            "tgName": "紫气东来3",
+            "tgImgUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "joinStatus": 0
+        },
+        {
+            "teamId": 4,
+            "teamName": "股往今来代表最强3",
+            "recommend": 0,
+            "advantageDesc": "",
+            "teamProfit": 15.02,
+            "membersNum": 1000,
+            "tradeCapital": 200.32,
+            "tgId": 1111111111114,
+            "tgName": "紫气东来4",
+            "tgImgUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "joinStatus": 0
+        },
+        {
+            "teamId": 5,
+            "teamName": "股往今来代表最强4",
+            "declaration":"必胜",
+            "recommend": 0,
+            "advantageDesc": "",
+            "teamProfit": 22.02,
+            "membersNum": 240,
+            "tradeCapital": 200.02,
+            "tgId": 1111111111115,
+            "tgName": "紫气东来5",
+            "tgImgUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "joinStatus": 0
+        }
+    ]
+}

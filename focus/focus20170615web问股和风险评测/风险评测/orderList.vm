@@ -1,0 +1,605 @@
+#parse('../velocity/macro/page.vm')
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>消费记录-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css_js.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/calendar.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/itougu/account/calendar.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+ 
+    <script type="text/javascript">
+    
+       window.siteNav='itougu';
+        $(function () {
+			JRJ.Dialogs.isShow = false;
+
+            /****
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+	         ***/
+            new JRJ.ui.Calendar("cal-1");
+            new JRJ.ui.Calendar("cal-2");
+
+            $('.icon-tooltip').tooltipster({
+                theme: 'tooltipster-light'
+            });
+        });
+        
+        function queryOrder() {
+        	/***
+        	var statusStr = $("#select1").val();
+        	var statusArray = statusStr.split('|');
+        	var param = {
+           		startTime:$("#cal-1").val(),
+           		endTime:$("#cal-2").val(),
+           		orderId:$("#orderId").val()
+           	};
+        	eval("(param."+statusArray[0]+"=\""+statusArray[1]+"\")");
+        	$("#orderDiv").load("/order/orderTable.jspa", param);
+        	***/
+        	var param = {
+           		startTime:$("#cal-1").val(),
+           		endTime:$("#cal-2").val(),
+           		orderId:$("#orderId").val(),
+           		refundStatus:$("#select1").val()
+           	};
+        	$("#orderDiv").load("/order/orderTable.jspa", param);
+        }
+        
+        function turnPage(pageNo) {
+        	/***
+        	var statusStr = $("#select1").val();
+        	var statusArray = statusStr.split('|');
+        	var param = {
+           		startTime:$("#cal-1").val(),
+           		endTime:$("#cal-2").val(),
+           		orderId:$("#orderId").val(),
+           		pageNo:pageNo
+           	};
+        	eval("(param."+statusArray[0]+"=\""+statusArray[1]+"\")");
+        	$("#orderDiv").load("/order/orderTable.jspa", param);
+        	***/
+        	var param = {
+           		startTime:$("#cal-1").val(),
+           		endTime:$("#cal-2").val(),
+           		orderId:$("#orderId").val(),
+           		refundStatus:$("#select1").val(),
+           		pageNo:pageNo
+           	};
+        	$("#orderDiv").load("/order/orderTable.jspa", param);
+        	//定位到顶部
+        	$('html,body').animate({'scrollTop':$(".page-title-2").offset().top});
+        	
+        }
+        //关闭(取消)订单
+        function closeOrder(orderId){
+        	//alert("orderId:"+orderId);
+        	if(orderId!=''){
+        		 //取消订单提示
+        		 JRJ.Dialogs.standardDialog({
+	                title: "提示",
+	                width: 450,
+	                content: ['<div style="padding-bottom:30px;">',
+	                                '<p class="tc mt30">您确认要取消订单吗？取消订单后，不能恢复。</p>',
+									'<p class="tc mt30"><a id="btnOk" class="mr10 btn btn-97-30">确认</a><a id="btnClose" class="btn btn-106-30-gray ">关闭</a></p>',
+	                            '</div>'].join(''),
+	                okBtnText: "确定",
+	                cancelBtnText: "取消",
+	                hasCloseBtn: true,
+	                hasOkBtn: true,
+	                hasBtn: false,
+				    hasCancelBtn: true,
+	                okCallback: function () { },
+	                cancelCallback: function () { },
+	                isFixed: true
+                });
+        		 //点击确认的时候，调用后台
+        		 $("#btnOk").click(function(){
+        			 
+            	   $.ajax({
+	        		  url:"/order/close.jspa?orderId="+orderId,
+	        		  dataType:"json"
+	        	   }).done(function(data){
+	        		   //console.log(data);
+	        		   //alert(data);
+	        		   //0:成功，-1：失败
+	        		   if(data.errorCode=='0'){
+	        			   //如果成功
+	        		       window.location.href =  window.location.href;
+	        		   }else{
+	        			   alert(data.errorMessage);
+	        		   }
+	        	   });
+        		 })
+        		 //点击关闭的时候
+        		 $("#btnClose").click(function(){
+        			 JRJ.Dialogs.close(); 
+        		 })
+        	}
+        }
+        
+        function detail(id,type) {
+        	$.ajax({
+        		url:"/order/orderDetail.jspa?id="+id+"&orderType="+type,
+        		dataType:"json"
+        	}).done(function(data){
+        		var status_display = data.order_status_display;
+        		var html = '<div class="revenue-dlg-detail">'+
+				                '<h1 class="page-title-2 page-title-2-float clearfix">'+
+					                '<span class="f16">订单详情</span>'+
+					            '</h1>'+
+					            '<div class="revenue-status">'+
+					               '<p class="mt20">订单号：'+data.order_id+'   <span class="ml30">状态：<strong>'+data.order_status_display+'</strong></span>'+xieyishow(data);
+					                if(status_display=='待支付') {
+					            		html+='&emsp;<a href="javascript:;" class="btn btn-64-21 mr10" onclick="paynow('+"'"+data.order_id+"'"+','+"'"+data.order_type+"'"+')">立即支付</a>'; 
+					                }
+					                html+='</p><p class="">下单时间：'+data.ctime_display+'</p>';
+					                if(status_display=='已关闭') {
+					            		html+='<p class="">关闭时间：'+data.close_time_display+'</p>';
+					            	}
+					            	if(status_display!='待支付'&&status_display!='已关闭') {
+					            		html+='<p class="">支付时间：'+data.pay_time_display+'</p>';
+					            	}
+					            	if(data.order_type_display=='投资组合'){
+					            	  if(status_display=='已退款') {
+					                	html+='<p class="">退款时间：'+data.refund_time_display+'</p>';
+					                  }
+					            	  if(status_display=='已完成') {
+					                	html+='<p class="">完成时间：'+data.service_finishtime_display+'</p>';
+					                   }
+					            	}
+					                
+					                
+					            html+='</div>'+
+					            '<h1 class="page-title-2 page-title-2-float clearfix">'+
+					                '<span class="f16">购买详情</span>'+
+					            '</h1>'+
+					            '<table class="table-general table-general-p3 mt20" style="font-size:12px;">'+
+					                '<thead>'+
+					                    '<tr>'+
+					                        '<th class="tc" >类型</th>';
+					                         if(data.order_type_display=='投资组合'){
+					                              html+='<th class="tc" style="width:120px;">名称</th>'+
+					                                 '<th class="tc" >创建人</th>'+
+					                                 '<th class="tc">最迟结束时间 </th>'+
+					                                 '<th class="tc" >目标收益</th>'+
+					                                 '<th class="tc" >最终收益</th>'+
+					                                 '<th class="tc" >订阅价格(元)</th>'+
+					                                 '<th class="tc" >优惠(元)</th>'+
+					                                 '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='投资内参'){
+					                        	  html+='<th class="tc" style="width:160px;">名称</th>'+
+					                                 '<th class="tc" >创建人</th>'+
+					                                 '<th class="tc" >订阅价格(元)</th>'+
+					                                 '<th class="tc" >优惠(元)</th>'+
+					                                 '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='打赏直播室'){
+					                        	  html+='<th class="tc" style="width:160px;">名称</th>'+
+					                        	  		'<th class="tc" >受赏人</th>'+
+					                                 	'<th class="tc" >金额(元)</th>'+
+					                                 	'<th class="tc" >优惠(元)</th>'+
+					                                    '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='打赏观点'){
+					                        	  html+='<th class="tc" style="width:160px;">名称</th>'+
+					                        	  		'<th class="tc" >受赏人</th>'+
+					                                 	'<th class="tc" >金额(元)</th>'+
+					                                 	'<th class="tc" >优惠(元)</th>'+
+					                                    '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='投票支付'){
+					                        	  html+='<th class="tc" >受赏人</th>'+
+					                                    '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='礼物'){
+					                        	  html+='<th class="tc" style="width:160px;">名称</th>'+
+					                        	  		'<th class="tc" >受赏人</th>'+
+					                        	  		'<th class="tc" >单价</th>'+
+					                                    '<th class="tc" >数量</th>'+
+					                                 	'<th class="tc" >金额(元)</th>' +
+					                                 	'<th class="tc" >优惠(元)</th>'+
+					                                    '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='偷看'){
+					                        	  html+='<th class="tc" style="width:120px;">名称</th>'+
+					                                 '<th class="tc" >创建人</th>'+
+					                                 '<th class="tc" >订阅价格(元)</th>'+
+					                                 '<th class="tc" >优惠(元)</th>'+
+					                                 '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type==12){
+					                        	  html+='<th class="tc" style="width:120px;">名称</th>'+
+					                                 '<th class="tc" >创建人</th>'+
+					                                 '<th class="tc" >订阅价格(元)</th>'+
+					                                 '<th class="tc" >优惠(元)</th>'+
+					                                 '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='行情'){
+					                        	  html+='<th class="tc" >创建人</th>'+
+					                                 '<th class="tc last" >实付款(元)</th>';
+					                          }else if(data.order_type_display=='实盘赛'){
+					                        	  html+='<th class="tc" >创建人</th>'+
+					                                 '<th class="tc last" >实付款(元)</th>';
+					                          }                      
+					                   html+= '</tr>'+
+					                '</thead>'+
+					                '<tbody>'+
+					                    '<tr>';
+					                    	if(data.order_type_display=='投资组合' || data.order_type_display=='偷看'){
+					                    		html+= '<td class="tc">组合跟投</td>';
+					                    	}else{
+					                    		html+= '<td class="tc">'+data.order_type_display+'</td>';
+					                    	}
+					                        //组合或内参名称
+					                        var pname = "";
+					                        var yieldDisplay = "" ;
+					                        //最大收益
+					                        var maxYieldDisplay ="";
+					                        //最终收益
+					                        var finalYieldDisplay ="";
+					                        if(typeof(data.detail)=="undefined"){
+					                        	if(typeof(data.memo)!="undefined"){
+					                        		pname = data.memo;
+					                        	}
+					                        	yieldDisplay = "0" ;
+					                        	finalYieldDisplay  = "--";
+					                        }else{
+					                        	pname = data.detail.pname;
+					                        	yieldDisplay = data.detail.yield_display;
+					                        	finalYieldDisplay = data.data3_display;
+					                        }
+					                        if(data.order_type_display=='投资组合'){
+					                        	html+= '<td class="tc"><a target="_blank" href="/portfolio/v3/detail/'+data.pid+'.jspa" class="link">'+pname+'</a></td>';
+					                        	if(data.max_yield_display == '' || typeof(data.max_yield_display)=="undefined"){
+					                        		maxYieldDisplay = "--" ;
+					                        	}else{
+					                        		maxYieldDisplay = data.max_yield_display ;
+					                        	}
+					                        	
+					                        }else if(data.order_type_display=='投资内参'){
+					                        	html+= '<td class="tc"><a target="_blank" href="/tips/'+data.pid+'.jspa" class="link">'+pname+'</a></td>';
+					                        }else if(data.order_type_display=='礼物'){
+					                        	html+= '<td class="tc"><a target="_blank" href="/account/adviser/'+data.sell_user_id+'/3" class="link">'+pname+'</a></td>';
+					                        }else if(data.order_type_display=='打赏直播室'){
+					                        	html+= '<td class="tc"><a target="_blank" href="/account/adviser/'+data.sell_user_id+'/3" class="link">'+pname+'</a></td>';
+					                        }else if(data.order_type_display=='打赏观点'){
+					                        	html+= '<td class="tc"><a target="_blank" href="/view/'+data.pid+'.jspa" class="link">'+pname+'</a></td>';
+					                        }else if(data.order_type_display=='偷看'){
+					                        	html+= '<td class="tc"><a target="_blank" href="/portfolio/v3/detail/'+data.pid+'.jspa" class="link">'+pname+'</a></td>';
+					                        }else if(data.order_type==12){
+					                        	html+= '<td class="tc"><a target="_blank" href="/match/v7/vudetail/'+data.sell_user_id+'.jspa" class="link">'+pname+'</a></td>';
+					                        }else if(data.order_type_display=='行情'){
+					                        	html+= pname;
+					                        }else if(data.order_type_display=='行情'){
+					                        	html+= pname;
+					                        }
+					                        //卖的投顾或受赏人
+					                        var sellUserName = "";
+					                        if(typeof(data.sell_user_name)!="undefined"){
+					                        	sellUserName = data.sell_user_name;
+					                        }
+					                        html+='<td class="tc">'+sellUserName+'</td>';
+					                        if(data.order_type_display=='投资组合'){
+						                       // if(status_display=='已关闭'||status_display=='待支付') {
+						                       // 	html+='<td class="tc">暂无</td>';
+						                      //  } else {
+						                        	//html+='<td class="tc">'+data.service_starttime_display+
+						                        	//'至'+data.service_endtime_display+'</td>';
+						                        	html+='<td class="tc">'+data.service_endtime_display+'</td>';
+						                       // }
+						                        html+='<td class="tc">'+yieldDisplay+'</td>'+
+						                        '<td class="tc">'+finalYieldDisplay+'</td>';
+					                        }
+					                        //显示订阅金额,优惠金额
+					                        if(data.order_type_display=='投资内参' || data.order_type_display=='投资组合' || data.order_type_display=='偷看' || data.order_type==12){
+					                        	html+='<td class="tc">'+data.pdAmount_display+'</td>';
+					                        	html+='<td class="tc">'+data.cpAmount_display+'</td>';
+					                        }else if(data.order_type_display=='礼物'){
+					                        	html+='<td class="tc">'+data.pdAmount_display+'</td>';
+					                        	html+='<td class="tc">'+data.num+'</td>';
+					                        	if(data.num<=1){
+					                        		html+='<td class="tc">'+data.pdAmount_display+'</td>';
+					                        	}else{
+					                        		html+='<td class="tc">'+data.pdAmount_display*data.num+'</td>';
+					                        	}
+					                        	html+='<td class="tc">'+data.cpAmount_display+'</td>';
+					                        }else if(data.order_type_display=='打赏直播室'){
+					                        	html+='<td class="tc">'+data.pdAmount_display+'</td>';
+					                        	html+='<td class="tc">'+data.cpAmount_display+'</td>';
+					                        }else if(data.order_type_display=='打赏观点'){
+					                        	html+='<td class="tc">'+data.pdAmount_display+'</td>';
+					                        	html+='<td class="tc">'+data.cpAmount_display+'</td>';
+					                        }
+					                        html+='<td class="tc last">'+data.amount_display+'</td>'+
+					                    '</tr>'+
+					                '</tbody>'+
+					            '</table>'+
+					        '</div>';
+        		JRJ.Dialogs.standardDialog({
+                        title: "订单详情",
+                        noTitle:true,
+                        width: 800,
+                        content: html,
+                        okBtnText: "确定",
+                        cancelBtnText: "关闭",
+                        hasCloseBtn: true,
+                        hasOkBtn: false,
+                        hasCancelBtn: true,
+                        okCallback: function () { },
+                        cancelCallback: function () { },
+                        isFixed: true
+                    });
+        	})
+        }
+        
+         //处理之前没有做过测评，如果没有做过那就不显示投顾服务协议  
+        function xieyishow(data){
+        	if(data.user_risk_level=='' || data.user_risk_level==undefined || data.user_risk_level ==null){
+        		return '';
+        	}else{
+        		var xieyistr='<a style="float:right;color:blue;" target="_blank" href="http://itougu.jrj.com.cn/activity/web/orderagreeWeb.jspa?orderid='+data.order_id+'&jia='+data.buy_user_name+'&yi='+data.sell_user_name+'&timestart='+data.service_starttime+'&timeend='+data.service_endtime+'&price='+data.amount+'&tglevel='+data.tg_risk_level+'&userlevel='+data.user_risk_level+'&memo='+data.memo+'" >投顾服务协议</a>';
+        		return xieyistr;
+        	}
+        }
+
+            //支付提示: failed
+            JRJ.Dialogs.standardDialog({
+                title: "支付提示",
+                width: 450,
+                content: ['<div>',
+                                '<p class="tc mt30">支付失败，请到消费记录中继续支付</p>',
+                            '</div>'].join(''),
+                okBtnText: "继续支付",
+                cancelBtnText: "取消",
+                hasCloseBtn: true,
+                hasOkBtn: true,
+                hasBtn: true,
+                hasCancelBtn: false,
+                okCallback: function () { },
+                cancelCallback: function () { },
+                isFixed: true
+            });
+           
+        	
+        
+        	
+           //立即支付
+           function paynow(orderId,orderType){
+        	  if(JRJ.Dialogs.isShow){
+        		  JRJ.Dialogs.close();
+        	  }
+        	  //调用支付接口，先弹窗，防止被劫持
+	          window.ow = window.open();
+        	  //var orderId = $("#paynow").attr("data-attr");
+        	  //alert("orderId==="+orderId+",orderType="+orderType);
+        	  //立即支付的时候，首先请求接口判断订单是否是待支付，如果是则“支付提示”，否则订单状态改变，不能支付。
+        	  //请求订单状态接口
+        	  $.ajax({
+        		  url:"/order/viewOrderStatus.jspa?orderId="+orderId,
+        		  dataType:"json"
+        	  }).done(function(data){
+        		 //订单状态非待支付，0：成功，canPay 1：能支付 0：不能支付
+        		 if(data.retCode=='0'){
+        			 if(data.canPay=='0'){
+        				
+	        			 //返回错误的时候，弹窗提示不能支付
+	        			  JRJ.Dialogs.standardDialog({
+			                title: "提示",
+			                width: 450,
+			                content: ['<div style="padding-bottom:30px;">',
+			                                '<p class="tc mt30">订单状态已改变，不能进行支付！</p>',
+											'<p class="tc mt30"><a id="noPayClose" class="mr10 btn btn-97-30">关闭</a></p>',
+			                            '</div>'].join(''),
+			                okBtnText: "确定",
+			                cancelBtnText: "取消",
+			                hasCloseBtn: true,
+			                hasOkBtn: true,
+			                hasBtn: false,
+						    hasCancelBtn: true,
+			                okCallback: function () { },
+			                cancelCallback: function () { },
+			                isFixed: true
+			            });
+	        			 //未支付关闭
+			        	$("#noPayClose").click(function(){
+			        		 JRJ.Dialogs.close(); 
+			        		window.location.href = window.location.href;
+			        	})
+				        			 
+        			 } 
+        		 }else{
+        			 //支付提示
+		             JRJ.Dialogs.standardDialog({
+		                title: "支付提示",
+		                width: 450,
+		                content: ['<div class="revenue-dlg-payment">',
+		                                '<p class="mt20">支付完成前 请不要关闭此支付验证窗口</p>',
+		                                '<p class="mt10"><strong>请在2小时内支付，超时将关闭订单；</strong></p>',
+		                                '<p class="mt10"><a id="payError" class="btn btn-106-30-gray mr10">支付遇到问题</a><a id="payFinish" class="btn btn-97-30">支付完成</a></p>',
+		                            '</div>'].join(''),
+		                okBtnText: "确定",
+		                cancelBtnText: "取消",
+		                hasCloseBtn: true,
+		                hasOkBtn: true,
+		                hasBtn: false,
+		                hasCancelBtn: true,
+		                okCallback: function () { },
+		                cancelCallback: function () {
+		                	window.location.href = window.location.href;
+		                },
+		                isFixed: true
+		             });
+        			 
+        			 //点击支付完成的时候，判断订单是否支付
+			        	$("#payFinish").click(function(){
+			        		 $.ajax({
+			        		  url:"/order/viewOrderStatus.jspa?orderId="+orderId,
+			        		  dataType:"json"
+			        	  }).done(function(data){
+			        		  //retCode: 1成功 0失败,canPay 1：能支付 0：不能支付
+			        		  if(data.retCode="1"){
+			        			  if(data.canPay=="1"){
+					        		  //如果完成，刷新页面，否则提示支付失败
+					        		  JRJ.Dialogs.standardDialog({
+						                title: "提示",
+						                width: 450,
+						                content: ['<div style="padding-bottom:30px;">',
+						                                '<p class="tc mt30">支付失败，请到消费记录中继续支付！</p>',
+														'<p class="tc mt30"><a id="continusPay" class="mr10 btn btn-97-30">继续支付</a></p>',
+						                            '</div>'].join(''),
+						                okBtnText: "确定",
+						                cancelBtnText: "取消",
+						                hasCloseBtn: true,
+						                hasOkBtn: true,
+						                hasBtn: false,
+									    hasCancelBtn: true,
+						                okCallback: function () { },
+						                cancelCallback: function () { },
+						                isFixed: true
+						            });
+					        		  
+					        		//继续支付
+						        	$("#continusPay").click(function(){
+						        		window.location.href="/order/orderList.jspa";
+						        	})
+				        		  }else{
+				        			  window.location.href = window.location.href;
+				        		  }
+			        		}else{
+			        			window.location.href = window.location.href;
+			        		}  
+			        	 })
+			        	 //刷新页面
+			        	 //window.location.href = window.location.href;
+			               //window.location.reload();
+			        	 
+			          });
+        			 
+        			 //点击支付遇到的问题
+        			 $("#payError").click(function(){
+			        		window.open("/site/help.html?tag=pay");
+			         })
+        			 
+			        	
+			         
+        			 //调用支付接口
+		        	 $.ajax({
+		        		  url:"/order/record/buyweb.jspa?orderId="+orderId+"&orderType="+orderType,
+		        		  dataType:"json"
+		        	 }).done(function(data){
+		        		  //alert(data);
+		        		  //console.log(data);
+		        		  if(data.retCode=='-1'){
+		        			  alert(data.msg);
+			        			 
+		        		 }else{
+		        			  var url = data.redirectUrl;
+        			          //window.open(url); 
+        			           window.ow.location = url;
+		        		 }
+		        		 
+		        	 });
+        	  }
+
+          });
+   
+       }
+        	 
+        	  
+           
+    </script>
+</head>
+<body>
+    <!--site-top-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-header-->
+    <!--bread-crumb-->
+     
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的爱投顾</a>
+        </div>
+    </div>
+ 
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/myself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            
+            <div class="site-main-right">
+                <h1 class="page-title-2 page-title-2-float clearfix">
+                    <!-- <a href="" class="fr link f12">返回</a> -->
+                    <span class="f16">消费记录</span>
+                </h1>
+
+                <div class="revenue-subtab mt20">
+                    <a href="/order/orderList.jspa" class="cur">所有记录</a>
+                    <span class="split">|</span>
+                    <a href="/order/refundList.jspa">退款记录</a>
+                </div>
+                <div class="revenue-searchbar clearfix">
+                    <span>日期：</span>
+                    <input id="cal-1" type="text" class="txtbox-calendar" value="$!{startTime}"/>
+                    <span class="f12">至</span>
+                    <input id="cal-2" type="text" class="txtbox-calendar" value="$!{endTime}"/>
+                    <span>订单状态:</span>
+                    <select id="select1">
+                        <option value="">全部</option>
+                        <option value="dzf">待支付</option>
+                        <option value="15">服务中</option>
+                        <option value="16">已完成</option>
+                        <option value="18">已关闭</option>
+                        <option value="12">退款中</option>
+                        <option value="13">已退款</option>
+                    </select>
+                    <span>订单号:</span>
+                    <input id="orderId" type="text" />
+                    <a href="javascript:;" class="btn btn-45-24-blue" 
+                    	onclick="queryOrder();">查询</a>
+                </div>
+                <div id="orderDiv">
+                	#parse("../velocity/tougu/w/orderTable.vm")
+				</div>	
+            </div>
+
+        </div>
+        <!--site-main-right-->
+    </div>
+
+    <!--footer-->
+    <!--\#include virtual="/common_footer.html" -->
+    <!--footer-->
+</body>
+</html>

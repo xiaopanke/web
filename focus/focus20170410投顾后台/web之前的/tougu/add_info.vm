@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投顾注册-爱投顾-金融界</title>
+    <meta name="keywords" content="投顾注册-爱投顾-金融界" />
+    <meta name="description" content="投顾注册-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor-simple.css" rel="stylesheet" />
+    <!--# include virtual="/common_head_css_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/CharNum.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+        	 //checkbox
+            var count = 0;
+             var len = 0;
+            $('#select1').sSelect({ ddMaxHeight: '168px' });
+            $('#select2').sSelect({ ddMaxHeight: '168px' });
+            
+            $('#stockList').find("li").each(function(){
+            	if($("#investDirections").val().indexOf($(this).html())>-1 && $(this).html().length>1){
+            		$(this).addClass("checked");
+            		count = count +1;
+            	}
+			})
+			
+			$('#labelList').find("li").each(function(){
+            	if($("#labels").val().indexOf($(this).html())>-1 && $(this).html().length>1){
+            		$(this).addClass("checked");
+            		len = len +1;
+            		if (len >= 10) {
+                        $('.custom-checkbox-2 li.new').hide();
+                    }
+            	}
+			})
+            
+
+           
+            //定义存放擅长领域数组
+            var stockTagArray = new Array();
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('hover');
+                   
+                }
+                
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                 if(count > 2){
+                        return false;
+                      }
+                    $(this).addClass('checked');
+                count = count + 1;
+                } else {
+                    $(this).removeClass('checked');
+                     count = count - 1;
+                }
+                 //alert($(this).hasClass('checked'));
+                 //取li的索引
+                  //var i = $(this).index() + 1;
+                  //alert("i="+i)
+                  //取li的内容
+                  //alert($('.custom-checkbox li').eq(i-1).text());
+                  //取擅长领域
+                  //$("#investDirections").val($('.custom-checkbox li').eq(i-1).text());
+                  //alert($("#investDirections").val());
+                  //清空数组
+                  stockTagArray = [];
+                   // 循环取li的值
+                  $('.custom-checkbox li').each(function(){
+			        if($(this).hasClass('checked')){
+			            var j=$(this).index();//当前选中ul中li的序号
+			            //alert("第几个选中："+$(this).index());
+			            //alert("第几个选中的值"+$('.custom-checkbox li').eq(j).text());
+			            stockTagArray.push($('.custom-checkbox li').eq(j).text());
+			          }
+			       })
+			       //alert("stockTagArray="+stockTagArray.toString());
+                  $("#investDirections").val(stockTagArray.toString());
+                  //alert("===investDirections="+$("#investDirections").val());
+                  //统计几个选中
+                 $("#li1").val(count);
+            });
+            $('.custom-checkbox-readonly li').unbind('mouseenter click');
+            $('.custom-checkbox-readonly-2 li').unbind('click');
+            //能力标签
+             //定义存放能力标签数组
+             var labelArray = new Array();
+            $('.custom-checkbox-2 li').live('mouseenter', function () {
+                if (!$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('hover');
+                }
+            }).live('mouseleave', function () {
+                $(this).removeClass('hover');
+            }).live('click', function () {
+                if (!$(this).hasClass('new') && !$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable') && $('.custom-checkbox-2 li.checked').length < 10) {
+                    $(this).addClass('checked');
+                    if ($('.custom-checkbox-2 li.checked').length >= 10) {
+                        $('.custom-checkbox-2 li.new').hide();
+                    }
+                } else {
+                    if (!$(this).hasClass('new') && !$(this).hasClass('disable') && !$(this).hasClass('editable') && !$(this).hasClass('uncheck-disable')) {
+                        $(this).removeClass('checked');
+                        if ($('.custom-checkbox-2 li.checked').length < 10) {
+                            $('.custom-checkbox-2 li.new').show();
+                        }
+                    }
+                }
+                
+            });
+
+            $('.custom-checkbox-2 li.new').mouseenter(function () {
+                $(this).addClass('new-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('new-hover');
+            }).click(function () {
+
+                if ($('.custom-checkbox-2').find('li.editable').length > 0) {
+                } else {
+                    $('<li class="editable"><input id="Text1" type="text" maxlength="8"/><i></i></li>').insertBefore($(this));
+                }
+                $('.custom-checkbox-2').find('li.editable').find('input').focus();
+                $(this).hide();
+               
+            });
+
+//			$('.custom-checkbox-2').find('li.editable').find('input').live('keydown',function(e){
+//						if(e.keyCode==13){
+//						   $('.custom-checkbox-2').find('li.editable').find('input').blur();
+//						}
+//				}); 
+            $('.custom-checkbox-2 li.editable').live('blur', function () {
+                if ($.trim($(this).find('input').val()).length > 0) {
+                    $('<li class="checked uncheck-disable">' + $(this).find('input').val() + '<i></i></li>').insertBefore($(this));
+                }
+                $(this).remove();
+
+                if ($('.custom-checkbox-2 li.checked').length < 10) {
+                    $('.custom-checkbox-2 li.new').show();
+                }
+
+            });
+            $('.custom-checkbox-2 li i').live('click', function (e) {
+                e.stopPropagation();
+                $(this).parent().remove();
+                if ($('.custom-checkbox-2 li.checked').length < 10) {
+                    $('.custom-checkbox-2 li.new').show();
+                }
+               
+            });
+             
+               
+				              
+            //checkbox
+
+
+            var args2 = {
+                name: "miniediter",
+                width: 872,
+                height: 170,
+                value: "",
+                //默认是否具备编辑焦点
+                hasFocus: false,
+
+                //是否需要登陆框
+                hasLoginDlg: false,
+                containerId: "miniediter",
+
+                //标题文字
+                title: "",
+
+                //工具条底部其他提示文字
+                otherTipTxt: "",
+
+                hasOkBtn:false,
+                //按钮文字
+                okBtnTxt: "确定",
+
+                //限制字数
+                num: 500,
+
+                submitType: 'text',
+                //submitType: 'html',
+                onSubmit: function (content) {
+              
+                    if (Util.ui.CharNum(edit2, 5, '已超过{num}个字符')) {
+                        console.log(content);
+                    }
+                }
+            };
+            window.editor = new JRJ.ui.MiniEditor(args2);
+            if($("#intro").val()!=''){
+				window.editor.setHtml([$("#intro").val()].join(''));
+			}else{
+	            window.editor.setHtml(['<div class="watermark" ><p style="color:#999;">您可以填写如下信息，以便加快审核的进程：</p>',
+	                '<p style="margin-top:20px;color:#999;">1，投顾人员可提供从业背景、学历等信息；</p>',
+	                '<p style="color:#999;">2，投顾人员可完善个人的荣誉记录，如新财富最佳分析师、新浪投股大赛、中国基金业金牛奖，等各项认知度较高的赛事荣誉；</p>',
+	                '<p style="color:#999;">3，投顾人员可完善个人的成功服务案例、投资案例等信息，以便加快审核的进程。</p></div>'
+	            ].join(''));
+            }
+            
+            
+             $(window.editor.editorDocument).blur(function(){
+        	   //清楚错误提示
+        	    $("#intro_id").hide();
+        	   
+        	      // alert("12121");
+        	      if($(window.editor.getHtml()).hasClass('watermark') || window.editor.getText()==''){
+		        	   $("#intro_id").text("个人简介不能为空！").show();
+		        	   return false;
+		           }else{
+		        	    $("#intro_id").text("").hide();
+			           if(editor.getContentLength()==134 || window.editor.getText()=='' ){
+			             //alert("请输入个人简介");
+			             $("#intro_id").show();
+			             $("#intro_id").focus();
+			             return false;
+			           }else{
+			             $("#intro_id").hide();
+			             $("#intro").val(window.editor.getText());
+			           }
+			           if(editor.getContentLength()>500){
+			             //alert("个人简介超过了500字，请删除一些再提交");
+			             $("#intro_id").text("您的个人简介已超过了500字");
+			             $("#intro_id").show();
+			             return false;
+			           }
+			       }
+        	  
+        	
+             })
+            
+        });
+       
+       function pre_next(){
+          if(next()){
+           // $("#form0").submit();
+            $("#form0").attr({method:"post",action:"/account/applyAdviser_4.jspa"}).submit();
+          }else{
+            return false;
+          }
+       }
+       
+      // $(window).keydown(function(e){
+	 //     var curKey = e.which; 
+     //     if(curKey == 13){ 
+    //	     if(next()){
+    //		     $("#form0").submit();
+    //	    }else{
+    //	         return false;
+    //	    }
+   //      } 
+   //    });
+       
+       //验证条件表单
+         function next(){
+           var count = $('.custom-checkbox li.checked').length;
+           //alert(count);
+           if(count == 0){
+             //alert("请选择1-3项擅长投资方向");
+             $("#invest_id").show();
+             $("#invest_id").focus();
+             return false;
+           }else{
+             $("#invest_id").hide();
+			            
+           }
+           var len = $('.custom-checkbox-2 li.checked').length;
+           if(len == 0){
+              //alert("请添加1-10项能力标签");
+              $("#label_id").show();
+              $("#label_id").focus();
+              return false;
+           }else{
+              $("#label_id").hide();
+              
+           }
+           
+            //把选中的标签放到数组
+           
+           var labelArray1 = new Array();
+        	 $('.custom-checkbox-2 li').each(function(){
+			        if($(this).hasClass('checked') || $(this).hasClass('checked uncheck-disable')){
+			            var j=$(this).index();//当前选中ul中li的序号
+			            //alert("第几个选中："+$(this).index());
+			           // alert("第几个选中的值"+$('.custom-checkbox-2 li').eq(j).text());
+			            labelArray1.push($('.custom-checkbox-2 li').eq(j).text());
+			          }
+			  })
+			$("#labels").val(labelArray1.toString());  
+			
+           //alert("num=="+editor.getContentLength() );
+           if($(window.editor.getHtml()).hasClass('watermark')  || window.editor.getText()==''){
+        	   $("#intro_id").text("个人简介不能为空！").show();
+        	   return false;
+           }else{
+        	    $("#intro_id").text("").hide();
+	           if(editor.getContentLength()==134 || window.editor.getText()=='' ){
+	             //alert("请输入个人简介");
+	             $("#intro_id").show();
+	             $("#intro_id").focus();
+	             return false;
+	           }else{
+	             $("#intro_id").hide();
+	             //过滤单引号双引号
+	             $("#intro").val(filterMark(window.editor.getText()));
+	           }
+	           if(editor.getContentLength()>500){
+	             //alert("个人简介超过了500字，请删除一些再提交");
+	             $("#intro_id").text("您的个人简介已超过了500字");
+	             $("#intro_id").show();
+	             return false;
+	           }else{
+	        	   $("#intro_id").hide();
+	           }
+	         }
+           var check = $("#Checkbox1").attr("checked");
+           if(check == undefined){
+              //alert("您尚未同意相关协议");
+              $("#deal_id").show();
+              return false;
+           }else{
+              $("#deal_id").hide();
+           }
+		   
+		   return  true;
+           //提交
+           //$("#form0").submit();
+          
+        }
+        
+          
+        function next_4(){
+        
+        	if(Util.ui.CharNum( window.editor, 500, '已超过{num}个字符')){
+        		$("#form0").submit();
+        	}
+        	//alert("num=="+editor.getContentLength() );
+        	
+        	//alert("--"+window.editor.getText());
+        	
+        	//把选中的标签放到数组
+        	 $('.custom-checkbox-2 li').each(function(){
+			        if($(this).hasClass('checked') || $(this).hasClass('checked uncheck-disable')){
+			            var j=$(this).index();//当前选中ul中li的序号
+			            //alert("第几个选中："+$(this).index());
+			           // alert("第几个选中的值"+$('.custom-checkbox-2 li').eq(j).text());
+			            labelArray.push($('.custom-checkbox-2 li').eq(j).text());
+			          }
+			       })
+			     
+        }
+        
+        //把个人简介中的单引号、双引号转义成全角的单引号、双引号
+        function filterMark(str){
+        	if(str!=''){
+        		str=str.replace(/\'/g,"’");//替换半角单引号为全角单引号
+                str=str.replace(/\"/g,"”");//替换半角双引号为全角双引号
+        	}
+        	return str;
+        }
+        
+       
+    </script>
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+
+    <div class="page-title">
+        <div class="wrapper">
+            <h1>投顾注册</h1>
+        </div>
+    </div>
+<form id="form0">
+    <input type="hidden" id="investDirections" name="investDirection" value="$!{apply.investDirection}"/>
+    <input type="hidden" id="labels" name="label" value="$!{apply.label}"/>
+    <input type="hidden" id="intro" name="intro" value="$!{apply.intro}"/>
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-single-cnt">
+                <div class="steps-wrap steps-wrap-2">
+                    <div class="step-item step-item-3"></div>
+                    <div class="step-text clearfix">
+                        <span class="past">录入个人信息</span>
+                        <span class="past">上传照片</span>
+                        <span class="past">填写您的擅长领域</span>
+                        <span class="last">注册完成</span>
+                    </div>
+                </div>
+                <h2 class="block-title mt30">选择投资方向<span>(1-3项)</span></h2>
+                <div class="custom-checkbox-wrap f1">
+                    <ul class="custom-checkbox clearfix mt30" id="stockList">
+                        <li>A股</li>
+                        <li>港股</li>
+                        <li>美股</li>
+                        <li>基金</li>
+                        <li>贵金属</li>
+                        <li>其他理财</li>
+                    </ul>
+                    <p class="red" style="display:none;" id="invest_id">擅长投资方向不能为空</p>
+                </div>
+                <h2 class="block-title mt30">选择擅长领域<span>(1-10项，每个标签不超过8个字，例如　债券基金 　房地产板块　4g概念　新能源领域　京津冀一体化等。)</span></h2>
+                <div class="custom-checkbox-wrap f1">
+                    <ul class="custom-checkbox-2 clearfix mt30" style="width:900px;" id="labelList">
+                        <li>基本面分析</li>
+                        <li>技术面分析</li>
+                        <li>长线操作</li>
+                        <li>短线操作</li>
+                        <li>波段操作</li>
+                        <li>大盘分析</li>
+                        <li>行业分析</li>
+                        <li>个股分析</li> 
+                        <li>价值投资</li>
+                        <li>热点追踪</li>
+                        <li class="new"></li>
+                    </ul>
+                    <p class="red" style="display:none;" id="label_id">能力标签不能为空</p>
+                </div>
+                
+                    
+                <h2 class="block-title mt30">个人简介</h2>
+
+				<div class="f1">
+                 <div class="register-editor-wrap mt25" style="height: 170px;">
+                    <div id="miniediter"></div>
+                 </div>
+                  <p class="red" style="display:none;" id="intro_id">个人简介不能为空</p>
+                </div>
+                <div class="f1 mt30">
+                  <p class="middle protocol"><input id="Checkbox1" type="checkbox" checked="checked" class="mr10" />我已经同意<a href="http://itougu.jrj.com.cn/site/protocol.html" class="link" style="margin-top:-3px" target="_blank">爱投顾平台投顾服务协议</a></p>
+                   <p class="red" style="display:none;" id="deal_id">请勾选投顾平台协议</p>
+                </div>
+                <div class="btn-wrap tc btn-wrap-border mt30">
+                    <input type="hidden" id="li1" value="0"/>
+                    <input type="hidden" id="li2"/>
+                    <a href="/account/applyAdviser_2.jspa" class="btn btn-123-40 mr30">上一步</a>
+                    <a href="javascript:void(0);" class="btn btn-123-40" onclick="pre_next();">下一步</a>
+                </div>
+            </div>
+        </div>
+    </div>
+ </form>
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

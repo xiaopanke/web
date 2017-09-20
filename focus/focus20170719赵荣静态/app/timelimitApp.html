@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>限时赠超跌错杀股</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link href="http://i0.jrjimg.cn/zqt-red-1000/focus/zdcp_20170605/h5/css/animate.mini.css" rel="stylesheet" />
+<style>
+/**{-webkit-tap-highlight-color:rgba(0,0,0,0);}*/
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#878C92; }
+body{background: #741012}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+.borb{border-bottom:#EFEFF4 .5rem solid;}
+
+.box{height: 69.15rem;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170711vip/zrbg.jpg?b) no-repeat;background-size: 100% 100%;position: relative;}
+.gobtn{position: absolute;width:7.625rem ; height:1.875rem; top:14rem;left:50%; margin-left: -3.8125rem; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170711vip/zrbtn.png?a) no-repeat; background-size: 100% 100%;-webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;}
+#go{ position: absolute;bottom:0;width:12.5rem; height:6.5rem;left:50%; margin-left: -6.25rem}
+.up{ height: 3.1rem;text-align: center;}
+.up i{ color: #c70202;font-size: .75rem;font-weight: bold;}
+.up span{ color: #0c0b04;font-size: .75rem;font-weight: bold;}
+#go a{display: block; height: 2rem;}
+.two{ position: absolute;bottom:17.3rem;text-align: center; line-height: 1rem;color: #f5eecb;left:0;width:100%;font-size: .6rem;}
+.two i{ color: #fbd10d;font-weight: bold;font-size: .6rem;}
+</style>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<script src="http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js" type="text/javascript"></script>
+<body>
+   <div class="box">
+       <a href="javascript:;" class="gobtn pulse animated infinite"></a>
+       <div class="two">长按识别下方二维码，或长按复制微信号：  <i>jrj14637</i> ，<br />添加好友，<i>领取牛股及价值2000元买卖信号工具Z点操盘！</i></div>
+       <div id="go">
+           <div class="up ">
+               <span>长按复制：</span>
+               <i>jrj14637 </i>
+           </div>
+           <a href="http://appcms.jrj.com.cn/download.jspa?channel=RJZQXAEJW&tgqdcode=TNCLWYEL"></a>
+       </div>
+   </div>
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    window.dcsMultiTrack('DCS.dcsuri', 'jrj_zdcp_tt', 'WT.ti', 'jrj_zdcp_tt');
+    $(function(){
+        $(".gobtn").click(function(){
+          var pos = $(".up").offset().top;
+             $("html,body").stop().animate({scrollTop: pos}, 500);
+      })
+    });
+</script> 
+   
+</body>
+</html>

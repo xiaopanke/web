@@ -1,0 +1,303 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>分享</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#333; text-decoration: none; }
+a:hover{text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333; }
+body{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+.wrapbox{ width:100%; overflow: hidden; position: relative;}
+#wrap li{ float: left;width:18.75rem;}
+.con1{ width:17rem; margin:.7rem auto 0;background: #FED800;box-shadow: 0px 3px 7px 0px rgba(211,145,0,0.27);border-radius: 8px; text-align: center; line-height: 1rem; padding-top: 1rem; padding-bottom: 1.5rem;}
+.pic{ height:15.18rem;}
+.pic img{ width:100%;}
+.date{ display: block;font-size: .9rem;color: #38070A; margin-bottom: .5rem;    margin-top: -.7rem;}
+.tit{font-size: 1rem;color: #38070A;}
+.money{font-size: 2rem;color: #FD241F;line-height: 2.2rem; display: block;}
+.blue{color:#02C53A;}
+.status{font-size: .7rem;color: #FFF;}
+.btnbox{ width:10rem; line-height: 2.5rem; color:#fff; background:#2D9AFF; border-radius: 1.25rem;  margin:1rem auto 0; display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;}
+.btnbox span{ width:.95rem; height: .95rem; background:url(img/share.png); background-size: 100% 100%; margin-right: .5rem;}
+.btnbox em{ font-size:.75rem; }
+.roundbox{ width:1rem;  position: absolute;bottom:.7rem; left:50%; margin-left:-.5rem}
+.roundbox i{ width:6px; height: 6px; border-radius: 50%;background:#F9BE00; transition:all .2s;}
+.roundbox .active{ background: #fff;}
+.haha{width:14rem; height:22.4rem; background:yellow; display:none;}
+canvas{ display:none;}
+</style>
+<body>
+    <div class="wrapbox">
+        <ul id="wrap" class="clearfix">
+            <li class="list1">
+                <div class="con1">
+                    <div class="pic"><img src="img/1.png" ></div>
+                    <span class="date">2017-01-04</span>
+                    <p class="tit">我今天在A股赚了</p>
+                    <span class="money money1">￥0</span>
+                    <em class="status">日盈亏额</em>
+                </div>
+            </li>
+            <li class="list1">
+                <div class="con1">
+                    <div class="pic"><img src="img/1.png" ></div>
+                    <span class="date">2017-01-04</span>
+                    <p class="tit">我今天在A股赚了</p>
+                    <span class="money money2">0</span>
+                    <em class="status">日盈亏率</em>
+                </div>
+            </li>
+        </ul>
+        <div class="roundbox clearfix">
+            <i class="active fl"></i>
+            <i class="fr"></i>
+        </div>
+    </div>  
+    <div class="btnbox clearfix"><span class="icon fl"></span><em>晒一晒</em></div>
+    <canvas id="qrcodeCanvas"></canvas>
+    <div class="haha"></div>
+<script src="js/jquery-1.7.2.min.js"></script> 
+<script src="https://js.jrjimg.cn/common/foot/v2s_m.js"></script>    
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    $(function(){
+        var domain = 'https://jrj.yun.pingan.com';
+        var strlen='';
+        var colornum;
+        var colortit;
+
+        //拖动
+        var oUl=document.querySelector('#wrap');
+        var aLi=oUl.children;
+        var iNow=1;
+        var bready=true;
+        $(oUl).html('<li>'+$(aLi[aLi.length-1]).html()+'</li>'+$(oUl).html()+'<li>'+$(aLi[0]).html()+'</li>');
+        
+        var x=-iNow*aLi[0].offsetWidth;
+        $('#wrap').css('width',(aLi.length+2)*aLi[0].offsetWidth);
+        oUl.style.WebkitTransform='translateX('+x+'px)';
+        var haha=iNow;
+        oUl.addEventListener('touchstart',function(ev){
+            if(haha==iNow){bready=true;}
+            if(bready==false)return;
+            bready=false; 
+            
+            oUl.style.WebkitTransition='none';
+            var downX=ev.targetTouches[0].pageX;
+            var disX=downX-x;
+            function fnmove(ev){
+                x=ev.targetTouches[0].pageX-disX;
+                oUl.style.WebkitTransform='translateX('+x+'px)';
+            }
+            function fnend(ev){
+                document.removeEventListener('touchmove',fnmove,false);
+                document.removeEventListener('touchend',fnend,false);
+                var upX=ev.changedTouches[0].pageX;
+                oUl.style.WebkitTransition='.2s all ease';
+                if(Math.abs(upX-downX)>50){
+
+                    if(downX>upX){
+                        iNow++;
+                        if(iNow==aLi.length){iNow=aLi.length-1;}
+                    }else{
+                        iNow--;
+                        if(iNow==-1){iNow=0;}
+
+                    };
+                }
+                x=-iNow*aLi[0].offsetWidth;
+                oUl.style.WebkitTransform='translate3d('+x+'px,0,0)';
+                function tend(){
+                    bready=true;
+                    oUl.removeEventListener('transitionend',tend,false);
+                    if(iNow==aLi.length-1){
+                        iNow=1;
+                        x=-iNow*aLi[0].offsetWidth;oUl.style.WebkitTransition='none';
+                        oUl.style.WebkitTransform='transitionend('+x+'px,0,0)';
+                    }
+                    if(iNow==0){
+                        iNow=aLi.length-2;
+                        x=-iNow*aLi[0].offsetWidth;oUl.style.WebkitTransition='none';
+                        oUl.style.WebkitTransform='transitionend('+x+'px,0,0)';
+                    }
+                    haha=iNow;
+                    $('.roundbox i').removeClass('active').eq(iNow-1).addClass('active');
+                }
+                oUl.addEventListener('transitionend',tend,false);
+            }
+            document.addEventListener('touchmove',fnmove,false);
+            document.addEventListener('touchend',fnend,false);
+            ev.preventDefault();
+        },false);
+
+        //数据请求
+        //账户信息
+        var accountinfo = function(){
+            setTimeout(function(){
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'get',
+                    url: domain+'/analysis/account/accountinfo',
+                    callback: 'callbackaccountinfo',
+                }));
+            },200);
+       }
+        accountinfo();
+        window.callbackaccountinfo =function(info){ 
+            setTimeout(function(){
+                info = convertToJsonObject(info);
+                if(info.retcode==0){
+                    var data=info.data;
+                    $('.date').html(data.initDate);
+                 }
+            },30);     
+        }
+
+         //账户信息后来要改
+        var accountinfo2 = function(){
+            setTimeout(function(){
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'get',
+                    url: domain+'/sapi/v2/deposit/client/fundNew?accountId=0&broker=PAZQ&queryProfit=1&sessionId=xx&userId=xx',
+                    callback: 'callbackaccountinfo2',
+                }));
+            },200);
+       }
+        accountinfo2();
+        window.callbackaccountinfo2 =function(info){ 
+            setTimeout(function(){
+                info2 = convertToJsonObject(info);
+                if(info2.retcode==0){
+                    var data=info2.data;
+                    accinfo(data);
+                 }
+            },30);     
+        }
+       function accinfo(data){
+            if((data.incomeBalance+'').indexOf('-')!=-1){ //亏本啦
+                colornum='#02C53A';
+                $('.money1,.money2').addClass('blue');
+                $('.tit').html('我今天在A股赔了');
+                $('.money1').html('￥'+doublenum(data.incomeBalance));
+                $('.money2').html((data.incomeRate*100).toFixed(2)+'%');
+                if(data.incomeRate<-0.07){
+                    $('.pic img').attr('src','img/3.png');
+                }else if(data.incomeRate<-0.03 && data.incomeRate >=-0.07){
+                    $('.pic img').attr('src','img/2.png');
+                }else{
+                    $('.pic img').attr('src','img/1.png');
+                }
+            }else{   //赚钱啦
+                colornum='#FD241F';
+                $('.money1').html('￥'+doublenum(data.incomeBalance));
+                $('.money2').html((data.incomeRate*100).toFixed(2)+'%');
+                if(data.incomeRate>0.07){
+                    $('.pic img').attr('src','img/6.png');
+                }else if(data.incomeRate>0.03 && data.incomeRate <=0.07){
+                    $('.pic img').attr('src','img/5.png');
+                }else{
+                    $('.pic img').attr('src','img/4.png');
+                }
+            }
+       }      
+        //分享
+        $('.btnbox').click(function(){
+            var canvas = document.getElementById('qrcodeCanvas');
+            var ctx = canvas.getContext('2d');
+            var body = $('.haha');
+            canvas.width = body.width() * 2;
+            canvas.height = body.height() * 2;
+            canvas.style.width = body.width();
+            canvas.style.height = body.height();
+            ctx.scale(2,2);
+            ctx.fillStyle="#FED800";
+            ctx.fillRect(0,0,body.width() * 2,60+canvas.height/3);
+            var image = new Image();
+            image.onload = function() { 
+                ctx.drawImage(image, 0, 20, canvas.width/2, canvas.height/3.3);
+                ctx.font = "14px Microsoft Yahei";
+                ctx.fillStyle = "#38070A";
+                ctx.textAlign='center';
+                ctx.fillText($('.date').html(), canvas.width/4, 0+canvas.height/3);
+
+                ctx.font = "16px Microsoft Yahei";
+                ctx.fillStyle = "#38070A";
+                ctx.textAlign='center';
+                ctx.fillText($('.tit').html(), canvas.width/4, 20+canvas.height/3);
+
+                ctx.font= "20px Microsoft Yahei";
+                ctx.fillStyle = colornum;
+                ctx.textAlign='center';
+                if(haha==1){
+                    ctx.fillText($('.money1').html(), canvas.width/4,40+canvas.height/3);
+                }else{
+                    ctx.fillText($('.money2').html(), canvas.width/4,40+canvas.height/3);
+                }
+                
+                //console.log(ctx.canvas.toDataURL());
+                var img = new Image();
+                img.onload = function(){
+                    ctx.drawImage(img, 0, 60+canvas.height/3, canvas.width / 2, canvas.height/10);
+                    strlen = ctx.canvas.toDataURL("image/png").substring(22);
+                    jrj.jsCallNative('135', JSON.stringify({imgdata:strlen}));
+                };
+                img.src = 'img/down.png';   
+                
+            };
+            image.src =$('.pic img').attr('src');
+            dcsMultiTrack('DCS.dcsuri', 'click_fxym_sys', 'WT.ti', 'click_fxym_sys')            
+        });
+
+        function doublenum(num){
+            var num=num+'';
+            if(num.indexOf('.')!=-1){
+                var len=num.substring(num.indexOf('.')+1).length;
+                if(len==0){
+                    return num+'00';
+                }else if(len==1){
+                    return num+'0';
+                }else{
+                    return parseFloat(num).toFixed(2);
+                }
+                console.log(n);
+            }else{
+                return num+'.00';
+            }
+        }
+        var convertToJsonObject = function(str){
+
+            if(typeof str != 'object'){      
+                return JSON.parse(str);    
+            }else{
+                return str;
+            }
+        };
+
+    });
+</script>   
+</body>
+</html>

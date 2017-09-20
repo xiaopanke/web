@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<!--\#include virtual="/common_head_css_js.html" -->
+		<script type="text/javascript" src="http://js.jrjimg.cn/itougu/account/jsl.format.js"></script>
+		<script type="text/javascript">
+			function loadCache() {
+				var userId = $("#userId").val();
+				if(userId==null||userId=='') {
+					alert("userId不能为空！！");
+					return;
+				}
+				var key = $("#cacheKey").val();
+				key = key.replace("XXX", userId);
+				$.ajax({
+					url:"/account/backdoor/getCache.jspa?key="+key,
+					dataType:"json"
+				}).done(function(data) {
+					var text = jsl.format.formatJson(data.msg);
+					$("#result").html('<pre>'+text+'</pre>');
+				})
+			}
+			
+			function clearCache() {
+				var userId = $("#userId").val();
+				if(userId==null||userId=='') {
+					alert("userId不能为空！！");
+					return;
+				}
+				var key = $("#cacheKey").val();
+				key = key.replace("XXX", userId);
+				if(window.confirm("确定清缓存？")) {
+					$.ajax({
+						url:"/account/backdoor/clearCache.jspa?key="+key,
+						dataType:"json"
+					}).done(function(data) {
+						alert(data.msg);
+					})
+				}
+			}
+			
+			function clearAllCache() {
+				var key = $("#cacheKey").val();
+				if(window.confirm("确定清缓存？")) {
+					$.ajax({
+						url:"/account/backdoor/clearCache.jspa?key="+key,
+						dataType:"json"
+					}).done(function(data) {
+						alert(data.msg);
+					})
+				}
+			}
+			
+			function fillCache() {
+				var userId = $("#userId").val();
+				if(userId==null||userId=='') {
+					alert("userId不能为空！！");
+					return;
+				}
+				var key = $("#cacheKey").val();
+				key = key.replace("XXX", userId);
+				$.ajax({
+					url:"/account/backdoor/fillCache.jspa?key="+key,
+					dataType:"json"
+				}).done(function(data) {
+					alert(data.msg);
+				})
+			}
+			
+			function fillAllCache() {
+				$.ajax({
+					url:"/account/backdoor/fillAllCache.jspa",
+					dataType:"json"
+				}).done(function(data) {
+					alert(data.msg);
+				})
+			}
+			
+			function directFillCache() {
+				$.ajax({
+					url:"/account/backdoor/directFillCache.jspa",
+					dataType:"json"
+				}).done(function(data) {
+					alert(data.msg);
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div style="text-align: center;">
+			<select id="cacheKey">
+				<option value="userId.XXX.info.key">userId.XXX.info.key</option>
+			</select>
+			<input id="userId" type="text" name="value">
+			<input type="button" onclick="loadCache();" value="查询">
+			<input type="button" onclick="clearCache();" value="清该用户缓存">
+			<input type="button" onclick="clearAllCache();" value="清所有用户缓存">
+			<input type="button" onclick="fillCache();" value="填充缓存">
+			<input type="button" onclick="fillAllCache();" value="填充所有缓存">
+			<input type="button" onclick="directFillCache();" value="直接覆盖缓存">
+		</div>
+		<hr>
+		<div id="result">
+		</div>
+	</body>
+</html>

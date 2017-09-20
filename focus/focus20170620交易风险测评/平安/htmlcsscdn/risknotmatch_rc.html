@@ -1,0 +1,99 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>金融产品不适当警示及客户投资确认书</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#333; }
+body{background: #fff;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+header{ border-top: 5px solid #efeff4; padding-left:1.25rem; padding-right:1.25rem; padding-top: 1rem;}
+header h2{font-size: .8rem; line-height: 1.1rem;}
+header p{ line-height: 1rem; color: #878C92;font-size: .7rem;}
+article{ padding:.3rem 1.25rem .7rem; line-height: 1.25rem; font-size: .7rem;}
+body{ padding-bottom: .5rem;}
+.bt{ margin-left:9rem;}
+.h2{border-top:none;} 
+</style>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script> 
+<body>
+    <article>
+        <p>尊敬的客户：</p>
+        <p>您拟投资的金融产品<span class="stockcode"></span>，存在下列情况：</p>
+        <p class="p2"></p>
+        <p>我公司就上述情况向您做出提示，并建议您应当审慎考察该产品的特征及风险，自行做出充分风险评估。若您经审慎考虑后，仍坚持投资该产品，请确认以示同意。</p>
+        <p>本人/本机构已认真阅读以上提示，并已充分了解该产品的特征和风险，充分知悉以上情况。</p>
+        <p>本人/本机构经审慎考虑后，仍坚持投资该项产品，并愿意承担该项投资可能引起的损失和其他后果。投资该项产品的决定，系本人/本机构独立、自主、真实的意思表示，与贵公司及相关从业人员无关。</p>
+    </article>
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    var domain = 'https://zqtrc.yun.pingan.com';
+    var dealKey=getQueryString('dealKey');
+    var getRisk = function(){
+        setTimeout(function(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/sapi/v2/risktest/getRiskNotMatchContent',
+                params:{dealKey:dealKey},
+                header:{
+                   'Content-Type':'application/json'
+                },
+                callback: 'callbackgetRisk',
+            }));
+        },200);
+    }
+    getRisk();
+    window.callbackgetRisk =function(info){
+        setTimeout(function(){
+            
+            info = convertToJsonObject(info);
+            if(info.retcode==0){
+                $('.stockcode').html(info.data.stockCode);
+                var str='';
+                for(var i=0;i<info.data.contentList.length;i++){
+                    str+=info.data.contentList[i]+'<br/>';
+                }
+                $('.p2').html(str);
+            }
+        },30);    
+    }
+    var convertToJsonObject = function(str){
+        if(typeof str != 'object'){
+            return JSON.parse(str);
+        }else{
+            return str;
+        }
+    };
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+</script> 
+   
+</body>
+</html>

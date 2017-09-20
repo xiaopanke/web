@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>恒泰交易</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style>
+    html{ font-size: 20px;}
+	body{
+		background:#fff; }
+       .query {
+/* background: #fff; */
+-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; 
+width: 100%;
+ margin:0;
+ border:none;
+/* overflow: hidden; */
+padding-top: 0px;
+}
+.logo{
+	width:30%;
+           min-width:200px;
+            background: red;
+	display:block;
+     margin:30px auto;
+}
+/*.logodiv{
+     background: url(images/sep.jpg) no-repeat center center;
+     background-size: 40%;
+     margin: 30px auto;
+     height: 50px;
+     width: 100%;
+}
+*/
+    .query .query-password li{
+		width:90%;}
+		.query footer span{
+			width:90%;
+			display:block;
+			-moz-border-radius: 5px;
+
+-webkit-border-radius:5px; 
+ border-radius:5px;
+  margin:0px auto;
+  float:none;
+  color:#de3031;
+  border:1px solid #999999;
+  padding:0 10px;}
+.query footer{
+	 width:100%;
+	 border:none;
+	 background:none;
+	 line-height:48px;
+	}
+	
+	.query .query-password li{
+		border:none;
+		border-bottom:1px solid #d1d1d1;
+		-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; }
+ .xieyi { overflow: hidden; padding-left: 30px;}
+ .xieyi input{float:left;margin-top: 8px;margin-right: 5px;}
+ .xieyi label{float:left;font-size: 1em; line-height: 40px;}
+ .xieyi label a{ color:#3896f0;}
+ .tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+
+/*关于弹窗*/
+.mask{display:none;position: fixed;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10;bottom: 0;right: 0;}
+.layer{display:none;width: 15rem;height: 11.95rem;background: #fff;position: fixed;top: 50%;left: 50%;margin-top: -7.5rem;margin-left: -6.677rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%;border-radius: 5px;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.layer_c{ padding:10px; font-size: 1.1em;}
+.layer_c .tit{ font-size:1.2em; margin-bottom: 3px; }
+.layer_c .hd{ color: #666;}
+.layer .bd{ position: absolute;width:100%;bottom:0;border-top:1px solid #ddd;}
+.layer .bd span{float:left;width:50%;text-align: center;font-size: 1.2em; line-height: 40px; }
+.layer .bd .okbtn{ border-right:1px solid #ddd;box-sizing: border-box}
+    </style>
+	
+</head>
+<body>
+	<section class="query">
+		<form id="bindform" name="bindform" action="/stockauth/bindForm.jspa" method="post"> 
+		<input type="hidden" name="p" value="$!{p}" />
+        <input type="hidden" name="s" value="$!{s}" />
+        <img class="logo" src="/stockauth/images/logo.jpg" alt=""/>
+	    
+	    <ul class="query-password">
+	    	<li>
+	    	    <span>资金账号</span>
+	    	    <span class="tr PWD">
+	    	       <input type="text" id="fundaccount" name="fundaccount"  maxlength="30"  value="">
+	    	       <p>
+	    	       	 请输入账号
+	    	       </p>
+	    	    </span>
+	    	</li>
+	    	<li>
+	    	    <span>交易密码</span>
+	    	    <span class="tr PWD">
+	    	       <input type="password" id="password" name="password" value="" maxlength="20" >
+	    	       <p>
+	    	       	 请输入密码
+	    	       </p>
+	    	    </span>
+	    	</li>
+	    </ul>
+	    <div class="xieyi">
+	    	<input type="checkbox" id="checkicon" checked />
+	    	<label for="checkicon">我已阅读并同意<a href="/stockauth/sdx_xieyi.html">《用户服务协议》</a></label>
+	    </div>
+	    <footer>
+	    	<span class="form-submit">立即绑定</span>
+	    </footer>
+	    </form>
+	    <div class="tiperror"></div>
+	    <form id="cpform" style="display:none" name="bindform" action="/stockauth/syxMobilePage.jspa" method="post"> 
+		<input type="hidden" name="p" value="$!{pp}" />
+        <input type="hidden" name="s" value="$!{sign}" />
+        <input type="hidden" name="fund_id" value="$!{fund_id}" />
+        <input type="hidden" id = "cp_choose" name="choose" value="0" />
+        
+	    </form>
+	</section>
+
+	<div class="mask"></div>
+    <div class="layer">
+        <div class="layer_c">
+        	<p class="tit">尊敬的用户：</p>
+        	<div class="hd"></div>
+        </div>
+        <div class="bd clearfix">
+            <span class="okbtn">现在就去</span>
+            <span class="nobtn">以后再说</span>
+        </div>
+    </div>
+
+	<script>
+	 /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+	    //错误提示框，一会儿就消失toast
+	    function tiperror(msg){
+	        $('.tiperror').html(msg).show();
+	        setTimeout(function (){
+	            $('.tiperror').hide();
+	        }, 2000);
+	        return;
+	    }
+      $("span.form-submit").click(function(){
+      		if(!$('#checkicon').attr('checked')){
+      			tiperror('请阅读并同意《用户服务协议》');
+      			return;
+      		}
+    		$("#bindform").submit();
+      });
+	  
+      $(function() {
+		  // check: 0=评测通过，-1=没有进行评测， -2 = 评测即将过期，-3=评测已过期
+		  var check = '$!{check}';
+		  if(check == '-1'){
+		  	$('.mask,.layer').show();
+			$('.layer .hd').html('您尚未填写《个人投资者风险承受能力测评问卷》！根据投资者适当性管理规则，要求风险承受能力必须与产品想匹配。为了不影响您的投资风险，请及时进行网上交易风险承受能力测评。');
+		  }else if(check == '-2'){
+		  	$('.mask,.layer').show();
+		  	var timestr='$!{expCpDate}';
+		  	$('.layer .hd').html('您的风险承受能力等级即将过期，有效截止日期为'+timestr+'，请及时进行重新测评！');
+		  }else if(check == '-3'){
+		  	$('.mask,.layer').show();
+		  	var timestr2='$!{expCpDate}';
+			  $('.layer .hd').html('您上次填写《个人投资者风险承受能力测评问卷》已逾期，您的风险承受能力等级到期日期为'+timestr2+'，请重新测评！');
+		  }
+		  $('.okbtn').click(function(){
+		  		goToCp();
+		  });
+		  $('.nobtn').click(function(){
+		  	 goToIndex();
+		  });
+
+		  function goToCp(){
+		  	$("#cp_choose").val(1);
+			$("#cpform").submit();
+		  }
+		  
+		  function goToIndex(){
+		  	$("#cpform").submit();
+		  }
+		  
+		  $("input[type=text]").blur(function(){
+	                  var value=$(this).val();
+	                  if (value=="") {
+	                           $(this).siblings("p").show();
+	                  } else{
+	                           $(this).val(value);
+	                  }
+	        }); 
+			
+	            $(".PWD p").on('touchend', function (e){
+	                 $(this).hide();
+	                 $(this).siblings("input").focus();
+	                 e.preventDefault();
+	            })
+	        $("input[type=password]").blur(function(){
+	                  var value=$(this).val();
+	                  if (value=="") {
+	                           $(this).siblings("p").show();
+	                  } else{
+	                           $(this).val(value);
+	                  }
+	        });
+			
+	       /*$("input[type=text]").on('touchend',function(e){
+	                   $(this).val("");
+	                   $(this).focus();
+	                     e.preventDefault();
+	           
+	        });
+	        $("input[type=text]").blur(function(){
+	                   var value=$(this).val();
+	                  if(value==""){
+	                            $(this).val("请输入账户");
+	                  }else{
+	                            $(this).val(value);
+	                  }
+	        });
+			*/
+      })
+	</script>
+</body>
+</html>

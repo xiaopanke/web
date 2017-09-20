@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{adviser.userName}的公告-爱投顾-金融界</title>
+    <meta name="keywords" content="爱投顾" />
+    <meta name="description" content="爱投顾" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+	<!--\#include virtual="/common_head_css.html" -->
+
+</head>
+<body>
+    <!--site-top-->
+    <!--\#include virtual="/v2/site_top_header.html" -->
+    <!--site-nav-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-end-->
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="my-points" style="padding-bottom:100px;">
+                    <h2 class="block-title">我的公告</h2>
+                    <div class="mt20">
+                        <textarea id="TextArea1" style="width:705px;height:150px;"></textarea>
+                    </div>
+                    <div class="clearfix">
+                        <a id="newNotice" href="#" class="btn btn-123-40 fr">发布</a>
+                        <span id="counter" class="msg-info">0 / 50</span>
+                    </div>
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+    
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/counter.min.js"></script>
+	
+	<script type="text/javascript">
+		window.siteNav='account';
+		//发布新公告
+		$(function () {
+			function showMessage(message){
+                JRJ.Dialogs.standardDialog({
+	                title: "我的公告",
+	                width: 430,
+	                content: ['<div class="portfolio-dlg">',
+	                                '<div style="padding:30px 0;">',
+	                                    '<p class="f20 middle tc"><span>' + message + '</span></p>',
+	                                '</div>',
+	                            '</div>'].join(''),
+	                okBtnText: "确定",
+	                cancelBtnText: "关闭",
+	                hasCloseBtn: true,
+	                hasOkBtn: true,
+	                hasCancelBtn: true,
+	                okCallback: function () { },
+	                cancelCallback: function () { },
+	                isFixed: true
+            	});
+                
+			}
+			
+			$('#TextArea1').watermark('不超过50字');
+        	$('#newNotice').click(function (e) {
+        		var val = $.trim($('#TextArea1').val());
+        		if(val.length<1){
+        			showMessage('请输入公告信息');
+        		}else if(val.length<=50){
+	                $.ajax({
+	                	type:'POST',
+	                	url:'/account/announcementRelease.jspa',
+	                	data:{content:val},
+	                	dataType:'json'
+	                }).done(function(data){
+	                	if(data.returncode=='0') {
+	                		showMessage("发布成功");
+	                	}else{
+	                		showMessage(data.message);
+	                	}
+	                }).fail(function(x,s,e){
+	                	showMessage("异常 " + s + ": " + e);
+	                });
+                }else {
+                	showMessage("公告信息不得超过50字");
+                }
+            });
+            
+            //计数器
+            window.counter = new Util.Counter({
+                txtboxId: "#TextArea1",
+                counterId: '#counter',
+                limit: 50,
+                template: '{num} / 50',
+                beyondTemplate: '<b class="red-v2">{num}</b> / 50',
+                customFunc: function (obj) {
+                    var num = obj.config.limit - $(obj.config.txtboxId).val().length;
+                    if (num > 0) {
+                        $(obj.config.counterId).html(obj.config.template.replace('{num}', $(obj.config.txtboxId).val().length));
+                    } else {
+                        $(obj.config.counterId).html(obj.config.beyondTemplate.replace('{num}', $(obj.config.txtboxId).val().length));
+                    }
+                }
+            });
+        });
+	</script>
+    
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+</body>
+</html>

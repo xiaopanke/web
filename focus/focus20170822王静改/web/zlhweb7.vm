@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1100, initial-scale=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <title>擒龙集结号正式吹响</title>
+    <style type="text/css">
+  html, body, h1, h2, h3, h4, p, form, input{ margin: 0; padding: 0;}
+body{ background: #D5D5D5; font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif; text-align: center; line-height: 1.5;}
+ul, li{ list-style: none;}
+i{ font-style: normal;}
+a{ color: #9F171A;}
+a:hover{}
+
+@keyframes pop {
+from { transform: scale(6); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+
+.container{ margin: 0 auto; width: 1000px;}
+.section .container{ position: relative; text-align: left;}
+.section .title, .section .block{ position: absolute;}
+.bg{ background-position: center center; background-repeat: no-repeat; background-size: auto 100%;}
+.btn{ display: inline-block; padding: 0 30px; height: 54px; line-height: 54px; background-color: #9F171A; border-radius: 10px; color: #FFF; font-size: 20px; font-weight: 300; text-decoration: none;}
+.btn:hover{ opacity: .8;}
+.btn-large{ padding: 0 60px; font-size: 23px;}
+.btn.btn-o{ background: none; border: 2px solid #9F171A; color: #9F171A;}
+.show{ display: block !important;}
+
+.title{ text-align: left; font-size: 23px; }
+.title b, .title big{ color: #a11414;}
+.title big{ font-weight: bold;}
+
+.block h3{ margin-bottom: 10px; font-size: 20px;}
+
+.table th, .table td{ padding:  5px 20px; text-align: center;}
+.table th{ background-color: #a11414; color: #fff;}
+.table th+th{ border-left: 1px solid #fff;}
+.table td{ padding: 10px 20px; border-bottom: 1px solid #d6d6d6; }
+
+#header{ height: 560px; background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/header.jpg);}
+#header p{ position:  absolute; top: 420px; padding: 0 0 0 80px; color: #fff;}
+
+#section1{ height: 843px; background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/section1.jpg);}
+#section1 .title{ right: 50px; top: 60px;}
+
+#section2{ height: 995px; background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/section2.jpg);}
+#section2 .title{ right: 0; top: 70px; width: 600px; font-size: 22px;}
+#section2 .block#record{ right: 0; top: 200px; width: 480px;}
+#section2 .block#record h3{ text-align: center;}
+#section2 .block#brief{ left: 0; top: 420px; width: 460px; line-height: 1.6;}
+#section2 .block#brief h3, #section2 .block#brief h4{ margin-bottom: 10px;}
+#section2 .block#brief label{ display: inline-block; margin-right: 20px; padding: 0 14px; height: 28px; line-height: 28px; background-color: #a11414; border-radius: 14px; font-size: 16px; font-weight: 300; color: #fff;}
+#section2 .block#brief h3{ text-align: center;}
+#section2 .block#brief h3 label{ position: absolute; left: 0;}
+#section2 .block#brief p{ padding-left: 112px; font-size: 15px;}
+#section2 .block#brief p label{ position: absolute; left: 0;}
+#section2 .block#brief p.long{ position: relative; padding-left: inherit; padding-top: 38px;}
+#section2 .block#brief p.long label{ top: 0;}
+
+#section3{ height: 1146px; background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/section3.jpg);}
+#section3 .title{ right: 180px; top: 60px;}
+#section3 p{ position: absolute; top: 280px; left: 220px; width: 600px; color: #fff;}
+
+#section4{ height: 1594px; background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/section4.jpg);}
+#section4 .title{ top: 40px; left: 395px; font-size: 30px; color: #fff;}
+#section4 .block .step{  text-align: center; font-size: 20px; color: #a11414;}
+#section4 .block .step span{ position: relative; top:-2px; display: inline-block; margin-right: 10px; width: 24px; height: 24px; line-height: 24px; text-align: center; background-color: #a11414; border-radius: 12px; color: #fff; font-size: 16px;}
+#section4 .block .step.step1{ position: relative; top: 130px;}
+#section4 .block .grids{ margin-top: 150px;}
+#section4 .block .grids .grid{ position: relative; display: inline-block; float: left; padding: 20px 10px; width: 200px; height: 200px; background: #a11414; color: #fff;}
+#section4 .block .grids .grid+.grid{ margin-left: 40px;}
+#section4 .block .grids .grid h4{ margin-bottom: 10px; text-align: center; font-size: 18px;}
+#section4 .block .grids .grid p{ font-size: 15px; line-height: 1.6;}
+#section4 .block .grids .grid .icon{ position: absolute; bottom: -40px; left: 79px; display: block; margin: 4px; width: 54px; height: 54px; background: #a11414 url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/icon-theme.png) no-repeat center center; border: 4px solid #fff; border-radius: 31px; background-size: auto 50%;}
+#section4 .block .grids .grid#grid2 .icon{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/icon-test.png);}
+#section4 .block .grids .grid#grid3 .icon{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/icon-filter.png);}
+#section4 .block .grids .grid#grid4 .icon{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/icon-chart.png);}
+#section4 .block#plan{ top:1220px; width: 1000px; height: 300px;}
+#section4 .block#plan h4{ margin-bottom: 20px; text-align: center;}
+#section4 .block#plan .table th, #section4 .block#plan .table td{ padding: 5px; min-width: 80px;}
+#section4 .block#plan .table th{ font-weight: inherit;}
+#section4 .block#plan .table td{ padding: 10px 5px; font-size: 15px;}
+#section4 .block#plan .table td.last{ font-size: 13px; text-align: left;}
+
+
+#section5{ margin-bottom: 177px; height: 1268px; background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/section5.jpg);}
+#section5 .title{ top: 60px; left: 360px; font-size: 30px; color: #fff;}
+#section5 .title.tojoin{ top: 320px; left: 340px;}
+#section5 .click{ position: relative; top: 165px; text-align: center; font-size: 20px; font-weight: bold; color: #9F171A;}
+#section5 .click a{ font-weight: inherit; font-size: 16px;}
+#section5 .click a:hover{ text-decoration: none;}
+#section5 a.btn{ position: absolute;top: 215px;}
+#section5 a.btn-left{ left: 110px;}
+#section5 a.btn-right{ right: 110px;}
+#section5 .btn-join{ position: absolute; right: 220px; top: 315px; padding: 0 50px;}
+#section5 .block#team{ top: 780px;}
+#section5 .block#team h3{ position: relative; top: -370px; font-size: 27px; font-weight: inherit; text-align: center;}
+#section5 .block#team .intro{ margin-bottom: 30px;}
+#section5 .block#team .intro h4{ margin-bottom: 10px; font-size: 20px; color: #a11414;}
+#section5 .block#team .intro h4 .icon{ display: inline-block; margin-right: 10px; width: 113px; height: 35px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/icon-title.png) no-repeat center center;}
+#section5 .block#team .intro h4 .text{ position: relative; top: -5px; padding-bottom: 5px; border-bottom: 1px solid #000;}
+#section5 .block#team .intro p{ line-height: 1.5;}
+
+
+#footer{ position: fixed; left: 0; right: 0; bottom: 0 !important; height: 177px; background-color: #a11414; background-image: linear-gradient(-214deg, #A21313 50%, #D5202B 100%);  z-index: 1;}
+#footer .slogan{ margin-top: 20px; height: 46px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/slogan.png) no-repeat center top; text-indent: -9999px; overflow: hidden;}
+#footer .contact{ margin-top: 15px; padding-left: 85px; font-size: 20px; color: #fff; }
+#footer .contact .icon-tel{ position: relative; top:2px; display: inline-block; margin-right: 10px; width: 26px; height: 20px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/icon-tel.png) no-repeat center center; background-size: auto 20px;} 
+
+.video{ position: relative; top: 160px; height: 478px; background: #000;}
+.video .playerbox{ position: absolute; padding-top: 50px; width: 677px; }
+.video .player{ height: 381px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/video.jpg) center top no-repeat;}
+.video h2{ padding: 0 20px; height: 48px; line-height: 48px; font-size: 20px; color: #FFF; border-bottom: 1px solid #424242;}
+.video .vlist{ position: relative; margin-left: 677px; background-color: #383838;}
+.video .vlist ul{ position: relative; margin: 0 5px 0 0; padding: 0; height: 429px; overflow: auto;}
+.video .vlist li{ padding: 10px 0 5px 20px; height: 91px; font-size: 13px; color: #FFF;}
+.video .vlist li+li{ border-top: 1px solid #424242;}
+.video .vlist li:hover{ cursor: pointer; opacity: .8;}
+.video .vlist li.active{ background-color: #292929;}
+.video .vlist li h3{ font-size: 15px;}
+.video .vlist li h4{ font-size: 14px;}
+.video .vlist li .clip{ position: absolute; width: 120px; text-align: center;}
+.video .vlist li .clip img{ width: 106px; height: 60px;}
+.video .vlist li .clip h4{ margin-top: 5px;}
+.video .vlist li .cases{ margin-left: 120px; padding: 15px 0 15px 15px; }
+.video .vlist li .cases h3{ margin-bottom: 10px;}
+.video .vlist li .cases label{ position: absolute;}
+.video .vlist li .cases p{ padding-left: 40px;}
+.video .vlist li .cases p span+span{ margin-left: 10px;}
+.video .ps{ margin-top: 5px; font-size: 14px; text-align: center;}
+
+.join{ position: relative; padding: 20px 0 0 46px; color: #FFF; font-size: 16px;}
+.join span{ position: relative;}
+.join label{ margin: 0 10px 0 40px;}
+.join input[type=text]{ padding: 0 5px; height: 36px; height: 36px; background: none; border: 1px solid #BB494F; border-radius: 5px; font-size: 14px; color: #FFF;}
+.join input:focus{ outline: none; background: #BB494F;}
+.join input::-webkit-input-placeholder{ color: #BB494F;}
+.join .btn{ position: absolute; right: 90px; padding: 0 60px; height: 60px; line-height: 60px; background-color: #FFF; color: #E21636; font-size: 25px; border: 5px solid #E21636; border-width: 0 0 5px 0;  border-radius: 5px; box-shadow: 1px 3px 5px 0 rgba(0,0,0,0.50); cursor: pointer;}
+.join .btn:active{  box-shadow: 2px 6px 10px 0 rgba(0,0,0,0.50);}
+.join .tooltip{ position: absolute; right: 2px; top: -42px; padding: 5px 10px; background: #fff; border-radius: 5px 5px 5px 0; font-size: 13px; color: #E21636; opacity: .9;}
+
+.mask, .layer{ display: none;}
+.mask{ position: fixed; width: 100%; height: 100%; background: #000; opacity: .6; filter: alpha(opacity=60); top: 0; left: 0; z-index: 2;}
+.layer{ position: fixed; left: 0; right: 0; top: 15%; bottom: 15%; text-align: center; opacity: .9; z-index: 3; animation: pop .6s cubic-bezier(1,-0.49, 0, 1.5);}
+
+.layer.success{ }
+.layer.success .box{ position: relative; display: block; margin: 0 auto; width: 704px; height: 307px;  background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/popup-success.png) no-repeat center bottom;}
+
+.layer.popup-join{}
+.layer.popup-join .box{ position: relative; display: block; margin: 0 auto; width: 704px; height: 355px;  background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/popup-join.png) no-repeat center bottom;}
+.layer.popup-join .box span, .layer.popup-join .box .btn-join{ position: absolute; top: 196px;}
+.layer.popup-join .box span input{ width: 211px; height: 40px; line-height: 40px; background: none; border: none; font-size: 20px; color: #452609;}
+.layer.popup-join .box span input::-webkit-input-placeholder{ color: #A78B67;}
+.layer.popup-join .box .userNamebox{  left: 101px;}
+.layer.popup-join .box .phonebox{ right: 32px;}
+.layer.popup-join .box .phonebox input{ width: 248px;}
+.layer.popup-join .box .btn-join{ top: 260px; right: 227px; opacity: 0;}
+.layer.popup-join .box .tooltip{ top: -32px; right: 0; box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50); opacity: .8; }
+
+.layer .box .close{ position: absolute; right: 0; top: 0; display: inline-block; width: 45px; height: 45px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/icon-close.png) no-repeat center center ; cursor: pointer; z-index: 1;}
+.player img{display: none;}
+
+    </style>
+    <link href="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <script type="text/javascript">
+	    var status = false;
+	    function playVideo(){
+	    		if(document.querySelector('video').currentTime >= 180){
+	    			if(status != true){
+	    				document.querySelector('video').pause();
+	    				$('.mask').hide();
+// 	    				$('.layer.stopVideo').show();
+                        alert('继续观看 请立即预约')
+	    			}
+	    		}
+	    	}
+        function continuePlay() {
+            if($('.video .player video').attr('src') == 'http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4'){
+                $('.video .player video').attr('src','http://flvdata.jrj.com.cn/2012/2017/qita/0811qljjh.mp4');
+                $('#video-2').addClass("active").siblings().removeClass("active");
+            }else{
+                $('.video .player video').attr('src','http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4');
+                $('#video-1').addClass("active").siblings().removeClass("active");
+            }
+        }
+	</script>
+  </head>
+  <body>
+  <div class="section bg" id="header">
+      <div class="container">
+          <p>这是一个最好的时代，上证50上涨38%，方大炭素、西水股份等牛股辈出的时代，这也是一个最坏的时代，创业板走出熊市特征，高位下跌54%，闪崩个股层出不穷，这都揭示了一个结果，二八加剧小众赚钱，做小众就要做龙头，每逢小牛行情必有龙头显现，14年兰石重装6倍，15年的暴风科技30倍，16年的四川双马6倍，17年的方大炭素、西水股份、赣锋锂业均已走出龙头雏形，金融界智能投顾工作室练就擒龙神技，五大龙头股票池吹响擒龙集结号，飞龙在天，等您来战！</p>
+      </div>
+  </div>
+  <div class="section bg" id="section1">
+      <div class="container">
+          <div class="title"><b>免费</b>视频详解五大龙头行业投资逻辑<big>赠擒龙股票池</big></div>
+          <div class="video">
+              <div class="playerbox">
+                  <div class="player">
+                      <video onended="continuePlay()" src="http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4" controls="controls" width="100%" height="100%" autoplay="autoplay"></video>
+                      <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/novideo3.jpg" alt=""/>
+                  </div>
+              </div>
+              <div class="vlist">
+                  <h2>视频目录</h2>
+                  <ul class="con-box mCustomScrollbar">
+                      <li class="active" id="video-1">
+                          <div class="clip">
+                              <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/video.jpg" alt="">
+                              <h4>擒龙集结号（一）</h4>
+                          </div>
+                          <div class="cases">
+                              <h3>擒龙集结号正式吹响聚焦五大热点</h3>
+                          </div>
+                      </li>
+                      <li id="video-2">
+                          <div class="clip">
+                              <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/video.jpg" alt="">
+                              <h4>擒龙集结号（二）</h4>
+                          </div>
+                          <div class="cases">
+                              <h3>周期涨价 风暴来袭</h3>
+                              <label>案例：</label>
+                              <p><span class="case-name">方大碳素</span><span class="case-sn">600516</span></p>
+                              <p><span class="case-name">神火股份</span><span class="case-sn">000933</span></p>
+                          </div>
+                      </li>
+                      <li id="video-3">
+                          <div class="clip">
+                              <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/video.jpg" alt="">
+                              <h4>擒龙集结号（三）</h4>
+                          </div>
+                          <div class="cases">
+                              <h3>新能源 + 人工智能</h3>
+                              <label>案例：</label>
+                              <p><span class="case-name">赣锋锂业</span><span class="case-sn">002460</span></p>
+                              <p><span class="case-name">科大讯飞</span><span class="case-sn">002230</span></p>
+                          </div>
+                      </li>
+                      <li id="video-4">
+                          <div class="clip">
+                              <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/video.jpg" alt="">
+                              <h4>擒龙集结号（四）</h4>
+                          </div>
+                          <div class="cases">
+                              <h3>大金融 + 一带一路</h3>
+                              <label>案例：</label>
+                              <p><span class="case-name">中国平安</span><span class="case-sn">601318</span></p>
+                              <p><span class="case-name">西部建设</span><span class="case-sn">002302</span></p>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="ps">以上个股案例均来自金融界研究院提供</div>
+          </div>
+          <a href="javascript:;" class="btn btn-large btn-join popup" style="position: absolute; right: 150px; bottom: -285px;">立即预约</a>
+      </div>
+  </div>
+  <div class="section bg" id="section2">
+      <div class="container">
+          <div class="title">首席投顾运用金融界王炸产品——<big>“巨灵智胜”投研平台</big>
+              为您免费义诊手中个股，排除地雷股、弱势股、闪崩股，
+              抓住本次反弹最佳调仓换股时机</div>
+          <div class="block" id="record">
+              <h3>孟祥彬过往战绩一览</h3>
+              <table class="table" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                      <th>股票名称</th>
+                      <th>调入时间</th>
+                      <th>调出世间</th>
+                      <th>收益幅度</th>
+                  </tr>
+                  <tr>
+                      <td>海达股份</td>
+                      <td>2016-05-11</td>
+                      <td>2016-12-09</td>
+                      <td>100%</td>
+                  </tr>
+                  <tr>
+                      <td>摩恩电气</td>
+                      <td>2016-09-19</td>
+                      <td>2017-02-09</td>
+                      <td>78%</td>
+                  </tr>
+                  <tr>
+                      <td>新疆众和</td>
+                      <td>2016-09-19</td>
+                      <td>2017-03-27</td>
+                      <td>47%</td>
+                  </tr>
+                  <tr>
+                      <td>北化股份</td>
+                      <td>2016-12-01</td>
+                      <td>2017-04-12</td>
+                      <td>89%</td>
+                  </tr>
+              </table>
+          </div>
+          <div class="block" id="brief">
+              <h3><label>诊股人</label>孟祥彬</h3>
+              <h4><label>证券执业资格号</label>A0780615020002</h4>
+              <p><label>简介</label>金融界资深投资顾问，曾历任券商、咨询机构投资顾问总监，新浪、网易、山东电台、福建电台等多家知名媒体和电台的特邀嘉宾，实战经验丰富，入市摸爬滚打17年，2016年新浪全国投顾大赛第三名。</p>
+              <h4><label>诊股方式</label>视频诊股</h4>
+              <h4><label>诊股工具</label>巨灵智胜</h4>
+              <h4><label>是否收费</label><big>免费</big></h4>
+              <p class="long"><label>什么是巨灵智胜？</label>巨灵智胜一体化智能投研平台是专门为专业投资人员（私募基金经理、投资顾问等机构用户群体，以及专业个人投资者）提供的进行投资研究、快速决策和交易的工具化产品，旨在一站式解决用户的投资服务问题。</p>
+          </div>
+          <a href="javascript:;" class="btn btn-large btn-join popup" style="position: absolute; top: 930px; left: 360px;">立即预约诊股</a>
+      </div>
+  </div>
+  <div class="section bg" id="section3">
+      <div class="container">
+          <div class="title">加入智能投顾工作室<br><b>吹响擒龙集结号，开启擒龙作战计划</b></div>
+          <p>本期擒龙集结号将在常规三大股票池基础上，新增“擒龙股票池”，运用下方三大擒龙法宝，多角度、全方位捕捉主升浪潜力真龙头、大牛股</p>
+      </div>
+  </div>
+  <div class="section bg" id="section4">
+      <div class="container">
+          <div class="title">擒龙作战三部曲</div>
+          <div class="block">
+              <h3 class="step step1"><span>1</span>巨灵智胜运算精选</h3>
+              <div class="grids">
+                  <div class="grid" id="grid1">
+                      <h4>主题274个</h4>
+                      <p>基于语义分析、文本挖掘等技术挖掘主题及主题下龙头股、主题新闻、股票三点直播，主题挖掘及时精准、龙头股排序准确性高。</p>                    <i class="icon icon-theme"></i>
+                  </div>
+                  <div class="grid" id="grid2">
+                      <h4>量化策略及回测</h4>
+                      <p>独立研发JRJ-Quant回测框架，采用大数据、云计算技术，最接近真实交易的回测体系，无需写代码分分钟构建策略，极速回测。</p>                    <i class="icon icon-test"></i>
+                  </div>
+                  <div class="grid" id="grid3">
+                      <h4>筛选器/有效因子182个</h4>
+                      <p>国内首个实现因子有效选取、覆盖面广、实时类指标3秒内快速计算、筛选迅速执行、结果即时呈现的股票筛选类工具。</p>
+                      <i class="icon icon-filter"></i>
+                  </div>
+                  <div class="grid" id="grid4">
+                      <h4>图析/67+67+5+16个变量维</h4>
+                      <p>国内首家采用可视化图形分析技术呈现各维度股票数据、进行股票分析的工具，实时数据3秒内快速推送，页面极速响应，实现国内遥遥领先的股市图形分析方法。</p>
+                      <i class="icon icon-chart"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="block" id="plan">
+              <h3 class="step step3"><span>3</span>作战计划书</h3>
+              <h4>量化黑马工作室持仓（2017.7.24）</h4>
+              <table class="table" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                      <th>量化策略</th>
+                      <th>股票序号</th>
+                      <th>股票代码</th>
+                      <th>股票名称</th>
+                      <th>进场价位</th>
+                      <th>目标预期</th>
+                      <th>止损参考</th>
+                      <th>仓位</th>
+                      <th>盈亏</th>
+                      <th class="last">今日小结</th>
+                  </tr>
+                  <tr>
+                      <td>超短快盈</td>
+                      <td>擒龙1号</td>
+                      <td>600***</td>
+                      <td>****</td>
+                      <td>20.21-20.35元</td>
+                      <td>22-22.5</td>
+                      <td>19元</td>
+                      <td>20%</td>
+                      <td>盈利3%</td>
+                      <td class="last">今天股价冲高回落，收出短上影线，主要还是由于成交量没有放大，主力没有正式反动进攻，持股等待</td>
+                  </tr>
+                  <tr>
+                      <td>波段优选</td>
+                      <td>擒龙2号</td>
+                      <td>300***</td>
+                      <td>****</td>
+                      <td>26.35-26.5元</td>
+                      <td>30元><small>（以S点出现为准）</small></td>
+                      <td>24.5元</td>
+                      <td>15%</td>
+                      <td>盈利8%</td>
+                      <td class="last">今天放量拉升，盘中一度涨停板，后有获利盘回吐，打开涨停，从技术形态看，30元一带有些压力</td>
+                  </tr>
+              </table>
+          </div>
+      </div>
+  </div>
+  <div class="section bg" id="section5">
+      <div class="container">
+          <div class="title">什么是投顾工作室？</div>
+          <div class="click">猛戳：<a href="http://itougu.jrj.com.cn/activity/web/vipweb.jspa">http://itougu.jrj.com.cn/activity/web/vipweb.jspa</a></div>
+          <a href="http://itougu.jrj.com.cn/xlive/web/vipDetailWeb.jspa?tgid=141210010098595802" target="_blank" class="btn btn-left" style="position: absolute; left: 110px; top: 215px;">量化黑马工作室热销地址 </a>
+          <a href="#" class="btn btn-right" onClick="javascript:alert('AI尊享工作室正在紧张筹备中，敬请期待！')" style="position: absolute; right: 110px; top: 215px;">AI尊享工作室热销地址</a>
+          <div class="title tojoin">加入擒龙战队</div>
+          <button class="btn btn-o btn-join popup">立即预约</button>
+          <div class="block" id="team">
+              <h3>顶尖团队支持</h3>
+              <div class="intro">
+                  <h4><i class="icon icon-title"></i><span class="text">投顾工作室智能金融团队介绍</span></h4>
+                  <p>投顾工作室智能金融团队拥有国内首家专注于智能金融研究的博士后科研工作站，始终把握国际研发前沿趋势。研究团队成员均为具有北大、清华、香港大学等国内外顶尖名校背景、及拥有全球知名投行经验的博士、硕士。团队目前共有14名研究员，全部为硕士以上学历，其中博士后研究员4人。部门研究成果突出，在资产配置、技术分析、事件驱动等领域均有重要成果，并输出至公司业务线，提供算法与策略支持。</p>
+              </div>
+              <div class="intro">
+                  <h4><i class="icon icon-title"></i><span class="text">投顾工作室专业投顾团队介绍</span></h4>
+                  <p>金融界投顾团队，皆由从事股票领域工作数十年、实战经验丰富的投资顾问组成，团队成员全部拥有证券执业资质，曾多次应邀出席业界研讨会及接受新闻媒体访问，其实力早已获得专业领域的普遍认同，团队以让投资更简单为使命，协助投资者创造价值为核心，在准确把握行情趋势的基础上，实现无微不至的贴身服务。</p>
+              </div>
+              <div class="intro">
+                  <h4><i class="icon icon-title"></i><span class="text">金融界研究院团队介绍</span></h4>
+                  <p>金融界网站研究院，是中国金融在线集团旗下研究机构，致力于研究中国宏观经济和资本市场，擅长对资讯、大数据以及市场交易者行为进行挖掘。团队成员80%以上拥有研究生及以上学历，具备证券公司、公募基金、私募机构等行业从业经历。</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="section bg" id="footer">
+      <div class="container">
+          <div class="slogan">立即预约加入工作室，领取最强龙头妖股!</div>
+          <div class="join">
+              <span class="userNamebox"><label>姓名</label><input type="text" class="userName" placeholder="请输入您的中文名"></span><span class="phonebox"><label>手机</label><input type="text" class="phone" placeholder="请输入您的11位手机号码"></span><a href="javascript:;" class="btn btn-large btn-join">立即预约</a>
+          </div>
+          <div class="contact"><i class="icon icon-tel"></i>咨询热线：400-166-1188</div>
+      </div>
+  </div>
+  <div class="mask"></div>
+  <div class="layer success">
+      <div class="box">
+          <i class="close"></i>
+      </div>
+  </div>
+  <div class="layer popup-join">
+      <div class="box">
+          <i class="close"></i>
+          <div class="join">
+              <span class="userNamebox"><input type="text" class="userName" placeholder="请输入您的中文名"></span><span class="phonebox"><input type="text" class="phone" placeholder="请输入您的11位手机号码"></span><a href="javascript:;" class="btn btn-large btn-join">立即预约</a>
+          </div>
+      </div>
+  </div>
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script>window.jQuery || document.write('<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"><\/script>')</script>
+    <script src="http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js"></script>
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            dcsMultiTrack('DCS.dcsuri', 'zlhweb7', 'WT.ti', 'zlhweb7');
+            $(".video .vlist li").click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+            
+            //stopVideo();
+                        
+            $('#video-1').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src','http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4');
+            })
+            
+            $('#video-2').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src', 'http://flvdata.jrj.com.cn/2012/2017/qita/0811qljjh.mp4');
+            })
+            
+            $('#video-3').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src', 'http://flvdata.jrj.com.cn/2012/2017/hezuo/20170816qljjh2.mp4');
+            })
+            
+            $('#video-4').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src', 'http://flvdata.jrj.com.cn/2012/2017/hezuo/20170817qljjh.mp4');
+            })
+            
+            function stopVideo(){
+                var stopVideoPlay = setInterval(function(){
+//                 	console.log(document.querySelector('video').currentTime);
+                	if(document.querySelector('video').currentTime >= 180){
+                		document.querySelector('video').pause();
+//                 		$('.mask').show();
+                		$('.diaglo-stopVideo').show();
+                		window.clearInterval(stopVideoPlay);
+                	}
+                },1000)
+            }
+            
+/*
+            $('.diaglo-stopVideo').click(function(){
+                $(this).hide();
+                $('.mask').hide();
+            })
+            
+*/
+            var tooltip;
+            var showTooltip = function(el, text){
+                tooltip = $('<i class="tooltip">'+text+'</i>');
+                $('.tooltip').removeClass('show');
+                if (el.find('i').length == 0) {
+                    el.append(tooltip);
+                }else{
+                    el.find('i').text(text);
+                }
+                setTimeout(function () {
+                    el.find('i').remove();
+                }, 10000);
+                
+            };
+     
+            $('.btn-join.popup').each(function(){
+                $(this).click(function(){
+                    $('.mask,.layer.popup-join').show();
+                });
+            });
+            
+            $('.close').each(function(){
+                $(this).click(function(){
+                    $('.mask,.layer').hide();
+                });
+            });
+     
+            $('.btn-join').each(function(){
+                var o=$(this);
+                $(this).click(function(){
+                   var userName = o.parent().find(".userName").val();
+                   var phone = o.parent().find(".phone").val();
+    
+                   
+                   if(userName==''){
+                       showTooltip(o.parent().find('.userNamebox'), '姓名不能为空！');
+                       return;
+                   }else{
+                        var regname=/^[\u4e00-\u9fa5]+$/gi;
+                        if(!regname.test(userName)){
+                            showTooltip(o.parent().find('.userNamebox'), '请输入中文名');
+                            return;
+                        }
+                   }
+                   if(phone==''){
+                        showTooltip(o.parent().find('.phonebox'), '手机号不能为空！');
+                        return;
+                   }else{
+                        var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+                        if (!reg.test(phone)) {
+                              showTooltip(o.parent().find('.phonebox'), '手机号输入不正确！');
+                              return;
+                        }
+    
+                   }
+                   $.ajax({
+
+                   })
+                    //ajax提交
+                    $.ajax({
+                       url:'http://itougu.jrj.com.cn/marketing/insertZq.jspa',
+                       type:"POST",
+                       dataType : "json",
+                       data:{
+                            type:5,
+                            term:7,
+                            name:userName,
+                            mobile:phone
+                        },
+                       success:function(data) {
+                            if(data.success == true){
+                                $('.layer.popup-join').hide();
+                                $(".userName").val('');
+                                $(".phone").val('');
+                                $('.mask,.success').show();
+                            }else if(data.success == false){
+                                alert(data.msg);
+                            }
+                       },
+                       error : function(v) {
+                         alert("网络异常！");
+                       }
+                    });
+                });
+            });
+
+        });
+    </script>
+  </body>
+ </html>

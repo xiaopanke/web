@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{userName}的用户管理-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{userName}的用户管理-爱投顾-金融界" />
+    <meta name="description" content="$!{userName}的用户管理-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <!--\#include virtual="/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/jrj.ui.tooltip.min.css" rel="stylesheet" />
+    <style>
+      .my-member-wrap .icon-pay-user {
+        background: url(http://js.jrjimg.cn/zqt-red-1000/images/v3/icon-pay-user.png) no-repeat;
+        display: inline-block;
+        width: 77px;
+        height: 22px;
+        margin-left: 10px;
+      }
+      .tooltip-wrap{border-radius: 4px;box-shadow: 0px 3px 6px 0px rgba(206,210,222,0.83); overflow: hidden !important;}
+      .row-pic-layer { position:absolute;width:480px;background: #fff; }
+      .row-pic-layer .inner { padding:17px;  }
+      .row-pic-layer .layer-row-1 img { float:left;width:88px;height: 88px;  }
+      .row-pic-layer .layer-row-1-right{float:left;margin-left:20px;width:338px;}
+      .row-pic-layer .layer-row-1-right span {font-size:16px;color:#878C92;}
+      .row-pic-layer .layer-row-1-right .name {font-size:16px;color:#333;margin-right: 16px; }
+      .row-pic-layer .layer-row-1-right .clearfix { width:340px; }
+      .row-pic-layer .layer-row-1-right .clearfix div { width: 112px;border-right:1px solid #DBDBDB;float: left;text-align: center;margin-top:10px; }
+      .row-pic-layer .layer-row-1-right .clearfix div.last { border:0; }
+      .row-pic-layer .layer-row-1-right .clearfix div p { font-size:20px;color:#5B6B88; }
+      .row-pic-layer .layer-row-1-right .clearfix div p.field { font-size:14px;color:#878C92;padding-top:5px; }
+      .row-pic-layer .layer-row-2 { color:#878C92; font-size:14px;padding: 15px 0 0 0;}
+      .fansdate{ margin-top: 10px;}
+      .fansdate h3{float: left;font-size: 20px;font-weight: normal; line-height: 40px;} 
+      .fansdate h3 span{ color: #fb5e00;}
+      .fansdate div{float: right; margin-top: 5px;}
+      .fansdate div em{float: left; margin: 0 15px; line-height: 26px;font-size: 14px; cursor: pointer;font-size: 15px;}
+      .fansdate div .cur{ border-bottom:4px solid #659bf5;}
+      .statistic-block{height: auto; padding:0;border-bottom: none;}
+      .statistic-block .statistic-block-item{border-bottom: 1px solid #ddd;}
+      .tab-switch-s3 .tab-switch-s3-item{ margin-right: 3px; margin-left: 3px; padding:0;width:80px; text-align: center; float: left;}
+     .tab-switch-s3 .newgroupsbtn{ border:1px solid #ddd;line-height: 30px;height: 30px;margin-top: 9px;background: #fff;font-size: 14px;}
+     .my-member-wrap .col-2{ text-align: left;}
+     .btn-yirufenzu, .btn-yirufenzu:hover,.changzuming, .changzuming:hover,.btn-heiout, .btn-heiout:hover,.btn-yichufenzu, .btn-yichufenzu:hover {color: #5378a9;}
+     .changzuming{    margin-top: 20px;margin-right: 14px;}
+     .search_r{ border:1px solid #ddd; border-radius: 5px; float: right; margin-top:15px;}
+     .search_r input{ width: 160px; line-height: 30px; padding-left: 5px; border:none; float: left; height: 30px; background: none;}
+     .search_r span{ float: right;padding-right: 6px; line-height: 30px; cursor: pointer}
+     .fezuname{ border:1px solid #ddd;border-radius: 0;height: 40px; width:400px; display: block;margin:0 auto; padding-left: 10px;}
+     .dialoggroup li{width:120px; line-height: 60px; float: left;margin:0 5px; border:1px solid #ddd;border-radius: 5px; cursor: pointer;}
+     .dialoggroup .selli{color:#f6554a;border-color: #f6554a;}
+    </style>
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+    <div class="wrapper">
+    <!--site-main-left-->
+    <!--# include virtual="/tgself.html" -->
+    <!--site-main-left-->
+
+         <!--site-main-right-->
+         <div class="site-main-right">
+             <h2 class="block-title">用户统计</h2>
+             <div class="fansdate clearfix">
+                 <h3>总粉丝数：<span id="fansNum"></span></h3>
+                 <div>
+                     <em class="cur" dateType='days'>昨日</em>
+                     <em dateType='weeks'>近七天</em>
+                     <em dateType='months'>近30天</em>
+                 </div>
+             </div>
+             <input type="hidden" id="adviserId" value="$!{adviserId}" />
+             <div class="statistic-block statistic-block-2 mt10 clearfix">
+              
+                    <div class="statistic-block-item statistic-block-item-1">
+                        <p>新增粉丝数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-2">
+                        <p>取关粉丝数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-3">
+                        <p>净增长用户数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-1">
+                        <p>直播间访问人数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-2">
+                        <p>直播间互动人数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-3">
+                        <p>文章阅读人数</p>
+                        <p class="num">0</p>
+                    </div>
+     
+             </div>
+                
+             <div class="my-points my-member-wrap mt25">
+        <div class="tab-switch-s3 sort-bar-02" style="position:relative;z-index:100;">
+              
+                    <div class="fr" style="display:inline-block;">
+              
+                        <!-- 
+                        <a href="/message/group/list.jspa" title="" class="btn-setting fl" style="background:none;padding-left:0">群发记录</a>
+                         -->
+                        <a id="sendMessageRecord" href="/message/group/list.jspa?menuId=2" title="" class="btn-setting fl" style="background:none;padding-left:0;margin-right:10px;display:blank;">发送记录</a>
+                        <div class="userWj fl" style="display:inline-block;width:113px;">
+                            <a id="sign" data-chatroom="true" class="btn btn-113-30 fr" href="javascript:void(0)" title="" data-type="user" style="display:blank;">群发私信</a>
+                            <a id="fan2" class="btn btn-113-30 fr" href="javascript:void(0)" title="" data-type="fans" style="display:none;">向粉丝群发</a>
+                            <a id="fan" class="btn btn-113-30 fr" href="javascript:void(0)" title="" data-type="fans" style="display:none;">向粉丝群发</a>
+                            <!-- 
+                            <a href="#" class="btn btn-113-30 fr" id="btn-send-all">向用户群发</a>
+                            <div class="select">
+                                <a id="fan" href="javascript:void(0)" title="" data-type="fans">向粉丝用户群发</a>
+                                <a id="sign" href="javascript:void(0)" title="" data-type="user">向签约用户群发</a>
+                            </div>
+                             -->
+                        </div>
+                  </div>
+                    <div class="fl groupsbox">
+                      <span data-groupId="-1" class="tab-switch-s3-item tab-switch-s3-item-cur">粉丝用户</span>
+                      <span data-groupId="-2" class="tab-switch-s3-item">付费用户</span>
+                        <span class="tab-switch-s3-item">黑名单用户</span>
+                    </div>
+                    <em class="tab-switch-s3-item fl newgroupsbtn">新建分组</em>
+                </div>
+                <div class="searchbox clearfix">
+                      <div class="search_r">
+                          <input type="text" placeholder="搜索用户昵称" >
+                          <span class="search_btn">搜索</span>
+                      </div>
+                      <span class="changzuming fr">编辑组名</span>
+                </div>
+                <!-- load data -->
+                <div class="tabcon">
+                    <div class="con_1"></div>
+                      
+                    
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+
+  <!--\#include virtual="/common_head_js.html" -->
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    <script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+
+    <!--<script src="http://js.jrjimg.cn/itougu/account/relation_user.js?20161212"></script>-->
+    <script type="text/javascript">
+$(function(){
+    //tab
+    tab();
+    function tab(){
+        $('.groupsbox').delegate('span','click',function(){
+                $('.groupsbox span').removeClass('tab-switch-s3-item-cur');
+                $(this).addClass('tab-switch-s3-item-cur');
+                if(($(this).index()+1)==1){
+                    fansTab.show();
+                }else if(($(this).index()+1)==2){
+                    fufeiTab.show();
+                }else if(($(this).index()+1)==3){
+                    heiTab.show();
+                }else{
+                    getTab.show($(this).attr('data-groupid'));
+                }
+                sousuo($(this).attr('data-groupId'));
+        });
+    }
+    sousuo('-1');
+  //搜索功能
+  function sousuo(a){
+      $('.search_btn').unbind().click(function(){
+          $.ajax({
+              url : '/account/customerrm/getuinfobyname.jspa',
+              type : 'post',
+              cache : false,
+              data:{
+                  tab:a,
+                  name:$('.search_r input').val()
+              },
+              success : function(ret) {
+                  console.log(ret);
+                  if(ret.data.totalCount==0){
+                      $('.tabcon .con_1').html('无搜索结果');
+                      return;
+                  }
+                  var item=ret.data.list[0];
+                  var row = '<div class="inquire-item inquire-item-2 inquire-item-fans clearfix"><div class="col-1">  <a href="javascript:void(0);" class="row-pic" data-uid="'+item.userId+'" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'" ><img src="' + emptyString(item.headImage, 'http://i5.jrjimg.cn/sys/default_m.jpg') + '" alt="" width="75" height="75"></a>  <div><a class="btn btn-57-23 ml10 btn-sendmsg sendMsg" href="javascript:void(0)" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">发通知</a></div></div><div class="col-2" style="width: 585px;"><p class="row-title middle"><a class="btn btn-delete fr" data-focustime="'+item.followDays+'" href="javascript:void(0);" style="display: none;" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">删除粉丝</a><a class="btn btn-yirufenzu fr" href="javascript:void(0);" style="display: none;" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">移入分组</a><span  data-uid="'+item.userId+'" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'"  class="name">'+emptyString(item.userName, '金融界用户')+'</span>  </p>  <table class="mt10"><tr><td class="goumaiall">购买总金额：'+item.cumIncome+'元</td><td class="dyzuhe">订阅组合总金额：'+item.cumPortfolioIncome+'元</td></tr><tr><td class="goumaiall">购买内参总金额：'+item.cumTipsImcome+'元</td><td class="dyzuhe">打赏送礼总金额：'+item.cumAwardIncome+'元</td></tr><tr><td class="lasttime">最后购买时间: '+changtime(item.lastBuyTime)+'</td><td class=""></td></tr></table></div></div>';
+                      $('.tabcon .con_1').html(row);
+                      fansTab.initEventElement();
+              },
+              error : function(v) {
+                  console.log(v);
+                  JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                  return;
+              }
+          });
+      });
+  }
+  //新建分组
+  addgroups();
+  function addgroups(){
+    $('.newgroupsbtn').click(function(){
+        JRJ.Dialogs.standardDialog({
+            title: "新建分组",
+            width: 550,
+            customClass: 'dialog-auth',
+            content: '<div class="dialog-cnt"><input type="text" class="fezuname" placeholder="请输入分组名称" /></div>',
+            okBtnText: "确认",
+            cancelBtnText: "取消",
+            hasCloseBtn: true,
+            hasOkBtn: true,
+            hasCancelBtn: false,
+            okCallback: function (e) {
+                if($('.fezuname').val()==null || $('.fezuname').val()==undefined || $('.fezuname').val()==''){
+                    JRJ.MiniAlerts.prompt({message:'<p>请输入分组名</p>'});
+                    return true;
+                }
+                if($('.fezuname').val().length>6){
+                    JRJ.MiniAlerts.prompt({message:'<p>分组名不能超过6个汉字</p>'});
+                    return true;
+                }
+
+                ($).ajax({
+                  url : '/account/customerrm/addagroup.jspa',
+                  type : 'post',
+                  cache : false,
+                  data : {
+                      name : $('.fezuname').val()
+                  },
+                  success : function(ret) {
+                     console.log(ret);
+                     getgroups();
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+            },
+            cancelCallback: function () {
+                return true;
+            } 
+        });
+    }); 
+  }
+  //编辑组名
+  changzuming();
+  function changzuming(){
+      $('.changzuming').click(function(){
+          JRJ.Dialogs.standardDialog({
+            title: "修改分组名称",
+            width: 550,
+            customClass: 'dialog-auth',
+            content: '<div class="dialog-cnt"><input type="text" class="fezuname" placeholder="'+$('.tab-switch-s3-item-cur').html()+'" /></div>',
+            okBtnText: "确认",
+            cancelBtnText: "取消",
+            hasCloseBtn: true,
+            hasOkBtn: true,
+            hasCancelBtn: false,
+            okCallback: function (e) {
+                if($('.fezuname').val()==null || $('.fezuname').val()==undefined || $('.fezuname').val()==''){
+                    JRJ.MiniAlerts.prompt({message:'<p>请输入分组名</p>'});
+                    return true;
+                }
+                if($('.fezuname').val().length>6){
+                    JRJ.MiniAlerts.prompt({message:'<p>分组名不能超过6个汉字</p>'});
+                    return true;
+                }
+
+                ($).ajax({
+                  url : '/account/customerrm/modifyagroup.jspa.jspa',
+                  type : 'post',
+                  cache : false,
+                  data : {
+                      name : $('.fezuname').val(),
+                      gid:$('.tab-switch-s3-item-cur').attr('data-groupid')
+                  },
+                  success : function(ret) {
+                     console.log(ret);
+                     $('.tab-switch-s3-item-cur').html($('.fezuname').val());
+                     changetabsize();
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+            },
+            cancelCallback: function () {
+                return true;
+            } 
+         });
+      });
+  }
+  var getTab = {
+          key : "fans",
+          containerId : "con_1",
+          desc : "粉丝用户",
+          show : function(groupid) {
+              getTab.init();
+              getTab.queryList(1,groupid);
+          },
+          init : function() {     
+              getTab.initToolbar();
+
+              $("." + getTab.containerId).empty();
+              $("." + getTab.containerId).append('<div id="' + getTab.key + '-result">');
+              $(".pager").remove();
+              $("." + getTab.containerId).after('<div class="pager">');
+          },
+          initToolbar : function() {                  
+              $("#sign").hide(); // 群发私信
+              $("#sendMessageRecord").attr("href", "/message/group/list.jspa?menuId="+($('.groupsbox .tab-switch-s3-item-cur').attr('data-groupid')));
+              $("#sendMessageRecord").show(); // 发送记录
+              $("#fan2").show(); // 向粉丝群发
+              $("#fan").hide(); // 向粉丝群发
+          },
+          queryList : function(curPage,groupid) {
+              ($).ajax({
+                  url : '/account/customerrm/getgroupusers.jspa',
+                  type : 'get',
+                  cache : false,
+                  data : {
+                      pageno : curPage,
+                      pagesize : 20,
+                      groupid:groupid
+                  },
+                  beforeSend : function() {
+                      $("#" + getTab.key + '-result').empty();
+                      $("#" + getTab.key + '-result').append(loadingArea());
+                  },
+                  success : function(ret) {
+                      var transTab = $("#" + getTab.key + '-result');
+                      if (ret == undefined) {
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      //ret = JSON.parse(ret);
+                      console.log('新建的用户'+groupid);
+                      console.log(ret);
+                      if (ret.retCode != 0) {
+                          JRJ.MiniAlerts.prompt({message:'<p>' + ret.msg + '</p>'});
+                          return;
+                      }
+
+                      if (ret.data.totalCount == 0) {
+                          transTab.empty();
+                          transTab.append(resultEmpty(getTab.desc));
+                          return;
+                      }
+
+                      transTab.empty();
+
+                      if (ret.data.list == undefined) {
+                          return;
+                      }
+
+                      $.each(ret.data.list, function(i, item) {
+                          var row = ['<div class="inquire-item inquire-item-2 inquire-item-fans clearfix"><div class="col-1">  <a href="javascript:void(0);" class="row-pic" data-uid="'+item.userId+'" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'" ><img src="' + emptyString(item.headImage, 'http://i5.jrjimg.cn/sys/default_m.jpg') + '" alt="" width="75" height="75"></a>  <div><a class="btn btn-57-23 ml10 btn-sendmsg sendMsg" href="javascript:void(0)" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">发通知</a></div></div><div class="col-2" style="width: 585px;"><p class="row-title middle"><a class="btn btn-yichufenzu fr" href="javascript:void(0);" style="display: none;" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">移出分组</a><span data-uid="' + item.userId + '" class="name" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'">'+emptyString(item.userName, '金融界用户')+'</span>',changepad(item.cumIncome), '</p>  <table class="mt10"><tr><td class="goumaiall">购买总金额：'+item.cumIncome+'元</td><td class="dyzuhe">订阅组合总金额：'+item.cumPortfolioIncome+'元</td></tr><tr><td class="goumaiall">购买内参总金额：'+item.cumTipsImcome+'元</td><td class="dyzuhe">打赏送礼总金额：'+item.cumAwardIncome+'元</td></tr><tr><td class="lasttime">最后购买时间: '+changtime(item.lastBuyTime)+'</td><td class=""></td></tr></table></div></div>'].join('');
+                          transTab.append(row);
+                      });
+
+                      getTab.initEventElement();
+                      refreshPaging(ret.data.totalCount, curPage, getTab.queryList);
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+          },
+          initEventElement : function() {
+              initUserInfoTooltips();
+              $('.inquire-item-fans').mouseenter(function () {
+                  $(this).find('.btn-delete,.btn-yichufenzu').show();
+              }).mouseleave(function () {
+                  $(this).find('.btn-delete,.btn-yichufenzu').hide();
+              });
+              $('.btn-sendmsg').click(function() {
+                  JRJ.Dialogs.iframeDialog({
+                       content: [''].join(''),
+                       loadingImg: '',
+                       width: 712,
+                       hasBtn: false,
+                       hasOkBtn: false,
+                       okBtnText: '',
+                       title: '向 ' + $(this).attr("data-uname") + ' 单发',
+                       titleRight: '',
+                       bottomContent: '',
+                       protocolHtml: '',
+                       hasCancelBtn: false,
+                       enableKeyCtrl: true,
+                       ifrSrc: '/message/sendMsg.jspa?_=' + new Date().getTime() + '&receiverid=' + $(this).attr("data-uid"),
+                       ifrReHeight: false,
+                       isFixed: true,//defaultCf.isFixed,
+                       okCallback: function () { },
+                       cancelCallback: function () {
+                           return true;
+                       }
+                  });
+              });
+              $('.btn-yichufenzu').click(function() {
+                  var _self = this;
+                  JRJ.Dialogs.standardDialog({
+                      title: "移出粉丝",
+                      width: 300,
+                      content: '<div class="md-content" style="text-align: center;">确定将此用户移出分组吗？</div>',
+                      okBtnText: "确认",
+                      cancelBtnText: "取消",
+                      hasCloseBtn: true,
+                      hasOkBtn: true,
+                      hasCancelBtn: true,
+                      okCallback: function () { 
+                          $.ajax({
+                              url : '/account/customerrm/delufgroup.jspa',
+                              type : 'post',
+                              cache : false,
+                              data:{
+                                  groupid:$('.tab-switch-s3-item-cur').attr('data-groupid'),
+                                  uid:$(_self).attr('data-uid')
+                              },
+                              success : function(ret) {
+                                  console.log('移出分组');
+                                  console.log(ret);
+                                  JRJ.MiniAlerts.prompt({message:'<p>移出分组成功</p>'});
+                                  getTab.show($('.tab-switch-s3-item-cur').attr('data-groupid'));
+                                  
+                              },
+                              error : function(v) {
+                                  console.log(v);
+                                  JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                                  return;
+                              }
+                          });
+                      },
+                      isFixed: true
+                  });
+                  
+              });
+          }
+      };
+  var fansTab = {
+          key : "fans",
+          containerId : "con_1",
+          desc : "粉丝用户",
+          show : function() {
+              fansTab.init();
+              fansTab.queryList(1);
+          },
+          init : function() {     
+              fansTab.initToolbar();
+
+              $("." + fansTab.containerId).empty();
+              $("." + fansTab.containerId).append('<div id="' + fansTab.key + '-result">');
+              $(".pager").remove();
+              $("." + fansTab.containerId).after('<div class="pager">');
+          },
+          initToolbar : function() {                  
+              $("#sign").hide(); // 群发私信
+
+              $("#sendMessageRecord").attr("href", "/message/group/list.jspa?menuId=2");
+              $("#sendMessageRecord").show(); // 发送记录
+              $("#fan").show(); // 向粉丝群发
+              $("#fan2").hide(); // 向粉丝群发
+          },
+          queryList : function(curPage) {
+              ($).ajax({
+                  url : '/account/customerrm/getfansusers.jspa',
+                  type : 'get',
+                  cache : false,
+                  data : {
+                      pageno : curPage,
+                      pagesize : 20
+                  },
+                  beforeSend : function() {
+                      $("#" + fansTab.key + '-result').empty();
+                      $("#" + fansTab.key + '-result').append(loadingArea());
+                  },
+                  success : function(ret) {
+                      var transTab = $("#" + fansTab.key + '-result');
+                      if (ret == undefined) {
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      //ret = JSON.parse(ret);
+                      console.log('粉丝用户');
+                      console.log(ret);
+                      if (ret.retCode != 0) {
+                          JRJ.MiniAlerts.prompt({message:'<p>' + ret.msg + '</p>'});
+                          return;
+                      }
+
+                      if (ret.data.totalCount == 0) {
+                          transTab.empty();
+                          transTab.append(resultEmpty(fansTab.desc));
+                          return;
+                      }
+
+                      transTab.empty();
+
+                      if (ret.data.list == undefined) {
+                          return;
+                      }
+
+                      $.each(ret.data.list, function(i, item) {
+                          var row = ['<div class="inquire-item inquire-item-2 inquire-item-fans clearfix"><div class="col-1">  <a href="javascript:void(0);" class="row-pic" data-uid="'+item.userId+'" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'" ><img src="' + emptyString(item.headImage, 'http://i5.jrjimg.cn/sys/default_m.jpg') + '" alt="" width="75" height="75"></a>  <div><a class="btn btn-57-23 ml10 btn-sendmsg sendMsg" href="javascript:void(0)" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">发通知</a></div></div><div class="col-2" style="width: 585px;"><p class="row-title middle"><a class="btn btn-delete fr" data-focustime="'+item.followDays+'" href="javascript:void(0);" style="display: none;" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">删除粉丝</a><a class="btn btn-yirufenzu fr" href="javascript:void(0);" style="display: none;" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">移入分组</a><span data-uid="' + item.userId + '" class="name" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'" >'+emptyString(item.userName, '金融界用户')+'</span> ',changepad(item.cumIncome),' </p>  <table class="mt10"><tr><td class="goumaiall">购买总金额：'+item.cumIncome+'元</td><td class="dyzuhe">订阅组合总金额：'+item.cumPortfolioIncome+'元</td></tr><tr><td class="goumaiall">购买内参总金额：'+item.cumTipsImcome+'元</td><td class="dyzuhe">打赏送礼总金额：'+item.cumAwardIncome+'元</td></tr><tr><td class="lasttime">最后购买时间: '+changtime(item.lastBuyTime)+'</td><td class=""></td></tr></table></div></div>'].join('');
+                          transTab.append(row);
+                      });
+
+                      fansTab.initEventElement();
+                      refreshPaging(ret.data.totalCount, curPage, fansTab.queryList);
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+          },
+          initEventElement : function() {
+              initUserInfoTooltips();
+              $('.inquire-item-fans').mouseenter(function () {
+                  $(this).find('.btn-delete,.btn-yirufenzu').show();
+              }).mouseleave(function () {
+                  $(this).find('.btn-delete,.btn-yirufenzu').hide();
+              });
+              $('.btn-sendmsg').click(function() {
+                  JRJ.Dialogs.iframeDialog({
+                       content: [''].join(''),
+                       loadingImg: '',
+                       width: 712,
+                       hasBtn: false,
+                       hasOkBtn: false,
+                       okBtnText: '',
+                       title: '向 ' + $(this).attr("data-uname") + ' 单发',
+                       titleRight: '',
+                       bottomContent: '',
+                       protocolHtml: '',
+                       hasCancelBtn: false,
+                       enableKeyCtrl: true,
+                       ifrSrc: '/message/sendMsg.jspa?_=' + new Date().getTime() + '&receiverid=' + $(this).attr("data-uid"),
+                       ifrReHeight: false,
+                       isFixed: true,//defaultCf.isFixed,
+                       okCallback: function () { },
+                       cancelCallback: function () {
+                           return true;
+                       }
+                  });
+              });
+              
+              $('.btn-delete').click(function() {
+                  var _self = this;
+                  JRJ.Dialogs.standardDialog({
+                      title: "删除粉丝",
+                      width: 348,
+                      content: '<div class="md-content" style="text-align: center;"><p class="f16" style="font-size: 16px;">确定要删除该粉丝</p><p><span style="color:#666">' + $(_self).attr('data-uname') + '</span>'+' 已经关注您 <span class="red">'+ $(_self).attr('data-focustime') +'</span> 天</p></div>',
+                      okBtnText: "确认",
+                      cancelBtnText: "取消",
+                      hasCloseBtn: true,
+                      hasOkBtn: true,
+                      hasCancelBtn: true,
+                      okCallback: function () { 
+                        var url_ = "/account/service/focusChange.jspa?adviserId=" + $("#adviserId").val() + "&commonId=" + $(_self).attr('data-uid') + "&focusFlag=0"
+                        $.get(url_,'json',function(msg){
+                                if(msg != '' && msg != undefined){
+                                    var code = msg.retCode;
+                                    if(code == 4){
+                                         $.get("/account/updateFansNum.jspa",'json',function(result){
+                                             if(result != '' && result != undefined){
+                                                 var fansNum = result.fansNum;
+                                                 $("#fansNum").text(fansNum);
+                                             }
+                                         });
+                                         fansTab.queryList(1);
+                                         
+                                    }else{
+                                         JRJ.Alerts.confirm({message: '取消失败,请刷新后再操作'});
+                                    }
+                                }
+                        });
+                      },
+                      isFixed: true
+                  });
+                  
+              });
+              selgroups();
+              $('.btn-yirufenzu').click(function() {
+                  var _self = this;
+                  JRJ.Dialogs.standardDialog({
+                      title: "删除粉丝",
+                      width: 477,
+                      content: '<div class="md-content" style="text-align: center;"><ul class="dialoggroup clearfix">'+groupstr+'</ul></div>',
+                      okBtnText: "确认",
+                      cancelBtnText: "取消",
+                      hasCloseBtn: true,
+                      hasOkBtn: true,
+                      hasCancelBtn: true,
+                      okCallback: function () { 
+                          if(groupstr=='暂无分组，请先创建分组'){return;}
+                          $.ajax({
+                              url : '/account/customerrm/addutogroup.jspa',
+                              type : 'post',
+                              cache : false,
+                              data:{
+                                  groupid:$('.selli span').attr('data-groupid'),
+                                  uid:$(_self).attr('data-uid')
+                              },
+                              success : function(ret) {
+                                  console.log('移动分组');
+                                  console.log(ret);
+                                  JRJ.MiniAlerts.prompt({message:'<p>移入分组成功</p>'});
+
+                                  
+                              },
+                              error : function(v) {
+                                  console.log(v);
+                                  JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                                  return;
+                              }
+                          });
+                      },
+                      isFixed: true
+                  });
+                  
+              });
+          }
+      };
+      fansTab.show();
+
+  var fufeiTab = {
+          key : "fans",
+          containerId : "con_1",
+          desc : "付费用户",
+          show : function() {
+              fufeiTab.init();
+              fufeiTab.queryList(1);
+          },
+          init : function() {     
+              fufeiTab.initToolbar();
+
+              $("." + fufeiTab.containerId).empty();
+              $("." + fufeiTab.containerId).append('<div id="' + fufeiTab.key + '-result">');
+              $(".pager").remove();
+              $("." + fufeiTab.containerId).after('<div class="pager">');
+          },
+          initToolbar : function() {                  
+              $("#sign").show(); // 群发私信
+
+              $("#sendMessageRecord").hide(); // 发送记录
+              $("#fan,#fan2").hide(); // 向粉丝群发
+          },
+          queryList : function(curPage) {
+              ($).ajax({
+                  url : '/account/customerrm/getpayusers.jspa',
+                  type : 'get',
+                  cache : false,
+                  data : {
+                      pageno : curPage,
+                      pagesize : 20
+                  },
+                  beforeSend : function() {
+                      $("#" + fufeiTab.key + '-result').empty();
+                      $("#" + fufeiTab.key + '-result').append(loadingArea());
+                  },
+                  success : function(ret) {
+                      var transTab = $("#" + fufeiTab.key + '-result');
+                      if (ret == undefined) {
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      //ret = JSON.parse(ret);
+                      console.log('付费用户');
+                      console.log(ret);
+                      if (ret.retCode != 0) {
+                          JRJ.MiniAlerts.prompt({message:'<p>' + ret.msg + '</p>'});
+                          return;
+                      }
+
+                      if (ret.data.totalCount == 0) {
+                          transTab.empty();
+                          transTab.append(resultEmpty(fufeiTab.desc));
+                          return;
+                      }
+
+                      transTab.empty();
+
+                      if (ret.data.list == undefined) {
+                          return;
+                      }
+
+                      $.each(ret.data.list, function(i, item) {
+                          var row = '<div class="inquire-item inquire-item-2 inquire-item-fans clearfix"><div class="col-1">  <a href="javascript:void(0);" class="row-pic" data-uid="'+item.userId+'" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'" ><img src="' + emptyString(item.headImage, 'http://i5.jrjimg.cn/sys/default_m.jpg') + '" alt="" width="75" height="75"></a>  <div><a class="btn btn-57-23 ml10 btn-sendmsg sendMsg" href="javascript:void(0)" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '" style="display:none;">发通知</a></div></div><div class="col-2" style="width: 585px;"><p class="row-title middle"><a class="btn btn-delete fr" data-focustime="'+item.followDays+'" href="javascript:void(0);" style="display: none;" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">删除粉丝</a><a class="btn btn-yirufenzu fr" href="javascript:void(0);" style="display: none;" data-uid="' + item.userId + '" data-uname="' + emptyString(item.userName, '金融界用户') + '">移入分组</a><span data-uid="' + item.userId + '" class="name" data-cumTipsTimes="'+item.cumTipsTimes+'" data-cumPortfolioTimes="'+item.cumPortfolioTimes+'" data-cumAwardTimes="'+item.cumAwardTimes+'" data-cumGiftTimes="'+item.cumGiftTimes+'" data-cumWgAskTimes="'+item.cumWgAskTimes+'" data-cumWgAnswerTimes="'+item.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+item.cumZbTalkTimes+'" data-cumCpinionComments="'+item.cumCpinionComments+'" data-followTime="'+changtime(item.followTime)+'" >'+emptyString(item.userName, '金融界用户')+'</span><i class="icon-pay-user"></i>  </p>  <table class="mt10"><tr><td class="goumaiall">购买总金额：'+item.cumIncome+'元</td><td class="dyzuhe">订阅组合总金额：'+item.cumPortfolioIncome+'元</td></tr><tr><td class="goumaiall">购买内参总金额：'+item.cumTipsImcome+'元</td><td class="dyzuhe">打赏送礼总金额：'+item.cumAwardIncome+'元</td></tr><tr><td class="lasttime">最后购买时间: '+changtime(item.lastBuyTime)+'</td><td class=""></td></tr></table></div></div>';
+                          transTab.append(row);
+                      });
+
+                      fufeiTab.initEventElement();
+                      refreshPaging(ret.data.totalCount, curPage, fufeiTab.queryList);
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+          },
+          initEventElement : function() {
+              initUserInfoTooltips();
+              $('.inquire-item-fans').mouseenter(function () {
+                  $(this).find('.btn-delete,.btn-yirufenzu').show();
+              }).mouseleave(function () {
+                  $(this).find('.btn-delete,.btn-yirufenzu').hide();
+              });
+              $('.btn-sendmsg').click(function() {
+                  JRJ.Dialogs.iframeDialog({
+                       content: [''].join(''),
+                       loadingImg: '',
+                       width: 712,
+                       hasBtn: false,
+                       hasOkBtn: false,
+                       okBtnText: '',
+                       title: '向 ' + $(this).attr("data-uname") + ' 单发',
+                       titleRight: '',
+                       bottomContent: '',
+                       protocolHtml: '',
+                       hasCancelBtn: false,
+                       enableKeyCtrl: true,
+                       ifrSrc: '/message/sendMsg.jspa?_=' + new Date().getTime() + '&receiverid=' + $(this).attr("data-uid"),
+                       ifrReHeight: false,
+                       isFixed: true,//defaultCf.isFixed,
+                       okCallback: function () { },
+                       cancelCallback: function () {
+                           return true;
+                       }
+                  });
+              });
+              $('.btn-delete').click(function() {
+                  var _self = this;
+                  JRJ.Dialogs.standardDialog({
+                      title: "删除粉丝",
+                      width: 348,
+                      content: '<div class="md-content" style="text-align: center;"><p class="f16" style="font-size: 16px;">确定要删除该粉丝</p><p><span style="color:#666">' + $(_self).attr('data-uname') + '</span>'+' 已经关注您 <span class="red">'+ $(_self).attr('data-focustime') +'</span> 天</p></div>',
+                      okBtnText: "确认",
+                      cancelBtnText: "取消",
+                      hasCloseBtn: true,
+                      hasOkBtn: true,
+                      hasCancelBtn: true,
+                      okCallback: function () { 
+                        var url_ = "/account/service/focusChange.jspa?adviserId=" + $("#adviserId").val() + "&commonId=" + $(_self).attr('data-uid') + "&focusFlag=0"
+                        $.get(url_,'json',function(msg){
+                                if(msg != '' && msg != undefined){
+                                    var code = msg.retCode;
+                                    if(code == 4){
+                                         $.get("/account/updateFansNum.jspa",'json',function(result){
+                                             if(result != '' && result != undefined){
+                                                 var fansNum = result.fansNum;
+                                                 $("#fansNum").text(fansNum);
+                                             }
+                                         });
+                                         fufeiTab.queryList(1);
+                                         
+                                    }else{
+                                         JRJ.Alerts.confirm({message: '取消失败,请刷新后再操作'});
+                                    }
+                                }
+                        });
+                      },
+                      isFixed: true
+                  });
+                  
+              });
+              selgroups();
+              $('.btn-yirufenzu').click(function() {
+                  var _self = this;
+                  JRJ.Dialogs.standardDialog({
+                      title: "删除粉丝",
+                      width: 477,
+                      content: '<div class="md-content" style="text-align: center;"><ul class="dialoggroup clearfix">'+groupstr+'</ul></div>',
+                      okBtnText: "确认",
+                      cancelBtnText: "取消",
+                      hasCloseBtn: true,
+                      hasOkBtn: true,
+                      hasCancelBtn: true,
+                      okCallback: function () { 
+                          if(groupstr=='暂无分组，请先创建分组'){return;}
+                          $.ajax({
+                              url : '/account/customerrm/addutogroup.jspa',
+                              type : 'post',
+                              cache : false,
+                              data:{
+                                  groupid:$('.selli span').attr('data-groupid'),
+                                  uid:$(_self).attr('data-uid')
+                              },
+                              success : function(ret) {
+                                  console.log('移动分组');
+                                  console.log(ret);
+                                  JRJ.MiniAlerts.prompt({message:'<p>移入分组成功</p>'});
+
+                                  
+                              },
+                              error : function(v) {
+                                  console.log(v);
+                                  JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                                  return;
+                              }
+                          });
+                      },
+                      isFixed: true
+                  });
+                  
+              });
+          }
+      }; 
+  var heiTab = {
+          key : "fans",
+          containerId : "con_1",
+          desc : "黑名单用户",
+          show : function() {
+              heiTab.init();
+              heiTab.queryList(1);
+          },
+          init : function() {     
+              heiTab.initToolbar();
+
+              $("." + heiTab.containerId).empty();
+              $("." + heiTab.containerId).append('<div id="' + heiTab.key + '-result">');
+              $(".pager").remove();
+              $("." + heiTab.containerId).after('<div class="pager">');
+          },
+          initToolbar : function() {                  
+              $("#sign").hide(); // 群发私信
+
+              $("#sendMessageRecord").hide(); // 发送记录
+              $("#fan,#fan2").hide(); // 向粉丝群发
+          },
+          queryList : function(curPage) {
+              var roomId;
+              ($).ajax({
+                  url : 'http://itougu.jrj.com.cn/xlive/queryRoomByUserId.jspa',
+                  type : 'get',
+                  cache : false,
+                  data : {
+                      userId:getCookie('itg_passport_userid')
+                  },
+                  success : function(json) {
+                      var transTab = $("#" + heiTab.key + '-result');
+                      if (json == undefined) {
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      //ret = JSON.parse(ret);
+                      console.log('投顾直播状态');
+                      console.log(json);
+                      console.log(234567890);
+                      roomId=json.roomId;
+                      
+
+                      if (!json.success) {
+                          transTab.empty();
+                          transTab.append(resultEmpty(heiTab.desc));
+                          return;
+                      }
+
+                      heilist();
+
+                      
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+              function heilist(){
+                ($).ajax({
+                    url : 'http://itougu.jrj.com.cn/xlive/searchBlackUser.jspa',
+                    type : 'get',
+                    cache : false,
+                    data : {
+                        currentPage : curPage,
+                        pagesize : 20,
+                        userId:getCookie('itg_passport_userid'),
+                        roomId:roomId
+                    },
+                    beforeSend : function() {
+                        $("#" + heiTab.key + '-result').empty();
+                        $("#" + heiTab.key + '-result').append(loadingArea());
+                    },
+                    success : function(ret2) {
+                        var transTab = $("#" + heiTab.key + '-result');
+                        if (ret2 == undefined) {
+                            JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                            return;
+                        }
+
+                        //ret = JSON.parse(ret);
+                        console.log('黑名单用户');
+                        console.log(ret2);
+                        if(ret2.lists.totalNum==0){
+                            transTab.empty();
+                            transTab.append(resultEmpty(heiTab.desc));
+                            return;
+                        }
+                        transTab.html('');
+                        $.each(ret2.lists.list, function(i, item) {
+                            ($).ajax({
+                                url : '/account/customerrm/getsingleuserinfo.jspa',
+                                type : 'get',
+                                cache : false,
+                                data : {
+                                    userId:item.userId
+                                },
+                                success : function(ret3) {
+                                    console.log('黑名单用户信息');
+                                    console.log(ret3);
+                                    var row = ['<div class="inquire-item inquire-item-2 inquire-item-fans clearfix" style="height:60px;"><div class="col-1">  <a href="javascript:void(0);" style="width:50px; height:50px;" class="row-pic" data-uid="'+ret3.userId+'" data-cumTipsTimes="'+ret3.cumTipsTimes+'" data-cumPortfolioTimes="'+ret3.cumPortfolioTimes+'" data-cumAwardTimes="'+ret3.cumAwardTimes+'" data-cumGiftTimes="'+ret3.cumGiftTimes+'" data-cumWgAskTimes="'+ret3.cumWgAskTimes+'" data-cumWgAnswerTimes="'+ret3.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+ret3.cumZbTalkTimes+'" data-cumCpinionComments="'+ret3.cumCpinionComments+'" data-followTime="'+changtime(ret3.followTime)+'" data-cumIncome="'+ret3.cumIncome+'"  data-cumTipsImcome="'+ret3.cumTipsImcome+'"  data-cumAwardIncome="'+ret3.cumAwardIncome+'"  data-cumGiftIncome="'+ret3.cumGiftIncome+'" ><img src="' + emptyString(ret3.headImage, 'http://i5.jrjimg.cn/sys/default_m.jpg') + '" alt="" width="50" height="50"></a>  </div><div class="col-2" style="width: 585px;"><p class="row-title middle"><a class="btn btn-heiout fr" data-focustime="'+ret3.followDays+'" href="javascript:void(0);" style="display: none; line-height:50px;" data-uid="' + ret3.userId + '" data-roomId="'+roomId+'" data-uname="' + emptyString(ret3.userName, '金融界用户') + '">移除黑名单</a><span data-uid="' + ret3.userId + '" class="name" style="line-height:50px;" data-cumTipsTimes="'+ret3.cumTipsTimes+'" data-cumPortfolioTimes="'+ret3.cumPortfolioTimes+'" data-cumAwardTimes="'+ret3.cumAwardTimes+'" data-cumGiftTimes="'+ret3.cumGiftTimes+'" data-cumWgAskTimes="'+ret3.cumWgAskTimes+'" data-cumWgAnswerTimes="'+ret3.cumWgAnswerTimes+'" data-cumZbTalkTimes="'+ret3.cumZbTalkTimes+'" data-cumCpinionComments="'+ret3.cumCpinionComments+'" data-followTime="'+changtime(ret3.followTime)+'" data-cumIncome="'+ret3.cumIncome+'"  data-cumTipsImcome="'+ret3.cumTipsImcome+'"  data-cumAwardIncome="'+ret3.cumAwardIncome+'"  data-cumGiftIncome="'+ret3.cumGiftIncome+'" >'+emptyString(ret3.userName, '金融界用户')+'</span> ',changepad(ret3.cumIncome),' </p>  </div></div>'].join('');
+                                    transTab.append(row);
+                                    heiTab.initEventElement();
+                                } 
+                            }); 
+                      });
+                      
+                      refreshPaging(ret2.lists.totalNum, curPage, heiTab.queryList);
+                      
+                        
+                    },
+                    error : function() {
+                        JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                        return;
+                    }
+                });
+              }
+          },
+          initEventElement : function() {
+              initUserInfoTooltips2();
+              $('.inquire-item-fans').mouseenter(function () {
+                console.log(234567890);
+                  $(this).find('.btn-heiout').show();
+              }).mouseleave(function () {
+                  $(this).find('.btn-heiout').hide();
+              });
+              $('.btn-heiout').click(function() {
+                   JRJ.Dialogs.standardDialog({
+                    title: "移除黑名单",
+                    width: 550,
+                    customClass: 'dialog-auth',
+                    content: '<div class="dialog-cnt" style="text-align:center;">确定要删除该粉丝？</div>',
+                    okBtnText: "确认",
+                    cancelBtnText: "取消",
+                    hasCloseBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: false,
+                    okCallback: function (e) {
+                        
+                        ($).ajax({
+                          url : 'http://itougu.jrj.com.cn/xlive/delBlackUser.jspa',
+                          type : 'post',
+                          cache : false,
+                          data : {
+                              roomId : $(this).attr('data-roomId'),
+                              userId : $(this).attr('data-uid'),
+                              roomName : $(this).attr('data-uname')
+                          },
+                          success : function(ret) {
+                             console.log(1234567890);
+                             console.log(ret);
+                          },
+                          error : function() {
+                              JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                              return;
+                          }
+                      });
+                    },
+                    cancelCallback: function () {
+                        return true;
+                    } 
+                 });
+              });
+          }
+      };  
+
+  //选择要移入的分组
+  function selgroups(){
+      $('body').delegate('.groupsli','click',function(){
+          $('.groupsli').removeClass('selli');
+          $(this).addClass('selli')
+      })
+  }     
+  var refreshPaging = function(totalSize, currentPage, callbackFunc) {
+      $(".pager").pagefoot({
+          pagesize : 20,
+          count : totalSize,
+          css : "",
+          current : currentPage,
+          displaynum : 5,
+          displaylastNum : 1,
+          previous : "上一页",
+          next : "下一页",
+          enableArrowKey : true,
+          paging : function(page) {
+              callbackFunc(page.current);
+          }
+      });
+  }
+  function getCookie(name){
+    var bikky = document.cookie;
+    name += "=";
+    var i = 0;
+    while (i < bikky.length)
+    {
+    var offset = i + name.length;
+    if (bikky.substring(i, offset) == name)
+    {
+    var endstr = bikky.indexOf(";", offset);
+    if (endstr == -1) endstr = bikky.length;
+    return unescape(bikky.substring(offset, endstr));
+    }
+    i = bikky.indexOf(" ", i) + 1;
+    if (i == 0) break;
+    }
+    return null;
+  }
+  var initUserInfoTooltips = function() {
+    $('.row-pic, .name').each(function(){
+        var o=$(this);
+        o.tooltip({
+          data: function(origin, callback) {
+              ($).ajax({
+                  url : '/account/usermgt/queryUserBasicInfo.jspa',
+                  type : 'get',
+                  cache : false,
+                  data : {
+                      userId : $(origin).attr('data-uid')
+                  },
+                  success : function(ret) {
+                      if (ret == undefined) {
+                          console.info('error.');
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      ret = JSON.parse(ret);
+
+                      if (ret.retCode != 0) {
+                          console.info('error..');
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      if (ret.data.totalCount == 0) {
+                          console.info('error...');
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      var subArray = [];
+
+                      if (ret.data.subInfoList != null && ret.data.subInfoList != undefined) {
+                          $.each(ret.data.subInfoList, function(i, item) {
+                              var _url = item.type == 1 ? "/portfolio/v3/detail/" : "/tips/";
+                              subArray.push('<a target="_blank" href="' + _url + item.pid + '.jspa"><<' + item.name + '>></a>');
+                          });
+                      }
+
+                      if (subArray.length == 0) {
+                          subArray.push('无');
+                      }
+
+                      var _user = {
+                          userId : ret.data.userId,
+                          userName : ret.data.userName,
+                          headImage : ret.data.headImage,
+                          bizSource : ret.data.bizSourceDisplay,
+                          hasFocusTime : ret.data.hasFocusTime,
+                          tipsTotalAmount : ret.data.tipsTotalAmount,
+                          portfolioAmount : ret.data.portfolioTotalAmount,
+                          lastSubs : subArray.join("、")
+                      };
+
+                      if (callback) {
+                          callback(_user);
+                      }
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+          },
+          template: ['<div class="row-pic-layer">',
+                          '<div class="inner">',
+                              '<div class="clearfix layer-row-1">',
+                                  '<img src="{{headImage}}" alt="">',
+                                  '<div class="layer-row-1-right">',
+                                      '<div><span class="name">{{userName}}</span><span>{{bizSource}}</span></div>',
+                                      '<div class="clearfix">',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumTipsTimes')+'</p>',
+                                              '<p class="field">内参购买次数</p>',
+                                          '</div>',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumPortfolioTimes')+'</p>',
+                                              '<p class="field">组合购买次数</p>',
+                                          '</div>',
+                                          '<div class="last">',
+                                              '<p>'+(parseInt(o.attr('data-cumAwardTimes'))+parseInt(o.attr('data-cumGiftTimes')))+'</p>',
+                                              '<p class="field">打赏送礼次数</p>',
+                                          '</div>',
+                                      '</div>',
+                                      '<div class="clearfix">',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumWgAskTimes')+'/'+o.attr('data-cumWgAnswerTimes')+'</p>',
+                                              '<p class="field">问股/被回答次数</p>',
+                                          '</div>',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumZbTalkTimes')+'</p>',
+                                              '<p class="field">直播互动次数</p>',
+                                          '</div>',
+                                          '<div class="last">',
+                                              '<p>'+o.attr('data-cumCpinionComments')+'</p>',
+                                              '<p class="field">观点评论次数</p>',
+                                          '</div>',
+                                      '</div>',
+                                  '</div>',
+                              '</div>',
+                              '<div class="clearfix layer-row-2">',
+                                  '<p class="clearfix"><span style="float:left;">TA近期的订阅：{{{lastSubs}}}</span><span style="float:right;">关注时间：'+o.attr('data-followTime')+'</span></p>',
+                              '</div>',
+                          '</div>',
+                      '</div>'
+          ].join(''),
+          tooltipSelector: '.row-pic-layer',
+          initStyle: {
+              width: '480px',
+              height: '150px'
+          },
+          type: 'right', // 'bottom' | 'right'
+          triggerType: 'mouseenter',
+          repositionFunc: function(origin, config, wrap) {
+              wrap.css({
+                  top: origin.offset().top + 14,
+                  left: origin.offset().left + 50
+              });
+          }
+      });
+
+    });
+  };
+
+  var initUserInfoTooltips2 = function() {
+    $('.row-pic, .name').each(function(){
+        var o=$(this);
+        o.tooltip({
+          data: function(origin, callback) {
+              ($).ajax({
+                  url : '/account/usermgt/queryUserBasicInfo.jspa',
+                  type : 'get',
+                  cache : false,
+                  data : {
+                      userId : $(origin).attr('data-uid')
+                  },
+                  success : function(ret) {
+                      if (ret == undefined) {
+                          console.info('error.');
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      ret = JSON.parse(ret);
+
+                      if (ret.retCode != 0) {
+                          console.info('error..');
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      if (ret.data.totalCount == 0) {
+                          console.info('error...');
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      var subArray = [];
+
+                      if (ret.data.subInfoList != null && ret.data.subInfoList != undefined) {
+                          $.each(ret.data.subInfoList, function(i, item) {
+                              var _url = item.type == 1 ? "/portfolio/v3/detail/" : "/tips/";
+                              subArray.push('<a target="_blank" href="' + _url + item.pid + '.jspa"><<' + item.name + '>></a>');
+                          });
+                      }
+
+                      if (subArray.length == 0) {
+                          subArray.push('无');
+                      }
+
+                      var _user = {
+                          userId : ret.data.userId,
+                          userName : ret.data.userName,
+                          headImage : ret.data.headImage,
+                          bizSource : ret.data.bizSourceDisplay,
+                          hasFocusTime : ret.data.hasFocusTime,
+                          tipsTotalAmount : ret.data.tipsTotalAmount,
+                          portfolioAmount : ret.data.portfolioTotalAmount,
+                          lastSubs : subArray.join("、")
+                      };
+
+                      if (callback) {
+                          callback(_user);
+                      }
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+          },
+          template: ['<div class="row-pic-layer">',
+                          '<div class="inner">',
+                              '<div class="clearfix layer-row-1">',
+                                  '<img src="{{headImage}}" alt="">',
+                                  '<div class="layer-row-1-right">',
+                                      '<div><span class="name">{{userName}}</span><span>{{bizSource}}</span></div>',
+                                      '<div class="clearfix">',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumTipsTimes')+'</p>',
+                                              '<p class="field">内参购买次数</p>',
+                                          '</div>',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumPortfolioTimes')+'</p>',
+                                              '<p class="field">组合购买次数</p>',
+                                          '</div>',
+                                          '<div class="last">',
+                                              '<p>'+(parseInt(o.attr('data-cumAwardTimes'))+parseInt(o.attr('data-cumGiftTimes')))+'</p>',
+                                              '<p class="field">打赏送礼次数</p>',
+                                          '</div>',
+                                      '</div>',
+                                      '<div class="clearfix">',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumWgAskTimes')+'/'+o.attr('data-cumWgAnswerTimes')+'</p>',
+                                              '<p class="field">问股/被回答次数</p>',
+                                          '</div>',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumZbTalkTimes')+'</p>',
+                                              '<p class="field">直播互动次数</p>',
+                                          '</div>',
+                                          '<div class="last">',
+                                              '<p>'+o.attr('data-cumCpinionComments')+'</p>',
+                                              '<p class="field">观点评论次数</p>',
+                                          '</div>',
+                                      '</div>',
+                                      '<div class="clearfix">',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumIncome')+'</p>',
+                                              '<p class="field">购买总金额</p>',
+                                          '</div>',
+                                          '<div>',
+                                              '<p>'+o.attr('data-cumTipsImcome')+'</p>',
+                                              '<p class="field">购买内参金额</p>',
+                                          '</div>',
+                                          '<div class="last">',
+                                              '<p>'+(parseInt(o.attr('data-cumAwardIncome'))+parseInt(o.attr('data-cumGiftIncome')))+'</p>',
+                                              '<p class="field">打赏送礼金额</p>',
+                                          '</div>',
+                                      '</div>',
+                                  '</div>',
+                              '</div>',
+                              '<div class="clearfix layer-row-2">',
+                                  '<p class="clearfix"><span style="float:left;">TA近期的订阅：{{{lastSubs}}}</span><span style="float:right;">关注时间：'+o.attr('data-followTime')+'</span></p>',
+                              '</div>',
+                          '</div>',
+                      '</div>'
+          ].join(''),
+          tooltipSelector: '.row-pic-layer',
+          initStyle: {
+              width: '480px',
+              height: '150px'
+          },
+          type: 'right', // 'bottom' | 'right'
+          triggerType: 'mouseenter',
+          repositionFunc: function(origin, config, wrap) {
+              wrap.css({
+                  top: origin.offset().top + 14,
+                  left: origin.offset().left + 50
+              });
+          }
+      });
+
+    });
+  };
+  var resultEmpty = function(msg, tips) {
+      return '<div class="inquire-item-2" style="overflow:hidden"><div class="middle tc" style="margin:100px 0;"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png"><span class="f16 ml10">暂无' + msg + (tips == undefined ? '' : ('</br>' + tips)) + '</span></div></div>';
+  }
+
+   function loadingArea() {
+      return '<div style="text-align:center;margin-top:30px;"><img src="http://js.jrjimg.cn/zqt-red-1000/images/loading.gif" width="100" heigth="100" style="display:block; margin:80px auto;"/></div>';
+  }
+  function changtime(val){
+      if (val == null || val == undefined) {
+          return '--';
+      }
+      return new Date(parseInt(val)).toLocaleString().substr(0,17) 
+  }
+  var defaultString = function(val, defaultString) {
+      if (val == null || val == undefined) {
+          return defaultString;
+      }
+
+      return val;
+  }
+
+  var emptyString = function(val, defaultString) {
+      if (val == null || val == undefined || val == '') {
+          return defaultString;
+      }
+
+      return val;
+  }
+  var groupstr='';
+          //查询投顾已有自定义分组
+  getgroups();
+  function getgroups(){
+      ($).ajax({
+      url : '/account/customerrm/getgroups.jspa',
+      type : 'get',
+      success : function(ret) {
+          if (ret == undefined) {
+              JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+              return;
+          }
+
+          //ret = JSON.parse(ret);
+          if(ret.length==0){groupstr+='暂无分组，请先创建分组'}
+          for(var i=0;i<ret.length;i++){
+              $('.groupsbox').append('<span class="tab-switch-s3-item" data-groupId="'+ret[i].groupId+'">'+ret[i].groupName+'</span>');
+              if(i==0){
+                  groupstr+='<li class="selli groupsli"><span class="" data-groupId="'+ret[i].groupId+'">'+ret[i].groupName+'</span></li>';
+              }else{
+                  groupstr+='<li class="groupsli"><span class="" data-groupId="'+ret[i].groupId+'">'+ret[i].groupName+'</span></li>';
+              }
+              
+          }
+          if(ret.length==3){
+              $('.newgroupsbtn').remove();
+          }
+          changetabsize();
+          
+          
+      },
+      error : function() {
+          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+          return;
+      }
+  });
+  }
+  //看是否显示付费用户这个东东
+  function changepad(n){
+    if(n==0 || n=='0'){
+      return '';
+    }else{
+      return '<i class="icon-pay-user"></i>';
+    }
+  }
+  //改变分组的字体大小 
+
+  function changetabsize(){
+      $('.tab-switch-s3-item').each(function(){
+        console.log(getStrLeng($(this).html()));
+          if(getStrLeng($(this).html())>15){
+              $(this).css({
+                  'font-size':'12px',
+                  'line-height':'18px',
+                  'word-wrap':'break-word',
+                  'overflow':'hidden'
+              });
+          }
+          if(getStrLeng($(this).html())==18){
+              $(this).css({
+                  'font-size':'12px',
+                  'line-height':'40px',
+                  'word-wrap':'break-word',
+                  'overflow':'hidden'
+              });
+          }
+      });
+  }
+
+  function getStrLeng(str){
+      var realLength = 0;
+      var len = str.length;
+      var charCode = -1;
+      for(var i = 0; i < len; i++){
+          charCode = str.charCodeAt(i);
+          if (charCode >= 0 && charCode <= 128) { 
+              realLength += 1;
+          }else{ 
+              // 如果是中文则长度加3
+              realLength += 3;
+          }
+      } 
+      return realLength;
+  }
+});
+
+    </script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/mouseenterDelay.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v3/jrj.ui.tooltip.js"></script>
+
+    <script type="text/javascript">
+    
+        $(function () {
+            
+            //scroll
+            $(window).scroll(function () {
+                //$(window).scrollTop()这个方法是当前滚动条滚动的距离
+                //$(window).height()获取当前窗体的高度
+                //$(document).height()获取当前文档的高度
+                var bot = 200; //bot是底部距离的高度
+                if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                    //当底部基本距离+滚动的高度 >= 文档的高度-窗体的高度时；
+                    //我们需要去异步加载数据了
+                    //me.getData();
+                    //$container.masonry('reload');
+                    $('.loading').show();
+
+                    setTimeout(function () {
+                        $('.loading').hide();
+                    }, 3000);
+                }
+            });
+
+
+           $('.userWj .select a').click(function () {
+             if ($(this).attr('data-type') == 'user') {
+                if($("#fansNum").html() != '0'){
+                
+                    $("#btn-send-all").attr("data-type","user");
+                    JRJ.Dialogs.iframeDialog({
+                        content: [''].join(''),
+                        loadingImg: '',
+                        width: 712,
+                        hasBtn: false,
+                        hasOkBtn: false,
+                        okBtnText: '',
+                        title: '向 签约用户 群发',
+                        titleRight: '',
+                        bottomContent: '',
+                        protocolHtml: '',
+                        hasCancelBtn: false,
+                        enableKeyCtrl: true,
+                        ifrSrc: '/message/sendMsg.jspa',
+                        ifrReHeight: false,
+                        isFixed: true,//defaultCf.isFixed,
+                        okCallback: function () {
+                        },
+                        cancelCallback: function () {
+                            return true;
+                        }
+                    });
+                }else{
+                    //没有签约用户效果
+                JRJ.MiniAlerts.prompt({
+                    trigger: '#btn-send-all',
+                    message: "<p>您还没有签约用户</p>"
+                });
+                }
+             }else{
+                $("#btn-send-all").attr("data-type","fans");
+                 if($("#fansNum").html() != '0'){
+                    JRJ.Dialogs.iframeDialog({
+                        content: [''].join(''),
+                        loadingImg: '',
+                        width: 712,
+                        hasBtn: false,
+                        hasOkBtn: false,
+                        okBtnText: '',
+                        title: '向 粉丝用户 群发',
+                        titleRight: '',
+                        bottomContent: '',
+                        protocolHtml: '',
+                        hasCancelBtn: false,
+                        enableKeyCtrl: true,
+                        ifrSrc: '/message/sendMsg.jspa',
+                        ifrReHeight: false,
+                        isFixed: true,//defaultCf.isFixed,
+                        okCallback: function () {
+                        },
+                        cancelCallback: function () {
+                            return true;
+                        }
+                    });
+                }else{
+                    //没有粉丝用户效果
+                JRJ.MiniAlerts.prompt({
+                    trigger: '#btn-send-all',
+                    message: "<p>您还没有粉丝</p>"
+                });
+                }
+             }
+           });
+
+           //向粉丝群发
+           $('#fan').click(function () { 
+              $(".btn.btn-57-23").attr("data-type","");
+              //判断粉丝数是否大于0
+              if($("#fansNum").html() != '0'){
+                    JRJ.Dialogs.iframeDialog({
+                        content: [''].join(''),
+                        loadingImg: '',
+                        width: 712,
+                        hasBtn: false,
+                        hasOkBtn: false,
+                        okBtnText: '',
+                        title: '向 粉丝 群发',
+                        titleRight: '',
+                        bottomContent: '',
+                        protocolHtml: '',
+                        hasCancelBtn: false,
+                        enableKeyCtrl: true,
+                        ifrSrc: '/message/sendMsg.jspa?_='+new Date().getTime(),
+                        ifrReHeight: false,
+                        isFixed: true,//defaultCf.isFixed,
+                        okCallback: function () {
+                        },
+                        cancelCallback: function () {
+                            return true;       
+                        }
+                    });
+                }else{
+                    //没有粉丝用户效果
+                JRJ.MiniAlerts.prompt({
+                    trigger: '#fan',
+                    message: "<p>您还没有粉丝</p>"
+                });
+                }
+           });
+            $('#fan2').click(function(){
+                $(".btn.btn-57-23").attr("data-type","");
+              //判断粉丝数是否大于0
+              if($("#fansNum").html() != '0'){
+                    JRJ.Dialogs.iframeDialog({
+                        content: [''].join(''),
+                        loadingImg: '',
+                        width: 712,
+                        hasBtn: false,
+                        hasOkBtn: false,
+                        okBtnText: '',
+                        title: '向 '+$('.tab-switch-s3-item-cur').html()+' 群发',
+                        titleRight: '',
+                        bottomContent: '',
+                        protocolHtml: '',
+                        hasCancelBtn: false,
+                        enableKeyCtrl: true,
+                        ifrSrc: '/message/sendMsg.jspa?_='+new Date().getTime()+'&rtype='+$('.tab-switch-s3-item-cur').attr('data-groupid'),
+                        ifrReHeight: false,
+                        isFixed: true,//defaultCf.isFixed,
+                        okCallback: function () {
+                        },
+                        cancelCallback: function () {
+                            return true;       
+                        }
+                    });
+                }else{
+                    //没有粉丝用户效果
+                JRJ.MiniAlerts.prompt({
+                    trigger: '#fan',
+                    message: "<p>您还没有粉丝</p>"
+                });
+                }
+
+            });
+            window.success = function () {
+                JRJ.MiniAlerts.prompt({
+                    message: "<p>发送成功</p>"
+                });
+            };
+
+            // 向用户群发
+            var _timer = null;
+            $(".userWj .select").hide();
+            $(".userWj").mouseenter(function(e){
+              e.stopPropagation();
+              window.clearTimeout(_timer);
+               $(this).children(".select").show();
+            }).mouseleave(function(e){
+              e.stopPropagation();
+              var self = this;
+              _timer = window.setTimeout(function(){
+                $(self).children(".select").hide();
+              },300);
+            });
+            $(".userWj .select a").click(function(){
+               var text=$(this).text();
+               //$(".userWj .btn-113-30").text(text);
+            });
+            
+            $('.select').mouseenter(function(e){
+              e.stopPropagation();
+              window.clearTimeout(_timer);
+              $(this).show();
+            });
+
+            //20150108
+
+
+            
+            //后面优化的20170504
+
+            $('.fansdate em').each(function(){
+                var o=$(this);
+                $(this).click(function(){
+                    $('.fansdate em').removeClass('cur');
+                    o.addClass('cur');
+                    fansdate(o.attr('dateType'))
+                });
+            });
+            fansdate('days')
+            function fansdate(dateType){
+                ($).ajax({
+                  url : '/account/customerrm/getfansstatistics.jspa',
+                  type : 'get',
+                  data : {
+                      dateType : dateType 
+                  },
+                  beforeSend : function() {
+                      $(".statistic-block").empty();
+                      $(".statistic-block").append('<div style="text-align:center;margin-top:30px;"><img src="http://i0.jrjimg.cn/zqt-red-1000/misc/loading3.gif" alt="loading..."/></div>');
+                  },
+                  success : function(ret) {
+                      if (ret == undefined) {
+                          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                          return;
+                      }
+
+                      //ret = JSON.parse(ret);
+                      console.log(ret);
+                      $('#fansNum').html(ret.cumFollowUsers);
+                      var str='<div class="statistic-block-item statistic-block-item-1"><p>新增粉丝数</p><p class="num">'+ret.newFollowUsers+'</p></div><div class="statistic-block-item statistic-block-item-2"><p>取关粉丝数</p><p class="num">'+ret.canFollowUsers+'</p></div><div class="statistic-block-item statistic-block-item-3"><p>净增长用户数</p><p class="num">'+ret.netincFollowUsers+'</p></div><div class="statistic-block-item statistic-block-item-1"><p>直播间访问人数</p><p class="num">'+ret.zbViewUsers+'</p></div><div class="statistic-block-item statistic-block-item-2"><p>直播间互动人数</p><p class="num">'+ret.zbTalkUsers+'</p></div><div class="statistic-block-item statistic-block-item-3"><p>文章阅读人数</p><p class="num">'+ret.viewReads+'</p></div>';
+                      $(".statistic-block").html(str);
+                      
+                  },
+                  error : function() {
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+            }
+            //向粉丝群发22222222
+
+        });
+    </script>
+
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的收入-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css_js.html" -->
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/calendar.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/calendar.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/account/webpage.js"></script>
+	<script type="text/javascript" src="http://js.jrjimg.cn/itougu/account/date.js"></script>
+	<style type="text/css">
+		#select-month select{
+			font-size:12px;
+		}
+	</style>
+    <script type="text/javascript">
+        $(function () {
+
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+
+            $('.icon-tooltip').tooltipster({
+                theme: 'tooltipster-light'
+            });
+            
+            $("input[name='select-time']").click(function() {
+            	var value = $(this).val();
+            	if(value==0) {
+            		$("#select-day").show();
+            		$("#select-month").hide();
+            	} else if(value==1) {
+            		$("#select-day").hide();
+            		$("#select-month").show();
+            	}
+            })
+            
+            //new JRJ.ui.Calendar("cal-0");
+            new JRJ.ui.Calendar("cal-1");
+            new JRJ.ui.Calendar("cal-2");
+            
+            var startTime = '$!request.getParameter("startTime")';
+            var endTime = '$!request.getParameter("endTime")';
+            var month = '$!request.getParameter("month")';
+            if(startTime!=null&&startTime!='') {
+            	if(month) {
+            		var start = StringToDate(startTime);
+            		var year = start.getFullYear();
+            		var month = start.getMonth()+1;
+            		$("#cal-3").val(year);
+            		$("#cal-4").val(month);
+            		$("#select-day").hide();
+            		$("#select-month").show();
+            		$("input[name='select-time'][value='1']").get(0).checked="checked";
+            	} else {
+            		$("#cal-1").val(startTime);
+            	}
+            }
+            if(endTime!=null&&endTime!='') {
+            	if(month) {
+            		
+            	} else {
+            		$("#cal-2").val(endTime);
+            	}
+            }
+            if((startTime==''||startTime==null)&&(endTime==''||endTime==null)) {
+            	var date = new Date();
+            	var year = Number(date.getFullYear());
+            	var month = Number(date.getMonth());
+            	if(month==1) {
+            		year = year-1;
+            		month = 12;
+            	}
+            	$("#cal-3").val(year);
+        		$("#cal-4").val(month);
+            }
+            
+            $('#testtooltip').tooltipster({
+           	   animation: 'fade',
+           	   delay: 200,
+           	   theme: 'tooltipster-light',
+           	   touchDevices: false,
+           	   trigger: 'hover',
+           	   contentAsHTML:true,
+           	   multiple:true,
+           	   content:"<span style='color:#666;'>当日产生的奖金，最快于次日统计生效，由于客户需要在交易成功后，再次登录证券通操作才能将上次奖金纳入统计；故交易产生奖金未能正常统计结算部分，最终以券商数据为准， 经核实如未结算奖金会自动累计到月账单中，给予结算；给您带来不便，请谅解！</span>",
+           	   maxWidth:500
+           	});
+            
+            if (document.getElementById('dealTable')) {  
+				page = new PagingClass(20, 'dealTable', 'dealTableBody');  
+				$(".pager").find("a").eq(1).addClass("cur");
+				initClass(1);
+				//document.getElementById('pageindex').innerHTML = page.pageIndex + 1 + ' / ' + page.pageCount;  
+			}
+            
+            var tab = new JRJ.ui.TabSwitch({
+                menuPre: "menu_",
+                conPre: "con_",
+                total: 2,
+                onClass: "cur",
+                eventType: 'click'
+            });
+
+        });
+        
+        var page;  
+        
+		function nextPage() {  
+			page.nextPage();  
+			initClass(Number(page.pageIndex)+1);
+			//document.getElementById('pageindex').innerHTML = page.pageIndex + 1 + ' / ' + page.pageCount;  
+		}  
+		
+		function prePage() {  
+			page.prePage(); 
+			initClass(Number(page.pageIndex)-1);
+			//document.getElementById('pageindex').innerHTML = page.pageIndex + 1 + ' / ' + page.pageCount;  
+		}
+		
+		function turnPage(a) {
+			var flag = $(a).hasClass("cur");
+			if(flag)
+				return;
+			$(".pager").find("a").removeClass("cur");
+			$(a).addClass("cur");
+			var pageNo = Number($(a).text())-1;
+			page.aimPage(pageNo);
+			initClass(pageNo+1);
+		}
+		
+		function initClass(pageNo) {
+			var totalPage = page.pageCount;
+			var totalCount = page._rowCount;
+			var html = "";
+			html += '<a class="prev" onclick="prePage();">上一页</a>';
+			if(pageNo<=5&&totalPage>=5) 
+				html += createPageHtml(1, 6);
+			else if(pageNo<=5&&totalPage<=5) 
+				html += createPageHtml(1, totalPage+1);
+			else if(pageNo>5&&pageNo<totalPage-5) 
+				html += createPageHtml(pageNo-2, totalPage+3);
+			else if(pageNo>=totalPage-5) 
+				html += createPageHtml(totalPage-4, totalPage+1);
+			html += '<a class="next" onclick="nextPage();">下一页</a>';
+			html += '<span class="total">共 '+totalCount+' 条记录</span>';
+			$(".pager").html(html);
+			if(pageNo==1)
+				$(".pager").find("a").first().addClass("prev-disable");
+			if(pageNo==totalPage) 
+				$(".pager").find("a").last().addClass("next-disable");
+			$(".pager").find("a[title='"+pageNo+"']").addClass("cur");
+		}
+		
+		function createPageHtml(start, end) {
+			var html = "";
+			for(var i=start;i<end;i++) {
+				html += '<a href="javascript:;" onclick="turnPage(this);" title="'+i+'">'+i+'</a>'
+			}
+			return html;
+		}
+		
+		function queryDay() {
+			var startDate = $("#cal-1").val();
+			var endDate = $("#cal-2").val();
+			window.location = "/account/income/index.jspa?startTime="+startDate+"&endTime="+endDate;
+		}
+		
+		function queryMonth() {
+			var json = getMonthABC();
+			window.location = "/account/income/index.jspa?startTime="+json.startDate
+					+"&endTime="+json.endDate+"&month=true";
+		}
+		
+		function getMonthABC() {
+			var year = $("#cal-3").val();
+			var month = $("#cal-4").val();
+			var month1 = Number(month)<10?'0'+month:month;
+			var month2 = Number(month)+1;
+			month2 = Number(month2)<10?'0'+month2:month2;
+			var startDate = year+"-"+month1+"-01";
+			var endDate = year+"-"+month2+"-01";
+			if(month=='12') {
+				endDate = (Number(year)+1)+"-01-01";
+			}	
+			return {startDate:startDate,endDate:endDate};
+		}
+		
+		function detail(a) {
+			var url = $(a).attr("url");
+			var array = url.split("?");
+			var str1 = array[0];
+			var str2 = array[1];
+			var params = str2.split("&");
+			var jsonArray = new Array();
+			$.each(params, function(i, n){
+				var param = n.split("=");
+				var key = param[0];
+				var value = param[1];
+				var json = {key:key,value:value};
+				jsonArray.push(json);
+			})
+			var flag = $("input[name='select-time']:checked").val(); 
+			if(flag==0) {
+				var startDate = $("#cal-1").val();
+				var endDate = $("#cal-2").val();
+				jsonArray.push({"key":"startTime","value":startDate});
+				jsonArray.push({"key":"endTime", "value":endDate});
+				jsTargetBlank(str1, jsonArray);
+			} else if(flag==1) {
+				var json = getMonthABC();
+				jsonArray.push({"key":"startTime","value":json.startDate});
+				jsonArray.push({"key":"endTime", "value":json.endDate});
+				jsTargetBlank(str1, jsonArray);
+			}
+		}
+		
+		function jsTargetBlank(url, jsonArray) {
+			var f=document.createElement("form");
+			f.action=url;
+			f.target="_blank";
+			f.method="get";
+			$.each(jsonArray, function(i, n){
+				var key = n.key;
+				var value = n.value;
+				var input = $("<input type='hidden' name='"+key+"' value='"+value+"'>");
+				$(f).append(input);
+			})
+			document.body.appendChild(f);
+			f.submit();
+		}
+		
+    </script>
+</head>
+<body>
+    <!--site-top-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-header-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">金融界爱投顾</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            
+            <div class="site-main-right">
+            	<div class="my-tg">
+                    <ul class="tab clearfix">
+                        <li id="menu_1" class="cur">奖金</li>
+                        <li id="menu_2" class="last">组合跟投</li>
+                    </ul>
+                </div>
+                <div id="con_1">
+	                <h1 class="page-title-2">
+	                    <a target="_blank" href="https://8.jrj.com.cn/account/cashAccount.jspa" class="link fr f14">我的盈利宝</a>
+	                    <span>我的收入</span>
+	                </h1>
+	                <!-- <a href="/account/income/download.jspa">download</a> -->
+	                <div class="revenue-summary clearfix">
+	                    <div class="revenue-summary-1">
+	                        <table>
+	                            <tr>
+	                                <td class="field" style="width:75px;">本月奖金：</td>
+	                                <td><span class="red">$!monthFee</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td class="field">昨日奖金：</td>
+	                                <td><span class="red">$!yesterdayFee</span></td>
+	                            </tr>
+	                        </table>
+	                    </div>
+	                    <div class="revenue-summary-2" style="width:250px;">
+	                        <table>
+	                            <tr>
+	                                <td class="field" style="width:110px;">历史累计奖金：</td>
+	                                <td><span class="red">$!totalFee</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td class="field" colspan='2'>$!monthBill.bill_period账单奖金：
+	                                	#if($!monthBill)
+		                                    <span class="red mr10">$!monthBill.total_reward</span>
+		                                    <a href="/account/income/bill.jspa" target="_blank" class="link">账单记录</a>
+	                                    #else
+	                                    	<span class="red mr10">暂无账单</span>
+	                                    #end
+	                                </td>
+	                            </tr>
+	                        </table>
+	                    </div>
+	                    <div class="revenue-summary-3" style="width:180px;">
+	                        <table>
+	                            <tr>
+	                                <td class="field" style="width:130px;">投顾奖金分成比率：</td>
+	                                <td style="width:40px;"><span class="red">$!userRate</span></td>
+	                                <!-- <td><i class="icon icon-tooltip" title="平台统一分配，目前投顾奖金分成比率全部为60%；最终会根据投顾成长等级分配，给您带来不便请谅解！"></i></td> -->
+	                            </tr>
+	                            <tr>
+	                                <td colspan="2">
+	                                    <a href="/account/income/help.jspa" 
+	                                    target="_blank" class="link">常见问题帮助？</a>
+	                                </td>
+	                            </tr>
+	                        </table>
+	                    </div>
+	                </div>
+	                <h1 class="page-title-2 page-title-2-float mt20 clearfix">
+	                    <span class="f16">收入明细</span>
+	                    <!-- <i class="icon icon-tooltip" id='testtooltip'  -->
+	                    <i class="icon icon-tooltip" id='testtooltip'></i>
+	                    <input id="Radio1" type="radio" name="select-time" class="ml30"
+	                    	 value="0" checked="checked"/>
+	                    <span class="f12" style="margin-left:5px;">日</span>
+	                    <input id="Radio2" type="radio" name="select-time" value="1"/>
+	                    <span class="f12" style="margin-left:5px;">月</span>
+	                    <div id="select-day">
+	                    	<input id="cal-1" type="text" class="txtbox-calendar" style="font-size: 12px;"/>
+		                    <span class="f12">至</span>
+		                    <input id="cal-2" type="text" class="txtbox-calendar" style="font-size: 12px;" />
+		                    <a href="javascript:;" class="btn btn-45-24-blue" onclick="queryDay();">查询</a>
+	                    </div>
+	                    <div id="select-month" style="display:none;">
+	                    	<select id="cal-3" style="margin-top:10px;">
+		                    	<option value="2015">2015年</option>
+		                    	<option value="2016">2016年</option>
+		                    	<option value="2017">2017年</option>
+		                    	<option value="2018">2018年</option>
+		                    	<option value="2019">2019年</option>
+		                    </select>
+		                    <select id="cal-4" style="margin-top:10px;margin-left:20px;">
+		                    	<option value="1">1月</option>
+		                    	<option value="2">2月</option>
+		                    	<option value="3">3月</option>
+		                    	<option value="4">4月</option>
+		                    	<option value="5">5月</option>
+		                    	<option value="6">6月</option>
+		                    	<option value="7">7月</option>
+		                    	<option value="8">8月</option>
+		                    	<option value="9">9月</option>
+		                    	<option value="10">10月</option>
+		                    	<option value="11">11月</option>
+		                    	<option value="12">12月</option>
+		                    </select>
+		                    <a href="javascript:;" class="btn btn-45-24-blue" onclick="queryMonth();">查询</a>
+	                    </div>
+	                </h1>
+	                #if($!list.size()==0)
+	                	<div class="empty-wrap middle tc f16">
+	                		<img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png">
+	                		<span class="ml10">暂无数据</span>
+	                	</div>
+	                #else
+	                <div class="revenue-summary-s2">
+	                    <span class="mr40">奖金汇总：<span class="red">$!sumTotalFee</span></span>
+	                    <span class="mr40">投顾奖金：<span class="red">$!sumAdviserFee</span></span>
+	                    <span class="mr40">经纪奖金：<span class="red">$!sumInviteFee</span></span>
+	                </div>
+	                <table class="table-general table-general-p3" id="dealTable">
+	                    <thead>
+	                        <tr>
+	                            <th class="tc" style="width:85px;">客户</th>
+	                            <th class="tc">证券公司</th>
+	                            <th class="tc" style="width:40px;">总资产</th>
+	                            <th style="text-align: right;">交易金额(万元)</th>
+	                            <th style="text-align: right;">交易费用(元)</th>
+	                            <th style="text-align: right;">投顾奖金</th>
+	                            <th style="text-align: right;">经纪奖金</th>
+	                            <th style="text-align: right;">奖金汇总</th>
+	                            <th class="tc last">详细</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody id="dealTableBody">
+	                    	#foreach($deal in ${list})
+	                        <tr
+	                        	#if($!velocityCount % 2 != 0)
+	                        		class="alt"
+	                        	#end
+	                        >
+	                            <td class="tc">$!deal.user_name</td>
+	                            <td class="tc">$!deal.broker_name</td>
+	                            <td class="tc middle">
+	                            	<span class="icon $!deal.iconCss icon-tooltip mytooltip"
+	                            	 content="$!deal.balanceTitle">$!deal.balanceDesc</span>
+	                            </td>
+	                            <td class="tr">$!deal.sumDealTotalFeeDisplay</td>
+	                            <td class="tr">$!deal.sumDealFeeDisplay</td>
+	                            <td class="tr">$!deal.sumAdviserRewardDisplay</td>
+	                            <td class="tr">$!deal.sumInviteRewardDisplay</td>
+	                            <td class="tr">$!deal.sumTotalRewardDisplay</td>
+	                            <td class="tc last">
+	                            	<a href="javascript:;" onclick="detail(this);" 
+	                            	url="/account/income/detail.jspa?userId=$!deal.user_id&brokerId=$!deal.broker_id" class="link">详细</a>
+	                            </td>
+	                        </tr>
+	                        #end
+	                    </tbody>
+	                </table>
+	                <div class="pager">
+	                    <!-- <a class="prev prev-disable" onclick="prePage();">上一页</a>
+	                    #foreach($pageNo in [1..$totalPage])
+							<a href="javascript:;" onclick="turnPage(this);">$pageNo</a>
+						#end
+	                    <a class="cur">1</a>
+	                    <a>2</a>
+	                    <a>3</a>
+	                    <a class="dot">...</a>
+	                    <a>125</a>
+	                    <span id="pageindex"></span>
+	                    <a class="next" onclick="nextPage();">下一页</a>
+	                    <span class="total">共 $!{list.size()} 条记录</span> -->
+	                </div>
+	                #end
+	            </div>
+	            <div id="con_2" style="display:none;">
+					<h1>组合跟投收入哈哈</h1>
+				</div>
+	        </div>
+        </div>
+        <!--site-main-right-->
+    </div>
+
+    <!--footer-->
+    <!--\#include virtual="/common_footer.html" -->
+    <!--footer-->
+</body>
+</html>

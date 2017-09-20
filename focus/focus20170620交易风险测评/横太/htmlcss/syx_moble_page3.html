@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>适当性风险评测</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style>
+    html{ font-size: 20px;}
+	body{
+		background:#fff;}
+       .query {
+/* background: #fff; */
+-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; 
+width: 100%;
+ margin:0;
+ border:none;
+/* overflow: hidden; */
+padding-top: 0px;
+}
+.logo{
+	width:30%;
+           min-width:200px;
+            background: red;
+	display:block;
+     margin:30px auto;
+}
+/*.logodiv{
+     background: url(images/sep.jpg) no-repeat center center;
+     background-size: 40%;
+     margin: 30px auto;
+     height: 50px;
+     width: 100%;
+}
+*/
+    .query .query-password li{
+		width:90%;}
+		.query footer span{
+			width:90%;
+			display:block;
+			-moz-border-radius: 5px;
+
+-webkit-border-radius:5px; 
+ border-radius:5px;
+  margin:0px auto;
+  float:none;
+  color:#de3031;
+  border:1px solid #999999;
+  padding:0 10px;}
+.query footer{
+	 width:100%;
+	 border:none;
+	 background:none;
+	 line-height:48px;
+	}
+	
+	.query .query-password li{
+		border:none;
+		border-bottom:1px solid #d1d1d1;
+		-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; }
+ .clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+ .con{ margin-top: -.5rem; }
+.list{border-top:.5rem solid #efeff4; padding-top: .7rem; padding-bottom: .675rem;  }
+.hd{ padding:.3rem 1rem ;line-height: 1.1rem; font-size:.8rem; font-weight: normal;}
+.bd{ background: #fff; }
+.bd li{ padding:.3rem 1rem .3rem 1.5rem; }
+.icon{border: 1px solid #B2B2B2;border-radius: 50%; float:left; margin-right: .6rem;width:.8rem; height:.8rem; margin-top: 2px; }
+.sel{ background: #F8F8F8;}
+.sel .icon{ background: url(https://i0.jrjimg.cn/zqt-m/quanerong/icon.png) no-repeat; background-size:100% 100%; border-color: #3996F2;  }
+.txt{ line-height: 1.1rem; width:14rem; float: left;font-size:.8rem; color: #666; }
+.ok{ background: #3996F2; }
+.submitbtn {display: block;background: #F24439;width: 17.5rem;line-height: 2.5rem;color: #fff;font-size: .8rem;border-radius: 4px;text-align: center;margin: 0 auto 2rem;}
+ .tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+/*关于弹窗*/
+.mask{display:none;position: fixed;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10;bottom: 0;right: 0;}
+.layer{display:none;width: 15rem;height: 11.95rem;background: #fff;position: fixed;top: 50%;left: 50%;margin-top: -7.5rem;margin-left: -6.677rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%;border-radius: 5px;}
+.layer_c{ padding:10px; font-size: 1.1em;}
+.layer_c .tit{ font-size:1.2rem; margin-bottom: 3px;text-align: center; }
+.layer_c .hd{ color: #666;}
+.layer .bd{ position: absolute;width:100%;bottom:0;border-top:1px solid #ddd;}
+.layer .bd span{text-align: center;font-size: 1rem; line-height: 2rem;display: block; }
+
+.haha{ display: block;line-height: 50px;background: blue;color: #fff;text-align: center;}
+    </style>
+
+
+	
+</head>
+<body>
+<a class="haha" href="javascript:;">哈哈</a>
+<div class="con">
+        <div class="timu">
+            #foreach( $elem in $questionList)
+                #if($!{elem.questionKind}==0)
+                  <div class="list danxuan" data-questionNo="$elem.questionNo">
+                      <h3 class="hd">$!{velocityCount}.（<i>单选</i>）$elem.questionContent</h3>
+                    <ul class="bd">
+                        #foreach( $answer in  $!{elem.list})
+                            <li class="clearfix" data-answerNo="$answer.answerNo">
+                                <em class="icon"></em>
+                                <span class="txt">$answer.answerContent</span>
+                            </li>
+                        #end
+                    </ul>
+                  </div> 
+                #elseif($!{elem.questionKind}==1)
+                  <div class="list duoxuan" data-questionNo="$elem.questionNo">
+                      <h3 class="hd">$!{velocityCount}.（<i>多选</i>）$elem.questionContent</h3>
+                    <ul class="bd">
+                        #foreach( $answer in  $!{elem.list})
+                            <li class="clearfix" data-answerNo="$answer.answerNo">
+                                <em class="icon"></em>
+                                <span class="txt">$answer.answerContent</span>
+                            </li>
+                        #end
+                    </ul>
+                  </div>
+                #end 
+            #end
+
+
+            <div class="list">
+                <h3 class="hd">1.（<i>单选</i>）您的家庭年收入情况：</h3>
+                <ul class="bd">
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix sel">
+                        <em class="icon"></em>
+                        <span class="txt">E. 10-50万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="list">
+                <h3 class="hd">2.（单选）最近您家庭预计进行证券投资的资金占家庭的比例是：</h3>
+                <ul class="bd">
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix sel">
+                        <em class="icon"></em>
+                        <span class="txt">E. 10-50万元话说的撒娇就回答啥合适的话回家撒花大叔的金卡收到货</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<button class="submitbtn" onclick="doSubmit();">提交</button>
+<button onclick="javascript:location.reload()">刷新</button>
+<div class="tiperror"></div>
+<div class="mask"></div>
+<div class="layer">
+    <div class="layer_c">
+      <p class="tit">测评结果与产品推荐</p>
+      <div class="hd"></div>
+    </div>
+    <div class="bd clearfix">
+        <span class="okbtn">确定</span>
+    </div>
+</div>
+
+ <form id="cpform" style="display:none" name="bindform" action="/stockauth/syxMobilePage.jspa" method="post"> 
+		<input type="hidden" name="userToken" value="$!{userToken}" />
+        <input type="hidden" name="userId" value="$!{userId}" />
+        <input type="hidden" name="fund_id" value="$!{fundAccount}" />
+        <input type="hidden" name="from" value="$!{from}" />
+        <input type="hidden" name="p" value="$!{p}" />
+        <input type="hidden" name="s" value="$!{s}" />
+        <input type="hidden" id = "cp_choose" name="choose" value="0" />
+	    </form>
+	</section>
+
+<script>
+ /*计算字体大小*/
+function change(){
+    document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+}
+change();
+window.addEventListener('resize',change,false);
+//错误提示框，一会儿就消失toast
+function tiperror(msg){
+    $('.tiperror').html(msg).show();
+    setTimeout(function (){
+        $('.tiperror').hide();
+    }, 2000);
+    return;
+}
+$('.haha').click(function(){
+    window.location.reload();
+});
+//点击选题
+//多选
+$('.timu .duoxuan li').toggle(function(){
+  $(this).addClass('sel');
+},function(){
+    $(this).removeClass('sel');
+});
+//单选
+$('.timu .danxuan li').click(function(){
+    $(this).parent('ul').find('li').removeClass('sel');
+    $(this).addClass('sel');
+});
+
+function doSubmit(){
+  var answer='';
+  for(var i=0;i<$('.timu .list').length;i++){
+    var o=$('.timu .list').eq(i);
+      if(o.find('.sel').index()==-1){
+         tiperror('请填写第'+(i+1)+'题');return; 
+      }
+      if(o.hasClass('duoxuan')){
+          answer+=(o.attr('data-questionNo')+'&');
+          for(var j=0;j<o.find('.sel').length;j++){
+            answer+=(o.find('.sel').eq(j).attr('data-answerNo')+'^');
+          }
+          answer=answer.substring(0,answer.length-1)
+          answer+='|';
+      }else{
+          answer+=(o.attr('data-questionNo')+'&'+o.find('.sel').attr('data-answerNo')+'|');
+      }
+  }
+  answer=answer.substring(0,answer.length-1);
+  alert(answer);
+	//var answer= "1147&1|1148&1|1149&1|1150&1|1151&1|1152&1|1153&1|1175&1|1184&1|1156&1|8000&1|8001&1|1159&1|1160&1|8008&1|1162&1|9015&1|1163&1|9016&1|1164&1^3";
+    answer= encodeURIComponent(answer);
+    var from= '$!{from}';
+    var p= encodeURIComponent('$!{p}');
+    var s= encodeURIComponent('$!{s}');
+    var userId= '$!{userId}';
+    var userToken= encodeURIComponent('$!{userToken}');
+    
+    var postUrl ="";
+    if(from == 0){
+        postUrl = "/stockauth/submitSyxQuestions.jspa?p="+p+"&s="+s+"&fund_id=$!{fund_id}&paperAnswer="+answer;
+    }else{
+    	postUrl = "/stockauth/submitSyxQuestions.jspa?fund_id=$!{fund_id}&userId="+userId+"&userToken="+userToken+"&from="+from+"&paperAnswer="+answer;
+    }
+      
+	$.ajax({
+       type: "POST",
+       url: postUrl,
+       dataType: "json",
+       success: function(data){
+       	  alert(JSON.stringify(data));
+          $('.mask,.layer').show();
+          $('.layer .hd').html('评分：'+data.paperScore+'风险等级：'+data.corpRiskLevel+'投资建议'+data.investAdvice+'风险等级：'+risklevel(data.paperScore));
+       }           
+   });
+
+}
+
+$('.okbtn').click(function(){
+    goToIndex();
+});
+function risklevel(p){
+    if(p<19){
+        return '保守型';
+    }else if(p>=19 && p<36){
+        return '谨慎型';
+    }else if(p>=36 && p<53){
+        return '稳健型';
+    }else if(p>=53 && p<82){
+        return '积极型';
+    }else if(p>=82 && p<=100){
+        return '激进型';
+    }
+}
+ function goToIndex(){
+	  	$("#cpform").submit();
+}
+
+</script>
+
+
+</body>
+</html>

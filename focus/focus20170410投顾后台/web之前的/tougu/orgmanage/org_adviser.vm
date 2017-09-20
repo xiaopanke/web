@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>投顾列表-机构管理平台-爱投顾</title>
+<!--\#include virtual="/v2/common_head_css.html" -->
+<link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/backstage-agency.css" rel="stylesheet" />
+</head>
+<!--site-top-compact-->
+<!--\#include virtual="/v2/site_top_compact.html" -->
+<!--site-top-compact-->
+
+<!-- 开始 -->
+<div class='wrapper'>
+	<div class='backstage'>
+		<div class='nav'>
+			<h2>机构管理后台</h2>
+			<ul>
+				<li class='current'><a href='/account/orgmanage/orgAdviser.jspa'>机构投顾管理</a></li>
+				<li ><a href='/account/orgmanage/notice.jspa'>机构公告</a></li>
+				<li><a href='/account/gotoModifyOrg.jspa'>机构设置</a></li>
+				<li class='last'><a href='/account/organization/$!{orgId}/'  target="_blank">我的机构主页</a></li>
+			</ul>
+		</div>
+		<div class='right-side'>
+			<div class='menu'>
+				<ul>
+					<li class='current'><a href='/account/orgmanage/orgAdviser.jspa'>投顾列表</a></li>
+					<li><a href='/account/orgmanage/statistics.jspa'>投顾行为统计</a></li>
+				</ul>
+			</div>
+			<div class='backstage-contents'>
+				<div class='backstage-search'>
+					<span class='tag search-pop'>添加投顾</span>
+					<div class='searbox'>
+						<form name="search" id="search" class="fl" action="orgAdviser.jspa" method="POST">
+						<input type='text' class='text' name="name" onblur="setText(this,'请输入投顾姓名')" onfocus="setText(this)" style="color: rgb(102, 102, 102);" id="search_name" #if($!{name}!='') value="$!{name}" #else value="请输入投顾姓名" #end />
+						<input type='button' class='btn' value='搜索' onclick="searchName();" />
+						</form>
+					</div>
+				</div>
+				<div class='list-content'>
+					#if($!{count}>0)
+					<table class='tab-list'>
+						<thead>
+							<tr>
+								<th width='40%' class='name'>投顾($!{count})</th>
+								#if($!{opt} == 1)
+									<th width='50%' class='tc'>所属机构</th>
+									<th width='20%'>城市</th>
+								#else
+									<th width='50%'>城市</th>
+								#end
+								
+								<th width='10%'></th>
+							</tr>
+						</thead>
+						<tbody>
+							#set($i = 0)
+							#foreach($item  in $list)
+							#set($i = $i + 1)
+							#if($i == $list.size())
+								<tr class='last'>
+							#else
+								<tr>
+							#end
+								<td class='name'><img class='w_55' src='$!{item.headImage}'><a href="/account/adviser/$!{item.loginId}/">$!{item.trueName}</a></td>
+								
+								#if($!{opt} == 1)
+									<td align='center'>$!{item.company}</td>
+									<td>$!{item.province}-$!{item.city}</td>
+									#if($!{haveMap.get($!{item.loginId})}==1)
+										<td align='center'><a href="javascript:void(0);" onclick="deleteTip('$!{item.loginId}');"><i class='i-del'></i></a></td>
+									#else
+										<td align='center'><a href="javascript:void(0);" onclick="addTip('$!{item.loginId}');"><i class='i-add'></i></a></td>
+									#end
+									
+								#else
+									<td>$!{item.province}-$!{item.city}</td>
+									<td align='center'><a href="javascript:void(0);" onclick="deleteTip('$!{item.loginId}');"><i class='i-del'></i></a></td>
+								#end
+								
+							</tr>
+							#end
+						</tbody>
+					</table>
+					#else
+					
+					<div class="nomsg-data">
+						<center>
+							<i class="i-msg"></i><span class="text">
+								#if($!{name}!='') 您搜索的投顾信息不存在，请重新搜索！#else 当前没有投顾，赶快添加吧！ #end 
+								</span>
+						</center>
+					</div>
+					
+					#end
+				</div>
+				<div id="pager" typeIndex="1" class="pager pager-v2" #if($!{count}<11) style="display:none;" #end></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 结束 -->
+
+<!--\#include virtual="/v2/common_head_js.html" -->  
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/jquery.pagefoot.min.js"></script>
+<script>
+	function setText( self , txt ){
+		self.value = self.value.replace(/\s/g,'')
+		if(!self.txt) self.txt = self.value;
+		if( txt ){
+			if(self.value == ''){
+				self.value = self.txt;
+				self.style.color = '#666'
+			}
+		}else{
+			if(self.value == self.txt){
+				self.value = '';
+				self.style.color = '#000'
+			}
+		}
+	}
+	function deleteTip(uid){
+		JRJ.Dialogs.standardDialog({
+			title: "删除投顾",
+			noTitle:false,
+			customClass: '',
+			width: 430,
+			content: '<div style="font-size:16px" class="tc">删除后，该投顾的信息将从机构主页移除</div>',
+			okBtnText: "确认",
+			cancelBtnText: "取消",
+			hasBtn: true,
+			hasCloseBtn: true,
+			hasOkBtn: true,
+			hasCancelBtn: true,
+			okCallback: function () { 
+				window.location='orgDelAdviser.jspa?userId='+uid;
+			},
+			cancelCallback: function () {
+				
+			},
+			isFixed: true
+		});
+	}
+	function addTip(uid){
+		JRJ.Dialogs.standardDialog({
+			title: "添加投顾",
+			noTitle:false,
+			customClass: '',
+			width: 430,
+			content: '<div style="font-size:16px" class="tc">确定添加此投顾吗？</div>',
+			okBtnText: "确认",
+			cancelBtnText: "取消",
+			hasBtn: true,
+			hasCloseBtn: true,
+			hasOkBtn: true,
+			hasCancelBtn: true,
+			okCallback: function () { 
+				window.location='orgAddAdviser.jspa?userIds='+uid;
+			},
+			cancelCallback: function () {
+				
+			},
+			isFixed: true
+		});
+	}
+
+$('\#pager').pagefoot({
+	pagesize: $!{pageSize},
+	count: $!{count},
+	css: '',
+	current: $!{page},
+	displaynum: 5,
+	displaylastNum: 1,
+	previous: '上一页',
+	next: '下一页',
+	enableArrowKey : true,
+	paging: function(page) {
+		//var curpage = page.current;
+		//getRankingList(me.attr('typeIndex'), curpage);
+		//$(window).scrollTop($('\#rank-tab-wrap').offset().top);
+		//return false;
+		window.location='orgAdviser.jspa?page='+page.current;
+	}
+  });
+  
+  function searchName(){
+  	var val = $("#search_name").val()
+  	if(val!=null && val!=''&& val!='undefined'){
+  		$("form").submit();
+  	}else{
+  		$("form").attr("method","GET");
+  		$("form").submit();
+  	}
+  }
+  
+$('.tab-list tbody tr').hover(function(){
+		$(this).addClass('current')
+	}
+	,function(){$(this).removeClass('current')}
+)
+
+
+	
+$.ajax({
+   url: "/account/orgmanage/findOrgUser.jspa",
+   success: function( _data ){
+	// try{
+		var str = '' , id , allids = '' , search = $('.search-pop');
+		$.each(_data.data,function(){
+			var t = this;
+			allids += t.userId+',';
+			str += ['<dl class="member-box">'
+				,'<dt>'
+					,'<img src='+t.headImage+'>'
+					,'<h2>'+t.name+'<span class="info">'+t.company+'</span></h2>'
+				,'</dt>'
+				,'<dd>'
+					,'<p class="text">'+t.intro+'</p>'
+					,'<p><a data-id="'+t.userId+'" href="javascript:void(0)" class="select-btn">添加</a></p>'
+				,'</dd>'
+			,'</dl>'].join('');
+		});
+		search[0].allids = allids = allids.replace(/\,$/,'');
+		search.unbind().click(function(){
+			if(this.allids==''){
+				JRJ.Dialogs.standardDialog({
+					title: "添加投顾",
+					noTitle:false,
+					customClass: '',
+					width: 410,
+					content: '<p class="tc">当前没有可添加的投顾</p>',
+					okBtnText: "确认",
+					cancelBtnText: "取消",
+					hasBtn: true,
+					hasCloseBtn: true,
+					hasOkBtn: true,
+					hasCancelBtn: false,
+					okCallback: function () { },
+					cancelCallback: function () {
+					},
+					isFixed: true
+				});
+			}else{
+				JRJ.Dialogs.standardDialog({
+					title: "添加投顾",
+					noTitle:false,
+					customClass: '',
+					width: 832,
+					content: ['<div class="member-pop-list">',
+								,'<div class="member-pop-scroll">'+str+'</div>'
+								,'<div class="select-button">'
+									,'<span class="select-btn selected">全部添加</span>'
+								,'</div>'
+							,'</div>'].join(''),
+					okBtnText: "确认",
+					cancelBtnText: "取消",
+					hasBtn: false,
+					hasCloseBtn: true,
+					hasOkBtn: true,
+					hasCancelBtn: true,
+					okCallback: function () { },
+					cancelCallback: function () {
+						location.reload();
+					},
+					isFixed: true
+				});
+				var  url = '/account/orgmanage/orgAddAdviser.jspa?userIds=';
+				$('.member-box .select-btn').each(function(){
+					var self = $(this);
+					this.onclick = function(){
+						id = self.attr('data-id');
+						if( this.className == 'select-btn' ){
+							self.text('添加中...');
+							$.ajax({
+								 url : '/account/orgmanage/orgAddAdviserForAjax.jspa?userIds='+id
+								,success : function( _data ){
+									switch( String(_data.retCode) ){
+										case '0' : { //成功
+											self.addClass('select').text('已添加');
+											break;
+										}
+									}
+								}
+							});
+							//window.location.href = url+id;
+						}
+					}
+				});
+				$('.select-button .select-btn:eq(0)').click(function(){ //添加全部
+					if(this.allids==''){
+						alert('没有投顾');
+					}else{
+						window.location.href = url+allids;
+					}
+				});
+			}
+		});
+	}
+	 //}catch(e){}
+})
+$('.backstage').height()<500 && $('.backstage').height(500);
+</script>
+<!--\#include virtual="/v2/common-footer-v2.html" -->
+</html>

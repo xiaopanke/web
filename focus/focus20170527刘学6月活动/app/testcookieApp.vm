@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>哈哈，cookie</title>
+    <style>
+
+    </style>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.qrcode.min.js"></script>
+</head>
+
+<body>
+    <a href="http://itougu.jrj.com.cn/activity/app/testcookieApp2.jspa">哈哈，跳一个啦</a>
+    <div class="div"></div>
+    <div class="div2"></div>
+    <script src="https://zqhd.eastmoney.com/Html/aghd/pc/20170512/resource/js/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var ssoId=getCookie('passportId');
+        var appname=getCookie('sourceLocal');
+        var spToken=encodeURIComponent(getCookie('accessToken'));
+        $('.div').html('我是cookie里ssoId='+getCookie('passportId')+'，appname='+getCookie('sourceLocal')+'，spToken='+encodeURIComponent(getCookie('accessToken')));
+        $('.div2').html(getCookie('paltid'));
+         function getCookie(name) {
+            var bikky = document.cookie;
+            name += "=";
+            var i = 0;
+            while (i < bikky.length) {
+                var offset = i + name.length;
+                if (bikky.substring(i, offset) == name) {
+                    var endstr = bikky.indexOf(";", offset);
+                    if (endstr == -1) endstr = bikky.length;
+                    return unescape(bikky.substring(offset, endstr));
+                }
+                i = bikky.indexOf(" ", i) + 1;
+                if (i == 0) break;
+            }
+            return null;
+        }
+
+    });
+    </script>
+</body>
+
+</html>

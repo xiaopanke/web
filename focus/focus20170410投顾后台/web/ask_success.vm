@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾</title>
+    <meta name="keywords" content="爱投顾" />
+    <meta name="description" content="爱投顾" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig-compact.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+            //checkbox
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $('.custom-checkbox li').removeClass('checked');
+                    $(this).addClass('checked');
+                } else {
+                    $(this).removeClass('checked');
+                }
+            });
+            //checkbox
+
+            $('#Checkbox1').click(function () {
+                if ($(this).is(':checked')) {
+                    $('.custom-checkbox li[data-only="1"]').addClass('disable');
+                } else {
+                    $('.custom-checkbox li[data-only="1"]').removeClass('disable');
+                }
+            });
+            
+            $('#btnCancel').click(function (e) {
+	        	frameElement._thisDialog.close();	
+	        });
+	        $('#btnMyask').click(function (e) {
+	        	window.parent.location="/ques/service/advice.jspa?t=2";
+	        	frameElement._thisDialog.close();	
+	        });
+        });
+    </script>
+</head>
+<body style="background:#fff;">
+    <div class="dialog-cnt dialog-ask clearfix">
+        <div class="register-success register-success-nomargin">
+            <p class="title mt10">您的问题已提交</p>
+            <p class="mt10">如有回答，我们将会以站内消息方式通知您。</p>
+        </div>
+        <p class="mt20 tc"><a class="btn btn-113-30 mr10" id="btnMyask">查看我的咨询</a><a class="btn btn-113-30" id="btnCancel">关闭</a></p>
+    </div>
+</body>
+</html>

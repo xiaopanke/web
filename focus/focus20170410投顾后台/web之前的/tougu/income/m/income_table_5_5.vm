@@ -1,0 +1,47 @@
+
+
+	#foreach($order in $list)
+		            <ul>
+					<li>
+					    <div class="item">
+					        <p>订单编号：$!order.deal_id</p>
+					    </div>
+					    <div class="item">
+					        <time>$!order.deal_time_display</time>
+					    </div>
+					</li>
+					#if($order.type!=3)
+					 <li>
+					     <div class="item">
+					         <div class="text">$!order.msg</div>
+					     </div>
+					     <div class="item">
+					         <em>+$!order.reward_display</em>
+					     </div>
+					 </li>
+					#else
+						<li>
+					     <div class="item">
+					         <div class="text">$!order.msg</div>
+					     </div>
+					     <div class="item">
+					         <em>+$!{order.detail.amount2_display}</em>
+					     </div>
+					 </li>
+					 <li>
+					     <div class="item">
+					         <p>承诺月目标收益<em>$!order.detail.detail.yield_display</em></p>
+					     </div>
+					     <div class="item">
+					         <time>到期日期：$!order.detail.service_endtime_display</time>
+					     </div>
+					 </li>
+					#end
+					 </ul>
+	#end
+#if($!{list.size()} == 0 && $!{list_a} == 1)
+		<div class='no-date'>
+			<i class='i-purse'></i>
+			<div class='text'>暂无收入明细</div>
+		</div>
+#end

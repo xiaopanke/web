@@ -1,0 +1,167 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+	<title>跟着爱投顾，轻松学开户</title>
+    <meta name="description" content="Hi！大家好，我是爱投顾的资深新手顾问小爱。目前，爱投顾已经开通了多家证券公司的网上开户功能，在此，小爱以平安证券为例，八步教您轻松开户！">
+	<style type="text/css">
+		body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#535862; text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+img{ vertical-align: top; border: 0;  }
+.bg{ width:18.75rem;height:15rem; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh1.png) no-repeat center center; background-size: 100% 100%;}  
+.bg2{background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh2.png);} 
+.bg3{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh3.png);} 
+.bg4{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh4.png);} 
+.bg5{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh5.png);} 
+.bg6{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh6.png);} 
+.bg7{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh7.png); height: 12.95rem; padding-top: 4.175rem;} 
+.bg7 .open_btn{ display: block; color: #000;  width:11.87rem; height: 2.725rem; margin: 0 auto .8rem;}
+.bg7 .share_btn{ display: block; color: #000;  width:11.87rem; height: 2.725rem; margin: 0 auto;}
+.bg7 p{text-align: center; font-size: .55rem; color: #000;font-family: 'Microsoft Yahei'; line-height: 1.5rem;    margin-left: 30px;}
+.codeimg{ width: 100%; margin-top: -2px; display: none;}
+.bgbig { width: 100%; height: 100%; background: url(http://i0.jrjimg.cn/wap2014/wxbug/bgbig.png) repeat; position: fixed; top: 0; left: 0; z-index: 9998; }
+.tsbox { position: fixed; top: 0; right: 0; z-index: 9999; }
+.tsbox img { width: 98%; height: auto; display: block; margin: 0 auto; }
+</style>
+</head>
+<body>
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="bg bg4"></div>
+    <div class="bg bg5"></div>
+    <div class="bg bg6"></div>
+    <div class="bg bg7">
+        <a href="javascript:;" class="open_btn"></a>
+        <a href="javascript:;" class="share_btn"></a>
+        <p>用户可拨打客服电话咨询详情：400-1661188</p>
+    </div>
+    <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161109_open/openproceh8.png" class="codeimg">
+    <div class="tsbox" style="display:none;"><img src="http://i0.jrjimg.cn/wap2014/wxbug/newtcphone.png" /></div>
+    <div class="bgbig" style="display:none;"></div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/require.js"></script>
+<script type="text/javascript">
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);   
+    var appname='${source}';
+    require.config({
+            baseUrl: 'http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/',
+            paths: {
+                'jquery': 'jquery-1.7.2.min-amd',
+                'WeChatShare': 'wechat-share'
+            },
+            urlArgs: 'v=201601117'
+        });
+    //去个人主页
+    require(['WeChatShare'], function(WeChatShare) {
+        //分享
+        $('.share_btn').click(function(){
+            if (!(appname=='itougu')) {
+                goDownload();
+                return;
+            }
+            
+            var href = 'http://www.itougu.com/?share={"title":"'
+                    + encodeURI('跟着爱投顾，轻松学开户')
+                    + '","content":"' + encodeURI('Hi！大家好，我是爱投顾的资深顾问小爱。目前，爱投顾已经开通了多家证券公司的网上开户功能，在此，小爱以平安证券为例，八步教您轻松开户！')
+                    + '","url":"' + encodeURI(window.location.href)
+                    + '","imgurl":"' + encodeURI('http://i0.jrjimg.cn/zqt-red-1000/focus/itg_logo_wx_300_300.png') + '"}';
+            window.location.href = href;
+         });
+        WeChatShare({
+            shareTitle: document.title,
+            shareLink: window.location.href,
+            shareDesc: 'Hi！大家好，我是爱投顾的资深顾问小爱。目前，爱投顾已经开通了多家证券公司的网上开户功能，在此，小爱以平安证券为例，八步教您轻松开户！',
+            shareImg: 'http://i0.jrjimg.cn/zqt-red-1000/focus/itg_logo_wx_300_300.png',
+            callback: function(wx) {
+               
+            }
+        });
+    //如果是微信 ，图片二维码就显示    
+    if (is_weixin() == true) {
+        $(".codeimg").show();
+    }
+    //一键开户，如果是站外，就去下载，如果不是就跳链接 
+    $('.open_btn').click(function(){
+        if (!(appname=='itougu')) {
+            goDownload();
+            return;
+        }
+        window.location.href='http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+    });
+    //判断是不是微信打开
+    function is_weixin() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var goDownload = function() {
+            var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+                IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+                IS_IOS = IS_IPAD || IS_IPHONE,
+                IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+                IS_MOBILE = IS_IOS || IS_ANDROID;
+
+            
+            //如果是用微信打开并且是ios
+            function is_weixin_ios() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger" && browser.versions.ios == true) {
+                    return true; } else {
+                    return false; }
+            };
+
+            $(".bgbig").unbind().click(function() {
+                $(".tsbox,.bgbig").hide();
+            });
+
+            if (is_weixin() == true) {
+                $(".tsbox,.bgbig").show();
+            } else if (is_weixin_ios() == true) {
+                window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.jrj.tougu";
+            } else if (IS_IOS) {
+                var iFrame = document.createElement('iframe');
+                iFrame.style.display = "none";
+                iFrame.src = 'aitougu://';
+
+                document.body.appendChild(iFrame);
+
+                setTimeout(function() {
+
+                    if (!document.webkitHidden) {
+                        window.location.href = 'https://itunes.apple.com/cn/app/ai-tou-gu/id935173185?mt=8';
+                    }
+
+                }, 25);
+
+            } else if (IS_ANDROID) {
+
+                window.location.href = 'aitougu://tougu';
+                setTimeout(function() {
+                    if (!document.webkitHidden) {
+                        window.location.href = 'http://sjcms.jrj.com.cn/app_tg.php';
+                    }
+
+                }, 25);
+            }
+
+        };
+    });
+   
+</script>
+</body>
+</html>

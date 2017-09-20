@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no,initial-scale=1">-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus_zixuangu/flexible.js"></script>
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/js/echarts.min.js"></script>
+
+    <style>
+body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/24px "Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,em,i{font-style:normal}
+li{list-style:none}
+a{text-decoration:none}
+a:link{text-decoration:none}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%;line-height:normal}
+table{border-collapse:collapse;border-spacing:0}
+input[type="button"],input[type="submit"],input[type="reset"]{cursor:pointer}
+.clearfix:after,.wrapper:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}
+/*\*/* html .clearfix{height:1%}
+.clearfix{display:block}
+/**/body{margin:0;padding:0;background:#efeff4;font-family: 'Microsoft Yahei';}
+.fl{float:left}
+.fr{float:right}
+.disnone{display:none !important;}
+.fall{color:#2dc678 !important}
+.up{color:#f24637 !important}
+.hide { display: none !important; }
+.con_bd{    padding-bottom: 2rem;}
+.profit_info{padding:.48rem .53rem .48rem .93rem;background:#fff;margin-bottom:.27rem;position:relative}
+.profit_info>.sp{display:inline-block;width:1.19rem;height:1.19rem;position:absolute;top:0;left:0}
+.profit_info>.sp{background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/h5/img/H5_sp.png") 0 0 no-repeat;background-size:100% auto}
+.profit_info>.xnp{background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/h5/img/H5_xnp.png") 0 0 no-repeat;background-size:100% auto}
+.profit_left{margin-top:.13rem}
+.profit_left>span{display:block;font-size:.37rem;line-height:120%;color:#888;text-align:center}
+.profit_left>p{font-weight:600;font-size:.83rem;line-height:120%;color:#f24637;margin-top:.27rem;margin-bottom:.21rem}
+.profit_left>div{font-size:.43rem;line-height:120%;color:#000;text-align:center}
+.profit_right li{margin-top:.29rem;font-size:.37rem;color:#888;line-height:.37rem;padding:.08rem 0}
+.profit_right li span{display:inline-block;color:#333;text-align:right;width:1.92rem;border-left:.013rem solid #888;margin-left:.21rem;color: #f24637}
+.profit_right li:first-child{margin-top:0}
+.battlefield{background:#fff;margin-bottom:.27rem}
+.battlefield_head{padding:.29rem 0;border-bottom:.013rem solid #dbdbdb}
+.battlefield_head>span{padding-left:.27rem;border-left:.06rem solid #ff5f57;margin-left:.4rem;font-size:.43rem;color:#333}
+.battlefield_head>div{margin-right:.32rem;font-size:.32rem;color:#888}
+.battlefield_head>div span>i{display:inline-block;width:.16rem;height:.16rem;background:#98cef7;border-radius:50%;margin-right:.11rem;vertical-align:middle}
+.battlefield_head>div span{margin-left:.43rem}
+.battlefield_head>div span:first-child>i{background:#ff7b57}
+.lne_graph{width:100%;background:#fff}
+.dynamic_positions{background:#fff}
+.nav_header{ position: relative;}
+.nav_header:before{left:0;bottom:0; width: 200%; border-top: 1px solid #dbdbdb;position: relative;content: ''; display: block; position: absolute;-webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;} 
+.nav_header div{width:50%;height:1rem;line-height:1rem;text-align:center}
+.nav_header div>span{padding:.29rem 0;font-size:.37rem}
+.jiaoyi ul{position: relative;}
+    .jiaoyi ul:before{left:0;bottom:0; width: 200%; border-top: 1px solid #dbdbdb;position: relative;content: ''; display: block; position: absolute;-webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;}
+.nav_header div>.cur{color:#f24637;border-bottom:.04rem solid #f24637}
+.tap_dynamic>ul li{background:#fff;height:1.04rem;border-top:.013rem solid #dbdbdb;padding:.48rem 0}
+.dynamic_left{margin-right:.47rem;width:2.88rem;margin-left:.47rem}
+.dynamic_right{font-size:.37rem;line-height:.48rem;color:#333;margin-right:.8rem}
+.dynamic_right>p{font-size:.32rem;line-height:100%;color:#878c92;margin-top:.15rem}
+.dynamic_right>span{display:inline-block}
+.dynamic_btn{display:block;background:#f24637;width:1.39rem;height:.75rem;line-height:.75rem;border-radius:.08rem;text-align:center;font-size:.32rem;color:#fff;margin-right:.32rem}
+.dynamic_left>i{display:inline-block;width:.83rem;height:.45rem;line-height:.45rem;border-radius:.05rem;font-weight:600;font-size:.32rem;text-align:center;color:#fff}
+.dynamic_left>.buy{color:#f24637;border:.013rem solid #f24637}
+.dynamic_left>.sell{color:#3996f2;border:.013rem solid #3996f2}
+.dynamic_left>span{font-size:.37rem;line-height:.48rem;color:#333}
+.dynamic_left>p{font-size:.32rem;color:#878c92;}
+.tap_positions>.list{background:#eee;border-radius:.013rem;height:.8rem}
+.tap_positions>.list span{display:inline-block;width:2.4rem;font-size:.32rem;color:#878c92;line-height:.8rem;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;text-align:center}
+.tap_positions>ul{position: relative;}
+.tap_positions>ul li{  padding-top: 0;padding-bottom: .25rem; position: relative;}
+.tap_positions>ul:before{left:0;bottom:0; width: 200%; border-top: 1px solid #dbdbdb;position: relative;content: ''; display: block; position: absolute;-webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;}
+.tap_positions>ul li div{display:inline-block;width:2.32rem;font-size:.37rem;color:#333;line-height:.53rem;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding-right:;text-align:right;text-indent:-0.16rem;margin-top:.32rem;padding-right:.32rem}
+.tap_positions>ul li .txtcolorpare span{color:#f24637}
+.tap_positions>ul li div p{color:#878c92}
+[transition=fadein-show]{opacity:0}
+.fadein-show-transition{opacity:1;-moz-transition:all .5s;-o-transition:all .5s;-webkit-transition:all .5s;transition:all .5s}
+.no_positions,.no_dynamic{width:100%;background:#efeff4}
+.no_positions>img,.no_dynamic>img{width:3.27rem;height:3.17rem;margin:0 auto;display:block;padding:.5rem 0}
+.no_positions>p,.no_dynamic>p{text-align:center;padding:.133rem 0;font-size:.37rem;color:#888;line-height:.37rem;margin-bottom:.4rem}
+.pull-to-refresh-bottom{height:40px;position:absolute;width:100%;bottom:-40px;left:0;font-size:.32rem}
+.pull-to-refresh,.pull-to-refresh-bottom{color:#333;line-height:40px;text-align:center}
+.con_list li{padding-top: .2rem;padding-bottom: .1rem;position: relative;}
+.con_list li:before{left:0;top:0; width: 200%; border-top: 1px solid #dbdbdb;position: relative;content: ''; display: block; position: absolute;-webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;}
+.suo{ width:8.35rem;line-height:1.125rem; background: #FF4040; color:#fff;font-size: .38rem;
+border-radius: .08rem; margin: 1rem auto 0; display: flex;justify-content:center;align-items:center;}
+.suo span,.suodis span{ width:.45rem; height:.45rem; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/suo.png) no-repeat; background-size: 100%  100%; margin-right:10px;}
+
+.suodis{ width:8.35rem;line-height:1.125rem; background: #947a76; color:#fff;font-size: .38rem;
+border-radius: .08rem; margin: 1rem auto 0; display: flex;justify-content:center;align-items:center;}
+
+/*关于弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 5; display: none;}
+.layer{width: 17rem;height: 20rem;background:#fff7ec;position: fixed;top: 50%;left: 50%;margin-top:-10rem;margin-left: -4.5rem;z-index: 10;color: #000;animation: haha .3s linear; display: none;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.closebtn{ position:absolute; top:-1.4rem;right:.6rem;width:1rem; height:1.4rem; cursor:pointer; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -1rem 0;  background-size: 5rem 5rem;}
+/*layer_dy*/
+.layer_dy{  background:#fff; border-radius:10px; color:#333; height:5rem; margin-top: -3rem; width:8rem; padding:.5rem; font-size: .37rem; line-height: .5rem;}
+.layer_dy p span{ font-weight: bold;color:#f53d05; margin:0 5px;}
+.dybtn{width:6rem; line-height:1.2rem;  background:#f53d05; color:#fff; display: block; border-radius: 3px; cursor: pointer; margin:.4rem auto 0; text-align: center;font-size: .5rem;}
+.gostock{ cursor: pointer;}
+.app-download {position: fixed;z-index: 999;width: 100%;padding: .2rem .4rem;background: rgba(0, 0, 0, 0.8);bottom: 0;left: 0;color: #fff;font-size: .9rem;justify-content: space-between;display: box;display: -webkit-box;box-orient: horizontal;-webkit-box-orient: horizontal;-webkit-box-sizing: border-box;-ms-box-sizing: border-box;box-sizing: border-box;transition-duration: 1s;-webkit-transition-duration: 1s; }.app-download div {  box-flex: 1;  -webkit-box-flex: 1; }.app-download .text {  line-height: 1.2rem;  padding-right: .3rem;  font-size: .37rem }.app-download .submit .btn {  display: inline-block;  height: .9rem;  line-height: .9rem;  padding: 0 .6rem;  color: white;  border-radius: 3px;  background: #f6554a; font-size: .37rem;    float: left;
+    margin-top: .18rem;}
+.app-download.hide {-moz-transform: translateY(100px);-ms-transform: translateY(100px);-o-transform: translateY(100px);-webkit-transform: translateY(100px);transform: translateY(100px); } 
+ </style>
+    <script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head>
+<body class="transition=fadein-show">
+    <div class="outer">
+        <div class="profit_info clearfix">
+            <span class="sp"></span>
+            <div class="profit_left fl">
+                <span>已捞金(元)</span>
+                <p class="txtcolor totalIncomeBalance">0.00</p>
+            </div>
+            <ul class="profit_right fr">
+                <li>总收益<span class="txtcolor totalIncome">0.00%</span></li>
+                <li>周收益<span class="txtcolor weekIncome">0.00%</span></li>
+                <li>月收益<span class="txtcolor monthIncome">0.00%</span></li>
+            </ul>
+        </div>
+
+        <div class="battlefield clearfix">
+            <div class="battlefield_head clearfix">
+                <span>收益率走势</span>
+                <div class="fr">
+                    <span><i></i>用户累计</span>
+                    <span><i></i>沪深300</span>
+                </div>
+            </div>
+            <div class="lne_graph fl">
+                <div id="main1" style="width: 9.36rem;height:3.53rem; margin: 0.27rem auto"></div>
+            </div>
+        </div>
+
+        <div class="dynamic_positions">
+            <div class="nav_header clearfix">
+                <div class="fl"><span class="cur">交易动态</span></div>
+                <div class="fl"><span class="">当前持仓</span></div>
+            </div>
+            <div class="con_bd">
+                <div class="con_list jiaoyi">
+                    <ul>
+                        <!--<li class="clearfix">
+                            <div class="dynamic_left fl">
+                                <i class="buy">买入</i>
+                                <span> 华铭智能</span>
+                                <p>16-11-04 14:59:21</p>
+                            </div>
+                            <div class="dynamic_right fl">
+                                <span>48.29%</span>
+                                &rarr;
+                                <span>48.29%</span>
+                                <p>参考成交价：36.37</p>
+                            </div>
+                            <a class="dynamic_btn fr" href="#">
+                                跟单
+                            </a>
+                        </li>-->
+                    </ul>
+                    <div class="no_dynamic disnone">
+                        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/h5/img/positions_no.png" >
+                        <p class="">暂无交易动态</p>
+                    </div>
+                    <div class="suo disnone"><span></span>解锁交易动态和持仓</div>
+                    <div class="suodis disnone"><span></span>解锁交易动态和持仓</div>
+                </div>
+                <div  class="con_list disnone tap_positions chicang">
+                    <div class="list">
+                        <span>名称</span>
+                        <span>仓位</span>
+                        <span>成本价</span>
+                        <span>收益率</span>
+                    </div>
+                    <ul>
+                        <!--<li>
+                            <div>
+                                <span>奥马电器</span>
+                                <p>3.09万</p>
+                            </div>
+                            <div>
+                                <span>100000</span>
+                                <p>500</p>
+                            </div>
+                            <div>
+                                <span>59.05</span>
+                                <p>61.88</p>
+                            </div>
+                            <div>
+                                <span class="up">+1414.14</span>
+                                <p class="fall">-1414.14</p>
+                            </div>
+                        </li>-->
+                    </ul>
+                    <div class="no_positions disnone">
+                        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/h5/img/dynamic_no.png" >
+                        <p class="">暂无持仓</p>
+                    </div>
+                    <div class="suo disnone"><span></span>解锁交易动态和持仓</div>
+                    <div class="suodis disnone"><span></span>解锁交易动态和持仓</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <div class="layer layer_dy">
+        <i class="closebtn"></i>
+        <p>订阅“实时跟单”功能后，<i class="playername"></i>在2017年2月27日-3月30日之间的实盘交易将以 <span>短信+金融界APP推送</span> 两种方式进行通知（可在金融界web端完善手机信息接收短信提醒），您还可随时查看牛人调仓记录，保证您不错过任何一个跟单机会。</p>
+        <span class="dybtn">确定</span>
+        <!--<span class="setbtn">知道了</span>-->
+    </div>
+    <div id="Down" class="app-download hide"><div class="text">更多牛人实盘收益免费看</div><span class="submit"><a class="btn">立即查看</a></span></div>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s_m.js"></script>
+<script>
+$(function(){
+    var domain='https://jrj.yun.pingan.com';
+    //var domain='https://zqttest.yun.pingan.com';
+    var playerSsoId=getQueryString('playerSsoId');
+    var playerName,saleNo,matchStatus,price;
+
+    var ssoId='${ssoId}'; 
+    var appname='${source}';
+    var spToken=encodeURIComponent('${spToken}');
+
+    var myjrj_md5=getCookie('myjrj_md5') || getCookie('itg_passport_md5');
+    var myjrj_userid=getCookie('myjrj_userid') || getCookie('itg_passport_userid');
+    var SSOUser=getCookie('JRJ.SSOUser');
+
+    var isDyStatus=false;
+
+    //获取达人的信息
+    dareninfo();
+    function dareninfo(){
+        $.ajax({
+           url:'https://t.jrj.com.cn/activities/match/queryProductInfo?anchorSsoId='+playerSsoId,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+                if(v.retcode==0){
+                    playerName=v.data.playerName;
+                    setTimeout(function(){
+                        setTitle(playerName+'的决赛账户');
+                    },500);
+                    document.title=playerName+'的决赛账户';
+
+                    saleNo=v.data.saleNo;
+                    matchStatus=v.data.matchStatus;
+                    price=v.data.price;
+                    if(v.data.matchStatus==0){
+                        $('.suo').addClass('disnone');
+                        $('.suodis').removeClass('disnone');
+                    }else{
+                        $('.suodis').addClass('disnone');
+                        $('.suo').removeClass('disnone');
+                    }
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+
+    //头部数据请求
+    accountinfo();
+    function accountinfo(){
+        $.ajax({
+           url:domain+'/match/real/account/accountinfoInFinal?matchId=2&anchorUserId='+playerSsoId,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+            console.log(v);
+                if(v.retcode==0){
+                    $('.totalIncome').html((v.data.totalIncome*100).toFixed(2)+'%');
+                    $('.totalIncomeBalance').html(doublenum(v.data.totalIncomeBalance));
+                    $('.weekIncome').html((v.data.weekIncome*100).toFixed(2)+'%');
+                    $('.monthIncome').html((v.data.monthIncome*100).toFixed(2)+'%');
+                    txtcolor();
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+    function txtcolor(){
+        $('.txtcolor').each(function(){
+            if($(this).html().indexOf('-')!=-1){
+                $(this).addClass('fall');
+            }
+        });
+    }
+    //收益率走势
+    yieldcurve();
+    function yieldcurve(){
+        $.ajax({
+           url:domain+'/match/real/rank/yieldcurveInFinal?matchId=2&anchorUserId='+playerSsoId,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+            console.log(v);
+                if(v.retcode==0){
+                    drawline(v);
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }      
+    function drawline(data1){
+        data1 = data1.data;
+
+        var incomeRate = [] ,
+                initDate = [] ,
+                incomeListHS300 = [];
+
+        $.each(data1.incomeList,function( i , obj ){
+        //console.log((obj.incomeRate*100).toFixed(2)+'%');
+        var _date = String(obj.initDate).slice(4),
+            _datemat = _date.substr(0,2)+'-'+_date.substr(2,2)
+            initDate.push(_datemat);
+            incomeRate.push(obj.incomeRate);
+
+
+        });
+        $.each(data1.incomeListHS300,function( i , obj ){
+            
+            incomeListHS300.push(obj.incomeRate)
+        });
+        var myChart1 = echarts.init(document.getElementById('main1'));
+
+        // 指定图表的配置项和数据
+        var option1 = {
+            title:{show:false},
+            tooltip: { show:true},
+            legend: {show:false},
+            toolbox:{show:false},
+            backgroundColor:'#fff',
+            grid:{x:20,y:10,x2:70,y2:20},
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel : {
+                    textStyle : {
+                        color:"#878C92",
+                        fontSize:14
+                    }
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#D2D2D2'
+                    }
+                },
+                axisTick :{
+                    show:false
+                },
+
+                data: initDate
+            },
+            yAxis: {
+                type: 'value',
+
+                position:'right',
+                axisLabel : {
+                    textStyle : {
+                        color:"#878C92",
+                        fontSize:14
+                    },
+                    formatter: function(v){
+                        return (v*100).toFixed(2)+'%'
+                    }
+                },
+                axisLine:{
+                    show:false
+                },
+                axisTick :{
+                    show:false
+                },
+
+                splitLine:{
+                    show : true,
+                    lineStyle:{
+                        width :1,
+                        color:'#D2D2D2'
+                    }
+                },
+            },
+
+            series: [{
+                name: '用户累计',
+                type: 'line',
+                smooth: true,
+                symbol:'diamond',
+
+                lineStyle:{
+                    normal:{
+                        color : '#FF7B57',
+                        width:4
+                    }
+                },
+                data: incomeRate
+            },
+                {
+                    name: '沪深300参赛',
+                    type: 'line',
+                    symbol:'diamond',
+                    smooth: true,
+                    lineStyle:{
+                        normal:{
+                            color:'#98CEF7',
+                            width:4
+                        }
+                    },
+                    data: incomeListHS300
+                }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option1);
+    }
+    //tab
+    $('.nav_header div').each(function(){
+        var o=$(this);
+        $(this).click(function(){
+            $('.nav_header span').removeClass('cur');
+            $('.con_list').addClass('disnone');
+            o.find('span').addClass('cur');
+            $('.con_list').eq(o.index()).removeClass('disnone');
+        });
+    });
+    //看是否已经订阅了，然后决定是否显示数据
+
+    function dyed(abcid){
+        console.log('https://t.jrj.com.cn/activities/match/querySubedProducts?matchId=3&ssoId='+abcid+'&spToken='+spToken);
+        $.ajax({
+           url:'https://t.jrj.com.cn/activities/match/querySubedProducts?matchId=3&ssoId='+abcid+'&spToken='+spToken,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+                console.log(v);
+                if(v.retcode==0){
+                    if(v.data.items.length==0){
+                        $('.chicang ul').hide();
+                        $('.chicang .suo').show();
+                        $('.jiaoyi ul').hide();
+                        $('.jiaoyi .suo').show();
+                        return;
+                    }
+                    for(var i=0;i<v.data.items.length;i++){
+                        var o=v.data.items[i];
+                        if(o.saleNo=='20000001' || o.saleNo==saleNo){
+                            isDyStatus=true;
+                            $('.btn').addClass('hide');
+                            $('.btndis').removeClass('hide');
+                            currentInFinal(abcid);
+                            recordInFinal(abcid);
+                        }else{
+                            
+                        }
+                    }
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+    if(appname=='itougu'){//站内
+        if(ssoId != 'null'){
+            dyed(ssoId)
+        }else{
+            $('.chicang ul').hide();
+            $('.jiaoyi ul').hide();
+        }
+    }else{ //站外
+        var id=getCookie('itg_passport_userid');
+        if((id+'').length>=18){
+            dyed(id)
+            
+        }else{
+            $('.chicang ul').hide();
+            $('.jiaoyi ul').hide();
+        }
+    }
+        //当前持仓
+    function currentInFinal(abcid){
+        $.ajax({
+            url:domain+'/match/real/position/currentInFinal?matchId=2&anchorUserId='+playerSsoId+'&passportId='+abcid+'&accessToken='+spToken+'&myjrj_md5='+myjrj_md5+'&myjrj_userid='+myjrj_userid+'&SSOUser='+SSOUser,
+            type:"get",
+            cache : false,
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success:function(v) {
+                console.log('持仓比例');
+                console.log(v);
+                
+                if(v.retcode==0){
+                    $('.chicang .suo,.chicang .suodis').hide();
+                    if(v.data.list.length==0){
+                        $('.chicang .no_positions').removeClass('disnone');
+                        return;
+                    }
+                    var str='';
+                    for(var i=0;i<v.data.list.length;i++){
+                        var o=v.data.list[i];
+                        str+='<li class="gostock"  data-stockName="'+o.stockName+'" data-marketType="'+o.marketType+'" data-stockCode="'+o.stockCode+'" ><div><spanclass="" >'+o.stockName+'</span></div><div><span>'+o.holdPercentStr+'</span></div><div><span>'+o.costPrice+'</span></div><div class="txtcolorpare"><span class="txtcolor">'+o.incomeRateStr+'</span></div></li>'
+                    }
+                    $('.chicang ul').html(str);
+                    txtcolor();
+                }else if(v.retcode==703001){
+                    $('.chicang ul').hide();
+                    $('.chicang .suo').show();
+                }
+            },
+            error : function() {
+                
+            }
+        });
+    }
+    //交易记录
+    function recordInFinal(abcid){
+        $.ajax({
+            url:domain+'/match/real/position/recordInFinal?matchId=2&anchorUserId='+playerSsoId+'&passportId='+abcid+'&accessToken='+spToken+'&myjrj_md5='+myjrj_md5+'&myjrj_userid='+myjrj_userid+'&SSOUser='+SSOUser,
+            type:"get",
+            cache : false,
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success:function(v) {
+                console.log('交易记录');
+                console.log(v);
+                if(v.retcode==0){
+                    $('.jiaoyi .suo,.jiaoyi .suodis').hide();
+                    if(v.data.list.length==0){
+                        $('.jiaoyi .no_dynamic').removeClass('disnone');
+                        return;
+                    }
+                    var str='';
+                    for(var i=0;i<v.data.list.length;i++){
+                        var o=v.data.list[i];
+                        str+='<li class="clearfix gostock"  data-stockName="'+o.stockName+'" data-stockCode="'+o.stockCode+'"  data-marketType="'+o.marketType+'"><div class="dynamic_left fl"><i class="'+o.entrustBs.toLowerCase()+'">'+o.entrustBsName+'</i><span class=""> '+o.stockName+'</span><p>'+o.dealTimeStr.substring(2)+'</p></div><div class="dynamic_right fl"><span>'+o.rateChangeStr+'</span><p>参考成交价：'+o.dealPrice+'</p></div><a class="dynamic_btn fr" href="javascript:;">跟单</a></li>';
+                    }
+                    $('.jiaoyi ul').html(str);
+                }else if(v.retcode==703001){
+                    $('.jiaoyi ul').hide();
+                    $('.jiaoyi .suo').show();
+                }
+            },
+            error : function() {
+                
+            }
+        });
+    }
+    function enumMarket(n){
+        if(n=='sh'){return 1}else{return 2}
+    } 
+    $('.closebtn').click(function(){
+        $('.layer,.mask').hide();
+    }); 
+    //点击解锁
+    $('.suo').click(function(){
+        if(appname=='itougu'){ //站内 
+            if(ssoId != 'null'){
+                $.ajax({
+                    url:'https://t.jrj.com.cn/activities/match/doSingleSubscribePlayer?matchId=3&saleNo='+saleNo+'&ssoId='+ssoId+'&spToken='+spToken,
+                    type:"get",
+                    cache : false,
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    success:function(v) {
+                        if(v.retcode==0){
+                            $('.mask,.layer_dy').show();
+                            $('.layer_dy .playername').html(playerName);
+                            $('.dybtn').unbind().click(function(){
+                                window.location.href='http://itougu.jrj.com.cn/order/signorder.jspa?orderType=11&pid='+saleNo;  
+                            });
+                        }
+                   },
+                   error : function() {
+                        
+                   }
+                });
+            }else{
+                jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+            }
+        }else{
+            //站外
+            var id=getCookie('itg_passport_userid');
+            if((id+'').length>=18){
+                $.ajax({
+                    url:'https://t.jrj.com.cn/activities/match/doSingleSubscribePlayer?matchId=3&saleNo='+saleNo+'&spToken='+spToken,
+                    type:"get",
+                    cache : false,
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    success:function(v) {
+                        console.log(v);
+                        if(v.retcode==0){
+                            $('.mask,.layer_dy').show();
+                            $('.layer_dy .playername').html(playerName);
+                            $('.dybtn').unbind().click(function(){
+                                if(navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == "micromessenger"){ //微信
+                                     window.location.href='http://itougu.jrj.com.cn/order/signorderWap.jspa?orderType=11&pid='+saleNo+'&canPayType=2&buyUserId='+id;  
+                                }else{ //不是微信 
+                                    window.location.href='http://itougu.jrj.com.cn/order/signorderWap.jspa?orderType=11&pid='+saleNo+'&canPayType=1_4&buyUserId='+id;
+                                }
+                            });
+                        }
+                   },
+                   error : function() {
+                        
+                   }
+                });
+            }else{
+                window.location.href = '//sso.jrj.com.cn/sso/mobileToLogin?mode=sms&from=TG_Msite&tgqdcode='+(window.tgqdcode||'')+'&ReturnUrl='+encodeURIComponent(window.location.href);
+
+            }
+        }
+    });
+    //跳股票页
+    $('body').delegate('.gostock','click',function(){ 
+        var o=$(this);
+        if(appname=='itougu'){
+            jrj.jsCallNative('100', JSON.stringify({ stockCode: o.attr('data-stockCode'), stockMarket: enumMarket(o.attr('data-marketType').toLowerCase()) }));
+        }else{
+            window.location.href='http://sjcms.jrj.com.cn/app_tg.php?channel=dxgjcpm01';
+        }        
+    });
+    if(appname=='itougu'){ //站内
+    }else{
+        $('.sharebtn').addClass('hide');
+        $('.app-download').removeClass('hide');
+    }
+    $('.app-download').click(function(){
+        window.location.href='http://sjcms.jrj.com.cn/app_tg.php?channel=dxgjcpm01';
+    });
+});
+       
+    function getCookie(name){
+        var bikky = document.cookie;
+        name += "=";
+        var i = 0;
+        while (i < bikky.length)
+        {
+        var offset = i + name.length;
+        if (bikky.substring(i, offset) == name)
+        {
+        var endstr = bikky.indexOf(";", offset);
+        if (endstr == -1) endstr = bikky.length;
+        return unescape(bikky.substring(offset, endstr));
+        }
+        i = bikky.indexOf(" ", i) + 1;
+        if (i == 0) break;
+        }
+        return null;
+    }
+    function doublenum(num){var num=num+"";if(num.indexOf(".")!=-1){var len=num.substring(num.indexOf(".")+1).length;if(len==0){return num+"00"}else{if(len==1){return num+"0"}else{return parseFloat(num).toFixed(2)}}}else{if(num=="--"){return"--"}else{return num+".00"}}};
+    //获取url参数
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    //修改ios的title
+    function setTitle(t) {
+        document.title = t;
+        var i = document.createElement('iframe');
+        i.src = 'js.jrjimg.cn/zqt-red-1000/images/bg.png';
+        i.style.display = 'none';
+        i.onload = function() {
+          setTimeout(function(){
+            i.remove();
+          }, 9)
+        }
+        document.body.appendChild(i);
+    }
+    </script>
+</body>
+</html>

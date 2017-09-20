@@ -1,0 +1,310 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>手机验证</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-m/quanerong/qer_base.css" />
+<style>
+input{ font-size:.8rem; color:#333;}
+.up{ height:4rem; width:100%; background:#fff url(https://i0.jrjimg.cn/zqt-m/quanerong/img3.png) no-repeat center; background-size: 13.45rem 2.5rem;} 
+.item1{ background:#fff;overflow: hidden;}
+.item1 ul li{padding:.75rem 0;position: relative;}
+.item1  .name{width: 6rem;color: #888;text-align: right;margin-right: .7rem;}
+.item1 .txtbox{  position:relative;}
+.item1 input{ font-size:.7rem; color:#333; width:12rem; line-height: 1rem;}
+.item1 .codenum{ width:8rem;}
+.item1 .phone{ width:8rem;}
+.codebtn{ width:5rem; text-align: center; color:#3996F2;position: absolute;top: 0;right: 0;    line-height: 2.5rem;}
+.codebtn.dis{color:#ccc;}
+.item1 .codebox{ width:6rem;}
+.phonebox .name{width:8rem;}
+.phonebox .txtbox{ width: 8rem;}
+.closetel{ position: absolute;width:3rem;height:3rem;  top:-.7rem;  right:-.6rem; }
+.closetel i{  background:url(https://i0.jrjimg.cn/zqt-m/quanerong/close.png); background-size: 100% 100%; display: block;width: .8rem; height: .8rem; margin:0 auto;margin-top: 1.5rem;display:none;}
+.txtbox .closetel{ right:-2rem; height:2rem;}
+.txtbox .closetel i{ margin-top:.8rem;}
+
+
+/*弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10;display: none; }
+.layer{width: 16.75rem;height: 10.25rem;background:#f5f5f5;position: fixed;top: 50%;left: 50%;margin-top: -5.125rem;margin-left: -8.375rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%; border-radius:4px;display: none;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.layer .allb{margin-bottom:.5rem;}
+.layer .allb:before{border-radius:4px; border-color:#e2e2e2;}
+.layer h3{ color:#F24439;font-size:.7rem;padding:1rem;  font-weight:normal;}
+.layer .in{ margin:0 .5rem; }
+.layer .codeimgbox input{font-size: .75rem; padding-left: .5rem; width:10rem;  height: 2.5rem; background: #fff; box-sizing:border-box; border-radius: 4px;}
+.layer .codeimgbox .img{ width: 5rem; height: 2.5rem; background:#fff;}
+.layer .codeimgbox img{display:block; width: 5.25rem; height: 2.5rem;width:100%; height:100%; }
+.layer .dlg-btn-wrap{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;display: flexbox;display: box; position:absolute;bottom:0;left:0;width:100%;}
+.layer .dlg-con .dlg-btn {height:2.5rem;line-height:2.5rem;text-align:center;font-size:.8rem;color:#3996F2;-webkit-box-flex:1;-webkit-flex:1;-moz-flex:1;-ms-flex:1;flex:1;}
+
+/*验证手机框框*/
+.layer_phone{ height:14rem; margin-top:-7rem; background:#f5f5f5;}
+.layer_phone h3{ color:#333;}
+.layer_phone .in{ position:relative;}
+.yz_phone{font-size: .75rem;padding-left: .5rem;height: 2.5rem;background: #fff;box-sizing: border-box;border-radius: 4px;  width:100%; }
+.phone_yz_btn {width: 5.25rem;line-height: 2.5rem;color: #3996F2;font-size: .8rem;float: right;text-align: center;border-radius: 4px; background:#fff;}
+.phone_yz_btn.dis{color:#ccc;}
+.phone_yz_btn:before{ border-color:#e2e2e2; border-radius:8px;}
+.layer_phone .btn{ width:100%; margin-top:.5rem;}
+.closebtn{ position:absolute; top:-2.4rem;left:.5rem;width:1.4rem; height:2.4rem; background:url(img/closeph.png) no-repeat; background-size: 100% 100%; }
+
+.layer_succ{ height:9.5rem; margin-top:-4.75rem;}
+.layer_succ h4{ text-align:center; padding-top:1.5rem; font-size:.8rem;}
+.layer_succ h3{ color:#333;}
+.layer_succ .dlg-btn{ line-height:2.5rem; text-align:center; display:block; width:100%; color:#3996F2; font-size:.8rem;}
+
+.cishu{font-size: .6rem;  margin-left: .75rem; line-height: 1.75rem; color: #efeff4;}
+</style>
+<script src="qer_base.js"></script>
+<body>
+    <div class="up"></div>
+   <div class="item1">
+        <ul class="bbt box">   
+           <li class="clearfix b">
+               <span class="fl name">紧急联系人</span>
+               <div class="fl txtbox"><input type="text" placeholder="请输入紧急联系人姓名" class="phoneji boxin" maxlength="11" ><em class="closetel"><i style="display:line"></i></em></div>
+           </li>   
+           <li class="clearfix b">
+               <span class="fl name">紧急联系人手机号</span>
+               <div class="fl txtbox"><input type="tel" placeholder="请输入紧急联系人手机号" class="phonejitel boxin" maxlength="11" autocomplete="off"><em class="closetel"><i style="display:line"></i></em></div>
+           </li>   
+           <li class="clearfix b">
+               <span class="fl name">本人手机号</span>
+               <div class="fl txtbox"><input type="tel" placeholder="请输入本人手机号码" class="phone boxin" maxlength="11" autocomplete="off"><em class="closetel"><i style="display:line"></i></em></div>
+           </li>
+           <li class="clearfix">
+               <span class="fl name">短信验证码</span>
+               <div class="fl txtbox codebox"><input type="text" placeholder="输入验证码" class="codenum" maxlength="6"></div>
+               <em class="codebtn fr btncolor">获取验证码</em>
+           </li>
+       </ul>
+   </div>
+   <p class="cishu">您今天获取验证码次数超过上限，请明天再试</p>
+   <span class="btn red btn1">提交</span>
+   <div class="tiperror"></div>
+   <div class="mask"></div>
+<!--提交成功框-->
+<div class="layer layer_succ">
+    <h4>申请提交成功</h4>
+    <h3>预计三个工作日内审批完成，审批结果会第一时间短信通信您。</h3>
+    <div class="in">
+      <div class="dlg-btn-wrap t">
+          <a class="dlg-btn submit" href="qer_progress.html">知道了</a>
+      </div>
+    </div>
+</div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+<script>
+    $(function(){ 
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        if(isAndroid){
+            $('body').css('height',700);
+        }
+        //获取验证码和倒计时
+        var getSms= function() {
+            setTimeout(function() {
+                jrj.jsCallNative("130", JSON.stringify({
+                  method: "get",
+                  url: domain+'/sapi/v2/quaneeerong/getSmsExpireTime',
+                  params: {},
+                  callback: "callbackgetSms",
+                }))
+            },20)
+        };
+        getSms();
+        window.callbackgetSms = function(v) { 
+            setTimeout(function() {
+                v=convertToJsonObject(v);
+                console.log(v);
+                if(v.retcode==0){ 
+                    if((v.data.phoneNo+'').length==11){
+                        $('.phone').val(v.data.phoneNo);
+                    }
+                    if(v.data.expireTime != 0){
+                        time60s(v.data.expireTime);
+                    }
+                }   
+            },0)
+        }
+        $('.codebtn').click(function(){
+          if ($('.phoneji').val().length==0) {
+                tiperror('紧急联系人不能为空');
+                return;
+            }
+            if ($('.phonejitel').val().length==0) {
+                tiperror('紧急联系人手机号不能为空');
+                return;
+            }
+            if (!/^1[34578]\d{9}$/.test($('.phonejitel').val())) {
+                tiperror('紧急联系人手机号不正确');
+                return;
+            }
+            if ($('.phone').val().length==0) {
+                tiperror('本人手机号不能为空');
+                return;
+            }
+            if (!/^1[34578]\d{9}$/.test($('.phone').val())) {
+                tiperror('本人手机号不正确');
+                return;
+            }
+            if ($(this).hasClass('dis')) {
+                return;
+            }
+            
+            sendmesfn();
+        });
+        //短信验证码
+        function sendmesfn(){
+            var genSmsCode= function() {
+                setTimeout(function() {
+                    jrj.jsCallNative("130", JSON.stringify({
+                        method: "post",
+                        url:  domain+'/sapi/v2/quaneeerong/genSmsVerifyCode',
+                        params: {
+                            phoneNo:$('.phone').val(),
+                            type:'S'
+                        },
+                        header: {
+                            "Content-Type": "application/json"
+                        },
+                       callback: "callbackgenSmsCode",
+                    }))
+                },20)
+            };
+            genSmsCode();
+            window.callbackgenSmsCode = function(v) { 
+                setTimeout(function() {
+                    v=convertToJsonObject(v);
+                    
+                    console.log(v);
+                    if(v.retcode==0){ 
+                        tiperror('验证码已发送，请注意查收');
+                        time60s(60);
+                    }else if(v.retcode==701044){
+                        $('.cishu').css('color', '#3186d9');
+                        $('.codebtn').addClass('dis');
+                    }else{
+                        tiperror(v.msg);
+                    }
+                },0)
+            }
+        }
+        //点击提交
+        var isclick=true;
+        $('.btn1').click(function(){
+            if(!isclick)return;
+            isclick=false;
+            if ($('.phoneji').val().length==0) {
+                tiperror('紧急联系人不能为空');
+                isclick=true;
+                return;
+            }
+            if ($('.phonejitel').val().length==0) {
+                tiperror('紧急联系人手机号不能为空');
+                isclick=true;
+                return;
+            }
+            if (!/^1[34578]\d{9}$/.test($('.phonejitel').val())) {
+                tiperror('紧急联系人手机号不正确');
+                isclick=true;
+                return;
+            }
+            if (!/^1[34578]\d{9}$/.test($('.phone').val())) {
+                tiperror('本人手机号不正确');
+                isclick=true;
+                return;
+            }
+            if ($('.codenum').val().length==0) {
+                tiperror('请输入验证码');
+                isclick=true;
+                return;
+            }
+            if ($('.codenum').val().length<4) {
+                tiperror('验证码输入错误');
+                isclick=true;
+                return;
+            }
+            openqer();
+        });
+        function openqer(){
+            var openQERfn= function() {
+                setTimeout(function() {
+                    jrj.jsCallNative("130", JSON.stringify({
+                       method: "post",
+                       url:  domain+'/sapi/v2/quaneeerong/openQER',
+                       params: {
+                         phoneNo:$('.phone').val(),
+                         vcode:$('.codenum').val(),
+                         iceName:$('.phoneji').val(),
+                         icePhone:$('.phonejitel').val()
+                      },
+                       header: {
+                          "Content-Type": "application/json"
+                      },
+                       callback: "callbackopenQERfn",
+                    }))
+                },20)
+            };
+            openQERfn();
+            window.callbackopenQERfn = function(v) { 
+                setTimeout(function() {
+                    v=convertToJsonObject(v);
+                    console.log(v);
+                    if(v.retcode==0){ 
+                        $('.mask,.layer_succ').show();
+                    }else{
+                        tiperror(v.msg);
+                    } 
+                    isclick=true;  
+                },0)
+            }
+        }
+        $('.dlg-close,.closebtn').unbind().click(function(){
+            $('.mask,.layer').hide();
+        });
+        //发验证时间60s
+        function time60s(o){
+            var nums = o;
+            $('.codebtn').addClass('dis');
+            $('.codebtn').html('重新获取(' + nums + 's)');
+            var timer = setInterval(function (){
+                nums--;
+                $('.codebtn').html('重新获取(' + nums + 's)');
+                if (nums ==- 1) {
+                    clearInterval(timer);
+                    $('.codebtn').html('获取验证码');
+                    $('.codebtn').removeClass('dis');
+                }
+            }, 1000);
+        }
+
+    });
+    var convertToJsonObject = function(str){
+        if(typeof str != 'object'){
+          return JSON.parse(str);
+        }else{
+          return str;
+        }
+    }
+        //错误提示框，一会儿就消失
+    function tiperror(msg){
+        $('.tiperror').html(msg).show();
+        setTimeout(function (){
+            $('.tiperror').hide();
+        }, 2000);
+        return;
+    }
+</script>
+</body>
+</html>

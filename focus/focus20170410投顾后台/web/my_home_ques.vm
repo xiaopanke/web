@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{adviserName}的个人主页-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{adviserName}的个人主页,爱投顾,金融界" />
+    <meta name="description" content="$!{adviserName}的个人主页,爱投顾,金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/rateit.min.css" rel="stylesheet" />
+    <!--# include virtual="/common_head_css_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.rateit.min.js"></script>    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>      
+
+    <script type="text/javascript">
+        $(function () {
+            $('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');            
+      $('.site-breadcrumb .wrapper a').eq(2).text(userName+'的个人主页');
+
+            //tab
+            var tab = new JRJ.ui.TabSwitch({
+                menuPre: "menu_",
+                conPre: "con_",
+                total: 4,
+                onClass: "cur",
+                eventType: 'click',
+                onSwitch: {
+                    fcn: function () {}, args: []
+                }
+            });
+            $('#menu_2').click();
+            //tab
+
+
+            $('.live-item').mouseenter(function () {
+                $(this).addClass('live-item-hover');
+                $(this).find('.bdsharebuttonbox').show();
+            }).mouseleave(function () {
+                $(this).removeClass('live-item-hover');
+                $(this).find('.bdsharebuttonbox').hide();
+            });
+
+
+            $('.table-general tr td').mouseenter(function () {
+                $(this).parent().addClass('hover');
+            }).mouseleave(function () {
+                $(this).parent().removeClass('hover');
+            });
+
+            //expand
+            $('.expand').click(function (e) {
+                e.preventDefault();
+                if ($(this).parent().parent().find('.context:first').hasClass('context-expand')) {
+                    $(this).parent().parent().find('.context:first').removeClass('context-expand');
+                    $(this).text('展开');
+                } else {
+                    $(this).parent().parent().find('.context:first').addClass('context-expand');
+                    $(this).text('收起');
+                }
+            });
+            //expand
+
+            $('.btnComment').click(function (e) {
+                e.preventDefault();
+                $(this).parent().parent().find('.for-comment').toggle();
+                $(this).parent().parent().find('.for-ask').hide();
+            });
+            $('.btnAsk').click(function (e) {
+                e.preventDefault();
+                $(this).parent().parent().find('.for-comment').hide();
+                $(this).parent().parent().find('.for-ask').toggle();
+            });
+
+            //qr-code
+            $('.qrcode-openaccount span').click(function () {
+                var self = this;
+                if ($(this).parent().hasClass('qrcode-openaccount-hover')) {
+                    $(this).parent().removeClass('qrcode-openaccount-hover');
+                    $('.qrcode-openaccount .btn-114-24').hide();
+                    $('.qrcode-openaccount .btn-194-37').show().stop().animate({ opacity: 1 });
+                } else {
+                    $('.qrcode-openaccount .btn-194-37').stop().animate({ opacity: 0 }, 300, function () {
+                        $(this).hide();
+                    });
+                    $('.qrcode-openaccount .btn-114-24').show();
+                    $(this).parent().addClass('qrcode-openaccount-hover');
+                }
+
+            });
+
+            
+            // 分页
+           var uid = '${adviserId}';
+         $(".pager").pagefoot({
+        pagesize : $!pageSize,
+        count : $!totalCount,
+        css : "",
+        current : $!page,
+        displaynum : 5,
+        displaylastNum : 1,
+        previous : "上一页",
+        next : "下一页",
+        enableArrowKey : true,
+        paging : function(page) {
+          window.location.href = "/ques/invest/"+uid+"/myadvice.jspa?p="+ page.current ;
+        }
+      });
+      
+        });
+        
+        //flash
+    function embedFlash(mp3,flashId) {
+        //flash player-------------
+        var flashvars = {
+            mp3_url: mp3 // 通过flashvars变量传递实际的音频mp3文件的url给到Flash
+        };
+        var params = {
+            menu: "false",
+            scale: "noScale",
+            wmode: "transparent"
+        };
+        var attributes = {
+            id: "AudioPlayerLite"+flashId
+        };
+        swfobject.embedSWF(
+            "http://f0.jrj.com.cn/tg/audioplayerlite.swf",
+            "FlashInHere", "525", "70", "10.0.0",
+            "",
+            flashvars, params, attributes);   
+    };
+    </script>
+      
+  <script src="http://js.jrjimg.cn/zqt-red-1000/js/floatdiv.js"></script>
+</head>
+<body>
+   <!--# include virtual="/site_top_header.html" -->
+   
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a><span>&gt;</span>
+            <a href="javascript:void(0);">找投顾</a><span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">个人主页</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">         
+            <div class="site-main-single-cnt site-main-single-cnt-2">
+                  <!--# include virtual="/account/adviser/${adviserId}/info.html" -->                
+                
+                <div class="live-cnt mt25 clearfix">
+                    <ul class="tab tab-289 clearfix">
+                        <li id="menu_1" onclick="window.location.href='/account/adviser/${adviserId}/';">日志</li>
+                        <li id="menu_2" class="cur">咨询</li>
+                        <li id="menu_3" class="" onclick="window.location.href='/account/adviser/${adviserId}/3';">直播</li>
+                        <li id="menu_4" class=""  onclick="window.location.href='/account/adviser/${adviserId}/4';">组合</li>
+                    </ul>
+                    <div id="con_1"></div>
+                    <div id="con_2" class="clearfix" style="display:none;">
+                      #if($!answerds && !$answerds.isEmpty())
+                       <div class="inquire-wrap-left mt30">                           
+                        #foreach($a in $answerds)
+                            <div class="inquire-item-new clearfix">
+                                <p><a class="" href="/ques/${a.id}.jspa" target="_blank">$!a.textcontent</a></p>
+                            </div>
+                            #set($ans = $a.answer)
+                            <div class="inquire-reply-item-new clearfix mt20" style="border-bottom: none; margin-bottom: 0;">
+                                <div class="inquire-reply-item-new-left">
+                                    <div><span class="da"></span></div>
+                                </div>
+                                <div class="inquire-reply-item-new-right0">
+                                    <p class="inquire-reply-item-new-cnt"><a href="/ques/${a.id}.jspa">$!ans.textcontent</a></p>
+                                    #if(!$objectUtils.isNull($ans.voiceMp3))
+                                  <div id="FlashInHere"><script type="text/javascript">embedFlash('$ans.voiceMp3','$ans.id')</script></div>
+                                 #end
+                                </div>
+                            </div>
+                           #if($velocityCount == $answerds.size())
+                             <div class="inquire-reply-item-new clearfix mt10" style="border-bottom:none;">
+                           #else
+                             <div class="inquire-reply-item-new clearfix mt10">
+                           #end
+                                <div class="inquire-reply-item-new-left">
+                                  <div class="avatar-wrap"><a href="/account/adviser/$!ans.userId/" title="" target="_blank"><img src="$!ans.headImages" width="25" height="25" /></a></div>
+                                </div>
+                                <div class="inquire-reply-item-new-right">
+                                    <div class="inquire-reply-item-new-title">
+                                      #if(!$objectUtils.isNull($ans.evaluate))
+                                      <span class="highlight" style="color:#fb5e00;font-family:微软雅黑;font-size:14px;float:right;margin-top:5px;">$!objectUtils.calStar($ans.evaluate)</span>
+                                        <div class="fr ml10" style="margin:5px 5px 0 0;">
+                                            <input type="range" value="$ans.evaluate" step="1" id="backing2_$ans.id">
+                                            <div class="rateit" data-rateit-backingfld="#backing2_$ans.id" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-readonly="true"  data-rateit-min="0" data-rateit-max="5"></div>
+                                        </div>
+                                        #end
+                                       
+                                        <a class="name f14" href="/account/adviser/$!ans.userId/" target="_blank">$!ans.username</a>
+                                        <span class="fc">$!dateUtils.format($ans.ctime,"MM-dd HH:mm")</span>
+                                    </div>
+                                </div>
+                            </div>
+                            #end
+                        </div>
+                      
+                      <div class="inquire-wrap-right mt30">
+                            <div class="qrcode-openaccount">
+                                <span class="handler"></span>
+                                <a href="http://t.jrj.com.cn?from=zqt-20141206-rc-itougu-wskzh-an-231" class="btn-194-37" target="_blank"></a>
+                                <a href="http://www.m.jrj.com.cn/" target="_blank" class="btn-114-24" style="display:none;"></a>
+                            </div>
+                        </div>
+                       
+                       
+                       <div class="pager" style="clear:both;"></div>
+                       #else
+                       <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+                       #end
+                    </div>
+                    
+                    <div id="con_3" style="display:none;"></div>
+                    <div id="con_4" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

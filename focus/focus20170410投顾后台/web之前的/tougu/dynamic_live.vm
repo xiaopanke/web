@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{userName}的动态-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css.html" -->
+   
+    
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+	<div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">我的爱投顾</a>
+        </div>
+    </div>
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/myself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="my-tg">
+                    <ul class="tab clearfix">
+                        <li id="menu_1" class="" onclick="window.location.href='/account/dynamic.jspa'">全部动态</li>
+                        <li id="menu_2" class="" onclick="window.location.href='/account/dynamic.jspa?tab=1'">观点</li>
+                        <li id="menu_3" class="cur">直播</li>
+                        <li id="menu_4" class="" onclick="window.location.href='/account/dynamic.jspa?tab=3'">问答</li>
+                    </ul>
+                    <div id="con_3" class="tab-cnt clearfix">
+                         #foreach($dy in $dylist)
+                         <div class="my-tg-item my-tg-item-2 clearfix">
+                            <div class="col-1">
+                                <a href="#" class="row-pic userOnlineState"><img src="$!{userMap.get(${dy.tid}).headImage}" itgid="$!{userMap.get(${dy.tid}).userId}" alt="" width="50" height="50" />
+                                <span class="online"  style="display:none;">在线</span>
+                                </a>
+                                #if($!{userRelation}!=''&&$!{dy.tid}==$!{userRelation.tid})
+                                <p class="row-btn">
+                                    <img alt="签约用户" src="http://js.jrjimg.cn/zqt-red-1000/images/approved-81-30.png">
+                                </p>
+                                #end
+                            </div>
+                            <div class="col-2">
+                                <p class="row-title clearfix">
+                                    <span class="name" style="font-weight:bold;"><a href="/account/adviser/$!{userMap.get(${dy.tid}).userId}/" target="_blank">$!{userMap.get(${dy.tid}).userName}</a></span>
+                                    #if($!{userMap.get(${dy.tid}).verify}==1)<i class="icon icon-v"></i>#end
+                                    <span class="title ml20"><span>$!{userMap.get(${dy.tid}).typeDesc}</span>#if($!{userMap.get(${dy.tid}).type}!=1)<span class="ml20">$!{userMap.get(${dy.tid}).company}</span>#end</span>
+                                    <span class="xh_live-icon ml10">正在直播</span>
+                                </p>
+                                #set($p = 0)
+                                #foreach($data in $!{liveJson.get("dataList").get(${dy.cid.toString()}).data})
+                               	#set($p = $p + 1)
+                                #if($!{liveJson.get("dataList").get(${dy.cid.toString()}).data.size()} == 1)
+	                                <div class="row-cnt mt10 clearfix">
+	                                    <p><a href="$!{liveJson.get("dataList").get(${dy.cid.toString()}).url}" target="_blank">$!{countUtils.subView($!{data.content})}</a></p>
+	                                </div>
+	                                <div class="tl mt5">
+	                                    
+	                                    <p class="tl mt5"><span class="mr10">$!{countUtils.getBeforeTimeForLong("$!{data.ctime}")}</span>
+		                                </p>
+	                                </div>
+                                #else
+                                	#if($p==1)
+		                                <div class="row-cnt mt20">
+		                                    <p><a href="$!{liveJson.get("dataList").get(${dy.cid.toString()}).url}" target="_blank">$!{countUtils.subView($!{data.content})}</a></p>
+		                                </div>
+		                                <p class="tl mt5"><span class="mr10">$!{countUtils.getBeforeTimeForLong("$!{data.ctime}")}</span>
+		                                </p>
+	                                #else
+	                                <div class="split-line mt20"></div>
+	                                	<div class="row-cnt mt10 clearfix">
+	                                    <p><a href="$!{liveJson.get("dataList").get(${dy.cid.toString()}).url}" target="_blank">$!{countUtils.subView($!{data.content})}</a></p>
+	                                </div>
+	                                <div class="tl mt5">
+	                                    
+	                                    <p class="tl mt5"><span class="mr10">$!{countUtils.getBeforeTimeForLong("$!{data.ctime}")}</span>
+		                                </p>
+	                                </div>
+	                                #end
+                                #end
+                                #end
+                            </div>
+                        </div>
+                        #end
+                        #if($!{dylist.size()}<1)
+                        	<div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png"><span class="ml10">暂无内容</span></div>
+                        #end
+                        #if($page.pages>1)
+                      
+                        <div class="pager" id="pager_data">
+                        </div>
+                         
+                       #end
+                    </div>
+                </div>
+
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+ 	<!--\#include virtual="/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+	<!-- cookie -->
+	<!-- end 登录弹出匡 -->
+	<!-- 浮动层 -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script>
+    <script type="text/javascript">
+    	window.siteNav='itougu';
+        $(function () {
+
+          F.hoverCls( '.my-tg .my-tg-item .col-1 .row-pic img' , 'itgid' );
+
+
+            //point-item
+            $('.my-tg-item').mouseenter(function () {
+                $(this).addClass('my-tg-item-hover');
+                $(this).find('.col-3 .link-2').show();
+            }).mouseleave(function () {
+                $(this).removeClass('my-tg-item-hover');
+                $(this).find('.col-3 .link-2').hide();
+            });
+            //point-item
+        });
+         //消息提示
+            function clickLimit(itgId){
+                JRJ.Dialogs.standardDialog({
+                    title: "消息提示",
+                    width: 430,
+                    content: '<div class="dialog-cnt tc"><p class="mt20">非常抱歉！您尚未签约该投资顾问，无法查看TA的私密内参！</p></div>',
+                    okBtnText: "签约投顾",
+                    cancelBtnText: "取消",
+                    hasCloseBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: true,
+                    okCallback: function () {
+                    	F.toSinging(itgId);
+                     },
+                    cancelCallback: function () {
+                    },
+                    isFixed: true
+                });
+            }
+    </script>
+	#if($page.pages>1)
+	<script>
+                       		$("#pager_data").pagefoot(
+	            			{
+	            				pagesize : ${page.pageSize},
+	            				count : ${page.totalCount},
+	            				css : "",
+	            				current : ${page.currentPageNo},
+	            				displaynum : 5,
+	            				displaylastNum : 1,
+	            				previous : "上一页",
+	            				next : "下一页",
+	            				enableArrowKey : true,
+	            				paging : function(page) {
+	            					window.location.href="/account/dynamic.jspa?tab=2&p="+page.current;
+	            				}
+	            			});
+                       	</script>
+	#end
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

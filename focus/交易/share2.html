@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>html2canvas example</title>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="img/html2canvas.js"></script>
+<style>
+    .pic{ height:100px; background:url(img/banktransfer.png);}
+</style>
+</head>
+<script type="text/javascript">
+function takeScreenshot() {
+    var str = $('body');  
+    //console.log(str);  
+    html2canvas([str.get(0)], {  
+        onrendered: function (canvas) {  
+            var image = canvas.toDataURL("image/png");  
+            var pHtml = "<img src="+image+" />";  
+            $('#html2canvas').html(pHtml);  
+        }  
+    });
+}
+</script>
+<body>
+    <div id="view" style="background:url(test.jpg) 50%; width: 500px; height: 200px;">
+        <input type="button" value="截图" onclick="takeScreenshot()">
+        <img src="img/banktransfer.png" height="90" width="90" alt="">
+        <div class="pic"></div>
+        <ul>
+        <li>fsdfsdfffsdf</li>
+        <li>三压到夺</li>
+        <li>要顶替村枯</li>
+        <li> fsdfsdfsdfdssdf </li>
+        <li>枯顶替</li>
+    </ul>
+    <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/banktransfer.png" alt="" id="imgQrcode">
+    <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/business.png" alt="" id="imgQrcodeBG">
+    </div>
+    <div id="html2canvas"></div>
+</body>
+
+</html>

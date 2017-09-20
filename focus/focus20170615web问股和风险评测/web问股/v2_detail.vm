@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     #set($titleForSEO = $objectUtils.substring($!ask.textContent, 0, 25))
+    <title>${titleForSEO} - 爱投顾 - 金融界</title>
+    <meta name="keywords" content="${titleForSEO}、爱投顾、金融界" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="apple-itunes-app" content="app-id=935173185">
+    <meta name="baidu-site-verification" content="yI0AN38rhk" />
+    
+    <!--# include virtual="/v2/common_head_css.html" -->
+  
+	<!--问答css: start-->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-question.min.css" rel="stylesheet" />
+    <!--问答css: end-->
+    <style>
+        .ask-btn>a {
+            display: block;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            text-indent: 32px;
+            //background: #f6554a url(http://i0.jrjimg.cn/zqt-red-1000/focus/qmark.png) 36% 58% no-repeat;
+            background: #f6554a url(http://i0.jrjimg.cn/zqt-red-1000/focus/askbtnbg.png) 36% 50% no-repeat;
+        }
+
+        .ask-btn>a:hover {
+            color: #fff !important;
+        }
+    </style>
+    
+    <script type="text/javascript">
+     var ad_tg = "";
+    </script>
+	<div style="display:none;"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/itg_logo_wx_300_300.png" alt="" /></div>
+    <style type="text/css">
+    .album-dialog .md-container{padding: 0px;}
+    .live-cnt-question{width: 320px;box-shadow: 0 3px 10px #d0d0d0; border-radius: 5px; overflow: hidden;background: #fff;}
+    .right-bar-question span{font-size: 12px;color: #a6a6a6;background: #f2f2f2;margin-left: 5px;}
+    .right-bar-question>div{font-size: 14px;color: #555555;float: right;}
+    .question_open{margin-top: 10px;padding-left:10px;padding-right:10px;padding-bottom:10px;}
+    .question_open>div{width: 43px;height: 24px;border: 1px solid #e0e0e0;border-radius: 12px;float: left;position: relative;}
+    .question_open>div>span{height: 24px;width: 24px;display: block;border-radius: 50%;border: 1px solid #e0e0e0;position: absolute;top: -1px;left: -1px;box-shadow: 1px 1px 1px #a6a6a6;background-color: #fff;}
+    .question_open>p{font-size: 14px;line-height: 24px;color: #555555;float: left;margin-left: 5px;}
+    .question_type{display: none;padding-top: 8px;}
+    .question_type>.question_mune>p{font-size: 16px;line-height: 30px;float: left;width: 110px;text-align: center;margin-left: 18px; cursor:pointer;}
+    .question_type>.question_mune{position: relative;padding: 0 18px;} 
+    .question_cur{border-bottom: 1px solid #f7564a;}
+    .question_type>div>span{height: 1px;width: 320px;background: #f3f3f3;display: block;position: absolute;top: 31px;}
+    .ans_que{height: 450px;overflow: hidden;overflow-y: auto;}
+    .question_list li{width: 290px;padding-right: 10px;border-top: 1px solid #f2f2f2;margin-left: 10px;}
+    .question_list li i{height: 4px;width: 4px;background: #f7564a;float: left;margin-top: 9px;margin-left: 4px;}
+    .question_list li .question_content{font-size: 14px;color: #333333;line-height: 22px;}
+    .question_list li .question_content p{margin-top: 17px;margin-left: 16px;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .question_list li .question_content span{color: #f7564a;}
+    .question_list li .question_time{font-size: 12px;color: #a1a1a1;float: left;margin-left: 16px;margin-top: 8px;margin-bottom: 8px;line-height: 22px;}
+    .question_list li>div>div{height: 22px;width: 48px;background-color: #f7564a;color: #fff;text-align: center;line-height: 22px;border-radius: 3px;float: right;margin-top: 8px;margin-right: 10px; cursor:pointer;}
+    .question_list li>span{height: 1px;width:282px;background: #f2f2f2;display: block;margin: 0 auto; margin-top: 8px;}
+    .alert_success{color: #404040;width: 574px;height: 400px;position: relative;}
+    .success_bg{width: 574px;height: 109px;background: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/THKJ/img/success_bg.png') no-repeat;background-size: 574px 447px;overflow: hidden;}
+    .success_bg>div{width: 162px;margin: 0 auto;height: 36px;line-height: 36px;font-size: 22px;margin-top: 40px;}
+    .success_bg img{margin-right: 14px;display: block;float: left;}
+    .success_bg p{line-height: 36px;float: left;}
+    .success_content{padding-left: 18px;padding-right: 18px;padding-bottom: 18px;}
+    .success_content>div>span{width: 4px;height: 14px;background: #d70504;display: block;float: left;margin-top: 12px;margin-right: 8px;}
+    .success_content>div>p{font-size: 16px;line-height: 36px;margin-top: 13px;}
+    .success_content>div>p>span>a{color: #f6554a;}
+    .success_content ul{height: 230px;overflow: hidden;overflow-y: auto;}
+    .success_content li{border-top: 1px solid #f1f1f1;padding-bottom: 10px;padding-top: 10px;}
+    .question_content1 i{width: 20px;height: 20px;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/THKJ/img/ask_bg.png);background-size: 20px 20px;display: block;float: left;margin-top: 6px;margin-right: 8px;}
+    .question_content1 p{float: left;font-size: 16px;line-height: 30px;width: 480px;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .question_content2 p{color: #999999;font-size: 14px;float: left;line-height: 30px;}
+    .question_content2 div{float: right;font-size: 14px;color: #606060;margin-right: 10px;}
+    .question_content2 div span{color: #f6554a;}
+    .question_content2 a{height: 22px;width: 48px;background-color: #f7564a;color: #fff;text-align: center;line-height: 22px;border-radius: 3px;float: right;display: block;margin-right: 10px;}
+    .duigou{width: 316px;height: 126px;border-radius: 10px;background: #fff;overflow: hidden;}
+    .duigou_inner{height: 46px;width: 185px;margin: 0 auto;margin-top: 38px;}
+    .duigou_inner img{width: 46px;height: 46px;float: left;margin-right: 16px;}
+    .duigou_inner p{font-size: 24px;float: left;line-height: 46px;color: #555555;}
+    .zanwu{font-size: 16px;text-align: center;line-height: 120px;}
+    .codeNum{color: #f7564a;}
+    /*弹层关闭按钮*/
+    .album-dialog .md-close{position:absolute;right: 8px;top: 12px;width: 20px;height: 20px;overflow: hidden;cursor:pointer;z-index: 9998;background: url(http://js.jrjimg.cn/zqt-red-1000/images/dialog-close-new.png) no-repeat;}
+    .album-dialog .md-close:hover{background:url(http://js.jrjimg.cn/zqt-red-1000/images/dialog-close-new.png) 0 -20px no-repeat;}
+    </style>
+</head>
+<body>
+    <!--# include virtual="/site_top_compact.html" -->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="/ques/">问股</a>
+            <span>&gt;</span>
+            <span class="cur">详情</span>
+        </div>
+    </div>
+	
+	<input type="hidden" id="ralate_askid" value="$!ask.id">
+	<input type="hidden" id="ralate_stockcode" value="$!ask.stockCode">
+	<input type="hidden" id="ralate_stockname" value="$!ask.stockName">
+
+    <div class="site-main-v2">
+        <div class="wrapper">
+            <div class="q-main-left">
+                <!--问题：start-->
+                <div class="q-block q-ques-item">
+                    <div class="row-1">
+                        <div class="q-ques-item-q">
+                           $!ask.content
+                        </div>
+                    </div>
+                    <div class="row-source clearfix">
+                        <div class="fr">
+                            <span class="reply"><em>${ask.answeredTimes}</em>人回答</span>
+                            <i class="q-img q-icon-share">分享</i>
+                        </div>
+                        <span>$!{ask.askUserName}</span>
+                        #if($!ask.answerUserId)
+                        <span>向</span>
+                        <a href="/account/adviser/$!ask.answerUserId/"  target="_blank">$!ask.answerUserName</a>
+                        #end
+                        <span>提问</span>
+                        <span class="time">$!dateUtils.format($!ask.ctime, "MM-dd HH:mm")</span>
+                        #if($!ask.source)
+                        <span class="split">|</span>
+                        <span class="from">来自：<a href="http://itougu.jrj.com.cn/app/index.html" target="_blank">客户端</a></span>
+                    	#end
+                    </div>
+                </div>
+                <!--问题：end-->
+				##已采纳
+				#if($ask.isadopt > 0)
+                    #set($isadopt = true)
+                #end
+				
+				#if(!$isadopt && $loginStatus==2 && ${ask.answeredTimes}>0)
+                <div class="q-block q-detail-notification mt20">
+                    <div class="inner">共<span>${ask.answeredTimes}</span>位投顾回答您的问题，采纳一条您最满意的吧！</div>
+                </div>
+				#end
+				
+				<!--空状态：start-->
+                #if($answerlist.isEmpty())
+                <div class="q-block q-empty-2 tc mt20">
+                    <div><img src="http://js.jrjimg.cn/zqt-red-1000/images/v3/logo-itg.png" /></div>
+                    <div class="mt30">暂时没有相关问答</div>
+                </div>
+                #else
+                <!--回答list: start-->
+                <div class="q-answer-list">
+                #foreach($answer in $answerlist)
+                	#if($isadopt && $answer.isAdopt > 0)
+                    <div class="q-block q-answer-item q-answer-item-accepted mt20">
+                        <span class="q-img q-icon-accept"></span>
+                    #else
+                    <div class="q-block q-answer-item mt20">
+                    #end
+                    <input type="hidden" name="ralate_ans_tgid" value="$!answer.answerUserId">
+                        <div class="row-1">
+                            <div class="clearfix">
+                                <span class="time fr"> $!dateUtils.format($!answer.ctime, "MM-dd HH:mm")</span>
+                                <a href="/account/adviser/$!answer.answerUserId/" class="avatar" target="_blank">
+                                <img class="headImageClass1"  aitgid="$!{answer.answerUserId}" src="$answer.avatarUrl"/></a>
+                                <a href="/account/adviser/$!answer.answerUserId/" class="name fl" target="_blank">$!answer.answerUserName</a>
+                                <span class="corp fl">$!answer.adviserUser.company</span>
+                            </div>
+                            <div class="q-answer-item-cnt"> 
+                                #if($!answer.adviserUser.relationStatus==4)
+                                  <span>$!answer.content</span>
+                                  #if($answer.riseDrop==1)
+                                  <span class="q-img q-icon-looksgreat"></span>
+                                 #elseif($answer.riseDrop==-1)
+                                  <span class="q-img q-icon-looksbad"></span>
+                                 #end
+                                 #elseif($!answer.adviserUser.relationStatus==0)
+                                  <span style="display: none;" class="content">$!answer.content</span>
+                                  <p class="guanzhu">关注$!answer.answerUserName，查看回答详情 <a href="javascript:;" style="color:#3c9af2;" class="goflow" data-advisterIld="$!{answer.answerUserId}">关注并查看>></a></p>
+                                      #if($answer.riseDrop==1)
+                                      <span style="display:none;" class="q-img q-icon-looksgreat"></span>
+                                     #elseif($answer.riseDrop==-1)
+                                      <span style="display:none;" class="q-img q-icon-looksbad"></span>
+                                     #end
+                                 #end
+                                
+                            </div>
+                             
+                            <script type="text/javascript">
+                                ad_tg += "$!answer.answerUserId,";
+                            </script>
+                            <ul style="display:none;">
+                                <li id="ad_zb_$!answer.answerUserId" style="display:none;">正在直播：<a href="/account/adviser/$!answer.answerUserId/3" target="_blank">$!answer.adviserUser.userName的直播</a></li>
+                                <li id="ad_tg_$!answer.answerUserId" style="display:none;">TA的投资服务：</li>
+                            </ul>
+                        </div>
+                        <div class="row-2">
+                        	#if(!$isadopt && $loginStatus==2)
+                        	<input id="Button1" type="button" value="采纳" class="btn-accept fr" aid-value="$answer.id" 
+                        	uid-value="$!answer.answerUserId" uname-value="$!answer.answerUserName" 
+                        	uimg-value="$answer.avatarUrl" />
+                        	#end
+                        	#if(${answer.isEvaluat}==-1)
+                            <span class="q-img q-icon-great q-icon-great-disable" style="cursor:text;" answer_id="${answer.id}">有帮助<em>$answer.evaluateUp</em></span>
+                            <span class="q-img q-icon-bad q-icon-bad-cur" answer_id="${answer.id}">一般般<em>$answer.evaluateDown</em></span>
+                            #elseif(${answer.isEvaluat}==1)
+                            <span class="q-img q-icon-great q-icon-great-cur" answer_id="${answer.id}">有帮助<em>$answer.evaluateUp</em></span>
+                            <span class="q-img q-icon-bad q-icon-bad-disable" style="cursor:text;" answer_id="${answer.id}">一般般<em>$answer.evaluateDown</em></span>
+                            #else
+                            <span class="q-img q-icon-great" answer_id="${answer.id}">有帮助<em>$answer.evaluateUp</em></span>
+                            <span class="q-img q-icon-bad" answer_id="${answer.id}">一般般<em>$answer.evaluateDown</em></span>
+                            #end
+                        </div>
+                    </div>
+                    #end
+                </div>
+                <!--回答list: end-->
+              #end
+				
+                <div class="q-detail-list-note mt20">风险提示：【以上内容仅代表个人观点，不构成投资建议，股市有风险，投资需谨慎！】</div>
+
+            </div>
+            <div class="q-main-right">
+
+				<div class="ask-btn">
+					#if($user.isAdviser!=1)
+                    	<a href="javascript:;"  id="askButton">我要问股</a>
+                    #end
+                    #if($canAnswer==1)
+	                  	<a href="javascript:;" class="answerButton"  ask="$!ask.id" style="background: #00a3e5 url(http://i0.jrjimg.cn/zqt-red-1000/focus/answerbtnbg.png) 36% 50% no-repeat;"  >我要回答</a>
+	                #elseif($canAnswer==2)
+	                  	<a href="javascript:;" class="answerDisButton"  ask="$!ask.id" style="background: #b3b3b3 url(http://i0.jrjimg.cn/zqt-red-1000/focus/answerbtnbg.png) 36% 50% no-repeat;"  >我要回答</a>
+	                #end
+                    
+                </div>
+                <!--行情图: start-->
+                <!--<div class="q-side-block q-side-block-hq">-->
+                <div class="q-side-block q-side-block-hq mt20">
+                    <div class="row-1">
+                        <div class="clearfix">
+                        #if(!$objectUtils.isNull($!ask.stockName) && !$objectUtils.isNull($!ask.stockCode))
+                        #set($hasStock=$!ask.stockCode)
+                          <!--  <input id="addMyStockButton" type="button" value="+加入自选" class="fr q-btn-add" stockcode="$!ask.stockCode"/> -->
+                            <a href="http://itougu.jrj.com.cn/stock/$!{ask.stockCode}.jspa" class="link-v2" target="_blank">$!{ask.stockName}($!{ask.stockCode})</a>
+                        #else
+                        #set($hasStock="000001SZ")
+                        	<!-- <input id="addMyStockButton" type="button" value="+加入自选" class="fr q-btn-add" stockcode="000001"/> -->
+                            <a href="http://stock.jrj.com.cn/share,000001SZ.shtml" class="link-v2">上证指数(000001)</a>
+                        #end
+                        </div>
+                        <!-- <div class="num-wrap">
+                            <span>100.89</span>
+                            <span>+10.01<em>%</em></span>
+                        </div> -->
+                    </div>
+                    <div class="row-2">
+                        <div id="hq-flash" data-code="${hasStock}"></div>
+                    </div>
+                </div>
+                <!--行情图: end-->
+
+
+                <!--过去7天相似提问: start-->
+                <div class="q-side-block q-side-block-past7 mt20">
+                    <div class="tit">
+                        <span id="q-side-block-more"></span>
+                      	 过去7天相似提问
+                    </div>
+                    <div class="cnt">
+                        #if($!rise && $!down)
+                        <div class="percentage">
+                            <div class="row-2" data-up="$rise" data-down="$down" data-percent="true">
+                                <div class="track"></div>
+                            </div>
+                            <div class="row-3 clearfix">
+                                <span class="fr">$down人看跌</span>
+                                <span>$rise人看涨</span>
+                            </div>
+                        </div>
+                        #end
+                        <ul id="relevant_Issues" class="clearfix"></ul>
+                    </div>
+                </div>
+                <!--过去7天相似提问: end-->
+
+            </div>
+        </div>
+    </div>
+    
+    <!--分享-->
+    <div class="bdshare-index-popup">
+        <i class="arrow"></i>
+        <div class="bdshare-index-wrap">
+            <div class="bdsharebuttonbox" data-tag="share_index">
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            </div>
+        </div>
+    </div>
+    <!--分享-->
+    
+     <!--# include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <!--# include virtual="/v2/common-footer-v2.html" -->
+</body>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/AMD/require.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/AMD/config.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v3/question-v3-detail.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/questionwengu.min.js"></script>
+ <script type="text/javascript">
+    function formatMsgTime(timespan){
+        var dateTime = new Date(timespan);
+        var year = dateTime.getFullYear();
+        var month = dateTime.getMonth() + 1;
+        var day = dateTime.getDate();
+        var hour = dateTime.getHours();
+        var minute = dateTime.getMinutes();
+        var second = dateTime.getSeconds();
+        var now = new Date();
+        var now_new = Date.parse(now);   //typescript转换写法
+
+        var milliseconds = 0;
+        var timeSpanStr;
+
+        milliseconds = now_new - timespan;
+
+        if (milliseconds <= 1000 * 60 * 1) {
+            timeSpanStr = '刚刚';
+        }
+        else if (milliseconds <= 1000 * 60 * 60) {
+            timeSpanStr = Math.round((milliseconds / (1000 * 60))) + '分钟前';
+        }
+        else if (milliseconds <= 1000 * 60 * 60 * 24) {
+            timeSpanStr = Math.round(milliseconds / (1000 * 60 * 60)) + '小时前';
+        }
+        else if (milliseconds <= 1000 * 60 * 60 * 24 * 15) {
+            timeSpanStr = Math.round(milliseconds / (1000 * 60 * 60 * 24)) + '天前';
+        }
+        else if (milliseconds > 1000 * 60 * 60 * 24 * 15 && year == now.getFullYear()) {
+            timeSpanStr = month + '-' + day + ' ' + hour + ':' + minute;
+        } else {
+            timeSpanStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
+        }
+        return timeSpanStr;
+    };
+
+ 		$(function () {
+        	$('#askButton').click(function(){
+        		Question.clickEvent();
+        	});
+            $(".answerDisButton").click(function(){
+                JRJ.Dialogs.standardDialog({
+                    noTitle:true,
+                    title: '',
+                    width: 400,
+                    customClass: 'dialog-q-accept',
+                    content: ['<div class="dialog-cnt">',
+                                    '<div class="row-2 middle" style="text-align:left;padding:25px 65px 0 65px;font-size:16px;">',
+                                    '暂不能回答该问题，可能原因：<br />1、该问题回答数已达上限；<br />2、该问题已过期；<br />3、您已回答过该问题。',
+                                    '</div>',
+                              '</div>'].join(''),
+                    okBtnText: "关闭",
+                    hasCloseBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: false,
+                    okCallback: function () {location.href = location.href;},
+                    cancelCallback: function () {location.href = location.href;},
+                    isFixed: true
+                });
+            })
+        });
+        
+	     $(document).ready(function(){
+	    	 
+ 			function removeHTMLTag(str) {
+ 				if(!str){return } 
+ 		            str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
+ 		            str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+ 		            str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+ 		            str=str.replace(/&nbsp;/ig,'');//去掉&nbsp;
+ 		            return str;
+ 		    }
+	 			  
+			F.hoverCls( '.headImageClass1' , 'aitgid' );
+			
+	 		//采纳
+	 		$('.btn-accept').click(function (e) {
+	            e.preventDefault();
+	            var me = $(this);
+	            //采纳
+	            var param = {"ask_id":$('#ralate_askid').val(),"answer_id":me.attr('aid-value')};
+	            $.ajax({
+		 			  type: 'GET',
+		 			  url: '/ques/adoptAnswer.jspa',
+		 			  data: param,
+		 			  type: 'POST',
+                      dataType: 'json',
+                      async: false,
+                      cache: false,
+		 			  dataTye: "json",
+		 			  success: function(result) {
+		 					if(result.ret==1){
+		 						 JRJ.Dialogs.standardDialog({
+		 			                noTitle:true,
+		 			                title: '',
+		 			                width: 400,
+		 			                customClass: 'dialog-q-accept',
+		 			                content: ['<div class="dialog-cnt">',
+		 			                                '<div class="row-1">采纳成功，感谢您采纳满意回答！</div>',
+		 			                                '<div class="row-2 middle">',
+		 			                                '<a target="_blank" href=/account/adviser/' + me.attr('uid-value') + '/3><img src="' + me.attr('uimg-value') + '" class="avatar" />',
+		 			                                '<span>' + me.attr('uname-value') + '</span><span>，进入TA的直播室，在线实时交流</span>',
+		 			                                '</a></div>',
+		 			                          '</div>'].join(''),
+		 			                okBtnText: "关闭",
+		 			                hasCloseBtn: true,
+		 			                hasOkBtn: true,
+		 			                hasCancelBtn: false,
+		 			                okCallback: function () {location.href = location.href;},
+		 			                cancelCallback: function () {location.href = location.href;},
+		 			                isFixed: true
+		 			            });
+		 					}	
+		 			  }
+		 		});
+	        });
+	 		//采纳end
+	 		
+	 		//相关提问
+	 		var cutofftime = function(t){
+	 			if(t=="") 
+	 				return t;
+	 			return t.substring(4,6) + '-' + t.substring(6,8)+' ' + t.substring(8,10) + ':' + t.substring(10,12);
+	 		}
+	 		
+	 		var cutofflength = function(text, limit){
+	 			var end;
+	 			var temp1 = text.replace(/[^\x00-\xff]/g, "**");
+	 	        var temp2 = temp1.substring(0, limit);
+	 	        var x_length = temp2.split("\*").length - 1;
+	 	        var hanzi_num = x_length / 2;
+	 	        limit = limit - hanzi_num;
+	 	        var res = text.substring(0, limit);
+
+	 	        if (limit < text.length) {
+	                end = res + "...";
+	            } else {
+	                end = res;
+	            }
+	 	        return end;
+	 		}
+	 		
+            var ralate_stockcode = $("#ralate_stockcode").val();
+            var ralate_stockname = $("#ralate_stockname").val();
+            var search_param=ralate_stockcode+","+ralate_stockname;
+			
+            if(ralate_stockcode!='' && ralate_stockname!=''){
+            	var aboutUrl = "http://itougu.jrj.com.cn/essearch/api.jspa?SC=" + ralate_stockcode + "&askId=" + $('#ralate_askid').val();
+    	 		$.ajax({
+    	 			  type: 'GET',
+    	 			  url: aboutUrl,
+    	 			  cache:false,
+    	 			  dataTye: "jsonp",
+    	 			  success: function(result) {
+    	 						if(result.retCode == 0){
+    	 							if(result.data!="" && result.data.length>0){
+    	 								$("#q-side-block-more").html('<a href="/search/?keyword='
+    	 										+ encodeURIComponent(search_param)+'&is_stock=true" class="q-side-block-more fr"">更多</a>');
+    	 								var data_list = result.data;
+    	 								//数据渲染
+    	 								var html = '';	                            	
+    	 								
+    	 	                        	for(var i=0; i<data_list.length; i++){
+    	 	                        		
+     	                            		var d = data_list[i];
+     	                            		var ask = cutofflength(d.content || '', 58);
+     	                            		var url = d.id + ".jspa";
+     	                            		
+     	                            		var divtmp = '<li><div class="row-1 clearfix">';
+     	                            		divtmp += '<a href="' + url + '"><span class="link-v2">' + ask + '</a></div>';
+     	                            		divtmp += '<div class="row-2 up"><span class="fr"><em>' + d.answeredTimes + '</em>个回答</span>';
+     	                            		divtmp += '<span>' + cutofftime(d.pubTime) + '</span>';
+     	                            		divtmp += '</div></li>';
+     	                            		
+     	                            		html += divtmp;
+    	 	                        		
+    	 	                        	}
+    	 	                        	$("#relevant_Issues").html(html);
+    	 							}else{
+    	 							    $("#ckqb_id").hide();
+    	 								$("#relevant_Issues").html('<li><div style="text-align:center;">该问题暂无相关回答</div></li>');
+    	 							}
+    	 						}
+    	 					}
+    	 		});
+            }
+	 		//相关end
+	 		
+	 		//广告
+	 		function adStr(data) {
+    			var html = "";
+    			if(data!=""){
+    				var s = data.length;
+    				for(j=0; j<s; j++){
+    					var d = data[j];
+    					if(d == ""){ 
+    						return; 
+    					}
+    					var t = d.adType;
+    					
+    					if(t==2){
+    						if(html!="") html += "，";
+    						html += '<a target="_blank" href="/portfolio/v2/detail/' + d.adId + '.jspa">' + d.adTitle + '(组合)</a>';
+    					}else{
+    						if(html!="") html += "，";
+    						html += '<a target="_blank" href="/tips/' + d.adId + '.jspa">' + d.adTitle + '(内参)</a>';
+    					}
+    				}
+    			}
+    			return html;
+    		}
+		
+    		if(ad_tg!=""){
+    			var tgarr = ad_tg.split(',');
+    			for(var i=0; i<tgarr.length; i++){
+    				var t = tgarr[i];
+    				if(t == ""){
+    					return;
+    				}
+    				
+    				var url = "http://itougu.jrj.com.cn/live/index.php/Mobile/getStudioInfo?rid=" + t;
+    				$.ajax({
+  					  type: 'GET',
+  					  url: url,
+  					  timeout : 3000,
+  					  async: false,
+  					  success: function(data) {
+  							if(data!=null && data!=''){ 
+  									var obj = eval('(' + data + ')');
+  									if(obj.zhibo_isopen == 1){
+		  								var id = "#ad_zb_" + t;
+		  								$(id).parent().show();
+		  								$(id).show();
+  									}
+  								}
+  							}
+  					});
+    				
+    				url = "http://itougu.jrj.com.cn/ques/getTgAdverts.jspa?userid=" + t;
+    				$.ajax({
+    					  type: 'GET',
+    					  url: url,
+    					  timeout : 3000,
+    					  async: false,
+    					  success: function(data) {
+    								if(data == ""){ return; }
+    								var html = adStr(data);
+    								var id = "#ad_tg_" + t;
+    								$(id).parent().show();
+    								$(id).show();
+    								$(id).append(html);
+    							}
+    				});
+    			}
+    		}
+    		//广告end
+	     });
+	     
+     </script>
+
+<script type="text/javascript">
+
+	$("#addMyStockButton").click(function(e) {
+		//判断登录
+		JRJ.ui.isLogin(function(){
+			var stockCode = $("#addMyStockButton").attr("stockcode");
+	    	var url = "/mystock/addstock.jspa";
+			$.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: {"stockid":stockCode},
+			  timeout : 10000,
+			  success: function(data) {
+						if (typeof(data) == "number"){
+							if(data==4){
+								JRJ.MiniAlerts.prompt({message:"组合中的自选股数量达到上限",trigger:"#addMyStockButton"});
+							}else if(data==6){
+								JRJ.MiniAlerts.prompt({message:"您已添加过这只股票！",trigger:"#addMyStockButton"});
+							}else{
+								JRJ.MiniAlerts.prompt({message:"添加失败!错误码：" + data,trigger:"#addMyStockButton"});
+							}
+						}else if(typeof(data) == "object"){
+							JRJ.MiniAlerts.prompt({message:"添加成功!",trigger:"#addMyStockButton"});
+						}else{
+							JRJ.MiniAlerts.prompt({message:"添加失败!",trigger:"#addMyStockButton"});
+						}
+					}
+			});
+	     });
+	});
+	//+自选股
+	
+			$('.q-icon-great').click(function () {
+				var self = $(this);
+				JRJ.ui.isLogin(function(){
+					if(self.attr('class').indexOf('-cur') > 0 || self.attr('class').indexOf('-disable') > 0){
+						self.unbind();
+						return;
+					}
+					
+		            var tmpl = '<span class="highlight f14">+1</span>',
+		                    _left = self.offset().left,
+		                    _top = self.offset().top;
+		
+		            self.addClass('q-icon-great-cur').unbind();
+		            $(tmpl).css({ position: 'absolute', left: (_left + 40) + 'px', top: _top + 'px', opacity: 1 }).appendTo($('body')).animate({ opacity: 0, top: '-=30' });
+		        	url = "/ques/evaluateAnswer.jspa";
+		        	var ansId = self.attr('answer_id');
+		    	 	$.ajax({
+	    	 			  type: 'POST',
+	    	 			  url: url,
+	    	 			  data: {"ask_id":$('#ralate_askid').val(),"answer_id":ansId,"is_up":true},
+	    	 			  cache: false,
+	    	 			  dataTye: "json",
+	    	 			  success: function(result) {
+	    	 				 var c = parseInt(self.find('em').text()) + 1;
+	     	 				 self.find('em').text(c)
+	     	 				 self.next('span').addClass('q-icon-bad-disable').unbind();
+	    	 			  }
+		    	 	});
+				});
+			});
+	
+			$('.q-icon-bad').click(function () {
+				var self = $(this);
+				JRJ.ui.isLogin(function(){
+					if(self.attr('class').indexOf('-cur') > 0 || self.attr('class').indexOf('-disable') > 0){
+						self.unbind();
+						return;
+					}
+					
+		            var tmpl = '<span class="highlight f14">+1</span>',
+		                    _left = self.offset().left,
+		                    _top = self.offset().top;
+		
+		            self.addClass('q-icon-bad-cur').unbind();
+		            $(tmpl).css({ position: 'absolute', left: (_left + 40) + 'px', top: _top + 'px', opacity: 1 }).appendTo($('body')).animate({ opacity: 0, top: '-=30' });
+		        	url = "/ques/evaluateAnswer.jspa";
+		        	var ansId = self.attr('answer_id');
+		    	 	$.ajax({
+	    	 			  type: 'POST',
+	    	 			  url: url,
+	    	 			  data: {"ask_id":$('#ralate_askid').val(),"answer_id":ansId,"is_up":false},
+	    	 			  cache: false,
+	    	 			  dataTye: "json",
+	    	 			  success: function(result) {
+	    	 				var c = parseInt(self.find('em').text()) + 1;
+	    	 				self.find('em').text(c)
+	    	 				self.prev('span').addClass('q-icon-great-disable').unbind();
+	    	 			  }
+		    	 	});
+				});
+			});
+
+</script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017LY/answer.js"></script>
+<script type="text/javascript">
+
+    //问股
+  $('body').delegate('.goflow','click',function(){
+    var o=$(this);
+    JRJ.ui.isLogin(function(){
+        ($).ajax({
+          url : 'http://itougu.jrj.com.cn/account/service/focusChange.jspa?adviserId='+o.attr('data-advisterIld')+'&commonId='+getCookie('itg_passport_userid')+'&focusFlag=1', //1表示加关注，0表示取消,
+          type : 'get',
+          cache : false,
+          data : {
+              
+          },
+          success : function(ret) {
+            console.log(ret);
+             if(ret.retCode==2 || ret.retCode==-3){
+                JRJ.MiniAlerts.prompt({message:'<p>关注成功</p>'});
+                o.parents('.q-answer-item-cnt').find('.content').show();
+                o.parents('.q-answer-item-cnt').find('.guanzhu').hide();
+                if(o.parents('.q-answer-item-cnt').find('.q-img')){
+                    o.parents('.q-answer-item-cnt').find('.q-img').show();
+                }
+             }else{
+                JRJ.MiniAlerts.prompt({message:'<p>'+ret.msg+'</p>'});
+             }
+          },
+          error : function() {
+              JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+              return;
+          }
+      });
+    });
+}); 
+function getCookie(name){
+    var bikky = document.cookie;
+    name += "=";
+    var i = 0;
+    while (i < bikky.length)
+    {
+    var offset = i + name.length;
+    if (bikky.substring(i, offset) == name)
+    {
+    var endstr = bikky.indexOf(";", offset);
+    if (endstr == -1) endstr = bikky.length;
+    return unescape(bikky.substring(offset, endstr));
+    }
+    i = bikky.indexOf(" ", i) + 1;
+    if (i == 0) break;
+    }
+    return null;
+}
+</script>
+</html>

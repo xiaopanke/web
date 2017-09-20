@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾</title>
+    <meta name="keywords" content="爱投顾" />
+    <meta name="description" content="爱投顾" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig-compact-answer.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/dialog.effect.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.form.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+            //checkbox
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $(this).addClass('checked');
+                } else {
+                    $(this).removeClass('checked');
+                }
+            });
+
+            //checkbox
+
+            $('#Checkbox1').click(function () {
+                if ($(this).is(':checked')) {
+                    $('.custom-checkbox li[data-only="1"]').addClass('disable');
+                } else {
+                    $('.custom-checkbox li[data-only="1"]').removeClass('disable');
+                }
+            });
+            
+            $('#btnSubmit').click(function (e) {
+                e.preventDefault();
+                
+                var me = $(this);
+                
+                me.attr('disabled', 'true');
+               	
+               	$(window.editor.editorDocument).click();
+			 	var html = editor.getHtml();
+			 	var texthtml = editor.getText();
+			 	var rg = new RegExp("^&nbsp;*");
+                var str = window.editor.getText().replace(rg, '');
+                for(var br = '<br'; str.indexOf(br) == 0; str = str.substring(str.indexOf('>') + 1));
+                var length=str.length;
+			 	if(length<=0){
+			 		JRJ.MiniAlerts.prompt({
+                      message: "<p>回复内容不能为空</p>"
+                  });
+                  return false;
+			 	}else if(length>500){
+			 		JRJ.MiniAlerts.prompt({
+                    	message: "<p>您回答的内容已经超限，再精简一下吧</p>"
+                	});
+                	return false;
+			 	}else{
+				 	$("#cont").val(html); 
+				 	$("#textcont").val(texthtml); 
+				 	var options = {  
+		                success: callBackGraFunc,
+		                error: function() {
+		                  me.removeAttr('disabled');
+		                }
+		            };  
+		              
+		            // jquery.form 提交表单  
+		            $('#form1').ajaxSubmit(options);
+		        }
+	        });
+	        
+	        $('#btnCancel').click(function (e) {
+	        	frameElement._thisDialog.close();	
+	        });
+	            
+        });
+        
+        //统计编辑器中内容的字数
+		function getContentLength(){
+		   var oDOM = editor.editorDocument;
+		   var iLength ;
+		   if(document.all){
+		     iLength = oDOM.body.innerText.length;
+		   }else{
+		     var r = oDOM.createRange();
+		     r.selectNodeContents(oDOM.body);
+		     iLength = r.toString().length;
+		   }
+		   return iLength;
+		 }
+		 
+		 function callBackGraFunc(responseText, statusText) {
+		 	if (responseText > 0){
+		 		JRJ.MiniAlerts.prompt({
+                    message: "<p>回答成功</p>"
+                });
+        frameElement._thisDialog.close();
+        if(window.membership && window.membership.update) {
+		 		  window.membership.update();
+		 		} else if(window.parent.membership && window.parent.membership.update) {
+		 		  window.parent.membership.update();
+		 		}
+		 		window.parent.location.reload();
+		 			
+		 	}
+		 }
+		 
+    </script>
+</head>
+<body style="background:#fff;">
+	<form action="saveAnswer.jspa" method="post" id="form1">
+    <div class="dialog-cnt dialog-ask clearfix" style="height:410px;">
+        <div class="editor-wrap" style="height:300px;">
+            <script>
+                window.editor = new JRJEditor("editor1", 670, 300, "default", '');
+                var sBasePath = '/jsp/portal/mngr/';
+                JRJEditConfig.BasePath = sBasePath;
+                JRJEditConfig.UploadImage = true;
+                JRJEditConfig.UploadFile = true;
+                
+                window.editor.create({
+                    hasNumCheck: true,
+                    num: 500
+                });
+                window.editor.setHtml('<div class="watermark"><p style="color:#999;">1、使用插入股票功能，有利于更多投顾搜索到您的问题进行回答</p><p style="color:#999;">2、投顾回答仅代表个人观点，不构成投资建议，据此操作风险自担</p><p style="color:#999;">3、请尊重投顾工作，在投顾回答后请给与合理的评分，并谨慎使用投诉功能</p></div>');
+            </script>
+        </div>
+        <input type="hidden" name="cont" id="cont" style="display:none"/> 
+        <input type="hidden" name="textcont" id="textcont" style="display:none"/>
+        <input type="hidden" name="aid" id="aid" style="display:none" value="$!{aid}"/> 
+        <input type="hidden" name="uid" id="uid" style="display:none" value="$!{uid}"/> 
+        <input type="hidden" name="username" id="username" style="display:none" value="$!{username}"/>
+        <p class="mt30 tc" style="margin-top:50px"><button class="btn btn-113-30 mr10" id="btnSubmit">提交</button><a class="btn btn-113-30" id="btnCancel">取消</a></p>
+    </div>
+    </form> 
+        
+</body>
+
+</html>

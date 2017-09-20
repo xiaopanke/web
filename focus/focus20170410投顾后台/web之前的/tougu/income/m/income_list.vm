@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>我的收入</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link href="http://js.jrjimg.cn/zqt-m/css/zqt-m.min.css?v2-20150415.1057" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width : 321px) and (max-width : 1080px)" href="http://js.jrjimg.cn/zqt-m/css/styles-giant.min.css" />
+    <link rel="stylesheet" type="text/css" media="only screen and (max-width : 320px)" href="http://js.jrjimg.cn/zqt-m/css/styles-normal.min.css" />
+</head>
+<body>
+	#if($!{type}!='send')
+		<nav class="time-nav">
+            <li>
+                <h5>起始日期</h5>
+                <input type="date" id="aaa" value="$!startDate" class='time'/>
+            </li>
+            <li>
+                <h5>截止日期</h5>
+                <input type="date" id="bbb" value="$!endDate" class='time'/>
+            </li>
+        </nav>
+    #end
+        <div class='scroll-blank'></div>
+    <article id="Content" class="gray-bg" #if($!{type}!='send') style="top:102px;" #end>
+        
+        <div class='scroll-box'>
+            <div class='top-arrow-size'>
+                <div class='top-arrow'>
+                    <i class='i-arrow i-icon'></i>
+                    <div class='text'>
+                        <p class='lag'>松开刷新数据</p>
+                        <p>上次更新时间：<time>刚刚</time></p>
+                    </div>
+                </div>
+            </div>
+            <div class='scroll'>
+		        <section class="income_list">
+		        	#parse('../velocity/tougu/income/m/income_table.vm')
+		        </section>
+		     </div>
+		     <div class='footer-arrow-size'>
+                <i class='i-loading i-icon'></i>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
+<script src="http://js.jrjimg.cn/zqt-m/js/jquery-1.9.1.min.js"></script>
+<script src="http://js.jrjimg.cn/zqt-m/js/iscroll.js"></script>
+<script src="http://js.jrjimg.cn/zqt-m/js/scrollLoading.js"></script>
+
+<script>
+    var nav = $('#nav li')
+        , list = $('.scroll-box')
+        , boxs = []
+        , data;
+
+    data = {
+        add: function (box, i) {
+            box.topData = function (fn) {
+                data.topData(box, i, fn);
+            }
+        }
+        , topData: function (box, i, fn) {//加载头部数据  //i 为第几个tab
+            $.ajax({
+                url: ''
+                , scussce: function () {
+                    fn();
+                }
+            })
+        }
+    }
+
+    boxs[0] = new myiScroll($('#Content').eq(0),'.time-nav');
+    data.add(boxs[0], 0);
+    nav.each(function (i) {
+        $(this).click(function () {
+            nav.removeClass('cur');
+            $(this).addClass('cur');
+
+            //TODO:标签切换加载列表
+
+        });
+    });
+
+    boxs[0].loadFooterData = function () {
+        //setTimeout(function () {
+            $.ajax({
+				url:"/account/income/m/incomeTable.jspa",
+				data:{
+					total:$(".income_list").find("ul").size(),
+					userId:"$!request.getParameter('userId')",
+					type:"$!request.getParameter('type')",
+					startTime:$("#aaa").val(),
+					endTime:$("#bbb").val()
+				},
+				dataType:"html"
+			}).done(function(data){
+				$(".income_list").append(data);
+				boxs[0].myScroll.refresh();
+			})
+        //}, 1000);
+
+    };
+
+    boxs[0].loadTopData = function () {
+        //setTimeout(function () {
+            
+            $(".income_list").load("/account/income/m/incomeTable.jspa?userId="
+            		+"$!request.getParameter('userId')&type=$!request.getParameter('type')&startTime="+$("#aaa").val()+"&endTime="+$("#bbb").val(),function(){
+            			boxs[0].myScroll.refresh();
+            		});
+        //}, 1000);
+
+    };
+    
+    $("input[type='date']").on("input", function() {
+    	if( $("#aaa").val()=='' || $("#bbb").val()=='' || ($("#aaa").val() <= $("#bbb").val() && $("#bbb").val()!='' && $("#aaa").val()!='' )){
+	    	var param = {
+				total:0,
+				userId:"$!request.getParameter('userId')",
+				startTime:$("#aaa").val(),
+				endTime:$("#bbb").val()
+			};
+	    	
+	    	$.ajax({
+				url:"/account/income/m/incomeTable.jspa",
+				type:"post",
+				data:param,
+				dataType:"html"
+			}).done(function(data){
+				$(".income_list").html(data);
+				boxs[0].myScroll.refresh();
+			})
+		}
+    });
+
+</script>

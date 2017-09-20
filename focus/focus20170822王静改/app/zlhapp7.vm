@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+      <title>擒龙集结号正式吹响</title>
+<!--       <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+      <style type="text/css">
+html, body, h1, h2, h3, h4, p, ul, li, input, button{ margin: 0; padding: 0;}
+html, body{ height: 100%;}
+body{ overflow-x: hidden; background: #fff; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+ul, li{ list-style: none;}
+img{ width: 100%; height: auto;}
+
+.tl{ text-align: left !important;}
+.tc{ text-align: center !important;}
+.tr{ text-align: right !important;}
+.m15{ margin: 15px;}
+.p15{ padding: 15px;}
+
+.click, .click a{ font-size: 13px; font-weight: bold; color: #a11414; text-align: center;}
+.click a{ font-size: 11px;}
+
+.icon{ display: inline-block; background-size: contain;}
+.icon-down{ display: inline-block; width: 26px; height: 74px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-down.png) no-repeat center center; background-size: contain;}
+
+.btn{ display: inline-block; margin: 15px auto; padding: 0 10%; height: 44px; line-height: 44px; border-radius: 8px; background-color: #a11414; font-size: 17px; color: #fff; text-align: center; text-decoration: none;}
+.btn-o{ background: none; border: 1px solid #a11414; color: #a11414;}
+.btn:hover{ color: #fff;}
+.btn-o:hover{ color: #a11414;}
+
+.title{ font-size: 17px; font-weight: bold; text-align: center;}
+.title b, .title big{ color: #a11414;}
+
+.step{ height: 44px; line-height: 44px; font-size: 17px; color: #a11414;}
+.step span{ display: inline-block; margin-right: 10px; width: 30px; height: 30px; line-height: 30px; background-color: #a11414; border-radius: 15px; text-align: center; color: #fff;}
+
+.splash1{ position: relative; margin: 15px 0;}
+.splash1 .btn{ position: absolute; right: 0; top: 0; opacity: 0;}
+.splash2, .splash4{ width: auto; min-height: 110px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/splash1.png) no-repeat center center; background-size: contain; }
+.splash2 p{ padding: 32px 15px 0; font-size: 13px; color: #fff; line-height: 1.3; text-align: center;}
+.splash3{ width: auto; min-height: 110px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/splash3.png) no-repeat center center; background-size: contain; }
+.splash3 p{ padding:  45px 0 0 0; font-size: 17px; color: #fff; text-align: center;}
+.splash4 p{ padding: 35px 0 0; font-size: 25px; color: #fff; text-align: center;}
+.splash5{ position: relative; left: -80px; width: auto;  min-height: 80px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/splash2.png) no-repeat center left; background-size: contain;}
+.splash5 p{ padding: 25px 0 0 170px; font-size: 17px; font-weight: bold; color: #fff; text-align: center;}
+
+.video{ position: relative; margin-top: 15px;}
+.video .playerbox{ padding: 30px 0 0; background-color:  #000;}
+.video .playerbox .player{}
+.video .vlist{ position: relative; margin-top: 10px; padding-left: 30px; background-color: #373737; overflow: auto; }
+.video h2{ position: absolute; left: 0; bottom: 42px; display: block; padding: 24px 0 6px 10px; letter-spacing: 10px; width: 30px; height: 100px; background-color: #373737; font-size: 15px; color: #fff; text-align: center; z-index: 1; overflow: hidden;}
+.video .vlist .dock{ display: block; padding-left: 10px; min-width: 440px; height: 130px; text-align: left;}
+.video .vlist li{ display: inline-block; width: 96px; height: 130px; overflow: hidden; vertical-align: top;}
+.video .vlist li+li{ margin-left: 10px;}
+.video .vlist .clip{ position: relative; height: 54px; overflow: hidden; background-color: #000;}
+.video .vlist .clip img{ width: 100%; height: auto;  opacity: .6;}
+.video .vlist .clip h4{ position: absolute; top: 10px; width: 96px; font-size: 13px; color: #fff; text-align: center;}
+.video .vlist .cases{ padding-top: 5px; font-size: 11px; color: #fff;}
+.video .vlist .cases h3{ font-size: 11px;}
+.video .vlist .cases label, .video .vlist .cases p{ display: block; text-align: center;}
+.video .vlist .cases p span+span{ margin-left: 10px;}
+.video .ps{ margin: 5px 0; text-align: center;}
+
+.profile{ text-align: center;}
+.profile .photo{ width: 60%; height: auto;}
+.profile .brief{ padding: 15px; text-align: left;}
+.profile .brief label{ display: inline-block; margin-right: 15px; padding: 0 10px; height: 20px; line-height: 20px; font-size: 15px; background-color: #a11414; border-radius: 10px; color: #fff;}
+.profile .brief h3, .profile .brief h4, .profile .brief p{ margin-bottom: 10px;}
+.profile .brief h3{ text-align: center;}
+.profile .brief h3 label, .profile .brief p label{ position: absolute; left: 15px;}
+.profile .brief p{ padding-left: 96px;}
+.profile .brief p.long{ position: relative; padding-top:  30px; padding-left: 0;}
+.profile .brief p.long label{ top: 0; left: 0;}
+
+.table{ margin: 15px 0; width: 100%;}
+.table th, .table td{ padding: 5px 10px; font-size: 13px; text-align: center;}
+.table th{ background-color: #a11414; color: #fff;}
+.table th+th{ border-left: 1px solid #fff;}
+.table td{ padding: 10px; border-bottom: 1px solid #d6d6d6;}
+.block#record{ text-align: center;}
+
+.block .grids{ padding: 0 15px;}
+.block .grids .grid{ position: relative; display: inline-block; margin-bottom: 40px; padding: 3%; width: 43%; height: 180px; background: #a11414; color: #fff; text-align: center; vertical-align: top;}
+.block .grids .grid h4{ margin-bottom: 10px; text-align: center; font-size: 15px;}
+.block .grids .grid p{ font-size: 13px; line-height: 1.6; text-align: left;}
+.block .grids .grid .icon{ position: absolute; bottom: -31px; display: block; margin-left: 22%; width: 54px; height: 54px; background: #a11414 url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-theme.png) no-repeat center center; border: 4px solid #fff; border-radius: 31px; background-size: auto 50%; z-index: 1;}
+.block .grids .grid#grid2 .icon{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-test.png);}
+.block .grids .grid#grid3 .icon{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-filter.png);}
+.block .grids .grid#grid4 .icon{ background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-chart.png);}
+.block .grids .grid#grid4 p{ font-size: 11px; }
+
+.strip{ display: block; max-width: 100%; overflow: scroll;}
+.strip .table{ width: 1000px;}
+.strip .table th, .strip .table td{ min-width: 60px;}
+.strip .table td.last{ text-align: left;}
+
+
+.block#team{ padding: 0 15px;    padding-bottom: 130px;}
+.block#team h3{ text-align: center;}
+.block#team .photo{ margin: 15px 0;}
+.block#team .intro{ margin-bottom: 15px;}
+.block#team .intro h4{ margin-bottom: 15px;}
+.block#team .intro h4 .icon-title{ position: relative; top: 5px; display: inline-block; margin-right: 15px; width: 65px; height: 20px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-title.png) no-repeat center center; background-size: contain;}
+.block#team .intro h4 .text{ color: #a11414; border-bottom: 1px solid #404040;}
+
+footer{ position: fixed;
+    padding: 15px 15px 30px;
+    background-color: #a11414;
+    background-image: linear-gradient(-214deg, #A21313 50%, #D5202B 100%);
+    width: 100%;    box-sizing: border-box;
+    bottom: 0;
+    left: 0;z-index: 1;}
+footer .slogan{ height: 46px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/slogan.png) no-repeat center top; background-size: contain; text-indent: -9999px; overflow: hidden;}
+footer .contact{ font-size: 13px; color: #fff;}
+footer .contact .icon-tel{ position: relative; top: 2px; margin-right: 10px; width: 26px; height: 20px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-tel.png) no-repeat center center; }
+footer .contact a{ color: #fff;}
+footer .btn{ position: absolute; right: 15px; bottom: 0; background-color: #fff; color: #E21636; font-size: 17px; border: 5px solid #E21636; border-width: 0 0 5px 0; border-radius: 5px;box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.50);}
+footer .btn:hover{ color: #E21636;}
+
+
+
+.mask, .layer{ display: none;}
+.mask{ position: fixed; width: 100%; height: 100%; background: #000; opacity: .6; filter: alpha(opacity=60); top: 0; left: 0; z-index: 2;}
+.layer{ position: fixed; left: 0; right: 0; bottom: 40%; text-align: center; opacity: .9; z-index: 3; animation: pop .6s cubic-bezier(1,-0.49, 0, 1.5);}
+
+.layer.success{ }
+.layer.success .box{ position: relative; display: block; margin: 0 auto; width: 360px; height: 124px;  background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/popup-success.png) no-repeat center bottom; background-size: auto 100%;}
+
+.layer.popup-join{ }
+.layer.popup-join .box{ position: relative; display: block; margin: 0 auto; width: 360px; height: 149px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/popup-join.png) no-repeat center bottom; background-size: auto 100%;}
+.layer.popup-join .box span, .layer.popup-join .box .btn-join{ position: absolute; top: 67px;}
+.layer.popup-join .box span input{ width: 111px; height: 20px; line-height: 20px; background: none; border: none; font-size: 13px; color: #452609;}
+.layer.popup-join .box span input::-webkit-input-placeholder{ color: #A78B67;}
+.layer.popup-join .box .userNamebox{  left: 52px;}
+.layer.popup-join .box .phonebox{ right: 18px;}
+.layer.popup-join .box .phonebox input{ width: 130px;}
+.layer.popup-join .box .btn-join{ top: 100px; right: 118px; margin: 0; padding: 0; border-radius: 4px; width: 110px; height: 30px; line-height: 30px; opacity: 0;}
+.layer.popup-join .box .tooltip{ position: absolute; top: -22px; right: 0; padding: 3px 6px; border-radius: 4px 4px 4px 0; background-color: #fff; font-size: 13px; color: #E21636; opacity: .8; }
+
+.layer .box .close{ position: absolute; right: 0; top: -30px; display: inline-block; width: 22px; height: 22px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/icon-close.png) no-repeat center center; background-size: contain; cursor: pointer; z-index: 1; opacity: inherit;}
+
+
+@media only screen and (max-width: 320px) {
+.video .vlist li{ width: 88px;}
+.video .vlist li .cases, .video .vlist .cases h3{ font-size: 10px;}
+.video .vlist li+li{ margin-left: 0;}
+.video .vlist .clip{ height: 50px;}
+.table th, .table td{ font-size: 11px; }
+.splash2 p{ font-size: 11px;}
+.block .grids .grid{ height: 190px;}
+.block .grids .grid h4{ font-size: 13px;}
+footer .contact{ font-size: 11px;}
+footer .btn{ padding: 0 15px;}
+.layer.success .box{ width: 320px; height: 110px; }
+.layer.popup-join .box{ width: 320px; height: 132px;}
+.layer.popup-join .box span{ top: 57px;}
+.layer.popup-join .box span input{ font-size: 12px;}
+.layer.popup-join .box .userNamebox{  left: 47px;}
+.layer.popup-join .box .userNamebox input{ width: 100px;}
+.layer.popup-join .box .phonebox{ right: 18px;}
+.layer.popup-join .box .phonebox input{ width: 110px;}
+.layer.popup-join .box .btn-join{ top: 88px; right: 104px; width: 100px;}
+.layer.popup-join .box .tooltip{ font-size: 11px;}
+}
+.player img{display: none;}
+      </style>
+        <script type="text/javascript">
+            function continuePlay() {
+                if($('.video .player video').attr('src') == 'http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4'){
+                    $('.video .player video').attr('src','http://flvdata.jrj.com.cn/2012/2017/qita/0811qljjh.mp4');
+                    $('#video-2').addClass("active").siblings().removeClass("active");
+                }else{
+                    $('.video .player video').attr('src','http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4');
+                    $('#video-1').addClass("active").siblings().removeClass("active");
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <header>
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/header.jpg" alt="">
+    </header>
+    <div class="1st">
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/1st.jpg" alt="擒龙·第一式">
+    </div>
+    <div class="title"><b>免费</b>视频详解五大龙头行业投资逻辑<br><big>赠擒龙股票池</big></div>
+    <div class="video">
+        <div class="playerbox">
+            <div class="player">
+                <video onended="continuePlay()" src="http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4" controls="controls" width="100%" height="100%" autoplay="autoplay"></video>
+                <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/novideo3.jpg" alt=""/>
+            </div>
+        </div>
+        <h2>视频目录</h2>
+        <div class="vlist">
+            <ul class="dock">
+                <li class="active" id="video-1">
+                    <div class="clip">
+                        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/video.jpg" alt="">
+                        <h4>擒龙集结号（一）</h4>
+                    </div>
+                    <div class="cases">
+                        <h3>擒龙集结号正式吹响聚焦五大热点</h3>
+                    </div>
+                </li>
+                <li id="video-2">
+                    <div class="clip">
+                        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/video.jpg" alt="">
+                        <h4>擒龙集结号（二）</h4>
+                    </div>
+                    <div class="cases">
+                        <h3>周期涨价 风暴来袭</h3>
+                        <label>案例：</label>
+                        <p><span class="case-name">方大碳素</span><span class="case-sn">600516</span></p>
+                        <p><span class="case-name">神火股份</span><span class="case-sn">000933</span></p>
+                    </div>
+                </li>
+                <li id="video-3">
+                    <div class="clip">
+                        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/video.jpg" alt="">
+                        <h4>擒龙集结号（三）</h4>
+                    </div>
+                    <div class="cases">
+                        <h3>新能源 + 人工智能</h3>
+                        <label>案例：</label>
+                        <p><span class="case-name">赣锋锂业</span><span class="case-sn">002460</span></p>
+                        <p><span class="case-name">科大讯飞</span><span class="case-sn">002230</span></p>
+                    </div>
+                </li>
+                <li id="video-4">
+                    <div class="clip">
+                        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/video.jpg" alt="">
+                        <h4>擒龙集结号（四）</h4>
+                    </div>
+                    <div class="cases">
+                        <h3>大金融 + 一带一路</h3>
+                        <label>案例：</label>
+                        <p><span class="case-name">中国平安 </span><span class="case-sn">601318</span></p>
+                        <p><span class="case-name">西部建设</span><span class="case-sn">002302</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ps">以上个股案例均来自金融界研究院提供</div>
+    </div>
+    
+    <div class="splash splash1">
+        <img  src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/splash1.jpg" alt="免费视获取五大龙头股票池">
+        <a class="btn btn-join popup">立即预约</a>
+    </div>
+    
+    <div class="profile">
+        <img class="photo" src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/mxb.jpg" alt="孟祥彬">
+        <div class="brief">
+            <h3><label>诊股人</label><span class="text">孟祥彬</span></h3>
+            <h4><label>证券执业资格号</label>A0780615020002</h4>
+            <p><label>简介</label>金融界资深投资顾问，曾历任券商、咨询机构投资顾问总监，新浪、网易、山东电台、福建电台等多家知名媒体和电台的特邀嘉宾，实战经验丰富，入市摸爬滚打17年，2016年新浪全国投顾大赛第三名。</p>
+            <h4><label>诊股方式</label>视频诊股</h4>
+            <h4><label>诊股工具</label>巨灵智胜</h4>
+            <h4><label>是否收费</label><big>免费</big></h4>
+            <p class="long"><label>什么是巨灵智胜？</label>巨灵智胜一体化智能投研平台是专门为专业投资人员（私募基金经理、投资顾问等机构用户群体，以及专业个人投资者）提供的进行投资研究、快速决策和交易的工具化产品，旨在一站式解决用户的投资服务问题。</p>
+        </div>
+    </div>
+    
+    <div class="block" id="record">
+        <h3>孟祥彬过往战绩一览</h3>
+        <table class="table" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+              <th>股票名称</th>
+              <th>调入时间</th>
+              <th>调出世间</th>
+              <th>收益幅度</th>
+          </tr>
+          <tr>
+              <td>海达股份</td>
+              <td>2016-05-11</td>
+              <td>2016-12-09</td>
+              <td>100%</td>
+          </tr>
+          <tr>
+              <td>摩恩电气</td>
+              <td>2016-09-19</td>
+              <td>2017-02-09</td>
+              <td>78%</td>
+          </tr>
+          <tr>
+              <td>新疆众和</td>
+              <td>2016-09-19</td>
+              <td>2017-03-27</td>
+              <td>47%</td>
+          </tr>
+          <tr>
+              <td>北化股份</td>
+              <td>2016-12-01</td>
+              <td>2017-04-12</td>
+              <td>89%</td>
+          </tr>
+      </table>
+    </div>
+    <div class="features">
+        <h3 class="tc">巨灵智胜的核心功能</h3>
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/features.jpg" alt="六大功能">
+    </div>
+    <div class="row tc">
+        <a href="javascript:;" class="btn btn-join popup">立即预约诊股</a>
+    </div>
+    <div class="3nd">
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/3nd.jpg" alt="擒龙·第一式">
+    </div>
+    <div class="title tl p15">加入智能投顾工作室<br><b>吹响擒龙集结号，开启擒龙作战计划</b></div>
+    <div class="splash splash2">
+        <p>本期擒龙集结号将在常规三大股票池基础上，<br>新增“擒龙股票池”，运用下方三大擒龙法宝，<br>多角度、全方位捕捉主升浪潜力真龙头、大牛股</p>
+    </div>
+    <div class="title m15">常规股票池出票单</div>
+    <div class="row m15">
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/paper1.jpg" alt="">
+    </div>
+    <div class="row m15">
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/paper2.jpg" alt="">
+    </div>
+    <div class="splash splash3">
+        <p>擒龙作战三部曲</p>
+    </div>
+    <div class="block">
+        <h3 class="step tc"><span>1</span>巨灵智胜运算精选</h3>
+        <div class="grids">
+            <div class="grid" id="grid1">
+                <h4>主题274个</h4>
+                <p>基于语义分析、文本挖掘等技术挖掘主题及主题下龙头股、主题新闻、股票三点直播，主题挖掘及时精准、龙头股排序准确性高。</p>
+                <i class="icon icon-theme"></i>                          
+                </div>
+            <div class="grid" id="grid2">
+                <h4>量化策略及回测</h4>
+                <p>独立研发JRJ-Quant回测框架，采用大数据、云计算技术，最接近真实交易的回测体系，无需写代码分分钟构建策略，极速回测。</p>
+                <i class="icon icon-test"></i>                            
+                </div>
+            <div class="grid" id="grid3">
+                <h4>筛选器/有效因子182个</h4>
+                <p>国内首个实现因子有效选取、覆盖面广、实时类指标3秒内快速计算、筛选迅速执行、结果即时呈现的股票筛选类工具。</p>
+                <i class="icon icon-filter"></i>
+            </div>
+            <div class="grid" id="grid4">
+                <h4>图析/67+67+5+16个变量维</h4>
+                <p>国内首家采用可视化图形分析技术呈现各维度股票数据、进行股票分析的工具，实时数据3秒内快速推送，页面极速响应，实现国内遥遥领先的股市图形分析方法。</p>
+                <i class="icon icon-chart"></i>
+            </div>
+        </div>
+    </div>
+    <div class="block tc">
+        <i class="icon icon-down"></i>
+    </div>
+    <div class="row">
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/map.jpg" alt="">
+    </div>
+    <div class="block tc">
+        <i class="icon icon-down"></i>
+        <h3 class="step tc"><span>3</span>作战计划书</h3>
+        <h3 class="m15 tc">量化黑马工作室持仓<br>（2017.7.24）</h3>
+        <p>← 查看完整信息请左右拖动表格 →<p>
+    </div>
+    
+    <div class="strip">
+        <table class="table" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th>量化策略</th>
+                <th>股票序号</th>
+                <th>股票代码</th>
+                <th>股票名称</th>
+                <th>进场价位</th>
+                <th>目标预期</th>
+                <th>止损参考</th>
+                <th>仓位</th>
+                <th>盈亏</th>
+                <th class="last">今日小结</th>
+            </tr>
+            <tr>
+                <td>超短快盈</td>
+                <td>擒龙1号</td>
+                <td>600***</td>
+                <td>****</td>
+                <td>20.21-20.35元</td>
+                <td>22-22.5</td>
+                <td>19元</td>
+                <td>20%</td>
+                <td>盈利3%</td>
+                <td class="last">今天股价冲高回落，收出短上影线，主要还是由于成交量没有放大，主力没有正式反动进攻，持股等待</td>
+            </tr>
+            <tr>
+                <td>波段优选</td>
+                <td>擒龙2号</td>
+                <td>300***</td>
+                <td>****</td>
+                <td>26.35-26.5元</td>
+                <td>30元><small>（以S点出现为准）</small></td>
+                <td>24.5元</td>
+                <td>15%</td>
+                <td>盈利8%</td>
+                <td class="last">今天放量拉升，盘中一度涨停板，后有获利盘回吐，打开涨停，从技术形态看，30元一带有些压力</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="spash splash4 m15">
+        <p>什么是投顾工作室？</p>
+    </div>
+    
+    <div class="click m15">猛戳：<a href="http://itougu.jrj.com.cn/activity/app/vipapp.jspa">http://itougu.jrj.com.cn/activity/app/vipapp.jspa</a></div>
+    <div class="row tc">
+      <a href="http://itougu.jrj.com.cn/xlive/web/vipDetailWeb.jspa?tgid=141210010098595802" class="btn">量化黑马工作室热销地址 </a>
+      <a href="#" class="btn" onclick="javascript:alert('AI尊享工作室正在紧张筹备中，敬请期待！')">AI尊享工作室热销地址</a>
+    </div>
+    
+    <div class="spash splash5">
+        <p>加入擒龙战队</p>
+    </div>
+    <div class="tc">
+      <button class="btn btn-o btn-join popup">立即预约</button>
+    </div>
+    
+    <div class="block" id="team">
+        <h3 class="m15 tc">顶尖团队支持</h3>
+        <div class="photo">
+            <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170814zlhweb/h5/team.jpg" alt="顶尖团队支持">
+        </div>
+        <div class="intro">
+            <h4><i class="icon icon-title"></i><span class="text">投顾工作室智能金融团队介绍</span></h4>
+            <p>投顾工作室智能金融团队拥有国内首家专注于智能金融研究的博士后科研工作站，始终把握国际研发前沿趋势。研究团队成员均为具有北大、清华、香港大学等国内外顶尖名校背景、及拥有全球知名投行经验的博士、硕士。团队目前共有14名研究员，全部为硕士以上学历，其中博士后研究员4人。部门研究成果突出，在资产配置、技术分析、事件驱动等领域均有重要成果，并输出至公司业务线，提供算法与策略支持。</p>
+        </div>
+        <div class="intro">
+            <h4><i class="icon icon-title"></i><span class="text">投顾工作室专业投顾团队介绍</span></h4>
+            <p>金融界投顾团队，皆由从事股票领域工作数十年、实战经验丰富的投资顾问组成，团队成员全部拥有证券执业资质，曾多次应邀出席业界研讨会及接受新闻媒体访问，其实力早已获得专业领域的普遍认同，团队以让投资更简单为使命，协助投资者创造价值为核心，在准确把握行情趋势的基础上，实现无微不至的贴身服务。</p>
+        </div>
+        <div class="intro">
+            <h4><i class="icon icon-title"></i><span class="text">金融界研究院团队介绍</span></h4>
+            <p>金融界网站研究院，是中国金融在线集团旗下研究机构，致力于研究中国宏观经济和资本市场，擅长对资讯、大数据以及市场交易者行为进行挖掘。团队成员80%以上拥有研究生及以上学历，具备证券公司、公募基金、私募机构等行业从业经历。</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="slogan">立即预约加入工作室，领取最强龙头妖股!</div>
+        <div class="contact"><i class="icon icon-tel"></i>咨询热线：400-166-1188</div>
+        <a href="javascript:;" class="btn btn-join popup">立即预约</a>
+    </footer>
+    
+    <div class="mask"></div>
+    <div class="layer popup-join">
+        <div class="box">
+            <i class="close"></i>
+            <div class="join">
+                <span class="userNamebox"><input type="text" class="userName" placeholder="请输入您的中文名"></span><span class="phonebox"><input type="text" class="phone" placeholder="请输入您的11位手机号码"></span><a href="javascript:;" class="btn btn-large btn-join">立即预约</a>
+            </div>
+        </div>
+    </div>
+    <div class="layer success">
+        <div class="box">
+            <i class="close"></i>
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<!--     <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script> -->
+<script src="http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js"></script>
+    <script>
+        $(document).ready(function(){
+            dcsMultiTrack('DCS.dcsuri', 'zlhapp7', 'WT.ti', 'zlhapp7');
+            $(".video .vlist li").click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+            
+                        
+            $('#video-1').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src','http://flvdata.jrj.com.cn/2012/2017/qita/0809qljjh.mp4');
+            })
+            
+            $('#video-2').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src', 'http://flvdata.jrj.com.cn/2012/2017/qita/0811qljjh.mp4');
+            })
+            
+            $('#video-3').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src', 'http://flvdata.jrj.com.cn/2012/2017/hezuo/20170816qljjh2.mp4');
+            })
+            
+            $('#video-4').click(function(){
+                $('.video .player img').hide();
+                $('.video .player video').show();
+                $('.video .player video').removeAttr('src');
+                $('.video .player video').attr('src', 'http://flvdata.jrj.com.cn/2012/2017/hezuo/20170817qljjh.mp4');
+            })
+            
+            function stopVideo(){
+                var stopVideoPlay = setInterval(function(){
+//                 	console.log(document.querySelector('video').currentTime);
+                	if(document.querySelector('video').currentTime >= 180){
+                		document.querySelector('video').pause();
+                		$('.mask').show();
+                		$('.diaglo-stopVideo').show();
+                		window.clearInterval(stopVideoPlay);
+                	}
+                },1000)
+            }
+            
+/*
+            $('.diaglo-stopVideo').click(function(){
+                $(this).hide();
+                $('.mask').hide();
+            })
+            
+*/
+            
+            var tooltip;
+            var showTooltip = function(el, text){
+                tooltip = $('<i class="tooltip">'+text+'</i>');
+                $('.tooltip').removeClass('show');
+                if (el.find('i').length == 0) {
+                    el.append(tooltip);
+                }else{
+                    el.find('i').text(text);
+                }
+                setTimeout(function () {
+                    el.find('i').remove();
+                }, 1000);
+                
+            };
+     
+            $('.btn-join.popup').each(function(){
+                $(this).click(function(){
+                    $('.mask,.layer.popup-join').show();
+                });
+            });
+            
+            $('.close').each(function(){
+                $(this).click(function(){
+                    $('.mask,.layer').hide();
+                });
+            });
+     
+            $('.btn-join').each(function(){
+                var o=$(this);
+                $(this).click(function(){
+                   var userName = o.parent().find(".userName").val();
+                   var phone = o.parent().find(".phone").val();
+    
+                   
+                   if(userName==''){
+                       showTooltip(o.parent().find('.userNamebox'), '姓名不能为空！');
+                       return;
+                   }else{
+                        var regname=/^[\u4e00-\u9fa5]+$/gi;
+                        if(!regname.test(userName)){
+                            showTooltip(o.parent().find('.userNamebox'), '请输入中文名');
+                            return;
+                        }
+                   }
+                   if(phone==''){
+                        showTooltip(o.parent().find('.phonebox'), '手机号不能为空！');
+                        return;
+                   }else{
+                        var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+                        if (!reg.test(phone)) {
+                              showTooltip(o.parent().find('.phonebox'), '手机号输入不正确！');
+                              return;
+                        }
+    
+                   }
+                    //ajax提交
+                    $.ajax({
+                       url:'http://itougu.jrj.com.cn/marketing/insertZq.jspa',
+                       type:"POST",
+                       dataType : "json",
+                       data:{
+                            type:5,
+                            term:4,
+                            name:userName,
+                            mobile:phone
+                        },
+                       success:function(data) {
+                            if(data.success == true){
+                                $('.layer.popup-join').hide();
+                                $(".userName").val('');
+                                $(".phone").val('');
+                                $('.mask,.layer.success').show();
+                            }else if(data.success == false){
+                                alert(data.msg);
+                            }
+                       },
+                       error : function(v) {
+                         alert("网络异常！");
+                       }
+                    });
+                });
+            });
+
+        });
+    </script>    
+  </body>
+ </html>

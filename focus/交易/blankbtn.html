@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>空白页</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+	<style>
+		*{ margin:0; padding:0; }
+		span{ display: block;line-height: 100px; background: linear-gradient(yellow,blue,red); color:#fff; font-size: 30px;text-align: center; margin-top: 100px; border-radius: 50px; }
+	</style>
+</head>
+<body>
+<span id="btn">按钮</span>
+<script>	
+	var btn=document.getElementById('btn')
+	btn.onclick=function(){
+		jrj.jsCallNative('134', JSON.stringify({}));
+	}
+</script>	
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>输出image</title>
+<script type="text/javascript">
+	var file = ${out}
+	if(file.label==1){
+		window.parent.document.getElementById("headImage").value = "http://itg1.jrjimg.cn"+file.filename;
+		window.parent.document.getElementById("max1").src = "http://itg1.jrjimg.cn"+file.filename;
+		window.parent.document.getElementById("max2").src = "http://itg1.jrjimg.cn"+file.filename;
+		window.parent.document.getElementById("mid").src = "http://itg1.jrjimg.cn"+file.filename;
+		window.parent.document.getElementById("min").src = "http://itg1.jrjimg.cn"+file.filename;
+	}else{
+		window.parent.OnUploadFinished(file.filename);
+		window.parent.uploadImage();
+	}
+</script>
+</head>
+<body>
+</body>
+</html>

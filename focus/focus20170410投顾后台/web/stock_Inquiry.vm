@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个股诊断</title>
+    
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的问答-爱投顾-金融界</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，问股、金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <link href="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160513/css/style.css" rel="stylesheet" />
+    <!--# include virtual="/v2/common_head_css.html" -->
+    
+</head>
+<body onload="initBody('$!{stockcode}');">
+
+	<!--# include virtual="/v2/site_top_compact.html" -->
+
+
+<div class="individualEquities">
+    <div class="clearfix top_hader">
+        <div class="top_info fl">
+            <b class="fz20">$!{stockname}</b><span class="fz16">($!{stockcode}.$!{stockmarket})</span>
+        </div>
+        <ul class="top_navigation fr clearfix">
+            <li class="curr" href=".box01">技术走势</li>
+            <li href=".box02">事件</li>
+            <li href=".box03">题材概念</li>
+            <li href=".box04">龙虎榜</li>
+        </ul>
+    </div>
+
+    <div class="fixed_hader disno">
+        <div class="top_info fl">
+            <b class="fz20">$!{stockname}</b><span class="fz16">($!{stockcode}.$!{stockmarket})</span>
+        </div>
+        <ul class="top_navigation1 fr clearfix">
+            <li class="curr" href=".box01">技术走势</li>
+            <li href=".box02">事件</li>
+            <li href=".box03">题材概念</li>
+            <li href=".box04">龙虎榜</li>
+        </ul>
+    </div>
+
+    <div class="box01">
+        <div class="header_info"><i></i>技术走势<span class="fz14">&nbsp&nbsp(近一周)</span></div>
+        <div id="noDataId">
+        </div>
+        <div class="buy_signal pb30"  id="indexBuyId">
+        </div>
+        <div class="sell_signal pb30"  id="indexSellId">
+        </div>
+    </div>
+    <div class="box02">
+        <div class="header_info"><i></i>事件</div>
+        <div id="noEventDataId"> </div>
+        <div class="event" id="eventId"> </div>
+    </div>
+    <div class="box03">
+        <div class="header_info"><i></i>题材概念</div>
+        <div id="f10Id"> </div>
+        <div id="ckqbId" class="iewv_all fz14">查看全部&nbsp<span></span></div>
+        <div id="sqId" class="iewv_part fz14">收起&nbsp<span></span></div>
+    </div>
+    <div class="box04 pb30">
+        <div class="header_info"><i></i>龙虎榜</div>
+        <div id="lhbId"></div>
+    </div>
+</div>
+
+<!--# include virtual="/v2/common_head_js.html" -->
+
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/validate.js"></script>
+<script>
+		function initBody(stockcode){
+		
+			loadIndex(stockcode);
+			loadEvent(stockcode);
+			loadF10(stockcode);
+			loadLHB(stockcode);
+			
+			$('.top_navigation li, .top_navigation1 li').click(function(evt){
+	            evt.preventDefault();
+	            var anchor = $(this).attr('href'),
+	            top = $(anchor).offset().top-80;
+	           // console.log(top);
+	            $('html,body').animate({scrollTop: top}, 500);
+	        });
+	
+	        var sidebarTop = 0,
+	            flow2Top = ~~$('.box02').offset().top-80,
+	            flow3Top = ~~$('.box03').offset().top-80,
+	            flow4Top = ~~$('.box04').offset().top-80;
+	
+	        $(window).scroll(function(){
+	            //console.log($(document).scrollTop(), sidebarTop, flow2Top, flow3Top, flow4Top, flow5Top);
+	
+	            if( $(document).scrollTop()-80 < sidebarTop ) {
+	                $('.fixed_hader').hide();
+	            } else {
+	                $('.fixed_hader').show();
+	            }
+	
+	            $('.top_navigation1 li.curr').removeClass('curr');
+	
+	            $(document).scrollTop() < flow2Top ?
+	            $('.top_navigation1 li:eq(0)').addClass('curr') :
+	            $(document).scrollTop() < flow3Top ?
+	            $('.top_navigation1 li:eq(1)').addClass('curr') :
+	            $(document).scrollTop() < flow4Top ?
+	            $('.top_navigation1 li:eq(2)').addClass('curr') :
+	            $('.top_navigation1 li:eq(3)').addClass('curr');
+	        });
+	        
+	        /**
+	        $('.p_open').click(function(){
+	            $('.p_hiden').hide();
+	            $('.p_show').show();
+	        });
+	        $('.p_close').click(function(){
+	            $('.p_hiden').show();
+	            $('.p_show').hide();
+	        });
+	        **/
+	        
+	        $('.p_open').click(function(){
+                $(this).parent().next().show();
+                $(this).parents('.p_hiden').hide();
+	        });
+	
+	        $('.p_close').click(function(){
+	            $(this).parent().prev().show();
+	            $(this).parents('.p_show').hide();
+	        });
+	        
+	        
+	        if($('.concept_info').length>4){
+	            $('.iewv_all').show();
+	            var box03Top=$('.concept_info').eq(4).position().top -10;
+	            $('.box03').css('max-height',box03Top+'px');
+	        }else {
+	            $('.iewv_all').hide();
+	        }
+	        
+	        $('.event_info_top>.possibility').each(function(){
+	            if($(this).html()==null||$(this).html()==''){
+	                var possibility_top=$(this).css('top');
+	                $(this).siblings(".achievement").css('top',possibility_top)
+	            }
+	
+	        });
+	
+	        $('.iewv_all').click(function(){
+	            $('.box03').css({"height":"auto","max-height":"none"});
+	            $('.iewv_all').hide();
+	            $('.iewv_part').show();
+	        });
+	        $('.iewv_part').click(function(){
+	            $('.box03').css('max-height',box03Top+'px');
+	            $('.iewv_all').show();
+	            $('.iewv_part').hide();
+	        });
+	        
+	        //$(".fenxitab>tbody>tr:last-child").children().addClass('bb0');
+	
+	/**
+	        Number.prototype.toPercent = function(){
+	            return (Math.round(this * 10000)/100).toFixed(2) + '%';
+	        };
+	        var buy_A=parseInt($('.buy_number').html())/150000000, sell_B=parseInt($('.seel_number').html())/150000000;
+	        var buy_A_height=buy_A.toPercent();
+	        var buy_b_height=sell_B.toPercent();
+	        $('#buy_cylinder').css('height',buy_A_height);
+	        $('#sell_cylinder').css('height',buy_b_height);
+	  **/      
+        
+		}
+		
+		function ten_thousand(n){
+			n = Math.round((n /10000) * 100) / 100;
+			return n;
+		}
+		
+		function ten_thousand_w(n){
+			n = Math.round((n /10000) * 100) / 100;
+			n = n + "万";
+			return n;
+		}
+		
+		function StringBuffer(){
+			this.data_ = [];
+		}
+		StringBuffer.prototype.append = function(){
+			this.data_.push(arguments[0]);
+			return this;
+		}
+		StringBuffer.prototype.toString = function(){
+			return this.data_.join("");
+		} 
+
+		function loadIndex(stockcode){
+			var url = "/ques/inquiry/getStockTotalIndex.jspa?stockcode="+stockcode;
+			$.ajax({
+				type : "get",
+				url : url,
+				async : false,
+				dataType : "json",
+				timeout : 10000,
+				success : function(data, textStatus) {
+					if (typeof(data)!='undefined' && data!=null && data!='null' && data!=undefined && data.length>0) {
+						var buyflag=0, sellflag=0;
+						var buyidx=1, sellidx=1;
+						var contentb = new StringBuffer();
+						var contents = new StringBuffer();
+						var selfidx=0;
+						$.each(data, function(idx, obj){
+							if(obj.count>4){
+								var isou = (selfidx%2==0) ?true:false;
+								if(obj.value==1){
+									var isoubuy = (buyidx%2==0) ?true:false;
+									
+									if(buyflag==0){
+										contentb.append('<div>买入信号</div>')
+											.append('<table class="postab btblue02" border="0" cellspacing="0">')
+											.append('<tbody><tr>')
+											.append('<th><p>指标名称<i>|</i></p></th>')
+											.append('<th><p>信号时间<i>|</i></p></th>')
+											.append('<th><p>成功率</p></th></tr>')
+											.append('<tr>')
+											.append('<td>')
+											.append(obj.name)
+											.append('金叉</td>')
+											.append('<td>')
+											.append(obj.date)
+											.append('</td>')
+											.append('<td  class="pading_clw">')
+											.append((obj.selfSuccessRate.replace("该股票","该信号")))
+											.append('</td>')
+											.append('</tr>');
+										buyflag=1;
+									}else{
+									
+										if(!isoubuy){
+											contentb.append('<tr>');
+										}else{
+											contentb.append('<tr class="bgLightGray">');
+										}
+										contentb.append('<td>')
+											.append(obj.name)
+											.append('金叉</td>')
+											.append('<td>')
+											.append(obj.date)
+											.append('</td>')
+											.append('<td  class="pading_clw">')
+											.append((obj.selfSuccessRate.replace("该股票","该信号")))
+											.append('</td>')
+											.append('</tr>');
+									}
+									buyidx++;
+								}
+								
+								if(obj.value==-1){
+									var isousell = (sellidx%2==0) ?true:false;
+									if(sellflag==0){
+										contents.append('<div>卖出信号</div>')
+											.append('<table class="postab btyello02" border="0" cellspacing="0">')
+											.append('<tbody><tr>')
+											.append('<th><p>指标名称<i>|</i></p></th>')
+											.append('<th><p>信号时间<i>|</i></p></th>')
+											.append('<th><p>成功率</p></th></tr>')
+											.append('<tr>')
+											.append('<td>')
+											.append(obj.name)
+											.append('死叉</td>')
+											.append('<td>')
+											.append(obj.date)
+											.append('</td>')
+											.append('<td class="pading_clw">')
+											.append((obj.selfSuccessRate.replace("该股票","该信号")))
+											.append('</td>')
+											.append('</tr>');
+										sellflag=1;
+									}else{
+										if(!isousell){
+											contents.append('<tr>');
+										}else{
+											contents.append('<tr class="bgLightGray">');
+										}
+										contents.append('<td>')
+											.append(obj.name)
+											.append('死叉</td>')
+											.append('<td>')
+											.append(obj.date)
+											.append('</td>')
+											.append('<td class="pading_clw">')
+											.append((obj.selfSuccessRate.replace("该股票","该信号")))
+											.append('</td>')
+											.append('</tr>');
+									}
+									sellidx++;
+								}
+								selfidx++;
+							}
+						});
+						if(buyflag==1){
+							contentb.append('</tbody></table>');
+						}
+						if(sellflag==1){
+							contents.append('</tbody></table>');
+						}
+						
+						$('#indexBuyId').empty().append(contentb.toString());
+						$('#indexSellId').empty().append(contents.toString());
+					}else{
+						 $('#noDataId').addClass('event_onInfo01');
+					}
+				}
+			});	
+    	}
+    	
+    	function loadEvent(stockcode){
+			var url = "/ques/inquiry/getStockEvent.jspa?stockcode="+stockcode;
+			$.ajax({
+				type : "get",
+				url : url,
+				async : false,
+				dataType : "json",
+				timeout : 10000,
+				success : function(data, textStatus) {
+					if (typeof(data)!='undefined' && data!=null && data!='null' && data!=undefined  && data.length>0) {
+						var content = new StringBuffer();
+						content.append('<hr style="width: 100%; height:1px;border:none;border-top:1px solid #828385; position: absolute; top: 50%" /><i></i><i></i>');
+						$.each(data, function(idx, obj){
+							var num = idx + 1;
+							var isou = (num%2==0) ? true : false;
+							if(isou){
+								content.append('<div class="event_info_top left0'+num+'">')
+							}else{
+								content.append('<div class="event_info left0'+num+'">')
+							}
+							var rate=obj.selfSuccessRate;
+							var bool = rate.indexOf("该股票暂无统计数据");
+							var rateStr = "";
+							if(bool<0){
+								rateStr=rate;
+								rateStr=rateStr.replace("该股票","");
+							}	
+							if(!isou){
+								content.append('<span></span>')
+									.append('<i></i>')
+									.append('<div class="event_timer">'+obj.date+'</div>')
+									.append('<div class="achievement fz16">'+obj.name+'</div>')
+									.append('<div class="possibility">'+rateStr+'</div>')
+									.append('</div>');
+							}else{
+								content.append('<div class="achievement fz16">'+obj.name+'</div>')
+									.append('<div class="possibility">'+rateStr+'</div>')
+									.append('<div class="event_timer">'+obj.date+'</div>')
+									.append('<i></i>')
+									.append('<span></span>')
+									.append('</div>');
+							}	
+						});	
+						
+						$('#eventId').empty().append(content.toString());
+					}else{
+						$('#noEventDataId').addClass('event_onInfo');
+						$('#eventId').addClass('disno')
+					}
+				}
+			});	
+				
+    	}
+    	
+    	
+    	function loadF10(stockcode){
+			var url = "/ques/inquiry/getStockF10.jspa?stockcode="+stockcode;
+			$.ajax({
+				type : "get",
+				url : url,
+				async : false,
+				dataType : "json",
+				timeout : 10000,
+				success : function(data, textStatus) {
+					if (typeof(data)!='undefined' && data!=null && data!='null' && data!=undefined && data.length>0) {
+						var content = new StringBuffer();
+						var flag = 0;
+						$.each(data, function(idx, obj){
+							if(obj.con_theme!="" && obj.com_ment!=""){
+								content.append('<div class="concept_info">')
+									.append('<p class="fz16">').append(obj.con_theme).append('<i class="arrow-left"></i></p>')
+									.append('<div>')
+								if(obj.com_ment.length>250){
+									content.append('<p class="p_hiden fz14">')
+										.append(obj.com_ment.substring(0,250))
+										.append('...<a class="p_open">展开<span></span></a>')
+										.append('</p><p class="p_show fz14">')
+										.append(obj.com_ment)
+										.append('<a class="p_close">收起<span></span></a>')
+										.append('</p>')
+								}else{
+									content.append('<p class="fz14">').append(obj.com_ment).append('</p>')
+								}
+								content.append('</div>')
+									.append('</div>');
+								
+								flag++;
+							}
+						});	
+						if(flag==0){
+							$('#f10Id').addClass('event_onInfo');
+							$('#ckqbId').addClass('disno');
+							$('#sqId').addClass('disno');
+						}else{
+							$('#f10Id').empty().append(content.toString());
+						}
+					}else{
+						$('#f10Id').addClass('event_onInfo');
+						$('#ckqbId').addClass('disno');
+						$('#sqId').addClass('disno');
+					}
+				}
+			});	
+				
+    	}
+    	
+    	
+    	function loadLHB(stockcode){
+			var url = "/ques/inquiry/getStockLHB.jspa?stockcode="+stockcode;
+			$.ajax({
+				type : "get",
+				url : url,
+				async : false,
+				dataType : "json",
+				timeout : 10000,
+				success : function(d, textStatus) {
+					if (typeof(d)!='undefined' && d!=null && d!='null' && d!=undefined && d.success==true) {
+						if(d.success==true){
+							var content = new StringBuffer();
+							var buyflag1=0, sellflag1=0;
+							var contentb1 = new StringBuffer();
+							var contents1 = new StringBuffer();
+							var buymoney=0, sellmoney=0;
+							var buyidx=1, sellidx=1;
+							content.append('<p class="fz16 reason"><b>近期一次上榜原因：</b>')
+								.append(d.data.reason)
+								.append('</p>');
+							content.append('<b class="fz16">席位分析</b>')
+								
+							$.each(d.data.details, function(idx, obj){
+							
+								if(obj.type=="buy"){
+									if(buyidx<=5){
+										buymoney+=obj.buy;
+										var isoubuy = (buyidx%2==0) ?true:false;
+										if(buyflag1==0){
+											contentb1.append('<div class="buy_div clearfix pt20">')
+												.append('<div class="fl">买入金额最大的前5名</div>')
+												.append('<table class="sontab fl" border="0" cellpadding="3" cellspacing="0">')
+												.append('<tbody>')
+												.append('<tr>')
+												.append('<th>营业部名称<i>|</i></th>')
+												.append('<th  class="w200">买入额（万元）<i>|</i></th>')
+												.append('<th  class="w200">买入额占比</th>')
+												.append('</tr>')
+												.append('<tr>')
+												.append('<td  class="pading_cl">').append(obj.seat).append('</td>')
+												.append('<td>').append(ten_thousand(obj.buy)).append('</td>')
+												.append('<td>').append(obj.buyRatio).append('%</td>')
+												.append('</tr>')
+												
+											buyflag1=1;
+										}else{
+											if(!isoubuy){
+												contentb1.append('<tr>');
+											}else{
+												contentb1.append('<tr class="bgLightGray">');
+											}
+											contentb1.append('<td  class="pading_cl">').append(obj.seat).append('</td>')
+												.append('<td>').append(ten_thousand(obj.buy)).append('</td>')
+												.append('<td>').append(obj.buyRatio).append('%</td>')
+												.append('</tr>')
+										}
+										buyidx++;
+									}
+								}
+								
+								
+								if(obj.type=="sell"){
+									if(sellidx<=5){
+										sellmoney+=obj.sell;
+										var isousell = (sellidx%2==0) ?true:false;
+										if(sellflag1==0){
+											contents1.append('<div class="sell_div clearfix">')
+												.append('<div class="fl">卖出金额最大的前5名</div>')
+												.append('<table class="sontab fl" border="0" cellpadding="3" cellspacing="0">')
+												.append('<tbody>')
+												.append('<tr>')
+												.append('<th>营业部名称<i>|</i></th>')
+												.append('<th class="w200">卖出额（万元）<i>|</i></th>')
+												.append('<th class="w200">卖出额占比</th>')
+												.append('</tr>')
+												.append('<tr>')
+												.append('<td  class="pading_cl">').append(obj.seat).append('</td>')
+												.append('<td>').append(ten_thousand(obj.sell)).append('</td>')
+												.append('<td>').append(obj.sellRatio).append('%</td>')
+												.append('</tr>')
+												
+											sellflag1=1;
+										}else{
+											if(!isousell){
+												contents1.append('<tr>');
+											}else{
+												contents1.append('<tr class="bgLightGray">');
+											}
+										
+											contents1.append('<td class="pading_cl">').append(obj.seat).append('</td>')
+												.append('<td>').append(ten_thousand(obj.sell)).append('</td>')
+												.append('<td>').append(obj.sellRatio).append('%</td>')
+												.append('</tr>')
+										}
+										
+										sellidx++;
+									}
+								}
+									
+							});	
+							
+							buyidx--;
+							sellidx--;
+							if(buyidx<5){
+								if(buyidx%2!==0){
+									for(var i=1;i<=5-buyidx;i++){
+										if(i%2==0)
+											contentb1.append('<tr><td>--</td><td>0.00</td><td>0.00%</td></tr>')
+										else
+											contentb1.append('<tr class="bgLightGray"><td>--</td><td>0.00</td><td>0.00%</td></tr>')
+									}
+								}else{
+									for(var i=1;i<=5-buyidx;i++){
+										if(i%2==0)
+											contentb1.append('<tr class="bgLightGray"><td>--</td><td>0.00</td><td>0.00%</td></tr>')
+										else
+											contentb1.append('<tr><td>--</td><td>0.00</td><td>0.00%</td></tr>')
+									}
+								}
+							}
+							
+							if(sellidx<5){
+								if(sellidx%2!==0){
+									for(var i=1;i<=5-sellidx;i++){
+										if(i%2==0)
+											contents1.append('<tr><td>--</td><td>0</td><td>0</td></tr>')
+										else
+											contents1.append('<tr class="bgLightGray"><td>--</td><td>0</td><td>0</td></tr>')
+									}
+								}else{
+									for(var i=1;i<=5-sellidx;i++){
+										if(i%2==0)
+											contents1.append('<tr class="bgLightGray"><td>--</td><td>0</td><td>0</td></tr>')
+										else
+											contents1.append('<tr><td>--</td><td>0</td><td>0</td></tr>')
+									}
+								}
+							}
+							
+							if(buyflag1==1){
+								contentb1.append('</tbody></table></div>');
+							}
+							if(sellflag1==1){
+								contents1.append('</tbody></table></div>');
+							}
+							
+							content.append(contentb1).append(contents1);
+							
+							var max = buymoney > sellmoney ? buymoney : sellmoney;
+							var maxper = (""+max).substr(0,1);
+							var maxnum = (Number(maxper)+1)*Math.pow(10,((""+max).length-1))
+							var minnum = maxnum/2;
+							
+							content.append('<div class="bgLightGray pb20 mb40">')
+								.append('<p class="fz16 header_form">近期一次上榜买卖额数据</p>')
+								.append('<div class="cylinder_form clearfix" >')
+								.append('<ul class="fl">')
+								.append('<span>万元</span>')
+								.append('<li>').append(ten_thousand(maxnum)).append('</li>')
+								.append('<li>').append(ten_thousand(minnum)).append('</li>')
+								.append('<li class="mb0">0</li>')
+								.append('</ul>')
+								.append('<img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160513/bg_line.png">')
+								.append('<div class="form_outer fl">')
+								.append('<div id="buy_cylinder">')
+								.append('<div class="buy_number">').append(ten_thousand(buymoney)).append('<i class="arrow-down"></i><i></i></div>')
+								.append('</div>')
+								.append('<div id="sell_cylinder">')
+								.append('<div class="sell_number">').append(ten_thousand(sellmoney)).append('<i class="arrow-down"></i><i></i></div>')
+								.append('</div>')
+								.append('</div>')
+								.append('<div class="form_introduce fz14">')
+								.append('<div><i class="bgRed"></i>买入额</div>')
+								.append('<div><i class="bgGreen"></i>卖出额</div>')
+								.append('</div>')
+								.append('</div>')
+								.append('</div>');
+							
+							
+							var buyflag2=0, sellflag2=0;
+							var contentb2 = new StringBuffer();
+							var contents2 = new StringBuffer();
+							var buyidx2=1, sellidx2=1;
+							content.append('<b class="fz16 pb30">股价影响分析</b>')
+								
+							$.each(d.data.details, function(idx, obj){
+							
+								if(obj.type=="buy"){
+									if(buyidx2<=5){
+										if(buyflag2==0){
+											contentb2.append('<div class="analysis_buy">')
+												.append('<table class="fenxitab fz14" border="0" cellpadding="3" cellspacing="0">')
+												.append('<tbody>')
+												.append('<tr>')
+												.append('<td>').append(obj.seat).append('<i>|</i></td>')
+												.append('<td class="w200">买入&nbsp&nbsp<b>').append(ten_thousand(obj.buy)).append('</b>&nbsp万元<i>|</i></td>')
+												.append('<td>').append(obj.result).append('</td>')
+												.append('</tr>')
+												
+											buyflag2=1;
+										}else{
+											contentb2.append('<tr>')
+												.append('<td>').append(obj.seat).append('<i>|</i></td>')
+												.append('<td class="w200">买入&nbsp&nbsp<b>').append(ten_thousand(obj.buy)).append('</b>&nbsp万元<i>|</i></td>')
+												.append('<td>').append(obj.result).append('</td>')
+												.append('</tr>')
+										}
+										buyidx2++;
+									}
+								}
+								
+								
+								if(obj.type=="sell"){
+									if(sellidx2<=5){
+										if(sellflag2==0){
+											contents2.append('<div class="analysis_sell">')
+												.append('<table class="fenxitab fz14" border="0" cellpadding="3" cellspacing="0">')
+												.append('<tbody>')
+												.append('<tr>')
+												.append('<td>').append(obj.seat).append('<i>|</i></td>')
+												.append('<td class="w200">卖出&nbsp&nbsp<b>').append(ten_thousand(obj.sell)).append('</b>&nbsp万元<i>|</i></td>')
+												.append('<td>').append(obj.result).append('</td>')
+												.append('</tr>')
+												
+											sellflag2=1;
+										}else{
+											contents2.append('<tr>')
+												.append('<td>').append(obj.seat).append('<i>|</i></td>')
+												.append('<td class="w200">卖出&nbsp&nbsp<b>').append(ten_thousand(obj.sell)).append('</b>&nbsp万元<i>|</i></td>')
+												.append('<td>').append(obj.result).append('</td>')
+												.append('</tr>')
+										}
+										sellidx2++;
+									}
+								}
+									
+							});	
+							
+							if(buyflag2==1){
+								contentb2.append('</tbody></table></div>');
+							}
+							if(sellflag2==1){
+								contents2.append('</tbody></table></div>');
+							}
+							content.append(contentb2).append(contents2);
+							
+							$('#lhbId').empty().append(content.toString());
+							
+							Number.prototype.toPercent = function(){
+					            return (Math.round(this * 10000)/100).toFixed(2) + '%';
+					        };
+					
+					        var buy_A=parseInt($('.buy_number').html())/ten_thousand(maxnum), sell_B=parseInt($('.sell_number').html())/ten_thousand(maxnum);
+					        var buy_A_height=buy_A.toPercent();
+					        var buy_b_height=sell_B.toPercent();
+					        $('#buy_cylinder').css('height',buy_A_height);
+					        $('#sell_cylinder').css('height',buy_b_height);
+					        
+					        
+							
+						}
+						
+						
+					}else{
+						$('#lhbId').addClass('event_onInfo');
+					}
+					$(".fenxitab>tbody>tr:last-child").children().addClass('bb0');
+				}
+			});	
+				
+    	}
+
+
+    $(function($) {
+        $('.top_navigation li, .top_navigation1 li').click(function(evt){
+            evt.preventDefault();
+            var anchor = $(this).attr('href'),
+            top = $(anchor).offset().top-80;
+            //console.log(top);
+            $('html,body').animate({scrollTop: top}, 500);
+        });
+
+        var sidebarTop = 0,
+            flow2Top = ~~$('.box02').offset().top-80,
+            flow3Top = ~~$('.box03').offset().top-80,
+            flow4Top = ~~$('.box04').offset().top-80;
+
+        $(window).scroll(function(){
+            //console.log($(document).scrollTop(), sidebarTop, flow2Top, flow3Top, flow4Top, flow5Top);
+
+            if( $(document).scrollTop()-80 < sidebarTop ) {
+                $('.fixed_hader').hide();
+            } else {
+                $('.fixed_hader').show();
+            }
+
+            $('.top_navigation1 li.curr').removeClass('curr');
+
+            $(document).scrollTop() < flow2Top ?
+            $('.top_navigation1 li:eq(0)').addClass('curr') :
+            $(document).scrollTop() < flow3Top ?
+            $('.top_navigation1 li:eq(1)').addClass('curr') :
+            $(document).scrollTop() < flow4Top ?
+            $('.top_navigation1 li:eq(2)').addClass('curr') :
+            $('.top_navigation1 li:eq(3)').addClass('curr');
+        });
+        $('.p_open').click(function(){
+            $('.p_hiden').hide();
+            $('.p_show').show();
+        });
+        $('.p_close').click(function(){
+            $('.p_hiden').show();
+            $('.p_show').hide();
+        });
+        if($('.concept_info').length>4){
+            $('.iewv_all').show();
+            var box03Top=$('.concept_info').eq(4).position().top -10;
+            $('.box03').css('max-height',box03Top+'px');
+        }else {
+            $('.iewv_all').hide();
+        }
+
+
+        $('.iewv_all').click(function(){
+            $('.box03').css({"height":"auto","max-height":"none"});
+            $('.iewv_all').hide();
+            $('.iewv_part').show();
+        });
+        $('.iewv_part').click(function(){
+            $('.box03').css('max-height',box03Top+'px');
+            $('.iewv_all').show();
+            $('.iewv_part').hide();
+        });
+
+      Number.prototype.toPercent = function(){
+            return (Math.round(this * 10000)/100).toFixed(2) + '%';
+        };
+
+        var buy_A=parseInt($('.buy_number').html())/150000000, sell_B=parseInt($('.seel_number').html())/150000000;
+        var buy_A_height=buy_A.toPercent();
+        var buy_b_height=sell_B.toPercent();
+        $('#buy_cylinder').css('height',buy_A_height);
+        $('#sell_cylinder').css('height',buy_b_height);
+
+
+  });
+
+</script>
+<!--# include virtual="/v2/common-footer-v2.html" -->
+</body>
+</html>

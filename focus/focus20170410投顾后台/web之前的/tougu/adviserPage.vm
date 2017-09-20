@@ -1,0 +1,219 @@
+    <script type="text/javascript">
+    var userName = '${user.userName}'; 
+        $(function () {
+
+           // $('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');
+           $('.site-main .live-top .col-1 .row-pic img').attr('userid',basicUserInfo.userId);
+			F.update.attention('#focusId','itgid','关注','取消关注','btn btn-64-22-orange mt10','link link-2')
+			F.update.signing('#signId','itgid','签约','解除签约','btn btn-84-22-blue mt5','link link-2')
+
+			//签约投顾功能 加关注功能
+			
+			
+
+               //F.setSigningBtn('#signId','签约','解除签约','btn btn-84-22-blue mt5','link link-2')
+              // F.setAttentionBtn('#focusId','关注','取消关注','btn btn-64-22-orange mt10','link link-2') //设置 关注 按钮
+              // F.setcurBox('.site-main .live-top','.col-1 .row-pic img' ,'itgid'); //当前投顾及所在头像 
+              // F.start();
+
+
+
+            //site-top 用户信息
+//            var _timer = null;
+//            var dropDownListEvent = function (op, obj) {
+//                window.clearTimeout(_timer);
+ //               _timer = setTimeout(function () {
+//                    if (op == 'open') {
+//                        $(obj).find('.trigger').addClass('trigger-drop');
+//                        $(obj).find('.cnt').show();
+//                    } else {
+//                        $(obj).find('.trigger').removeClass('trigger-drop');
+ //                       $(obj).find('.cnt').hide();
+//                    }
+//                }, 300);
+ //           };
+
+//            $('.site-top .userinfo').mouseenter(function () {
+//                dropDownListEvent('open', this);
+ //           }).mouseleave(function () {
+ //               dropDownListEvent('close', this);
+ //           });
+            //site-top 用户信息
+
+            //tab
+//            var tab = new JRJ.ui.TabSwitch({
+//                menuPre: "menu_",
+//                conPre: "con_",
+//                total: 4,
+//                onClass: "cur",
+//              eventType: 'click',
+//               onSwitch: {
+//                  fcn: function () {
+
+//                    }, args: []
+//                }
+//            });
+            //tab
+
+
+
+ //           $('.live-item').mouseenter(function () {
+//                $(this).addClass('live-item-hover');
+ //               $(this).find('.bdsharebuttonbox').show();
+//           }).mouseleave(function () {
+//                $(this).removeClass('live-item-hover');
+//                $(this).find('.bdsharebuttonbox').hide();
+ //           });
+
+
+ //           $('.table-general tr td').mouseenter(function () {
+//               $(this).parent().addClass('hover');
+//            }).mouseleave(function () {
+//                $(this).parent().removeClass('hover');
+ //           });
+
+            //qr-code
+//           $('.qrcode-openaccount span').mouseenter(function () {
+//                $('.qrcode-openaccount .btn').stop().animate({ opacity: 0 }, 300, function () {
+//                    $(this).hide();
+//                });
+//               $(this).parent().addClass('qrcode-openaccount-hover');
+//            });
+//            $('.qrcode-openaccount').mouseleave(function () {
+//               $(this).removeClass('qrcode-openaccount-hover');
+//                $('.qrcode-openaccount .btn').show().stop().animate({ opacity: 1 });
+//            });
+            
+             $('.xh_lb .btn').click(function (e) {
+                e.preventDefault();
+				JRJ.ui.isLogin(function(){
+                 JRJ.Dialogs.iframeDialog({
+                    content: [''].join(''),
+                    loadingImg: '',
+                    width: 712,
+                    hasBtn: false,
+                    hasOkBtn: false,
+                    okBtnText:'',
+                    titleRight: '',
+                    bottomContent: '',
+                    protocolHtml: '',
+                    hasCancelBtn: false,
+                    enableKeyCtrl: true,
+
+                    ifrSrc: '/ques/asktoone.jspa?uid=${adviserId}&username=${user.userName}',
+                    ifrReHeight: true,
+                    isFixed: true,//defaultCf.isFixed,
+                    okCallback: function () {
+                        defaultCf.okCallback();
+                    },
+                    cancelCallback: function () {
+                        
+                        return true;
+                    }
+                });
+				
+				JRJ.Dialogs.setTitle("向$!{user.userName}提问");
+                })
+            });
+        });
+    </script>
+
+
+   
+                <div class="live-top live-top-2 clearfix">
+                    <div class="col-1 tc">
+                        <a href="javascript:void(0)" class="row-pic userOnlineState"><img src="$!{user.headImage}" alt="$!{user.userName}" itgid="$!{user.loginId}" width="75" height="75" /><span class="online" style="display:none;">在线</span></a>
+                        <a href="javascript:void(0)" class="btn btn-84-22-blue mt5" id="signId" itgid="$!{user.loginId}">签约</a>
+                        <a href="javascript:void(0)" class="btn btn-64-22-orange mt10" id="focusId" itgid="$!{user.loginId}">关注</a>
+
+                    </div>
+                    <div class="col-2" style="width:480px;padding-left:6px;">
+                        <p class="row-title"><span class="name">$!{user.userName}</span><i class="icon icon-v"></i><span class="title ml20"><span>$!{user.typeDesc}</span><!--<span class="row-level tc mt10" style="margin-left:10px;"><i class="icon-level icon-level-1"></i><span class="ml5">LV 49</span></span> <span class="row-level-2" style="margin-left:10px;"><span class="level-bar"><em style="width: 50%;"></em></span></span>--></span></p>
+                        <p class="xhh">#if($!{user.type} != 1)<span class="xh_1" style="margin-left:0;"><em class="bg_1">所属机构：</em>$!{user.company}</span>#end<span class="xh_2 bg_2" style="margin-left:0;"><em class="">所在地：</em>$!{user.province} $!{user.city}</span></p>
+                        <p class="xhh">#if($!{user.type} != 1)<span class="bg_3" style="margin-left:0;"><em>证券执业资格号：</em><em class="highlight">$!{user.certificationNum}</em></span>#end</p>
+                        <p class="xh_jt clearfix"><em>擅长领域</em>
+                        #foreach($li in ${list})  
+					    <span class="mr10">$!{li}</span>  
+					    #end  
+                        </p>
+                        <div class="row-desc">
+                            <span class="fl">简介:</span>
+                            <p>$!{user.intro}</p>
+                        </div>
+                    </div>
+                    <div class="xh_r">
+                        <div class="right-block-2" style="float:none;">
+                            <table>
+                                 <tr>
+                                    <td>
+                                        <p>已签约</p>
+                                        <p class="num">
+                                           #if(${user.signNum} > 10000)
+                                             #set($signNum = $countUtils.getCount(${user.signNum}))
+                                             $!{signNum}
+                                           #else
+                                              <b>$!{user.signNum}</b><span>人</span>
+                                           #end
+                                       </p>
+                                    </td>
+                                    <td>
+                                        <p>日志影响力</p>
+                                        <p class="num">
+                                          #if(${viewPv} > 10000)
+                                             #set($pv = $countUtils.getCount(${viewPv}))
+                                             $!{pv}
+                                          #else
+                                             <b>$!{viewPv}</b>
+                                          #end
+                                         </p>
+                                    </td>
+                                    <td class="last">
+                                        <p>日志赞同数</p>
+                                        <p class="num">
+                                        #if(${viewLike} > 10000)
+                                        	#set($like = $countUtils.getCount(${viewLike}))
+                                        	$!{like}
+                                        #else
+                                            <b>$!{viewLike}</b>
+                                        #end
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bottom">
+                                        <p>回答问题数</p>
+                                        <p class="num">
+                                            #if(${answeredNum} > 10000)
+                                        	  #set($answer = $countUtils.getCount(${answeredNum}))
+                                        	  $!{answer}
+                                        	#else
+                                              <b>$!{answeredNum}</b>
+                                            #end
+                                            </p>
+                                    </td>
+                                    <td class="bottom">
+                                        <p>满意度</p>
+                                        #if($!{user.useSatisfactionInt}>0)
+                                        <p class="num"><b>$!{user.useSatisfactionInt}</b><span>%</span></p>
+                                        #else
+                                        <p class="num"><b>--</b></p>
+                                        #end
+                                    </td>
+                                    <td class="last bottom">
+                                        <p>直播人气</p>
+                                        <p class="num"><b>--</b></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="xh_lb clearfix" style="margin-left: 40px;">
+                            <span>
+                                <p class="tc mt20 xh_taa"><a href="javascript:void(0);" class="btn btn-113-30">向TA提问</a></p>
+                            </span>
+                           <span class="xh_span">
+                                <p>平均响应时间</p>
+                                <p class="xh_zi">$!{timeStr}</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>

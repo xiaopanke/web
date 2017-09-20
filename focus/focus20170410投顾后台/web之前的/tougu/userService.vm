@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/dialog.effect.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+
+            //tab
+            //var tab = new JRJ.ui.TabSwitch({
+            //    menuPre: "menu_",
+            //    conPre: "con_",
+            //    total: 3,
+            //    onClass: "cur",
+            //    eventType:'click'
+            //});
+            //tab
+
+
+            //point-item
+            $('.my-tg-item').mouseenter(function () {
+                $(this).addClass('my-tg-item-hover');
+                $(this).find('.col-3 .link-2').show();
+            }).mouseleave(function () {
+                $(this).removeClass('my-tg-item-hover');
+                $(this).find('.col-3 .link-2').hide();
+            });
+            //point-item
+
+            $('.my-tg-item .row-pic').mouseenter(function () {
+                var _top = $(this).offset().top,
+                    _left = $(this).offset().left + $(this).width() + 10;
+
+                $('.popup-userinfo').css({ top: _top + 'px', left: _left + 'px' }).show();
+            });
+            $('.popup-userinfo').mouseleave(function () {
+                $(this).hide();
+            });
+            $(document).click(function () {
+                $('.popup-userinfo').hide();
+            });
+
+
+            //dialogs
+            //取消签约
+            $('#cancel').click(function (e) {
+                e.preventDefault();
+                JRJ.Dialogs.standardDialog({
+                    title: "取消签约",
+                    width: 300,
+                    content: '<div class="dialog-cnt dialog-confirm">您确定取消和此投顾的签约？</div>',
+                    okBtnText: "确认",
+                    cancelBtnText: "取消",
+                    hasCloseBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: true,
+                    okCallback: function () { },
+                    cancelCallback: function () {
+                    },
+                    isFixed: true
+                });
+            });
+            
+
+            //取消关注
+            $('.popup-userinfo .row-1 a.link').click(function (e) {
+                e.preventDefault();
+                JRJ.Dialogs.standardDialog({
+                    title: "取消关注",
+                    width: 300,
+                    content: '<div class="dialog-cnt dialog-confirm">您确定取消关注此投资顾问？</div>',
+                    okBtnText: "确认",
+                    cancelBtnText: "取消",
+                    hasCloseBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: true,
+                    okCallback: function () { },
+                    cancelCallback: function () {
+                    },
+                    isFixed: true
+                });
+            });
+
+            
+
+            //scroll
+            $(window).scroll(function () {
+                //$(window).scrollTop()这个方法是当前滚动条滚动的距离
+                //$(window).height()获取当前窗体的高度
+                //$(document).height()获取当前文档的高度
+                var bot = 200; //bot是底部距离的高度
+                if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                    //当底部基本距离+滚动的高度 >= 文档的高度-窗体的高度时；
+                    //我们需要去异步加载数据了
+                    //me.getData();
+                    //$container.masonry('reload');
+                    console.log('我们需要去异步加载数据了');
+                    $('.loading').show();
+
+                    setTimeout(function () {
+                        $('.loading').hide();
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">金融界证券通</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的证券通</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-left">
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span class="fr"><a href="#" class="stop">管理</a></span>
+                        <span><span>全部账户</span><i class="btn-refresh ml10 stop"></i></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            <a href="" class="btn btn-addaccount">增加其他交易账户</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>我的自选股</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>投顾服务</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <ul class="menu-list menu-list-services">
+                            <li>
+                                <a href="#" class="item-1">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-2">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-3">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>投顾后台</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <ul class="menu-list menu-list-back">
+                            <li>
+                                <a href="#" class="item-1">
+                                    <span class="notify fr">999</span>
+                                    <span>我的个人主页</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-2">
+                                    <span class="notify fr">999</span>
+                                    <span>重大财经资讯</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-3">
+                                    <span class="notify fr">999</span>
+                                    <span>我的观点</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-4">
+                                    <span class="notify fr">999</span>
+                                    <span>我的问答</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-5">
+                                    <span class="notify fr">999</span>
+                                    <span>我的直播</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-6">
+                                    <span class="notify fr">999</span>
+                                    <span>我的组合</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-7">
+                                    <span class="notify fr">999</span>
+                                    <span>我的积分</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-8">
+                                    <span class="notify fr">999</span>
+                                    <span>用户管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-9">
+                                    <span class="notify fr">999</span>
+                                    <span>个人设置</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="my-tg">
+                    <!--<ul class="tab clearfix">
+                        <li id="menu_1" class="cur">全部投顾</li>
+                        <li id="menu_2" class="">投资顾问</li>
+                        <li id="menu_3" class="">财经名人</li>
+                    </ul>-->
+                    <div id="con_1" class="tab-cnt clearfix">
+                        <div class="my-tg-item my-tg-item-3 clearfix">
+                            <div class="col-1">
+                                <a href="#" class="row-pic"><img src="http://i0.jrjimg.cn/zqt-red-1000/sample-5.jpg" alt="" width="75" height="75" /><span class="online">在线</span></a>
+                                <!--<p class="row-level tc mt10"><i class="icon-level icon-level-1"></i><span class="ml5">LV 49</span></p>
+                                <p class="row-level-2"><span class="level-bar"><em style="width: 50%;"></em></span></p>-->
+                                <p class="row-btn">
+                                    <img src="images/approved-81-30.png" alt="">
+                                </p>
+                            </div>
+                            <div class="col-2">
+                                <p class="row-title"><span class="name">祝枝山</span><i class="icon icon-v"></i><span class="title ml20"><span>财经名人</span><span class="ml20">惠州雄风投资管理</span></span></p>
+                                <div class="row-2 middle mt20">
+                                    <p class="xh_jt"><em>擅长领域</em><span class="mr10">A股</span><span class="mr10">港股</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span></p>
+                                </div>
+                                <div class="row-desc">
+                                    <span class="fl">简介:</span>
+                                    <p>她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她...</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <p class="tc mt30"><a href="#" class="btn btn-113-30">向TA提问</a></p>
+                                <p class="tc mt10"><a href="#" class="link-2" id="cancel">和TA解约</a></p>
+                            </div>
+                        </div>
+                        <div class="my-tg-item my-tg-item-3 clearfix">
+                            <div class="col-1">
+                                <a href="#" class="row-pic"><img src="http://i0.jrjimg.cn/zqt-red-1000/sample-5.jpg" alt="" width="75" height="75" /></a>
+                                <!--<p class="row-level tc mt10"><i class="icon-level icon-level-1"></i><span class="ml5">LV 49</span></p>
+                                <p class="row-level-2"><span class="level-bar"><em style="width: 50%;"></em></span></p>-->
+                                <p class="row-btn">
+                                </p>
+                            </div>
+                            <div class="col-2">
+                                <p class="row-title"><span class="name">祝枝山</span><i class="icon icon-v"></i><span class="title ml20"><span>财经名人</span><span class="ml20">惠州雄风投资管理</span></span></p>
+                                <div class="row-2 middle mt20">
+                                    <p class="xh_jt"><em>擅长领域</em><span class="mr10">A股</span><span class="mr10">港股</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span></p>
+                                </div>
+                                <div class="row-desc">
+                                    <span class="fl">简介:</span>
+                                    <p>她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她...</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <p class="tc mt30"><a href="#" class="btn btn-113-30">向TA提问</a></p>
+                                <p class="tc mt10"><a href="#" class="link">和TA签约</a></p>
+                            </div>
+                        </div>
+                        <div class="my-tg-item my-tg-item-3 clearfix">
+                            <div class="col-1">
+                                <a href="#" class="row-pic"><img src="http://i0.jrjimg.cn/zqt-red-1000/sample-5.jpg" alt="" width="75" height="75" /></a>
+                                <!--<p class="row-level tc mt10"><i class="icon-level icon-level-1"></i><span class="ml5">LV 49</span></p>
+                                <p class="row-level-2"><span class="level-bar"><em style="width: 50%;"></em></span></p>-->
+                                <p class="row-btn">
+                                    <img src="images/approved-81-30.png" alt="">
+                                </p>
+                            </div>
+                            <div class="col-2">
+                                <p class="row-title"><span class="name">祝枝山</span><i class="icon icon-v"></i><span class="title ml20"><span>财经名人</span><span class="ml20">惠州雄风投资管理</span></span></p>
+                                <div class="row-2 middle mt20">
+                                    <p class="xh_jt"><em>擅长领域</em><span class="mr10">A股</span><span class="mr10">港股</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span></p>
+                                </div>
+                                <div class="row-desc">
+                                    <span class="fl">简介:</span>
+                                    <p>她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她...</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <p class="tc mt30"><a href="#" class="btn btn-113-30">向TA提问</a></p>
+                                <p class="tc mt10"><a href="#" class="link" id="sign">和TA签约</a></p>
+                                <p class="tc mt10"><a href="#" class="link-2">和此投资顾问解约</a></p>
+                            </div>
+                        </div>
+                        <div class="my-tg-item my-tg-item-3 clearfix">
+                            <div class="col-1">
+                                <a href="#" class="row-pic"><img src="http://i0.jrjimg.cn/zqt-red-1000/sample-5.jpg" alt="" width="75" height="75" /></a>
+                                <!--<p class="row-level tc mt10"><i class="icon-level icon-level-1"></i><span class="ml5">LV 49</span></p>
+                                <p class="row-level-2"><span class="level-bar"><em style="width: 50%;"></em></span></p>-->
+                                <p class="row-btn">
+                                    <img src="images/approved-81-30.png" alt="">
+                                </p>
+                            </div>
+                            <div class="col-2">
+                                <p class="row-title"><span class="name">祝枝山</span><i class="icon icon-v"></i><span class="title ml20"><span>财经名人</span><span class="ml20">惠州雄风投资管理</span></span></p>
+                                <div class="row-2 middle mt20">
+                                    <p class="xh_jt"><em>擅长领域</em><span class="mr10">A股</span><span class="mr10">港股</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span></p>
+                                </div>
+                                <div class="row-desc">
+                                    <span class="fl">简介:</span>
+                                    <p>她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她...</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <p class="tc mt30"><a href="#" class="btn btn-113-30">向TA提问</a></p>
+                                <p class="tc mt10"><a href="#" class="link">和TA签约</a></p>
+                                <p class="tc mt10"><a href="#" class="link-2" id="cancel">取消关注此投资顾问</a></p>
+                            </div>
+                        </div>
+                        <div class="my-tg-item my-tg-item-3 clearfix">
+                            <div class="col-1">
+                                <a href="#" class="row-pic"><img src="http://i0.jrjimg.cn/zqt-red-1000/sample-5.jpg" alt="" width="75" height="75" /></a>
+                                <!--<p class="row-level tc mt10"><i class="icon-level icon-level-1"></i><span class="ml5">LV 49</span></p>
+                                <p class="row-level-2"><span class="level-bar"><em style="width: 50%;"></em></span></p>-->
+                                <p class="row-btn">
+                                </p>
+                            </div>
+                            <div class="col-2">
+                                <p class="row-title"><span class="name">祝枝山</span><i class="icon icon-v"></i><span class="title ml20"><span>财经名人</span><span class="ml20">惠州雄风投资管理</span></span></p>
+                                <div class="row-2 middle mt20">
+                                    <p class="xh_jt"><em>擅长领域</em><span class="mr10">A股</span><span class="mr10">港股</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span></p>
+                                </div>
+                                <div class="row-desc">
+                                    <span class="fl">简介:</span>
+                                    <p>她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她是最棒的她...</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <p class="tc mt30"><a href="#" class="btn btn-113-30">向TA提问</a></p>
+                                <p class="tc mt10"><a href="#" class="link">和TA签约</a></p>
+
+                            </div>
+                        </div>
+                        <div class="loading tc middle">
+                            <img src="http://i0.jrjimg.cn/zqt-red-1000/loading.gif" alt="" width="50" height="50" />
+                            <span>正在加载...</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+
+    <div class="popup-userinfo">
+        <i class="arrow"></i>
+        <div class="row-1">
+            <div class="col-1">
+                <div><a href="#" class="row-pic"><img src="http://i0.jrjimg.cn/zqt-red-1000/sample-5.jpg" alt="" width="75" height="75" /></a></div>
+                <!--<div><a href="#" class="btn-follow">+关注</a></div>-->
+                <div><a href="#" class="btn btn-84-22-blue ml10" style="margin:5px 0 0 0;">签约投顾</a></div>
+                <div><a href="#" class="btn btn-64-22-orange ml30" style="width: 82px; margin:5px 0 0 0;">+关注</a></div>
+                <!--  <div><a href="#" class="link">取消关注</a></div> -->
+            </div>
+            <div class="col-2">
+                <p class="name"><span>祝枝山</span><i class="icon icon-v ml10"></i><span class="ml10 f14">投资顾问</span></p>
+                <p class="xhh" style="margin:5px 0;"><span class="xh_1" style="margin-left:0;"><em class="bg_1">所属机构：</em>深圳新兰德证券咨询</span><span class="xh_2 bg_2"><em class="">所在地：</em>湖北省 襄樊市</span></p>
+                <p class="xhh" style="margin:5px 0;"><span class="bg_3" style="margin-left:0;"><em>证券执业资格号：</em><em class="highlight">A0780612060001</em></span></p>
+                <p class="xh_jt"><em style="margin-top: 2px;">擅长领域</em><span class="mr10">A股</span><span class="mr10">港股</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span><span class="mr10">自动化交易</span></p>
+            </div>
+        </div>
+        <div class="row-2 clearfix">
+            <div class="block-item block-item-1">
+                <p>回答问题数</p>
+                <p class="num"><b>169</b></p>
+            </div>
+            <div class="block-item block-item-2">
+                <p>用户满意度</p>
+                <p class="num"><b>99</b><span>%</span></p>
+            </div>
+            <div class="block-item block-item-3">
+                <p>平均响应时间</p>
+                <p class="num"><b>4</b><span>小时</span></p>
+            </div>
+            <div class="block-item block-item-4">
+                <p class="tc"><a href="#" class="btn btn-113-30">向TA提问</a></p>
+                <p class="tc note f14 mt10">平均响应时间：35分钟</p>
+            </div>
+        </div>
+    </div>
+
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

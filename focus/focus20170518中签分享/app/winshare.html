@@ -1,0 +1,174 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>中签分享</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#878C92; }
+body{background: #fff;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+
+.item1{ margin-top: 1rem; margin-bottom: .6rem;}
+.item1 img{width:100%;}
+.author{ text-align: center; color: #000;font-size: .7rem; line-height: 1rem;}
+.ipo{ text-align: center;font-size: .8rem; color: #000;}
+.ipo b{ color: #e30808; line-height: 1.5rem;}
+.sharebtn{ width:15.375rem; margin:.5rem  auto 0; font-size: 1rem; line-height: 2.25rem;background:#f24439; color:#fff;text-align: center; border-radius: 6px; display: block;}
+.haha{width:16rem; height:25rem; display: none;  }
+.pic{ display: none;}
+
+canvas{ display: none;}
+</style>
+<body>
+    <div class="item1"><img src="https://i0.jrjimg.cn/zqt-m/winshare/img/img1.png"></div>
+    <h3 class="author"></h3>
+    <div class="ipo">新股<b></b>中签</div>
+    <span class="sharebtn">晒一晒</span>
+    <img class="pic" src="https://i0.jrjimg.cn/zqt-m/winshare/img/img2.png"></img>
+    <canvas id="qrcodeCanvas"></canvas>
+    <div class="haha"></div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>  
+<script>
+$(function(){ 
+    (function(){
+       var K={
+            iponamestr:'新股中签',
+            init:function(){
+                K.change();//计算文字大小
+                K.getdata(); //获取数据
+                K.sharefn();
+            },
+            change:function(){
+                function changesize(){
+                    document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+                }
+                changesize();
+                window.addEventListener('resize',changesize,false);
+            },
+            getdata:function(){ 
+                /*var getname= function() { 
+                    setTimeout(function() {
+                        jrj.jsCallNative("130", JSON.stringify({
+                          method: "get",
+                          url: 'https://zqtrc.yun.pingan.com/sapi/v2/ipo/queryIpoSuccessShare',
+                          params: {},
+                          callback: "callbackgetname",
+                          version: "6.2.0"
+                        }))
+                    },20)
+                };
+                  
+                getname(); 
+                window.callbackgetname = function(v) { 
+                    setTimeout(function() {
+                        v=K.convertToJsonObject(v);
+                        console.log(v);
+                        if(v.retcode==0){
+                            $('.author').html(v.data.nickName);
+                            var iponame='';
+
+                            for(var i=0;i<v.data.stockList.length;i++){
+                                if(i==v.data.stockList.length-1){
+                                    iponame+=v.data.stockList[i].stockName;
+                                }else{
+                                    iponame+=v.data.stockList[i].stockName+'、';
+                                }
+                                
+                            } 
+                           
+                            
+                            $('.ipo b').html(iponame);
+                            K.iponamestr='新股'+iponame+'中签'
+                        }    
+                    },0)
+                }*/
+                function getQueryString(name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return r[2];
+                    return null;
+                };
+                var abc=decodeURI(getQueryString('stockName'));
+                if(abc.indexOf('+')!=-1){
+                    abc=abc.substring(abc.indexOf('+')+1,abc.length)
+                }
+                $('.author').html(decodeURI(getQueryString('userName')));
+                $('.ipo b').html(abc);
+                K.iponamestr='新股'+abc+'中签'
+            },
+            sharefn:function(){ 
+                $('.sharebtn').click(function(){
+                    var canvas = document.getElementById('qrcodeCanvas');
+                    var ctx = canvas.getContext('2d');
+                    var body = $('.haha');
+                    canvas.width = body.width() * 2;
+                    canvas.height = body.height() * 2;
+                    canvas.style.width = body.width();
+                    canvas.style.height = body.height();
+                    ctx.scale(2,2);
+                    ctx.fillStyle="#d90000";
+                    ctx.fillRect(0,0,body.width() * 2,60+canvas.height/3);
+                    var image = new Image();
+                    image.onload = function() { 
+                        ctx.drawImage(image, 0,0, canvas.width/2, canvas.height/2.9);
+                        ctx.font = "14px Microsoft Yahei";
+                        ctx.fillStyle = "#fff";
+                        ctx.textAlign='center';
+                        ctx.fillText($('.author').html(), canvas.width/4, 25+canvas.height/3);
+
+                        ctx.font = "16px Microsoft Yahei";
+                        ctx.fillStyle = "#fff";
+                        ctx.textAlign='center';
+                        ctx.fillText(K.iponamestr, canvas.width/4, 45+canvas.height/3);
+
+                        
+                        //console.log(ctx.canvas.toDataURL());
+                        var img = new Image();
+                        img.onload = function(){
+                            ctx.drawImage(img, 0, 60+canvas.height/3, canvas.width / 2, canvas.height/9.5);
+                            strlen = ctx.canvas.toDataURL("image/png").substring(22);
+                            jrj.jsCallNative('135', JSON.stringify({imgdata:strlen}));
+                        };
+                        img.src = 'https://i0.jrjimg.cn/zqt-m/winshare/img/img3.png';   
+                        
+                    };
+                    image.src =$('.pic').attr('src');
+                });
+            },
+            convertToJsonObject:function(str){
+                if(typeof str != 'object'){      
+                    return JSON.parse(str);    
+                }else{
+                    return str;
+                }
+            }
+       }; 
+       K.init();
+    })();
+});
+
+</script> 
+   
+</body>
+</html>

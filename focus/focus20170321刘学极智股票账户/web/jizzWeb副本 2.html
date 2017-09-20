@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>金融界——“极·智”股票账户</title>
+<meta name="keywords" content="极·智”股票账户、升级交易体验、平安证券、证券开户交易、金融界APP、爱投顾、首次交易、level-2、Z点操盘、一站式证券交易平台" />
+<meta name="description" content="活动期间，在金融界APP绑定平安证券资金账号，即刻开通“极-智”股票账户，持仓股票实时显示ZS点信号 ，还能有level-2让您看盘始终快人一步。" />
+<link rel="stylesheet" href="http://cdn.dowebok.com/77/css/jquery.fullPage.css">
+<link type="text/css" rel="stylesheet" href="http://js.jrjimg.cn/common/edition15/css/common2015.css" />
+<style>
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none;}
+a:active{background-color:transparent;}
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 16px/28px "Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; color: #e4e4e4; }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+.enter{ font-size: 12px;}
+
+
+body{min-width:1000px;;}
+.fp-tableCell{ width:1000px; margin:0 auto; display: block; position: relative;}
+.bc{overflow: hidden;}
+.line{ width:118px; height: 4px; background: #8080c7; display: block;}
+
+
+.bgsprite{width:26px; height: 24px; background:url(img/sprite.png) no-repeat;display: block; }
+.section1{ background-image: url(img/webbg1.jpg); background-repeat: no-repeat;background-position: top center;}
+.sec1_top { }
+.sec1_top span{ margin-right: 50px; }
+.sec1_top a{ margin-right: 40px; color:#5d626f;text-decoration: underline;  }
+.sec1_top p{ color:#5d626f; }
+.sec1_top a:hover{  color:#5d626f  }
+.section1 ul{ margin-top: 370px; margin-left: 200px; line-height: 36px;}
+.section1 ul span{ float: left;color: #287ed6; margin-right: 38px;}
+.section1 ul em{ float: left; color: #e4e4e4;}
+.section1inbox{ position: absolute;width: 1000px;left: 50%; margin-left: -500px; top: 50%; margin-top: -300px;  height: 600px; background: url(img/bg2.png) no-repeat 77px 114px;}
+
+.section2 .sliderbox{width:280px; height: 564px; float: left; margin-top: 70px; margin-right: 100px;}
+.msg{width:380px; margin-left: 30px; float: left; margin-top: 90px;}
+.msg h3 { margin-top: 30px; font-size: 30px; color: #8080c7; margin-bottom: 48px;}
+.msg h3 b{ font-size: 42px; color: #5050a6;}
+.msg h3 strong { color: #8080c7; font-size: 34px;}
+.msg ul{margin-left: 27px; line-height: 40px; font-size: 20px; color: #bdbdbd; margin-bottom: 40px; }
+.msg ul li{overflow: hidden;}
+.msg ul span{ color: #8080c7; font-weight: bold;font-size: 22px; margin-right: 16px;float:left;margin-top: 2px;}
+.msg ul em{color: #000; font-size: 16px; padding-left: 26px; border-left:1px solid #bdbdbd; line-height: 18px;float: left; margin-top: 13px;}
+.msg p{ line-height:25px; margin-top: 10px; color:#000;font-size: 14px; }
+.section2 .msg{ margin-top: 40px;}
+.section3 .msg {width:410px; margin-left: 16px;}
+.section3 .msg .line{ background: #e6cd70;box-shadow: 0 0 19px 0px #fff;}
+.section3 .msg h3{ color: #bda033;}
+.section3 .msg h3 b{color: #ffe00c;}
+.section3 .msg h3 strong{color: #ffcc0c;}
+.section3 .msg ul li{margin-bottom: 30px;}
+.section3 .msg ul span{  margin-right: 0;float:left;margin-top: 2px; width:42px; height: 42px; }
+.section3 .msg ul .span1{background-position: -107px -42px;}
+.section3 .msg ul .span2{background-position: -107px -90px;}
+.section3 .msg ul .span3{background-position: -107px -138px;}
+.section3 .msg ul .span4{background-position: -107px -184px;}
+.section3 .msg ul em{color: #865f00; font-size: 16px; padding-left: 33px;  line-height:42px;float: left; border-left:none; margin-top: 0;}
+.section3inbox{width:1000px ;height: 688px; top:50%; margin-top: -344px; position: absolute;left:50%; margin-left: -500px;}
+.section2inbox{width:1000px ;height: 600px; top:50%; margin-top: -300px; position: absolute;left:50%; margin-left: -500px;}
+.section4inbox{width:100%;height: 650px; top:50%; margin-top: -330px; position: absolute;left:50%; margin-left: -50%;}
+
+
+.kaitongbtn{ display: block;width:290px; height: 61px;font-size: 20px; color: #fff;background:#5050a6; border-radius:4px;text-align: center; line-height: 60px; margin-left: 15px; cursor: pointer;}
+.kaitongbtn2{ background:#b9babb; margin-top: 10px;}
+.kaitongbtn2 em{line-height: 28px; display: block;}
+.kaitongbtn2 .two{ text-decoration: line-through;}
+.kaitongbtn3{ background: #ffe00c; margin-left: 37px;}
+.kaitongbtn4{ background: #5b5c5e; color: #fff;border:1px solid #a1a2a3; margin-top: 20px; margin-left: 37px;}
+
+
+.section3 .sliderbox{width:410px; height: 600px; background: red; float: left; margin-top: 50px;}
+.section3 .imgbox{ margin-top: 50px;float: left;margin-left: 30px;}
+
+.section4 .fp-tableCell{ width:100%;}
+.section4 .fp-tableCell .in{ background: #f2f2f2;}
+.wenzi{ width: 1000px; margin:0 auto;}
+.wenziin{ width: 910px;color: #000;}
+.wenziin h3{text-align: center; line-height: 100px;  font-size: 40px;font-weight: normal;}
+.wenziin .item2{text-align: center;}
+.wenzi .line{background:#642600; margin:0 auto 26px;}
+.wenzi .item2 strong{ font-size: 22px; color: #642600;margin-left: 20px; font-weight: normal;}
+.wenzi .item2 em{ font-size: 19px;}
+.wenzi ul { padding-bottom: 30px;}
+.wenzi ul li{ float: left; width:50%; margin-top: 30px;}
+.wenzi ul li p{ line-height: 34px;font-size: 32px; border-left:1px solid #c7b4a9; padding-left: 12px; color: #000;}
+.wenzi ul li span{ color: #c7b4a9; display: block; margin-left: 12px ; line-height: 30px; } 
+.sec_foot_in{width:1000px; margin: 0 auto}
+.sec_foot_txt{ width: 862px; padding-top: 10px;}
+
+
+.foot_hd span{  font-size: 30px;  padding-top: 18px; display: block;text-align: center; color: #000;
+    width: 800px; }
+.foot_hd span em{background-position: 0 -167px; width:30px; height: 30px; margin:0 auto;}
+.foot_hd p{float: left; margin-top: 20px; margin-left: 25px; padding:0 40px; line-height: 30px; color: #fff;background: #313235; border-radius: 5px;}
+.foot_bd{ color: #000; font-size: 14px;line-height: 30px; margin-top: 20px;}
+.foot_bd .bd{ margin-top: 10px; color: #333; font-size: 13px;}
+
+
+.sidebar{width: 100px; height: 380px; position: fixed;top:50%; margin-top: -190px;left:50%;z-index: 10; margin-left: 450px;}
+.sidebar .line{width:82px; height: 1px; background: #8a8b8c; margin:0 auto 30px;}
+.sidebarbtn{border: 1px solid #aaa;border-radius: 50px; line-height: 60px; width:60px; color:#fff; display: block; margin: 0 auto;text-align: center;cursor: pointer;}
+.sidebar ul span{float: left;width:74px; height: 30px; background: url(img/sprite.png) no-repeat 0 -65px;}
+.sidebar ul li{ color:#555; margin-bottom: 42px; line-height: 30px;} 
+.sidebar ul li a{ color: #555; }
+.sidebar ul .active span{background-position: 0 -30px; }
+.sidebar ul .active a{color: #fff;}
+.sidebarbtn1{display: block;}
+.sidebarbtn2{color: #2a2a2a;}
+.sidebarbtn4{color: #2a2a2a; position: relative;}
+.sidebarbtn4 em{ position: absolute;top: 95px;left: -87px; width:276px; padding:6px 35px; line-height: 22px;background: #d9d9d9;border-radius: 5px; font-size: 14px; color: #000; }
+
+.white ul .active span{ background-position: 0 -105px;}
+.white ul .active a{color: #555;}
+.phone{width:308px; height: 564px; background:url(img/phone.png) no-repeat; position: absolute; box-shadow: 0 5px 27px 1px #ccc; border-radius: 50px;top: 1px;left: -16px;z-index: 2;}
+.sliderbox .fp-tableCell{width:100%; height: auto; }
+.fp-controlArrow.fp-prev{display:none;border:0;width:34px; height: 34px;top:105%;background: url(img/sprite.png) no-repeat -161px -44px;left:88px}
+.fp-controlArrow.fp-next{display:none;border:0;width:34px; height: 34px;top:105%;background: url(img/sprite.png) no-repeat -161px -5px; right:805px;}
+.fp-slidesNav{display: none;}
+/*弹层*/
+.mask { display: none; position: fixed; width: 100%; height: 100%; background: #000; opacity: .6; filter: alpha(opacity=60); top: 0; left: 0; z-index: 2; }
+.layer{display:none;width: 429px;height: 383px;position: fixed;top: 50%;left: 50%;margin-top: -192px;margin-left: -215px;z-index: 10;color: #000;animation: haha .6s cubic-bezier(1,-0.49, 0, 1.5); padding-top: 37px; color: #97d2ee;}
+@keyframes haha {
+from { transform: scale(6); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+.layer .code{ width:200px; height: 200px; padding:12px; background:#fff; border-radius: 10px; margin:0 auto 20px;}
+#img{width:278px; height: 447px;background:url(img/1.png) no-repeat center center;}
+.closebtn{ position:absolute; bottom:-62px;left:50%;width:42px; height:42px; cursor:pointer; margin-left: -21px; background: url(img/sprite.png) no-repeat  -160px -84px;   }
+/*攻略 */
+.layer_gl{width: 615px; margin-left: -308px; height:800px; margin-top: -400px; padding-top: 0; background-image: url(img/gl.png); border-radius: 8px; color: #fff;}
+.layer_gl .closebtn{ background:none;bottom: 751px;margin-left: 252px; }
+/*分享*/
+.layer_fx{width:360px; height:355px; margin-left: -180px; margin-top: -196px; background:url(img/lay_bg.png) top center;  border-radius: 8px; text-align: center;  line-height: 26px; font-size: 18px;}
+.layer_xz{width:360px; height:413px; margin-left: -180px; margin-top: -225px; background:url(img/lay_bg.png) top center;  border-radius: 8px; text-align: center;}
+.section2{overflow: hidden;}
+.layer_gl h3{ line-height: 80px; font-size: 31px; text-align: center; padding-top: 180px;}
+.layer_gl p{ margin:0 40px; line-height: 30px; font-size: 16px;}
+.layer_gl span{ display: block;width: 153px; line-height: 40px; background:#fff; color: #003b6b;font-size: 26px;text-align: center;border:1px solid #47dcf3; border-radius: 20px; margin:410px auto 0; cursor: pointer;}
+.layer_gl em{ color: #fd7f05;}
+</style>
+<script src="http://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://cdn.dowebok.com/77/js/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="http://newjs.jrjimg.cn/common/foot/jrj_dcs_tag-m.js"></script>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.qrcode.min.js"></script>
+<script>
+$(function(){ 
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    var ssoId='${ssoId}';
+    var tgqdcode=getQueryString('tgqdcode');
+
+    codehaha();
+    function codehaha(){
+        $.ajax({
+           url:'https://t.jrj.com.cn/activities/common/join?matchId=5&ssoId='+ssoId+'&tgqdcode='+tgqdcode,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+                console.log(v);
+                if(v.retcode==0){
+                    
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+    window.dcsMultiTrack('DCS.dcsuri', 'jizzWeb_all', 'WT.ti', 'jizzWeb_all');
+    $('#dowebok').fullpage({
+        sectionsColor: ['#141619', '#fff', '#141619', '#f2f2f2'],
+        continuousVertical: true,
+        //Navigation
+        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+        menu: '#menu',
+        lockAnchors: false,
+        navigation: false,
+        navigationPosition: 'right',
+        navigationTooltips: [],
+        showActiveTooltip: false,
+        slidesNavigation: true,
+        slidesNavPosition: 'bottom',
+        afterLoad: function(anchorLink, index){
+            $('.sidebarbtn').addClass('hide');
+            $('.sidebarbtn').eq(index-1).removeClass('hide');
+            if(index == 1){
+                $('.sidebar').removeClass('white');
+            }
+            if(index == 2){
+                $('.sidebar').addClass('white');
+            }
+            if(index == 3){
+                $('.sidebar').removeClass('white');
+            }
+            if(index == 4){
+                $('.sidebar').addClass('white');
+            }
+        },
+        onLeave: function(index, direction){
+            // alert(2);
+        }
+
+    });
+    $('.sidebarbtn4').hover(function(){
+        $(this).find('em').removeClass('hide');
+    },function(){
+        $(this).find('em').addClass('hide');
+    })
+
+     setInterval(function(){
+        $.fn.fullpage.moveSlideRight();
+    }, 3000);
+     
+     //分享
+     $('.sidebarbtn4').click(function(){
+        JRJ.ui.isLogin(function(){
+            $('.layer').hide();
+            $('.mask,.layer_fx').show();
+            $('.layer_fx .codein').empty().qrcode({
+                /* render with table or canvas */
+                /* 更改了jquery.qrcode源码，使得不支持canvas的浏览器使用table */
+                //render: "table",
+                width: "200",
+                height: "200",
+                image: null,
+                text: 'http://itougu.jrj.com.cn/activity/app/jizzApp.jspa?tgqdcode=apptest&ssoId='+ssoId
+            });
+       });
+        window.dcsMultiTrack('DCS.dcsuri', 'jizzWeb_fenxiang', 'WT.ti', 'jizzWeb_fenxiang');
+    });
+     //攻略
+     $('.glbtn').each(function(){
+        $(this).click(function(){
+            $('.layer').hide();
+            $('.mask,.layer_gl').show();
+            window.dcsMultiTrack('DCS.dcsuri', 'jizzWeb_gonglue', 'WT.ti', 'jizzWeb_gonglue');
+        });
+     });
+     $('.layer_xz .codein').empty().qrcode({
+        width: "200",
+        height: "200",
+        image: null,
+        text: 'http://sjcms.jrj.com.cn/app_tg.php?channel=45H8NXD27'
+    });
+     //下载app
+     $('.ktbtn').each(function(){
+        $(this).click(function(){
+            $('.layer').hide();
+            $('.mask,.layer_xz').show();
+            window.dcsMultiTrack('DCS.dcsuri', 'jizzWeb_xiazai', 'WT.ti', 'jizzWeb_xiazai');
+        });
+     });
+     $('.closebtn').each(function(){
+        $(this).click(function(){
+            $('.mask,.layer').hide();
+        });
+    });
+});
+</script>
+</head>
+
+<body>
+<script src="http://js.jrjimg.cn/common/head/headTop.js"></script>
+<div id="dowebok">
+    <div class="section section1">
+        <div class="section1inbox">
+            <div class="sec1_top clearfix">
+                <span class="bgsprite fl"></span>
+                <a href="javascript:;" class="fl glbtn">点击查看攻略</a>
+                <p class="fl">活动时间：2017年4月3日-4月30日</p>
+            </div>
+            <ul> 
+                <li class="clearfix"><span>极速</span><em>毫秒级行情，10档盘口</em></li>
+                <li class="clearfix"><span>智能</span><em>提醒买卖信号、把握交易时机</em></li>
+                <li class="clearfix"><span>升级</span><em>360°全新股票账户，不单单是交易，还能智慧盯盘</em></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="section section2">
+        <div class="section2inbox">
+            <div class="sliderbox">
+                <div id="img"></div>
+                <input id="btn_explode" type="button" value="爆炸" class="btn_01" />
+                <span class="phone"></span>
+                <div class="fp-controlArrow fp-prev"></div>
+                <div class="fp-controlArrow fp-next" id="fp-next"></div>
+            </div>
+            <div class="msg">
+                <em class="line"></em>
+                <h3><b>智</b>能股票账户-<strong>智慧账户</strong></h3>
+                <ul>
+                    <li><span>快</span><em>准确及时提醒持仓股票买卖信号</em></li>
+                    <li><span>准</span><em>采用金融界Z³智能金融引擎</em></li>
+                    <li><span>精</span><em>提高准确率，节省选股和盯盘时间</em></li>
+                    <li><span>明</span><em>Z点为加仓信号，S为减仓信号</em></li>
+                </ul>
+                <span class="kaitongbtn kaitongbtn1 ktbtn" >免费开通“极-智”股票账户</span>
+                <span class="kaitongbtn kaitongbtn2" ><em>Z点操盘598元订阅/季</em><em class="two">原价2000元</em></span>
+                <p>温馨提示：智慧账户及金融界Z点操盘所提示的所有信息<br />仅供参考，您需独立做出投资决策。</p>
+            </div>
+        </div>
+    </div>
+    <div class="section section3">
+        <div class="section3inbox clearfix">
+            <div class="msg">
+                <em class="line"></em>
+                <h3><b>极</b>速股票账户——-<strong>智慧账户</strong></h3>
+                <ul>
+                    <li><span class="bgsprite span1"></span><em>千档挂盘，0.01秒行情 —— 快人一步</em></li>
+                    <li><span class="bgsprite span2"></span><em>逐笔成交、买卖队列 —— 更多机会</em></li>
+                    <li><span class="bgsprite span3"></span><em>委托数量、加权价格 —— 视角全面</em></li>
+                    <li><span class="bgsprite span4"></span><em>势力对比，资金流向 —— 清晰明了</em></li>
+                </ul>
+                <span class="kaitongbtn kaitongbtn3 ktbtn" >免费开通“极-智”股票账户</span>
+                <a class="kaitongbtn kaitongbtn4"  href="http://stock.jrj.com.cn/focus/zblv2/" target="_blank">level-2视频教程</a>
+            </div>
+            <div class="imgbox">
+                <img src="img/img1.png" alt="">
+            </div>
+            
+        </div>
+    </div>
+    <div class="section section4">
+        <div class="section4inbox">
+            <div class="in" style="display:;">
+                <div class="wenzi">
+                    <div class="wenziin">
+                        <h3>有了金融界APP，炒股才如此与众不同</h3>
+                        <em class="line"></em>
+                        <div class="item2 clearfix">
+                            <em>一站式证券交易平台</em>
+                            <strong>金融界</strong>
+                        </div>
+                    </div>
+                    <ul class="clearfix">
+                        <li>
+                            <p>佣金万2.5，一年省下iPhone 7</p>
+                            <span>佣金直降9成，极速开户，费用全免</span>
+                        </li>
+                        <li>
+                            <p>精英投顾，实时解盘</p>
+                            <span>国内唯一0费用，0条件 享受顶级投顾服务</span>
+                        </li>
+                        <li>
+                            <p>秒速行情资讯，精彩实盘大赛</p>
+                            <span>和好友一起玩实盘游戏，一键跟单10强选手</span>
+                        </li>
+                        <li>
+                            <p>银行级安全保障、放心交易</p>
+                            <span>银行级风控，保障个人隐私及交易数据安全</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sec_footer">
+                <div class="sec_foot_in">
+                    <div class="sec_foot_txt">
+                        <div class="foot_hd clearfix">
+                            <span class="">活动详情</p>
+                        </div>
+                        <div class="foot_bd">
+                            <p>1、在金融界APP绑定平安证券资金账号，并到此活动页面点击开通“极-智”股票账户，持仓股票实时显示ZS点信号，出现信号时在下一日开盘前就可收到APP消息通知，跟单操作两不误；</p>
+                            <p>2、“极-智”股票账户中极速行情level-2，在金融界APP绑定平安证券资金账号后5个工作日内开通3个月使用权限（限活动期间首次绑定用户可领取level-2);</p>
+                            <p>3、智慧账户基础使用期限为1个月，分享还可再增加智慧账户使用期限1个月。分享到微信好友、朋友圈和微博，每邀请一个好友在金融界APP完成首次交易就能延期1个月，并且分享的好友也能领取智慧账户一个月使用权限。关注接下来的活动，并保持在金融界APP交易的习惯，后续还可持续开通“极·智”股票账户。</p>
+                            <p class="bd">本活动为“金融界”主办，活动奖励均由“金融界”发放，智慧账户非券商提供功能，用户可拨打客服电话咨询活动详情400-166-1188。股市有风险，投资需谨慎活动最终解释权归金融界所有。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sidebar" id="menu">
+    <ul>
+        <li data-menuanchor="firstPage" class="menu-item-1 active"><a href="#firstPage"><span></span>1</a></li>
+        <li data-menuanchor="secondPage" class="menu-item-2"><a href="#secondPage"><span></span>2</a></li>
+        <li data-menuanchor="thirdPage" class="menu-item-3"><a href="#thirdPage"><span></span>3</a></li>
+        <li data-menuanchor="fourthPage" class="menu-item-4"><a href="#fourthPage"><span></span>4</a></li>
+    </ul>
+    <em class="line"></em>
+    <span class="sidebarbtn sidebarbtn1 ktbtn">开通</span>
+    <span class="sidebarbtn hide sidebarbtn2 glbtn">攻略</span>
+    <span class="sidebarbtn hide sidebarbtn3 glbtn">攻略</span>
+    <span class="sidebarbtn hide sidebarbtn4">分享
+        <em class="sharebox hide">分享到微信好友、朋友圈和微博，送给好友赚钱利器-“Z点操盘”，自己点击也能领！</em>
+    </span>
+</div>
+<div class="mask"></div>
+<!--攻略-->
+<div class="layer layer_gl">
+    <i class="closebtn"></i>
+    <h3>什么是“<em>极·智</em>”账户？</h3>
+    <p>即区别于其他平台券商的股票交易账户，金融界“极·智”股票账户不仅可以股票交易，还能提供<em>更快的10档行情</em>及持仓股票<em>买卖点信息</em>。 </p>
+    <span class="ktbtn">马上参与</span>
+</div>
+<!--分享-->
+<div class="layer layer_fx">
+    <i class="closebtn"></i>
+    <div class="code"><div class="codein"></div></div>
+    <div class="tit">
+        <p>分享到微信好友、朋友圈和微博，<br />送给好友赚钱利器-“Z点操盘”，<br />自己点击也能领！</p>
+    </div>
+</div>
+<!--下载-->
+<div class="layer layer_xz">
+    <i class="closebtn"></i>
+    <div class="code"><div class="codein"></div></div>
+    <div class="tit">
+        <p>去活动页面开通”极·智“股票账户，<br /> 查看持仓股票的ZS点和<br />level-2极速行情。</p>
+        <span>立即下载/金融界APP</span>
+    </div>
+</div>
+<script type="text/javascript">
+    // JavaScript by zns
+function rnd(n, m)
+{
+    return Math.random()*(m-n)+n;
+}
+
+function setStyle(obj, json)
+{
+    if(obj.length)
+    {
+        for(var i=0;i<obj.length;i++)
+        {
+            setStyle(obj[i], json);
+        }
+    }
+    else
+    {
+        for(var i in json)
+        {
+            obj.style[i]=json[i];
+        }
+    }
+}
+function setStyle3(obj, name, value)
+{
+    obj.style['Webkit'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['Moz'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['ms'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['O'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style[name]=value;
+}
+function buffer(obj, cur, target, fnDo, fnEnd, fs)
+{
+    if(!fs)fs=6;
+    var now={};
+    var x=0;
+    var v=0;
+
+    if(!obj.__last_timer)obj.__last_timer=0;
+    var t=new Date().getTime();
+    if(t-obj.__last_timer>20)
+    {
+        fnMove();
+        obj.__last_timer=t;
+    }
+
+    clearInterval(obj.timer);
+    obj.timer=setInterval(fnMove, 20);
+    function fnMove(){
+        v=Math.ceil((100-x)/fs);
+
+        x+=v;
+
+        for(var i in cur)
+        {
+            now[i]=(target[i]-cur[i])*x/100+cur[i];
+        }
+
+
+        if(fnDo)fnDo.call(obj, now);
+
+        if(Math.abs(v)<1 && Math.abs(100-x)<1)
+        {
+            clearInterval(obj.timer);
+            if(fnEnd)fnEnd.call(obj, target);
+        }
+    }
+};
+document.onmousedown=function ()
+{
+    return false;
+};
+
+window.onload=function ()
+{
+    var now=0;
+    var oDiv=document.getElementById('img');
+    var ready=true;
+    var W=278;
+    var H=447;
+    
+    function next(){
+        if(now==4){now=1;}
+        return (now+1)%3;
+    }
+    
+    //爆炸
+    function haha(){
+        if(!ready)return;
+        ready=false;
+        
+        var R=7;
+        var C=4;
+        
+        var cw=W/2;
+        var ch=H/2;
+        
+        oDiv.innerHTML='';
+
+        oDiv.style.background='url(img/'+(next()+1)+'.png) center no-repeat';
+        
+        var aData=[];
+        
+        var wait=R*C;
+        
+        for(var i=0;i<R;i++)
+        {
+            for(var j=0,k=0;j<C;j++,k++)
+            {
+                aData[i]={left: W*j/C, top: H*i/R};
+                var oNewDiv=document.createElement('div');
+                setStyle(oNewDiv, {
+                    position: 'absolute',
+                    background: 'url(img/'+(now+1)+'.png)'+-aData[i].left+'px '+-aData[i].top+'px no-repeat',
+                    width:Math.ceil(W/C)+'px', height: Math.ceil(H/R)+'px', left: aData[i].left+'px', top: aData[i].top+'px'
+                });
+                //setStyle3(oNewDiv, 'transition', '0.5s all ease-out');
+                
+                oDiv.appendChild(oNewDiv);
+                
+                var l=((aData[i].left+W/(2*C))-cw)*rnd(2,3)+cw-W/(2*C);
+                var t=((aData[i].top+H/(2*R))-ch)*rnd(2,3)+ch-H/(2*R);
+                
+                setTimeout((function (oNewDiv,l,t){
+                    return function ()
+                    {
+                        buffer(
+                            oNewDiv,
+                            {left: oNewDiv.offsetLeft, top: oNewDiv.offsetTop, opacity: 100, x:0,y:0,z:0,scale:1, a:0},
+                            {left: l, top: t, opacity: 0,x:rnd(-180, 180),y:rnd(-180, 180),z:rnd(-180, 180),scale:rnd(1.5, 3), a:1},
+                            function (now){
+                                this.style.left=now.left+'px';
+                                this.style.top=now.top+'px';
+                                this.style.opacity=now.opacity/100;
+                                setStyle3(oNewDiv, 'transform', 'perspective(500px) rotateX('+now.x+'deg) rotateY('+now.y+'deg) rotateZ('+now.z+'deg) scale('+now.scale+')')
+                            }, function (){
+                                setTimeout(function (){
+                                    //oDiv.removeChild(oNewDiv);  这里要改呢，有错误啊
+                                    if($('#img').html()){
+                                        $('#img').html('');
+                                    }
+                                }, 200);
+                                if(--wait==0)
+                                {
+                                    ready=true;
+                                    now=next();
+                                }
+                            }, 10
+                        );
+                    };
+                })(oNewDiv,l,t), rnd(0, 200));
+            }
+        }
+    }
+    var timer=setInterval(function(){
+        haha()  
+    },2000);
+    
+    $('.fp-next').click(function(){
+        now++;if(now==4){now=1;}
+        haha();
+    });
+    $('.fp-prev').click(function(){
+        now--;if(now==0){now=3}
+        haha();
+    });
+    $('.sliderbox').hover(function(){
+        clearInterval(timer)
+    },function(){
+        timer=setInterval(function(){
+            haha()  
+        },2000);
+    });
+};
+</script>
+</body>
+</html>
+
+
+

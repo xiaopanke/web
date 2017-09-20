@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投资机构注册-爱投顾-金融界</title>
+    <meta name="keywords" content="投资机构注册-爱投顾-金融界" />
+    <meta name="description" content="投资机构注册-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <!--\#include virtual="/common_head_css_js.html" -->
+    <!-- 
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig-compact-register.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+     --> 
+	
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig-compact-register.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    
+    
+    <script src="http://js.jrjimg.cn/itougu/account/initCompany.js"></script>
+   
+     
+    <script type="text/javascript">
+        $(function () {
+        	//初始化机构logo,默认为空，否则就把之前的记录显示
+        	var orgLogoImage = "$!{orgApply.orgLogo}";
+	        if(orgLogoImage != ""){
+	        
+	            $("#max1").attr("src",orgLogoImage);
+	        	$("#max2").attr("src",orgLogoImage);
+	        	$("#mid").attr("src",orgLogoImage);
+	        	$("#min").attr("src",orgLogoImage);
+	        }
+        	
+        	
+             $('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');
+            //$('#txtUsername').watermark('真实姓名');
+            //$('#txtID').watermark('身份证号');
+            //$('#txtMobile').watermark('手机号');
+            //$('#txtVCode').watermark('验证码');
+            //$('#txtQQ').watermark('QQ号码');
+            //$('#txtMail').watermark('邮箱');
+            //$('#txtNumber').watermark('输入资格证编码');
+            //$('#txtLimit').watermark('从业年限');
+            $('#txtCompany').watermark('所在公司');
+            //$('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');
+            $('#select1').sSelect({ ddMaxHeight: '168px' });
+            $('#select2').sSelect({ ddMaxHeight: '168px' });
+            $('#select3').sSelect({ ddMaxHeight: '168px' });
+            $('#select4').sSelect({ ddMaxHeight: '168px' });
+            $('#select10').sSelect({ ddMaxHeight: '168px', containerClass: 'newListSelected-364' });
+            $('#txtLimit').sSelect({ ddMaxHeight: '168px', containerClass: 'newListSelected-364' });
+            $('#txtLimit_3').sSelect({ ddMaxHeight: '168px', containerClass: 'newListSelected-364' });
+
+
+            $('.tooltip-1').tooltipster({
+                theme: 'tooltipster-light',
+                contentAsHTML: true,
+                content: '<div class="tl"><p>昵称是您在爱投顾平台展示的名称，</p><p>建议您使用真实姓名，也可使用有影响力的常用网名</p></div>'
+            });
+
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).siblings().removeClass('checked');
+                    $(this).addClass('checked');
+                }
+            });
+            
+            //是否显示验证码框（如果有手机号则隐藏，否则显示）
+           var mobileVcode = '$!{orgApply.mobile}' ;
+		   if(mobileVcode==''){
+			   $("#mobileVerifyCode").show();
+		   }else{
+			   $("#mobileVerifyCode").hide();
+		   }
+
+        });
+        
+	
+    </script>
+</head>
+<body>
+     <!--# include virtual="/site_top_header.html" -->
+    <div class="page-title">
+        <div class="wrapper">
+             <h1>投资机构入驻</h1>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-single-cnt">
+                <div class="steps-wrap steps-wrap-3">
+                    <div class="step-item step-item-1"></div>
+                    <div class="step-text clearfix">
+                        <span class="past">录入机构信息</span>
+                        <span>上传营业执照副本</span>
+                        <span class="last">提交审核</span>
+                    </div>
+                </div>
+                <h2 class="block-title mt30">基本信息</h2>
+                
+               <form action="/account/applyOrg_2.jspa" id="form_1" method="POST" >
+               
+                <input type="hidden" name="orgLogo" id="orgLogo" value="$!{orgApply.orgLogo}"/>
+                <input type="hidden" name="applyName" id="applyNameValue" value="$!{orgApply.applyName}"/>
+                <input type="hidden" name="position" id="positionValue" value="$!{orgApply.position}"/>
+                <input type="hidden" name="email" id="emailValue" value="$!{orgApply.email}"/>
+                <input type="hidden" name="telephone" id="telephoneValue" value="$!{orgApply.telephone}"/>
+                <input type="hidden" name="mobile" id="mobileValue" value="$!{orgApply.mobile}"/>
+                
+                <table class="table-register mt30">
+                 #if(${message})
+                	<tr>
+                		<td class="field" ></td>
+                		<td ><font color="red">$!{message}</font></td>
+	                </tr>
+	             #end
+	             
+	                 <tr>
+                        <td class="field"><span class="required">*</span><span>机构名称</span></td>
+                        <td>
+                            <div class="dropdownlist-wrap mr10" style=" float:left;">
+                                <input id='txtCompany' type="text" class="txtbox" style="width:306px;" name="orgName" value="$!{orgApply.orgName}" data-shortname="$!{orgApply.orgShortName}"  readonly="readonly" />
+                               
+                                <script>
+									$(function(){Company.getCompany()})
+								</script>
+								<div class="dropdownlist-cnt clearfix">
+									<div class="dropdownlist-cnt-left">
+										<p>索引</p>
+										<div>
+											<ul>
+												<li class="cur">A</li>
+												<li>B</li>
+												<li>C</li>
+												<li>D</li>
+												<li>E</li>
+												<li>F</li>
+												<li>G</li>
+												<li>H</li>
+												<li>I</li>
+												<li>J</li>
+												<li>K</li>
+												<li>L</li>
+												<li>M</li>
+												<li>N</li>
+												<li>O</li>
+												<li>P</li>
+												<li>Q</li>
+												<li>R</li>
+												<li>S</li>
+												<li>T</li>
+												<li>U</li>
+												<li>V</li>
+												<li>W</li>
+												<li>X</li>
+												<li>Y</li>
+												<li>Z</li>
+											</ul>
+										</div>
+									</div>
+									<div class="dropdownlist-cnt-right">
+										<div class="dropdown-item clearfix">
+											<div class="index"></div>
+											<div class="list">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+                            <span class="msg-wrap middle" style=" float:left;">
+                                   <span class="msg-info" id="orgNameMsg" style="color: rgb(204, 51, 51); display: none;">请选择机构名称</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>机构简称</span></td>
+                        <td>
+                            <input id="orgShortName" name="orgShortName" type="text" readonly="readonly" class="txtbox mr10" style="width:346px;" value="$!{orgApply.orgShortName}"/>
+                            <span class="msg-wrap middle">
+                                <span id="orgShortNameMsg" class="msg-info" style="color: rgb(204, 51, 51);display: none;">机构简称不能为空</span>
+                                <i class="icon icon-error" style="display: none;" id="orgShortNameTag"></i>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>机构所在地</span></td>
+                        <td>
+                        
+                            <input type="hidden" value="$!{orgApply.province}" id="province_hidden"/>
+                        	<input type="hidden" value="$!{orgApply.city}" id="city_hidden"/>
+                            <select id="select1" name="province" onChange="InitCity(this.options[this.options.selectedIndex].text);$('#select2').resetSS();"></select>
+                            <select id="select2" name="city"><option>城市</option></select>
+                            <span class="msg-wrap middle">
+                                <span class="provice-error-msg" id="provinceMsg" style="color: rgb(204, 51, 51); display: none;">请选择机构所在地</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>法人代表</span></td>
+                        <td>
+                            <input type="text" class="txtbox mr10" style="width:306px;" id="artificialPerson" name="artificialPerson" value="$!{orgApply.artificialPerson}" />
+                             <span class="msg-wrap middle">
+                                <span class="msg-info" style="color: rgb(204, 51, 51); display: none;" id="artificialPersonMsg">法人代表不能为空</span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+	             
+	             
+	            <div class="form-split"></div>
+				<dl class='block-title-content'>
+					<dt>机构简介</dt>
+					<dd>
+						<textarea id="orgSummary" name="orgSummary" class='agency-text' style='width:700px; height:90px;'>$!{orgApply.orgSummary}</textarea>
+						<span class='note'>0/500</span>
+						 <p class="red" style=" padding-left:126px;color: rgb(204, 51, 51);display:none;" id="orgSummaryMsg">机构简介不能为空</p>
+					</dd>
+				</dl>
+				
+				<div class="form-split"></div>
+				
+				 <form id="uphead" enctype="multipart/form-data" action="http://up1.jrj.com.cn/upload" method="post" target="uploadimgw">
+               	   <input type="hidden" name="channel" value="thead_attach" >
+               	   
+			       <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://itougu.jrj.com.cn/account/uploadOrgImg.jspa" >
+			        <!--
+			       <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://itougu.jrj.com.cn:8080/account/uploadImg.jspa" >
+			       -->
+			       <input type="hidden" name="imageFormats" value="150,75,50"/>
+			       <input type="hidden" name="sizeMax" value="10485760"/>
+			       <input type="hidden" name="sizisNeedGenScaleseMax" value="isNeedGenScales"/>
+			       
+				<h2 class="block-title mt30">上传机构LOGO</h2>
+				<div class="pic-upload clearfix">
+					<div class='fl'>
+						<img id="max1" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" class="example" id="exampleImg" width="150" height="150" />
+						<p class="red tc" style="display:none;clear: both;" id="orgLogoMsg">请上传机构LOGO</p>
+					</div>
+                    
+                    <div class="pic-upload-info">
+                        <p class="field">要求：</p>
+                        <p>1.可上传副本照片或扫描件，保证信息清晰可见;</p>
+                        <p>2.支持.jpg .gif .png格式照片，大小不超过10M;</p>
+                        <p class="mt5"><a id="upload-orgLogo"  class="btn btn-79-25">上传照片</a></p>
+                    </div>
+                    <div class="pic-upload-result clearfix">
+                        <div class="result-1">
+                            <img id="max2" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" width="150" height="150" />
+                            <p>大</p>
+                        </div>
+                        <div class="result-2 tc">
+                            <img id="mid" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" width="75" height="75" />
+                            <p>中</p>
+                            <img id="min" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" width="50" height="50" class="mt30" />
+                            <p>小</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <iframe frameborder="0" scrolling="no" width="0" height="0" name="uploadimgw" id="uploadimgw" target="_self" style='display:none'></iframe>
+                </form>
+             
+				<h2 class="block-title mt30">申请人（机构联络人）</h2>
+				<table class="table-register mt30">
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>姓名</span></td>
+                        <td>
+                            <input type="text" class="txtbox" style="width:140px;" id="applyName" name="applyName" value="$!{orgApply.applyName}"/>
+                            <span class="msg-wrap middle">
+                                <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="applyNameMsg">姓名不能为空</span>
+								<i class="icon icon-right" style="display: none;"></i>
+                            </span>
+                        </td>
+                        <td class="field"><span class="required">*</span><span>职位</span></td>
+                        <td><input type="text" class="txtbox" style="width:140px;" id="position" name="position" value="$!{orgApply.position}"/>
+                             <span class="msg-wrap middle">
+                                <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="positionMsg">职位不能为空</span>
+								<i class="icon icon-right" style="display: none;"></i>
+                            </span>
+                        </td>
+                    </tr>
+					<tr>
+                        <td class="field"><span class="required">*</span><span>邮箱</span></td>
+                        <td width='250'><input type="text" class="txtbox" style="width:140px;" id="email" name="email" value="$!{orgApply.email}" />
+                            <span class="msg-wrap middle">
+                                <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="emailMsg">邮箱不能为空</span>
+								<i class="icon icon-right" style="display: none;"></i>
+                            </span>
+                        </td>
+                        <td class="field"><span class="required">*</span><span>座机</span></td>
+                        <td >
+                           <input type="text" class="txtbox" style="width:140px;" id="telephone" name="telephone" value="$!{orgApply.telephone}"/>
+                           <span class="msg-wrap middle">
+                                <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="telephoneMsg">座机不能为空</span>
+                                <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="telephoneInfoMsg">请按格式输入：010-12345678</span>
+								<i class="icon icon-right" style="display: none;"></i>
+                            </span>
+                        </td>
+                    </tr>
+					<tr>
+                        <td class="field"><span class="required">*</span><span>手机号</span></td>
+                        <td colspan='3'>
+                        
+                        
+                         #if ($orgApply.mobile)
+                            <div class="middle" id="mobile1">
+                                <input name="mobile" value="$!{orgApply.mobile}" id="txtMobile" type="text" class="txtbox"  readonly="readonly" maxlength="11" style="width:140px;" /><!--disabled-->
+                                <a href="javascript:void(0);" class="link ml10" id="modify">修改</a>
+                                <input class="btn btn-getcode ml5" id="vcode" style="display: none;" type="button" value="获取验证码"/>
+                                
+                                <a href="javascript:void(0);" class="link ml10" style="display: none;" id="cancel">取消修改</a>
+                            </div>
+                          #else
+                             <div class="middle">
+                                <input name="mobile" id="txtMobile" type="text" class="txtbox" maxlength="11" style="width:140px;" /><!--disabled-->
+                               <!-- <a href="javascript:void(0);" class="link ml10" id="modify">修改</a>-->
+                              <!--  <a href="javascript:void(0);" class="btn btn-getcode ml5" id="vcode"><获取验证码</a>--><!--btn-getcode-disable-->
+                                <input class="btn btn-getcode ml5" id="vcode" type="button" value="获取验证码"/>
+                                <span class="msg-wrap middle" style="margin-top:0;">
+                                    <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="mobileMsg">请填入您的11位手机号</span>
+                                </span>
+                            </div>
+                            #end
+                            
+                        </td>
+                    </tr>
+                     
+					<tr id="mobileVerifyCode">
+                        <td class="field"><span class="required">*</span><span>验证码</span></td>
+                        <td colspan='3'>
+							<input id="txtVCode" type="text" class="txtbox mr10" style="width:140px;" />
+							<span class="msg-wrap middle">
+							    <!-- 
+							     <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="voteMsg"></span>
+							     -->
+							    <i class="icon icon-right" style="display: none;" id="vcodeRight"></i>
+								<i class="icon icon-error" style="display: none;" id="vcodeError"></i>
+                            </span>
+						</td>
+                    </tr>
+                    
+                </table>
+                
+				<div class="form-split"></div>
+				<table class="table-register">
+                    <tbody>
+                      <tr>
+                        <td class="field">&nbsp;</td>
+                        <td style="padding-top:0;">
+                            <a href="javascript:void(0)" class="btn btn-123-40" style="margin-left:282px;" onclick="goSecond();">下一步</a>
+                        </td>
+                      </tr>
+                   </tbody>
+                </table>
+                </form>
+              </div>
+            </div>
+          </div>
+	             
+                   
+    <script src="http://js.jrjimg.cn/itougu/account/initCity.js"></script>  
+     <script src="http://js.jrjimg.cn/itougu/account/applyOrg.js"></script>  
+    <script type="text/javascript">
+    
+       </script>
+    <!--\#include virtual="/common_footer.html" -->
+  
+</body>
+</html>

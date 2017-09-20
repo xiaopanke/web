@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{user.userName}的投资组合-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{user.userName}的投资组合，爱投顾，金融界" />
+    <meta name="description" content="$!{user.userName}的投资组合，爱投顾，金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-css.css" rel="stylesheet" />
+</head>
+<body>
+	<!--header begin-->
+	<!--\#include virtual="/v2/site_top_compact.html" -->
+	<!--header end-->
+	
+	<!--container begin-->
+	<div class="container">
+		<div class="m-wrap">
+			<div class="m-1000">
+				<!--头部信息 begin-->
+				<!--\#include virtual="/account/adviser/$!{user.loginId}/infov1.html" -->
+				<!--头部信息 end-->
+				
+				<!--头部主导航 begin-->
+				#set($nav = 4)
+				#set($adviserId=$user.loginId)
+				#if($!{user.type}==2)
+				  #set($tipsDesc = '投资内参')
+				#else
+				  #set($tipsDesc = '专栏订阅')
+				#end
+				#parse("tougu/homepage/nav.vm")
+				<!--头部主导航 end-->
+			</div>
+			
+			
+			<div class="clear">
+				<!--主体左边-->
+				<div class="fl">
+					<!--投资组合-->
+					<div class="m-680">
+						<h3 class="m-tit-row">
+							<span class="tit">TA的组合跟投</span>
+							<span class="s-tit"><em class="hot">$!{query.recordnum}</em> 款组合</span>
+						</h3>
+						<script type="text/javascript">
+						var chartData = new Array();	
+						</script>
+						#if($!{query.recordnum}>0)
+							#set($a = 0)
+							#foreach($q in $!{query.list})
+							<div class="invest-cont mb30">
+			                	<div class="portfolio-rank-item-status-wrap">
+				                    #if($!{q.isFree}!=1)
+				                    <span class="portfolio-rank-item-status"></span>
+				                    #end
+				                    #if($!{q.matchid} == 1)
+				                    <span class="portfolio-rank-item-status portfolio-rank-item-status-master"></span>
+				                    #end
+			                    </div>
+								<h4 class="sub-tit" id="chartname$!{a}">$!{q.pname}</h4>
+								<div class="invest-info">
+									<dl>
+										<dt>总收益</dt>
+									#if(${q.portfolioStatis.totalReturns} && ${q.portfolioStatis.totalReturns}!="0")
+										#set($Double=0.00)
+										#if($Double.parseDouble($!{q.portfolioStatis.totalReturns})>0)
+											<dd class="red">$!{countUtils.getCount($Double.parseDouble($!{q.portfolioStatis.totalReturns}), 2)}%</dd>
+										#else
+											<dd class="green">$!{countUtils.getCount($Double.parseDouble($!{q.portfolioStatis.totalReturns}), 2)}%</dd>
+										#end					
+									#else
+										<dd class="grey">--</dd>
+									#end
+									</dl>
+									<dl>
+										<dt>月均交易次数</dt>
+										<dd class="mt15">$!{q.portfolioStatis.monthConcludeTimes}</dd>
+									</dl>
+									<dl class="trend">
+										<dt>走势图</dt>
+										<dd><div class="chart-cnt" id="chart-show$!{a}" style="width: 146px; height: 50px; margin: 0 auto"></div></dd>
+									</dl>
+								</div>
+								<p class="pre-row">
+									<span class="fl">目标收益&nbsp;
+									#if(${q.yield} && ${q.yield}!=0)
+										#if(${q.yield}>0)
+											<em class="red">$!{q.yield}%</em>
+										#else
+											<em class="green">$!{q.yield}%</em>
+										#end										
+									#else
+										<em class="grey">--</em>
+									#end
+									</span>
+									##if($!{q.isFree}==1)
+										<!--<a href="#" target="_blank" class="fr blue-btn">$!{q.promotion} · 签约后订阅</a>
+										<a href="#" target="_blank" class="fr red-btn">$!{q.price} · 订阅</a>-->
+									##else
+										<a href="/portfolio/v2/detail/$!{q.pid}.jspa" target="_blank" class="fr red-btn">立即查看</a>
+									##end
+								</p>
+							</div>	
+							<script type="text/javascript">
+							var temp$!{a} = new Array();
+							#set($a1 = 0)
+							#foreach($d in $!{q.yieldRateList})
+							temp$!{a}[$!{a1}] = new Array();
+							temp$!{a}[$!{a1}][0] = $!{countUtils.dateTransformLong($!{d.date})};
+							temp$!{a}[$!{a1}][1] = $!{d.yieldrate};
+							#set($a1 = $a1 + 1)
+							#end
+							chartData[$!{a}] = temp$!{a} ;
+							</script>
+							#set($a = $a + 1)
+							#end
+						#else
+							<div class="empty-cont">投顾正在酝酿精品内容</div>
+						#end
+					</div>
+					
+				</div>
+				<!--主体右边-->
+				<div class="m-300 fr">
+					<!--\#include virtual = "/gg-homepage/gg.html" -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--container end-->
+	
+	<!--footer begin-->
+	<!--\#include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/highcharts.min.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/account/myadviser.js"></script>
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/homepage-infov1.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script>
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+	<!--footer end-->
+	<script type="text/javascript">
+				var defaultConfig  = {
+                    chart: {
+                        type: 'area',
+                        spacingBottom: 10
+                    },
+                    title: {
+                        text: ''
+                    },
+                    tooltip: {
+                    	enabled:false,
+                   		formatter: function () {
+                            return '<b>' + this.series.name + '</b><br/>' +
+                                Highcharts.dateFormat('%m-%d',this.x) + ': ' + Highcharts.numberFormat(this.y,2,'.');
+                        }
+                    },
+                    plotOptions: {
+                        area: {
+                            fillColor: {
+                                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                stops: [
+                                    [0, '#aaaaaa'],
+                                    [1, Highcharts.Color('#ffffff').setOpacity(0).get('rgba')]
+                                ]
+                            },
+                            fillOpacity: 0.5,
+                            marker: {
+                                radius: 0
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name:'',
+                        data:[]
+                    }],
+                    xAxis: {
+                        labels: {
+                            enabled: false
+                        },
+                        type:'datetime',
+                        gridLineWidth: 0,
+                        lineWidth: 0,
+                        tickWidth: 0
+                    },
+                    yAxis: {
+                        labels: {
+                            enabled: false
+                        },
+                        title: {
+                            enabled: false
+                        },
+                        gridLineWidth: 0
+                    },
+                    legend: {
+                        enabled: false
+                    }
+                };
+			for(var i =0;i<chartData.length;i++){
+				//if(chartData[i]!=null && chartData[i]!=undefined && chartData[i]!='' && charData[i]){
+				if($.isArray(chartData[i]) && chartData[i].length>0){
+					//var tmp = new Array();
+					//tmp[0] = chartData[i];
+					defaultConfig.series[0].data = chartData[i];
+					defaultConfig.series[0].name = $("#chartname"+i).html();
+					$("#chart-show"+i).highcharts(defaultConfig);
+				}else{
+					$($('.trend dd').get(i)).html('<img width="146" height="50" src="http://js.jrjimg.cn/zqt-red-1000/images/v2/empty-chart.png" />');
+				}
+			}
+	</script>
+</body>
+</html>

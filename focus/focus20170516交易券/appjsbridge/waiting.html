@@ -1,0 +1,257 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>我的交易券</title>
+  <style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#333; text-decoration: none; }
+a:hover{text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333; }
+body{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+
+
+.main {padding:0 .75rem;}
+.main a {color: #3c80f0;font-size: .75rem;text-decoration: underline;margin-top: 1rem;}
+.main ul li { margin-top: 1rem;}
+.main ul li img { width: 15rem;height: 5rem;margin-left: 1.3rem;margin-right: 1.1rem;}
+.abv .guize {text-align:center;font-size:.75rem;margin-top:1.4rem}
+.abv .guize a{ color: #666;}
+.abv .goquan {text-align:center;margin-top:2.2rem}
+.abv .goquan a{text-decoration: underline;color: #333; font-size: .75rem;}
+
+.layer { display: none; background: black; opacity: 0.6;position: fixed;top: 0;left: 0;width: 100%;height: 100%; }
+.alert {display: none; position: fixed;top: 50%;left: 50%;width: 15.5rem;height: 8.8rem;background: #ffffff;margin-top: -4.4rem;margin-left: -7.75rem;border-radius: 2px;}
+.alert .title { font-size: .8rem;color: #333333;text-align: center;margin: 1rem 0;}
+.alert .content { color: #333333;font-size: .7rem;line-height: 1rem;padding: 0 .9rem; display: none;}
+.alert .button { width: 9.5rem;height: 1.5rem;background-color: #3996f2;color:#fff;text-align:center;margin: 1.2rem auto 0;line-height: 1.5rem;border-radius: 4px;}
+.chacha { background: url(https://i0.jrjimg.cn/zqt-m/myticket/img/chacha.png) no-repeat center center #fff;background-size: 60% 60%;width: 1.5rem;height: 1.5rem;position: absolute;border-radius: 50%;top: -1.8rem;right: 0;}
+
+
+.quan{ height: 4.75rem; background:url(https://i0.jrjimg.cn/zqt-m/myticket/img/go.png) no-repeat; background-size: 100% 100%; width:14.9rem; margin:0 auto; }
+.quan .meg {width:11.3rem; color: #fff;}
+.quan .tips{ font-size: .5rem;text-align: center;}
+.quan .up{}
+.quan .up em{float: left; font-size: 1.7rem; line-height: 3rem; margin-left: 1.5rem; margin-top: .8rem;}
+.quan .up b{float: left;font-size: 3.3rem; line-height: 3.8rem;}
+.quan .up .tit{float: right;width:5.9rem; margin-top: 1rem;}
+.quan .up .tit h3{font-size: 1.4rem; line-height: 1.4rem; font-weight: normal;}
+.quan .up .tit time{font-size: .5rem; display: block;}
+.quan .aside{width:3.4rem;text-align: center;}
+.quan .aside span{ display: block;width:1.4rem; font-size: 1.2rem; color: #654500;text-align: center; line-height: 1.4rem; margin:.5rem auto 0;}
+.quan .aside em{ display: block;width:1.6rem; background: url(https://i0.jrjimg.cn/zqt-m/myticket/img/arrow.png) no-repeat; background-size: 100% auto; height: 1rem; margin: 0 auto;}
+
+.noquan{width:10rem; margin:5rem auto 0;background:url(https://i0.jrjimg.cn/zqt-m/myticket/img/waiting.png) no-repeat center 0;background-size: 4.425rem auto; padding-top: 4.5rem; text-align: center;font-size: .85rem; color: #333; display:none;}
+.footer{ font-size: .7rem; color: #333;text-align: center; position: fixed;bottom: 1rem; width: 100%; display: none;}
+  </style>
+ </head>
+ <body>
+ <div class="main">
+   <div class="clearfix">
+     <a class="fr" href="http://itougu.jrj.com.cn/match/v7/h5/myRedList.jspa">我的红包</a>
+   </div>
+   <div class="abv">
+     <ul class="myticketlist">
+       <!--<li>
+         <div class="quan">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>5</b>
+                      <div class="tit">
+                          <h3>交易券</h3>
+                          <time>有效期至：2017-06-10</time>
+                      </div>
+                  </div>
+                  <p class="tips">在金融界用平安证券完成首笔交易即可兑现</p>
+              </div>
+              <div class="fr aside">
+                <span>兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>
+       <li>
+         <div class="quan">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>5</b>
+                      <div class="tit">
+                          <h3>交易券</h3>
+                          <time>有效期至：2017-06-10</time>
+                      </div>
+                  </div>
+                  <p class="tips">在金融界用平安证券完成首笔交易即可兑现</p>
+              </div>
+              <div class="fr aside">
+                <span>兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>
+       <li>
+         <div class="quan">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>5</b>
+                      <div class="tit">
+                          <h3>交易券</h3>
+                          <time>有效期至：2017-06-10</time>
+                      </div>
+                  </div>
+                  <p class="tips">在金融界用平安证券完成首笔交易即可兑现</p>
+              </div>
+              <div class="fr aside">
+                <span>兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>-->
+     </ul>
+     <div class="noquan">暂无可用交易券</div>
+     <p class="goquan"><a href="dui.html">已兑现和已过期的券</a></p>
+     <p class="guize"><a href="guize.html">使用规则></a></p>
+   </div>
+
+   <div class="layer"></div>
+   
+   <div class="alert">
+        <em class="chacha"></em>
+
+         <p class="title">您尚未达到兑现条件</p>
+         <p class="content txt2">于交易券有效期内在金融界用平安证券完成首笔交易（买入或卖出）即可兑现。</p>
+         <p class="content txt4">于交易券有效期内在金融界用平安证券完成第2笔交易（买入或卖出）即可兑现。</p>
+         <p class="content txt5">于交易券有效期内在金融界用平安证券完成第３笔交易（买入或卖出）即可兑现。</p>
+         <p class="button">确定</p>
+   </div>
+ </div>
+ <p class="footer">交易券通过活动领取和后台发放<br />敬请关注“交易助手”官方号</p> 
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script> 
+  <script>
+$(function(){
+    function change(){
+      document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    //我的可兑现券列表
+    var myticketlist= function() {
+        setTimeout(function() {
+            jrj.jsCallNative("130", JSON.stringify({
+              method: "get",
+              url: 'https://t.jrj.com.cn/activities/ticket/queryMyTickets?status=0',
+              params: {},
+              callback: "callbackmyticketlist",
+              version: "6.2.0"
+            }))
+        },20)
+    };
+    myticketlist();
+    window.callbackmyticketlist = function(v) { 
+        setTimeout(function() {
+            v=convertToJsonObject(v);
+            console.log(v);
+            if(v.retcode==0){ 
+                if(v.data.items.length==0){
+                    $('.noquan,.footer').show();
+                    return;
+                }
+                var str='';
+                for(var i=0;i<v.data.items.length;i++){
+                    var o=v.data.items[i];
+                    str+='<li data-ticketNo="'+o.ticketNo+'" data-ticketType="'+o.ticketType+'"><div class="quan"><div class="fl meg"><div class="up clearfix"><em>￥</em><b>'+changeprice(o.ticketPrice)+'</b><div class="tit"><h3>'+o.ticketName+'</h3><time>有效期至：'+hahatime(o.endTime)+'</time></div></div><p class="tips">'+o.ticketDetail+'</p></div><div class="fr aside"><span>兑现</span><em></em></div></div></li>'
+                }
+                $('.myticketlist').html(str);
+            }else if(v.retcode==700010){
+              window.reload();
+            }    
+        },0)
+    }
+
+
+    //点击去兑换
+    $('.myticketlist').delegate('li','click',function(){
+        var o=$(this);
+        var goduihuan= function() {
+            setTimeout(function() {
+                jrj.jsCallNative("130", JSON.stringify({
+                  method: "get",
+                  url: 'https://t.jrj.com.cn/activities/ticket/cash',
+                  params: {
+                    ticketNo:o.attr('data-ticketNo')
+                  },
+                  callback: "callbackgodui",
+                  version: "6.2.0"
+                }))
+            },20)
+        };
+          
+        goduihuan();
+        window.callbackgodui = function(v) { 
+            setTimeout(function() {
+                v=convertToJsonObject(v);
+                if(v.retcode==0){
+                    //去兑换成功页
+                    o.remove();
+                    if($('.myticketlist li').length==0){
+                       $('.noquan,.footer').show();
+                    }
+                    window.location.href='success.html?ticketPrice='+o.find('b').html();
+                }else{
+                    $('.layer ,.alert').show();
+                    $('.alert .txt'+o.attr('data-ticketType')).show();
+                    $('.button').unbind().click(function(){
+                        //去账户页
+                        jrj.jsCallNative('139', JSON.stringify({})); //交易-账户页
+                    });
+                }
+            },0)
+        }
+    })
+
+    //关闭弹层
+    $('.chacha').click(function(){
+        $('.layer ,.alert,.alert .content').hide();
+    });
+    var convertToJsonObject = function(str){
+        if(typeof str != 'object'){
+          return JSON.parse(str);
+        }else{
+          return str;
+        }
+    }
+    function hahatime (inputTime) {  
+        var inputTime=Number(inputTime);  
+        var date = new Date(inputTime);  
+        var y = date.getFullYear();    
+        var m = date.getMonth() + 1;    
+        m = m < 10 ? ('0' + m) : m;    
+        var d = date.getDate();    
+        d = d < 10 ? ('0' + d) : d;      
+        return y + '-' + m + '-' + d;    
+    };
+    function changeprice(n){
+      n=n.substring(0,n.indexOf('.'));
+      return n;
+     
+    }
+});
+</script>
+</body>
+</html>

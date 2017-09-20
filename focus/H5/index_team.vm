@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>金融界炒股大赛</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="战队详情" />
+    <meta name="description" content="战队详情" />
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus_zixuangu/flexible.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/swiper.min.css">
+<!--     <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+   <!--  <link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/css/index.css?s=1"> -->
+   <style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+body, button, input, select, textarea { font:12px/24px "Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, em, i { font-style: normal; }
+li { list-style: none; }
+a { text-decoration: none; }
+a:link { text-decoration: none; }
+a:active{  background:none !important;  }
+legend { color: #000; }
+fieldset, img { border: 0; }
+button, input, select, textarea { font-size: 100%; line-height: normal; }
+table { border-collapse: collapse; border-spacing: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+.clearfix:after, .wrapper:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+body { margin: 0; padding: 0;background: #efeff4;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.fl{float: left;}.fr{float: right;}
+.disnone{  display: none;}
+.fall {color: #2DC678 !important;}
+.up {color: #F24637 !important;}
+/*header*/
+.header{width: 100%;height: 5.9467rem;}
+.header>img{width: 100%;height: 5.9467rem;display: block;}
+.signIn{width: 100%;height: 5.2rem;background:url("https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/signIn01.jpg");background-size: 100% 5.2rem;overflow: hidden;}
+.signIn>span{display: block;width: 100%; font-size: 0.3733rem;line-height: 0.3867rem;text-align: center;color: #fff;margin-top: 2.9067rem;}
+.signIn>p{text-align: center;margin-top: 0.8rem;font-size: 0.4267rem;color: #772f0d;line-height: 0.44rem;font-weight: 600;}
+.signIn>div{width: 6.6667rem;margin: 0 auto;}
+.signIn>div>ul{margin: 0 0.4rem;margin-top: 0.86rem;position: relative;}
+.signIn>div>ul li{float: left;font-size: 0.32rem;line-height: 0.3067rem;margin-left: 0.1rem;margin-right: 0.0533rem;color: #772f0d;}
+.signIn>div>ul .clickToSee{width:2.1333rem;height: 0.64rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/clickToSee.jpg');background-size: 2.1333rem 0.64rem;float: left;position: absolute; right: 0;top: -0.2133rem;}
+/*介绍和奖项等tab*/
+.tab_list{height: 1.1733rem;background: #33255b;padding:0.28rem 0.4rem;color: #fff;margin-top: 0.5333rem;}
+.tab_list>ul{width: 100%;}
+.tab_list li{width: 33.33%;height:1.1733rem; float: left;text-align: center;line-height: 1.1733rem;font-size: 0.3733rem;}
+.tab_list .list_dec{background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/list_dec.png') no-repeat center;background-size: 3.0267rem 1.2rem;}
+.tab_list .list_top{background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/list_top.png') no-repeat center;background-size: 2.92rem 1.1733rem;}
+.tab_list .list_findTeam{background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/list_findTeam.png') no-repeat center;background-size: 3.0267rem 1.2rem;}
+/*红包区*/
+.My_redPackets{background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/redBaobg.jpg') no-repeat ;padding:0 0.4rem;overflow: hidden;background-size: 100% 100%;margin-top: 0.5333rem;}
+.My_redPackets>p{font-size: 0.4267rem;line-height: 0.44rem; color: #333333;text-align: center;margin-top: 0.64rem;font-weight: 600;}
+.My_redPackets>span{display: block;width: 100%;margin-top:0.1867rem; font-size: 0.32rem;color: #888888;text-align: center;line-height: 0.3333rem;}
+.My_redPackets>.My_redPackets_top{padding:0.4rem 0;border-bottom:1px solid #e6e6e6;}
+.My_redPackets>.My_redPackets_top>div{height: 0.8rem;width:7.38rem;margin: 0 auto;line-height:  0.8rem;margin-bottom: 0.267rem;}
+.My_redPackets>.My_redPackets_top>div>b{font-size: 0.373rem;margin-right: 0.24rem;font-weight: 400;}
+.My_redPackets>.My_redPackets_top>div>span{display: inline-block;width: 0.667rem;height:  0.8rem;text-align: center;border:1px solid #dfdfdf;border-radius: 0.107rem;font-size: 0.427rem;color: #f02e1e;margin-right:0.0533rem;font-weight: 600;background: #fff;}
+.My_redPackets>.My_redPackets_top>p{text-align: center;font-size: 0.32rem;height: 0.4rem;color: #888888;width: 3.8rem;margin: 0 auto;position: relative;}
+.My_redPackets>.My_redPackets_top>p span{display: block;line-height: 0.32rem;position: absolute;left: 0.48rem;top: 0.05rem;font-size: 0.32rem;}
+.My_redPackets>.My_redPackets_top>div>b:last-child{margin-left: 0.24rem;}
+.My_redPackets_bottom{padding:0.533rem 0;}
+.My_redPackets_bottom>span{display:block;font-size: 0.3733rem;color: #333333;width: 2.4267rem;height: 0.8rem;border:1px solid #e6e6e6; line-height: 0.8rem;text-align: center;border-radius:0.4rem;}
+/*.My_redPackets_bottom>span:active{background: #f12f2f;}*/
+.My_redPackets_bottom>div{height:0.8533rem;overflow: hidden;}
+.My_redPackets_bottom>div>ul li{font-weight: 500;font-size: 0.32rem;line-height: 100%;color: #888;margin-bottom: 0.187rem;width: 4.88rem;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;}
+.My_redPackets_bottom>div>ul li>span{color: #f02e1e;}
+.My_redPackets_bottom>i{display: inline-block;width:  1px;height:0.853rem;background: #dfdfdf;margin:0 0.667rem;}
+/*战队top3信息*/
+.team_top3{overflow: hidden;}
+.tab{width: 100%;height: 1.1733rem;border-bottom: 1px solid #e6e6e6;background: #fff;}
+.tab ul{padding-right: 0.4rem;padding-left: 0.4rem;}
+.tab ul li{width: 50%;font-size: 0.3733rem;line-height: 1.1733rem;text-align: center;float: left;position: relative;}
+.li_cur{color:#ff4040; }
+.li_cur>span{display: block;width: 0.6667rem;height: 0.0533rem;background: #ff4040;position: absolute;bottom: 0;left: 50%;margin-left: -0.3333rem;}
+.team_top3>img{width: 5.2533rem;height: 0.52rem;display: block;margin: 0 auto;padding-top: 0.7334rem;padding-bottom: 0.4667rem;}
+.team_top3>.tab_content>ul{padding-left: 0.4rem;padding-right: 0.4rem;background-color: #fff;}
+.team_list{height: 4.7733rem;border-top: 1px solid #e6e6e6;}
+.team_header{width: 100%;height: 0.88rem;padding-top: 0.48rem;}
+.teamNumberOne{display: block;width: 0.5067rem;height: 0.56rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/teamNumberOne.png');background-size: 0.5067rem 0.56rem;float: left; }
+.teamNumberTwo{display: block;width: 0.5067rem;height: 0.56rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/teamNumberTwo.png');background-size: 0.5067rem 0.56rem;float: left; }
+.teamNumberThree{display: block;width: 0.5067rem;height: 0.56rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/teamNumberThree.png');background-size: 0.5067rem 0.56rem;float: left; }
+.team_header>p{font-size: 0.4533rem;line-height: 0.4667rem; color: #333333;font-weight: 600;float: left;margin-left: 0.3333rem;}
+.team_header>img{width: 1.3333rem;height: 0.4267rem;margin-left: 0.1067rem;display: block;float: left;}
+.team_list ul{width: 100%;height: 1.9467rem;background: #f7f7f7;}
+.team_list ul li{width: 33.33%;float: left;text-indent: 0.5333rem;padding-top: 0.4267rem;height: 1.0133rem;position: relative;}
+.team_list ul li p{font-size: 0.32rem;line-height: 0.3333rem;color: #888888;margin-top: 0.2667rem;position: absolute;bottom: 0;}
+.team_list ul li:first-child span{font-size: 0.5867rem;line-height: 0.59rem;font-weight: 600;}
+.team_list ul li:first-child +li span,.team_list ul li:first-child +li +li span{font-size: 0.4267rem;color: #333333;margin-top: 0.1067rem;display: block;line-height: 0.43rem;}
+.team_leader{width: 100%;height: 1.0667rem;padding-top: 0.4rem;}
+.team_leader>div{width: 0.64rem;height: 0.64rem;overflow: hidden; border-radius: 50%;background-color: red;float: left;}
+.team_leader>div>img{width: 0.64rem;height: 0.64rem;}
+.team_leader>p{font-size: 0.3733rem;line-height: 0.64rem;color: #333333;margin-left: 0.2133rem; float: left;}
+.team_leader>.join_this_team{display: block;height: 0.7467rem;width: 2.6667rem;background: url("https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/joinTeam.png") no-repeat;background-size: 100% 100%; float: right;font-size: 0.32rem;color: #fff;line-height: 0.7467rem;text-align: center;}
+.team_leader>.join_me_team{display: block;height: 0.7467rem;width: 2.6667rem;background: url("https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/join_me_team.png") no-repeat;background-size: 100% 100%; float: right;font-size: 0.32rem;color: #fff;line-height: 0.7467rem;text-align: center;}
+/*个人top3*/
+.user_list{background: #fff;padding-left: 0.4rem;}
+.single_top3>img{width: 6.8667rem;height: 0.52rem;display: block;margin: 0 auto;padding-bottom: 0.4667rem;padding-top: 0.7334rem;}
+.user_ranking{width: 0.5867rem;height: 0.587rem;border-radius: 0.107rem;font-size: 0.32rem;color: #888888;background: #f0f0f0;line-height: 0.587rem;text-align: center;overflow: hidden;float: left;margin-top: 0.56rem;margin-bottom: 0.4rem;}
+.user_list> li:first-child{border-top: none;}
+.user_list li:first-child>.user_ranking{background: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170214caogu/h5/img/redno1.png') 0 0 no-repeat;background-size: 100% auto;text-indent: -999px;width: 0.56rem;height: 0.667rem;}
+.user_list li:first-child +li>.user_ranking{background: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170214caogu/h5/img/redno2.png') 0 0 no-repeat;background-size: 100% auto;text-indent: -999px;width: 0.56rem;height: 0.667rem;}
+.user_list li:first-child +li +li>.user_ranking{background: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170214caogu/h5/img/redno3.png') 0 0 no-repeat;background-size: 100% auto;text-indent: -999px;width: 0.56rem;height:0.667rem;}
+.user_photo{width:0.9333rem;height: 0.9333rem;border-radius: 50%;overflow: hidden;margin-left: 0.1067rem;}
+.user_info{margin-left:0.266rem;width: 6.8rem;}
+.user_photo img{width: 100%;height:100%;}
+.user_info>div>b{display: block;color: #333333;font-size: 0.427rem;line-height: 0.9333rem;font-weight: 500;}
+.user_info>.fl{text-align: left;}
+.user_info>.fr{text-align: right;}
+.user_info>div>span{display: block;font-size: 0.48rem;line-height: 0.9333rem;font-weight: 600;}
+.to_see_more{width: 100%;height: 1.1467rem;line-height: 1.1467rem;text-align: center;border-top: 1px solid #dfdfdf;background: #fff;}
+.user_right{padding: 0.4rem 0;width: 8.9333rem;float: right;border-top: 1px solid #e6e6e6;}
+.user_list>li:first-child .user_right{border: none;}
+/*大赛福利*/
+.index_fuli>img{width: 5.6133rem;height: 0.52rem;display: block;margin: 0 auto;padding-bottom: 0.4667rem;padding-top: 0.7334rem; }
+.price_box{background: #fff;overflow: hidden;}
+.index_fuli{color: #333333;}
+.single_prise,.team_prise,.team_jingying{padding: 0 0.4rem; background: #fff;overflow: hidden;margin-top: 0.5333rem;}
+.team_jingying p{margin-top: 0.6667rem;}
+.table_name{width: 100%;height: 1.1733rem;background: #fde2e2;text-align: center;line-height: 1.1733rem;font-size: 0.4267rem;border-left: 1px solid #e6e6e6;border-right: 1px solid #e6e6e6;box-sizing: border-box;}
+.index_fuli table{width: 100%;}
+.index_fuli table tr{width: 100%; height: 0.8933rem;text-align: center;border-bottom: 1px solid #e6e6e6;border-left: 1px solid #e6e6e6;border-right: 1px solid #e6e6e6; }
+.index_fuli table tr td{width: 33.33%;}
+.index_fuli table tr>td:first-child{border-right: 1px solid #e6e6e6;}
+.index_fuli table tr>td:first-child +td{border-right: 1px solid #e6e6e6;}
+/*战队赛奖励*/
+/*战队精英*/
+/*大赛公告*/
+.team_notice{width: 100%;height: 4.5733rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/team_notice0.jpg') no-repeat;background-size: 100% 100%;overflow: hidden;}
+.team_notice p{text-align: center;font-size: 0.4267rem;color: #d5bfff;line-height: 0.44rem;margin-top: 0.6rem;}
+.team_notice ul{margin-top: 0.8rem;padding-left: 0.4rem;padding-right: 0.4rem;}
+.team_notice ul li{width: 100%;text-align: center;color: #d5bfff !important;font-size: 0.32rem;line-height: 0.4533rem;}
+.team_notice ul li span{display: inline-block;margin-left: 0.2rem;color: #d5bfff !important;}
+.team_notice ul li i{display: inline-block;width: 0.1rem;height: 0.1rem;background: #d5bfff;border-radius: 50%; line-height: 0.4533rem;}
+/*报名参赛之后，没有加入战队之前*/
+.before_join_team{width: 100%;height: 8.2133rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/bafore_team.jpg') no-repeat;background-size: 100% 8.2133rem;overflow: hidden;position: relative;}
+.see_more_team{font-size: 0.32rem;color: #5255b4;position: absolute;top: 0.4667rem;right: 0.6667rem;line-height: 0.3333rem;margin-top: 0.3rem;margin-right: 0.4rem;}
+.before_join_team_box{width: 7.7867rem;height: 6.0933rem;margin: 0 auto;margin-top: 1.6267rem;overflow: hidden;overflow-x: auto;}
+.before_join_team_box ul{width: 25rem;}
+.before_join_team_box ul>p{width: 1.3333rem;height: 4.6133rem;background: #6a489c;float: left;margin-top: 0.7067rem;margin-left: 0.2667rem;color: #fff;margin-right: 0.1333rem;border-radius: 0  0.1333rem 0.1333rem 0;}
+.before_join_team_box ul>p>span{display: block; font-size: 0.3467rem;width: 0.3733rem;line-height: 0.3733rem;margin: 0 auto;margin-top: 1.5467rem;}
+.before_join_team_box li{width: 4.2667rem;height: 4.6133rem;margin-left: 0.2667rem;background: #fff;margin-top: 0.7067rem;border-radius: 0.08rem;position: relative;float: left;}
+.tg_pro{width: 1.44rem;height: 1.44rem;border-radius: 50%;border: 0.1067rem solid #fff;position: absolute;left: 50%;top: -0.2933rem; margin-left: -0.72rem;background-color: red;overflow: hidden;}
+.tg_pro>img{width: 1.44rem;height: 1.44rem;}
+.before_join_team_box li>p{font-size: 0.4267rem;line-height: 0.44rem;color: #333333;text-align: center;padding-top: 1.44rem;font-weight: 600;}
+.before_join_team_box li>span{display: block;font-size: 0.3733rem;line-height: 0.3867rem;color: #888888;text-align: center;margin-top: 0.4rem;}
+.before_join_team_box li>i{display: block;font-size: 0.32rem;line-height: 0.3333rem;color: #888888;text-align: center;margin-top: 0.1333rem;}
+.before_join_team_box .join_this_team{width: 2.6667rem;height: 0.7467rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/joinTeam.png') no-repeat;background-size: 100% 100%;margin: 0 auto;margin-top: 0.4rem;}
+.before_join_team_box .join_me_team{width: 2.6667rem;height: 0.7467rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/join_me_team.png') no-repeat;background-size: 100% 100%;margin: 0 auto;margin-top: 0.4rem;}
+/*报名参赛之后，加入团队之后*/
+.after_join_team{width: 100%;height: 4.68rem;}
+.after_join_team_box{width: 100%;height: 4.68rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/after_join_team01.jpg') no-repeat;background-size: 100% 100%;overflow: hidden;position: relative;}
+.after_join_team_detail{width: 7.7867rem;height: 2.9733rem;margin: 0 auto;margin-top: 1.4rem;color: #fff;overflow: hidden;}
+.after_join_team_detail ul{margin-top: 0.5333rem;}
+.after_join_team_detail>div>p{font-size: 0.4267rem;line-height: 0.44rem;margin-left: 0.4rem;margin-top: 0.5333rem;float: left;font-weight: 600;}
+.after_join_team_detail>div>p>span{font-weight: 600;}
+.after_join_team_detail>div>.numberFiveMoney{width: 1.3333rem;height: 0.4267rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/index_fiveMoney.png');display:block;background-size: 100% 100%;float: left;margin-top: 0.5rem;margin-left: 0.04rem;}
+.after_join_team_detail>div>.numberThreeMoney{width: 1.3333rem;height: 0.4267rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/index_threeMoney.png');display:block;background-size: 100% 100%;float: left;margin-top: 0.5rem;margin-left: 0.04rem;}
+.after_join_team_detail>div>.numberTwoMoney{width: 1.3333rem;height: 0.4267rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/index_twoMoney.png');display:block;background-size: 100% 100%;float: left;margin-top: 0.5rem;margin-left: 0.04rem;}
+.after_join_team_detail>ul>li{width: 33.33%;float: left;text-indent: 0.4rem;position: relative;height: 1.0667rem;}
+.after_join_team_detail>ul>li +li +li{text-indent: 0;}
+.after_join_team_detail>ul>li:first-child span{font-size: 0.5333rem;color: #fcd385;line-height: 0.5467rem;margin-top: 0;font-weight: 600;}
+.after_join_team_detail>ul>li p{font-size: 0.32rem;line-height: 0.3333rem;margin-top: 0.2667rem;color: #898fdf;position: absolute;bottom: 0;width: 2.2rem;}
+.after_join_team_detail>ul>li span{font-size: 0.4267rem;line-height: 0.44rem;display: block;margin-top: 0.0933rem;}
+/*报名实盘*/
+.mask{width: 100%;height: 100%;background: #333333;opacity: 0.6;position: fixed;top: 0;z-index: 9;}
+.book_shipan{width: 6.4rem;height: 8.32rem;position: fixed;z-index: 10;top: 3.6533rem;left: 50%;margin-left: -3.2rem;}
+.book_shipan_content{width: 100%;height: 6.8rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/book_shipan.jpg') no-repeat;background-size: 100% 100%;border-radius: 0.2rem;overflow:hidden;}
+.book_shipan_content p{font-size: 0.3733rem;line-height: 0.3867rem;text-align: center;color: #888888;margin-top: 2.1333rem;}
+.book_shipan_content ul{margin-top: 0.4rem;padding-right: 0.1333rem;}
+.book_shipan_content li{width: 33.33%; float: left;}
+.book_shipan_content li img{display: block;margin: 0 auto;}
+.book_shipan_content li:first-child img{width: 1.2933rem;height: 1.4133rem;}
+.book_shipan_content li:first-child +li img{width: 1.2667rem;height: 1.4133rem;}
+.book_shipan_content li:first-child +li +li img{width: 1.7867rem;height: 1.4133rem;}
+.shipan{width: 3.4667rem;height: 0.88rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/shipanzhanghu.png') no-repeat;background-size: 100% 100%;margin: 0 auto;margin-top: 0.5333rem;}
+.book_shipan_content>span{display: block;font-size: 0.32rem;line-height: 0.32rem;color: #888888;width: 2.2667rem;margin: 0 auto;margin-top: 0.2667rem;}
+.close_shipan{height: 1.2rem;width: 100%;position: relative;}
+.close_shipan img{width: 0.72rem;height: 0.72rem;display: block;position: absolute;bottom: 0;left: 50%;margin-left: -0.36rem;}
+/*团队福利弹窗*/
+.alert_tuanduifuli{width: 7.7333rem;position: fixed;top: 1.3333rem;left: 50%; background: #fff;border-radius: 0.1333rem;z-index: 10;margin-left: -4.2667rem;padding: 0.4rem;}
+.alert_tuanduifuli table{width: 100%;text-align: center;height: 5.5333rem;margin-top: 0.24rem;font-size: 0.32rem;}
+.alert_tuanduifuli table td{line-height: 0.9867rem;}
+.alert_tuanduifuli tr td:first-child{width: 2.3067rem;border-right: 1px solid #e6e6e6;}
+.alert_tuanduifuli tr td:first-child +td{width: 2.5867rem;border-right: 1px solid #e6e6e6;color: #ff4040;}
+.alert_tuanduifuli tr td:first-child +td +td{color: #ff4040;}
+.alert_tuanduifuli tr:first-child td:first-child +td {color: #888888;}
+.alert_tuanduifuli tr:first-child td:first-child +td +td{color: #888888;}
+.alert_tuanduifuli tr:first-child{height: 1.3333rem;background: #fef3f3;border-bottom: none;font-size: 0.3467rem;line-height: 0.5rem;color: #888888 ;border-top: 1px solid #e6e6e6;}
+.alert_tuanduifuli table tr{border-left: 1px solid #e6e6e6;border-right: 1px solid #e6e6e6;border-bottom: 1px solid #e6e6e6;}
+.alert_tuanduifuli div{height: 0.9867rem;width: 3.2267rem;border: 1px solid #e6e6e6;line-height: 0.9867rem;text-align: center;border-radius: 0.2rem;font-size: 0.3733rem;margin: 0 auto;margin-top: 0.5333rem;color: #333333;}
+.alert_tuanduifuli p{font-size: 0.4533rem;line-height: 0.4667rem;text-align: center;margin-top: 0.24rem;}
+.alert_tuanduifuli>span{font-size: 0.3733rem;line-height: 0.3867rem;color: #414141;display: block;margin-top: 0.2933rem;}
+.nothing{line-height: 4.0rem;text-align: center;font-size: 0.4rem;height: 4.0rem;background: #fff;}
+.gif{display: block;width:2.9333rem;height: 2.4533rem;margin: 0 auto;margin-top: 40%; }
+.innerBox{background: #1f143c;display: none;} 
+.warn_over{width: 5rem; position: fixed;left: 50%;bottom: 10%; z-index: 15;font-size: 0.4rem;line-height: 0.4rem; height: 0.4rem ;margin-left: -2.5rem;background-color: #282001;text-align: center;border-radius: 0.1rem;color: #fff;opacity: 0.8;padding: 0.2rem 0;}  
+.team_list:first-child{border: none;}
+._v-container>._v-content>.pull-to-refresh-layer[data-v-ecaca2b0]{margin-top: -100px !important;}
+.redEnvelope{position: fixed;bottom: 1rem;right: 0;width: 2.253rem;height: 2.107rem;background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/teamRedBao.png");background-size: 100% 100%;z-index: 100;display: none;}
+.swiper-container{width: 100%;height: 6.0933rem;}
+   </style>
+</head>
+<body>
+	<div class="wraper" id="app">
+    <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/gif0.gif" class="gif">
+    <div class="innerBox">
+      <div>
+        <div class="header">
+          <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/header.jpg"> 
+        </div>
+        <div class="signIn">
+          <span><i></i>人在领取</span>
+          <p v-show="userInfo.play_game==false && userInfo.join_team  == false" @click='bookIn' class="takeIn">朕要参加</p>
+          <div class="takeInAfter">
+            <ul class="clearfix" @click="goToSingleList">
+              <li>总收益</li>
+              <li></li>
+              <li>排名</li>
+              <li></li>
+              <div class="clickToSee"  :teamId="my_team.teamId" @click="goToSingleList"   v-show="userInfo.play_game==true"></div>
+            </ul>
+          </div>
+        </div>      
+      </div>
+      <!-- 报名参赛，没有加入战队 -->
+      
+      <div class="before_join_team" v-show="userInfo.play_game && userInfo.join_team == false">
+        <div class="see_more_team" @click="goTofindList">查看更多></div>
+        <div class="before_join_team_box">
+              <ul class="clearfix">
+                <li v-for="item in good_team " >
+                  <div class="tg_pro" :teamId="item.teamId"  @click="goTeamDetail" ><img :src="item.tgImgUrl" :teamId="item.teamId"  @click="goTeamDetail" ></div>
+                  <p :teamId="item.teamId"  @click="goTeamDetail" >{{item.tgName}}</p>
+                  <span :teamId="item.teamId"  @click="goTeamDetail" >{{item.teamName}}</span>
+                  <i :teamId="item.teamId"  @click="goTeamDetail" >{{item.membersNum}}人加入</i>
+                  <div class="join_this_team" :teamId="item.teamId" @click="jointhisTeam"></div>
+                </li>
+                <p @click="goTofindList"><span>查看更多</span></p>
+              </ul>
+        </div>
+      </div>
+      <!-- 报名参赛，加入团队 -->
+      <div class="after_join_team" v-show="userInfo.join_team"  :teamId="my_team.teamId"  @click="goTeamDetail" >
+        <div class="after_join_team_box">
+          <div class="see_more_team"   :teamId="my_team.teamId"  @click="goTeamDetail" >查看详情></div>
+          <div class="after_join_team_detail">
+            <div class="clearfix">
+              <p>我的战队：<span>{{my_team.teamName}}</span></p>
+              <span class="numberFiveMoney" v-show="my_team.advantageDesc == '5倍红包' "></span>
+              <span class="numberThreeMoney" v-show="my_team.advantageDesc == '3倍红包' "></span>
+              <span class="numberTwoMoney" v-show="my_team.advantageDesc == '2倍红包' "></span>
+            </div>
+            <ul class="clearfix">
+              <li>
+                <span>{{my_team.teamProfit}}%</span>
+                <p>总收益</p>
+              </li>
+              <li>
+                <span>{{my_team.teamRank}}</span>
+                <p>排名</p>
+              </li>
+              <li>
+                <span>{{Number(my_team.tradeCapital).toFixed(2)}}万</span>
+                <p>累计操盘金</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 三个tab选项 -->
+      <div class="tab_list">
+        <ul class="clearfix">
+          <li class="list_dec" @click="goThingDetail">介绍和奖项</li>
+          <li class="list_top" @click='goTotopList' >牛人榜单</li>
+          <li class="list_findTeam" @click='goTofindList' >发现战队</li>
+        </ul>
+      </div>
+      <!-- 红包区 -->
+          <div class="My_redPackets">
+            <p>加入战队红包最高翻5倍</p>
+        <span>每日收盘后17:30发放</span>   
+              <div class="My_redPackets_top">
+                  <div>
+<!--                       <b>已领取</b>
+                      <span>8</span>
+                      <span>8</span>
+                      <span>8</span>
+                      <span>8</span>
+                      <span>8</span>
+                      <span>8</span>
+                      <b>元红包</b> -->
+                  </div>
+              </div>
+              <div class="My_redPackets_bottom clearfix">
+                  <div class="fl report_list_scroll text">
+                      <ul class="">
+                          <li v-for="item in redBao">{{item.passportName}}获得了<span>{{item.amountY}}</span>元现金红包！</li>
+                      </ul>
+                  </div>
+                  <i></i>
+                  <span href="#" class="fr" @click="goRedBao">我的红包</span>
+              </div>
+          </div>
+          <!-- 团队top3 -->
+          <div class="team_top3">
+            <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/index_team_top3.png">
+          <!-- 2个tab -->
+          <div class="tab">
+              <ul class="clearfix">
+                  <li class="li_cur total" @click="clickLi" className="total"><span></span>总收益</li>
+                  <li class="month"  @click="clickLi" className="month"><span></span>月收益</li>
+              </ul>        
+          </div>
+          <div class="tab_content">
+          <!-- 总收益 -->
+              <ul class="tab_total">  
+                <li class="team_list noBorderTop" v-for="item in teamTotal">
+                  <div class="team_header" :teamId="item.teamId"  @click="goTeamDetail">
+                    <i class="teamNumberOne" v-show="item.totalRank==1"></i>
+                    <i class="teamNumberTwo" v-show="item.totalRank==2"></i>
+                    <i class="teamNumberThree" v-show="item.totalRank==3"></i>
+                    <p>{{item.teamName}}</p>
+                    <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/fiveMoney.png"  v-show="item.advantage==5">
+                    <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/threeMoney.png"  v-show="item.advantage==3">
+                    <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/twoMoney.png"  v-show="item.advantage==2">
+                  </div>
+                  <ul :teamId="item.teamId"  @click="goTeamDetail" >
+                    <li>
+                      <span :class="{up:(item.totalProfit> 0),fall:(item.totalProfit< 0)}" >{{item.totalProfit.toFixed(2)}}%</span>
+                      <p>总收益</p>
+                    </li>
+                    <li>
+                      <span>{{item.membersNum}}</span>
+                      <p>成员数</p>
+                    </li>
+                    <li>
+                      <span>{{item.tradeCapital.toFixed(2)}}万</span>
+                      <p>操盘金</p>
+                    </li>
+                  </ul>
+                  <div class="team_leader">
+                    <div @click="goLeader"  :tgId="item.tgId"><img :src="item.tgHeadUrl"></div>
+                    <p @click="goLeader" :tgId="item.tgId">{{item.tgName}}</p>
+                    <!-- 加入战队 -->
+                    <span class="join_this_team" v-show="item.isMyTeam==0"  :teamId="item.teamId" @click="jointhisTeam"></span>
+                    <!-- 我的战队去战队详情页 -->
+                    <span class="join_me_team"  v-show="item.isMyTeam==1"  :teamId="item.teamId"  @click="goTeamDetail" ></span>
+                    <!-- <span></span> -->
+                  </div>            
+                </li>
+                <p class="nothing  disnone">战队正在集结</p>
+                <p class="to_see_more" @click="goTeamList" >查看更多></p>
+              </ul> 
+            <!-- 月收益 -->
+              <ul class="tab_month disnone" >
+                <li class="team_list" v-for="item in teamMonth">
+              <div class="team_header"  :teamId="item.teamId"  @click="goTeamDetail" >
+                <i class="teamNumberOne" v-show="item.totalRank==1"></i>
+                <i class="teamNumberTwo" v-show="item.totalRank==2"></i>
+                <i class="teamNumberThree" v-show="item.totalRank==3"></i>
+                <p>{{item.teamName}}</p>
+                <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/fiveMoney.png"  v-show="item.advantage==5">
+                <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/threeMoney.png"  v-show="item.advantage==3">
+                <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/twoMoney.png"  v-show="item.advantage==2">
+              </div>
+              <ul  :teamId="item.teamId"  @click="goTeamDetail" >
+                <li>
+                  <span :class="{up:(item.totalProfit> 0),fall:(item.totalProfit< 0)}">{{item.totalProfit.toFixed(2)}}%</span>
+                  <p>总收益</p>
+                </li>
+                <li>
+                  <span>{{item.membersNum}}</span>
+                  <p>成员数</p>
+                </li>
+                <li>
+                  <span>{{item.tradeCapital.toFixed(2)}}万</span>
+                  <p>操盘金</p>
+                </li>
+              </ul>
+              <div class="team_leader">
+                <div  @click="goLeader"  :tgId="item.tgId"><img :src="item.tgHeadUrl"></div>
+                <p  @click="goLeader"  :tgId="item.tgId">{{item.tgName}}</p>
+                <span class="join_this_team" v-show="item.isMyTeam==0" @click="jointhisTeam"></span>
+                <span class="join_me_team"  v-show="item.isMyTeam==1"  :teamId="item.teamId"  @click="goTeamDetail" ></span>
+                <span></span>
+              </div>            
+                </li>
+                <p class="nothing  disnone">战队正在集结</p>
+                <p class="to_see_more" @click="goTeamList">查看更多></p>
+              </ul>
+          </div>
+
+
+        
+          </div>
+
+          <!-- 个人总收益top3 -->
+          <div class="single_top3">
+            <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/index_single_top3.png">
+  <!--        <div class="tab">
+              <ul class="clearfix">
+                  <li class="li_cur" @click="clickLi" className="shipan"><span></span>实盘</li>
+                  <li class=""  @click="clickLi" className="moni"><span></span>模拟盘</li>
+              </ul>        
+          </div>  -->
+          <div class="tab_content">
+              <p class="nothing disnone  monipan">暂无排名数据</p>
+              <ul class="user_list  tab_shipan">
+                <li class="clearfix" v-for="item in singleList"  :passId="item.userId" @click="gotoDegui">
+                      <div class="fl user_ranking">1</div>
+                      <div class="user_right clearfix">
+                        <div class="fl user_photo">
+                            <img :src="item.headUrl" >
+                        </div>
+                        <div class="fl user_info clearfix">
+                            <div class="fl">
+                                <b>{{item.nickName}}</b>
+                            </div>
+                            <div class="fr">
+                                <span :class="{up:(item.seasonYield> 0),fall:(item.seasonYield< 0)}">{{item.seasonYield.toFixed(2)}}%</span>
+                            </div>
+                        </div>                        
+                      </div>
+                </li>
+                <p class="to_see_more" @click="goToSingleList">查看更多></p>
+              </ul>
+  <!--            <ul class="user_list tab_moni disnone">
+            <li class="clearfix">
+                        <div class="fl user_ranking">1</div>
+                        <div class="user_right clearfix">
+                          <div class="fl user_photo">
+                              <a href="#">
+                                  <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170214caogu/h5/img/banner02.png" >
+                              </a>
+                          </div>
+                          <div class="fl user_info clearfix">
+                              <div class="fl">
+                                  <b>天天涨停</b>
+                              </div>
+                              <div class="fr">
+                                  <span class="up">166.20%</span>
+                              </div>
+                          </div>                        
+                        </div>
+            </li>
+            <p class="to_see_more">查看更多</p>
+              </ul>   -->     
+          </div>        
+
+          </div>
+          <!-- 大赛福利 -->
+          <div class="index_fuli">
+        <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/index_fuli.png">
+        <!-- 个人赛排名奖励 -->
+        <div class="price_box">
+          <div class="single_prise">
+            <div class="table_name">个人赛排名奖励</div>
+            <table>
+              <tr>
+                <td>总收益</td>
+                <td>实盘（元）</td>
+                <td>模拟盘（元）</td>
+              </tr>
+              <tr>
+                <td>第一名</td>
+                <td>30000</td>
+                <td>10000</td>
+              </tr>
+              <tr>
+                <td>第二名</td>
+                <td>20000</td>
+                <td>8000</td>
+              </tr>
+              <tr>
+                <td>第三名</td>
+                <td>10000</td>
+                <td>6000</td>
+              </tr>
+              <tr>
+                <td>第4-5名</td>
+                <td>8000</td>
+                <td>4000</td>
+              </tr>
+              <tr>
+                <td>第6-10名</td>
+                <td>5000</td>
+                <td>2000</td>
+              </tr>
+            </table>        
+          </div>
+          <!-- 战队赛排行奖励 -->
+          <div class="team_prise">
+            <div class="table_name">战队赛红包奖励</div>
+            <table>
+              <tr>
+                <td>战队月收益</td>
+                <td>奖励红包（元）</td>
+                <td>次月红包加成</td>
+              </tr>
+              <tr>
+                <td>第一名</td>
+                <td>10000</td>
+                <td>5倍</td>
+              </tr>
+              <tr>
+                <td>第二名</td>
+                <td>8000</td>
+                <td>3倍</td>
+              </tr>
+              <tr>
+                <td>第三名</td>
+                <td>5000</td>
+                <td>2倍</td>
+              </tr>
+            </table>
+          </div>
+          <div class="team_jingying">
+            <div class="table_name">战队赛精英奖励</div>
+            <table>
+              <tr>
+                <td>实盘月收益</td>
+                <td>实盘（元）</td>
+                <td>模拟盘（元）</td>
+              </tr>
+              <tr>
+                <td>第一名</td>
+                <td>3000</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>第二名</td>
+                <td>2400</td>
+                <td>800</td>
+              </tr>
+              <tr>
+                <td>第三名</td>
+                <td>1500</td>
+                <td>600</td>
+              </tr>
+            </table>
+            <p class="to_see_more" @click="goThingList">查看更多></p>
+          </div>      
+        </div>
+          </div>
+          <!-- 大赛公告 -->
+          <!--\#include virtual="/portfolio/masters/include/teamReport.shtml"-->
+<!--           <div class="team_notice">
+            <p>大赛公告</p>
+            <ul>
+              <li><a href=""><i></i><span>条目1</span></a></li>
+              <li><a href=""><i></i><span>条目你说啥我住ido记得合计2</span></a></li>
+              <li><a href=""><i></i><span>条目 发给机票进口品恐怕看3</span></a></li>
+            </ul>
+          </div> -->
+    </div>
+    <div class="mask" style="display: none;"></div>
+    <div class="alert_success disnone">
+        <p>报名成功</p>
+        <a href="javascript:void(0)">确认</a>
+    </div>
+    <div class="redEnvelope downLoad"></div>
+    <div class="book_shipan" style="display: none;">
+      <div class="book_shipan_content">
+        <p>开户后首次交易可得</p>
+        <ul class="clearfix">
+          <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/fiveyuan.png" alt=""></li>
+          <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/zhineng.png" alt=""></li>
+          <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/Lv2.png" alt=""></li>
+        </ul>
+        <div class="shipan"></div>
+        <span>仅支持平安证券</span>
+      </div>
+      <div class="close_shipan">
+        <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/close_shipan.png" alt="">
+      </div>
+    </div>
+    <!-- 参赛成功弹窗 -->
+    <div class="alert_tuanduifuli" style="display: none;">
+      <p>参赛成功</p>
+      <span>团队福利已备好 马上加入吧！</span>
+      <table>
+        <tr>
+          <td>福利</td>
+          <td>加入前</td>
+          <td>加入后</td>
+        </tr>
+        <tr>
+          <td>抢红包</td>
+          <td>1倍</td>
+          <td>最高5倍</td>
+        </tr>
+        <tr>
+          <td>收益红包</td>
+          <td>1倍</td>
+          <td>最高5倍</td>
+        </tr>
+        <tr>
+          <td>奖励红包</td>
+          <td>无</td>
+          <td>有</td>
+        </tr>
+        <tr>
+          <td>操盘收益</td>
+          <td>无</td>
+          <td>100%收益</td>
+        </tr>
+        <tr>
+          <td>排名奖金</td>
+          <td>奖金</td>
+          <td>奖金+操盘金收益</td>
+        </tr>
+        <tr>
+          <td>投顾内参</td>
+          <td>无</td>
+          <td>打7折</td>
+        </tr>
+      </table>
+      <div>朕知道了</div>         
+    </div>
+    <div class="redEnvelope" @click="goToRedBAo"></div>
+    <div class="warn_over disnone">不能离开战队</div>
+	</div>
+
+<script src="http://i0.jrjimg.cn/zqt-m/vt/js/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/js/vue.min.js'></script>
+<script type="text/javascript">
+  var app = new Vue({
+    el:'#app',
+    data:{
+      good_team:[],
+      my_team:[],
+      teamTotal:[],
+      teamMonth:[],
+      userInfo:{
+        ssoId:{},
+        token:{},
+        devId:{},
+        appver:{},
+        source:{},
+        myStocks:[],
+        play_game:false,
+        join_team:false
+      },
+      redBao:{},
+      singleList:[]
+    },
+    beforeCreate:function(){
+      // $(".gif").show();
+      // $('.innerBox').hide();
+    },
+    created:function(){
+      // $(".gif").show();
+      // $('.innerBox').hide();
+    },
+    computed:{},
+    mounted:function(){
+        this.loadRefresh();
+      },
+        methods:{
+            loadRefresh:function(){
+                var that = this;
+                // 获取用户信息
+                window.passportId = '$!{ssoId}'; 
+                window.devId = '$!{devId}';
+                window.accessToken = '$!{spToken}'; 
+                window.myStocks = []; 
+                window.source = '$!{source}';
+                window.appver = '$!{appver}';
+                console.log(window.passportId,window.accessToken)
+                // 存取用户信息
+                if(window.source=="itougu"){
+                    window.localStorage.setItem('ssoId', window.passportId);
+                    window.localStorage.setItem('token', window.accessToken);
+                    window.localStorage.setItem('source', window.source);
+                    window.localStorage.setItem('appver', window.appver); 
+                    var token = window.localStorage.getItem('token'); 
+                    var ssoId = window.localStorage.getItem('ssoId');        
+                  }else{
+                    var ssoId = window.localStorage.getItem('ssoId');
+                    var token = window.localStorage.getItem('token');
+                  }
+                // 获取比赛id 与参加比赛人数
+                  $.ajax({
+                    url: 'http://itougu.jrj.com.cn/match/index/getMaxWeightMatch.jspa',
+                    type: 'get',
+                    dataType: 'json',
+                    success:function(jsondata){ 
+                      if(jsondata.result=='0'){
+                        var playId = jsondata.pb.id;
+                        var number = jsondata.pb.currNum;
+                        $(".signIn span i").html(number);
+                        window.localStorage.setItem('playId', playId);
+                        // 判断用户是否参加比赛
+                          $.ajax({
+                            url: 'http://itougu.jrj.com.cn/api/match/queryAccountFunds.jspa',
+                            data:{
+                              playId:String(playId),
+                              ssoId:ssoId
+                            },
+                            type: 'get',
+                            dataType: 'json',
+                            success:function(jsondata){ 
+                              if(jsondata.retCode == 0){
+                                if( jsondata.data.userStatus == 0){//没有参赛
+                                  that.userInfo.play_game = false;
+                                  $('.signIn ul li').eq(1).html("0.00%");
+                                  $('.signIn ul li').eq(3).html("--");
+                                }else if( jsondata.data.userStatus == 1){//已经参赛
+                                    $('.signIn ul li').eq(1).html(Number(jsondata.data.matchIncome).toFixed(2)+"%");
+                                    $('.signIn ul li').eq(3).html(jsondata.data.matchRank);
+                                    if(jsondata.data.matchRank==null){
+                                    $('.signIn ul li').eq(3).html("--");
+                                  }
+                                  that.userInfo.play_game = true;
+                                }
+                              }else{
+                                that.userInfo.play_game = false;
+                                that.userInfo.join_team = false;
+                              }
+                            },
+                            error:function(e){
+                             }
+                          })
+
+                        //  个人总收益Top3 本期模拟盘
+                          $.ajax({
+                            url: 'http://itougu.jrj.com.cn/match/index/queryStatRanks.jspa',
+                            type: 'get',
+                            data:{
+                              userMaxWeightMatch:true,
+                              rankType:4
+                            },
+                            dataType:'json',
+                            beforeSend:function(xhr){
+                              xhr.setRequestHeader('passportId', ssoId,xhr.setRequestHeader('accessToken',token))
+                              },
+                            success:function(jsondata){
+                              if(result='0'){
+                                console.log(JSON.stringify(jsondata))
+                                if(jsondata.rankListMapResult.length==0){
+                                  $('.monipan').show();
+                                  $('.tab_shipan .to_see_more').hide();
+                                }else if(jsondata.rankListMapResult.length>3){
+                                  for(var i = 0 ; i < 3 ; i++){
+                                     // that.singleList[i] = jsondata.rankListMapResult[i];
+                                     that.$set(that.singleList , i , jsondata.rankListMapResult[i]);
+                                  }
+                                }
+                              }
+                            },
+                            error:function(e){
+                              console.log(e)
+                            }
+                          })
+                        }
+                    },
+                    error:function(e){
+                    }
+                  })
+                // 参加比赛之后，没有加入战队，推荐战队
+                  $.ajax({
+                    url: 'http://itougu.jrj.com.cn/match/v7/team/queryRecommendedTeam.jspa',
+                    type: 'get',
+                    dataType: 'json',
+                    success:function(jsondata){ 
+                      if(jsondata.retCode=='0'){
+                        that.good_team=jsondata.teamList
+                      }
+                    }
+                  })
+
+                // 参加比赛之后，判断用户加入的哪个战队 
+                  $.ajax({
+                    url: 'http://itougu.jrj.com.cn/match/v7/team/queryUserTeam.jspa',
+                    data:{
+                      userId:ssoId
+                    },
+                    type: 'get',
+                    dataType: 'json',
+                    success:function(jsondata){ 
+                      if(jsondata.retCode=='0'){
+                        that.my_team = jsondata.myTeam;
+                        that.userInfo.join_team = true;
+                        console.log(JSON.stringify(jsondata.myTeam))
+                      }else{
+                        console.log('暂时没有加入战队');
+                        that.userInfo.join_team = false;
+                      }
+                    },
+                    error:function(e){
+                      console.log(e)
+                    }
+                  })
+                
+                // 红包区
+                  $.ajax({
+                    url: 'http://itougu.jrj.com.cn/match/v7/getRedPacketInfo.jspa',
+                    type: 'get',
+                    dataType: 'json',
+                    cache: false,
+                    success:function(jsondata){ 
+                      $('.My_redPackets_top div').html("");
+                      if(jsondata.retCode =='0'){
+                        console.log(JSON.stringify(jsondata.result.totalAmount))
+                        that.redBao = jsondata.result.list
+                        // console.log(that.redBao);
+                        var totalRed = jsondata.result.totalAmount+"";
+                        var cnt = 0;
+                        var str="<b>已领取</b>";
+                        if(totalRed.length < 6) {
+                            for(var i=0;i<6-totalRed.length;i++) {
+                                str += "<span>"+0+"</span>"; 
+                            }
+                        }
+                        
+                        for(var index=0;index<totalRed.length;index++) {
+                            str += "<span>"+totalRed.charAt(index)+"</span>"; 
+                        }
+                        str+="<b>元红包</b>";
+                        $('.My_redPackets_top div').html(str);
+                        setTimeout(function(){
+                          $.fn.scrollTop = function(options){
+                              var defaults = {
+                                  speed:30
+                              }
+                              var opts = $.extend(defaults,options);
+                              this.each(function(){
+                                  var $timer;
+                                  var scroll_top=0;
+                                  var obj = $(this);
+                                  var $height = obj.find("ul").height();
+                                  obj.find("ul").clone(true).appendTo(obj);
+                                  obj.hover(function(){
+                                      clearInterval($timer);
+                                  },function(){
+                                      $timer = setInterval(function(){
+                                          scroll_top++;
+                                          if(scroll_top > $height){
+                                              scroll_top = 0;
+                                          }
+                                          obj.find("ul").first().css("margin-top",-scroll_top);
+                                      },opts.speed);
+                                  }).trigger("mouseleave");
+                              })
+                          };
+                          $(".text").scrollTop({
+                              speed:100 //数值越大 速度越慢
+                          });
+                        },1000) 
+
+                      }
+                    }
+                  })
+                
+                  
+                // 团队Top3总收益排名
+                  $.ajax({
+                    url: 'http://itougu.jrj.com.cn/match/v7/team/queryTeamList.jspa',
+                    type: 'get',
+                    data:{
+                      ranktype:4,
+                      currentNum:1,
+                      pageSize:10,
+                      needMyTeam:1
+                    },
+                    beforeSend:function(xhr){
+                      xhr.setRequestHeader('passportId', ssoId,xhr.setRequestHeader('accessToken', token))
+                    },
+                    dataType: 'json',
+                    success:function(jsondata){ 
+
+                      if(jsondata.retCode=='0'){
+                        if(jsondata.data.items.length>3){
+                          for(var i = 0 ; i < 3 ; i++){
+                            that.$set(that.teamTotal , i , jsondata.data.items[i]);
+                          }
+                        }else if(jsondata.data.items.length==0){
+                          $(".tab_total .nothing").show();
+                          $('.tab_total .to_see_more').hide();
+                        }
+                      }
+                    }
+                  })
+
+                // 团队Top3月收益排名
+                  $.ajax({
+                    url: 'http://itougu.jrj.com.cn/match/v7/team/queryTeamList.jspa',
+                    type: 'get',
+                    data:{
+                      ranktype:3,
+                      currentNum:1,
+                      pageSize:10,
+                      needMyTeam:1
+                    },
+                    beforeSend:function(xhr){
+                      xhr.setRequestHeader('passportId', ssoId,xhr.setRequestHeader('accessToken', token))
+                    },
+                    dataType: 'json',
+                    success:function(jsondata){ 
+                      if(jsondata.retCode=='0'){
+                        if(jsondata.data.items.length>3){
+                          for(var i = 0 ; i < 3 ; i++){
+                            that.$set(that.teamMonth , i , jsondata.data.items[i]);
+                          }
+                        }else if(jsondata.data.items.length==0){
+                          $(".tab_month .nothing").show();
+                          $('.tab_month .to_see_more').hide();
+                        }
+                      }
+                    }
+                  })              
+
+                setTimeout(function(){
+                  $(".gif").hide();
+                  $('.innerBox').show();   
+                  $(".redEnvelope").show();       
+                },1000)
+            },
+            clickLi:function(){
+                $(event.currentTarget).addClass('li_cur').siblings().removeClass('li_cur');
+                var thatName = ".tab_"+$(event.currentTarget).attr('className')
+                var num = thatName.split(' ');
+                $(num[0]).css('display',"none").siblings().css('display',"block");
+            },
+            goTotopList:function(){
+              window.location.href="http://itougu.jrj.com.cn/match/v7/h5/tapList.jspa"
+            },
+            goTofindList:function(){
+              window.location.href="http://itougu.jrj.com.cn/activity/app/find_team.jspa"
+            }, 
+            goTeamList:function(){
+              window.location.href="http://itougu.jrj.com.cn/activity/app/team_list.jspa"
+            }, 
+            goToSingleList:function(){
+              window.location.href="http://itougu.jrj.com.cn/activity/app/singleList.jspa"
+            },
+            goTeamDetail:function(){
+              var teamId = $(event.currentTarget).attr('teamId');
+              window.location.href='http://itougu.jrj.com.cn/activity/app/team_detail.jspa?teamId='+teamId+''
+            },  
+            gotoDegui:function(){
+              var passId = $(event.currentTarget).attr('passId');
+              window.location.href="http://itougu.jrj.com.cn/match/v7/h5/vdetail.jspa?userId="+passId+""
+            },
+            goThingList:function(){
+              // 旧版介绍页
+              var playId = window.localStorage.getItem('playId');
+              window.location.href="http://itougu.jrj.com.cn/match/v7/h5/introduce.jspa?playId="+playId+""
+            }, 
+            goThingDetail:function(){
+              // 旧版介绍页
+              var playId = window.localStorage.getItem('playId');
+              window.location.href="http://itougu.jrj.com.cn/match/v7/h5/introduce.jspa?playId="+playId+""
+            },
+            goRedBao:function(){
+              if(window.localStorage.getItem("ssoId") != "null" && window.localStorage.getItem("token") != "null" ){
+                  // 我的红包页                
+                window.location.href="http://itougu.jrj.com.cn/match/v7/h5/myRedList.jspa?matchId=11552";                
+                }else{
+                  // 登录注册页
+                 jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+
+
+            },
+            bookIn:function(){
+              // 报名比赛
+              var self = this;
+              var playId = window.localStorage.getItem('playId');
+              if(window.localStorage.getItem("ssoId") != "null"){
+                  var ssoId = window.localStorage.getItem("ssoId");
+                  var token = window.localStorage.getItem("token");
+                    $.ajax({
+                     url: 'http://itougu.jrj.com.cn/api/match/applyMatch.jspa',
+                     type: 'post',
+                     data:{
+                       playId:playId,
+                       passportId:ssoId,
+                       accessToken:token
+                     },
+                     dataType: 'json',
+                     success:function(data){
+                        if (data.retCode == -401) {
+                          window.location.href = window.location.href + '?type=' + 'virtual/accessTokenInvalid';
+                        }
+                        if( data.retCode == 0){
+                          $('.warn_over').html("报名成功！")
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                                self.loadRefresh();
+                            },2000); 
+                          
+                        } else if(data.retCode == 702003) {
+                          $('.warn_over').html("比赛已结束！")
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                            },2000); 
+                        } else if(data.retCode == 701023) {
+                          $('.warn_over').html(data.msg)
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                            },2000); 
+                        } else {
+                          $('.warn_over').html(data.msg)
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                            },2000); 
+                        }
+                     }
+                  })                   
+                }else{
+                 jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+  
+            },
+            jointhisTeam:function(){
+            // 参加战队
+              var self = this;
+              if(window.localStorage.getItem("ssoId") != "null"){
+                  var ssoId = window.localStorage.getItem("ssoId");
+                  var token = window.localStorage.getItem("token");
+                  var teamId = $(event.currentTarget).attr('teamId');
+                  $.ajax({
+                   url: ' http://itougu.jrj.com.cn/match/v7/team/joinTeam.jspa',
+                   type: 'get',
+                   data:{
+                     userId:String(window.passportId),
+                     teamId:teamId
+                   },
+                   dataType: 'json',
+                   success:function(jsondata){ 
+                     console.log(jsondata)
+                     if(jsondata.retCode=='0'){
+                        $('.warn_over').html("报名成功！")
+                        $('.warn_over').show();
+                        setTimeout(function(){
+                              $('.warn_over').fadeOut();
+                              self.loadRefresh();
+                              },2000); 
+                     }else{
+                        $('.warn_over').html(jsondata.msg)
+                        $('.warn_over').show();
+                              setTimeout(function(){
+                                  $('.warn_over').fadeOut();
+                              },2000); 
+                     }
+                   }
+                  })
+                }else{
+                   jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                  }
+            
+            },
+            refresh: function (done) {
+                var self = this;
+                setTimeout(function () {
+                    // window.location.reload()
+                    done();
+                }, 1500)
+            },
+            goToRedBAo:function(){
+
+              if(window.localStorage.getItem("ssoId") != "null"){
+                  if(this.userInfo.play_game){
+                    window.location.href="http://itougu.jrj.com.cn/match/v7/h5/matchShareRed.jspa"
+                  }else{
+                    $('.warn_over').html("报名参赛才能抢红包")
+                    $('.warn_over').show();
+                    setTimeout(function(){
+                        $('.warn_over').fadeOut();
+                    },2000); 
+                  }
+                }else{
+                   jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                  }
+              
+            },
+            goLeader:function(){
+              // 去投顾主页
+              var tgId = $(event.currentTarget).attr("tgId");
+              jrj.jsCallNative("113",JSON.stringify({id:tgId})) 
+            },
+
+        }
+
+  })  
+
+	
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>机构行为统计-机构管理平台-爱投顾最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+<!--\#include virtual="/v2/common_head_css.html" -->
+<link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/backstage-agency.css" rel="stylesheet" />
+</head>
+<body onload="initBody();">
+<!--site-top-compact-->
+<!--\#include virtual="/v2/site_top_compact.html" -->
+<!--site-top-compact-->
+
+<!-- 开始 -->
+<div class='wrapper'>
+	<div class='backstage'>
+		<div class='nav'>
+			<h2>机构管理后台</h2>
+			<ul>
+				<li class='current'><a href='/account/orgmanage/orgAdviser.jspa'>机构投顾管理</a></li>
+				<li><a href='/account/orgmanage/notice.jspa'>机构公告</a></li>
+				<li><a href='/account/gotoModifyOrg.jspa'>机构设置</a></li>
+				<li class='last'><a href='/account/organization/$!{orgId}/' target="_blank">我的机构主页</a></li>
+			</ul>
+		</div>
+		<div class='right-side'>
+			<div class='menu'>
+				<ul>
+					<li><a href='/account/orgmanage/orgAdviser.jspa'>投顾列表</a></li>
+					<li class='current'><a href='/account/orgmanage/statistics.jspa'>投顾行为统计</a></li>
+				</ul>
+			</div>
+			<div class='backstage-contents'>
+				<div class='backstage-search'>
+					<div class='searbox count'>
+						<input type='text' id='searchTextId' class='text' style='color:#666' onfocus='setText(this)' onblur='setText(this,"请输入投顾姓名")' value='请输入投顾姓名'/>
+						<input type='button' id='searchButtonId' class='btn' value='搜索'/>
+					</div>
+					<!-- <span class='excel_btn'>EXCEL导出</span> -->
+				</div>
+				<div class='list-content' id='contentDiv'>
+					
+				</div>
+				<!--<div id="pager" typeIndex="1" class="pager pager-v2"></div>-->
+				<div id="pagerId" class="pager pager-v2"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 结束 -->
+
+<!--\#include virtual="/v2/common_head_js.html" -->  
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/jquery.pagefoot.min.js"></script>
+<script>
+	$(function () {
+		$("#searchButtonId").click(function() {
+			var name=$("#searchTextId").val();
+			loadData(1,name,1);
+		});
+	})
+	function initBody(){
+		loadData(1,'',0);
+		//$("#searchTextId").val('');
+		$("#searchTextId").val('请输入投顾姓名');
+	}
+
+	function StringBuffer(){
+		this.data_ = [];
+	}
+	StringBuffer.prototype.append = function(){
+		this.data_.push(arguments[0]);
+		return this;
+	}
+	StringBuffer.prototype.toString = function(){
+		return this.data_.join("");
+	} 
+	
+	function setText( self , txt ){
+		self.value = self.value.replace(/\s/g,'')
+		if(!self.txt) self.txt = self.value;
+		if( txt ){
+			if(self.value == ''){
+				self.value = self.txt;
+				self.style.color = '#666'
+			}
+		}else{
+			if(self.value == self.txt){
+				self.value = '';
+				self.style.color = '#000'
+			}
+		}
+	}
+
+	function loadData(p,n,s){
+		if(s!=1){
+			n='';
+		}
+		$.ajax({
+			type : "post",
+			url : '/account/orgmanage/myOrgUsersList.jspa?pn='+p+'&ps=10&tgname='+escape(encodeURIComponent(n)),
+			async : false,
+			dataType : "json",
+			timeout : 10000,
+			success : function(d, textStatus) {
+				if (typeof(d)!='undefined' && d!=null && d!='null' && d!=undefined) { 
+					var content = new StringBuffer();
+					var tgids = new StringBuffer();
+					var tag = 0;
+					
+					content.append('<table class="default-tab" id="tableId">');
+					content.append('<thead align="center">');
+					content.append('<tr>');
+					content.append('<th>投顾</th>');
+					content.append('<th>签约用户</th>');
+					content.append('<th>发布观点</th>');
+					content.append('<th>回答问题</th>');
+					// content.append('<th>直播次数</th>');
+					content.append('<th>发布内参</th>');
+					content.append('<th>发布组合</th>');
+					content.append('</tr>');
+					content.append('</thead>');
+					content.append('<tbody align="center" id="contentList">');
+					
+					$.each(d.data, function(idx, obj){
+						tag = 1;
+						tgids.append(obj.userId).append(',');
+						content.append('<tr>');
+						content.append('<td><a href="/account/adviser/'+obj.userId+'/" target="_blank">'+obj.name+'</a></td>');
+						content.append('<td>'+obj.signNum+'</td>');
+						content.append('<td id-data="'+obj.userId+'" name="view">0</td>');
+						content.append('<td id-data="'+obj.userId+'" name="ques">0</td>');
+						// content.append('<td id-data="'+obj.userId+'" name="live">0</td>');
+						content.append('<td id-data="'+obj.userId+'" name="tips">0</td>');
+						content.append('<td id-data="'+obj.userId+'" name="portfolio">0</td>');
+						content.append('</tr>');
+						
+					});
+					content.append('</tbody>');
+					content.append('</table>');
+					
+					$('#contentDiv').empty().append(content.toString());
+					
+					if(tag == 1){
+						$("#pagerId").show();
+						$("#pagerId").pagefoot({
+				            pagesize:10,
+				            count:d.count,
+				            css:"",
+				            current : p,
+				            displaynum : 5,
+				            displaylastNum :2,
+				            previous:"上一页",
+				            next:"下一页",
+				            enableArrowKey: true,
+				            paging:function(page){
+			            		var p = page.current;
+			            		loadData(p,n,0)
+				            }
+				        });
+			        }else{
+			        	//$("#tableId").hide();
+			         	$("#pagerId").hide();
+			         	if(s==1)
+			         		$("#contentDiv").empty().append("<div class='nomsg-data'><center><i class='i-msg'></i><span class='text'>你搜索的投顾信息不存在，请重新搜索</span></center></div>");
+			        	else
+			        		$("#contentDiv").empty().append("<div class='nomsg-data'><center><i class='i-msg'></i><span class='text'>当前没有投顾，赶快添加吧！</span></center></div>");
+			        }
+			        loadViewData(tgids.toString());
+					loadQuesData(tgids.toString());
+					// loadLiveData(tgids.toString());
+					loadTipsData(tgids.toString());
+					loadPortfolioData(tgids.toString());
+				}
+			}
+		});
+	}
+	
+	
+	
+	function loadViewData(ids){
+		$.ajax({
+			type : "get",
+			url : '/view/org/userpubcount.jspa?uids='+ids,
+			async : true,
+			dataType : "json",
+			timeout : 10000,
+			success : function(d, textStatus) {
+				if (typeof(d)!='undefined' && d!=null && d!='null' && d!=undefined) { 
+					$("td[name='view']").each(function(i, o){
+						var tgid=$(o).attr("id-data");
+						if (typeof(d.data)!='undefined' && d.data!=null && d.data!='null' && d.data!=undefined) {
+							$(o).empty().append(d.data[tgid]==undefined?0:d.data[tgid]);
+						}
+					});
+				}
+			}
+		});
+	}
+	
+	function loadLiveData(ids){
+		$.ajax({
+			type : "get",
+			url : '/live/index.php/service/getHistoryNum?userid='+ids,
+			async : true,
+			dataType : "json",
+			timeout : 10000,
+			success : function(d, textStatus) {
+				if (typeof(d)!='undefined' && d!=null && d!='null' && d!=undefined) { 
+					$("td[name='live']").each(function(i, o){
+						var tgid=$(o).attr("id-data");
+						$(o).empty().append(d.data[tgid]==undefined?0:d.data[tgid]);
+					});
+				}
+			}
+		});
+	}
+	
+	function loadQuesData(ids){
+		$.ajax({
+			type : "get",
+			url : '/ques/quesDealedCountForQrg.jspa?userids='+ids,
+			async : true,
+			dataType : "json",
+			timeout : 10000,
+			success : function(d, textStatus) {
+				if (typeof(d)!='undefined' && d!=null && d!='null' && d!=undefined) { 
+					$("td[name='ques']").each(function(i, o){
+						var tgid=$(o).attr("id-data");
+						$(o).empty().append(d[tgid]==undefined?0:d[tgid]);
+					});
+				}
+			}
+		});
+	}
+	
+	function loadTipsData(ids){
+		$.ajax({
+			type : "get",
+			url : '/tips/org/userpubcount.jspa?uids='+ids,
+			async : true,
+			dataType : "json",
+			timeout : 10000,
+			success : function(d, textStatus) {
+				if (typeof(d)!='undefined' && d!=null && d!='null' && d!=undefined) { 
+					$("td[name='tips']").each(function(i, o){
+						var tgid=$(o).attr("id-data");
+						//alert(d.data[tgid])
+						if (typeof(d.data)!='undefined' && d.data!=null && d.data!='null' && d.data!=undefined) { 
+							$(o).empty().append(d.data[tgid]==undefined?0:d.data[tgid]);
+						}
+					});
+				}
+			}
+		});
+	}
+	
+	function loadPortfolioData(ids){
+		$.ajax({
+			type : "get",
+			url : '/portfolio/getUsersPortfolioCount.jspa?uids='+ids,
+			async : true,
+			dataType : "json",
+			timeout : 10000,
+			success : function(d, textStatus) {
+				if (typeof(d)!='undefined' && d!=null && d!='null' && d!=undefined) { 
+					$("td[name='portfolio']").each(function(i, o){
+						var tgid=$(o).attr("id-data");
+						$(o).empty().append(d.data[tgid]==undefined?0:d.data[tgid]);
+					});
+				}
+			}
+		});
+	}
+
+	$('.backstage').height()<500 && $('.backstage').height(500);
+ </script>
+ <!--\#include virtual="/v2/common-footer-v2.html" -->
+</body>
+</html>

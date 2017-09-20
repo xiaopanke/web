@@ -1,0 +1,1478 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>平安证券闯关活动</title>
+<meta name="keywords" content="新年赚金币、平安证券、证券开户交易、爱投顾APP首次交易、小米手环、捷豹、Level-2" />
+<meta name="description" content="活动期间，凡是通过爱投顾APP平台成功开通平安证券并首次交易的用户可赚金币，足额金币并可兑换小米手环及山地自行车。" />
+<style>
+    @keyframes yun-move
+{
+0% { 
+  -webkit-transform: scale(1);
+  transform: scale(1);
+} 
+33% {  
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+66% {  
+  -webkit-transform: scale(.98);
+  transform: scale(.98);
+}
+100% {  
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+}
+@keyframes grow
+{
+0% {  
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+60% {  
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+80% {  
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+100% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+}
+
+@keyframes music-move
+{
+0% { 
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+} 
+33% {  
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+66% {  
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+100% {  
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+}
+@keyframes time-move
+{
+0% { 
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+} 
+33% {  
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+66% {  
+  -webkit-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+100% {  
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+}
+
+@-webkit-keyframes ball1-move {
+		  0% {
+		    -webkit-transform: translateY(20px) scaleY(.98);
+		            transform: translateY(20px) scaleY(.98);
+		  }
+		  80% {
+		    -webkit-transform: translateY(5px) scaleY(1.02);
+		            transform: translateY(5px) scaleY(1.02);
+		  }
+		}
+@-webkit-keyframes ball2-move {
+		  0% {
+		            transform: translateY(25px) scaleY(.98);
+		  }
+		  80% {
+		            transform: translateY(10px) scaleY(1.02);
+		  }
+		}
+@keyframes boat-move{
+		0%{transform: translateX(-6px);}
+		50%{transform: translateX(6px);}
+		100%{transform: translateX(-6px);}
+	}
+@keyframes money-move{
+		0%{transform:scale(1.3) ;opacity: 0.1}
+		50%{transform: scale(1);opacity: 0.6}
+		100%{transform:scale(1.3) ;opacity: 0.1}
+	}
+@keyframes money-move2{
+		0%{transform:rotate(0);}
+		25%{transform:rotate(30deg);}
+		50%{transform:rotate(0);}
+		75%{transform:rotate(-30deg);}
+		100%{transform:rotate(0);}
+	}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#fff; text-decoration: none; }
+a:hover{ text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #fff;}
+body{background: #142a99;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;    overflow-x: hidden;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+.bg { background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5sprite.png) no-repeat;background-size:15rem 15rem;display:block;}
+.con1 {padding-bottom:1rem; overflow:hidden; }
+.con2 {-webkit-box-orient: vertical;-webkit-transform: translateX(-100%);
+-webkit-transition-duration: .5s;opacity: 0;position: relative;top: 0;left: 0; overflow: hidden;
+right: 0;bottom: 0;z-index:10;width:0;height:0;background: #142a99; transition:all .5s; transform-origin:left 0; }
+header { overflow:hidden; height:12.25rem;background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5bg_01.png) ;background-size:100% 100%; position:relative; }
+header .ball1 {animation: grow 0.7s 0.4s 1 ease, ball1-move 1s 1.3s cubic-bezier(0.30, 2.40, 0.85, 2.50) infinite;  width:1.75rem; height:1.75rem; background-position:-1.5rem  0; position:absolute;top:10rem; right:3.65rem;}
+header .ball2 {animation:  grow 0.7s 0.4s 1 ease,ball2-move .6s  1s cubic-bezier(0.30, 2.40, 0.85, 2.50) infinite;  width:1rem; height:1rem; background-position:0  -1.5rem; position:absolute;top:10rem; right:1.4rem;}
+header .ball3 {animation: grow 0.7s 0.4s 1 ease, ball1-move 1s 1.3s cubic-bezier(0.30, 2.40, 0.85, 2.50) infinite;  width:1.425rem; height:1.425rem; position:absolute;top:3.25rem; left:5rem;}
+header .yun {animation: yun-move 3s infinite alternate ease-in-out;  position:absolute;top:1.9rem; left:-.5rem;width:19.5rem; height:10rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/webyun.png);background-size:100% 100%;}
+.snow {  width:2.6rem;height:3.275rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/websnow.png);position:absolute; top:.75rem;right:5rem;animation: grow 0.7s 0.4s 1 ease, music-move 1s 2s infinite alternate ease-in-out; background-size:100% 100%;}
+.wenzi { width:17.5rem;height:9.575rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/webwenzi.png); position:absolute;top:2.25rem;left:.75rem; z-index:2; background-size:100% 100%;}
+.time { width:6.5rem;height:3.625rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5time.png); position:absolute;bottom:0;left:0; z-index:2;animation: grow 0.7s 0.4s 1 ease, time-move 2s 2s infinite alternate ease-in-out;transform-origin:4.25rem -1rem; background-size:100% 100%;}
+.time i {  line-height:.8rem;    display: block;-webkit-transform: rotate(8deg);-moz-transform: rotate(8deg);-o-transform: rotate(8deg);-ms-transform: rotate(8deg);transform: rotate(8deg);margin-top: 1.2rem;font-size: .6rem; text-align:center;}
+.time em {     display: block; font-weight:bold;-webkit-transform: rotate(8deg);-moz-transform: rotate(8deg);-o-transform: rotate(8deg);-ms-transform: rotate(8deg);transform: rotate(8deg);font-size: .5rem; text-align:center;}
+.btn_kh {  width:8.125rem;line-height:2.7rem; display:block; margin:0 auto; color:#fc9116; text-align:center; font-size:1rem; font-weight:bold;}
+.btn_kh:active {  color:#d03001;}
+.item2 .mymoney { text-align:center;width: 7rem;    margin: 0 auto;}
+.item2 .mymoney .num {  font-size:1.6rem; color:#fff36c; line-height:.6rem; padding-top:1.9rem; display:block;    padding-left: .35rem; text-shadow:0 4px 2px #892105 }
+.item2 .mymoney b {    font-size: .6rem;display: block;margin-top: 1.3rem;line-height: .75rem;margin-left: 1.3rem; }
+.item2 .baodao { margin-top:1.2rem;line-height:1rem;}
+.item2 .baodao em{width:4rem; text-align:center;  color:#142a99; font-size:.6rem; margin-right:.5rem; margin-left:1rem; }
+.item2 .baodao a{ color:#91d2ff; font-size:.6rem; display: block;}
+.item2 .yaoqing {z-index:2; width:3.35rem; height:1.2rem; padding-left:.75rem; padding-top:1.325rem;  font-size:.6rem; cursor:pointer; background-position:0 -2.5rem; position:fixed;right:-3.35rem;top:63%;  transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    opacity: 0;transform: scale(1.5); z-index:9; }
+.item2 .choujiang {  z-index:2;   width: 3.35rem;height: 1.3rem;padding-left: .75rem;padding-top: .8rem;font-size: .6rem;cursor: pointer;background-position: 0 -5rem;position: fixed;right: -3.35rem;top: 76%;transition-duration: 1.5s;
+    -webkit-transition-duration: 1s; 
+    opacity: 0;transform: scale(1.5); z-index:9;}
+.item2 {  height:9.925rem;background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5bg_02.png) ;background-size:100% 100%; position:relative; }
+
+.item3 {  background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5bg_03.png) no-repeat ;height:20rem; position:relative;background-size:100% 100%; margin-top:3rem; margin-bottom:14rem;}
+.boatbox {  position:absolute;top:-3rem;width:9.675rem;}
+.boatbox01 {left:.5rem; }
+.boatbox02 {right:-.5rem;top:1.8rem; }
+.boatbox03 {left:.5rem;top:6.5rem; }
+.boatbox04 {right:0;top:11rem; }
+.boatbox05 {left:.5rem;top:16rem; }
+.boatbox .boat {height:6rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/webboat.png) no-repeat;animation: boat-move 4s infinite linear; background-size:100% 100%;}
+.boat .num {    display: block;padding-top: .85rem;line-height: 1rem;font-size: .8rem;margin-left: .67rem;}
+.boat .hd { font-size: .8rem;color: #b55c00;text-align: center;line-height: 1rem;margin-top: .5rem;}
+.boat p { color: #cd7820;font-size: .6rem;text-align: center;line-height: 1rem;}
+.boat > p > b {    padding: 0 2px;font-size: .8rem;color: #b55c00;}
+.boatbox > .btn_cg {     width: 4.425rem;height: 1.45rem;  display:block; margin:.25rem auto 0; background-position:0 -7.275rem;}
+.boatbox > .dis { width:4.575rem; background-position:-4.525rem -7.275rem; }
+.boatbox04 .hd { font-size:.6rem; }
+.boatbox04 .btn_cg {margin-right: 1rem; }
+.boatbox05 .btn_cg {    position: absolute;right: -4rem;bottom: .5rem;}
+.jlmsg {height: 8rem;background: url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/jlmsg.png);position: absolute;right: .2rem;bottom: -12.5rem;padding-top: 2.2rem;background-size: 100% 100%;width: 100%;}
+.jlmsg li { padding-left: 2.6rem;}
+.jlmsg em {     color: #f5e28d;float: left;width: .7rem;line-height: .7rem;background: #7b5a2f;border-radius: 50%;text-align: center;margin-top: 1px;margin-right: 1px;font-size: .5rem;}
+.jlmsg p {    float: left;line-height: .7rem;font-size: .5rem;color: #805503;width: 13rem;}
+
+.item4 {  width:17.3rem; margin:0 auto; position:relative; height:11.1rem;}
+.item4  .hd {     position: absolute; top:-1rem; width:100%;z-index: 5;}
+.item4  .hd > div { width:7.025rem;height:2.275rem; background-position:0 -8.775rem;font-size:1rem;color:#ffdd19;line-height:1.9rem; padding-left:.6rem;}
+.item4  .hd >i { cursor:pointer;width:2rem;height:2rem; background-position:-5.425rem -3px;}
+.item4 .line { position:absolute;z-index:1;width:100%; height:.6rem; border-radius:3px; background:#1832b3; bottom:0; }
+.item4  .bd {    z-index: 4; position:relative;  height:10.75rem; background:#225fbb; position:relative; border-radius:3px;}
+.item4  li {position:absolute; width:7.4rem; top:2.1rem;left:.2rem; }
+.item4  .two{left:9.4rem; top:-0.925rem; width:6rem;}
+.item4  .three{left:9.5rem; top:5.325rem; width:6.15rem; }
+.item4 .pic { width:100%; height:6.325rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/webprize1.png); position:relative; background-size:100% 100%;}
+.item4 .pic > i {animation:money-move2  3s infinite linear; position:absolute;right:-.9rem;bottom: -.5rem; z-index:2; width:1.925rem; height:1.925rem; color:#814600;line-height:1.925rem; text-align:center; font-weight:bold;font-size:.8rem;background-position:-3.275rem 0;}
+.item4 .pic > i:after {top: -2px;left: -2px;padding: 2px;z-index: -1;background:yellow;animation:money-move 3s infinite linear;position: absolute;width: 100%;height: 100%;border-radius: 50%;content: '';box-sizing: content-box;}
+.item4 .pic2 {  background-image: url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/webprize2.png); height:5.4rem;}
+.item4 .pic3 {  background-image: url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/webprize3.png); height:4.725rem;}
+.item5 {  position:relative; width:17.3rem; margin:.6rem  auto 0;}
+.item5 .indown {  position:relative; z-index:8;}
+.item5 .indown .bd {background:#225fbb;border-radius:3px; }
+.item5 .indown ul {  margin-left:.25rem; padding-top:.5rem; padding-bottom:.5rem;}
+.item5 .indown li {  margin-bottom:.5rem;}   
+.item5 .indown li em{width:3.4rem; line-height:1.175rem;float:left; text-align:center; background:#4987e4; color:#fff; font-size:.6rem; font-weight:bold; margin-top:3px; border-radius:3px; }
+.item5 .indown li p {float:left;  width:12.85rem;margin-left:.3rem; line-height:.8rem;color:#d6e3f6;font-size:.6rem; }
+.item5 .line { position:absolute;z-index:1;width:100%; height:.6rem; border-radius:3px; background:#1832b3; bottom:-.4rem;}
+
+.item6 {  position:relative; width:17.3rem; margin:.75rem  auto 0;}
+.item6 .indown {  position:relative; z-index:8;}
+.item6 .indown .bd {background:#225fbb;border-radius:3px; padding-top:.4rem; padding-left:.4rem; }
+.item6 .indown .bd h3 {width:3.4rem; line-height:1.175rem; text-align:center; background:#4987e4; color:#fff; font-size:.6rem; font-weight:bold; margin-top:3px; border-radius:3px; }
+.item6 .indown ul {  margin-left:.25rem; padding-top:.5rem; padding-bottom:.5rem;}
+.item6 .indown li {  margin-bottom:.5rem;}   
+.item6 .indown li em{width:.7rem; line-height:.7rem;float:left; text-align:center; background:#fff; color:#225fbb; font-size:.6rem; margin-top:3px; border-radius:50%; box-shadow:0 0 0 2px rgba(255,255,255,.6); }
+.item6 .indown li p {float:left;  width:15.25rem;margin-left:.3rem; line-height:.8rem;color:#fff;font-size:.6rem; }
+.item6 .line { position:absolute;z-index:1;width:100%; height:.6rem; border-radius:3px; background:#1832b3; bottom:-.4rem;}
+
+.item7 { border:1px dashed #fff; border-radius:5px; padding:.3rem; width:16.7rem; margin:.75rem auto 0;}
+.item7 p {  line-height:1rem; color:#fff; font-size:.6rem; color:#f6f8f8;}
+.item7 span {float:left; width:.7rem; height:.6rem; background-position:-7.5rem 0;    margin-top: 4px;margin-right:2px; }
+
+
+.item8 { height:3.2rem; width:17.25rem; margin:0 auto;}
+.item8 span {display:block; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5sprite.png);;background-size:15rem 15rem; width:1.1rem; height:1.1rem;margin:0 auto; }
+.item8 i {  float: left;width: 1.5rem; height: 2rem;padding-top:1rem;}
+.item8 .btn2  span{  width:.6rem; background-position:-9.875rem -1rem;}
+.item8 .myprizebtn span{ background-position:-7.425rem -1rem; }
+.item8 .guizebtn  span{ background-position:-8.5rem -1rem;}
+.item8 .myprizebtn {float:right; }
+.item8 .guizebtn  {float:right;}
+.item8 .cjbtn { margin-left:3.85rem; margin-top:.8rem;  width:7rem; line-height:1.675rem; padding-top:0;height:1.675rem; color:#fff7bc;border-radius:.8rem;font-size:1rem; text-align:center; background:#ff8920; float:left; box-shadow:0 0 0 6px rgba(255,137,32,.5);}
+
+.item9 {  width:16.75rem; padding:.25rem; background:#ff8920;box-shadow:0 0 0 6px rgba(255,137,32,.5); border-radius:3px; margin:0 auto .5rem;}
+.item9 h3 { text-align:center; line-height:1.5rem; font-weight:normal; font-size:.9rem;}
+.item9 h3 b { color:#b81d1b;font-size:1.4rem; padding:0 2px; vertical-align:middle;}
+.item9 h3 span {  display:inline-block; width:1.675rem; height:1rem; background-position:-8.325rem 0; vertical-align:middle; margin-left:3px;}
+.item9 .subtit {  line-height:1rem; margin-bottom:.5rem; font-weight:bold;font-size:.6rem;text-align:center; color:#fff7bc;}
+
+.prizebox {  height:14rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/prizebg.png); background-size:100% 100%;}        
+.lottery-wrap {  position:relative;}
+.lottery-wrap .item {position: absolute;width: 4.825rem;height: 3.625rem;background: url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5sprite.png) -4.875rem -11.35rem; background-size:15rem 15rem;border-radius: 4px;color: #fff;}
+.lottery-wrap .item-1{top: 1rem;left: .95rem;}
+.lottery-wrap .item-2{top: 1rem;left: 5.875rem;}
+.lottery-wrap .item-3{top: 1rem;left: 10.825rem;}
+.lottery-wrap .item-4{top: 5rem;left:10.825rem;}
+.lottery-wrap .item-5{top:9rem;left: 10.825rem;}
+.lottery-wrap .item-6{top: 9rem;left: 5.875rem;}
+.lottery-wrap .item-7{top: 9rem;left:.95rem;}
+.lottery-wrap .item-8{top:5rem;left:.95rem;}
+.lottery-wrap .item-cur i{border:2px solid #ffea5a; background:#fff; width:4.825rem;height: 3.625rem; position:absolute;top:-2px;left:-2px;border-radius:10px; z-index:3;}
+.lottery-wrap .btn_lottery {padding-top:.35rem;color:#ea8008;position: absolute;width: 4.825rem;height: 3.275rem;line-height:1.375rem; text-align:center; font-size:1.2rem; font-weight:bold;top: 5rem;left: 5.875rem;background: url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5sprite.png) -0px -11.35rem;border-radius: 2px;cursor: pointer;background-size:15rem 15rem;}
+.lottery-wrap .btn_lottery:active { color:#eb100e; }
+.lottery-wrap .dis { color:#8b8b8b; }
+.lottery-wrap .inner { background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/prizeimg.png) no-repeat center 0; background-size:4.825rem 26rem;  height:3.625rem; position:relative;z-index:4;}
+.lottery-wrap .item-2 .inner {  background-position:0 -3.2rem;}
+.lottery-wrap .item-3 .inner {  background-position:0 -6.4rem;}
+.lottery-wrap .item-4 .inner {  background-position:0 -9.65rem;}
+.lottery-wrap .item-5 .inner {  background-position:0 -12.9rem;}
+.lottery-wrap .item-6 .inner {  background-position:0 -16rem;}
+.lottery-wrap .item-7 .inner {  background-position:0 -19.3rem;}
+.lottery-wrap .item-8 .inner {  background-position:0 -22.6rem;}
+
+
+.allprize {  margin-top:.4rem; padding-bottom:.65rem;}
+.allprize {  position:relative; height:7.75rem;}
+.allprize .hd {line-height:1.1rem; background:#ffed99; border-radius:5px  5px 0 0;   }
+.allprize .bd { height:6.625rem; border-radius:0 0 5px 5px; background:#fff7bc; overflow:hidden; position:absolute;top:1.1rem;left:0; width:100%; z-index:2;}
+.allprize .bd .ulbox{ position: absolute;top:0;left:0;width: 100%}
+.allprize li { border-bottom:1px solid #ffed99;}
+.allprize  span { float:left; color:#ff8920;  font-size:.6rem; text-align:center; line-height:1.275rem; height:1.275rem;}
+.allprize .one { width:4.5rem;}
+.allprize .two { width:4.5rem; color:#f63e1a; }
+.allprize .three { width:2.5rem;}
+.allprize .four { width:4.5rem; color:#f63e1a;}
+.allprize .redbold { color:red;font-weight: bold;}
+.allprize .hd span {  color:#ff8920; }
+.allprize .bt {     position: absolute;z-index: 1;width: 100%;height: 1.px;border-radius: 5px;background: #d06200;bottom: -2px; }
+
+/* -------------------------------- dialog -------------------------------- */
+.md-slidein-show { visibility: visible; z-index: 200; height:100%;}
+.md-slidein-show .md-overlay { opacity: 1; visibility: visible; -moz-transition: all 1s; -o-transition: all 1s; -webkit-transition: all 1s; transition: all 1s; }
+.md-slidein-show .focus-dlg { visibility: visible; opacity: 1;-moz-transform:scale(1); -ms-transform:scale(1); -o-transform:scale(1); -webkit-transform:scale(1); transform:scale(1);}
+
+.focus-dlg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; opacity: 0; visibility: hidden; -moz-transform: scale(.5); -ms-transform: scale(.5); -o-transform: scale(.5); -webkit-transform: scale(.5); transform: scale(.5);  -moz-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -o-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -webkit-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); transition: transform .3s cubic-bezier(.17,.67,.42,1.22); display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }
+.md-overlay { position: fixed; width: 100%; height: 100%; visibility: hidden; top: 0; left: 0; z-index: 1000; opacity: 0; background: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#50000000',EndColorStr='#50000000'); -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+/* -------------------------------- dialog end-------------------------------- */
+.dlg-time{width: 80%;padding: 5%;background: #fff;position: relative;}
+.dlg-time>.tit{text-align: center;font-size: 16px;line-height: 20px;margin-bottom: 10px;}
+.dlg-time>p{font-size: 14px;line-height: 16px;color: #323132;}
+.slider-wrap{padding-bottom: 3.825rem;}
+.input{margin-top: 10px;}
+.input>input{height: 2.25rem;font-size:.8rem;}
+.input>#txtPhone{width: 100%;}
+.input>#txtCode{}
+.dlg-time .dlg-btn-wrap { width:100%;height:3.125rem;bottom:0;left:0;border-top:1px solid #d5d5d5;position: absolute; }
+.dlg-time .dlg-btn {display:block; height:3rem;line-height:3rem;text-align:center; font-size:0.875rem;color: #878C92;-webkit-box-flex: 1; -webkit-flex: 1; -moz-flex: 1; -ms-flex: 1; flex: 1;    width: 50%;  float: left;  box-sizing: border-box; font-size:.7rem;}
+.dlg-time .dlg-btn:first-child { border-right:1px solid #d5d5d5; }
+.dlg-time .dlg-btn:hover,.dlg-time .dlg-btn:active { background:#ddd; }
+
+
+.dlg-cnt{font-size: 1rem;padding-bottom: 3.825rem;}
+.bgbig { width: 100%; height: 100%; background: url(//i0.jrjimg.cn/wap2014/wxbug/bgbig.png) repeat; position: fixed; top: 0; left: 0; z-index: 9998; }
+.tsbox { position: fixed; top: 0; right: 0; z-index: 9999; }
+.tsbox img { width: 98%; height: auto; display: block; margin: 0 auto; }
+
+.b_opacity{filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity:0.7;opacity: 0.7;width: 100%;height: 100%;position: fixed;top:0;left: 0;z-index: 996;background-color: black;display: none;}
+.alert{width: 259px;height: 277px;position: fixed;z-index: 997;top: 50%;left: 50%;margin-left: -129.5px;margin-top:-138.5px;background: url("//i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/icn_inning.png") 0 0 no-repeat;background-size: 100% auto;display: none;}
+.alert>p{text-align: center;font-size: 19px;line-height: 28px;color: #ffffff;margin-top: 26px;width: 80%;margin-left:20px;}
+.alert>.close_btn{display: inline-block;width: 22px;height: 22px;position: absolute;right: 0;top:0;cursor: pointer;background: url("//i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/btn_close.png") 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100% auto;}
+/*关于弹窗*/
+.mask{display:none;position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10;}
+.layer{display:none;width: 13.375rem;height: 11.95rem;background: url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/weblayerbg1.png);position: fixed;top: 50%;left: 50%;margin-top: -5.97rem;margin-left: -6.677rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%;}
+
+/*金币详情弹层*/
+.layer_jbdatile{width:17.3rem; height:19.125rem; background: url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/webjbbg.png); margin-top: -9.6rem;margin-left:-9.25rem;    padding:0 .6rem;background-size: 100% 100%;}
+.layer_jbdatile .closebtn{top:2.5rem;right: 6px;}
+.layer_jbdatile .hd {     padding-left: 1rem;
+    padding-right: .9rem;   margin-top:7.2rem;line-height:1.6rem;  }
+.layer_jbdatile .bd {margin-left: 1rem;
+    margin-right: .9rem;    text-align:center;    height: 8.5rem;overflow-y: auto; line-height:1.6rem;color:#fe7900; font-size: .6rem;}
+.layer_jbdatile .bd .ulbox{ position: absolute;top:0;left:0;}
+.layer_jbdatile ul{}
+.layer_jbdatile li { border-top:1px solid #ffed99;}
+.layer_jbdatile  span { float:left; color:#fe7900;  font-size:.6rem; text-align:center; line-height:1.6rem;}
+.layer_jbdatile .one { width:9rem;}
+.layer_jbdatile .two { width:3rem; }
+.layer_jbdatile .three { width:3rem;}
+.layer_jbdatile .redbold { color:red;font-weight: bold;}
+.layer_jbdatile .hd span {  color:#ff8920; }
+
+/*我的中奖记录*/
+.layer_myprize{ background:none; width:15.25rem;margin-left:-7.6rem;height: 14rem; margin-top: -7rem;    
+display: none;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+.myprizelist {text-align:center; border-radius: 5px; width:100%; }
+.myprizelist .hd {line-height:1.85rem; background:#ffed99; border-radius:5px  5px 0 0; position: relative;   }
+.myprizelist ul{ font-size:.6rem;}
+.myprizelist .bd { border-radius:0 0 5px 5px; background:#fff277; max-height:12rem; overflow-y:auto; }
+.myprizelist li { border-top:1px solid #e9dc62;}
+.myprizelist  span { float:left; color:#ad0000;  font-size:.6rem; line-height:1.925rem; width:50%;}
+.myprizelist .hd span { color:#8b6b09;}
+.layer_myprize .closebtn{background-position: -11.7rem -1rem;width:1rem; height:1rem; top:.5rem; right:.5rem;}
+/*中奖*/
+.layer_zj{text-align:center; color:#fff;}
+.layer_zj  .closebtn{ top:1rem; right:1rem}
+.layer_zj .tit{ padding-top: 2rem;}
+.layer_zj .tit .one{font-size:.9rem; line-height:1.2rem;}
+.layer_zj .tit .two{font-size:1.1rem; line-height:1.5rem ;}
+.layer_zj .bt{ line-height:1.1rem;font-size:.6rem; color:#fde15d;}
+.layer_zj .btbtn{width:10rem; margin:.6rem auto 0; }
+.layer_zj .btbtn span{width:4.65rem; line-height: 1.5rem; background-position:-5.5rem -3.75rem; color: #fff;  font-size: .5rem; }
+.layer_zj .btbtn .sharebtn{background-position: -10.3rem -3.75rem; }
+/*花费金币*/
+.layer_jb{ text-align: center;color:#fff;}
+.layer_jb .one{font-size:.8rem; color:#ffde5b; padding-top:2.5rem;}
+.layer_jb .two{font-size:1.1rem; line-height:2rem}
+.layer_jb .three{font-size:.6rem }
+.layer_jb .btbtn{width:10rem; margin:1.8rem auto 0; }
+.layer_jb .btbtn span{width:4.65rem; line-height: 1.5rem; background-position:-5.5rem -3.75rem; color: #fff;  font-size: .5rem;}
+.layer_jb  .btbtn .btn_jb_close{background-position: -10.3rem -3.75rem;}
+.layer_jb .closebtn{    top: 1rem;
+    right: 1.2rem;  background:none;}
+/*每日签到*/
+.layer_dayqiandao{ width:14.425rem; height:13.775rem; margin-left:-7.21rem;margin-top: -6.88rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5dayqd.png);background-size: 100% 100%; text-align: center; }
+.layer_dayqiandao .tit{padding-top:9.75rem; line-height: 1.2rem; color:#e93328;font-size:.6rem; }
+.qiandaobtn2{ width:5.5rem; line-height: 1.75rem; color:#fff; font-size:.8rem;}
+.layer_dayqiandao .closebtn{ top:4.5rem; background:none;}
+/*规则*/
+.layer_guize{width:13.925rem; height:8.775rem; background: #fff7bc; margin-top: -4.375rem;margin-left:-7.962rem;    padding:0 1rem; border-radius: 10px;box-shadow: 0 0 0 6px rgba(193,103,25,.5);}
+.layer_guize .closebtn{top:.5rem;right: .5rem; background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5sprite.png) -10.675rem -1rem ; background-size: 15rem 15rem;width:1rem; height:1rem; }
+.layer_guize .hd { width:8.475rem; margin-top:.5rem; line-height:1.425rem;  background:url(//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/h5sprite.png) -6.5rem -2.225rem;background-size: 15rem 15rem ; margin:0 auto; text-align:center;color:#fff7bc;font-size:.8rem; margin-top: .5rem; }
+.layer_guize .bd {color:#bc5800; line-height:1rem;color:#fe7900; font-size: .6rem; margin-top: .5rem; }
+
+.closebtn{ position:absolute; top:0;right:1rem;width:1.6rem; height:1.6rem; cursor:pointer;   }
+.tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+</style>
+    <body>
+      <div class="sharepic" style="display:none"><img src="//i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/sharepic.png" alt=""></div>
+        <div class="con1">
+            <header>
+                <span class="yun"></span>
+                <span class="bg ball2"></span>
+                <span class="bg ball3"></span>
+                <span class="wenzi"></span>
+                <span class="bg ball1"></span>
+                <span class="snow"></span>
+                <span class="time"><i>活动时间</i><em>2017年1月5日-2月28日</em></span>
+            </header>
+            <div class="item2">
+                <a href="javascript:;" class="btn btn_kh">开户交易</a>
+                <div class="mymoney">
+                    <strong class="num coinsAmt">0</strong>
+                    <b>我的金币</b>
+                </div>
+                <div class="baodao clearfix">
+                    <em class="fl">精彩报道</em>
+                    <div class="fl">
+                      <div class="ulbox">
+                        <ul></ul>
+                      </div>
+                    </div>
+                </div>
+                <span class="yaoqing bg">邀请好友</span>
+                <span class="choujiang bg">天天抽奖</span>
+            </div>
+            <div class="item3">
+                <div class="boatbox boatbox01">
+                    <div class="boat">
+                        <em class="num">01</em>
+                        <h3 class="hd">签到</h3>
+                        <p>获得金币<b>2</b>枚</p>
+                    </div>
+                    <a href="javascript:;" class="bg btn_cg qiandaobtn"></a>
+                </div>
+                <div class="boatbox boatbox02">
+                    <div class="boat">
+                        <em class="num">02</em>
+                        <h3 class="hd">邀请成功开户</h3>
+                        <p>获得金币<b>30</b>枚</p>
+                    </div>
+                    <a href="javascript:;" class="bg btn_cg "></a>
+                </div>
+                <div class="boatbox boatbox03">
+                    <div class="boat">
+                        <em class="num">03</em>
+                        <h3 class="hd">开户</h3>
+                        <p>获得金币<b>100</b>枚</p>
+                    </div>
+                    <a href="javascript:;" class="bg btn_cg "></a>
+                </div>
+                <div class="boatbox boatbox04">
+                    <div class="boat">
+                        <em class="num">04</em>
+                        <h3 class="hd">爱投顾APP首次交易</h3>
+                        <p>获得金币<b>200</b>枚</p>
+                    </div>
+                    <a href="javascript:;" class="bg btn_cg "></a>
+                </div>
+                <div class="boatbox boatbox05">
+                    <div class="boat">
+                        <em class="num">05</em>
+                        <h3 class="hd">重复交易</h3>
+                        <p>获得金币<b>3</b>枚</p>
+                    </div>
+                    <a href="javascript:;" class="bg btn_cg "></a>
+                </div>
+                <ul class="jlmsg">
+                    <li class="clearfix"><em>1</em><p>每日签到都可赚2枚金币</p></li>
+                    <li class="clearfix"><em>2</em><p>分享活动每邀请一位好友开户成功可赚30枚金币</p></li>
+                    <li class="clearfix"><em>3</em><p>成功开户平安证券立赚100枚金币</p></li>
+                    <li class="clearfix"><em>4</em><p>在爱投顾APP完成首次交易立赚200枚金币</p></li>
+                    <li class="clearfix"><em>5</em><p>每天在爱投顾APP重复交易一次可赚3枚金币</p></li>
+                    <li class="clearfix"><em>6</em><p>奖品可做累加，达到600金币用户可得山地自行车、小米手环、LV-2及100元优惠券。</p></li>
+                </ul>
+            </div>
+            <div class="item4">
+                <div class="hd">
+                    <div class="fl bg">奖项设置</div>
+                    <i class="fr bg"></i>
+                </div>
+                <div class="bd">
+                    <ul class="clearfix">
+                        <li class="fl">
+                            <div class="pic">
+                                <i class="bg">600</i>
+                            </div>
+                        </li>
+                        <li class="fl two">
+                            <div class="pic pic2">
+                                <i class="bg">360</i>
+                            </div>
+                        </li>
+                        <li class="fl three">
+                            <div class="pic pic3">
+                                <i class="bg">100</i>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <i class="line"></i>
+            </div>
+            <div class="item5">
+                <div class="indown">
+                    <div class="bd">
+                        <ul>
+                            <li class="clearfix">
+                                <em>首次交易关</em>
+                                <p>活动期间前100位拥有600金币用户可得到捷豹山地自行车，赚到360金币可得到小米手环和炒股神器level-2 6个月使用权限。<span>（若不想要小米手环可与客服沟通兑换同等价值的其他奖品）</span></p>
+                            </li>
+                            <li class="clearfix">
+                                <em>开户平安关</em>
+                                <p>活动期间，在爱投顾平台成功开通平安证券并绑定资金账号的用户，可得全场通用的100元优惠券，购买内参、组合、打赏样样都行。</p>
+                            </li>
+                            <li class="clearfix">
+                                <em>邀请好友关</em>
+                                <p>登录爱投顾分享活动链接，每邀请1个好友在爱投顾开户平安证券并交易就可获得30元话费，以往在爱投顾开户平安证券但未交易用户都可参与，奖励叠加不设上限。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <i class="line"></i>
+            </div>
+            <div class="item6">
+                <div class="indown">
+                    <div class="bd">
+                        <h3>奖品领取</h3>
+                        <ul>
+                            <li class="clearfix"><em>1</em><p>5大闯关环节奖励都可累加，签到、邀请开户、重复交易更可每日赚取金币，达到规定金币的实物奖品（自行车、小米手环）在活动结束后7个工作日内统一发放。</p></li>
+                            <li class="clearfix"><em>2</em><p>闯关环节所得的虚拟奖品（优惠券、话费、level-2）会在达到相应金币后的7个工作日内发放。</p></li>
+                            <li class="clearfix"><em>3</em><p>抽奖礼品因微软Surface Pro4、小米电源、Apple Watch、fill耳机等实物需收集用户地址，请参与用户在活动期间保持手机畅通，中奖礼品会在7个工作日内发放。</p></li>
+                            <li class="clearfix"><em>4</em><p>活动结束后1个月内无法联系到用户视为放弃奖励，爱投顾有权在法律范围内对活动做适当调整。</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <i class="line"></i>
+            </div>
+            <div class="item7 in">
+                <p>本活动为“爱投顾”主办，活动奖励均由“爱投顾”发放，与Apple Inc.无关，用户可拨打客服电话咨询活动详情</p>
+                <p>
+                    <span class="bg"></span>400-166-1188。
+                </p>
+                <p>活动最终解释权归爱投顾所有。</p>
+                <p>温馨提示：股市有风险，入市需谨慎</p>
+            </div>
+        </div>
+        <div class="con2">
+            <div class="item8 clearfix">
+                <i class="btn2"><span></span></i>
+                <i class="cjbtn">天天抽奖</i>
+                <i class="guizebtn"><span></span></i>
+                <i class="myprizebtn"><span></span></i>
+                
+            </div>
+            <div class="item9">
+                <h3>您有<b class="timecounts">0</b>次抽奖机会<span class="bg jb_btn"></span></h3>
+                <p class="subtit">开户绑定平安可参加抽奖，分享再抽奖一次</p>
+                <div class="prizebox">
+                    <div class="lottery-wrap" id="lottery">
+                        <div class="item item-1  item-cur"><i></i><div class="inner"></div></div><div class="item item-2"><i></i><div class="inner"></div></div><div class="item item-3"><i></i><div class="inner"></div></div><div class="item item-4"><i></i><div class="inner"></div></div><div class="item item-5"><i></i><div class="inner"></div></div><div class="item item-6"><i></i><div class="inner"></div></div><div class="item item-7"><i></i><div class="inner"></div></div><div class="item item-8">
+                            <i></i><div class="inner"></div>
+                        </div>
+                        <a class="btn_lottery">立即<br />抽奖</a>
+                    </div>
+                </div>
+                <div class="allprize">
+                    <div class="hd clearfix">
+                        <span class="one">时间</span>
+                        <span class="two">手机号</span>
+                        <span class="three"></span>
+                        <span class="four">抽中奖品</span>
+                    </div>
+                    <div class="bd">
+                        <div class="ulbox">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <i class="bt"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mask"></div>
+        <div class="layer layer_jbdatile">
+            <i class="closebtn"></i>
+            <div class="hd clearfix">
+                <span class="one">时间</span>
+                <span class="two">动态</span>
+                <span class="three">金币</span>
+            </div>
+            <div class="bd">
+                <ul></ul>
+            </div>
+        </div>
+        <div class="layer layer_guize">
+            <i class="closebtn"></i>
+            <div class="hd">抽奖规则</div>
+            <div class="bd">活动期间，在爱投顾开户并绑定平安证券账号用户每日登录爱投顾官网或APP，均可进行一次活动抽奖。分享活动链接到微信、朋友圈或消耗30枚金币，还可再获得1次抽奖机会。注：此活动奖品由爱投顾发放，与APP Inc.无关</div>
+        </div>
+        <!--中奖与未中奖-->
+    <div class="layer layer_zj">
+        <i class="closebtn"></i>
+        <div class="tit">
+            <p class="one">很遗憾，没有中奖，</p>
+            <p class="two">明天再来吧</p>
+        </div>
+        <div class="bt">
+            <p>每花费30枚金币获1次抽奖机会<br />分享到微信朋友圈获1次抽奖机会<br />(1次/天)</p>
+        </div>
+        <div class="clearfix btbtn">
+            <span class="fl hfjbbtn bg">花费金币</span>
+            <span class="fr sharebtn bg">立即分享</span>
+        </div>
+    </div>
+    <!--花费金币-->
+    <div class="layer layer_jb">
+        <i class="closebtn bg"></i>
+        <div class="tit">
+            <p class="one">确认花费30枚金币</p>
+            <p class="two">再增加一次抽奖机会</p>
+            <p class="three">(1次/天)</p>
+        </div>
+        <div class="btbtn clearfix">
+            <span class="fl btn_jb_sub bg">确认</span>
+            <span class="fr btn_jb_close bg">取消</span>
+        </div>
+    </div>
+    <!--我的中奖列表-->
+    <div class="layer layer_myprize">
+        <div class="myprizelist">
+            <div class="hd clearfix">
+                <span>中奖时间</span>
+                <span>中奖记录</span>
+                <i class="closebtn bg"></i>
+            </div>
+            <div class="bd">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    <!--每日签到 -->
+    <div class="layer layer_dayqiandao">
+        <i class="closebtn bg"></i>
+        <p class="tit">每日签到可得到2枚金币，积跬步兑壕奖</p>
+        <span class="qiandaobtn2">签到</span>
+    </div>
+        <!--表单输入-->
+        <script type="text/template" id="dlg-time">
+            <div class="dlg-time">
+                <div class="tit" style="color:#323132;">温馨提示</div>
+                <p>请保持开户时输入的手机号与此号码一致，否则无法收到话费和金币奖励。</p>
+                <div class="slider-wrap">
+                    <div class="input">
+                        <input id="txtPhone" type="tel" maxLength="11" placeholder="输入手机号码，参加平安活动兑壕奖">
+                    </div>
+                    <div class="input">
+                        <input id="txtCode" placeholder="请输入验证码" maxLength="4" style="width: 50%;vertical-align: middle;">
+                        <img id="img_captcha" src="" style="height: 2.5rem; display: inline-block;width: 46%;vertical-align: middle;float: right;">
+                    </div>
+                </div>
+                <div class="dlg-btn-wrap layout-box">
+                    <a class="dlg-btn dlg-close">取消</a>
+                    <a class="dlg-btn submit">确认</a>
+                </div>
+            </div>
+        </script>
+        <!--dialog-->
+        <div class="focus-dlg"></div>
+        <div class="md-overlay"></div>
+        <!--dialog-->
+
+        <div class="tsbox" style="display:none;"><img src="http://i0.jrjimg.cn/wap2014/wxbug/newtcphone.png" /></div>
+        <div class="bgbig" style="display:none;"></div>
+  <!--错误弹窗，一会儿消失-->
+  <div class="tiperror"></div>
+        <script src="//js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+        <script src="https://js.jrjimg.cn/common/foot/v2s_m.js" type="text/javascript"></script>
+        <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script src="//i0.jrjimg.cn/zqt-red-1000/focus/common/js/wechat-share-without-amdhttps.js"></script>
+        <script src="//i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.jcarousellite.pauseOnHover-min.js"></script>
+        <script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+   $(function(){
+        var appname='${source}';
+        var ssoId='${ssoId}';
+        var spToken=encodeURIComponent('${spToken}');
+        var key;
+        var tgqdcode=getQueryString('tgqdcode');
+        if(appname=='itougu'){
+            $('.mask,.layer_dayqiandao').show();
+        }
+        if(ssoId.length>=18){
+            //登陆
+            getmoney(); //获取金币
+            cjcounts(); //抽奖次数
+            signinstatus();//查询签到状态
+            kaihustatus();//查询开户状态
+            firststatus();//首次交易 
+        }else{
+            //没登陆
+           
+        }
+
+        $('.yaoqing,.choujiang').css({
+            opacity: 1,
+            right: '0'
+        });
+
+         var lottery={
+            index:0,    //当前转动到哪个位置
+            count:0,    //总共有多少个位置
+            timer:0,    //setTimeout的ID，用clearTimeout清除
+            speed:200,  //初始转动速度
+            times:0,    //转动次数
+            cycle:50,   //转动基本次数：即至少需要转动多少次再进入抽奖环节
+            prize:-1,   //中奖位置
+            init:function(selector){
+                this.obj = $(selector);
+                this.count = this.obj.find(".item").length;
+            },
+            roll:function(){
+                var index = this.index;
+                var count = this.count;
+                var lottery = this.obj;
+                $(lottery).find(".item-"+(index+1)).removeClass("item-cur");
+                index += 1;
+                if (index>count-1) {
+                    index = 0;
+                };
+                $(lottery).find(".item-"+(index+1)).addClass("item-cur");
+                this.index=index;
+                return false;
+            },
+            stop:function(index){
+                this.prize=index;
+                return false;
+            }
+        };
+        function roll(){
+            lottery.times += 1;
+            lottery.roll();
+            if (lottery.times > lottery.cycle+10 && lottery.prize==lottery.index) {
+                clearTimeout(lottery.timer);
+                lottery.prize=-1;
+                lottery.speed=200;
+                lottery.times=0;
+                click=false;
+
+                setTimeout(function(){
+                    if(lottery.callback){
+                        lottery.callback();
+                    }
+                },1000);
+
+            }else{
+                if (lottery.times<lottery.cycle) {
+                    lottery.speed -= 10;
+                }else{
+                    if (lottery.times > lottery.cycle+10 && ((lottery.prize==0 && lottery.index==7) || lottery.prize==lottery.index+1)) {
+                        lottery.speed += 110;
+                    }else{
+                        lottery.speed += 20;
+                    }
+                }
+                if (lottery.speed<40) {
+                    lottery.speed=40;
+                }
+                lottery.timer = setTimeout(roll,lottery.speed);
+            }
+            return false;
+        }
+        
+        var click=false;
+        lottery.init('#lottery');
+        $(".btn_lottery").click(function(){//抽奖按钮
+            if(appname=='itougu'){
+                if(ssoId != 'null'){
+                    if (click) {
+                    return;
+                }
+                $(this).addClass('dis');
+                $.ajax({
+                    url: 'https://t.jrj.com.cn/sapi/v3/activity/lottery?brokerId=PAZQ&tgqdcode='+tgqdcode+'&matchId=2&userId='+ssoId+'&ssoId='+ssoId+'&spToken='+spToken
+                    , data: {}
+                    , dataType: 'jsonp'
+                    , success: function (_data) {
+                        if (_data.retcode == 0) {
+
+                            if (_data.data.type == -1) {//未开户 下载 无方案
+                                $('.mask,.layer_zj').show();
+                                $('.layer_zj .one').html('未开户成功！');
+                                $('.layer_zj .two').html('请用爱投顾APP，去平安证券开户').css('font-size','.8rem');
+                                return;
+                            }
+                            else if (_data.data.type == -7) {//未绑定 下载 无方案
+                                $('.mask,.layer_zj').show();
+                                $('.layer_zj .one').html('未绑定成功！');
+                                $('.layer_zj .two').html('请用爱投顾APP，去绑定平安证券').css('font-size','.8rem');;
+                                return;
+                            }
+                            else if (_data.data.type == -2) {//绑定未开户 下载 无方案
+                                $('.mask,.layer_zj').show();
+                                $('.layer_zj .one').html('很遗憾!');
+                                $('.layer_zj .two').html('您不是通过爱投顾开户，请详细阅读抽奖说明 ').css('font-size','.7rem');;
+                                return;
+                            }
+                            else if (_data.data.type == 1 || _data.data.type == 3) {//当抽奖 分享 要方案
+
+                                if (_data.data.goodsid == 0) {//没有中奖
+                                    lottery.prize = 4;
+                                    roll();
+                                    lottery.callback = function () {
+                                        $('.btn_lottery').removeClass('dis');
+                                        $('.mask,.layer_zj').show();
+                                        $('.layer_zj .one').html('很遗憾，没有中奖，');
+                                        $('.layer_zj .two').html('明天再来吧').css('font-size','1.1rem');;
+                                    };
+                                }
+                                if (_data.data.goodsid == 9) { // 
+                                    lottery.prize = 5;//这里设置得奖位置
+                                    roll();
+                                    lottery.callback = function () {
+                                        $('.btn_lottery').removeClass('dis');
+                                        $('.mask,.layer_zj').show();
+                                        $('.layer_zj .one').html('恭喜您抽中');
+                                        $('.layer_zj .two').html(_data.data.lotteryMsg).css('font-size','1.1rem');
+                                        getmyprize();
+                                    };
+                                }
+                                if (_data.data.goodsid == 6 || _data.data.goodsid == 7 || _data.data.goodsid == 8) {
+                                    lottery.prize = 7;//这里设置得奖位置
+                                    roll();
+                                    lottery.callback = function () {
+                                        $('.btn_lottery').removeClass('dis');
+                                        $('.mask,.layer_zj').show();
+                                        $('.layer_zj .one').html('恭喜您抽中');
+                                        $('.layer_zj .two').html(_data.data.lotteryMsg).css('font-size','1.1rem');
+                                        getmyprize();
+                                    };
+                                }
+                                if (_data.data.goodsid == 10) {
+                                    lottery.prize = 6;//这里设置得奖位置
+                                    roll();
+                                    lottery.callback = function () {
+                                        $('.btn_lottery').removeClass('dis');
+                                        $('.mask,.layer_zj').show();
+                                        $('.layer_zj .one').html('恭喜您抽中');
+                                        $('.layer_zj .two').html(_data.data.lotteryMsg).css('font-size','1.1rem');
+                                        getmyprize();
+                                    };
+                                }
+
+                                cjcounts();
+                            }
+                            else if (_data.data.type == -3) {//当已抽奖
+                                $('.btn_lottery').removeClass('dis');  
+                                $('.mask,.layer_zj').show();
+                                $('.layer_zj .one').html(_data.data.lotteryMsg);
+                                $('.layer_zj .two').html('明天再来吧').css('font-size','1.1rem');;
+                                return;
+                            }
+                        }
+                    }
+                });
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_1', 'WT.ti', 'ITOUGU_drawpinganv11_1')
+        });
+        //点击签到
+        $('.qiandaobtn,.qiandaobtn2').click(function(){
+          if(appname=='itougu'){ 
+                if(ssoId != 'null'){
+                    var obj=$(this);
+                    gotosignin(obj);
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                showSignupDlg();
+            }
+            
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_2', 'WT.ti', 'ITOUGU_drawpinganv11_2')
+        });
+        //精彩报道
+        queryReport();
+        function queryReport(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/coins/queryReport?matchId=2&tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        var str='';
+                      for(var i=0;i<v.data.items.length;i++){
+                          str+='<li><a href="'+v.data.items[i].url+'" target="_blank">'+v.data.items[i].title+'</a></li>'
+                      }
+                      $('.baodao ul').html(str);
+                      $('.item2 .ulbox').jCarouselLite({
+                          auto: 2000,
+                          speed: 500,
+                          circular: true,
+                          vertical:true,
+                          visible: 1,
+                          pauseOnHover:true
+                      });
+                    }
+               },
+               error : function() {
+                
+               }
+            });
+        }
+        //签到
+        function gotosignin(obj){ 
+            signinstatus();//查询签到状态
+            if(obj.hasClass('dis')){return};
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/coins/dailySignIn?tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        $('.qiandaobtn').addClass('dis');
+                        $('.mask,.layer_dayqiandao').hide();
+                        getmoney(); //获取金币
+                        getmydatile();
+                    }
+               },
+               error : function() {
+                    
+               }
+            });
+        }
+        function kaihustatus(){
+            $.ajax({
+                url:'https://t.jrj.com.cn/sapi/v2/account/queryOpenStatus?tgqdcode='+tgqdcode+'&userId='+ssoId+'&ssoId='+ssoId+'&spToken='+spToken,
+                type:"get",
+                cache : false,
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success:function(v) {
+                     if(v.retcode==0){
+                        if(v.data.status==0){
+                            $('.boatbox03 .btn_cg').removeClass('dis');
+                        }else{
+                            $('.boatbox03 .btn_cg').addClass('dis');
+                        }
+                    }
+                },
+                error : function() {
+                     
+                }
+            });
+        }
+        function firststatus(){
+            $.ajax({
+                url:'https://zqttest.yun.pingan.com/sapi/activity/queryFirstTradeStatus?tgqdcode='+tgqdcode+'&userId='+ssoId+'&ssoId='+ssoId+'&spToken='+spToken,
+                type:"get",
+                cache : false,
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success:function(v) {
+                     if(v.retcode==0){
+                        if(v.data.status==0){
+                            $('.boatbox04 .btn_cg').removeClass('dis');
+                        }else{
+                            $('.boatbox04 .btn_cg').addClass('dis');
+                        }
+                    }
+                },
+                error : function() {
+                     
+                }
+            });
+        }
+        function getmoney(){
+            $.ajax({
+                url:'https://t.jrj.com.cn/activities/coins/queryMyCoins?tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+                type:"get",
+                cache : false,
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success:function(v) {
+                    if(v.retcode==0){
+                        $('.coinsAmt').html(v.data.coinsAmt);
+                    }
+                    
+                },
+                error : function() {
+                 
+                }
+            });
+        }
+
+        function cjcounts(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/coins/queryRemindLotteryTimes?tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        $('.timecounts').html(v.data.times);
+                    }
+               },
+               error : function() {
+                
+               }
+            });
+        }
+        function signinstatus(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/coins/queryDailySignInStatus?tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        if(v.data.status==1){ //签到了
+                            $('.qiandaobtn').addClass('dis');
+                            $('.mask,.layer_dayqiandao').hide();
+                       }else if(v.data.status==0){//没有签到
+                            $('.qiandaobtn').removeClass('dis');
+                            $('.mask,.layer_dayqiandao').show();
+                       }
+                    }
+               },
+               error : function() {
+                
+               }
+            });
+        }
+	   $('.choujiang').click(function(){
+            $('.con2').css({
+                'opacity':1,
+                'height':'auto',
+                'width':'100%',
+                '-ms-transform':'translateX(0)',
+                '-moz-transform':'translateX(0)',
+                '-o-transform':'translateX(0)',
+                '-webkit-transform':'translateX(0)',
+                'transform':'translateX(0)'
+            });
+            $('.con1').hide();
+;
+       });
+	   $('.btn2').click(function(){
+            $('.con2').css({
+                'opacity':0,
+                'height':'0',
+                'width':'0',
+                '-ms-transform':'translateX(-100%)',
+                '-moz-transform':'translateX(-100%)',
+                '-o-transform':'translateX(-100%)',
+                '-webkit-transform':'translateX(-100%)',
+                'transform':'translateX(-100%)'
+            });
+            $('.con1').show();
+       });
+     $('.item4  .hd >i').toggle(function(){
+            $('.item5').hide();
+        },function(){
+             $('.item5').show();
+        });
+     //分享
+     var ssoId2=getQueryString('userId');   
+        $('.yaoqing, .boatbox02 .btn_cg,.sharebtn').click(function(){
+            $('.mask,.layer').hide();
+            if(appname=='itougu'){
+                if(ssoId != 'null'){
+                     
+                
+                   var href = 'http://www.itougu.com/?share={"title":"'
+                        + encodeURI('来爱投顾闯关赚金币，分享还能领现金！')
+                        + '","content":"' + encodeURI('平安证券开户可得小米手环，每天抽奖Apple watch')
+                        + '","url":"' + encodeURI(window.location.href+'?userId=${ssoId}')
+                        + '","imgurl":"' + encodeURI('https://i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/sharepic.png') + '"}';
+                  window.location.href = href;
+                   //记录分享成功
+                  $.ajax({ 
+                    url:'https://t.jrj.com.cn/activities/coins/shareWxFriendCircle?tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+                     type:"get",
+                     cache : false,
+                     dataType: 'jsonp',
+                     jsonp: 'callback',
+                     data: {'userId':'${ssoId}'},
+                     success:function(v) {
+                          cjcounts(); //抽奖次数
+                     },
+                     error : function() {
+                     }
+                   }); 
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+                
+            }else{
+                showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_3', 'WT.ti', 'ITOUGU_drawpinganv11_3')
+        });
+
+        InitWeChatShare({
+            shareTitle: '来爱投顾闯关赚金币，分享还能领现金！',
+            shareLink: window.location.href,
+            shareDesc: '平安证券开户可得小米手环，每天抽奖Apple watch',
+            shareImg: 'https://i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/sharepic.png',
+            shareCallback:function(){ 
+              //记录分享成功
+                $.ajax({ 
+                  url:'https://t.jrj.com.cn/activities/coins/shareWxFriendCircle?tgqdcode='+tgqdcode+'&ssoId='+ssoId2,
+                   type:"get",
+                   cache : false,
+                   dataType: 'jsonp',
+                   success:function(v) {
+                        //cjcounts(); //抽奖次数
+                   },
+                   error : function(v) {
+                      //alert(v);
+                   }
+                 });
+            }
+        });
+      //规则
+      $('.guizebtn').click(function(){ 
+          $('.mask,.layer_guize').show();
+      });
+      //花费30元金币
+      $('.hfjbbtn,.jb_btn').click(function(){
+          $('.mask,.layer').hide();
+
+            if(appname=='itougu'){
+                if(ssoId != 'null'){
+                  $('.mask,.layer_jb').show();
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+                
+            }else{
+                showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_4', 'WT.ti', 'ITOUGU_drawpinganv11_4')
+      });
+      //花30元金币
+        $('.btn_jb_sub').click(function(){
+            $.ajax({
+                url:'https://t.jrj.com.cn/activities/coins/exchangeCoinsForLotteryTimes?tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+                type:"get",
+                cache : false,
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success:function(v) {
+                     if(v.retcode==0){
+                         getmoney(); //获取金币
+                         cjcounts(); //抽奖次数
+                         $('.mask,.layer').hide();
+                     }else{
+                        tiperror(v.msg);
+                     }
+                     
+                },
+                error : function() {
+                 
+                }
+            });
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_5', 'WT.ti', 'ITOUGU_drawpinganv11_5')
+        });
+     //关闭弹窗
+        $('.closebtn,.btn_jb_close').click(function(){
+            $('.mask,.layer').hide();
+        });
+       //开户按钮
+        $('.btn_kh,.boatbox03 .btn_cg').click(function(){
+            if(appname=='itougu'){
+                if(ssoId != 'null'){
+                    window.location.href = 'http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_6', 'WT.ti', 'ITOUGU_drawpinganv11_6')
+        }); 
+       //首次交易按钮 有问题，要改刘学改链接 
+        $('.boatbox04 .btn_cg').click(function(){
+            if(appname=='itougu'){
+                if(ssoId != 'null'){
+                    window.location.href = 'http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_7', 'WT.ti', 'ITOUGU_drawpinganv11_7')
+        });
+       //重复交易按钮 有问题，要改刘学改链接 
+        $('.boatbox05 .btn_cg').click(function(){
+            if(appname=='itougu'){
+                if(ssoId != 'null'){
+                    window.location.href = 'http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_8', 'WT.ti', 'ITOUGU_drawpinganv11_8')
+        });
+        function getmydatile(){
+          $.ajax({
+             url:'https://t.jrj.com.cn/activities/coins/queryMyCoinsFlow?tgqdcode='+tgqdcode+'&ssoId='+ssoId+'&spToken='+spToken,
+             type:"get",
+             cache : false,
+             dataType: 'jsonp',
+             jsonp: 'callback',
+             success:function(v) {
+                  if(v.retcode==0){
+                      var str='';
+                      var str2='';
+                      v.data.items=v.data.items.reverse();
+                      for(var i=0;i<v.data.items.length;i++){
+                          if(v.data.items[i].direct==0){str2='-'}else{str2='+'}
+                          str+='<li class="clearfix"><span class="one">'+v.data.items[i].occurTime+'</span><span class="two">'+v.data.items[i].desc+'</span><span class="three">'+str2+v.data.items[i].occurAmt+'</span></li>'
+                      }
+                      $('.layer_jbdatile .bd ul').html(str);
+                      if(v.data.items.length==0){
+                        $('.layer_jbdatile .bd ul').html('您暂无金币')
+                      }
+                  
+                  }
+             },
+             error : function() {
+              
+             }
+          });
+        }
+        //我的金币
+        $('.item2 .mymoney').click(function(){
+            if(appname=='itougu'){
+                if(ssoId != 'null'){
+                    $('.mask,.layer_jbdatile').show();
+                    getmydatile();
+                    
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_9', 'WT.ti', 'ITOUGU_drawpinganv11_9')
+        });
+        $.ajax({
+        url: 'https://t.jrj.com.cn/sapi/v3/activity/queryMatchWinningRecord?tgqdcode='+tgqdcode+'&matchId=2&ssoId='+ssoId+'&spToken='+spToken
+        , data: {}
+        ,dataType: 'jsonp'
+        ,jsonp: 'callback'
+        , success: function (_data) {
+            if (_data.retcode == 0) {
+                var str='';
+                _data.data.items=_data.data.items.reverse();
+                for(var i=0;i<_data.data.items.length;i++){
+                    str+='<li class="clearfix"><span class="one">'+_data.data.items[i].winGoodsTime+'</span><span class="two">'+_data.data.items[i].mobile+'</span><span class="three">抽中了</span><span class="four">'+_data.data.items[i].goodsName+'</span></li>'
+                }
+                $('.allprize .bd ul').html(str);
+                $('.allprize .bd .ulbox').jCarouselLite({
+                    auto: 2000,
+                    speed: 500,
+                    circular: true,
+                    vertical:true,
+                    visible: 5,
+                    pauseOnHover:true
+                });
+                $('.allprize .four').each(function(){
+                    if($(this).html()=='iPhone7'){
+                        $(this).addClass('redbold');
+                    }
+                });
+            }
+        }
+    });
+    //我的中奖记录
+    $('.myprizebtn').click(function(){
+        $('.mask,.layer_myprize').show();
+        $('.layer_myprize').css('display','flex');
+        dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpinganv11_10', 'WT.ti', 'ITOUGU_drawpinganv11_10')
+    });
+   if('${ssoId}'.length>=18){ 
+        $('.myprizebtn').show();
+        getmyprize();
+   }else{
+        $('.myprizebtn').hide();
+   }
+  function getmyprize(){
+    $.ajax({
+          url: 'https://t.jrj.com.cn/sapi/v3/activity/queryUserWinningRecord?matchId=2&tgqdcode='+tgqdcode+'&userId=${ssoId}&ssoId='+ssoId+'&spToken='+spToken
+          , data: {}
+          , dataType: 'jsonp'
+          , jsonp: 'callback'
+          , success: function (_data) {
+              console.log(_data)
+              if (_data.retcode == 0) {
+                  if(_data.data.items.length>0){
+                      var str='';
+                      for(var i=0;i<_data.data.items.length;i++){
+                          str+='<li class="clearfix"><span>'+_data.data.items[i].winGoodsTime+'</span><span>'+_data.data.items[i].goodsName+'</span></li>';
+                      }
+                      $('.myprizelist ul').html(str);
+                  }else{
+                      $('.myprizelist ul').html('暂无中奖记录');
+                  }
+                  
+              }
+          }
+      });
+  }
+        function showSignupDlg(){
+
+            $('.focus-dlg').html($('#dlg-time').html());
+            $('html,body').addClass('md-slidein-show');
+           getCaptcha();
+            $('#img_captcha').unbind().bind('click',function(){
+                getCaptcha();
+            });
+            $('.layout-box .dlg-close').unbind().click(function (e) {
+                // e.stopPropagation();
+                $('html,body').removeClass('md-slidein-show');
+            });
+            $('.layout-box .submit').unbind().bind('click', function () {
+                // $('.trading-link').text(window.slider.element.defaultValue);
+                if($.trim($('#txtPhone').val()).length == 0){
+                    alert('请输入手机号');
+                    return;
+                }
+
+                if(!/^0?1[3|4|5|7|8|][0-9]\d{8}$/.test($.trim($('#txtPhone').val()))){
+                    alert('您输入的手机号不正确');
+                    return;
+                }
+
+                if($('#txtCode').val().length == 0){
+                    alert('请输入验证码');
+                    return;
+                }
+
+                $.ajax({
+                    url:'https://t.jrj.com.cn/sapi/v2/activity/join',
+                    dataType:'jsonp',
+                    data:{
+                        mobile:$.trim($('#txtPhone').val()),
+                        yqcode:getQueryString('userId')||'',
+                        brokerId:'PAZQ',
+                        txtCode:$.trim($('#txtCode').val()),
+                        key:key,
+                        activityName:'2'
+                    },
+                    type:'post',
+                    contentType:'application/json; charset=utf-8',
+                    success:function(data){
+                        if(data.retcode == 0 || data.retcode == 10001){
+                            $('html').removeClass('md-slidein-show');
+                            alert('恭喜您，参加活动成功！下载爱投顾APP，开户平安或交易就可领取小米手环和山地自行车！');
+                            goDownload();
+                        }else{
+                            getCaptcha();
+                            alert(data.msg);
+                        }
+                    },
+                    error:function(data){
+                    }
+                });
+
+            })
+
+        }
+        //图片验证码
+        function getCaptcha(){
+            $.ajax({
+                url:'https://t.jrj.com.cn/sapi/v2/activity/generateImgCode',
+                dataType:'jsonp',
+                data:{},
+                type:'post',
+                contentType:'application/json; charset=utf-8',
+                success:function(data){
+                    $('#img_captcha').attr('src','data:img/jpg;base64,'+data.data.image);
+                    key = data.data.key;
+                },
+                error:function(data){
+                }
+            });
+        }
+        //获取url参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        //去下载
+        function goDownload() {
+            var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+                IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+                IS_IOS = IS_IPAD || IS_IPHONE,
+                IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+                IS_MOBILE = IS_IOS || IS_ANDROID;
+
+
+            function is_weixin() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            function is_weixin_ios() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger" && browser.versions.ios == true)
+                { return true; } else { return false; }
+            };
+
+            $(".bgbig").unbind().click(function(){
+                $(".tsbox,.bgbig").hide();
+            });
+            
+            if (is_weixin() == true) {
+                $(".tsbox,.bgbig").show();
+            } else if (is_weixin_ios() == true) { 
+                window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.jrj.tougu";
+            } else if (IS_IOS) {
+                var iFrame = document.createElement('iframe');
+                iFrame.style.display = "none";
+                iFrame.src = 'aitougu://';
+
+                document.body.appendChild(iFrame);
+
+                    setTimeout(function () {
+                        if (!document.webkitHidden) {
+                            window.location.href = 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161116-gosignup/goTrade.html';
+                        }
+                    }, 25);
+                } else if (IS_ANDROID) {
+                    var iFrame = document.createElement('iframe');
+                    iFrame.style.display = "none";
+                    iFrame.src = 'aitougu://';
+                    document.body.appendChild(iFrame);
+                    setTimeout(function () {
+                        if (!document.webkitHidden) {
+                            window.location.href = 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161116-gosignup/goTrade.html';
+                        }
+                    }, 25);
+                }
+
+        }
+
+    });
+//错误提示框，一会儿就消失
+    function tiperror(msg){
+        $('.tiperror').html(msg).show();
+        setTimeout(function (){
+            $('.tiperror').hide();
+        }, 2000);
+        return;
+    } 
+        </script>
+
+    </body>
+</html>

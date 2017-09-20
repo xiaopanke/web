@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>恒泰交易</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	 <style>
+  /*关于弹窗*/
+    *{-webkit-tap-highlight-color:rgba(255,255,255,0)}
+.mask{display:none;position: fixed;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10;bottom: 0;right: 0;}
+.layer{display:none;width: 15rem;height: 11.95rem;background: #fff;position: fixed;top: 50%;left: 50%;margin-top: -5.97rem;margin-left: -7.5rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%;border-radius: 5px;}
+.layer_c{ padding:10px; font-size: 1.1em;}
+.layer_c .tit{ font-size:1.2rem; margin-bottom: 3px;text-align: center; }
+.layer_c .hd{ color: #666;}
+.layer .bd{ position: absolute;width:100%;bottom:0;border-top:1px solid #ddd;}
+.layer .bd span{text-align: center;font-size: .8rem; line-height: 2rem;display: block; }
+
+.shu .bd span,.ensure .bd span{float:left;width:50%; }
+.shuanglu .bd .closebtn,.shu .bd .closebtn,.ensure .bd .closebtn{ border-right:1px solid #ddd;box-sizing: border-box}
+.nojiaoyi{height: 8rem;width: 13rem; margin-top: -4rem; margin-left: -6.5rem;}
+.shuanglu{height:8rem;width: 12rem; margin-top: -4rem; margin-left: -6rem;}
+
+.shu{width:16rem; margin-left: -8rem; height: 13rem; margin-top: -7.5rem;  }
+.shu .title{ line-height: 2rem; text-align:center;font-size: .75rem;padding-top: .5rem;}
+.shu .p{ color: #666;font-size: .7rem;margin-left: 1rem; line-height: 1.1rem; margin-bottom: .5rem;}
+.shu .p2{ color: #fb4447 ;font-size: .65rem;margin-bottom: 0;}
+.shu .p3{ margin-top: .5rem;} 
+.shu .okbtn{ color: #3789d6;}
+.tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+
+.ensure{width:15rem; margin-left: -7.5rem; height: 20rem; margin-top: -10rem;}
+.ensure p{ line-height: .9rem; font-size: .6rem; margin-bottom: .55rem;}
+.ensure .title{ text-align: center;font-size: .8rem; line-height: 1.5rem; padding-top: .5rem;}
+.ensure .layer_c{ padding:0 1.5rem;}
+
+.gaozhishu{overflow:hidden;margin-left: 1.2rem;}
+.gaozhishu input{float: left;}
+.gaozhishu label{float: left;font-size: .6rem;margin-top: 3px; margin-left: 3px;}
+.gaozhishu a{color: #3789d6;}
+  </style>
+</head>
+<body>
+	<section class="cancel">
+	    <form id="sellform" name="sellform" action="/stockauth/sellForm.jspa" method="post">  
+			<input type="hidden" name="brokerId" value="$!{tradeVo.brokerId}" />
+			<input type="hidden" name="userId" value="$!{tradeVo.userId}" />
+			<input type="hidden" name="fundAccount" value="$!{tradeVo.fundAccount}" />
+			<input type="hidden" name="stockCode" value="$!{tradeVo.stockcode}" />
+			<input type="hidden" name="exchangeType" value="$!{confirm.exchangeType}" />
+    	    <ul class="purchase">
+    	    	<li>
+    	    	   <span>账户</span><span class="tr">$!{tradeVo.stockAccount}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>股票名称</span><span class="tr">$!{tradeVo.stockName}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>股票代码</span><span class="tr">$!{tradeVo.stockcode}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>委托数量</span><span class="tr">$!{tradeVo.entrustAmount}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>委托价格</span><span class="tr">$!{tradeVo.entrustPrice}</span>
+    	    	</li>
+    	    	<li>
+    	    	    <span>委托方向</span><span class="tr">$!{tradeVo.entrustBs}</span>
+    	    	</li>
+    	    </ul>
+    	    <ul class="password">
+    	    	<li>
+    	    	    <span>交易密码</span>
+    	    	    <span class="tr PWD">
+    	    	       <input type="password" name="password" value="" maxlength="20">
+    	    	       <p>
+    	    	       	 请输入密码
+    	    	       </p>
+    	    	    </span>
+    	    	</li>
+    	    </ul>
+    	    <ul class="sure">
+    	    	<li>
+    	    		<span class="tc form-submit">确认</span>
+    	    	</li>
+            </ul>
+		</form>
+<div class="mask"></div>
+<div class="layer nojiaoyi">
+    <div class="layer_c">
+      <div class="hd">提示你的风险等级为保守型，不允许交易此股票，请重新测评！详情请咨询恒泰证券：400-196-6188</div>
+    </div>
+    <div class="bd clearfix">
+        <span class="okbtn">知道了</span>
+    </div>
+</div>  
+<div class="layer shuanglu">
+    <div class="layer_c">
+      <div class="hd">您需要到恒泰证券临柜办理录制视频后才能继续交易。详情请咨询恒泰证券：400-196-6188</div>
+    </div>
+    <div class="bd clearfix">
+        <span class="okbtn">确定</span>
+    </div>
+</div> 
+
+
+<div class="layer shu">
+    <div class="layer_c">
+      <p class="title">不适当警示及投资确认书</p>
+      <p class="p p1">经检测，您购买此产品存在以下风险：</p>
+      <p class="p p2"></p>
+    </div>
+    <div class="gaozhishu">
+      <input type="checkbox" id="gaozhishu" />
+      <label for="gaozhishu">阅读并同意签署<a href="/stockauth/sdx_gaozhi.html">《不适当性告知函》</a></label>
+    </div>
+    <div class="bd clearfix">
+        <span class="closebtn">取消</span>
+        <span class="okbtn">确认下单</span>
+    </div>
+</div>  
+</section>
+<div class="tiperror"></div>
+
+<div class="layer ensure">
+    <div class="layer_c">
+   	  <p class="title">客户风险匹配确认书</p>
+      <p>恒泰证券股份有限公司：</p>
+      <p>本人/本机构已认真阅读了贵公司/营业部关于$!{tradeVo.stockName}($!{tradeVo.stockcode})产品或服务的风险揭示书，并已充分了解该产品或服务的特征和风险，签署了风险揭示书。</p>
+      <p>本人/本机构在此确认自身风险承受能力等级、拟投资期限、投资品种、预期收益等投资目标与该金融产品或服务风险等级、投资期限、投资品种、预期收益等投资目标相匹配。</p>
+      <p>本人/本机构投资该项产品或接受该项服务的决定，系本人/本机构独立、自主、真实的意思表示，与贵公司/营业部及相关从业人员无关。</p>
+    </div>
+	   <div class="bd clearfix">
+        <span class="closebtn">取消</span>
+        <span class="okbtn">确认</span>
+    </div>
+</div> 
+  
+  
+	 <script>
+    /*计算字体大小*/
+function change(){
+    document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+}
+change();
+window.addEventListener('resize',change,false);
+$('.closebtn,.nojiaoyi .okbtn,.shuanglu .okbtn').click(function(){
+    $('.mask,.layer').hide();
+});
+
+//确认风险警示书签署.
+ $('.ensure .okbtn').click(function(){
+         	$('.mask,.ensure').hide();
+         	$("#sellform").submit();
+ });
+
+//错误提示框，一会儿就消失toast
+function tiperror(msg){
+    $('.tiperror').html(msg).show();
+    setTimeout(function (){
+        $('.tiperror').hide();
+    }, 2000);
+    return;
+}
+$("span.form-submit").click(function(){
+  if($('.PWD input').val().length==0){
+            tiperror('请输入交易密码');
+            return;
+        }
+    
+      //客户风险等级
+       var corpRiskLevel = '$!{confirm.corpRiskLevel}'; 
+       		if(corpRiskLevel=='99'){
+       			$("#sellform").submit();
+       			return;
+       		}
+       		//非专业投资者
+       		houxu();
+      
+      });
+	
+	
+	
+	//后续流程
+ 	function houxu(){
+ 	   // 可操作性标志
+      var enableFlag = '$!{confirm.enableFlag}';
+      //双录标志
+      var needVideoFlag = '$!{confirm.needVideoFlag}';
+      
+      //风险匹配标志.
+      var eligInvestkindFlag = '$!{confirm.eligInvestkindFlag}';
+      var eligTermFlag = '$!{confirm.eligTermFlag}';
+      var eligRiskFlag = '$!{confirm.eligRiskFlag}';
+            
+      $('.shu .okbtn').unbind().click(function(){
+          if(!$('#gaozhishu').attr('checked')){
+            tiperror('请阅读并同意《不适当性告知函》');
+            return;
+          }
+         $('.mask,.shu').hide();
+          que_ren_shu();
+      });
+
+    //这里三个高度要改
+  if(enableFlag == 0){
+
+          $('.mask,.nojiaoyi').show();
+
+          return ;
+  }
+  if(needVideoFlag == 1){
+          $('.mask,.shuanglu').show();
+          return;
+    }
+    if(eligInvestkindFlag==1&&eligTermFlag==1&&eligRiskFlag==1){
+              que_ren_shu();
+    }else{
+        var msg="";
+          if(eligInvestkindFlag==0){
+           msg = msg + "该产品所属的投资品种与您确认的投资品种不一致<br />";
+          }
+          if(eligTermFlag==0){
+           msg = msg + "该产品投资期限与您确认的预期投资期不一致<br />";
+         }
+         if(eligRiskFlag==0){
+             msg = msg + "该产品风险等级与您的风险承受能力不匹配";
+          }
+          $('.mask,.shu').show();
+          $('.shu .p2').html(msg);
+    }
+ 	}
+	function que_ren_shu(){
+ 		    // 风险等级匹配确认书
+    	var needRegisteFlag = '$!{confirm.needRegisteFlag}';
+    if(needRegisteFlag == 1){
+    	 $('.mask,.ensure').show();
+    	return ;
+    } 
+    $("#sellform").submit();
+ 	}  
+	  
+	  
+      $(function() {
+            $(".PWD p").on('touchend', function (e){
+                 $(this).hide();
+                 $(this).siblings("input").focus();
+                 e.preventDefault();
+            })
+      	$("input[type=password]").blur(function(){
+                  var value=$(this).val();
+                  if (value=="") {
+                           $(this).siblings("p").show();
+                  } else{
+                           $(this).val(value);
+                  }
+      	});
+      })
+	</script>
+</body>
+</html>

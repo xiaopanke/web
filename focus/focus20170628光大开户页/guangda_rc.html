@@ -1,0 +1,91 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>股票交易</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#333;text-align: center; }
+body{background: #fff;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.p1{ font-size: 1rem; line-height: 1.5rem; padding-top: .5rem;}
+.p2{font-size: 1.6rem; line-height: 2.25rem; }
+.img1{ width:14.4rem; margin:0 auto; display: block;}
+.btn{ display: block;width: 11.5rem; line-height: 2.25rem;color: #61a1ee;font-size: 1rem; border:1px solid #61a1ee;border-radius: 4px; margin:0 auto  .8rem;}
+.kaihu{ margin-top: -.5rem; position: relative;}
+.p3{ font-size: .7rem; line-height: 1rem;}
+.img2{ position: fixed;width:100%;left:0;bottom:0;}
+</style>
+<body>
+    <p class="p1">光大证券开户</p>
+    <p class="p2">佣金万2.5</p>
+    <img src="img.jpg" class="img1">
+    <a href="javascript:;" class="btn kaihu" id="kaihu">开户</a>
+    <a href="javascript:;" class="btn jiaoyi" id="jiaoyi">交易</a>
+    <p class="p3">光大证券是国内领先的<br />大型综合证券金融集团，为您提供全方位的金融服务</p>
+    <img src="img2.png" class="img2">
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    window.onload=function(){
+        var oKaibu=document.getElementById('kaihu');
+       var oJiaoyi=document.getElementById('jiaoyi');
+
+       oKaibu.onclick=function(){
+            jrj.jsCallNative('157', JSON.stringify({ brokerId: 'GDZQ',opType: 0 }))
+       };
+
+       oJiaoyi.onclick=function(){
+           jrj.jsCallNative('157', JSON.stringify({ brokerId: 'GDZQ',opType: 1 }))
+       };
+       var record = function(){
+            setTimeout(function(){
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'post',
+                    url: 'https://t.jrj.com.cn/sapi/v4/account/recordapptrade',
+                    params:{brokerId:'GDZQ'},
+                    header:{
+                       'Content-Type':'application/json'
+                    },
+                    callback: 'callbackrecord',
+                }));
+            },200);
+        }
+        record();
+        window.callbackrecord =function(info){
+            setTimeout(function(){
+                //alert(JSON.stringify(info));
+            },30);    
+        }
+    }
+   
+</script> 
+    
+</body>
+</html>
+
+
+
+

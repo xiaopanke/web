@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>推荐投顾-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <!--\#include virtual="/common_head_css_js.html" -->
+ 	<script src="http://js.jrjimg.cn/itougu/account/myadviser.js"></script>
+ 	<script src="http://js.jrjimg.cn/zqt-red-1000/js/floatdiv.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/account/reloadRecommend.js"></script>
+    <script type="text/javascript">
+    	window.siteNav='itougu';
+        $(function () {
+			F.update.attention('.tg-recomm-item-list .col-1 a.btn','itgid','+关注','取消','btn btn-57-23','btn btn-57-23') //设置 关注 按钮
+			
+        });
+    </script>
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">我的爱投顾</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/myself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="essence clearfix">
+                    <img src="http://js.jrjimg.cn/zqt-red-1000/images/sample-18.jpg" alt=""><h2>关注投资顾问，第一时间获取专业投顾精华观点</h2>
+                    <!-- <a class="btn btn-123-40 fr" href="#">快速找投顾</a> -->
+                </div>
+                <div class="interactive-block mt20">
+                    <div class="interactive-block-title">
+                        <span class="fr"><a href="javascript:void(0);" class="reload" onclick="reloadRecommend();">换一批</a></span>
+                        <!-- <a href="#" title="" class="fr btn btn-66-22-orange" id="btnFollow">+关注全部</a> --> 
+                        <span>投资顾问推荐</span>
+                    </div>
+                    <div class="clearfix" id="clearfix_data">
+                    	#set($i = 0)
+                    	#foreach($a in $list)
+                    	#set($i = $i + 1)
+                        <div class="tg-recomm-item tg-recomm-item-list clearfix wid-229-145" 
+                        #if($i%3==0)
+                         style="margin-right:0;margin-top:9px;"
+                        #end
+                        >
+                            <div class="col-1">
+                                <a href="/account/adviser/$!{a.loginId}/" class="row-pic userOnlineState" target="_blank"><img src="$!{a.headImage}" alt="" width="50" height="50" itgid="$!{a.loginId}" userid="$!{userId}"/><span class="online" style="display:none">在线</span></a>
+                                #if(${map.get($a.loginId)} >= 4)
+                                <a class="btn btn-57-23" data="${!map.get($a.loginId)}" itgid="$!{a.loginId}" data-c="0">取消</a>
+                                #else
+                                <a class="btn btn-57-23" data="${!map.get($a.loginId)}" itgid="$!{a.loginId}" data-c="1">+关注</a>
+                                #end
+                                <input type="hidden" value="${a.loginId}" name="userIds" />
+                            </div>
+                            <div class="col-2 mb10" style="width:159px; height:90px">
+                                <p><span class="title"><span class="name"><a href="/account/adviser/$!{a.loginId}/" target="_blank">${a.userName}</a></span>#if($a.verify==1)<i class="icon icon-v ml10"></i>#end</span></p>
+                                <p class="row"><span>${a.typeDesc}</span></p>
+                                <p class="row"><span>已回答：</span><span class="num">${a.answerNumber}</span></p>
+                            </div>
+                            <p class="field clearfix">
+                                投资方向 <span>${a.investDirection}</span>
+                            </p>
+                        </div>
+                        #end
+                    </div>
+                </div>        
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+    <div class="follow-popup">
+        <em></em>
+        <div class="follow-popup-loading middle"><img src="http://js.jrjimg.cn/zqt-red-1000/images/loading.gif" alt="" width="20" height="20" /><span>正在处理您的请求</span></div>
+        <div class="follow-popup-finish" style="display:none;">您已成功关注当前全部投资顾问</div>
+    </div>
+    
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

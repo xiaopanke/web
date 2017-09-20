@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>兑现成功</title>
+  <style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#333; text-decoration: none; }
+a:hover{text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333; }
+body{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+
+.main { margin: 1.6rem .75rem; background: linear-gradient(to bottom right,#ff4040,#c048bf);color: #fff;border-radius: 3px;}
+.main .content-1 { font-size: 1.25rem;padding-top: 1rem;text-align: center;}
+.main .content-2 { font-size: 1rem;text-align: center;padding-top: 0.75rem;padding-bottom: 0.9rem;}
+.main .content-2 span {font-size: 1.6rem;}
+.main .content-3 { border-top: 1px dashed #fff;margin: 0 .3rem;font-size: .6rem;text-align: center;line-height: 1.4rem;}
+.dibu {text-align: center;margin-top: 1.7rem;}
+.dibu a{ font-size:.75rem;color: #3c80f0;text-decoration: underline;}
+
+  </style>
+ </head>
+ <body>
+
+<div class="main">
+  <p class="content-1">兑现成功！</p>
+  <p class="content-2"><span></span>元</p>
+  <p class="content-3">在“我的红包”中查看兑现总金额，可随时提现</p>
+</div>
+
+<div class="dibu">
+  <a href="http://itougu.jrj.com.cn/match/v7/h5/myRedList.jspa">我的红包</a>
+</div>
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script> 
+<script>
+$(function(){
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    var ticketNo=getQueryString('ticketNo');
+    //$('.content-2 span').html(getQueryString('ticketNo'));
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+    //我的可兑现券列表
+    var my= function() {
+        setTimeout(function() {
+            jrj.jsCallNative("130", JSON.stringify({
+              method: "get",
+              url: 'https://t.jrj.com.cn/activities/ticket/queryCashedResult?ticketNo='+ticketNo,
+              params: {},
+              callback: "callbackmy",
+              version: "6.2.0"
+            }));
+        },20)
+    };
+      
+    my();
+    window.callbackmy = function(v) {  
+        setTimeout(function() {
+            v=convertToJsonObject(v);
+            if(v.retcode==0){
+                $('.content-2 span').html(changeprice(v.data.ticketPrice));
+            }
+            
+        },50)
+    }
+    function changeprice(n){
+      n=Number(n);
+      if((n+'').indexOf('.')){
+        n=n.toFixed(2)
+      }else{
+        n=n+'.00';
+      }
+      return n;
+     
+    }
+    var convertToJsonObject = function(str){
+        if(typeof str != 'object'){
+          return JSON.parse(str);
+        }else{
+          return str;
+        }
+    }
+});
+
+  </script>
+ </body>
+</html>

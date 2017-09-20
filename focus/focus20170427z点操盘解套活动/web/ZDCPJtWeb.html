@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link type="text/css" rel="stylesheet" href="http://js.jrjimg.cn/common/edition15/css/common2015.css" />
+<style>
+*{-webkit-tap-highlight-color:transparent;}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none; color: #fff; }
+a:active{background-color:transparent; }
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 16px/28px "Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; color: #fff; }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.enter{ font-size: 12px;}
+.in{ width:1000px; margin:0 auto;}
+
+body{min-width:1000px;background: #4d0c06;overflow-x: hidden}
+.show{ display: block !important;}
+
+
+
+.item{ background:url(img/webimg_01.jpg) no-repeat center top; height: 425px; }
+.item1{background-image:url(img/webimg_01.jpg);margin-top: 38px;}
+.item2{background-image:url(img/webimg_02.jpg); height:340px; }
+.item3{background-image:url(img/webimg_03.jpg); height:372px; }
+.item4{background-image:url(img/webimg_04.jpg); height:345px; }
+.item5{background-image:url(img/webimg_05.jpg); height:359px; }
+.item6{background-image:url(img/webimg_06.jpg); height:425px; }
+.item7{background-image:url(img/webimg_07.jpg); height:464px; }
+.item8{background-image:url(img/webimg_08.jpg); height:448px; }
+.item9{background-image:url(img/webimg_09.jpg); height:433px; }
+.item10{background-image:url(img/webimg_10.jpg); height:452px; }
+.item11{background-image:url(img/webimg_11.jpg); height:296px; }
+.item12{background-image:url(img/webimg_12.jpg); height:181px; position: fixed;bottom:0;width:100%; }
+.btndy { position: absolute;top:100px; left:50%;  width: 150px; height: 50px; margin-left: -16px; background: red;}
+.item4 .in{ position: relative; padding-top: 20px;}
+.fp-controlArrow.fp-prev{float:left;border:0;width:45px; cursor: pointer; margin-top: 112px; height: 100px; margin-left: 130px}
+.fp-controlArrow.fp-next{float:left;border:0;width:45px; cursor: pointer; margin-top: 112px; height: 100px;}
+.fp-slidesNav{display: none;}
+.imgin{ border:9px solid #911714;border-left-width: 12px;border-right-width: 12px; float: left; margin:0 30px;}
+#img{width:560px; height: 270px;background:url(img/sliderimg1.jpg) no-repeat center center; position:relative;}
+</style>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <script src="http://js.jrjimg.cn/common/head/headTop.js"></script>
+    
+    <div class="item item1"></div>    
+    <div class="item item2"></div>      
+    <div class="item item3"></div>      
+    <div class="item item4">
+        <div class="in">
+            <div class="fp-controlArrow fp-prev"></div>
+            <div class="imgin"><div id="img"></div></div>
+            <div class="fp-controlArrow fp-next" id="fp-next"></div>
+        </div>
+    </div>      
+    <div class="item item5"></div>      
+    <div class="item item6"></div>      
+    <div class="item item7"></div>      
+    <div class="item item8"></div>      
+    <div class="item item9"></div>      
+    <div class="item item10"></div>      
+    <div class="item item11"></div>      
+    <div class="item item12" >
+        <a class="btndy" href="javascript:;"></a>
+    </div>      
+    
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.jcarousellite.pauseOnHover-min.js"></script>
+<script>
+$(function(){ 
+    var ssoId='${ssoId}';
+    $('.btndy').click(function(){
+        if((ssoId+'').length>=18){
+        }else{
+            window.location.href='https://sso.jrj.com.cn/sso/ssopassportlogin?ReturnURL='+location.href+'&fromId=JRJ';
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+    // JavaScript by zns
+function rnd(n, m)
+{
+    return Math.random()*(m-n)+n;
+}
+
+function setStyle(obj, json)
+{
+    if(obj.length)
+    {
+        for(var i=0;i<obj.length;i++)
+        {
+            setStyle(obj[i], json);
+        }
+    }
+    else
+    {
+        for(var i in json)
+        {
+            obj.style[i]=json[i];
+        }
+    }
+}
+function setStyle3(obj, name, value)
+{
+    obj.style['Webkit'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['Moz'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['ms'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['O'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style[name]=value;
+}
+function buffer(obj, cur, target, fnDo, fnEnd, fs)
+{
+    if(!fs)fs=6;
+    var now={};
+    var x=0;
+    var v=0;
+
+    if(!obj.__last_timer)obj.__last_timer=0;
+    var t=new Date().getTime();
+    if(t-obj.__last_timer>20)
+    {
+        fnMove();
+        obj.__last_timer=t;
+    }
+
+    clearInterval(obj.timer);
+    obj.timer=setInterval(fnMove, 20);
+    function fnMove(){
+        v=Math.ceil((100-x)/fs);
+
+        x+=v;
+
+        for(var i in cur)
+        {
+            now[i]=(target[i]-cur[i])*x/100+cur[i];
+        }
+
+
+        if(fnDo)fnDo.call(obj, now);
+
+        if(Math.abs(v)<1 && Math.abs(100-x)<1)
+        {
+            clearInterval(obj.timer);
+            if(fnEnd)fnEnd.call(obj, target);
+        }
+    }
+};
+document.onmousedown=function ()
+{
+    return false;
+};
+
+window.onload=function ()
+{
+    var now=0;
+    var oDiv=document.getElementById('img');
+    var ready=true;
+    var W=560;
+    var H=270;
+    var pause=false;
+    var aListener=[];
+    
+    function next(){
+        if(now==5){now=1;}
+        return (now+1)%4;
+    }
+    function addEnd(obj, fn, arg)
+    {
+        if(!obj || !fn)return;
+        aListener.push({obj: obj, fn: fn, arg: arg});
+    }
+    function tabExplode(index)
+                {
+                    if(pause)return;
+                    if(now==index)return;
+                    if(!ready)return;
+                    ready=false;
+
+                    var R=3;
+                    var C=6;
+
+                    var cw=W/2;
+                    var ch=H/2;
+
+
+                    oDiv.innerHTML='';
+                    oDiv.style.background='url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170427ZDCP/sliderimg'+(index+1)+'.jpg) center no-repeat';
+                    
+                    var aData=[];
+
+                    var wait=R*C;
+
+                    for(var i=0;i<R;i++)
+                    {
+                        for(var j=0,k=0;j<C;j++,k++)
+                        {
+                            aData[i]={left: W*j/C, top: H*i/R};
+                            (function (){
+                                var oNewDiv=document.createElement('div');
+
+                                setStyle(oNewDiv, {
+                                    position: 'absolute',
+                                    background: 'url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170427ZDCP/sliderimg'+(index+1)+'.jpg)'+-aData[i].left+'px '+-aData[i].top+'px no-repeat',
+                                    width:Math.ceil(W/C)+'px', height: Math.ceil(H/R)+'px',
+                                    left: aData[i].left+'px', top: aData[i].top+'px'
+                                });
+                                setStyle3(oNewDiv, 'transition', '0.5s all ease-out');
+
+                                oDiv.appendChild(oNewDiv);
+
+                                var l=((aData[i].left+W/(2*C))-cw)*rnd(2,3)+cw-W/(2*C);
+                                var t=((aData[i].top+H/(2*R))-ch)*rnd(2,3)+ch-H/(2*R);
+
+                                setTimeout((function (oNewDiv,l,t){
+                                    return function ()
+                                    {
+                                        setStyle(oNewDiv, {left: l+'px', top: t+'px', opacity: 0});
+
+                                        function tEnd(ev){
+                                            if(--wait==0)
+                                            {
+                                                ready=true;
+                                                now=index;
+                                            }
+
+                                            oNewDiv.style.display='none';
+                                            setTimeout(function (){
+                                                oNewDiv.parentNode&&oNewDiv.parentNode.removeChild(oNewDiv);
+                                            }, 500);
+                                        }
+
+                                        addEnd(oNewDiv, tEnd);
+
+                                        setTimeout(function (){
+                                            if(oNewDiv)
+                                            {
+                                                ready=true;
+                                                now=index;
+                                                oNewDiv.parentNode&&oNewDiv.parentNode.removeChild(oNewDiv);
+                                            }
+                                        }, 700);
+
+                                        setStyle3(oNewDiv, 'transform', 'perspective(500px) rotateX('+rnd(-180, 180)+'deg) rotateY('+rnd(-180, 180)+'deg) rotateZ('+rnd(-180, 180)+'deg) scale('+rnd(1.5, 3)+')');
+                                    };
+                                })(oNewDiv,l,t), rnd(0, 200));
+                            })();
+                        }
+                    }
+                }
+    var timer=setInterval(function(){
+        tabExplode((now+1)%4);
+    },2000);
+    
+    $('.fp-next').click(function(){
+        tabExplode((now+1)%4);
+    });
+    $('.fp-prev').click(function(){
+        tabExplode((now+4-1)%4);
+    });
+    $('.imgin').hover(function(){
+        clearInterval(timer)
+    },function(){
+        timer=setInterval(function(){
+            tabExplode((now+1)%4);
+        },2000);
+    });
+};
+</script>
+</body>
+</html>
+
+
+

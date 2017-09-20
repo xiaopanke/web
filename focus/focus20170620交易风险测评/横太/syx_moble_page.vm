@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>适当性风险评测</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style>
+	body{
+		background:#fff;}
+       .query {
+/* background: #fff; */
+-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; 
+width: 100%;
+ margin:0;
+ border:none;
+/* overflow: hidden; */
+padding-top: 0px;
+}
+.logo{
+	width:30%;
+           min-width:200px;
+            background: red;
+	display:block;
+     margin:30px auto;
+}
+/*.logodiv{
+     background: url(images/sep.jpg) no-repeat center center;
+     background-size: 40%;
+     margin: 30px auto;
+     height: 50px;
+     width: 100%;
+}
+*/
+    .query .query-password li{
+		width:90%;}
+		.query footer span{
+			width:90%;
+			display:block;
+			-moz-border-radius: 5px;
+
+-webkit-border-radius:5px; 
+ border-radius:5px;
+  margin:0px auto;
+  float:none;
+  color:#de3031;
+  border:1px solid #999999;
+  padding:0 10px;}
+.query footer{
+	 width:100%;
+	 border:none;
+	 background:none;
+	 line-height:48px;
+	}
+	
+	.query .query-password li{
+		border:none;
+		border-bottom:1px solid #d1d1d1;
+		-moz-border-radius: 0px;
+-webkit-border-radius:0px; 
+ border-radius: 0px; }
+    </style>
+	
+</head>
+<body>
+12312312312312
+	
+
+	#foreach( $elem in $questionList)
+	<ul>
+		<p>$elem.questionContent</p>
+		#foreach( $answer in  $!{elem.list})
+			<li><input type="radio"/>$answer.answerContent</li>
+		#end
+	</ul>
+	
+	
+#end
+
+
+<br/>
+<button onclick="doSubmit();">提交</button>
+<button onclick="javascript:location.reload()">刷新</button>
+
+
+
+ <form id="cpform" style="display:none" name="bindform" action="/stockauth/syxMobilePage.jspa" method="post"> 
+		<input type="hidden" name="userToken" value="$!{userToken}" />
+        <input type="hidden" name="userId" value="$!{userId}" />
+        <input type="hidden" name="fund_id" value="$!{fundAccount}" />
+        <input type="hidden" name="from" value="$!{from}" />
+        <input type="hidden" name="p" value="$!{p}" />
+        <input type="hidden" name="s" value="$!{s}" />
+        <input type="hidden" id = "cp_choose" name="choose" value="0" />
+	    </form>
+	</section>
+<script>
+function doSubmit(){
+	var answer= "1147&1|1148&1|1149&1|1150&1|1151&1|1152&1|1153&1|1175&1|1184&1|1156&1|8000&1|8001&1|1159&1|1160&1|8008&1|1162&1|9015&1|1163&1|9016&1|1164&1";
+    answer= encodeURIComponent(answer);
+    var from= '$!{from}';
+    var p= encodeURIComponent('$!{p}');
+    var s= encodeURIComponent('$!{s}');
+    var userId= '$!{userId}';
+    var userToken= encodeURIComponent('$!{userToken}');
+    
+    var postUrl ="";
+    if(from == 0){
+        postUrl = "/stockauth/submitSyxQuestions.jspa?p="+p+"&s="+s+"&fund_id=$!{fund_id}&paperAnswer="+answer;
+    }else{
+    	postUrl = "/stockauth/submitSyxQuestions.jspa?fund_id=$!{fund_id}&userId="+userId+"&userToken="+userToken+"&from="+from+"&paperAnswer="+answer;
+    }
+      
+	$.ajax({
+             type: "POST",
+             url: postUrl,
+             dataType: "json",
+             success: function(data){
+             	alert(JSON.stringify(data));
+             }           
+         });
+
+}
+
+
+ function goToIndex(){
+	  	$("#cpform").submit();
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>${currentUser.userName} - 爱投顾 - 金融界</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，问股、金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="baidu-site-verification" content="yI0AN38rhk" />
+
+    <!--# include virtual="/v2/common_head_css.html" -->
+    <!--问答css: start-->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-question.min.css" rel="stylesheet" />
+    <!--问答css: end-->
+    <style>
+        .q-mine-list-item .row-2 .fr .q-btn-ask {
+            width: 76px;
+            height: 22px;
+            line-height: 22px;
+            border: 0;
+            padding: 0;
+            margin-left: 18px;
+            border: 1px solid #f6554a;
+            color: #f6554a;
+            background-color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+            outline: 0;
+        }
+        .q-mine-list-item .row-2 .fr span {
+        	margin-left: 20px;
+        	margin-right: 12px;
+        }
+        .q-mine-list-item .row-2 .fr .q-btn-ask:hover {
+            background-color: #f6554a;
+            color: #fff;
+        }
+        .q-mine-list-item .row-2 .fr .link-go-pick {
+            color: #2b2b2b;
+        }
+    </style>
+</head>
+<body>
+    <!--site-top-->
+    <!--# include virtual="/v2/site_top_header-v2.html" -->
+    <!--site-top-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">我的爱投顾</a>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/myself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <h1 class="page-title-2 q-page-title-2">
+                    <span class="fr">
+                        #if(${leftAskCount} > 0)
+                        <span class="note">今日还有<em>${leftAskCount}</em>次提问机会</span>
+                        <input id="Button1" type="button" value="免费提问" class="btn btn-red q-btn-ask" />
+                        #else
+                        <span class="note">您今日的提问机会已用完</span>
+                        #end
+                    </span>
+                    <span class="mr20">我的提问</span>
+                </h1>
+                <div class="tabs-v2 q-tabs-v2">
+                    <span id="menu_1" class="item cur">已回答(${answerCount})</span>
+                    <span id="menu_2" class="item">未回答(${notAnswerCount})</span>
+                </div>
+                <!-- 已回答内容 start -->
+                <div id="con_1">
+                 #if($t == 1)
+                 	 #if(!$!asks||$!asks.isEmpty())
+						<div class="empty-wrap middle tc f16">
+							<img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span>
+						</div>
+					 #else
+	                    <div class="q-mine-list">
+						#foreach($ask in $asks)
+							#set($temp="$!{ask.id}.jspa")
+	                        <div class="q-mine-list-item">
+	                            <div class="row-1">
+	                                <a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a>
+	                            </div>
+	                            <div class="row-2 clearfix">
+	                                <span class="fr">
+	                                #if($!{ask.isadopt} > 0)
+	                              		<span class="q-img q-icon-accept">已采纳</span>
+	                                #else
+	                                    <a href="/ques/$temp" class="link-go-pick" target='_blank'>去采纳一条最满意回答吧！&gt;&gt;</a>
+	                                #end
+	                                </span>
+	                                <span class="mr20">$!dateUtils.getTimeDifferenceWithSec($!ask.ctime)</span>
+	                                <span class="q-note">$ask.answeredTimes人回答</span>
+	                            </div>
+	                        </div>
+	                    #end
+	                    </div>
+                    #end
+				 #end
+                </div>
+				<!-- 已回答内容 end -->
+				
+			    <!-- 未回答内容 start -->
+                <div id="con_2" style="display:none;">
+                	#if($t == 2)
+	                	#if(!$!asks||$!asks.isEmpty())
+						<div class="empty-wrap middle tc f16">
+							<img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1">
+							<span class="ml10">暂无内容</span>
+						</div>
+						#else
+	                    <div class="q-mine-list">
+	                    	#foreach($ask in $asks)
+							#set($temp="$!{ask.id}.jspa")
+	                        <div class="q-mine-list-item">
+	                            <div class="row-1">
+	                               <a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a>
+	                            </div>
+	                            <div class="row-2 clearfix">
+		                            <span class="fr">
+		                            	#if($!dateUtils.daysBetween($!ask.ctime)>7)
+	                                    <button class="fr q-btn-ask" onclick="delMyAsk(this)" value="$!{ask.id}">不问了</button> 
+	                                    	#if(!$objectUtils.isNull($!ask.stockName) && !$objectUtils.isNull($!ask.stockCode))
+	                                    	<a onclick="javascript:gotoStockURL('$!ask.stockCode')" target="_blank" class="link-go-pick">相关回答可能帮助到您&gt;&gt;</a>
+	                                    	#else
+	                                    	<a onclick="javascript:gotoTxtURL('$objectUtils.removeBrs($!ask.textContent)')" target="_blank" target="_blank" class="link-go-pick">相关回答可能帮助到您&gt;&gt;</a>
+	                                    	#end
+	                                    #else
+	                                    	#if(!$objectUtils.isNull($!ask.stockName) && !$objectUtils.isNull($!ask.stockCode))
+	                                    	<a onclick="javascript:gotoStockURL('$!ask.stockCode')" target="_blank" class="link-go-pick">相关回答可能帮助到您&gt;&gt;</a>
+	                                    	#else
+	                                    	<a onclick="javascript:gotoTxtURL('$objectUtils.removeBrs($!ask.textContent)')" target="_blank" target="_blank" class="link-go-pick">相关回答可能帮助到您&gt;&gt;</a>
+	                                    	#end
+	                                    <span>等待回答</span>
+	                                    #end
+	                                </span>
+	                                <span class="mr20">$!dateUtils.getTimeDifferenceWithSec($!ask.ctime)</span>
+	                            </div>
+	                        </div>
+	                        #end
+	                    </div>
+	                    #end
+					#end
+                </div>
+                <!-- 未回答内容 end -->
+                <div class="pager pager-v2"></div>
+            </div>
+			<!--site-main-right-->
+        </div>
+    </div>
+    <!--# include virtual="/v2/common_head_js.html" -->
+    <!--# include virtual="/v2/common-footer-v2.html" -->
+     <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+     <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script>
+    <script>
+	    var type = ${t};
+	    var currentPageNo = ${p};
+	    var pageSize = 10;
+	    var totalCount = ${page.totalCount};
+	    
+	    function gotoStockURL( code ){
+			window.open('http://itougu.jrj.com.cn/stock/' + code + '.jspa');
+		};
+		function gotoTxtURL( code ){
+			window.open('http://itougu.jrj.com.cn/search/?keyword=' + encodeURIComponent(code) + '&is_stock=false');
+		};
+    
+        $(function () {
+        	$('#Button1').click(function(){
+        		Question.clickEvent();
+        	});
+        	
+            $('.pager').pagefoot({
+                pagesize: pageSize,
+                count: totalCount,
+                css: '',
+                current: currentPageNo,
+                displaynum: 5,
+                displaylastNum: 2,
+                previous: '上一页',
+                next: '下一页',
+                enableArrowKey: true,
+                paging: function (page) {
+                  var current = page.current;
+                  var index = location.href.indexOf('?');
+                  location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?p=' + current + '&t=' + type;
+                }
+              });
+        	
+			//已回答未回答切换
+            var tab = new JRJ.ui.TabSwitch({
+            	currTab: type,
+                menuPre: 'menu_',
+                conPre: 'con_',
+                total: 2,
+                onClass: 'cur',
+                eventType: 'click',
+                onSwitch: {
+                  fcn: function(q) {
+                    var curr = tab.currTab;
+                    if (curr != type) {
+                      var index = location.href.indexOf('?');
+                      location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?t=' + curr;
+                    }
+                  },
+                  args : []
+                }
+            });
+			
+            $('.site-main-right .q-tabs-v2 span').removeClass('cur');
+            $('#menu_' + tab.currTab).addClass('cur');
+            $('#con_1').hide();
+            $('#con_2').hide();
+            $('#con_' + tab.currTab).show();
+            
+            
+        });
+        
+        window.siteNav = 'itougu';
+        
+        
+        function delMyAsk(obj){
+         		
+                JRJ.Dialogs.standardDialog({
+                    title: '',
+                    noTitle:true,
+                    width: 500,
+                    content: [
+								'<div class="tit clearfix tc f18">',
+									'确定要删除提问吗？',
+								'</div>',
+					].join(''),
+                    okBtnText: '确定',
+                    cancelBtnText: '取消',
+                    hasCloseBtn: true,
+                    hasBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: true,
+                    okCallback: function () {
+                      	($).ajax({
+	                        type: 'POST',
+	                        dataType: 'json',
+	                        async: false,
+	                        cache: false,
+	                        url: '/ques/service/delMyAsk.jspa',
+	                        data: {
+		                          askId: obj.value
+	                        },
+	                        success: function(data) {
+		                          if(data.result==1) {
+		                            location.href = location.href;
+		                          } else {
+		                            alert(data.msg || '操作失败');
+		                          }
+	                        },
+	                        error: function() {
+	                          	//alert('操作失败');
+	                        },
+	                        statusCode: {
+		                          '404': function() {
+		                            JRJ.MiniAlerts.prompt({
+		                              message: '<p>操作失败！</p>'
+		                            });
+		                          },
+		                          '500': function() {
+		                            JRJ.MiniAlerts.prompt({
+		                              message: '<p>操作失败！</p>'
+		                            });
+		                          }
+	                        }
+	                    });
+	                },
+                    cancelCallback: function () {
+                      return true;
+                    },
+                    isFixed: true
+            	});
+        }
+    </script>
+
+</body>
+</html>

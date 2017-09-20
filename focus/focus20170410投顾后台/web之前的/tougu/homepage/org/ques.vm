@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾-金融界-最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-agency.min.css" rel="stylesheet" />
+</head>
+<body onload="initBody();">
+    <!--site_top_compact.html start-->
+    <!--\#include virtual="/v2/site_top_compact.html" -->
+    <!--site_top_compact.html end-->
+	<input type="hidden" id="orgId" value="$!{orgId}">
+    <div class="wrapper agency-bg">
+        <!--\#include virtual="/account/organization/$!{orgId}/info.html" -->
+        <ul class="agency-nav">
+            <li><a href="/account/organization/$!{orgId}/">主页</a></li>
+            <li><a href="/account/organization/$!{orgId}/3">直播</a></li>
+            <li style="display:none;"><a href="/account/organization/$!{orgId}/4">组合跟投</a></li>
+            <li class="cur"><a href="/account/organization/$!{orgId}/2">回答</a></li>
+            <li><a href="/account/organization/$!{orgId}/1">观点</a></li>
+            <li><a href="/account/organization/$!{orgId}/5">投资内参</a></li>
+            <li><a href="/account/organization/$!{orgId}/6">投顾</a></li>
+        </ul>
+    </div>
+
+    <div class="agency-main wrapper clearfix">
+        <div class="agency-main-left">
+            <!--回答: start-->
+            <div class="agency-block">
+                <h3 class="m-tit-row">
+                    <span class="tit" id="tit">TA的回答</span>
+                    <span class="s-tit"><em class="hot num" id="ques_count">0</em>回答</span>
+                </h3>
+                <div class="answer-cont" id="contentList">
+                </div>
+				
+            	<div id="pagerId" class="pager pager-v2"></div>
+            </div>
+            <!--回答: end-->
+        </div>
+        <div class="agency-main-right">
+            <!--\#include virtual="/account/organization/$!{orgId}/right.html" -->
+        </div>
+    </div>
+
+    <!--页面js: start-->
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/AMD/seajs-Config.js"></script>
+    <script>
+		function initBody(){
+			loadData(1);
+		}
+		
+		//type:adviser   fans  view  answer   portfolio
+    	//id : 数字的标签ID
+    	//txt:可不传，数字后跟的文字。
+    	function gettypenum(id ,type ){
+    			$('#'+id).html($('#'+type+'_num_label').html());
+    	}
+		gettypenum('adviser_count','adviser');
+		function StringBuffer(){
+			this.data_ = [];
+		}
+		StringBuffer.prototype.append = function(){
+			this.data_.push(arguments[0]);
+			return this;
+		}
+		StringBuffer.prototype.toString = function(){
+			return this.data_.join("");
+		} 
+	
+		Date.prototype.format = function (format) { 
+			var o = { 
+				"M+": this.getMonth() + 1, 
+				"d+": this.getDate(), 
+				"h+": this.getHours(), 
+				"m+": this.getMinutes(), 
+				"s+": this.getSeconds(), 
+				"q+": Math.floor((this.getMonth() + 3) / 3), 
+				"S": this.getMilliseconds() 
+			} 
+			if (/(y+)/.test(format)) { 
+				format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length)); 
+			} 
+			for (var k in o) { 
+				if (new RegExp("(" + k + ")").test(format)) { 
+					format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)); 
+				} 
+			} 
+			return format; 
+		} 
+		
+		function getFormatDateByLong(l, pattern) { 
+			return new Date(l).format(pattern); 
+		}
+		function loadData(p){
+			var orgId=$("#orgId").val();
+			var jsurl = "http://itougu.jrj.com.cn/organization/ques/ques_"+orgId+"_"+p+".js";
+			var dataTag = 0;
+			
+			
+			//$.getScript(jsurl, function() {
+			
+			$.ajax({
+				type : "get",
+				url : jsurl,
+				async : false,
+				dataType : "script",
+				timeout : 10000,
+				success : function(d, textStatus) {
+				
+				if (typeof(quesData)!='undefined' && quesData!=null && quesData!='null' && quesData!=undefined) { 
+					var content = new StringBuffer();
+					
+					$("#pagerId").show();
+					content.append('<ul>');
+						$.each(quesData, function(idx, obj){
+								dataTag = 1;
+								content.append('<li class="clearfix">')
+									.append('<div class="avatar">')
+									.append('<a href="/account/adviser/'+obj.answers[0].answerUserId+'/ target="_blank""><img class="tgHeadImage" src="'+obj.answers[0].avatarUrl+'" aitgid="'+obj.answers[0].answerUserId+'" alt="" /></a>')
+									.append('<p>'+obj.answers[0].answerUserName+'</p>')
+									.append('</div>')
+									.append('<div class="desc">')
+									.append('<h4><a href="/ques/'+obj.id+'.jspa" class="hot" target="_blank">'+obj.textContent+'</a></h4>')
+									.append('<p class="note">'+getFormatDateByLong(obj.ctime,"MM-dd hh:mm")+'</p>')
+									.append('<p class="text">'+obj.answers[0].textContent+'</p>')
+									.append('</div>')
+									.append('</li>');
+						});
+						content.append('</ul>');
+					
+						$('#contentList').empty().append(content.toString());
+						
+						gettypenum('ques_count','answer');
+						//$('#answer_num_label').html(total);
+						//$('#ques_count').html(total);
+						
+						F.hoverCls( '.tgHeadImage' , 'aitgid' );
+						
+						$("#pagerId").pagefoot({
+				            pagesize:10,
+				            count:total<200?total:200,
+				            css:"",
+				            current : p,
+				            displaynum : 5,
+				            displaylastNum :2,
+				            previous:"上一页",
+				            next:"下一页",
+				            enableArrowKey: true,
+				            paging:function(page){
+			            		var p = page.current;
+			            		loadData(p);
+			            		window.location.hash="tit";
+				            }
+				        });
+					}
+					}
+				});	
+				
+				if(dataTag == 0){
+					$('#contentList').empty().append('<div class="empty-cont">机构正在酝酿精品内容</div>');
+					$("#pagerId").hide();
+				}
+    		}
+    		
+    	$(function(){
+			F.hoverCls( '.tgHeadImage_right' , 'itgid_right' );
+		});	
+        seajs.use(['ExpandHelper'], function (expandHelper) {
+            expandHelper.execute({
+                selector: '#intro',
+                minHeight: 110
+            });
+        });
+        
+    </script>
+    <!--页面js: end-->
+    <!--common-footer-v2.html start-->
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+    <!--common-footer-v2.html end-->
+</body>
+</html>

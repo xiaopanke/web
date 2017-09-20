@@ -1,0 +1,20 @@
+<table class="table-general table-general-p3 mt30">
+    <thead>
+        <tr>
+            <th class="tc">投顾奖金</th>
+            <th class="tc">经纪奖金</th>
+           <!-- <th class="tc">组合跟投</th> -->
+           <!-- <th class="tc">投资内参</th> -->
+            <th class="tc last">汇总</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="tc">$!map['1']</td>
+            <td class="tc">$!map['2']</td>
+            <!-- <td class="tc">$!map['3']</td> -->
+            <!-- <td class="tc">$!map['4']</td> -->
+            <td class="tc last">$!totalIncome</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾-金融界-最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-css.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-refer.min.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <!--site-top-and-nav-->
+    <!--\#include virtual="/v2/site_top_header.html" -->
+    <!--site-top-and-nav-->
+
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="/view/myPointlist.jspa">我的投顾空间</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">我的内参</a>
+        </div>
+    </div>
+
+    <div class="site-main site-main-padding">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                  <h1 class="page-title-2 page-title-2-float clearfix">
+                    <a id="createTips" class="btn btn-89-31 fr" style="width:auto;padding:0 15px;">发售新投资内参</a>
+                    #if($!{canLongterm})
+                    <a id="createLongterm" class="btn btn-89-31 blue-btn fr" style="width:auto;padding:0 15px; margin-right:20px">发售长期内参</a>
+                    #end
+                    <span class="f16">投资内参</span>
+                  </h1>
+                <div class="refer-list refer-list-tougu">
+                    #foreach($tip in $tips)
+                   		 <div id="removeid-${tip.id}" class="refer-item">
+                   		 	<input id="timediff-${tip.id}" value="${tip.endTimeDiff}" type="hidden"/>
+                   		 	<input id="edittimes-${tip.id}" value="${tip.edittimes}" type="hidden"/>
+                   		 	<input id="price-${tip.id}" value="${tip.yuanPrice}" type="hidden"/>
+                                <div class="refer-item-tit clearfix">
+                                    <a href="${tip.id}.jspa" target="_blank"><span>${tip.title}</span></a>
+                                    #if(${tip.status} == 50)
+		                            <i class="refer-tool refer-tool-reject fr" data-value="${tip.id}"></i> <!-- 停售 -->
+			                            #if(${tip.type} == 1)
+			                            <i class="refer-tool refer-tool-price fr" data-value="${tip.id}"></i> <!-- 修改价格 -->
+			                            #end
+		                            #end
+	                            	<i class="refer-tool refer-tool-trash fr" data-value="${tip.id}"></i> <!-- 删除 -->
+                                </div>
+                                <div class="refer-item-cnt clearfix">
+                                	<div class="refer-item-pic">
+                                        <a href="${tip.id}.jspa" target="_blank"><img src="${tip.img}"  width="185" height="87" /></a>
+                                        #if(${tip.status} == 50)
+		                                	<span class="status status-updating"></span>
+		                                #elseif(${tip.status} == 40)
+		                               	 	<span class="status status-selling"></span>
+		                                #elseif(${tip.status} == 30)
+		                                	<span class="status status-pause-2"></span>
+		                                #elseif(${tip.status} == 20)
+		                                	<span class="status status-waiting"></span>
+		                                #elseif(${tip.status} == 10)
+		                                	<span class="status status-reject"></span>
+		                                #elseif(${tip.status} == 0)
+		                                	<span class="status status-end"></span>
+		                                #end
+                                    </div>
+                                    <div class="refer-item-desc">
+                                        <p>
+	                                        <span title="${tip.tdesc}">$objectUtils.substring($tip.tdesc, 0, 85)#if($tip.tdesc.length() > 85) ...#end</span>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+                                <div class="btn-wrap clearfix">
+		                                #if(${tip.status} != 10 && ${tip.status} != 20)
+			                                #if(${tip.type} == 2)
+			                                <span class="fr">价格：￥${tip.yuanPrice} 起</span>
+			                                #else
+			                                <span class="fr">价格：￥${tip.yuanPrice}</span>
+			                                #end
+				                            <span class="expiration">服务期：${tip.strBegintime} 至 ${tip.strEndtime}</span>
+				                        #end
+		                                #if(${tip.status} == 0 || ${tip.status} > 20)
+				                            <span class="split">|</span>
+				                            <span><span class="red"> ${tip.purchaseamount} 人订阅</span> · <span>${tip.contentnum}条观点</span></span>
+		                                #end
+                                   </div>
+                         </div>
+                    #end
+                </div>
+
+                <div class="pager pager-v2"></div>
+            </div>
+		</div>
+        <!--site-main-right-->
+    </div>
+	<!--\#include virtual="/v2/common_head_js.html" -->
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/counter.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/partial-refer.min.js"></script>
+    
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/calendar.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/calendar.min.js"></script>
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/jquery.pagefoot.min.js"></script>
+
+    <script src="http://cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>
+    
+      <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+
+    <script type="text/javascript">
+    	window.siteNav = 'itougu';
+    	window.serviceDay = $!{serviceDay};
+    	window.servicePrice = $!{servicePrice}
+    	window.serviceDayMsg = '服务期最长两个月';
+    	
+    	if(serviceDay > 60){
+    		serviceDayMsg = '服务期最长半年';
+    	}
+    	
+	    function isDecimal(str) {
+	        if(!str) {
+	          return false;
+	        }
+	        for(var i = 0, len = str.length, c; i < len; i++) {
+		          c = str.charCodeAt(i);
+		          if(c < 0x30 || c > 0x39) {
+	                return false;            
+	              }
+	        }
+	        return true;
+	    }
+	    
+/* 	    var uploadImg = function() {
+	        $("#fileForm").ajaxSubmit({
+				dataType: 'json',
+				iframe: true,
+				iframeTarget: '#fakeFrame',
+				beforeSend: function() {
+					var filename = $('#filename').val().toLowerCase(), fl = filename.length;
+					var allowTypes = ['.jpg', '.jpeg', '.png'];
+					for(var i = 0, len = allowTypes.length, t, b; i < len; i++) {
+						b = (t = allowTypes[i]).length;
+						if(filename.lastIndexOf(t) == fl - b) {
+							return true;
+						}
+					}
+					alert('内参封面仅支持 jpg,jpeg,png格式');
+					return false;
+				},
+				success: function(data) {
+					if(data.success) {
+						var filename = data.filename, url = 'http://itg1.jrjimg.cn/' + filename, index = url.lastIndexOf('.'), suffix = url.substring(0, index), prefix = url.substring(index);
+						$('#imgurl').val(url);
+						$('#imgbg').css('background-image', 'url(' + suffix + '_185_163' + prefix + ')');
+						//alert(data.filename);
+					} else {
+						alert(data.message || '异常了');
+					}
+				}
+			});
+        }; */
+        
+        var substring = function(obj, maxlength){
+	    	if(obj.value.length > maxlength) {
+	    		obj.value = obj.value.substring(0, maxlength);
+	    	}
+	    };
+	    
+	    var parseDate = function(str) {
+			str = str.split('-');
+			var date = new Date();
+			date.setFullYear(str[0], str[1] - 1, str[2]);
+			date.setHours(0, 0, 0, 0);
+			return date;
+		}
+	    
+        $(function () {
+			var checkImg = function(e) {
+				var imgurl = $('#imgurl').val();
+				if(imgurl.length > 0) {
+					$('#imgMsg').text('');
+					return true;
+				}
+				$('#imgMsg').text('请上传封面');
+				return false;
+			};
+        	var checkLen = function(minlen, maxlen, docid, errmsg){
+        		var id = '#' + docid;
+        		var val = $(id).val();
+	    		var docparent = $(id).parent();
+		    	if(val){
+		    		val = $.trim(val);
+	        		var valilen = val.length;;
+	    			docparent.find('.error-msg').hide();
+	    			
+		    		if(valilen >= minlen && valilen < maxlen+1){
+		    			return true;
+		    		}else{
+		    			docparent.find('.error-msg').show();
+		    			return false;
+		    		}
+		    	}else{
+		    		docparent.find('.error-msg').show();
+		    		return false;
+		    	}
+		    	return false;
+		    }
+		    
+		    var checkPrice = function(){
+		    	var price = $('#price').val();
+		    	var priparent = $('#price').parent();
+		    	priparent.find('.error-msg').hide();
+		    	
+		    	if(price){
+		    		var v1 ;
+			    	if(!isDecimal(price) || (v1 = parseInt(price)) < 1 || v1 > servicePrice){//小数或者小于1元或者大于3000
+			    		priparent.find('.error-msg').show();
+			    		return false;
+			    	}else{
+			    		priparent.find('.error-msg').hide();
+			    		return true;
+			    	}
+		    	}
+				priparent.find('.error-msg').show();
+		    	return false;
+		    }
+		    
+		    //内参修改价格校验
+		    var checkEditPrice = function(id){
+		    	var priceid = '#editprice';
+		    		
+		    	var price = $(priceid).val();
+		    	var priparent = $(priceid).parent();
+		    	priparent.find('.error-msg').hide();
+		    	
+		    	if(price){
+		    		var v1 ;
+			    	if(!isDecimal(price) || (v1 = parseInt(price)) < 1 || v1 > servicePrice){//小数或者小于1元或者大于3000
+			    		priparent.find('.error-msg').show();
+			    		priparent.find('.error-msg').text('价格为1~' + servicePrice);
+			    		return false;
+			    	}else{
+			    		var p = $('#price-' + id).val();
+			    		if(price < p*0.5){
+			    			priparent.find('.error-msg').show();
+				    		priparent.find('.error-msg').text('修改后的价格≥原价*0.5');
+				    		return false;
+			    		}
+			    	}
+			    	return true;
+		    	}
+				priparent.find('.error-msg').show();
+				priparent.find('.error-msg').text('请输入价格');
+		    	return false;
+		    }
+		    
+        	<!-- 点击创建内参弹出添加界面 -->
+			var createPanel = function(){
+					<!-- 弹窗开始, 发售新投资内参 -->
+		            JRJ.Dialogs.standardDialog({
+		                title: '发售新投资内参<span class="subtit">（定位清晰、内容专注的投资内参更容易被用户订阅）</span>',
+		                customClass: 'dialog-refer-subscribe',
+		                width: 725,
+		                content: ['<div class="dialog-cnt">',
+										'<div class="refer-info clearfix">',
+											'<div class="refer-pic">',
+											    '<a id="upload" class="upload"></a>',
+	                                            '<p id="imgMsg" class="note red">支持JPG、JPEG和PNG文件尺寸为，大小不超过1M</p>',
+	                                        '</div>',
+											'<form id="form1" method="post" action="create.jspa">',
+												'<input type="hidden" name="img" id="imgurl" />',
+												'<div class="refer-form">',
+													'<div><input id="title" name="title" type="text" class="txtbox txtbox-name" maxlength="15" ',
+													'onkeyup="substring(this, 15)" onkeydown="substring(this, 15)" onpaste="substring(this, 15)" /> ' ,
+													'<span class="error-msg red" style="display:none;">请输入不超过15个字的标题</span></div>',
+													'<div class="mt10 textarea-wrap"><textarea id="tdesc" name="tdesc" maxlength="300" ',
+													'onkeyup="substring(this, 300)" onkeydown="substring(this, 300)" onpaste="substring(this, 300)"></textarea>',
+													'<div class="watermark">',
+													#if($!{ad.type} == 2)
+													'<p style="font-size:12px;">要求填写：<br/>内容介绍、服务频次、过往战绩（客观公正）、风险提示等；<br/>', 
+													'示例：</p><p style="font-size:12px;">本内参坚持基本面+技术面选股，实时捕捉热点，挖掘价值洼地；<br/>',
+													'每日发布1~2只强势牛股，含详细的选股思路、买卖点、波段操作提示；<br/>',
+													'曾成功布局恒生电子 （600570）一月翻番，东方财富（300059）一月涨幅为120%。</p>',
+													#else
+													'<p style="font-size:12px;">要求填写：<br/>内容介绍、服务频次、过往战绩（客观公正）、风险提示、不可以进行投资建议等的表述，不可以进行个股推荐类表述等；<br/>', 
+													'示例：</p><p style="font-size:12px;">坚持基本面+技术面选股，实时捕捉热点，挖掘价值洼地；<br/>',
+													'发布一些自己个人操作的股票，自己操作分享；<br/>',
+													'本人曾经布局恒生电子（600570）一月翻番，东方财富（300059）一月涨幅为120%</p>',
+													#end
+													'</div>',
+													'<div class="clearfix"><span id="counter" class="msg-info c_666 fr">0 / 300</span>',
+													'<span class="error-msg red" style="display:none;">请输入10-300字的简介</span></div></div>',
+													'<table>',
+														'<tr>',
+															'<td class="field">设置价格：</td>',
+															'<td>',
+																'<div><input id="price" name="price" type="text" class="txtbox" style="width:100px;" />',
+																'<span class="ml10">元</span><span class="error-msg red ml10">价格为1~' + servicePrice + '</span></div>',
+															'</td>',
+														'</tr>',
+														'<tr>',
+															'<td class="field">服务期：</td>',
+															'<td class="range middle">',
+																'<input id="begintime" name="begintime" type="text" class="txtbox" readonly/>',
+																'<span class="refer-to"></span>',
+																'<input id="endtime" name="endtime" type="text" class="txtbox" readonly/>',
+																'<span id="dateMsg" class="red tc">' + serviceDayMsg + '</span>',
+															'</td>',
+														'</tr>',
+														 '<tr>',
+		                                                    '<td class="field">适合人群：</td>',
+		                                                    '<td class="range">',
+		                                                        '<select id="suittype" name="suittype">',
+		                                                            '<option value="-1">  -- 请选择适合人群 -- </option>',
+		                                                            '<option value="0">所有投资者</option>',
+		                                                            '<option value="1">短线投资者</option>',
+		                                                            '<option value="2">中长线投资者</option>',
+		                                                            '<option value="3">长线投资者</option>',
+		                                                        '</select>',
+		                                                        '<span class="error-msg red ml10" style="margin-top:5px;display:inline-block">请选择适合人群</span>',
+		                                                    '</td>',
+		                                                '</tr>',
+													'</table>',
+												'</div>',
+											'</form>',
+										'</div>',
+										'<div class="btn-wrap" style="padding-top:30px;">',
+											'<button class="btn btn-89-31" id="submitBtn">立即创建</button>',
+										'</div>',
+									'</div>'].join(''),
+		                okBtnText: "确定",
+		                cancelBtnText: "取消",
+		                hasBtn: false,
+		                hasCloseBtn: true,
+		                hasOkBtn: true,
+		                hasCancelBtn: false,
+		                okCallback: function () { },
+		                cancelCallback: function () { },
+		                isFixed: false
+		            });
+
+					<!-- 弹窗结束 -->
+					
+					<!-- 上传图片事件开始 -->
+					  var dlg4Upload = $.extend(true, {}, JRJ.Dialogs);
+				        //上传图片
+				        $('#upload').click(function (e) {
+				            e.preventDefault();
+
+				            dlg4Upload.iframeDialog({
+				                content: [''].join(''),
+				                loadingImg: '',
+				                width: 760,
+				                closeIfShowed:false,
+				                hasBtn: false,
+				                hasOkBtn: false,
+				                okBtnText: '',
+				                title: '上传图片',
+				                titleRight: '',
+				                bottomContent: '',
+				                protocolHtml: '',
+				                hasCancelBtn: false,
+				                enableKeyCtrl: true,
+
+				                ifrSrc: 'upload.jspa',
+				                ifrReHeight: true,
+				                isFixed: true,//defaultCf.isFixed,
+				                okCallback: function () {
+				                },
+				                cancelCallback: function () {
+
+				                    return true;
+				                }
+				            });
+				        });
+
+
+				        window.updateImgs = function (filename) {
+				            $('#upload').css({'background':'none', 'height':'87px'}).html($('<img/>').css({width:'185px'}).attr({ src: filename }));
+				            $('#imgurl').val(filename);
+				        };
+					<!-- 上传图片事件结束 -->
+					
+					<!-- 添加窗水印 -->
+		            $('#title').watermark('给投资内参起个名字（不超过15个字，发售后不可修改）');
+		            $('.textarea-wrap .watermark').click(function () {
+		                $(this).fadeOut();
+		                $(this).prev().focus();
+		            });
+		            $('.textarea-wrap textarea').focus(function () {
+		                $(this).next().fadeOut();
+		            });
+		            <!-- 添加窗水印结束 -->
+		            
+		            <!-- 添加窗字数 -->
+		            window.counter = new Util.Counter({
+		                txtboxId: "#tdesc",
+		                counterId: '#counter',
+		                limit: 300,
+		                template: '{num} / 300',
+		                beyondTemplate: '<b class="red-v2">{num}</b> / 300',
+		                customFunc: function (obj) {
+		                    var num = obj.config.limit - $(obj.config.txtboxId).val().length;
+		                    if (num > 0) {
+		                        $(obj.config.counterId).html(obj.config.template.replace('{num}', $(obj.config.txtboxId).val().length));
+		                    } else {
+		                        $(obj.config.counterId).html(obj.config.beyondTemplate.replace('{num}', $(obj.config.txtboxId).val().length));
+		                    }
+		                }
+		            });
+		            <!-- 添加窗字数结束 -->
+		            
+		            <!--开始日期和结束日志控件初始化-->
+		            var _today = new Date();
+		            var _endDay = new Date();
+		            _today.setDate(_today.getDate()-1);
+		            new JRJ.ui.Calendar("begintime", {
+		                //closable: false,
+		                validType: 'blur',//'blur','input'
+		                minDate: _today,
+		                onPicked: function (d) {}
+		            });
+		            
+		            //_endDay.setDate(_endDay.getDate());
+		            new JRJ.ui.Calendar("endtime", {
+		                //closable: false,
+		                validType: 'blur',//'blur','input'
+		                minDate: _endDay,
+		                onPicked: function (d) {}
+		            });
+		            <!--开始日期和结束日志控件结束-->
+		            
+				    <!-- 创建内参校验 -->
+				    
+				    var checktitle = function(){
+				    	 var param = {title:$('#title').val()};
+				    	 var res = false;
+							($).ajax({
+					            url: 'checktitle.jspa',
+					            type: 'post',
+					            dataType : "json",
+					            async: false, 
+					            data: param,
+					            timeout: 3000,
+					            success: function(data) {
+					              var suc = data.success ;
+					              var errormsg = $('#title').parent().find('.error-msg');
+					              if(suc){ //标题重复
+					            	  errormsg.show();
+					            	  errormsg.text('与其他内参标题重复，请重新输入.');
+					            	  res = false;
+					              }else{
+					            	  errormsg.text('请输入2-15个字的标题');
+					            	  errormsg.hide();
+					            	  res = true;
+					              }
+					            }
+				          });
+						  return res;
+				    }
+				    
+				    var checksuit = function(){
+				    	var type = $('#suittype').val();
+				    	if(type < 0 || type > 3){
+				    		 $('#suittype').parent().find('.error-msg').show();
+				    		 return false;
+				    	}
+			    		$('#suittype').parent().find('.error-msg').hide();
+			    		return true;
+				    }
+				    
+				    $('#suittype').sSelect({ ddMaxHeight: '90px', containerClass: 'newListSelected-229' });
+	                $('#suittype').change(function(){checksuit();});
+				    
+				    //内参标题
+				    $('#title').blur(function(){
+						 //val, minlen, maxlen, docid, errmsg
+						if(checkLen(2, 15, 'title', '请输入2-15个字的标题')){
+							checktitle();
+						}
+					});
+				    //内参简介
+				    $('#tdesc').blur(function(){
+						 checkLen(10, 300, 'tdesc', '请输入10-300个字的简介');
+					});
+				    //未签约价
+				    $('#price').blur(function(){
+						 checkPrice();
+					});
+				    
+				    //日期校验
+				    var checkDate = function(){
+				    	var bval = $('#begintime').val(), endval = $('#endtime').val();
+				    	if(!bval){
+				    		$('#dateMsg').text('请输入服务期开始时间');
+				    		return false;
+				    	}
+				    	if(!endval){
+				    		$('#dateMsg').text('请输入服务期结束时间');
+				    		return false;
+				    	}
+				    	
+				    	var b = parseDate(bval);
+						var e = parseDate(endval); 
+						var diff = (e.getTime() - b.getTime())/(24 * 60 * 60 * 1000);
+						if(diff < 1){
+							$('#dateMsg').text('内参服务期最短一天');
+							return false;
+						}
+						if(diff > serviceDay){
+							$('#dateMsg').text(serviceDayMsg);
+							return false;
+						}
+						$('#dateMsg').text('');
+			    		return true;
+				    }
+				    
+			        $('#submitBtn').live('click', function() {
+		        	    return  checkImg() && checkLen(2, 15, 'title', '请输入2-15个字的标题')
+				        	    && checktitle() && checkLen(10, 300, 'tdesc', '请输入10-300个字的简介') && checkDate() 
+		        	    		&& checkPrice() && checksuit() && document.forms['form1'].submit();
+		            });
+				    <!-- 创建内参校验结束 -->
+			};
+			<!-- 点击创建内参弹出添加界面结束 -->
+			
+			 <!--当前内参数如果超过10, 则不能创建-->
+			 $('#createTips').click(function() {
+			 	$.ajax({
+					url : 'http://itougu.jrj.com.cn/account/getEvaluationResultForTgZone.jspa?version=1&userId='+$.cookie('itg_passport_userid')
+					,dataType : 'json'
+					,success : function( _data ){
+						console.log(_data);
+						if(_data.retCode==2){ //没有做过测评啦
+				        	JRJ.Dialogs.standardDialog({
+		                      title: "风险评测",
+		                      width: 477,
+		                      content: '<div class="md-content" style="text-align: center;"><ul class="dialoggroup clearfix">根据证监会要求，投顾需要进行风险评测</ul></div>',
+		                      okBtnText: "立即评测",
+		                      hasCloseBtn: true,
+		                      hasOkBtn: true,
+		                      hasCancelBtn: false,
+		                      okCallback: function () { 
+		                          JRJ.usability.show();
+		                      },
+		                      cancelCallback: function () {
+    						  },
+		                      isFixed: true
+		                  });   
+				        }else if(_data.retCode==1){
+				        	($).ajax({
+					            url: 'checktipscount.jspa',
+					            type: 'post',
+					            dataType : "json",
+					            async: false, 
+					            timeout: 3000,
+					            success: function(data) {
+					              var suc = data.success ;
+					              if(!suc){ //可以发售
+					            	  createPanel();
+					              }else{
+					            	  JRJ.Dialogs.standardDialog({
+											 title: "发售新投资内参",
+											 width: 430,
+											 content: ['<div class="portfolio-dlg">',
+											                '<p class="f20 middle tc" style="padding:10px 0 20px 0;"><img src="http://js.jrjimg.cn/zqt-red-1000/images/v2/icon-alert.png" class="mr10" /><span>您最多可同时发售15个内参</span></p>',
+											            '</div>'].join(''),
+											 okBtnText: "确定",
+											 cancelBtnText: "关闭",
+											 hasCloseBtn: true,
+											 hasOkBtn: true,
+											 hasCancelBtn: true,
+											 okCallback: function () { },
+											 cancelCallback: function () { },
+											 isFixed: true
+						                  });
+						               }
+						            }
+					          });
+					        }
+
+						}
+						
+					});
+
+					 
+				 });
+			 
+			 <!--当前内参数如果超过15, 则不能创建-->
+			 $('#createLongterm').click(function() {
+			 	var new_location=window.open();
+			 	$.ajax({
+					url : 'http://itougu.jrj.com.cn/account/getEvaluationResultForTgZone.jspa?version=1&userId='+$.cookie('itg_passport_userid')
+					,dataType : 'json'
+					,success : function( _data ){
+						console.log(_data);
+						if(_data.retCode==2){ //没有做过测评啦
+				        	JRJ.Dialogs.standardDialog({
+		                      title: "风险评测",
+		                      width: 477,
+		                      content: '<div class="md-content" style="text-align: center;"><ul class="dialoggroup clearfix">根据证监会要求，投顾需要进行风险评测</ul></div>',
+		                      okBtnText: "立即评测",
+		                      hasCloseBtn: false,
+		                      hasOkBtn: true,
+		                      hasCancelBtn: false,
+		                      okCallback: function () { 
+		                          JRJ.usability.show();
+		                      },
+		                      cancelCallback: function () {
+    						  },
+		                      isFixed: true
+		                  });   
+				        }else if(_data.retCode==1){
+				        	
+							 ($).ajax({
+						            url: 'checktipscount.jspa',
+						            type: 'post',
+						            dataType : "json",
+						            async: false, 
+						            timeout: 3000,
+						            success: function(data) {
+						              var suc = data.success ;
+						              if(!suc){ //可以发售
+						            	  new_location.location='http://itougu.jrj.com.cn/tips/add.jspa';
+						              }else{
+						            	  new_location.close();
+						            	  JRJ.Dialogs.standardDialog({
+												 title: "发售长期内参",
+												 width: 430,
+												 content: ['<div class="portfolio-dlg">',
+												                '<p class="f20 middle tc" style="padding:10px 0 20px 0;"><img src="http://js.jrjimg.cn/zqt-red-1000/images/v2/icon-alert.png" class="mr10" /><span>您最多可同时发售15个内参</span></p>',
+												            '</div>'].join(''),
+												 okBtnText: "确定",
+												 cancelBtnText: "关闭",
+												 hasCloseBtn: true,
+												 hasOkBtn: true,
+												 hasCancelBtn: true,
+												 okCallback: function () { },
+												 cancelCallback: function () { },
+												 isFixed: true
+							                  });
+						               }
+						            }
+					          });
+					     }
+
+					}
+						
+				});
+				 
+			 });
+			 <!-- 校验内参数结束 -->
+			 
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+			
+            var removeDiv = function(id) { var r = $(id); setTimeout(function() {r.remove();}, 1000); r.fadeOut(1000); }
+            
+            var canEditPrice = false;
+            
+            function editPrice(id){
+            	canEditPrice = false;
+            	//是否已经改过价格
+            	var isEdit = ($('#edittimes-' + id).val() == 0);
+            	var contentStr = '';
+            	//已修改过价格
+            	if(!isEdit){
+            		contentStr = '<div class="portfolio-dlg">'
+		            	+ '<p class="f20 middle tc" style="padding:10px 0 20px 0;">'
+		            	+ '<img src="http://js.jrjimg.cn/zqt-red-1000/images/v2/dlg-refer-change-price-icon-edit.png" class="mr10" /><span class="f16">每个内参只能修改一次价格哦！</span></p>'
+		            	+ '</div>';
+		            return contentStr;
+            	}
+            	
+            	var timediff = $('#timediff-' + id).val() > -1;
+            	//当前日期离到期时间必须小于等于15天
+            	if(!timediff){
+            		contentStr = '<div class="portfolio-dlg">'
+		            	+ '<p class="f20 middle tc" style="padding:10px 0 20px 0;">'
+		            	+ '<img src="http://js.jrjimg.cn/zqt-red-1000/images/v2/dlg-refer-change-price-icon-clock.png" class="mr10" /><span class="f16">服务期过半,才能修改内参价格哦！</span></p>'
+		            	+ '</div>';
+            		return contentStr;
+            	}
+            	
+            	canEditPrice = true;
+            	return contentStr;
+            }
+            
+            <!-- 修改价格 -->
+            $('.refer-tool-price').click(function () {
+            	var id = $(this).attr('data-value');
+            	var contentStr = editPrice(id);
+            	//不能修改价格,弹出错误提示
+            	if(contentStr!='' && !canEditPrice){
+            		  JRJ.Dialogs.standardDialog({
+                          title: "修改内参价格",
+                          width: 430,
+                          content: [contentStr].join(''),
+                          okBtnText: "确定",
+                          hasCloseBtn: true,
+                          hasOkBtn: true,
+                          hasCancelBtn: false,
+                          isFixed: true
+                      });
+            	}else if(canEditPrice){
+            		var nowprice = $('#price-' + id).val();
+            		 JRJ.Dialogs.standardDialog({
+                         title: "修改内参价格",
+                         width: 530,
+                         customClass: 'dialog-refer-change-price',
+                         content: ['<div class="dialog-cnt">',
+                                         '<div>',
+                                             '<table>',
+                                                 '<tr>',
+                                                     '<td class="field tr">未签约价</td>',
+                                                     '<td><input id="editprice" type="text" placeholder="当前价:' + nowprice + '" />',
+                                                     '<span class="unit">元</span><span class="error-msg red ml10">修改后的价格≥原价*0.5</span></td>',
+                                                 '</tr>',
+                                             '</table>',
+                                             '<p class="note">备注：价格只能修改一次</p>',
+                                         '</div>',
+                                     '</div>'].join(''),
+                         okBtnText: "确定",
+                         cancelBtnText: "取消",
+                         hasCloseBtn: true,
+                         hasOkBtn: true,
+                         hasCancelBtn: true,
+                         okCallback: function () {
+                        	 if( checkEditPrice(id)){
+	                        	  ($).ajax({
+	           				            url: 'editTipsPrice.jspa',
+	           				            data: {tid: id, editprice : $('#editprice').val(), editsignprice : $('#editprice').val()},
+	           				            type: 'post',
+	           				            dataType : "json",
+	           				            async: false, 
+	           				            timeout: 3000,
+	           				            success: function(data) {
+	           				            	if(data.success){
+	           				            		location.href = location.href;
+	           				            	}else{
+	           				            		JRJ.Dialogs.close();  alert(data.message);
+	           				            	}
+	           		                    	
+	           				            }
+	           			          }); 
+                        	 }else{
+                        		 return true;
+                        	 }
+                        	 
+                         },
+                         cancelCallback: function () { },
+                         isFixed: true
+                     });
+            		   //未签约价
+ 				    $('#editprice').blur(function(){
+ 						 checkEditPrice(id);
+ 					});
+            	}
+              
+            });
+            
+            <!--删除确认-->
+            $('.refer-tool-trash').click(function () {
+            	var id = $(this).attr('data-value');
+                JRJ.Dialogs.standardDialog({
+                    title: "删除投资内参",
+                    width: 430,
+                    content: ['<div class="portfolio-dlg">',
+                                    '<p class="f20 middle tc" style="padding:10px 0 20px 0;"><img src="http://js.jrjimg.cn/zqt-red-1000/images/v2/icon-alert.png" class="mr10" /><span>确定删除？</span></p>',
+                                '</div>'].join(''),
+                    okBtnText: "确定",
+                    cancelBtnText: "关闭",
+                    hasCloseBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: true,
+                    okCallback: function () {
+                    	 ($).ajax({
+ 				            url: 'deltips.jspa',
+ 				            data: {tid: id},
+ 				            type: 'post',
+ 				            dataType : "json",
+ 				            async: false, 
+ 				            timeout: 3000,
+ 				            success: function(data) {
+ 				            	if(data.success){
+ 				            		 var rid = '#removeid-' + id;
+ 	 		                    	 removeDiv(rid);
+ 				            	}else{
+ 				            		JRJ.Dialogs.close();  alert(data.message);
+ 				            	}
+ 		                    	
+ 				            }
+ 			          });
+                    },
+                    cancelCallback: function () {},
+                    isFixed: true
+                });
+            });
+            <!--删除确认结束-->
+            
+            <!-- 确认停售  -->
+            $('.refer-tool-reject').click(function () {
+            	var id = $(this).attr('data-value');
+                JRJ.Dialogs.standardDialog({
+                    title: "停售投资内参",
+                    width: 430,
+                    content: ['<div class="portfolio-dlg">',
+                                    '<p class="f20 middle tc" style="padding:10px 0 20px 0;"><img src="http://js.jrjimg.cn/zqt-red-1000/images/v2/icon-alert.png" class="mr10" /><span>确定停售？</span></p>',
+                                '</div>'].join(''),
+                    okBtnText: "确定",
+                    cancelBtnText: "关闭",
+                    hasCloseBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: true,
+                    okCallback: function () {
+                   	 ($).ajax({
+				            url: 'stopsale.jspa',
+				            data: {tid: id},
+				            type: 'post',
+				            dataType : "json",
+				            async: false, 
+				            timeout: 3000,
+				            success: function(data) {
+				            	location.href = location.href;
+				            }
+			          });
+                    },
+                    cancelCallback: function () { },
+                    isFixed: true
+                });
+            });
+            <!-- 确认停售结束  -->
+            
+            #if($!{totcount} > 0)
+            $('.pager').pagefoot({
+				pagesize: $!{pagesize},
+				count: $!{totcount},
+				css: '',
+				current: $!{curpage},
+				displaynum: 5,
+				displaylastNum: 2,
+				previous: '上一页',
+				next: '下一页',
+				enableArrowKey: false,
+				paging: function (page) {
+				  var current = page.current;
+				  var index = location.href.indexOf('?');
+				  location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?p=' + current + '&ps=' + $!{pagesize};
+				}
+			});
+			#end
+
+        });
+    </script>
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+</body>
+</html>

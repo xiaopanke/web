@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<style>
+*{-webkit-tap-highlight-color:transparent;}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none; color: #fff; }
+a:active{background-color:transparent; }
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 16px/28px "Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; color: #e4e4e4; }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.enter{ font-size: 12px;}
+.in{ width:1000px; margin:0 auto;}
+body{ overflow:hidden;}
+.sliderbox .btn{width:200px; position: relative;z-index: 5;}
+.sliderbox .btn span{ display: block;cursor: pointer;margin-bottom: 17px;background: red; height: 70px;}
+#img{width:750px; height: 400px;background:url(img/go0.jpg) no-repeat center center; z-index: 3; position: relative; }
+</style>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+    <div class="sliderbox clearfix in">
+        <div class="btn fl">
+           <span>1</span>
+           <span>2</span>
+           <span>3</span>
+           <span>4</span>
+           <span>5</span>
+        </div>
+        <div id="img" class="fr"></div>
+        <input id="btn_explode" type="button" value="爆炸" class="btn_01" />
+    </div>
+</body>
+<script type="text/javascript">
+    // JavaScript by zns
+function rnd(n, m)
+{
+    return Math.random()*(m-n)+n;
+}
+
+function setStyle(obj, json)
+{
+    if(obj.length)
+    {
+        for(var i=0;i<obj.length;i++)
+        {
+            setStyle(obj[i], json);
+        }
+    }
+    else
+    {
+        for(var i in json)
+        {
+            obj.style[i]=json[i];
+        }
+    }
+}
+function setStyle3(obj, name, value)
+{
+    obj.style['Webkit'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['Moz'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['ms'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['O'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style[name]=value;
+}
+function buffer(obj, cur, target, fnDo, fnEnd, fs)
+{
+    if(!fs)fs=5;
+    var now={};
+    var x=0;
+    var v=0;
+
+    if(!obj.__last_timer)obj.__last_timer=0;
+    var t=new Date().getTime();
+    if(t-obj.__last_timer>20)
+    {
+        fnMove();
+        obj.__last_timer=t;
+    }
+
+    clearInterval(obj.timer);
+    obj.timer=setInterval(fnMove, 50);
+    function fnMove(){
+        v=Math.ceil((100-x)/fs);
+
+        x+=v;
+
+        for(var i in cur)
+        {
+            now[i]=(target[i]-cur[i])*x/100+cur[i];
+        }
+
+
+        if(fnDo)fnDo.call(obj, now);
+
+        if(Math.abs(v)<1 && Math.abs(100-x)<1)
+        {
+            clearInterval(obj.timer);
+            if(fnEnd)fnEnd.call(obj, target);
+        }
+    }
+};
+document.onmousedown=function ()
+{
+    return false;
+};
+
+window.onload=function ()
+{
+    var now=0;
+    var oDiv=document.getElementById('img');
+    var ready=true;
+    var W=750;
+    var H=440;
+    
+    function next(){
+        //now=0-4
+        if(now==5){now=0;}
+        return (now+1)%5;
+    }
+    
+    //爆炸
+    function haha(){
+        if(!ready)return;
+        ready=false;
+        
+        var R=10;
+        var C=8;
+        
+        var cw=W/2;
+        var ch=H/2;
+        $('.sliderbox .btn span').css('background','red');
+        $('.sliderbox .btn span').eq(now).css('background','yellow');
+        oDiv.innerHTML=now;
+
+        oDiv.style.background='url(img/go'+(now)+'.jpg) center no-repeat';
+        
+        var aData=[];
+        
+        var wait=R*C;
+        
+        for(var i=0;i<R;i++)
+        {
+            for(var j=0,k=0;j<C;j++,k++)
+            {
+                aData[i]={left: W*j/C, top: H*i/R};
+                var oNewDiv=document.createElement('div');
+                setStyle(oNewDiv, {
+                    position: 'absolute',
+                    background: 'url(img/go'+(now+1)%5+'.jpg)'+-aData[i].left+'px '+-aData[i].top+'px no-repeat',
+                    width:Math.ceil(W/C)+'px', height: Math.ceil(H/R)+'px', left: aData[i].left+'px', top: aData[i].top+'px'
+                });
+                //setStyle3(oNewDiv, 'transition', '0.5s all ease-out');
+                
+                oDiv.appendChild(oNewDiv);
+                
+                var l=((aData[i].left+W/(2*C))-cw)*rnd(2,3)+cw-W/(2*C);
+                var t=((aData[i].top+H/(2*R))-ch)*rnd(2,3)+ch-H/(2*R);
+                
+                setTimeout((function (oNewDiv,l,t){
+                    return function ()
+                    {
+                        buffer(
+                            oNewDiv,
+                            {left: oNewDiv.offsetLeft, top: oNewDiv.offsetTop, opacity: 100, x:0,y:0,z:0,scale:1, a:0},
+                            {left: l, top: t, opacity: 0,x:rnd(-180, 180),y:rnd(-180, 180),z:rnd(-180, 180),scale:rnd(1.5, 3), a:1},
+                            function (now){
+                                this.style.left=now.left+'px';
+                                this.style.top=now.top+'px';
+                                this.style.opacity=now.opacity/100;
+                                setStyle3(oNewDiv, 'transform', 'perspective(500px) rotateX('+now.x+'deg) rotateY('+now.y+'deg) rotateZ('+now.z+'deg) scale('+now.scale+')')
+                            }, function (){
+                                setTimeout(function (){
+                                    //oDiv.removeChild(oNewDiv);  这里要改呢，有错误啊
+                                    if($('#img').html()){
+                                        $('#img').html('');
+                                    }
+                                }, 200);
+                                if(--wait==0)
+                                {
+                                    ready=true;
+                                    now=next();
+                                }
+                            }, 10
+                        );
+                    };
+                })(oNewDiv,l,t), rnd(0, 200));
+            }
+        }
+    }
+    var timer=setInterval(function(){
+        haha()  
+    },2000);
+    
+    /*$('.fp-next').click(function(){
+        now++;if(now==4){now=1;}
+        haha();
+    });
+    $('.fp-prev').click(function(){
+        now--;if(now==0){now=3}
+        haha();
+    });
+    $('.sliderbox').hover(function(){
+        clearInterval(timer)
+    },function(){
+        timer=setInterval(function(){
+            haha()  
+        },2000);
+    });
+*/
+    $('.sliderbox .btn span').each(function(){
+      var o=$(this);
+        $(this).click(function(){
+          $('.sliderbox .btn span').css('background','red');
+            now=o.index(); //0-4
+            o.css('background','yellow')
+            haha();
+        });
+    });
+    
+};
+</script>
+</html>
+
+
+

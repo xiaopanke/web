@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾</title>
+    <meta name="keywords" content="爱投顾" />
+    <meta name="description" content="爱投顾" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig-compact-ask.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/dialog.effect.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.form.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+        	setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+            
+            //默认选择“A股”
+            $("#type").val('1');
+            //默认”超时公开“
+            $("#isopen").val('2'); 
+            //默认"30分钟"
+            $("#openTime").val('0');
+            
+            //checkbox-投资品种
+            $('.custom-checkbox-1 li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                	$('.custom-checkbox-1 li').removeClass('checked');
+                    $(this).addClass('checked');
+                     var type = $(this).attr('id')
+                    //alert ("ll:"+type);
+                    $("#type").val(type);
+                } else {
+                  if($(this).siblings('.checked').length > 0) {
+                    $(this).removeClass('checked');
+                  }
+                }
+            });
+            
+            //checkbox-限制时间
+            $('.custom-checkbox-2 li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+              $("#openTime").val('0');
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                	$('.custom-checkbox-2 li').removeClass('checked');
+                    $(this).addClass('checked');
+                    var openTimeid = $(this).attr('id')
+                   	if(openTimeid=="1"){
+                   		$("#openTime").val('30');
+                   	}else if(openTimeid=="2"){
+                   		$("#openTime").val('60');
+                   	}else if(openTimeid=="3"){
+                   		$("#openTime").val('120');
+                   	}
+                } else {
+                    $(this).removeClass('checked');
+                }
+            });
+
+            //checkbox
+
+            $('.icon-tooltip-1').tooltipster({
+                theme: 'tooltipster-light'
+            });
+
+            $('.icon-tooltip-2').tooltipster({
+                theme: 'tooltipster-light',
+                contentAsHTML: true,
+                content: '<div class="tc">每天可提问10次</div><div style="width:200px;">对已签约投顾可额外提问10次</div>'
+            });
+                 
+
+            $('#Checkbox1').click(function () {
+                if ($(this).is(':checked')) {
+                	$("#isopen").val('3'); 
+                    $('.custom-checkbox-2 li[data-only="1"]').addClass('disable');
+                    $('.custom-checkbox-2 li[data-only="2"]').addClass('disable');
+                    $('.custom-checkbox-2 li[data-only="3"]').addClass('disable');
+                    $('.custom-checkbox li[data-only="1"]').removeClass('checked');
+                    $('.custom-checkbox li[data-only="2"]').removeClass('checked');
+                    $('.custom-checkbox li[data-only="3"]').removeClass('checked');
+                } else {
+                    $('.custom-checkbox-2 li[data-only="1"]').removeClass('disable');
+                    $('.custom-checkbox-2 li[data-only="2"]').removeClass('disable');
+                    $('.custom-checkbox-2 li[data-only="3"]').removeClass('disable');
+                    $('.custom-checkbox-2 li[data-only="1"]').addClass('checked');
+                }
+            });
+            
+            $('#btnSubmit').click(function (e) {
+                e.preventDefault();
+			 	var html = editor.getHtml();
+			 	var texthtml = editor.getText();
+			 	var rg = new RegExp("^&nbsp;*");
+                var str = window.editor.getText().replace(/^&nbsp;*|<br type="_moz">|<br>/g, '');
+                var length=str.length;
+			 	if(editor.getContentLength()<1){
+			 		JRJ.MiniAlerts.prompt({
+                    	message: "<p>提问内容不能为空</p>"
+                	});
+			 	}else if(editor.getContentLength()>200){
+			 		JRJ.MiniAlerts.prompt({
+                    	message: "<p>您提问的内容已经超限，再精简一下吧</p>"
+                	});
+			 	}else{
+				 	$("#cont").val(html); 
+				 	$("#textcont").val(texthtml); 
+				 	//alert("content:"+$("#cont").val()+"---"+"type:"+$("#type").val()+"---"+"isopen:"+$("#isopen").val()+"---"+"openTime:"+$("#openTime").val()+"---"+"answer_user_id:"+$("#answer_user_id").val()+"---"+"answer_username:"+$("#answer_username").val());
+				 	var options = {  
+		                success: callBackGraFunc  
+		            };
+		            
+		            var selectedTime = false, disSelect = false;
+		            
+		            $('.custom-checkbox-2 li').each(function() {
+		              var me = $(this);
+		              
+		              if(me.hasClass('disable')) {
+		                disSelect = true;
+		                return;
+		              }
+		              
+		              if (me.hasClass('checked')) {
+		                var openTimeid = $(this).attr('id')
+                    if(openTimeid=="1"){
+                      $("#openTime").val('30');
+                    }else if(openTimeid=="2"){
+                      $("#openTime").val('60');
+                    }else if(openTimeid=="3"){
+                      $("#openTime").val('120');
+                    }
+                    selectedTime = true;
+                    return;
+		              }
+		            });
+		            
+		            if(!disSelect && !selectedTime) {
+		              $("#openTime").val('0');
+		            }
+		              
+		            // jquery.form 提交表单  
+		            $('#form1').ajaxSubmit(options);
+		        }
+	        });
+	        
+	        $('#btnCancel').click(function (e) {
+	        	frameElement._thisDialog.close();	
+	        });
+            
+        });
+        //统计编辑器中内容的字数
+		function getContentLength(){
+		   var oDOM = editor.editorDocument;
+		   var iLength ;
+		   if(document.all){
+		     iLength = oDOM.body.innerText.length;
+		   }else{
+		     var r = oDOM.createRange();
+		     r.selectNodeContents(oDOM.body);
+		     iLength = r.toString().length;
+		   }
+		   //alert(iLength)
+		   return iLength;
+		 }
+		 
+		 function callBackGraFunc(responseText, statusText) {
+		 	//alert(responseText)
+		 	if (parseFloat(responseText) > 0){
+		 		window.location="/ques/asksuccess.jspa";
+		 		//JRJ.MiniAlerts.prompt({
+                  //  message: "<p>提交成功</p>"
+                //});
+		 		//frameElement._thisDialog.close();
+		 			
+		 	} else {
+        window.location="/ques/askfailure.jspa?c=" + responseText;
+      }
+		 }
+    </script>
+</head>
+<body style="background:#fff;">
+	<form action="saveAsk.jspa" method="post" id="form1">
+    <div class="dialog-cnt dialog-ask clearfix">
+        <p class="title"><span class="fr"><span>今日剩余提问</span><span class="num">${askcount}</span><span>次</span><i class="icon icon-tooltip icon-tooltip-2 ml10"></i></span><span>提问应遵循真实、客观、简洁、明确、规范的原则</span></p>
+        <div class="editor-wrap mt10" style="height:150px;">
+            <script>
+                var editor = new JRJEditor("editor1", 670, 150, "default", '');
+                var sBasePath = '/jsp/portal/mngr/';
+                JRJEditConfig.BasePath = sBasePath;
+                JRJEditConfig.UploadImage = true;
+                JRJEditConfig.UploadFile = true;
+                editor.create({
+                    hasNumCheck: true,
+                    num: 200
+                });
+            </script>
+        </div>
+        <div class=" custom-checkbox-wrap-2 clearfix mt30">
+            <span class="fl mr10">类型</span>
+            <ul class="custom-checkbox custom-checkbox-1 clearfix fl" style="width: 600px;">
+                <li id="1" class="checked">A股</li>
+                <li id="2">港股</li>
+                <li id="3">美股</li>
+                <li id="4">基金</li>
+                <li id="5">贵金属</li>
+                <li id="6" class="last">其他理财</li>
+            </ul>
+        </div>
+        <!--
+        <div class="custom-checkbox-wrap-2 clearfix mt10">
+          <span class="fl mr10">限时</span>
+          <ul class="custom-checkbox custom-checkbox-2 clearfix fl">
+            <li class="checked" data-only="1" id="1">30分钟</li>
+            <li id="2" data-only="1">1小时</li>
+            <li id="3" data-only="1">2小时</li>
+          </ul>
+          <div cs="note" style="display: inline-block; line-height: 16px; margin-top: 5px; width: 204px; position: absolute; left: 340px; top: 0;">
+            <p>限时过后，未被解答</p>
+            <p>为您移至问投顾大厅，由所有投顾抢答</p>
+          </div>
+        </div>
+        -->
+        <div class="custom-checkbox-wrap-2 clearfix mt10" style="position:relative;">
+          <span class="fl mr10">限时</span>
+          <ul class="custom-checkbox custom-checkbox-2 clearfix fl">
+            <li class="checked" data-only="1" id="1">30分钟</li>
+            <li id="2" data-only="2">1小时</li>
+            <li id="3" data-only="3">2小时</li>
+          </ul>
+          <div class="note" style="display: inline-block; line-height: 16px; margin-top: 5px; width: 204px; position: absolute; left: 340px; top:0; ">
+            <p>限时过后，未被解答</p>
+            <p>为您移至问投顾大厅，由所有投顾抢答</p>
+          </div>
+        </div>
+        <p class="middle mt10 chk-wrap"><input id="Checkbox1" type="checkbox" /><span class="ml10" style="margin-top:5px;">仅指定投顾可见可回答</span></p>
+        <input type="hidden" name="cont" id="cont" style="display:none"/> 
+        <input type="hidden" name="textcont" id="textcont" style="display:none"/>
+        <input type="hidden" name="type" id="type" style="display:none"/> 
+        <input type="hidden" name="isopen" id="isopen" style="display:none"/>
+        <input type="hidden" name="openTime" id="openTime" style="display:none"/>
+        <input type="hidden" name="answer_user_id" id="answer_user_id" style="display:none" value="$!{answer_user_id}"/>
+        <input type="hidden" name="answer_username" id="answer_username" style="display:none" value="$!{answer_username}"/>
+        <p class="mt20 tc"><a class="btn btn-113-30" id="btnSubmit">提交问题</a><a class="btn btn-113-30 ml30" id="btnCancel">取消</a></p>
+    </div>
+	</form>
+
+</body>
+
+</html>

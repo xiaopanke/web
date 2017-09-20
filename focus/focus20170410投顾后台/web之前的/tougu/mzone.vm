@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{minfo.userName}的M站管理-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{minfo.userName}的M站管理-爱投顾-金融界" />
+    <meta name="description" content="$!{minfo.userName}的M站管理-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+	<!--\#include virtual="/v2/common_head_css.html" -->
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-question.min.css" rel="stylesheet" />
+	    <style>
+        .link_copy{
+            padding-bottom: 16px;
+        }
+        .link_copy>span{
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .link_copy>input{
+            background-image: linear-gradient(-180deg, #F2F2F2 0%, #D4D4D4 100%);
+            border: 1px solid #CDCDCD;
+            border-radius: 4px;
+            width: 86px;
+            height: 32px;
+            margin-left: 35px;
+            font-size: 15px;
+        }
+        .input_introduce>input{
+            background: #F0F0F0;
+            border-radius: 4px;
+            width: 430px;
+            height: 32px;
+            border: 0;
+            padding-left: 12px;
+        }
+        .record_show{
+
+        }
+        .record_show>p{
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333333;
+        }
+        .record_show>input{
+            background: #F0F0F0;
+            border-radius: 4px;
+            width: 430px;
+            height: 32px;
+            border: 0;
+            padding-left:12px;
+            margin-top: 12px;
+        }
+        .btn_preservation{
+            margin-top: 10px;
+            font-size: 16px;
+            width: auto;
+            padding: 0 20px;
+            background: #e64d66;
+            box-shadow: 0 3px #cd3e55;
+            display: inline-block;
+            height: 34px;
+            line-height: 34px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            vertical-align: middle;
+            color: #fff;
+            overflow: hidden;
+        }
+        .preservation_lin{
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .phone_eg,.banner_eg{
+            position: relative;
+        }
+        .phone_eg>img,.banner_eg>img{
+            display: block;
+        }
+        .phone_eg>img{
+            margin-top: 20px;
+            margin-left: 210px;
+            cursor: zoom-in;
+            width: 175px;
+        }
+        .eg_line01{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: 22px;
+            margin-top: 62px;
+        }
+        .eg_line02{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -110px;
+            margin-top: 164px;
+
+        }
+        .eg_line01>span,.eg_line02>span{
+            padding-left: -10px;
+            font-size: 14px;
+            color: #878C92;
+            vertical-align: middle;
+        }
+        .eg_line01>i,.eg_line02>i{
+            margin-left: -10px;
+            font-size: 20px;
+            color: #878C92;
+            vertical-align: middle;
+
+        }
+        .banner_eg{
+            margin: 18px 0;
+        }
+        .hover_copy{
+            cursor: pointer;
+        }
+        .hover_enlarge{
+
+            margin-left: 90px !important;
+            margin-top: 405px !important;
+
+        }
+    </style>
+</head>
+<body>
+    <!--site-top-->
+    <!--\#include virtual="/v2/site_top_header.html" -->
+    <!--site-nav-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-end-->
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <h1 class="page-title-2 q-page-title-2">
+                    <a target="_blank" href="/view/157185.jspa" class="fr" style="color: #3996F2">如何使用M站获取用户，服务用户？</a>
+                    <span class="mr20">M站链接</span>
+                </h1>
+                <div class="link_copy">
+                    <span>http://i0.jrjimg.cn/itougu-msite/?tgid=$!{minfo.loginId}</span>
+                    <input id="mzoneUrlCopyBtn" type="button" data-clipboard-text="i0.jrjimg.cn/itougu-msite/?tgid=$!{minfo.loginId}" value="复制链接">
+                </div>
+                <h1 class="page-title-2 q-page-title-2">
+                    <span class="mr20">一句话介绍（该内容会展示在M站首页）</span>
+                </h1>
+                <div class="input_introduce">
+                    <input name="profile" type="text" placeholder="请输入5-20个汉字" value="$!{minfo.profile}" size="20" maxlength="20">
+                    <p class="error-msg" ></p>
+                </div>
+                <div class="banner_eg">
+                    <img width="450" height="120" src="http://js.jrjimg.cn/zqt-red-1000/images/eg_banner.png" alt="示例" >
+                    <div class="eg_line01">
+                        <hr width="88" style="border: 1px solid #F24439; display: inline-block;vertical-align: middle;margin-top: 8px;"/>
+                        <i>&bull;</i>
+                        <span>示例</span>
+                    </div>
+                </div>
+                <h1 class="page-title-2 q-page-title-2">
+                    <a target="_blank" href="/view/157199.jspa" class="fr" style="color: #3996F2">如何使用战绩功能？</a>
+                    <span class="mr20">战绩展示（该内容会展示在M站首页投顾简介中）</span>
+                </h1>
+
+                <div class="record_show">
+	                #if($achieveList)
+	                    #foreach($achieve in $achieveList)
+	                        <p>战绩$!{velocityCount}</p>
+	                        <input type="text" placeholder="请输入观点ID" value="${achieve.id}" class="achieve" name="achieve">
+	                        <p class="error-msg" style="color: #c33;" ></p>
+	                    #end
+	                    #if($achieveList.size() < 3)
+	                        #set($nextAchieveRow = $achieveList.size() + 1)
+	                        #foreach($achieveRow in [$nextAchieveRow..3])
+    	                        <p>战绩$!{achieveRow}</p>
+	                            <input type="text" placeholder="请输入观点ID" class="achieve" name="achieve">
+	                            <p class="error-msg" style="color: #c33;" ></p>
+	                        #end
+	                    #end
+	                #else
+	                    #foreach($achieveRow in [1..3])
+	                        <p>战绩${achieveRow}</p>
+	                        <input type="text" placeholder="请输入观点ID" class="achieve" name="achieve">
+	                        <p class="error-msg" style="color: #c33;" ></p>
+	                    #end
+	                #end
+                </div>
+
+                <div class="phone_eg">
+                    <img src="http://js.jrjimg.cn/zqt-red-1000/images/phone_small.png" alt="示例" >
+                    <div class="eg_line02">
+                        <hr width="168" style="border: 1px solid #F24439; display: inline-block;vertical-align: middle;margin-top: 8px;"/>
+                        <i>&bull;</i>
+                        <span>示例</span>
+                    </div>
+                </div>
+                <div class="preservation_lin">
+                    <a class="btn btn-113-30 mr30" href="javascript:void(0);">保存</a>
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+    
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/ZeroClipboard.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+        var big_small = 0;
+
+        $('.phone_eg>img').click(function(){
+            if(big_small==0){
+                $(this).css('width','auto');
+                $(this).css('margin-left','auto');
+                $(this).css('margin-right','auto');
+                $(this).css('cursor','zoom-out');
+                $('.eg_line02').addClass('hover_enlarge');
+                big_small=1;
+            }else{
+                $(this).css('width','175px');
+                $(this).css('margin-left','210px');
+                $(this).css('cursor','zoom-in');
+                $('.eg_line02').removeClass('hover_enlarge');
+                big_small=0;
+            }
+        });
+
+        var clip = new ZeroClipboard($("#mzoneUrlCopyBtn"), {
+            moviePath: "http://itougu.jrj.com.cn/js/ZeroClipboard.swf"
+        });
+
+        clip.on('complete', function(client, args) {
+            alert('内容已经复制到您的剪贴板,使用ctrl+v粘贴或者右键粘贴。');
+        });
+
+        $('.preservation_lin>a').click(function(){
+            var tgProfile=$('.input_introduce>input').val();
+            var tgAchievement = '';
+            $('.record_show>input').each(function(index) {
+                if ($(this).val() != '') {
+                    tgAchievement = tgAchievement + $(this).val() + ",";
+                }
+            });
+
+            if (tgAchievement != ''){
+                tgAchievement = tgAchievement.slice(0, -1);
+            }
+
+            $(".error-msg").hide();
+
+            $.ajax({
+                url:'/account/m/saveMZoneInfo.jspa',
+                type:'post',
+                data:{
+                    profile : tgProfile,
+                    viewIds : tgAchievement,
+                },
+                success : function( _data ){
+                    var retData = JSON.parse(_data);
+                    if( retData.retCode == '0' ){
+                        JRJ.MiniAlerts.prompt({message:'<p>保存成功</p>'});
+                    } else if( retData.retCode == '1' ){
+                        JRJ.MiniAlerts.prompt({message:'<p>' + retData.msg + '</p>'});
+                    } else {
+                        showMsgAndFocusField(retData.msg);
+                    }
+                }
+            });
+        });
+
+        var showMsgAndFocusField = function(messageContent) {
+            if (messageContent == undefined || messageContent == '') {
+                return;
+            }
+
+            var err = messageContent;
+            var errElement, errValue, errMsg;
+            $.each(err, function(i, item) {
+                errElement = $('input[name=' + item.fieldName + ']');
+                if (errElement == undefined) {
+                    return;
+                }
+                errValue = item.fieldValue;
+                $.each(errElement, function(i2, item2) {
+                    if ($(item2).val() == errValue) {
+                        errMsg = $(item2).next(".error-msg");
+                        if (errMsg == undefined) {
+                            return;
+                        }
+                        errMsg.html(item.msg);
+                        errMsg.show();
+                    }
+                });
+            });
+        }
+    });
+    </script>
+
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/counter.min.js"></script>
+	<!--chatroom: start-->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/chatroom/chatroom-dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/chatroom/chatroom-MiniEditor.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/chatroom/chatroom-nanoscroller.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/chatroom/chatroom-live.css" rel="stylesheet" />
+    <!--chatroom: end-->
+    <!--chatroom: start-->
+    <script type="text/javascript" src="http://js.jrjimg.cn/zqt-red-1000/js/chatroom/jrj.chatroom.v1.3.0.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/chatroom/jrj.chatroom.run.v2.3.js"></script>
+    <!--chatroom: end-->
+
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+</body>
+</html>

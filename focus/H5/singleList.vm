@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人赛排行榜</title>
+    <!--<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no,initial-scale=1">-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="战神榜，榜单，投顾，战绩" />
+    <meta name="description" content="爱投顾针对当周的投顾、达人的战绩情况，评出本周表现优秀抢眼的人选，榜单数据均由爱投顾平台当周数据综合得出。" />
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus_zixuangu/flexible.js"></script>
+    <!-- <link rel="stylesheet" href="css/team_single_list.css"> -->
+    <script type="text/javascript" src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/js/vue.min.js'></script>
+    <style type="text/css">
+    @charset "utf-8";
+    /* CSS Document */
+    body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+    body, button, input, select, textarea { font: 12px/24px "Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; }
+    h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+    address, cite, em, i { font-style: normal; }
+    li { list-style: none; }
+    a { text-decoration: none; }
+    a:link { text-decoration: none; }
+    legend { color: #000; }
+    fieldset, img { border: 0; }
+    button, input, select, textarea { font-size: 100%; line-height: normal; }
+    table { border-collapse: collapse; border-spacing: 0; }
+    input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+    .clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden}.clearfix:after{clear:both}.clearfix{zoom:1}
+    /* start commented backslash hack \*/
+    * html .clearfix { height: 1%; }
+    table {border-collapse: collapse;border-spacing: 0;table-layout: fixed;width: 100%;
+    }
+    .clearfix { display: block; }
+    /* close commented backslash hack */
+    body { margin: 0; padding: 0;  background: #efeff4;}
+    .fl{float: left;}.fr{float: right;}
+    .disnone{  display: none;  }
+    .fall {color: #2DC678 !important;}
+    .up {color: #F24637 !important;}
+    /*index*/
+    .single_detail{width: 100%;height: 6.1333rem;border-top: 1px solid #e6e6e6;border-bottom: 1px solid #e6e6e6;background-color: #fff;background:url("http://i0.jrjimg.cn/zqt-red-1000/focus//focus2017YMZ/teamFrighting/img/details.jpg") 0 0 no-repeat;background-size: 100% 100%;position: relative;}
+    .single_left{width: 3.2rem;float: left;margin-left: 0.68rem;position: relative;}
+    .single_left>.single_img{width: 1.92rem;height: 1.92rem;border-radius: 50%;border: 5px solid #eeeeee;margin: 0 auto;margin-top: 0.5333rem;overflow: hidden;}
+    .single_left>.single_img>img{width: 1.92rem;height: 1.92rem;}
+    .single_left>.single_name{font-size: 0.3467rem;color: #888888;line-height: 1.0667rem;text-align: center;width: 3.2rem;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:nowrap}
+    .single_left>a{width: 3.2rem;height: 0.9333rem;border-radius: 0.4667rem;background-color: #f24637;color: #fff;text-align: center;line-height: 0.9333rem;display: block;}
+    .single_left>p{font-size: 0.2667rem;color: #888888;text-align: center;line-height: 0.28rem;margin-top: 0.1867rem;}
+
+    .single_right{width: 4.24rem;float: right;margin-right: 0.5333rem;margin-top:0.9867rem;overflow: hidden;}
+    .single_right ul{margin-top: 0.3467rem;padding-bottom: 0.3733rem;}
+    .single_right ul:first-child{border-bottom: 1px solid #e6e6e6;}
+    .single_right ul:first-child>li:first-child>span{font-size: 0.4267rem;font-weight: 600;}
+    .single_right li>p{width: 2.2667rem;font-size: 0.3733rem;line-height:0.8rem;color: #888888;float: left;}
+    .single_right li>span{font-size: 0.3733rem;line-height: 0.8rem;color: #333333;float: left;}
+    /*tab*/
+    .tab{width: 100%;height: 1.1733rem;border-bottom: 1px solid #e6e6e6;background: #fff;margin-top: 0.2667rem;}
+    .tab ul{padding-right: 0.4rem;padding-left: 0.4rem;}
+    .tab ul li{width: 50%;font-size: 0.3733rem;line-height: 1.1733rem;text-align: center;float: left;position: relative;}
+    .li_cur{color:#ff4040; }
+    .li_cur>span{display: block;width: 0.6667rem;height: 0.0533rem;background: #ff4040;position: absolute;bottom: 0;left: 50%;margin-left: -0.3333rem;}
+    /*list*/
+    .user_list{background: #fff;padding-left: 0.4rem;background-color: #fff;}
+    .single_top3>img{width: 6.8667rem;height: 0.52rem;display: block;margin: 0 auto;padding-bottom: 0.4667rem;padding-top: 0.4667rem;}
+    .user_ranking{width: 0.5867rem;height: 0.587rem;border-radius: 0.107rem;font-size: 0.32rem;color: #888888;background: #f0f0f0;line-height: 0.587rem;text-align: center;overflow: hidden;float: left;margin-top: 0.56rem;margin-bottom: 0.4rem;}
+    .user_right{padding: 0.4rem 0;width: 8.9333rem;float: right;border-bottom: 1px solid #e6e6e6;}
+    .user_list li:first-child>.user_ranking{background: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170214caogu/h5/img/redno1.png') 0 0 no-repeat;background-size: 100% auto;text-indent: -999px;width: 0.56rem;height: 0.667rem;}
+    .user_list li:first-child +li>.user_ranking{background: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170214caogu/h5/img/redno2.png') 0 0 no-repeat;background-size: 100% auto;text-indent: -999px;width: 0.56rem;height: 0.667rem;}
+    .user_list li:first-child +li +li>.user_ranking{background: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170214caogu/h5/img/redno3.png') 0 0 no-repeat;background-size: 100% auto;text-indent: -999px;width: 0.56rem;height:0.667rem;}
+    .user_photo{width:0.9333rem;height: 0.9333rem;border-radius: 50%;overflow: hidden;margin-left: 0.1067rem;}
+    .user_info{margin-left:0.266rem;width: 6.8rem;}
+    .user_photo img{width: 100%;height:100%;}
+    .user_info>div>b{display: block;color: #333333;font-size: 0.427rem;line-height: 0.9333rem;font-weight: 500;}
+    .user_info>.fl{text-align: left;}
+    .user_info>.fr{text-align: right;}
+    .user_info>div:first-child{width: 5rem;height: 0.9333rem;overflow: hidden;}
+    .user_info>div>span{display: block;font-size: 0.48rem;line-height: 0.9333rem;font-weight: 600;}
+    .tab_month{display: none}
+    .sp{background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/h5/img/H5_sp.png") 0 0 no-repeat;background-size: 100% auto;position: absolute;top: 0;left: 0;width:1.28rem;height: 1.28rem; }
+    .mnp{background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/h5/img/H5_xnp.png") 0 0 no-repeat;background-size: 100% auto;position: absolute;top: 0;left: 0;width:1.28rem;height: 1.28rem; }
+    .gif{display: block;width:2.9333rem;height: 2.4533rem;margin: 0 auto;margin-top: 40%; }
+    ._v-container>._v-content>.pull-to-refresh-layer[data-v-ecaca2b0]{margin-top: -100px !important;}
+.gif{display: block;width:2.9333rem;height: 2.4533rem;margin: 0 auto;margin-top: 40%; }
+.innerBox{display: none;} 
+.nothing{line-height: 4.0rem;text-align: center;font-size: 0.4rem;height: 4.0rem;}
+</style>
+</head>
+<body>
+<div id="app" class="main">
+    <scroller :on-refresh="refresh" :on-infinite="infinite"
+    style="padding-top: 44px;">
+    <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/gif0.gif" class="gif">
+    <div class="innerBox">
+        <div class="single_detail">
+            <div class="mnp"></div>
+            <div class="single_left">
+                <div class="single_img">
+                    <img :src="singleList.userPic">
+                </div>
+                <div class="single_name">{{singleList.showNameStr}}</div>
+                <a href="" v-show="singleList.userStatus==1" :passId="ssoId"  @click="gotomonipan" >我的账户</a>
+                <a href="" v-show="singleList.userStatus==0" @click='bookIn'>报名参赛</a>
+                <p>{{singleList.matchSum}}人参赛</p>
+            </div>  
+            <div class="single_right">
+                <ul>
+                    <li class="clearfix">
+                        <p>比赛总收益</p>
+                        <span :class="{up:(singleList.matchIncome> 0),fall:(singleList.matchIncome< 0)}">{{Number(singleList.matchIncome).toFixed(2)}}%</span>
+                    </li>
+                    <li class="clearfix">
+                        <p>总排名</p>
+                        <span class="numTotal">{{singleList.matchRank}}</span>
+                    </li class="clearfix">
+                </ul>
+                <ul>
+                    <li class="clearfix">
+                        <p>比赛月收益</p>
+                        <span :class="{up:(monthYield> 0),fall:(monthYield < 0)}">{{Number(monthYield).toFixed(2)}}%</span>
+                    </li>
+                    <li class="clearfix">
+                        <p>月排名</p>
+                        <span>{{todayRank}}</span>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+        <!-- 2个tab -->
+        <div class="tab">
+            <ul class="clearfix">
+                <li class="li_cur total" @click="clickLi" className="total"><span></span>总收益</li>
+                <li class="month"  @click="clickLi" className="month"><span></span>月收益</li>
+            </ul>        
+        </div>
+        <div class="content">
+            <!-- 总排行榜 -->
+            <div class="tab_total">
+                <p class="nothing  disnone">暂无排名数据</p>  
+                <ul class="user_list">
+                    <li class="clearfix" v-for="item in list"  @click="gotoDegui" :passId="item.userId">
+                        <div class="fl user_ranking">{{item.todayRank}}</div>
+                        <div class="user_right clearfix">
+                            <div class="fl user_photo">
+                                <img :src="item.headUrl" >{{item.nickName}}
+                            </div>
+                            <div class="fl user_info clearfix">
+                                <div class="fl">
+                                    <b>{{item.nickName}}</b>
+                                </div>
+                                <div class="fr">
+                                    <span :class="{up:(item.seasonYield> 0),fall:(item.seasonYield < 0)}">{{Number(item.seasonYield).toFixed(2)}}%</span>
+                                </div>
+                            </div>                    
+                        </div>
+                    </li>
+                </ul>  
+            </div>
+            <!-- 月排行榜 -->
+            <div class="tab_month">
+                <p class="nothing  disnone">暂无排名数据</p>  
+                <ul class="user_list">
+                    <li class="clearfix" v-for="item in monthList"  @click="gotoDegui" :passId="item.userId">
+                        <div class="fl user_ranking">{{item.todayRank}}</div>
+                        <div class="user_right clearfix">
+                            <div class="fl user_photo">
+                                <img :src="item.headUrl" >{{item.nickName}}
+                            </div>
+                            <div class="fl user_info clearfix">
+                                <div class="fl">
+                                    <b>{{item.nickName}}</b>
+                                </div>
+                                <div class="fr">
+                                    <span :class="{up:(item.monthYield> 0),fall:(item.monthYield< 0)}">{{Number(item.monthYield).toFixed(2)}}%</span>
+                                </div>
+                            </div>                    
+                        </div>
+                    </li>
+                </ul> 
+            </div>        
+        </div>        
+    </div>
+
+    </scroller>
+</div>
+
+<!-- </div>
+</div> -->
+
+<!--dialog-->
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/js/vue.min.js'></script>
+<script type="text/javascript" src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/vue-scroller.min.js'></script>
+<script>
+	var app = new Vue({
+		el:'#app',
+		data:{
+			list:[],
+            monthList:[],
+            singleList:{},
+            ssoId:0,
+            pn:1,
+            monthpn:1,
+            todayRank:'--',
+            monthYield:0,
+		},
+		computed:{},
+		mounted:function(){
+            this.loadRefresh();
+			},
+        methods:{
+            clickLi:function(){
+                $(event.currentTarget).addClass('li_cur').siblings().removeClass('li_cur');
+                var thatName = ".tab_"+$(event.currentTarget).attr('className')
+                var num = thatName.split(' ');
+                $(num[0]).fadeIn("fast").siblings().fadeOut("fast");
+            },
+            refresh: function (done) {
+                var self = this;
+                setTimeout(function () {
+                    self.loadRefresh();
+                    done();
+                }, 1500)
+            },
+            loadRefresh:function(){
+                var that = this;
+                var ssoId = '$!{ssoId}'; 
+                var token = '$!{spToken}';
+                that.ssoId = ssoId;
+                if(ssoId=="null"){
+                    ssoId = window.localStorage.getItem("ssoId");
+                    token = window.localStorage.getItem("token");  
+                    that.ssoId = ssoId;                 
+                }
+                //  个人战队信息 获取比赛id
+                $.ajax({
+                    url: 'http://itougu.jrj.com.cn/match/index/getMaxWeightMatch.jspa',
+                    type: 'get',
+                    dataType: 'json',
+                    success:function(jsondata){ 
+                        if(jsondata.result=='0'){
+                            var playId = jsondata.pb.id;
+                            console.log(jsondata.pb)
+                            // 判断用户是否参加比赛
+                            var matchSum = jsondata.pb.currNum
+                            $.ajax({
+                                url: 'http://itougu.jrj.com.cn/api/match/queryAccountFunds.jspa',
+                                data:{
+                                    playId:String(playId),
+                                    ssoId:String(ssoId)
+                                },
+                                type: 'get',
+                                dataType: 'json',
+                                success:function(jsondata){ 
+                                    if(jsondata.retCode == 0){//用户参赛
+                                        that.singleList = jsondata.data;
+                                        if(jsondata.data.matchRank==null){
+                                            that.singleList.matchRank="--"
+                                        }
+                                        $.ajax({
+                                            url:  'http://itougu.jrj.com.cn/match/index/queryStatRankById.jspa',
+                                            type: 'get',
+                                            data:{
+                                                userMaxWeightMatch:true,
+                                                rankType:3,
+                                                uid:String(ssoId)
+                                            },
+                                            dataType: 'json',
+                                            success:function(jsondata){
+                                                if(jsondata.result=="true"){
+                                                    that.monthYield=jsondata.rankMapResult.monthYield;
+                                                    that.todayRank=jsondata.rankMapResult.todayRank;
+                                                    if(jsondata.rankMapResult.monthYield==null){
+                                                        that.monthYield=0;
+                                                        that.todayRank="--";
+                                                    }
+                                                }else{
+                                                    that.monthYield=0;
+                                                    that.todayRank="--"
+                                                }
+                                            }
+                                        }) 
+                                    }else{
+                                        that.singleList.matchRank="--";
+                                        that.todayRank="--";
+                                        that.singleList.userStatus=0;
+                                        that.singleList.matchSum=matchSum;
+                                        that.singleList.showNameStr="暂未报名";
+                                        that.singleList.totalIncome=0;
+                                        that.monthYield=0;
+                                        that.singleList.userPic="http://i5.jrjimg.cn/sys/default_m.jpg";
+                                        that.singleList.matchIncome=0;
+                                    }
+                                },
+                                error:function(e){ }
+                            })
+                        }
+                        // 总收益
+                            $.ajax({
+                                url:  'http://itougu.jrj.com.cn/match/index/queryStatRanks.jspa',
+                                type: 'get',
+                                data:{
+                                    userMaxWeightMatch:true,
+                                    rankType:4,
+                                    pn:1,
+                                    ps:10
+                                },
+                                dataType: 'json',
+                                success:function(jsondata){
+                                    if(jsondata.result=="true"){
+                                        that.list=jsondata.rankListMapResult;
+                                        if(jsondata.rankListMapResult==0){
+                                            $(".nothing").show();
+                                        }
+                                    }
+                                }
+                            }) 
+                        // 月收益
+                            $.ajax({
+                                url: 'http://itougu.jrj.com.cn/match/index/queryStatRanks.jspa',
+                                type: 'get',
+                                data:{
+                                    userMaxWeightMatch:true,
+                                    rankType:3,
+                                    pn:1,
+                                    ps:10
+                                },
+                                dataType: 'json',
+                                success:function(jsondata){
+                                    if(jsondata.result=="true"){
+                                        that.monthList=jsondata.rankListMapResult;
+                                        if(jsondata.rankListMapResult==0){
+                                            $(".nothing").show();
+                                        }
+                                    }
+                                }
+                            })
+
+                        }
+                    })
+
+                    setTimeout(function(){
+                        $(".gif").hide();
+                        $('.innerBox').show();              
+                    },1000)
+            },
+            infinite: function (done) {
+            var that = this
+            setTimeout(function () {
+                var url = 'http://itougu.jrj.com.cn/match/index/queryStatRanks.jspa';
+                var rankType;         
+                // var that = this;
+                var pn;    
+                // 判断当前是总收益还是月收益
+                if($('.tab_total').css('display')=="block"){//当前是总收益
+                    rankType=4;
+                    pn=that.pn;
+                }else if($('.tab_month').css('display')=="block"){//月收益
+                    rankType=3;
+                    pn=that.monthpn;
+                } 
+                    pn++;
+                    $.ajax({
+                        url:  url,
+                        type: 'get',
+                        data:{
+                            userMaxWeightMatch:true,
+                            rankType:rankType,
+                            pn:pn,
+                            ps:10
+                        },
+                        dataType: 'json',
+                        success:function(jsondata){
+                            if(jsondata.result=="true"){
+                                if(rankType==4){
+                                    that.pn=pn;
+                                    for(var i = 0 ;i < jsondata.rankListMapResult.length ; i++){
+                                        that.list.push(jsondata.rankListMapResult[i]);
+                                    }
+                                    if(jsondata.rankListMapResult.length <= 10){
+                                        done(true)
+                                        return;
+                                    }                                          
+                                }else{
+                                    that.monthpn=pn;
+                                    for(var i = 0 ;i < jsondata.rankListMapResult.length ; i++){
+                                        that.monthList.push(jsondata.rankListMapResult[i]);
+                                    } 
+                                    if(jsondata.rankListMapResult.length <= 10){
+                                        done(true)
+                                        return;
+                                    }      
+                                }
+                            }
+                        }
+                    }) 
+              done();
+            }, 1500)
+          },
+          bookIn:function(){
+              // 报名比赛
+              var playId = window.localStorage.getItem('playId');
+              if(window.localStorage.getItem("ssoId") != "null"){
+                  var ssoId = window.localStorage.getItem("ssoId");
+                  var token = window.localStorage.getItem("token");
+                    $.ajax({
+                     url: 'http://itougu.jrj.com.cn/api/match/applyMatch.jspa',
+                     type: 'post',
+                     data:{
+                       playId:playId,
+                       passportId:ssoId,
+                       accessToken:token
+                     },
+                     dataType: 'json',
+                     success:function(jsondata){
+                        if (data.retCode == -401) {
+                          window.location.href = window.location.href + '?type=' + 'virtual/accessTokenInvalid';
+                        }
+                        if( data.retCode == 0){
+                          $('.warn_over').html("报名成功！")
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                            },2000); 
+                          window.location.reload();
+                        } else if(data.retCode == 702003) {
+                          $('.warn_over').html("比赛已结束！")
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                            },2000); 
+                        } else if(data.retCode == 701023) {
+                          $('.warn_over').html("data.msg")
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                            },2000); 
+                        } else {
+                          $('.warn_over').html("报名成功！")
+                          $('.warn_over').show();
+                            setTimeout(function(){
+                                $('.warn_over').fadeOut();
+                            },2000); 
+                        }
+                     }
+                  })                   
+                }else{
+                 jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+          },
+            gotoDegui:function(){
+                var passId = $(event.currentTarget).attr('passId');
+              window.location.href="http://itougu.jrj.com.cn/match/v7/h5/vdetail.jspa?userId="+passId+""
+            },
+            gotomonipan:function(){
+                jrj.jsCallNative(124, '');
+            },
+    
+        }
+	})
+</script>
+</body>
+</html>

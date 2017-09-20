@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投顾注册-爱投顾-金融界</title>
+    <meta name="keywords" content="投顾注册-爱投顾-金融界" />
+    <meta name="description" content="投顾注册-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <!--\#include virtual="/common_head_css_js.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+     <script src="http://js.jrjimg.cn/itougu/account/companyload.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/idCard.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/next.js?20170412"></script>
+    <script type="text/javascript">
+        $(function () {
+            //$('#txtUsername').watermark('真实姓名');
+            //$('#txtID').watermark('身份证号');
+            //$('#txtMobile').watermark('手机号');
+            $('#txtVCode').watermark('验证码');
+            //$('#txtQQ').watermark('QQ号码');
+            //$('#txtMail').watermark('邮箱');
+            $('#txtNumber').watermark('输入资格证编码');
+            $('#txtLimit').watermark('从业年限');
+            $('#txtCompany').watermark('所在公司');
+            //$('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');
+
+            $('#select1').sSelect({ ddMaxHeight: '168px' });
+          	$('#select2').sSelect({ ddMaxHeight: '168px' });
+            $('#select3').sSelect({ ddMaxHeight: '168px', containerClass: 'newListSelected-364' });
+			var trueName = '$!{apply.trueName}';
+			var idCard = '$!{apply.identityId}';
+			
+			if(trueName != null && trueName != '' && idCard != null && idCard != ''){
+			   $("#txtUsername").attr("readonly","readonly");
+			    $("#txtID").attr("readonly","readonly");
+			}else{
+			   $("#txtUsername").removeAttr("readonly");
+			   $("#txtID").removeAttr("readonly");
+			}
+     //       if(idCard != null && idCard != ''){
+     //           $("#txtID").attr("readonly","readonly");
+	//		}else{
+	//		   $("#txtID").removeAttr("readonly");
+	//		}
+
+            //dropdownlist
+            /*$('.dropdownlist-wrap').click(function (e) {
+                e.stopPropagation();
+                $(this).find('.dropdownlist-cnt').toggle();
+            });
+            $('.dropdownlist-cnt').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.dropdownlist-cnt p').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).on('click', function () {
+                $('#txtCompany').val($(this).text());
+                $('.dropdownlist-cnt').toggle();
+            });
+            $(document).click(function () {
+                $(this).find('.dropdownlist-cnt').hide();
+            });*/
+            
+            //邀请码的处理       20140130不上线
+            var inviteCode = "$!{request.getParameter('tgyqcode')}";
+            var flag = "$!{request.getParameter('flag')}";
+            if(inviteCode!=""&&inviteCode!=null) {
+            	$.ajax({
+            		url:"/account/invite/checkInviteCode.jspa?code="+inviteCode,
+            		dataType:"json",
+            		async:false
+            	}).done(function(data){
+            		if(data.isSuccess) {
+            			$("#inviteCode").val(inviteCode);
+            			if(flag!=1)
+                    		$("#inviteCode").attr("readonly", "readonly");
+            		}
+            	})
+            }
+            var inviteCode = "$!{inviteCode}";
+            if(inviteCode!=""&&inviteCode!=null) {
+            	$("#inviteCode").val(inviteCode);
+            	$("#inviteCode").attr("readonly", "readonly");
+            }
+            
+        });
+    </script>
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+
+    <div class="page-title">
+        <div class="wrapper">
+            <h1>投顾注册</h1>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-single-cnt">
+                <div class="steps-wrap steps-wrap-2">
+                    <div class="step-item step-item-1"></div>
+                    <div class="step-text clearfix">
+                        <span class="past">录入个人信息</span>
+                        <span>上传照片</span>
+                        <span>填写您的擅长领域</span>
+                        <span class="last">注册完成</span>
+                    </div>
+                </div>
+                <h2 class="block-title mt30">基本信息</h2>
+                
+                <form action="/account/applyAdviser_2.jspa" id="form_1" method="POST" >
+                <table class="table-register mt30">
+                 #if(${message})
+                	<tr>
+                		<td class="field" ></td>
+                		<td ><font color="red">$!{message}</font></td>
+	                </tr>
+	             #end
+	         <!--     
+	             <tr>
+	                <td class="field"><span>邀请人姓名</span></td>
+	                <td>
+	                  <input name="inviterName" id="inviterName" value="$!{apply.inviterName}" type="text" class="txtbox" maxlength="12" style="width:312px;" />
+                             <p class="invite-name-error-msg" style="color: #c33;">请输入2-12个中文姓名</p>
+	                </td>
+	             </tr>
+	             
+	             <tr>
+	             	 <td class="field"><span>邀请人手机号</span></td>
+	                <td>
+	                  <input name="inviterMobile" id="inviterMobile" value="$!{apply.inviterMobile}" type="text" class="txtbox" maxlength="11" style="width:312px;" />
+                             <p class="invite-mobile-error-msg" style="color: #c33;">输入的邀请手机号有误</p>
+	                </td>
+	             </tr>
+	              -->
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>真实姓名</span></td>
+                        <td>
+                            <input name="trueName" id="txtUsername" value="$!{apply.trueName}" type="text" class="txtbox" maxlength="12" style="width:312px;" />
+                            <span class="msg-wrap middle">
+                                <!--<span class="msg-info">中文字段，不接受英文、数字</span>-->
+                             <!--   <i class="icon icon-right" id="name-right"></i>
+                                <i class="icon icon-error" id="name-wrong"></i>-->
+                            </span>
+                             <p class="name-error-msg" style="color: #c33;">请输入2-12个中文姓名</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>身份证号</span></td>
+                        <td>
+                            <input name="identityId" id="txtID" value="$!{apply.identityId}" type="text" class="txtbox" maxlength="18" style="width:312px;" />
+                            <span class="msg-wrap middle">
+                             <!--    <span class="msg-info">请填入您的有效身份证号</span>-->
+                          <!--      <i class="icon icon-right" id="card-right"></i>
+                                <i class="icon icon-error" id="card-wrong"></i>-->
+                            </span>
+                            <p class="idcard-error-msg" style="color: #c33;">请输入有效身份证号</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>性别</span></td>
+                        <td class="middle">
+                            <input name="sex" id="Radio1" type="radio" value="1" #if($!{apply.sex}!=2) checked="checked" #end /><span class="ml5">男</span>
+                            <input name="sex" id="Radio1" type="radio" value="2" class="ml30" #if($!{apply.sex}==2) checked="checked" #end /><span class="ml5">女</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>手机号</span></td>
+                        <td>
+ 
+                       #if ("$!apply.mobile" == "")
+                             <div class="middle">
+                                <input name="mobile" id="txtMobile" type="text" class="txtbox" maxlength="11" style="width:179px;" /><!--disabled-->
+                               <!-- <a href="javascript:void(0);" class="link ml10" id="modify">修改</a>-->
+                              <!--  <a href="javascript:void(0);" class="btn btn-getcode ml5" id="vcode"><获取验证码</a>--><!--btn-getcode-disable-->
+                                <input class="btn btn-getcode <!--btn-getcode-disable--> ml5" id="vcode" type="button" value="获取验证码"/>
+                                <span class="msg-wrap middle">
+                                    <span class="msg-info" id="phoneId">请填入您的11位手机号</span>
+                                </span>
+                            </div>
+                       #else
+                            <div class="middle" id="mobile1">
+                                <input name="mobile" value="$!{apply.mobile}" id="txtMobile" type="text" class="txtbox"  readonly="readonly" maxlength="11" style="width:179px;" /><!--disabled-->
+                                <a href="javascript:void(0);" class="link ml10" id="modify">修改</a>
+                                <input class="btn btn-getcode <!--btn-getcode-disable--> ml5" id="vcode" type="button" value="获取验证码"/>
+                         <!--       <i class="icon icon-right" id="mobile-right"></i>
+                                <i class="icon icon-wrong" id="mobile-wrong"></i>-->
+                                
+                                <a href="javascript:void(0);" class="link ml10" id="cancel">取消修改</a>
+                            </div>
+
+                       #end
+                            <input type="hidden" value="" id="mobile_hidden" />
+                            <p class="error-msg">您输入的手机号有误，请重新输入</p>
+                        </td>
+                     
+                    </tr>
+                    <tr id="code-tr">
+                        <td class="field"><span>&nbsp;</span></td>
+                        <td>
+                            <div class="middle">
+                                <input id="txtVCode" type="text" class="txtbox" style="width:179px;" />
+                           <!--      <i class="icon icon-right" id="vcode-right"></i>
+                                <i class="icon icon-error" id="vcode-wrong"></i>-->
+                            </div>
+                            <p class="vcode-error-msg" style="color: #c33;">您输入的验证码有误</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>QQ号</span></td>
+                        <td>
+                            <div class="middle">
+                                <input name="qq" id="txtQQ" value="$!{apply.qq}" type="text" class="txtbox" maxlength="50" style="width:179px;" />
+                           <!--      <i class="icon icon-right" id="qq-right"></i>
+                                <i class="icon icon-error" id="qq-wrong"></i>-->
+                                 <span class="msg-wrap middle">
+                          <!--      <span class="msg-info">QQ号为长度4至50的英文与数字</span>-->
+                            </span>
+                            </div>
+                        <p class="qq-error-msg" style="color: #c33;">您输入的QQ有误，请重新输入</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span>邮箱</span></td>
+                        <td>
+                            <div class="middle">
+                                <input name="eMail" id="txtMail" type="text" value="$!{apply.eMail}" class="txtbox" maxlength="50" style="width:179px;" />
+                            <!--     <i class="icon icon-right" id="mail-right"></i>
+                                <i class="icon icon-error" id="mail-wrong"></i>-->
+                            </div>
+                             <p class="mail-error-msg" style="display:none;color: #c33;">请输入有效邮箱</p>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-split"></div>
+                <h2 class="block-title mt30">所属机构</h2>
+                <table class="table-register mt30">
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>所在公司</span></td>
+                        <td>
+                           <div class="dropdownlist-wrap">
+                                            <input id="txtCompany" type="text" class="txtbox" style="width:306px;" name="company" value="$!{apply.company}" data-shortname="$!{apply.company}"/>
+                                            <script>
+                                            	$(function(){Company.getCompany()})
+                                            </script>
+                                            <div class="dropdownlist-cnt clearfix">
+                                                <div class="dropdownlist-cnt-left">
+                                                    <p>索引</p>
+                                                    <div>
+                                                        <ul>
+                                                            <li class="cur">A</li>
+                                                            <li>B</li>
+                                                            <li>C</li>
+                                                            <li>D</li>
+                                                            <li>E</li>
+                                                            <li>F</li>
+                                                            <li>G</li>
+                                                            <li>H</li>
+                                                            <li>I</li>
+                                                            <li>J</li>
+                                                            <li>K</li>
+                                                            <li>L</li>
+                                                            <li>M</li>
+                                                            <li>N</li>
+                                                            <li>O</li>
+                                                            <li>P</li>
+                                                            <li>Q</li>
+                                                            <li>R</li>
+                                                            <li>S</li>
+                                                            <li>T</li>
+                                                            <li>U</li>
+                                                            <li>V</li>
+                                                            <li>W</li>
+                                                            <li>X</li>
+                                                            <li>Y</li>
+                                                            <li>Z</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdownlist-cnt-right">
+                                                    <div class="dropdown-item clearfix">
+                                                        <div class="index"></div>
+                                                        <div class="list">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="msg-wrap middle">
+                                            <span class="msg-info">选择您所供职的公司，需与证券业协会备案公司相同</span>
+                                        </span>
+                                <!-- <i class="icon icon-right" id="company-right"></i>
+                                <i class="icon icon-error" id="company-wrong"></i> -->
+                                 <p class="company-error-msg" style="color: #c33;">请选择所在公司</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>就职所在地</span></td>
+                        <td>
+                            
+                        	<input type="hidden" value="$!{apply.province}" id="province_hidden"/>
+                        	<input type="hidden" value="$!{apply.city}" id="city_hidden"/>
+                            <select id="select1" name="province" onChange="InitCity(this.options[this.options.selectedIndex].text);$('#select2').resetSS();"></select>
+                            <select id="select2" name="city"><option>城市</option></select>
+                            <span class="msg-wrap middle">
+                                <span class="msg-info">精确到城市</span>
+                            </span>
+                            <p class="provice-error-msg" style="color: rgb(204, 51, 51); display: none;">请选择省份</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>所在岗位</span></td>
+                        <td>
+                        	<input type="hidden" value="$!{apply.position}" id="position_hidden" />
+                            <select id="select3" name="position"  onchange="checkPosition(this)">
+                                <option value="证券投资咨询（投资顾问）" #if($apply.position=="证券投资咨询（投资顾问）") selected=true #end>证券投资咨询（投资顾问）</option>
+<!--                                <option value="证券投资咨询（分析师）" #if($apply.position=="证券投资咨询（分析师）") selected=true #end>证券投资咨询（分析师）</option>-->
+                            </select>
+                            <span class="msg-wrap middle">
+                                <span class="msg-info">选择您的职业资格证的类别</span>
+                           <!--     <i class="icon icon-right" id="positon-right"></i>
+                                <i class="icon icon-error" id="positon-wrong"></i>-->
+                            </span>
+                             <p class="position-error-msg" style="color: #c33;">请选择所在岗位</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>资格证号</span></td>
+                        <td>
+                            <input name="certificationNum" id="txtNumber" type="text" value="$!{apply.certificationNum}" class="txtbox" maxlength="50" style="width:312px;" />
+                           <!-- <i class="icon icon-right" id="number-right"></i>
+                                <i class="icon icon-error" id="number-wrong"></i>-->
+                            <span class="msg-wrap middle">
+                                <span class="msg-info">执业资格号，请准确填写<br /><a href="http://person.sac.net.cn/pages/registration/sac-publicity-report.html" class="link" target="_blank">查看我的资格证号</a></span>
+                            </span>
+                            
+                            <p class="number-error-msg" style="color: #c33;">请填写执业资格证号</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field"><span class="required">*</span><span>从业年限</span></td>
+                        <td>
+                          <!--  <input name="experienceScope" id="txtLimit" type="text" class="txtbox" value="$!{apply.experienceScope}" style="width:312px;" />-->
+                             <select id="txtLimit" name="experienceScope" value="$!{apply.experienceScope}" class="txtbox" style="width:312px;height:34px;">
+                                <option value="1" #if($!{apply.experienceScope}==1) selected="selected" #end>3年以下</option>
+                                <option value="2" #if($!{apply.experienceScope}==2) selected="selected" #end>3-5年</option>
+                                <option value="3" #if($!{apply.experienceScope}==3) selected="selected" #end>5-10年</option>
+                                <option value="4" #if($!{apply.experienceScope}==4) selected="selected" #end>10年以上</option>
+                              </select>
+                            <span class="msg-wrap middle">
+                                <span class="msg-info"></span>
+                            </span>
+                             <p class="limit-error-msg" style="color: #c33;">请选择从业年限</p>
+                        </td>
+                    </tr>
+                </table>
+               <div class="form-split"></div>
+               <h2 class="block-title mt30">邀请码</h2>
+                <!-- <p class="f14" style="padding: 20px 0 0 58px;">马上输入邀请码，挂牌投顾免费为您实时解答！你不是一个人在战斗！</p> -->
+               <table class="table-register mt10">
+                   <tr>
+                       <td class="field" style="vertical-align: top; padding-top: 7px;"><span>邀请码</span></td>
+                       <td>
+                           <div>
+                               <input id="inviteCode" name="inviteCode" type="text" class="txtbox"
+                                value=""/>
+                                <span class="msg-wrap middle">
+	                                <!-- <span class="msg-info">请输入好友邀请码</span> -->
+	                            </span>
+                           </div>
+                           <div style="display:none;color:#c33;" id="inviteCodeErrorMsg">邀请码不存在</div>
+                       </td>
+                   </tr>
+               </table>
+				<div class="tc">
+                    <div style="padding: 20px 0;font-size: 14px">
+                      <p class="tc middle"><input type="checkbox" id="chkProtocol" checked="checked" ><span class="ml5">我已阅读并同意</span><a class="ml5" style="color: #4a86ea" href="http://itougu.jrj.com.cn/view/952.jspa" target="_blank">《爱投顾平台公约》</a></p>
+                      <p style="color: rgb(204, 51, 51); display: none;" id="deal_id">请勾选投顾平台协议</p>
+                    </div>
+                    <a href="javascript:void(0);" class="btn btn-123-40" id="next" onclick="goSecond();">下一步</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   <!--\#include virtual="/common_footer.html" -->
+    <script type="text/javascript">
+       function addCur(node){
+                var $node = $(node);
+                if($node.hasClass("cur"))return;
+                $node.siblings(".cur").removeAttr("class");
+                $node.attr("class","cur");
+            }
+    </script>
+    <!--放在下面引入--> 
+    <script src="http://js.jrjimg.cn/itougu/account/initCity.js"></script>
+</body>
+</html>

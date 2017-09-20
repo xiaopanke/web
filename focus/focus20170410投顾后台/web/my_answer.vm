@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的问答-爱投顾-金融界</title>
+    <meta name="keywords" content="我的问答，爱投顾，金融界" />
+    <meta name="description" content="我的问答，爱投顾，金融界" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/rateit.min.css" rel="stylesheet" />
+    
+    <!--# include virtual="/common_head_css_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+
+    <script>
+      var type = ${t};
+      var currentPageNo = ${p};
+      var pageCount = ${pageCount};
+      var pageSize = ${page.pageSize};
+      var totalCount = ${page.totalCount};
+    </script>
+    
+    <script type="text/javascript">
+        $(function () {
+            
+            var tab = new JRJ.ui.TabSwitch({
+                currTab: type,
+                menuPre: 'menu_',
+                conPre: 'con_',
+                total: 2,
+                onClass: 'cur',
+                eventType: 'click',
+                onSwitch: {
+                  fcn: function(q) {
+                    var curr = tab.currTab;
+                    if (curr != type) {
+                      var index = location.href.indexOf('?');
+                      location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?t=' + curr;
+                    }
+                  },
+                  args : []
+                }
+            });
+            
+            $('.my-points .tab li').removeClass('cur');
+            $('#menu_' + tab.currTab).addClass('cur');
+            $('.my-points .tab-cnt').hide();
+            $('#con_' + tab.currTab).show();
+            
+            $('.inquire-item').mouseenter(function () {
+                $(this).addClass('inquire-item-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('inquire-item-hover');
+            });
+            
+            $('.pager').pagefoot({
+              pagesize: pageSize,
+              count: totalCount,
+              css: '',
+              current: currentPageNo,
+              displaynum: 5,
+              displaylastNum: 2,
+              previous: '上一页',
+              next: '下一页',
+              enableArrowKey: true,
+              paging: function (page) {
+                var current = page.current;
+                var index = location.href.indexOf('?');
+                location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?p=' + current + '&t=' + type;
+              }
+            });
+            
+            // 禁言判断
+            function checkSilenced() {
+              var b = false;
+              ($).ajax({
+                url: '/ques/invest/checkSilenced.jspa',
+                type: 'POST',
+                data: {},
+                dataType: 'json',
+                async: false,
+                success: function(data){
+                  if(data.ret == 0){
+                     JRJ.Dialogs.standardDialog({
+                        title: '消息提示',
+                        width: 360,
+                        content: '<div class="dialog-cnt dialog-confirm">' + data.msg + '</div>',
+                        okBtnText: '确认',
+                        hasCloseBtn: false,
+                        hasOkBtn: true,
+                        hasCancelBtn: false
+                     });
+                  } else {
+                    b = true;
+                  }
+                },
+                error: function(msg){
+                  //alert(msg.msg);
+                },
+                statusCode: {
+                  '404': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>操作失败！</p>'
+                    });
+                  },
+                  '500': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>操作失败！</p>'
+                    });
+                  }
+                }
+              });
+              return b;
+            }
+            
+            // 回答弹出层
+            $('.answerAsk').click(function (e) {
+                e.preventDefault();
+                if(checkSilenced()){
+                  var askId = $(this).attr('ask');          
+                  JRJ.Dialogs.iframeDialog({
+                      content: [''].join(''),
+                      loadingImg: '',
+                      width: 712,
+                      hasBtn: false,
+                      hasOkBtn: false,
+                      okBtnText: '',
+                      title: '回答咨询',
+                      titleRight: '',
+                      bottomContent: '',
+                      protocolHtml: '',
+                      hasCancelBtn: false,
+                      enableKeyCtrl: true,
+                      ifrSrc: '/ques/answer.jspa?aid=' + askId + '&askId=' + askId,
+                      ifrReHeight: true,
+                      isFixed: true,//defaultCf.isFixed,
+                      okCallback: function () {
+                          defaultCf.okCallback();
+                      },
+                      cancelCallback: function () {
+                          return true;
+                      }
+                  });
+                }
+            });
+            
+            // 追答弹出/隐藏文本框
+            $('.answerAgainAsk').click(function (e) {
+                e.preventDefault();
+                if(checkSilenced()) {
+                  //$(this).parent().parent().find('.for-comment').hide();
+                  $(this).parent().parent().find('.for-ask').toggle();
+                }
+            });
+            
+            // 取消
+            $('.cancelX').click(function() {
+              $(this).parents('.for-ask').hide();
+              $(this).parents('.for-comment').hide();
+            });
+            
+            // 追答提交
+            $('.submitAgainAnswer').click(function() {
+              var me = $(this);
+              var parent = me.parents('.for-ask');
+              var content = parent.find('textarea').val();
+              var red = parent.find('.red');
+              if(!content.length) {
+                red.text('内容不能为空！').show();
+              } else if(content.length > 500) {
+                red.text('内容不能超过500字！').show();
+              } else {
+                ($).ajax({
+                  type: 'POST',
+                  dataType: 'json',
+                  async: false,
+                  cache: false,
+                  url: '/ques/invest/againAnswer.jspa',
+                  data: {
+                    againaskId: me.attr('againAsk'),
+                    content: content
+                  },
+                  success: function(data) {
+                    var flag = data.flag;
+                    if(flag == 1) {
+                      window.membership.update();
+                      location.href = location.href;
+                    } else {
+                      red.text('回答失败！').show();
+                    }
+                  },
+                  error: function() {
+                    /*
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>回答失败！</p>'
+                    });
+                    //*/
+                  },
+                  statusCode: {
+                    '404': function() {
+                      JRJ.MiniAlerts.prompt({
+                        message: '<p>回答失败！</p>'
+                      });
+                    },
+                    '500': function() {
+                      JRJ.MiniAlerts.prompt({
+                        message: '<p>回答失败！</p>'
+                      });
+                    }
+                  }
+                });
+              }
+            });
+            
+            // 不回答提问
+            $('.no-to-answer').click(function (e) {
+                e.preventDefault();
+                
+                var me = $(this);
+
+                //请选择不回答原因
+                JRJ.Dialogs.standardDialog({
+                    title: '请选择不回答原因',
+                    width: 578,
+                    content: [
+                        '<div class="dialog-cnt dialog-cnt-reason clearfix">',
+                            '<p class="c_666">1. 您有权选择“不回答”问题；</p>',
+                            '<p class="c_666">2. 您选择不回答的问题，系统将自动分配到“问投顾”大厅，由其他投顾抢答；</p>',
+                            '<p class="c_666">3. 用户将无法评价您退回的问题；</p>',
+                            '<p class="c_666">4. 退回的问题不会出现在您的问答列表中；</p>',
+                            '<p class="c_666">5. 退回的问题不会影响您的问答满意度。</p>',
+                            '<ul class="custom-checkbox clearfix mt30">',
+                                '<li reason="120">不擅长</li>',
+                                '<li reason="80">暂无时间</li>',
+                                '<li reason="40">不理解问题</li>',
+                                '<li reason="0">其他</li>',
+                            '</ul>',
+                        '</div>',
+                    ].join(''),
+                    okBtnText: '确定',
+                    cancelBtnText: '取消',
+                    hasCloseBtn: true,
+                    hasBtn: true,
+                    hasOkBtn: true,
+                    hasCancelBtn: true,
+                    okCallback: function () {
+                      var reason = 0;
+                      $('.dialog-cnt-reason .custom-checkbox li').each(function() {
+                        if($(this).hasClass('checked')) {
+                          reason = $(this).attr('reason');
+                        }
+                      });
+                      ($).ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        async: false,
+                        cache: false,
+                        url: '/ques/invest/ignore.jspa',
+                        data: {
+                          askId: me.attr('ask'),
+                          reason: reason
+                        },
+                        success: function(data) {
+                          if(data.success) {
+                            location.href = location.href;
+                          } else {
+                            JRJ.MiniAlerts.prompt({
+                              message: '<p>' + (data.msg ? data.msg : '操作失败！') + '</p>'
+                            });
+                          }
+                        },
+                        error: function() {
+                          //alert('操作失败');
+                        },
+                        statusCode: {
+                          '404': function() {
+                            JRJ.MiniAlerts.prompt({
+                              message: '<p>操作失败！</p>'
+                            });
+                          },
+                          '500': function() {
+                            JRJ.MiniAlerts.prompt({
+                              message: '<p>操作失败！</p>'
+                            });
+                          }
+                        }
+                      });
+                    },
+                    cancelCallback: function () {
+                      return true;
+                    },
+                    isFixed: true
+                });
+
+                //checkbox
+                $('.custom-checkbox li').mouseenter(function () {
+                    if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                        $(this).addClass('hover');
+                    }
+                }).mouseleave(function () {
+                    $(this).removeClass('hover');
+                }).click(function () {
+                    if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                        $(this).addClass('checked').siblings().removeClass('checked');
+                    } else {
+                        $(this).removeClass('checked');
+                    }
+                });
+                //checkbox
+            });
+
+            $('.no-to-answer-2').click(function (e) {
+                e.preventDefault();
+                var me = $(this);
+                JRJ.Alerts.confirm({
+                    title: '提示',
+                    message: '<p style="padding:20px 0;">确认不回答此问题？</p>',
+                    okCallback: function () {
+                      ($).ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        async: false,
+                        cache: false,
+                        url: '/ques/invest/ignore.jspa',
+                        data: {
+                          askId: me.attr('ask'),
+                          againAskId: me.attr('againAsk'),
+                          reason: 0
+                        },
+                        success: function(data) {
+                          if(data.success) {
+                            location.href = location.href;
+                          } else {
+                            alert(data.msg || '操作失败');
+                          }
+                        },
+                        error: function() {
+                          //alert('操作失败');
+                        },
+                        statusCode: {
+                          '404': function() {
+                            JRJ.MiniAlerts.prompt({
+                              message: '<p>操作失败！</p>'
+                            });
+                          },
+                          '500': function() {
+                            JRJ.MiniAlerts.prompt({
+                              message: '<p>操作失败！</p>'
+                            });
+                          }
+                        }
+                      });
+                    },
+                    cancelCallback: function () {
+                      return true;
+                    }
+                });
+            });
+            
+        });
+        // flash
+        function embedFlash(mp3, flashId) {
+            var flashvars = {
+                mp3_url: mp3 // 通过flashvars变量传递实际的音频mp3文件的url给到Flash
+            };
+            var params = {
+                menu: 'false',
+                scale: 'noScale',
+                wmode: 'transparent'
+            };
+            var attributes = {
+                id: 'AudioPlayerLite' + flashId
+            };
+            swfobject.embedSWF('http://f0.jrj.com.cn/tg/audioplayerlite.swf', 'FlashInHere', '525', '70', '10.0.0', '', flashvars, params, attributes);   
+        }
+    </script>
+</head>
+<body>
+    <!--site-top-and-header-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-top-and-header-->
+    
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="http://itougu.jrj.com.cn/">首页</a>
+            <span>&gt;</span>
+            <span>投顾空间</span>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+            <!--site-main-left-->
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-left-->
+            
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <h2 class="block-title">解答统计</h2>
+                <div class="statistic-block statistic-block-2 mt10 clearfix">
+                    <div class="statistic-block-item statistic-block-item-1">
+                        <p>本月解答问题数</p>
+                        <p class="num">${monthAnsweredTimes}</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-2">
+                        <p>用户满意度</p>
+                        <p class="num">${use_satisfaction}</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-3" id="noBor_ri">
+                        <p>平均响应时间</p>
+                        <p class="num">${average_response_time}</p>
+                    </div>
+                </div>
+                <div class="my-points mt25">
+                    <ul class="tab clearfix">
+                        <li id="menu_2" class="cur">待解答咨询(${noanswernum})</li>
+                        <li id="menu_1" class="">已解答咨询(${answerdnum})</li>
+                    </ul>
+                    <div id="con_2" class="tab-cnt clearfix pt20">
+                        #if($t == 2)
+                        #if(!$!asks||$!asks.isEmpty())
+                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+                        #end
+                        #foreach($ask in $asks)
+                        #set($temp="$!{ask.id}.jspa")
+                        <div class="noBg" style="padding:0px;" id="a${ask.id}">
+                            <div class="inquire-item-new clearfix" style="padding-bottom:10px;">
+                                <p><a class="" href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a></p>
+                                <p class="note middle mt20 xh_p">
+                                    <img src="$!ask.avatarUrl" class="mr10" style="max-width:25px; max-height:25px" /><span class="mr20">$!ask.askUserName</span><span class="mr20">$!dateUtils.getTimeDifference($!ask.ctime)</span><span class="mr20">分类：$constansUtils.formatStock($!ask.type)</span>
+                                </p>
+                                #if($!ask.answers.isEmpty())
+                                <div class="tr xh_tr" style="padding-top:16px;">
+                                    <a class="f12 mr10 no-to-answer" ask="$!ask.id">不回答</a>
+                                    <a class="btnComment btn btn-45-24-blue answerAsk" ask="$!ask.id">回答</a>
+                                </div>
+                                <div class="for-ask" style="display:none;">
+                                    <div class="inquire-reply-item-ask-new">
+                                        <em style="right:69px"></em>
+                                        <textarea rows="2" cols="20" class="txtAsk" style="overflow-y:auto;"></textarea>
+                                        <div class="inquire-reply-item-ask-new-btn-wrap tr mt10 mb10">
+                                            <a class="btn btn-45-24-blue ml10">提交</a>
+                                            <a class="btn btn-45-24-blue ml10 cancelX">取消</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                #end
+                            </div>
+                            #foreach($answer in $!ask.answers)
+                            <div class="inquire-reply-item-new inquire-reply-item-new-noborder inquire-reply-item-new-autoheight clearfix" style="border-bottom:0px;">
+                                <div class="inquire-reply-item-new-left">
+                                    <div><span class="da"></span></div>
+                                </div>
+                                <div class="inquire-reply-item-new-right" style="width:680px;">
+                                    #if($!answer.voiceMp3)
+                                    <div id="FlashInHere"><script type="text/javascript">embedFlash('$!answer.voiceMp3','$!answer.id')</script></div>
+                                    #else
+                                    <p class="inquire-reply-item-new-cnt"><a href="/ques/$temp" target="_blank">$objectUtils.removeBrsAndSubstring($!answer.textContent, 0, 100)</a></p>
+                                    #end
+                                    #if($!answer.againAsk)
+                                    <div class="ask-again clearfix xh_p">
+                                        <div class="ask-again-field">追问：</div>
+                                        <div class="ask-again-cnt">$objectUtils.removeBrs($!answer.againAsk.content)<span>$!dateUtils.getTimeDifference($!answer.againAsk.ctime)</span></div>
+                                    </div>
+                                    <div class="tr xh_tr middle" style="padding-top:16px;">
+                                        <a class="f12 mr10 no-to-answer-2" ask="$!ask.id" againAsk="$!answer.againAsk.id">不回答</a>
+                                        <a class="btnComment btn btn-45-24-blue answerAgainAsk" ask="$!ask.id" againAsk="$!answer.againAsk.id">回答</a>
+                                    </div>
+                                    <div class="for-ask" style="display:none;">
+                                        <div class="inquire-reply-item-ask-new">
+                                            <em></em>
+                                            <textarea rows="2" cols="20" class="txtAsk" style="overflow-y:auto;"></textarea>
+                                            <div class="inquire-reply-item-ask-new-btn-wrap tr mt10 mb10 clearfix">
+                                                <span class="fr">
+                                                    <a class="btn btn-45-24-blue ml10 submitAgainAnswer" ask="$!ask.id" answer="$!answer.id" againAsk="$!answer.againAsk.id">提交</a>
+                                                    <a class="btn btn-45-24-blue ml10 cancelX">取消</a>
+                                                </span>
+                                                <span class="red" style="display: none;">回答内容不能为空！</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    #end
+                                </div>
+                            </div>
+                            #end
+                        </div>
+                        #end
+                        #end
+                    </div>
+                    <div id="con_1" class="tab-cnt clearfix need-to-answer" style="display:none;padding:20px 0px 0">
+                        #if($t == 1)
+                        #if(!$!asks||$!asks.isEmpty())
+                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+                        #end
+                        #foreach($ask in $asks)
+                        #set($temp="$!{ask.id}.jspa")
+                        <div class="noBg" id="a${ask.id}">
+                            <div class="inquire-item-new clearfix">
+                                <p><a class="" href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a></p>
+                            </div>
+                            #foreach($answer in $!ask.answers)
+                            <div class="inquire-reply-item-new clearfix mt20" style="border-bottom:0;">
+                                <div class="inquire-reply-item-new-left">
+                                    <div><span class="da"></span></div>
+                                </div>
+                                <div class="inquire-reply-item-new-right" style="width:680px;">
+                                    #if($!answer.voiceMp3)
+                                    <div id="FlashInHere"><script type="text/javascript">embedFlash('$!answer.voiceMp3','$!answer.id')</script></div>
+                                    #else
+                                    <p class="inquire-reply-item-new-cnt"><a href="/ques/$temp" target="_blank">$objectUtils.removeBrsAndSubstring($!answer.textContent, 0, 100)</a></p>
+                                    #end
+                                    #if($!answer.againAsk && !$!answer.againAsk.ignoreReason)
+                                    <div class="ask-again clearfix">
+                                        <div class="ask-again-field">追问：</div>
+                                        <div class="ask-again-cnt">$objectUtils.removeBrs($!answer.againAsk.content)</div>
+                                    </div>
+                                    #if($!answer.againAsk.againAnswer)
+                                    <div class="ask-again clearfix">
+                                        <div class="ask-again-field" style="color:red">回答：</div>
+                                        #if($!answer.againAsk.againAnswer.voiceMp3)
+                                        <div id="FlashInHere"><script type="text/javascript">embedFlash('$!answer.voiceMp3','$!answer.againAsk.againAnswer.id')</script></div>
+                                        #else
+                                        <div class="ask-again-cnt">$objectUtils.removeBrs($!answer.againAsk.againAnswer.content)</div>
+                                        #end
+                                    </div>
+                                    #end
+                                    #end
+                                </div>
+                            </div>
+                            <div class="note middle mt20 ml20 xh_ml30" style="position:relative;margin-left:45px;">
+                                #if($!answer.evaluateScore)
+                                <span class="conclusion fr" style="position:absolute;right:0;top:0;">
+                                    <span class="highlight fr" style="margin: 3px 0 0 3px; *margin: -3px 0 0 3px; font-size: 14px;">$!objectUtils.calStar($!answer.evaluateScore)</span>
+                                    <span class="fr ml10">
+                                        <input type="range" value="$!answer.evaluateScore" step="1" id="backing3_$!answer.id" style="display: none;" />
+                                        <span class="rateit" data-rateit-backingfld="#backing3_$!answer.id" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-readonly="true"  data-rateit-min="0" data-rateit-max="5"></span>
+                                    </span>
+                                </span>
+                                #end
+                                <span class="mr20">$!dateUtils.getTimeDifference($!ask.ctime)</span><span class="mr20">分类：$constansUtils.formatStock($!ask.type)</span>
+                            </div>
+                            #end
+                        </div>
+                        #end
+                        #end
+                    </div>
+                    #if($!asks && !$!asks.isEmpty())
+                    <div class="pager"></div>
+                    #end
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

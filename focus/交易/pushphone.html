@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>空白页</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+	<style>
+		*{ margin:0; padding:0; }
+		span{ display: block;line-height: 100px; background: linear-gradient(yellow,blue,red); color:#fff; font-size: 30px;text-align: center; margin-top: 100px; border-radius: 50px; }
+	</style>
+</head>
+<body>
+<span id="btn">去绑定手机号</span>
+<script>	
+	var btn=document.getElementById('btn')
+	btn.onclick=function(){
+		//jrj.jsCallNative('109', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+
+		var pushphone = function(){
+	        setTimeout(function(){
+	            jrj.jsCallNative('109', JSON.stringify({
+	                method: '',
+	                url: '',
+	                callback: 'callbackpushphone',
+	            }));
+	        },200);
+	   }
+	    pushphone();
+	    window.callbackpushphone =function(info){ 
+	        setTimeout(function(){
+	            //0 已绑定
+	            //1 绑定成功
+	            //2绑定失败
+	        },30);     
+	    }
+	}
+</script>	
+</body>
+</html>

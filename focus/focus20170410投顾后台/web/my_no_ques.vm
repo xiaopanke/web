@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>${currentUser.userName}-爱投顾-金融界</title>
+    <meta name="keywords" content="${currentUser.userName},爱投顾,金融界" />
+    <meta name="description" content="${currentUser.userName},爱投顾,金融界" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <!--# include virtual="/common_head_css_js.html" -->
+    
+    <script type="text/javascript" src="http://js.jrjimg.cn/zqt-red-1000/js/floatdiv.js"></script>
+    
+    <script type="text/javascript" src="http://js.jrjimg.cn/itougu/ques/ques/noquestion.js"></script>
+    <style type="text/css">
+       .tg-recomm-item .btn{
+        top:10px;
+        right:10px;
+       }
+    </style>
+    <script type="text/javascript">
+    	var type = $t;
+        $(function () {
+            $('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');
+
+            //point-item
+            $('.point-item').mouseenter(function () {
+                $(this).addClass('point-item-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('point-item-hover');
+            });
+            //point-item
+
+            $('#btnFollow').click(function (e) {
+                e.preventDefault();
+
+                var _left = $(this).offset().left - 75,
+                    _top = $(this).offset().top - 55;
+
+                $('.follow-popup').css({ top: _top + 'px', left: _left + 'px' }).show();
+
+                //TODO:  处理ajax请求 callback 执行下面操作 settimeout 模拟提交
+                setTimeout(function () {
+                    $('.follow-popup').find('.follow-popup-loading').hide();
+                    $('.follow-popup').find('.follow-popup-finish').show();
+                    setTimeout(function () {
+                        $('.follow-popup').hide();
+                    }, 1000);
+                }, 1000);
+            });
+            
+             //tab          
+            var tab = new JRJ.ui.TabSwitch({
+                //currTab : type,
+                menuPre: "menu_",
+                conPre: "con_",
+                total: 2,
+                onClass: "cur",
+                eventType: 'click',
+                onSwitch : {fcn : tabClick,args : []}
+            });
+           function tabClick(q) {
+			var curr = tab.currTab;
+				if (curr != type) {
+					 window.location.href = "/ques/service/advice.jspa?t="+curr;
+				}
+			}
+			$('#menu_' + type).click();
+		   // tab     
+        });
+
+    </script>
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+   
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+             <a href="/">首页</a><span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">我的爱投顾</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">       	
+			<!--site-main-left-->
+			<!--# include virtual="/myself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="my-points" dataIsCached="true" dataCachedKey="$!currentUser.userId">
+                    <ul class="tab clearfix" style="margin-top:-10px;">
+                        <li id="menu_1" class="cur">已回答咨询<span class="notify">(${answerCount})</span></li>
+                        <li id="menu_2" class="">未回答咨询<span class="notify">(${notAnswerCount})</span></li>
+                    </ul>
+                    <div id="con_1" class="tab-cnt clearfix">
+                      <div class="middle tc clearfix mt30 f16">
+                        <img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png">
+                        <span class="ml10">暂无内容</span>
+                      </div>
+                      <div class="interactive-block mt20">
+                          <div class="interactive-block-title">
+                              <span class="fr"><a href="javascript:void(0);" onclick="recommond(1);" class="reload">换一批</a></span>
+                              <span>投资顾问推荐</span>
+                          </div>                            
+                          <div class="clearfix"></div>                            
+                      </div> 
+                    </div>
+                    <!--回答-->
+                    <div id="con_2" class="tab-cnt clearfix" style="display:none">
+                      <div class="essence middle clearfix mt10">
+                        <img src="http://js.jrjimg.cn/zqt-red-1000/images/sample-18.jpg" alt="" data-bd-imgshare-binded="1" /><h2>暂无内容</h2>
+                        <!-- <a class="btn btn-123-40 fr" href="#">快速找投顾</a> -->
+                      </div>
+                      <div class="interactive-block mt20">                        	
+                          <div class="interactive-block-title">
+                              <span class="fr"><a href="javascript:void(0);" onclick="recommond(2);" class="reload">换一批</a></span>
+                              <span>投资顾问推荐</span>
+                          </div>                            
+                          <div class="clearfix"></div>                            
+                      </div>
+                    </div>                                   
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+    <div class="follow-popup">
+        <em></em>
+        <div class="follow-popup-finish" style="display:none;">您已成功关注当前全部投资顾问</div>
+    </div>
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

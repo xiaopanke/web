@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{adviser.userName}的投资内参-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{adviser.userName}的投资内参，爱投顾，金融界" />
+    <meta name="description" content="$!{adviser.userName}的投资内参，爱投顾，金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-css.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+</head>
+
+<body>
+	<!--header begin-->
+	<!--\#include virtual="/v2/site_top_compact.html" -->
+	<!--header end-->
+	<!--container begin-->
+	<div class="container">
+		<div class="m-wrap">
+			<div class="m-1000">
+				<!--头部信息 begin-->
+				<!--\#include virtual="/account/adviser/$!{adviser.loginId}/infov1.html" -->
+				<!--头部信息 end-->
+				
+				<!--头部主导航 begin-->
+				#set($nav = 5)
+				#set($adviserId = $adviser.loginId)
+				#if($!{adviser.type}==2)
+				  #set($tipsDesc = '投资内参')
+				#else
+				  #set($tipsDesc = '专栏订阅')
+				#end
+				#parse("tougu/homepage/nav.vm")
+				<!--头部主导航 end-->
+			</div>
+			<div class="clear">
+				<!--主体左边-->
+				<div class="fl">
+					<div class="m-680" id="tipsBox">
+						<h3 class="m-tit-row">
+							<span class="tit">TA的${tipsDesc}</span>
+							<span class="s-tit"><span class="highlight hot">$!{tipsCount}</span> 个</span>
+						</h3>
+					#if($tipList && ${tipList.size()}>0)
+						#foreach($t in $!{tipList})
+						<div class="refer-item">
+                            <div class="refer-item-tit clearfix">
+                                <a href="/tips/$!{t.id}.jspa" target="_blank"><span class="tip-title">$!{t.title}</span></a>
+                            </div>
+                            <div class="refer-item-cnt clearfix">
+                                <div class="refer-item-pic">
+                                    <a href="/tips/$!{t.id}.jspa" target="_blank"><img src="$!{t.img}" width="185" height="87" /></a>
+                                     #if(${t.status}==0)
+                                    <span class="status status-end"></span>
+                                    #elseif(${t.status}==10)
+                                    <span class="status status-reject"></span>
+                                    #elseif(${t.status}==20)
+                                    <span class="status status-waiting"></span>
+                                    #elseif(${t.status}==30)
+                                    <span class="status status-pause"></span>
+                                    #elseif(${t.status}==40)
+                                    <span class="status status-selling"></span>
+                                    #elseif(${t.status}==50)
+                                    <span class="status status-updating"></span>
+                                    #end
+                                </div>
+                                <div class="refer-item-desc">
+                                    <p><span data-cutoff="true" data-cutoff-limit="170" data-cutoff-ellipse="..." title="$!{t.tdesc}">$!{t.tdesc}</span></p>
+                                </div>
+                            </div>
+                            <div class="btn-wrap clearfix">
+                            #if(${t.type}==1)
+                            	<!-- 短期内参 -->
+                                <span class="fr" data-type="${t.type}">
+                                    #set($price = ${countUtils.changeCentsToDollars(${t.price})})
+                                    #set($signprice = ${countUtils.changeCentsToDollars(${t.signprice})})
+                                    
+                                    #if(${t.isBuy})
+                                        <a href="/tips/$!{t.id}.jspa" class="red-btn">立即查看</a>
+                                    #elseif(${t.status}==40 || ${t.status}==50)
+                                    	<a href="javascript:void(0);" class="red-btn subscribe-btn" price-value="$!{price}" tipid="$!{t.id}" endtime="$!{t.dateEndtime.getTime()}">￥$!{price} · 订阅</a>
+                                    #end
+                                </span>
+                                <span class="expiration" begin-date="$!{t.strBegintime}" end-date="$!{t.strEndtime}">服务期：$!{dateUtils.format($t.dateBegintime,"MM月dd日")} - $!{dateUtils.format($t.dateEndtime,"MM月dd日")}</span>
+                                <span class="split">|</span>
+                                <span><span class="red">$!{t.purchaseamount}</span>人订阅</span>
+                            #elseif(${t.type}==2)
+                            	<!-- 长期内参 -->
+                            	<span class="fr" data-type="${t.type}">
+                                    #set($price = ${countUtils.changeCentsToDollars(${t.price})})
+                                    #set($signprice = ${countUtils.changeCentsToDollars(${t.signprice})})
+                                    
+                                    #if(${t.isBuy})
+                                        <a href="/tips/$!{t.id}.jspa" class="red-btn">立即查看</a>
+                                    #elseif(${t.status}==40 || ${t.status}==50)
+                                    	<a href="javascript:void(0);" class="red-btn subscribe-btn" price-value="$!{price}" tipid="$!{t.id}" endtime="$!{t.dateEndtime.getTime()}">￥$!{price} 起· 订阅</a>
+                                    #end
+                                </span>
+                                <span class="expiration" begin-date="$!{t.strBegintime}" end-date="$!{t.strEndtime}">服务期：用户自由选择</span>
+                                <span class="split">|</span>
+                                <span><span class="red">$!{t.purchaseamount}</span>人订阅</span>
+                            #end
+                            </div>
+                        </div>
+                        #end
+                        #if(${page} && ${page.pages}>1)
+                        <div class="pager pager-v2" id="pager_data"></div>
+                        #end
+                    #else
+                        <div class="empty-cont">投顾正在酝酿精品内容</div>
+                    #end
+					</div>
+				</div>
+				
+				<!--主体右边-->
+				<div class="m-300 fr">
+					<!--\#include virtual = "/gg-homepage/gg.html" -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--container end-->
+	
+	<!--footer begin-->
+	<!--\#include virtual="/v2/common_head_js.html" -->
+    
+    <script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/myadviser.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/cutoff.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/partial-refer.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script>
+    #if(${page} && ${page.pages}>1)
+    <script>
+   		$("#pager_data").pagefoot(
+		{
+			pagesize : $!{page.pageSize},
+			count : $!{page.totalCount},
+			css : "",
+			current : $!{page.currentPageNo},
+			displaynum : 5,
+			displaylastNum : 1,
+			previous : "上一页",
+			next : "下一页",
+			enableArrowKey : true,
+			paging : function(page) {
+				window.location.href="/account/adviser/$!{adviser.loginId}/5?page="+page.current;
+			}
+		});
+   	</script>
+    #end
+    <script src="http://js.jrjimg.cn/itougu/account/homepage-infov1.js"></script>    
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/dialog-coupon.min.js"></script>
+    <script>
+        $(function () {
+	    	F.callback = function(){
+				window.location.reload();
+			}
+        	
+	    	var subscribeTips = function($target){
+	    		var oneDayTimes = 24*60*60*1000, dateNow = $!{dateUtils.now().getTime()};
+	    		var dif = $target.attr('endtime') - dateNow;
+    			var showNotes = dif < oneDayTimes*10;
+	    		if(showNotes){
+	    			var expDays = Math.ceil(dif/oneDayTimes);
+        			JRJ.Alerts.alert({
+                        message: '<p>距服务期结束还有<span class="red">' + (expDays==0?1:expDays) + '</span>天，您确定订阅吗？</p>',
+                        autoClose: false,
+                        okCallback: function() {
+                        	CouponDlg.show({
+                                productId: $target.attr('tipid'),
+                                type:6,
+                                checkOrderUrl: '/tips/checkorder.jspa?tid=' +　$target.attr('tipid')
+                            });
+                        },
+                        cancelCallback: function () {
+                          return true;
+                        }
+                    });
+    			}else{
+    				CouponDlg.show({
+                        productId: $target.attr('tipid'),
+                        type:6,
+                        checkOrderUrl: '/tips/checkorder.jspa?tid=' +　$target.attr('tipid')
+                    });
+    			}
+	    	}
+	    	
+            //订阅投资内参
+            jQuery('#tipsBox').bind('click', function(e){
+            	var $target = $(e.target);
+            	if($target.hasClass('subscribe-btn')){
+            		var oneDayTimes = 24*60*60*1000, dateNow = $!{dateUtils.now().getTime()};
+            		JRJ.ui.isLogin(function(){
+            			var dif = $target.attr('endtime') - dateNow;
+            			var showNotes = dif < oneDayTimes*10;
+
+            			var $parent = $target.parents('.refer-item');
+            			if($target.hasClass('sign-subscribe-btn')){
+    	            		var tipTitle = '$!{adviser.userName}：' + $parent.find('.tip-title').text();
+    	            		var tipOnline='', tipPriceNote='', tipButtons='<a id="btPay" href="javascript:void(0);" class="btn btn-89-31">立即支付</a>';
+            				#if(!${relation})
+    		        			tipOnline = '与该投顾签约后，就能享受签约优惠';
+    		        			tipButtons = '<a href="javascript:void(0);" class="btn btn-89-31" onclick="F.toSinging(\'$!{adviser.loginId}\')">立即签约</a>' + 
+    		        			'<a id="btPay" href="javascript:void(0);" class="btn btn-89-31 btn-reverse">原价订阅</a>';
+    		        		#elseif(${relation} && ${relation.tid}!=${adviser.loginId})
+    		        			tipOnline = '您已签约其他投顾，不能享受签约后价格';
+    		        			tipButtons = '<a href="/account/adviser/$!{relation.tid}/" class="btn btn-89-31 btn-reverse" target="_blank">看看签约了谁</a>' +
+    		        			'<a id="btPay" href="javascript:void(0);" class="btn btn-89-31">原价订阅</a>';
+   		        			#elseif(${relation} && ${relation.tid}==${adviser.loginId})
+   		        				tipPriceNote = '（您已签约，可享受价格优惠）';
+    		        		#end
+    		        		JRJ.Dialogs.standardDialog({
+    			                title: "订阅",
+    			                customClass: 'dialog-refer-subscribe',
+    			                width: 507,
+    			                content: ['<div class="dialog-cnt">',
+				                            	'<div class="refer-info clearfix">',
+				                            	'<div class="refer-pic">',
+				                                	'<img src="' + $parent.find('img').attr('src') + '" width="185" height="87" />',
+				                            	'</div>',
+				                            	'<div class="refer-desc">',
+				                                	'<p class="tit" data-cutoff="true" data-cutoff-limit="40" data-cutoff-ellipse="" title="' + tipTitle + '">' + tipTitle + '</p>',
+				                                	'<p class="mt15"><span class="expiration">服务期：' + $parent.find('.expiration').attr('begin-date') + " 至 " + $parent.find('.expiration').attr('end-date') + '</span></p>',
+				                                	'<p><span class="money">订阅价格：<span class="red">' + $target.attr('price-value') + '元' + tipPriceNote + '</span></span></p>',
+				                            	'</div>',
+				                        	'</div>',
+				                        	'<p class="note mt10">风险提示：此内容仅代表个人研究成果，供学习参考，不是投资依据，据此操作风险自担。</p>',
+				                        	'<div class="notice">' + tipOnline + '</div>',
+				                        	'<div class="btn-wrap">' + tipButtons + '</div>',
+				                    	'</div>'].join(''),
+    			                okBtnText: "确定",
+    			                cancelBtnText: "取消",
+    			                hasBtn:false,
+    			                hasCloseBtn: true,
+    			                hasOkBtn: true,
+    			                hasCancelBtn: false,
+    			                okCallback: function () { },
+    			                cancelCallback: function () { },
+    			                isFixed: true
+    			            });
+    		        		$('#btPay').click(function(){
+    		        			subscribeTips($target);
+    		        		});
+            			}else{
+            				subscribeTips($target);
+            			}
+		            });
+            	}
+            });          
+        });
+    </script>
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+	<!--footer end-->
+</body>
+</html>

@@ -1,0 +1,31 @@
+#foreach($member in $retunList)
+<div class="inquire-item-new inquire-item-new0 clearfix">
+	#set($temp=".jspa")
+    #set($temp="$member.id$temp")
+    <p><a class="" href="/ques/$temp" target="blank">$!member.textcontent</a></p>
+</div>
+<div class="inquire-reply-item-new clearfix mt20" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+    <div class="inquire-reply-item-new-left">
+        <div><span class="da"></span></div>
+    </div>
+    <div class="inquire-reply-item-new-right xh_right">
+    	#if($!{member.answer.textcontent.length()} > 100)
+	    #set($answercontent=$member.answer.textcontent.substring(0,100))
+	    #else
+	    #set($answercontent=$member.answer.textcontent)
+	    #end
+        <p class="inquire-reply-item-new-cnt"><a href="/ques/$temp">$!answercontent</a></p>
+    </div>
+</div>
+<div class="inquire-reply-item-new mt10 clearfix">
+    <div class="inquire-reply-item-new-left">
+        <div class="avatar-wrap"> <a href=""><img src="images/sample-5.jpg" width="25" height="25"></a> </div>
+    </div>
+    <div class="inquire-reply-item-new-right" style="width:600px;">
+        <div class="inquire-reply-item-new-title">
+             <span class="fr bg">$!member.answerTimes位投顾已回答</span>
+            <span class="name">$!member.answer.username</span><span class="fc">$!dateUtils.format($ans.ctime,"MM-dd HH:mm")回答</span>
+        </div>
+    </div>
+</div>
+#end

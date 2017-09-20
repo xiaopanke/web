@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Z量化高端定制服务版震撼上线</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link type="text/css" rel="stylesheet" href="http://js.jrjimg.cn/common/edition15/css/common2015.css" />
+<style>
+*{-webkit-tap-highlight-color:transparent;}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none; color: #fff; }
+a:active{background-color:transparent; }
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 16px/28px "Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; color: #e4e4e4; }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.enter{ font-size: 12px;}
+.in{ width:1000px; margin:0 auto;}
+
+body{min-width:1000px;background: #000c36; overflow-x: hidden}
+.show{ display: block !important;}
+
+.tooltip{ position: absolute;right: 5px;top: 8px;line-height: 20px;font-size: 12px;border: 1px solid red; border-radius: 8px;padding: 2px 4px; background:#fff;color: #000; }
+/*item1*/
+.item{ height: 1000px;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_01.jpg?c) no-repeat center;}
+.item2{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_02.jpg?c);}
+.item3{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_03.jpg?c);}
+.item4{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_04.jpg?c);}
+.item5{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_05.jpg?c);}
+.item6{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_06.jpg?c);}
+.item7{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_07.jpg?c);}
+.item9{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webg_09.jpg?c); height: 180px; position: fixed;bottom:0;width:100%;left:0;}
+.item7 .in{ padding-top: 760px;}
+.item7 a{ display: block;width:300px; height: 80px;margin: 0 auto;}
+/*弹层*/
+.mask {display: none;  position: fixed; width: 100%; height: 100%; background: #000; opacity: .6; filter: alpha(opacity=60); top: 0; left: 0; z-index: 20; }
+.layer{display:none;width: 636px;height: 325px;position: fixed;top: 50%;left: 50%;margin-top: -200px;margin-left: -317px;z-index: 21;color: #000;animation: haha .6s cubic-bezier(1,-0.49, 0, 1.5); color: #97d2ee; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/layweb.png);}
+@keyframes haha {
+from { transform: scale(6); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+.closebtn{ position:absolute;width:50px; height:50px; cursor:pointer;right: 0px;top: 0px; }
+
+.footer{ margin-bottom: 178px;}
+.item9 span{padding-left: 70px; font-size: 30px;color: #001c64; padding-right: 10px; line-height: 40px; float: left;}
+.item9 .in{ padding-top: 120px;}
+.item9 li{ position: relative;}
+.item9 input{padding-left: 10px; width:180px;font-size: 20px;color: #266a9d; padding-left: 10px; height: 40px; float: left; border:1px solid #4e77b1; border-radius: 3px; background:#7cb6e3;}
+.item9 a{width:200px; height: 50px; float: left; margin-left: 60px;}
+.sidebar{ width:70px; position: fixed;top:50%; margin-top: -100px;right:100px;}
+.sidebar a{ display: block;width:70px; height: 70px; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webside.png) no-repeat -70px -235px;margin-top: 13px;cursor: pointer; position: relative;}
+.sidebar .item-qq{ background-position: 0 -235px;}
+.sidebar .up{ background-position: -140px -235px; }
+.sidebar span{ width:207px; height: 227px; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/webside.png) no-repeat 0 0;position: absolute; top: -20px; left:-210px; display: none;}
+.layer_help{width:867px; height: 500px;padding:31px 56px 0;background:#fff;border-radius: 30px; margin-top: -260px;margin-left: -490px;  box-shadow: 0 0 0 10px rgba(198,169,71,0.33);}
+.helpin h3{width: 485px; height: 65px; margin:0 auto 30px; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170508ZDLH/help.png);}
+.layer_help .close_btn{background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/closehei.png) no-repeat center center;border:1px solid #000;border-radius: 50%;top:10px; right:10px;width:40px; height: 40px;background-size: 50% 50%; position: absolute;}
+.box{ height: 490px;overflow-y: auto;}
+.helpin .tit{ color: #001c65;font-size: 18px;font-weight: bold; line-height: 30px; margin-bottom: 10px;}
+.helpin .icon{width: 17px; line-height: 17px; background: #001c65;border:2px solid #ded19d;color:#ded19d;text-align: center; border-radius: 50%; font-size: 14px;font-weight: normal; margin-top: 5px;}
+.helpin p{ line-height: 30px;color: #616161;font-size: 18px; margin-bottom: 20px;}
+.helpin i{width:11px; height: 11px; border-radius: 50%;background: #ded19d;float: left;margin-top: 8px; margin-right: 3px;}
+.helpin b{line-height: 22px; border-radius: 3px;background: #256ec4;float: left;margin-top: 5px; margin-right: 3px; color: #fff; font-weight: normal; padding:0 2px;}
+</style>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <script src="http://js.jrjimg.cn/common/head/headTop.js"></script>
+
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+    <div class="item item3"></div>
+    <div class="item item4"></div>
+    <div class="item item5"></div>
+    <div class="item item6"></div>
+    <div class="item item7">
+        <div class="in">
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+    <div class="item item9">
+        <div class="in clearfix">
+            <ul class="fl">
+                <li class="clearfix userName fl">
+                    <span>姓名</span>
+                    <input type="text" name="userName" id="userName" maxlength="10">
+                </li>
+                <li class="clearfix phone fl">
+                    <span>手机</span>
+                    <input type="text" name="phone"  id="phone" maxlength="11">
+                </li>
+            </ul>
+            <a href="javascript:;" class="btn fl" ></a>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a class="item-qq" onclick="javascript: window.open('http://bizapp.qq.com/webc.htm?new=0&sid=800089887&o=b.qq.com&q=7', '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');" title="在线咨询"></a>
+        <a href="javascript:;" class="code"><span class="downimg"></span></a>
+        <a href="#" class="up"></a>
+    </div>
+    
+</div> 
+
+<div class="mask"></div>
+
+<!--抽中-->
+<div class="layer layer_cz">
+    <i class="closebtn"></i>
+</div>
+<div class="layer layer_help">
+    <i class="close_btn"></i>
+    <div class="box">
+        <div class="helpin">
+            <h3></h3>
+            <div class="tit"><span class="fl icon">1</span>【Z量化】如何使用？担心订阅后不会操作怎么办？</div>
+            <p>订阅并确认开通成功后，可以在金融界APP-【智能选股】-【Z量化】产品中查看，可以在该页面查看组合整体的收益曲线、当前的总收益、最大回撤、最新调入、最新调出、当前持仓股票池等内容，用户可以根据组合调仓记录来辅助自己做投资决策，帮助自己更好地进行投资。Z量化产品中会展示每只股票调入或调出成功的价格、仓位、时间，一看就清楚，不用担心订阅后不会操作。</p>
+            <p>此外，Z量化投顾智囊团将为VIP用户，通过视频指导、图文介绍、盘中连线交流等多种方式，提供交易日盘中盘后交流指导，通过专家式解盘诊股、陪伴式指导、强化式训练等多种形式，带领VIP用户高效使用Z量化，提升操盘技巧，高效把握市场机会。</p>
+            <div class="tit"><span class="fl icon">2</span>订阅【Z量化】以后，在哪里可以查看？</div>
+            <p>目前【Z量化】产品只有手机端，只需下载并登录金融界APP，点击底部标题栏的“智能选股”—“Z量化”即进入功能界面，即可立即体验Z量化智能选股策略。</p>
+            <div class="tit"><span class="fl icon">3</span>【Z量化】更新时间是什么时候？</div>
+            <p>每个交易日收盘后16:00点左右更新数据。</p>
+            <div class="tit"><span class="fl icon">4</span>为什么【Z量化】是每天收盘后更新，不是盘中更新？</div>
+            <p><i></i>按照经典的道氏理论观点，收盘价是所有价格中最关键的价格，对判断趋势至关重要；</p>
+            <p><i></i>Z量化是通过每交易日70亿次的计算，对沪深两市3000只股票、十年数据进行深度回溯和自动学习，生成高收益、低风险的量化调仓系统，运算数据量非常大，测算股价趋势，需要运算时间；</p>
+            <p><i></i>盘后测算还有一个关键好处：去除盘中价格频繁波动，克服干扰，克服人性中恐惧、贪婪的弱点。</p>
+            <div class="tit"><span class="fl icon">5</span>没有时间盯盘，担心跟不上【Z量化】的操作？</div>
+            <p><i></i>Z量化产品的调仓操作是每天16:00点给出次日操盘策略，拒绝盘中提示的马后炮嫌疑；</p>
+            <p><i></i>每天在收盘后16:00点，Z量化产品会发出消息通知提醒用户，用户可通过点击弹出的消息查看，也可通过点击金融界首页右上方的消息按钮进入进行查看，点击对应的消息，即可进入策略详情页进行后续操作。</p>
+            <div class="tit"><span class="fl icon">6</span>Z量化产品适合什么类型的用户？</div>
+            <p>答：主要适合以下用户：</p>
+            <p><i></i>自主投资能力不足，目盲跟风，追涨杀跌，情绪化操作。</p>
+            <p><i></i>心仪的股票不知何时买，没有仓位管理和风险控制能力。</p>
+            <p><i></i>愿意接受智能投资方式，获取有价值的辅助决策信息。</p>
+            <div class="tit"><span class="fl icon">7</span>Z量化的收益率是怎么计算的？</div>
+            <p>当日收益率= 当日所有持仓股票的盈亏和/上个交易日的总资产*100% </p><p>T日总收益 = 1*(1+r1)*(1+r2)*...*(1+rT)-1，其中ri为第i日的当日收益率</p>
+            <div class="tit"><span class="fl icon">8</span>遇到问题后可以从哪里获取到相关帮助？</div>
+            <p>每位VIP客户都有专属的投顾助理为您服务，建议您优先联系您的专属投顾助理，能在第一时间为您解答。此外还可以拨打客服电话400-166-1188。</p>
+            <div class="tit"><span class="fl icon">9</span>Z量化产品相关专有名字解释：</div>
+            <p><b>最大回撤</b>：一般用来衡量公募基金、私募基金或者量化投资策略的抗风险能力。回撤的意思是指在某一时段内产品净值或者收益从最高点开始回落到最低点的幅度，通常用来描述投资者可能面临的最大亏损。</p>
+            <p><b>盈亏比</b>：指在投资市场里每次交易的盈利和亏损的比例。公式：盈亏比=一段时间所有投资盈利单的盈利之和/相同时间段所有亏损单的亏损之和。Z量化的盈亏比高达是2:1。</p>
+            <p><b>量化交易</b>：也称为算法交易，是严格按照计算机算法程序给出的买卖决策进行的证券交易。大家容易把量化交易与技术分析混淆，实际上量化交易的内容丰富的多。许多量化交易系统在进行建模和运算的时候会用到基本面数据，比如估值、市值、现金流等，还有的算法将新闻作为变量进行计算。而技术分析基本只需要用到交易标的的量价数据。</p>
+            <p><b>智能投顾</b>：智能投顾这个词，同样来源于美国，ROBO-ADVISOR（机器人顾问），一般来讲智能投顾就是人工智能＋投资顾问的结合体。</p>
+            <p>人工智能通过算法和模型定制风险资产组合，通过大数据识别用户风险偏好，利用互联网对用户资产配置方案进行实时跟踪调整，不追求不顾风险的高收益，实现用户能够接受风险范围内收益最大化。</p>
+            <p>与传统投资顾问一样智能投顾依然承担者用户和金融产品之前的桥梁作用，在智能选股领域，计算机还无法完全取代人，关键时刻还是需要人依靠专业经验来做决策，在一段时间内，智能投顾都会保持人工智能+专业经验的状态。</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        window.dcsMultiTrack('DCS.dcsuri', 'ZDLH', 'WT.ti', 'ZDLH');
+        $('.code').hover(function(){
+            $(this).find('span').show();
+        },function(){
+            $(this).find('span').hide();
+        });
+        $('.closebtn').each(function(){
+            $(this).click(function(){
+                $('.mask,.layer').hide();
+            });
+        });
+        var srolltop;
+        $('.item7 a').click(function(){
+            $('.mask,.layer_help').show();
+                srolltop=$('body').scrollTop();
+                $('.layer_my,.mask').show();
+                $('body,html').css({
+                    'position':'fixed',
+                    'z-index':'-1',
+                    'width':'100%',
+                    'top':-srolltop+'px'
+                })
+        });
+        $('.close_btn').click(function(){
+            $('.mask,.layer').hide();
+           $('body,html').css({
+                'position':'static',
+                'z-index':'-1'
+            })
+           $('body').scrollTop(srolltop);
+        });
+        //小提示框
+        var tooltip;
+        var showTooltip = function(el, text){
+            tooltip = $('<i class="tooltip">'+text+'</i>');
+            $('.tooltip').removeClass('show');
+            if (el.find('i').length == 0) {
+                el.append(tooltip);
+            }else{
+                el.find('i').text(text);
+            }
+            setTimeout(function () {
+                el.find('i').remove();
+            }, 1000);
+            
+        };
+        $(".item9 a").bind("click",function(){
+           var userName = $("#userName").val();
+           var phone = $("#phone").val();
+
+           
+           if(userName==''){
+               showTooltip($('.userName'), '姓名不能为空！');
+               return;
+           }
+           if(phone==''){
+                showTooltip($('.phone'), '手机号不能为空！');
+                return;
+           }else{
+                var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+                if (!reg.test(phone)) {
+                      showTooltip($('.phone'), '手机号输入不正确！');
+                      return;
+                }
+           }
+            //ajax提交
+            $.ajax({
+               url:'http://itougu.jrj.com.cn/marketing/insertZq.jspa',
+               type:"POST",
+               dataType : "json",
+               data:{
+                    type:5,
+                    term:1,
+                    name:userName,
+                    mobile:phone
+                },
+               success:function(data) {
+                    if(data.success == true){
+                        $('.mask,.layer_cz').show();
+                    }else if(data.success == false){
+                        alert(data.msg);
+                    }
+               },
+               error : function(v) {
+                 alert("网络异常！");
+               }
+            });
+
+       });
+    });
+</script>
+</body>
+</html>
+
+
+

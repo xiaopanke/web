@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投顾注册-爱投顾-金融界</title>
+    <meta name="keywords" content="投顾注册-爱投顾-金融界" />
+    <meta name="description" content="投顾注册-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css_js.html" -->
+
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.bgiframe.min.js"></script>
+	
+	<!--/loginInfo-->
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/json2.js"></script>
+	<!--search use-->
+	
+	
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/upload.js"></script>
+    <script type="text/javascript">
+        $(function () {
+        var tempImage = "$!{apply.headImage}";
+        if(tempImage == "http://i5.jrjimg.cn/sys/default_m.jpg"){
+        
+           $("#max1").attr("src","http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg");
+        	$("#max2").attr("src","http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg");
+        	$("#mid").attr("src","http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg");
+        	$("#min").attr("src","http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg");
+        }
+        
+        if($("#headImage").val()!="" && $("#headImage").val() != "http://i5.jrjimg.cn/sys/default_m.jpg"){
+        	$("#max1").attr("src",$("#headImage").val());
+        	$("#max2").attr("src",$("#headImage").val());
+        	$("#mid").attr("src",$("#headImage").val());
+        	$("#min").attr("src",$("#headImage").val());
+        	 $("#head_image_id").hide();
+        }
+        if($("#identityImage").val()!=""){
+        	$("#cardId").attr("src","http://js.jrjimg.cn/zqt-red-1000/images/img-success.jpg");
+        	$("#identity_image_id").hide();
+        }else{
+        	$("#cardId").attr("src","http://js.jrjimg.cn/zqt-red-1000/images/sample-3.jpg");
+        	//$("#identity_image_id").show();
+        }
+
+            $('#upload-fake1').click(function (e) {
+                  //................
+             e.preventDefault();
+             JRJ.Dialogs.iframeDialog({
+                    content: [''].join(''),
+                    loadingImg: '',
+                    width: 760,
+                    
+                    hasBtn: false,
+                    hasOkBtn: false,
+                    okBtnText: '',
+                    title: '上传头像',
+                    titleRight: '',
+                    bottomContent: '',
+                    protocolHtml: '',
+                    hasCancelBtn: false,
+                    enableKeyCtrl: true,
+
+                    //ifrSrc: 'http://js.jrjimg.cn/itougu/account/dlg-flashupload.html',
+                    ifrSrc:'/account/dlg-flashupload.jspa',
+                    ifrReHeight: true,
+                    isFixed: true,//defaultCf.isFixed,
+                    okCallback: function () {
+                    },
+                    cancelCallback: function () {
+
+                        return true;
+                    }
+                });
+                 window.updateImgs = function (filename) {
+                $(window.parent.document).find('#max1').addClass('img-blur').attr({ 'src': filename });
+                $("#headImage").val(filename);
+                $(window.parent.document).find('.pic-upload-result img').addClass('img-blur').attr({ 'src': filename });
+                $("#head_image_id").hide();
+                setTimeout(function () {
+                    $(window.parent.document).find('.pic-upload-result img').removeClass('img-blur');
+                }, 500);
+            };
+                //...............
+                //$('#File1').click();
+               // $('#File1').change(function(){
+               //	 	$("#uphead").submit();
+              //  });
+            });
+            
+            window.OnUploadFinished = function(filename){
+            	$('#identityImage').val("http://idpic.jrjimg.cn"+filename);
+            	$('#identityImage').attr({'src':"http://js.jrjimg.cn/zqt-red-1000/images/img-success.jpg"});
+            	$('#identity_image_id').hide();
+            	$('#cardId').attr({'src':"http://js.jrjimg.cn/zqt-red-1000/images/img-success.jpg"});
+            };
+            
+            //$('#upload-fake2').click(function (e) {
+            	//e.preventDefault();
+                //$('#File2').trigger('click');
+            //});
+            
+                 $('#File2').change(function(){
+                   var fileValue = $(this).val();
+                    if(fileValue == "" || fileValue == undefined){
+                      return false;
+                   }
+
+                   var file_name = fileValue.substr(fileValue.lastIndexOf(".")+1).toLowerCase();
+                   var pic_type = ['jpg','gif','png','jpeg'];
+                   var exist = $.inArray(file_name, pic_type);
+                   if(exist == -1){ 
+                      $('#cardId').attr({'src':"http://js.jrjimg.cn/zqt-red-1000/images/sample-3.jpg"});
+                      $("#identity_image_id").text("请选择正确的图片格式");
+                      $("#identity_image_id").show();
+                     return false;
+                   }else{
+                   
+                     $("#identity_image_id").hide();
+                   }
+                   
+                   $("#upcard").submit();
+                });
+               
+        });
+       
+       window.uploadImage = function(){
+       		JRJ.MiniAlerts.prompt({trigger: '#cardId', message: "<p>身份证上传成功</p>" });
+       }
+       
+        function next_3(){
+           if($("#headImage").val()=='' || $("#headImage").val() == 'http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg' || $("#headImage").val() == 'http://i5.jrjimg.cn/sys/default_m.jpg'){
+        	   //alert("头像不能为空,请上传后再提交");
+        	   //JRJ.MiniAlerts.prompt({target:'#upload-fake1',message:'身份证不能为空,请上传后再提交'});
+        	   $("#head_image_id").show();
+        	   return;
+        	}
+        	
+        	if($("#identityImage").val()==''){
+        	  // alert("身份证不能为空,请上传后再提交");
+        	   //JRJ.MiniAlerts.prompt({target:'#upload-fake2',message:'头像不能为空,请上传后再提交'});
+        	   $("#identity_image_id").show();
+        	   return;
+        	}
+        	
+        	$("#form_1").submit();
+        	
+        }
+        
+   </script>
+</head>
+<body>
+	<form method="post" id="form_1" action="/account/applyExpert_3.jspa">
+	<input type="hidden" name="headImage" id="headImage" value="$!{apply.headImage}"/>
+	<input type="hidden" name="identityImage" id="identityImage" value="$!{apply.identityImage}" />
+	 
+	</form>
+   <!--# include virtual="/site_top_header.html" -->
+
+    <div class="page-title">
+        <div class="wrapper">
+            <h1>
+                <span>投资达人注册</span>
+                <a href="/account/applyAdviser.jspa" target="_blank" class="link">投顾注册</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-single-cnt">
+                <div class="steps-wrap steps-wrap-2">
+                    <div class="step-item step-item-2"></div>
+                    <div class="step-text clearfix">
+                        <span class="past">录入个人信息</span>
+                        <span class="past">上传照片</span>
+                        <span>填写您的擅长领域</span>
+                        <span class="last">注册完成</span>
+                    </div>
+                </div>
+               <!-- <form id="uphead" enctype="multipart/form-data" action="http://upfile.jrj.com.cn/upload" method="post" target="uploadimgw"> -->
+               	<form id="uphead" enctype="multipart/form-data" action="http://up1.jrj.com.cn/upload" method="post" target="uploadimgw">
+               	 <input type="hidden" name="channel" value="thead_attach" >
+               	   
+			       <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://itougu.jrj.com.cn/account/uploadImg.jspa" >
+			        <!--
+			       <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://itougu.jrj.com.cn:8080/account/uploadImg.jspa" >
+			       -->
+			       <input type="hidden" name="imageFormats" value="150,75,50"/>
+			       <input type="hidden" name="sizeMax" value="10485760"/>
+			       <input type="hidden" name="sizisNeedGenScaleseMax" value="isNeedGenScales"/>
+                <h2 class="block-title mt30">上传头像</h2>
+                <div class="pic-upload clearfix">
+                	<div class="fl">
+                		<img id="max1" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" class="example fl" width="150" height="150" />
+                		<p class="red" style="display:none;clear: both;" id="head_image_id">头像不能为空</p>
+                	</div>
+                    <div class="pic-upload-info">
+                        <p class="field mt30">建议使用能展现个人风采的真实照片，如您在社交网站有较高知名度，也可使用同样头像：</p>
+                        <p><b>格式要求：</b>支持.jpg .gif .png格式照片，大小不超过10M。</p>
+                        <p class="mt10">
+                          <a href="javascript:void(0);" class="btn btn-79-25" id="upload-fake1">上传照片</a>
+					<!--	  <input id="File1" type="file" name="filename" style="display:none;" />-->
+                        </p>
+                    </div>
+                    <div class="pic-upload-result clearfix">
+                        <div class="result-1">
+                            <img id="max2" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" width="150" height="150" />
+                            <p>大</p>
+                        </div>
+                        <div class="result-2 tc">
+                            <img id="mid" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" width="75" height="75" />
+                            <p>中</p>
+                            <img id="min" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" width="50" height="50" class="mt30" />
+                            <p>小</p>
+                        </div>
+                    </div>
+                </div>
+                <iframe frameborder="0" scrolling="no" width="0" height="0" name="uploadimgw" id="uploadimgw" target="_self" style='display:none'></iframe>
+                </form>
+                
+                <form id="upcard" enctype="multipart/form-data"  action="http://up3.jrj.com.cn/upload" method="post" target="uploadimgw_1">
+                <input type="hidden" name="sizeMax" id="sizeMax" value="10485760" />
+                 <input type="hidden" name="channel" id="channel" value="tcard_attach"/>
+                 
+                 <input type="hidden" name="returnUrl" id="returnUrl_normal" value="http://itougu.jrj.com.cn/account/uploadImg.jspa"/>
+                 <!-- 
+                 <input type="hidden" name="returnUrl" id="returnUrl_normal" value="http://itougu.jrj.com.cn:8080/account/uploadImg.jspa"/>
+                 -->
+                 <input type="hidden" id="cardPath" value="1"/>
+                <h2 class="block-title mt30">上传身份证照片</h2>
+               
+                <div class="pic-upload clearfix">
+                    <div class="fl">
+                		<!-- <img id="cardId" src="http://i0.jrjimg.cn/zqt/sample-3.jpg" class="example fl" width="200" height="150" />-->
+                		 <img id="cardId" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-3.jpg" class="example fl" width="200" height="150" />
+                		<p class="red" style="display:none;clear: both;" id="identity_image_id">身份证照片不能为空</p>
+                	</div>
+                    <div class="pic-upload-info" style="width: 540px;">
+                        <p class="field">身份证上传要求：</p>
+                        <p class="mt10">照片或扫描件必须本人手持身份证，保证头像清晰可辨认，保证身份证信息清晰可见</p>
+                        <p><b>格式要求：</b>支持.jpg .gif .png格式照片，大小不超过10M</p>
+                         <p class="mt20">
+                            <a class="btn btn-79-25 file-control" id="upload-fake2">
+                                上传照片
+                                <input id="File2" type="file" name="filename" class="file-control-input" />
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <iframe frameborder="0" scrolling="no" width="0" height="0" name="uploadimgw_1" id="uploadimgw_1" target="_self" style='display:none'></iframe>
+                </form>
+                <div class="btn-wrap tc btn-wrap-border">
+                    <a href="/account/applyExpert.jspa" class="btn btn-123-40 mr30">上一步</a>
+                    <a href="javascript:void(0);" class="btn btn-123-40" onclick="next_3();">下一步</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

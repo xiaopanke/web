@@ -1,0 +1,208 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>风险测评</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-m/quanerong/qer_base.css" />
+<style>
+body{background: #fff}
+.con{ margin-top: -.5rem; }
+.list{border-top:.5rem solid #efeff4; padding-top: .7rem; padding-bottom: .675rem;  }
+.hd{ padding:.3rem 1rem ;line-height: 1.1rem; font-size:.8rem; font-weight: normal;}
+.bd{ background: #fff; }
+.bd li{ padding:.3rem 1rem .3rem 1.5rem; }
+.icon{border: 1px solid #B2B2B2;border-radius: 50%; float:left; margin-right: .6rem;width:.8rem; height:.8rem; margin-top: 2px; }
+.sel{ background: #F8F8F8;}
+.sel .icon{ background: url(https://i0.jrjimg.cn/zqt-m/quanerong/icon.png) no-repeat; background-size:100% 100%; border-color: #3996F2;  }
+.txt{ line-height: 1.1rem; width:13rem; float: left;font-size:.8rem; color: #666; }
+.ok{ background: #3996F2; }
+.focus-dlg {position:fixed;top:0;left:0;width:100%;height:100%;z-index:2000;opacity:0;visibility:hidden;-moz-transform:scale(.5);-ms-transform:scale(.5);-o-transform:scale(.5);-webkit-transform:scale(.5);transform:scale(.5);-moz-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);-o-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);-webkit-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);transition:transform .3s cubic-bezier(.17,.67,.42,1.22);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;}
+.md-dialog-show .focus-dlg {visibility:visible;opacity:1;-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);-webkit-transform:scale(1);transform:scale(1); }
+.md-dialog-show .md-overlay {opacity:1;visibility:visible;-moz-transition:all 1s;-o-transition:all 1s;-webkit-transition:all 1s;transition:all 1s;}
+.md-overlay {position:fixed;width:100%;height:100%;visibility:hidden;top:0;left:0;z-index:1000;opacity:0;background:rgba(0,0,0,0.75);filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#50000000',EndColorStr='#50000000');-webkit-transition:all .3s;-moz-transition:all .3s;transition:all .3s;}
+.focus-dlg .in{ width:16.75rem;background: #fff;border-radius: 4px; position:relative; }
+.focus-dlg p{padding-top: 1.5rem; padding-left: 3rem; font-size:.7rem;}
+.focus-dlg p span{font-size:1rem; font-weight:bold;}
+.focus-dlg b{font-size:.7rem; line-height: 2.7rem;display: block;padding-left: 3rem; font-weight:normal;}
+.focus-dlg a{ font-size:.7rem; font-size:.8rem;display: block;text-align:center; color: #3996F2; line-height: 2.5rem; position: relative; margin-top: 1rem;}
+.focus-dlg a:before{content: ''; display: block; position: absolute;left:0;top:0; width: 200%;border-top: 1px solid #d5d5d5; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;  }
+.focus-dlg .dlgbtn{ width:1.3rem; height:1.3rem; position:absolute; top:.5rem; right:.5rem; background: url(https://i0.jrjimg.cn/zqt-m/quanerong/close.png); border-radius:50%; background-size: 100% 100%;}
+</style>
+<script src="qer_base.js"></script>
+<body>
+    <div class="con">
+        <div class="timu">
+            <!---
+            <div class="list">
+                <h3 class="hd">1.（<i>单选</i>）您的家庭年收入情况：</h3>
+                <ul class="bd">
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix sel">
+                        <em class="icon"></em>
+                        <span class="txt">E. 10-50万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="list">
+                <h3 class="hd">2.（单选）最近您家庭预计进行证券投资的资金占家庭的比例是：</h3>
+                <ul class="bd">
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix sel">
+                        <em class="icon"></em>
+                        <span class="txt">E. 10-50万元话说的撒娇就回答啥合适的话回家撒花大叔的金卡收到货</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
+    
+    <span class="btn red">提交</span>
+    <div class="focus-dlg">
+        <div class="in">
+            <i class="dlgbtn"></i>
+            <p>您的风险评测结果为：<span>进取型</span></p>
+            <b>已符合券e融开通资质</b>
+            <a href="javascript:;" class="">下一步</a>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+    <!--错误弹窗，一会儿消失-->
+    <div class="tiperror"></div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>  
+<script>
+    $(function(){
+        var v;
+        setTimeout(function(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/sapi/v2/quaneeerong/getRishQuestions',
+                params: {},
+                callback: 'dispatch'
+            }));  
+        },100);
+        
+        /*
+        $.ajax({
+            type: "GET",
+            url: "/sapi/v2/quaneeerong/getRishQuestions",
+            dataType: "json",
+            success: function(text) {
+                dispatch(text);
+            }
+        });
+        */
+        window.dispatch = function (text) {
+            setTimeout(function(){
+                v = convertToJsonObject(text);
+                if(v.retcode==0){
+                    lati(v.data);
+                }
+            },10);
+        };
+               
+        function lati(data){
+            var tiarr=data.questions;
+            var len=tiarr.length;
+            var tistr=''
+            for(var i=0;i<len;i++){
+                var obj=tiarr[i];
+                tistr+='<div class="list"><h3 class="hd">'+obj.code+'.（<i>'+obj.type+'</i>）'+obj.text+'</h3><ul class="bd">';
+                for(var j=0;j<tiarr[i].choices.length;j++){
+                    tistr+='<li class="clearfix"><em class="icon"></em><span class="txt">'+tiarr[i].choices[j].choice+'. '+tiarr[i].choices[j].text+'</span></li>';
+                }
+                tistr+='</ul></div>';
+            }
+            $('.timu').html(tistr);
+            $('.timu h3 i').each(function(){
+                if($(this).html()=='0'){
+                    $(this).html('单选');
+                }else{
+                    $(this).html('复选');
+                }
+            });
+        }
+        //点击选题
+        $('.timu').on('click','li',function(){
+            $(this).parent('ul').find('li').removeClass('sel');
+            $(this).addClass('sel');
+        });
+
+        var phone=$('.phone input');
+        var btn=$('.btn');
+
+        btn.click(function(){
+            var ansstr='';
+            for(var i=0;i<$('.timu .list').length;i++){
+                    if($('.timu .list').eq(i).find('.sel').index()==-1){
+                       tiperror('请填写第'+(i+1)+'题');return; 
+                    }
+                ansstr+=($('.timu .list').eq(i).find('.sel').index()+1)+'|';
+            }
+            setTimeout(function(){
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'post',
+                    url: domain+'/sapi/v2/quaneeerong/submitRish',
+                    params: {"answers":ansstr},
+                    header:{'Content-Type':'application/json'},
+                    callback: 'callbacksubmit'
+                }));
+            },100);
+            window.callbacksubmit = function (text) {
+                setTimeout(function(){
+                    var d = convertToJsonObject(text);
+                    //var arrtxt=['安全型','保守型','稳健型','积极型','进取型'];
+                    $('.focus-dlg .in span').html(d.data.levelName);
+                    $('body').addClass('md-dialog-show');
+                    if(d.data.levelName=='积极型' || d.data.levelName=='进取型'){
+                        $('.focus-dlg b').html('已符合券e融开通资质');
+                        $('.focus-dlg a').html('下一步');
+                        $('.focus-dlg a').unbind().click(function(){
+                            window.location.href = 'qer_qsxieyi.html';
+                        });
+                    }else{
+                        $('.focus-dlg b').html('尚不符合券e融开通资质');
+                        $('.focus-dlg a').html('重新测评');
+                        $('.focus-dlg a').unbind().click(function(){
+                            window.location.reload();
+                        });
+                    }
+                },10);
+            };
+        });
+
+        
+    });
+    $('.dlgbtn').click(function(){
+        $('body').removeClass('md-dialog-show');
+    });
+
+</script>   
+</body>
+</html>

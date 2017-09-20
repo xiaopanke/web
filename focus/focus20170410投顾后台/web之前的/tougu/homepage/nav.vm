@@ -1,0 +1,37 @@
+				<ul class="m-nav">
+					#if(${nav}==0)                          
+					<li><a href="javascript:void(0);" class="on">TA的主页</a></li> 
+					#else                                            
+					<li><a href="/account/adviser/$!{adviserId}/">TA的主页</a></li>
+					#end
+					#if(${nav}==3)
+					<li><a href="javascript:void(0);" class="on">直播</a></li>
+					#else
+					<li><a href="/account/adviser/$!{adviserId}/3">直播</a></li>
+					#end
+					#if(${nav}==4)
+					<li><a href="javascript:void(0);" class="on">组合跟投</a></li>
+					#else
+					<li><a href="/account/adviser/$!{adviserId}/4">组合跟投</a></li>
+					#end
+					#if(${nav}==2)
+					<li><a href="javascript:void(0);" class="on">回答</a></li>
+					#else
+					<li><a href="/account/adviser/$!{adviserId}/2">回答</a></li>
+					#end
+					#if(${nav}==6)
+					<li><a href="javascript:void(0);" class="on">鉴股</a></li>
+					#else
+					<li><a href="/account/adviser/$!{adviserId}/6">鉴股</a></li>
+					#end
+					#if(${nav}==1)
+					<li><a href="javascript:void(0);" class="on">观点</a></li>
+					#else
+					<li><a href="/account/adviser/$!{adviserId}/1">观点</a></li>
+					#end
+					#if(${nav}==5)
+					<li><a href="javascript:void(0);" class="on">${tipsDesc}</a>
+					#else
+					<li><a href="/account/adviser/$!{adviserId}/5">${tipsDesc}</a>
+					#end
+				</ul>

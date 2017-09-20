@@ -1,0 +1,16 @@
+{
+ "retCode":"0",
+ "msg":"",
+ "myTeam":{
+  "teamId": 1,
+  "teamName": "股往今来代表最强",
+  "advantageDesc": "5倍红包",
+  "teamProfit": 30.02,
+  "teamRank": 1,
+  "membersNum": 8773,
+  "tradeCapital": 300.32,
+  "tgId": 1111111111111,
+  "tgName": "紫气东来",
+  "tgImgUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg" 
+ }
+} 

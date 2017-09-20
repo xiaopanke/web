@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>名师教学专栏</title>
+<link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/slide.css">
+<style>
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td,i { margin: 0; padding: 0;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; background: #ffffff; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none;}
+
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font:20px/1rem 'Microsoft Yahei'; color: #333;}
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+body{ color:#333;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+
+
+/*item1*/
+.item2{ height:14.15rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5bg_1.jpg) no-repeat center; background-size: 100% 100%;}
+.item2 ul{padding-top: 9.4rem; width:17.4rem; margin:0 auto;}
+.item2 li{ float: left; width:5.7rem; line-height: 1.4rem;background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/btnbg2.png) no-repeat;  background-size: 100% 3rem; }
+.item2 .li_c{ margin:0 2px;}
+.item2 li a,.item2 li span{display: block;text-align: center;color: #fce4bb;font-size: .6rem;}
+.item2 .cur{ background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/btnbg2.png) no-repeat 0 -1.7rem; font-weight: bold;color:#935715; background-size: 100% 3rem;}
+.item2 .baodao{ margin-top: .4rem; line-height: 1.5rem; color: #ffe8c7;font-size: .5rem;padding-left:1rem;}
+/*item3*/
+.item3{ }
+.inper{ position: relative;}
+.inper .up { position: relative; padding-bottom: 2.5rem;background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5bg_2.jpg) no-repeat center center; background-size: 100% auto}
+.inper .upl{ background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5bg_3.jpg); background-color:#10030a;}
+.inper .up .pic{width:8rem;}
+.inper .up .pic img{ width: 100%}
+.inper .up .txt{ width:12rem; position: absolute;top: 0;right: .3rem;}
+.inper .up h3{ font-size:.8rem; line-height: 2rem; padding-top: .75rem;font-weight: bold; text-shadow: 0 0 10px  #946736}
+.inper .up h3 a{color: #feebac;}
+.inper .up ul { }
+.inper .up ul li{ }
+.inper .up ul span{width:1.25rem; height: 1.2rem; line-height: .5rem; text-align: center; padding-top: 2px; border-radius: 50%;color: #fff6da; background: #cc7e24; font-size: .4rem} 
+.inper .up ul div{ line-height: 1.5rem;font-size: .5rem;color: #feebac; width:10.25rem; font-size: .5rem;}
+.inper .up ul  i{ display: inline-block; width:.7rem; line-height: .6rem; border-radius: 1px; color: #1e0a0c;background: #cc7e24;text-align: center; font-size: .6rem;}
+.inper .up ul .li_c  span{margin-top: 2px;}
+.inper .up ul .li_c div{ line-height: .8rem; }
+.inper .up .stubtn{ width:6.5rem ; line-height:1.6rem; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/btnbg.png) no-repeat; text-align: center;font-size:.7rem ;color:#fff; display: block; position: relative;z-index: 2; background-size: 100% 100%;  margin-left: 1.6rem ;margin-top:.4rem;}
+.inper .up .dec{ position: absolute;bottom:.3rem;left:50%; margin-left: -8.625rem; width:17.25rem; }
+.inper .up .dec h4{ font-size: .9rem;line-height: 1.8rem; font-weight: normal;width:5rem; }
+.inper .up .dec div{background:rgba(239,196,103,.17); border-radius: 4px; padding:.2rem .3rem; line-height:.75rem; font-size: .5rem; }
+ .inper .up .dec div a{ font-size:.5rem !important;}
+.inper .up .dec  a{color:#cd9a4d;}
+.inper .bt{ position: relative;}
+.inper .bt h3{ line-height: 1.3rem; padding-top: 2px; font-size:.6rem;color:#fae7cf;margin-bottom: .5rem;}
+.swiperbox{background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/sliderbg.png); background-size: 100% 100%; height: 10.875rem; padding:0 .75rem; }
+.swiper-container{  padding:.25rem .5rem 0;}
+.swiper-wrapper img{ width:100%;}
+.swiper-wrapper  p{color:#a36a23; font-size: .6rem;height: 1.9rem;}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:-.8rem;}
+.swiper-pagination-bullet{ background:#f1d5b0;}
+.swiper-pagination-bullet-active{ background:#a2671e;}
+.inper .bigbg_l{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/webbg_06.png);left: -850px; }
+.inper03  .up{ padding-bottom: 20px;}
+.inper03 .up .pic{ margin-top: 0;}
+.inper03 .up .dec{ bottom: 10px;}
+.list{ display: none;}
+.item4{ background:#cd8936 url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5bg_4.jpg) no-repeat top center; background-size: 100% auto; padding-top: 6rem;}
+
+.prizebox { width:17.25rem; height:16.375rem; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/prizebg.png) no-repeat;box-shadow: 0px 0px 13px #404040;border-radius: .6rem; background-size: 100% 100%; margin:0 auto}   
+.prizebox h3{ text-align: center; line-height:1.5rem; color:#821800; font-size: .8rem; font-weight: normal;}     
+.lottery-wrap {  position:relative;}
+.lottery-wrap .item {position: absolute;width: 4.825rem;height: 3.625rem; background-size:15rem 15rem;border-radius: 4px;color: #fff;}
+.lottery-wrap .item-1{top: 1rem;left: .95rem;}
+.lottery-wrap .item-2{top: 1rem;left: 6.1rem;}
+.lottery-wrap .item-3{top: 1rem;left: 11.2rem;}
+.lottery-wrap .item-4{top: 5.25rem;left:11.2rem;}
+.lottery-wrap .item-5{top:9.45rem;left: 11.2rem;}
+.lottery-wrap .item-6{top: 9.45rem;left: 6.1rem;}
+.lottery-wrap .item-7{top: 9.45rem;left:.95rem;}
+.lottery-wrap .item-8{top:5.25rem;left:.95rem;}
+.lottery-wrap .item-cur i{background: #fff;width: 5rem;height: 3.661rem;position: absolute;top: -4px;left: 0;border-radius: 10px;z-index: 3;}
+.lottery-wrap .btn_lottery {padding-top: .7rem;color: #ea8008;position: absolute;width: 4.825rem;height: 3.375rem;line-height: 1.4rem;text-align: center;font-size: 1.4rem;font-weight: bold;top: 4.8rem;left: 6.1rem;border-radius: 2px;cursor: pointer;background-size: 15rem 15rem;}
+.lottery-wrap .btn_lottery:active { color:#eb100e; }
+.lottery-wrap .dis { color:#8b8b8b; }
+.lottery-wrap .inner { background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/prizeimg.png) no-repeat 0 .15rem; background-size:4.825rem 26rem;  height:3.525rem; position:relative;z-index:4;}
+.lottery-wrap .item-2 .inner {  background-position:0 -3.2rem;}
+.lottery-wrap .item-3 .inner {  background-position:0 -6.4rem;}
+.lottery-wrap .item-4 .inner {  background-position:0 -9.65rem;}
+.lottery-wrap .item-5 .inner {  background-position:0 -12.9rem;}
+.lottery-wrap .item-6 .inner {  background-position:0 -16.1rem;}
+.lottery-wrap .item-7 .inner {  background-position:0 -19.3rem;}
+.lottery-wrap .item-8 .inner {  background-position:0 -22.6rem;}
+.item4fr{ width:17.25rem; margin:.5rem auto 0;padding-bottom: 1.8rem; }
+.item4 .guize{border-radius: .4rem;background: #935205;padding: .5rem;position: relative;}
+.item4 .guize h4{ width: 3.5rem;line-height: 1rem;background: #c47e2d;color: #ffe4c3;text-align: center;margin: 0 auto .25rem;font-size: .7rem;font-weight: normal;}
+.item4 .guize span{float: left;width: .6rem;line-height: .6rem;background: #e5b880;border-radius: 50%;color: #935205;text-align: center;margin-top: 4px;font-size: .7rem;}
+.item4 .guize p{width: 15.3rem;float: right;color: #e5b880;line-height: .9rem;font-size: .6rem;}
+.item4 .guize div{line-height: .9rem;background: #c47e2d;color: #ffe4c3;padding-left: .4rem;margin-top: .3rem;font-size: .7rem;}  
+.item4 .guize  .myprizebtn{ position: absolute;top:8px; right:12px;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/icon.png) no-repeat;width:.9rem; height: .9rem; border-radius: 0; cursor: pointer;background-size: 100% 100%;  }
+.item4 .perprize{border-radius: .4rem;background: #935205; margin-top: 9px; padding-bottom:.6rem; }
+.item4 .perprize h3{font-size: .8rem; padding-left: 1.5rem;color: #ffefc8;line-height: 1rem;font-weight: normal;padding-top: .5rem;}
+.item4 .perprize ul{  line-height: .9rem; font-size: .6rem; color: #e5b880; }
+.item4 .perprize div{margin-left: 1.5rem; margin-top: 5px; }
+
+/*弹层*/
+.mask { display: none; position: fixed; width: 100%; height: 100%; background: #000; opacity: .6; filter: alpha(opacity=60); top: 0; left: 0; z-index: 20; }
+.layer{display: none;width: 16rem;height: 13.8rem;position: fixed;top: 50%;left: 50%;margin-top: -6.9rem;margin-left: -8rem;z-index: 21;animation: haha .6s cubic-bezier(1,-0.49, 0, 1.5);background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/laybg_1.png);background-size: 100% 100%;}
+@keyframes haha {
+from { transform: scale(6); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+
+
+/*抽中 */
+.layer_cz{ border-radius: 8px; color: #982e02; text-align: center;}
+.layer h3{font-size: 1.5rem;line-height: 2rem;padding-top: 2rem;margin-bottom: .5rem;}
+.layer_cz p{ font-size: 1.7rem;line-height: 2rem;margin-bottom: .5rem;}
+.layer_cz .ck_btn,.close_btn,.sb_btn{ display: block;width: 8rem;line-height: 2rem;color: #fff;font-size: .8rem;border-radius: .4rem;box-shadow: 0 0 0 2px #e4a249;background: #992d01;margin: 1rem auto 0;cursor: pointer;}
+.closebtn{position: absolute;width: 1.5rem;height: 1.5rem;cursor: pointer;right: 1.3rem;top: 1rem;}
+.layer_my{height: 18.3rem;margin-top: -9.1rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/laybg_2.png) no-repeat;color: #bd672c;text-align: center;background-size: 100% 100%;}
+.layer_my p span{float: left;width: 50%;font-size: .7rem;line-height: 1rem;}
+.layer_my ul{max-height: 8.1rem; min-height: 6.5rem;overflow-y: auto;font-size: .7rem; margin:0 1.3rem;}
+.layer_my li span{float: left;width: 33%;line-height: 1.2rem;font-size: .6rem;}
+.layer_my p .mytime{width:30%}
+.layer_my li .twospan{width:9%}
+.layer_my li .threespan{width:55%}
+.close_btn{background: #bd672c;}
+.layer_no{color: #982e02; text-align: center;}
+.layer_no h3{ font-size: 1.2rem;line-height: 2rem;padding-top: 2.5rem;}
+.layer_no p{font-size: .9rem;line-height: 1rem;font-weight: bold;}
+.layer_no em{line-height: 1.5rem;color: #cb7d37;font-weight: bold;font-size: .7rem;}
+
+.loading-box { width: 100%; height:100%; background: rgba(0,0,0,0.9); position: fixed; left: 0; top: 0; bottom:0;  color: #fff; overflow: hidden; z-index: 3000;}
+.track { position: absolute; top: 50%; left: 50%; width: 0px; height: 2px; }
+.track .txt { position: absolute; top: -30px; left: 0; width: 300px; text-align: center; }
+.track .txt span, .track .bar { position: relative; left: -50%; }
+.track .bar { position: absolute; top: -50%; width: 100%; height: 100%; background: #f1f1f1; }
+</style> 
+<script src="//js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head> 
+<body>
+    <div class="loading-box">
+        <div class="track" id="track">
+            <div id="txt" class="txt"><span></span></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <div class="item2">
+        <ul class="in clearfix">
+            <li class="cur"><a href="javascript:;">短线专栏学习计划</a></li>
+            <li class="li_c"><a href="javascript:;">中线专栏学习计划</a></li>
+            <li><span>天天抽奖</span></li>
+        </ul>
+            <p class="baodao">精彩报道：欢迎 <em></em> 加入实战投资提升计划，祝早日学有所成！</p>
+    </div>
+    <div class="item3">
+        <div class="list ">
+            <div class="inper">
+                <div class="up">
+                    <div class="pic"><a href="http://itougu.jrj.com.cn/live/117" target="_blank" onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp1', 'WT.ti', 'jrj_teacherlotteryApp1');"><img data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/pimg4.png" class="layout-img" alt=""></a></div>
+                    <div class="txt">
+                        <h3><a href="http://itougu.jrj.com.cn/tips/9847.jspa" target="_blank"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp2', 'WT.ti', 'jrj_teacherlotteryApp2');">百万实战能力提升计划</a></h3>
+                        <ul>
+                            <li class="clearfix">
+                                <span class="fl">学习<br />目标</span>
+                                <div class="fr">百万实盘真刀真枪教你如何做短线</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">学习<br />内容</span>
+                                <div class="fr"><i>1</i> 实战中的交易策略制定<br /><i>2</i> 实战如何追涨强势股，接力，追板，低吸<br /><i>3</i> 实战如何收益最大化，滚动交易不放牛</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">限时<br />福利</span>
+                                <div class="fr">5月5日前订阅，可每日参与抽奖，中奖率100%</div>
+                            </li>
+                        </ul>
+                        <a href="http://itougu.jrj.com.cn/tips/9847.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp3', 'WT.ti', 'jrj_teacherlotteryApp3');" target="_blank" class="stubtn">加入学习计划</a>
+                    </div>
+                    <div class="dec">
+                        <h4><a href="http://itougu.jrj.com.cn/live/117" target="_blank"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp4', 'WT.ti', 'jrj_teacherlotteryApp4');"  >沐阳</a></h4>
+                        <div>
+                            <a href="http://itougu.jrj.com.cn/live/117" target="_blank"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp5', 'WT.ti', 'jrj_teacherlotteryApp5');" style="font-size:5px" >简介：爱投顾十大博主，套路型投机者，专注短线实战，交易主要集中于新股，重组股，主题投机品种。目前专栏为长专栏，可以任意选择你想订阅的时间。</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bt">
+                     <div class="picbox">
+                         <div class="swiperbox">
+                            <h3>专栏案例</h3>
+                             <div class="swiper-container swiper1">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img1_01.png" alt="">
+                                         <p>4月5日实盘专栏早盘买入中持股份，截止4月11日收获4个涨停，浮赢48%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img1_02.png" alt="">
+                                         <p>4月7日早盘实盘专栏买入数字政通，截止4月11日收盘，浮赢超过20%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img1_03.png" alt="">
+                                         <p>百万实战专栏自2017年2月7日开始，目前累积盈利达到55%</p></div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="inper">
+                <div class="up clearfix upl">
+                    <div class="pic fl"><a href="http://itougu.jrj.com.cn/live/70"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp6', 'WT.ti', 'jrj_teacherlotteryApp6');"  target="_blank"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/pimg5.png" alt=""></a></div>
+                    <div class="txt fl">
+                        <h3><a href="http://itougu.jrj.com.cn/tips/10067.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp7', 'WT.ti', 'jrj_teacherlotteryApp7');"  target="_blank">量化模型实战提升计划</a></h3>
+                        <ul>
+                            <li class="clearfix">
+                                <span class="fl">学习<br />目标</span>
+                                <div class="fr">学习量化模型实现稳健收益</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">学习<br />内容</span>
+                                <div class="fr"><i>1</i> 量化选股思路和方法<br /><i>2</i> 不同行情下的实战持仓策略<br /><i>3</i>                                    如何实现稳健收益，减少回撤</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">限时<br />福利</span>
+                                <div class="fr">5月5日前订阅，可每日参与抽奖，中奖率100%！</div>
+                            </li>
+                        </ul>
+                        <a href="http://itougu.jrj.com.cn/tips/10067.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp8', 'WT.ti', 'jrj_teacherlotteryApp8');"  target="_blank" class="stubtn">加入学习计划</a>
+                    </div>
+                    <div class="dec">
+                        <h4><a href="http://itougu.jrj.com.cn/live/70"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp9', 'WT.ti', 'jrj_teacherlotteryApp9');"  target="_blank">王伦</a></h4>
+                        <div>
+                           <a href="http://itougu.jrj.com.cn/live/70"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp10', 'WT.ti', 'jrj_teacherlotteryApp10');"  target="_blank">简介：2016年爱投顾十大金牌投顾，央视财经《交易时间》盘面观察员，专注量化交易系统，崇尚稳健、理性客观的投资思路，2016年初推出20万百万之路计划，年化收益率45%以上。</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bt">
+                     <div class="picbox">
+                         <div class="swiperbox">
+                            <h3>专栏案例</h3>
+                             <div class="swiper-container swiper2">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img2_01.png" alt="">
+                                         <p>3月20日18.3元进场伊力特，两个交易日获利15%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img2_02.png" alt="">
+                                         <p>2月28日买入中国建筑，中线持仓，1个月稳健涨幅17%！</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img2_03.png" alt="">
+                                         <p>“20万实盘计划”从2016年初开始操作当前收益45%，回撤很小，非常稳健。</p></div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="inper inper03">
+                <span class="hua_r"></span>
+                <div class="up clearfix">
+                    <div class="pic fl"><a href="http://itougu.jrj.com.cn/live/239"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp11', 'WT.ti', 'jrj_teacherlotteryApp11');"  target="_blank"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/pimg6.png" alt=""></a></div>
+                    <div class="txt fl">
+                        <h3><a href="http://itougu.jrj.com.cn/tips/10095.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp12', 'WT.ti', 'jrj_teacherlotteryApp12');"  target="_blank">短线擒涨停能力提升计划</a></h3>
+                        <ul>                    
+                            <li class="clearfix">
+                                <span class="fl">学习<br />目标</span>
+                                <div class="fr">短线高手独创实用战法教你如何擒涨停</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">学习<br />内容</span>
+                                <div class="fr"><i>1</i> 独创低位对子+止跌K线抓涨停<br /><i>2</i> 如何捕捉龙头，如何在集合竞价抓涨停<br /><i>3</i> 教你实战交易中如何做好风控</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">限时<br />福利</span>
+                                <div class="fr">5月5日前订阅，可每日参与抽奖，中奖率100%</div>
+                            </li>
+                        </ul>
+                        <a href="http://itougu.jrj.com.cn/tips/10095.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp13', 'WT.ti', 'jrj_teacherlotteryApp13');"  target="_blank" class="stubtn">加入学习计划</a>
+                    </div>
+                    <div class="dec">
+                        <h4><a href="http://itougu.jrj.com.cn/live/239"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp14', 'WT.ti', 'jrj_teacherlotteryApp14');"  target="_blank">涨停女王</a></h4>
+                        <div>
+                           <a href="http://itougu.jrj.com.cn/live/239"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp15', 'WT.ti', 'jrj_teacherlotteryApp15');"  target="_blank">简介：因捕捉涨停不计其数，故荣获 “涨停女王”之美称。擅长捕捉热点板块和龙头股，对涨停连板牛股有独到研究。坚持控制回撤是稳定获利的首选！</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bt">
+                     <div class="picbox">
+                         <div class="swiperbox">
+                            <h3>专栏案例</h3>
+                             <div class="swiper-container swiper3">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img3_01.png" alt="">
+                                         <p>4月5日专栏开盘介入002494，次日收获涨停，获利9%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img3_02.png" alt="">
+                                         <p>4月7日专栏午后介入600135乐凯胶片，11号两次提示冲高先出，获利约10%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img3_03.png" alt="">
+                                         <p>4月11日专栏提示排版介入河钢股份，12号止盈出局获利4%</p></div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="list show">
+            <div class="inper">
+                <div class="up clearfix upl">
+                    <div class="pic fl"><a href="http://itougu.jrj.com.cn/live/129"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp16', 'WT.ti', 'jrj_teacherlotteryApp16');"  target="_blank"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/pimg1.png" alt=""></a></div>
+                    <div class="txt fl">
+                        <h3><a href="http://itougu.jrj.com.cn/tips/10064.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp17', 'WT.ti', 'jrj_teacherlotteryApp17');"  target="_blank">中线热点把握技能提升计划</a></h3>
+                        <ul>
+                            <li class="clearfix">
+                                <span class="fl">学习<br />目标</span>
+                                <div class="fr">如何提升中线把握热点技能</div>
+                            </li>         
+                            <li class="clearfix li_c">
+                                <span class="fl">学习<br />内容</span>
+                                <div class="fr"><i>1</i> 热门题材板块擒牛买入法<br /><i>2</i> 买卖策略把握时机精准操作<br /><i>3</i>                                    提前潜伏中线思路合理布局</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">限时<br />福利</span>
+                                <div class="fr">5月5日前订阅，可每日参与抽奖，中奖率100%</div>
+                            </li>
+                        </ul>
+                        <a href="http://itougu.jrj.com.cn/tips/10064.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp18', 'WT.ti', 'jrj_teacherlotteryApp18');"  target="_blank" class="stubtn">加入学习计划</a>
+                    </div>
+                    <div class="dec">
+                        <h4><a href="http://itougu.jrj.com.cn/live/129"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp19', 'WT.ti', 'jrj_teacherlotteryApp19');"  target="_blank">崔雪桐</a></h4>
+                        <div>
+                           <a href="http://itougu.jrj.com.cn/live/129"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp20', 'WT.ti', 'jrj_teacherlotteryApp20');"  target="_blank">简介：北京著名投资人，知名实战财经博主，中长线思路选股，超短手法操盘，独创越顶擒牛，尾盘一阳三线和次新股涨停战法，在实战投资中深受股民喜欢。</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bt">
+                     <div class="picbox">
+                         <div class="swiperbox">
+                            <h3>专栏案例</h3>
+                             <div class="swiper-container swiper4">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img4_01.png" alt="">
+                                         <p>2016年，8月4日布局煌上煌002695，2日收益17%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img4_02.png" alt="">
+                                         <p>天润数娱，2016年8月12日布局，2日收益15%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img4_03.png" alt="">
+                                         <p>2016年11月16日布局万家文化，17年1月13日卖出，收益24%</p></div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="inper">
+                <div class="up clearfix">
+                    <div class="pic fl"><a href="http://itougu.jrj.com.cn/live/62"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp21', 'WT.ti', 'jrj_teacherlotteryApp21');"  target="_blank"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/pimg2.png" alt=""></a></div>
+                    <div class="txt fl">
+                        <h3><a href="http://itougu.jrj.com.cn/tips/9742.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp22', 'WT.ti', 'jrj_teacherlotteryApp22');"  target="_blank">趋势绝技中线实战提升计划</a></h3>
+                        <ul>
+                            <li class="clearfix">
+                                <span class="fl">学习<br />目标</span>
+                                <div class="fr">教你怎样巧用趋势绝技布局中线个股</div>
+                            </li>                      
+                            <li class="clearfix li_c">
+                                <span class="fl">学习<br />内容</span>
+                                <div class="fr"><i>1</i> 运用趋势绝技进行个股实战<br /><i>2</i> 看好个股如何反复操作，以求利益最大化<br /><i>3</i> 通过个股实战巧抓热点、追到涨停股</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">限时<br />福利</span>
+                                <div class="fr">5月5日前订阅，可每日参与抽奖，中奖率100%！</div>
+                            </li>
+                        </ul>
+                        <a href="http://itougu.jrj.com.cn/tips/9742.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp23', 'WT.ti', 'jrj_teacherlotteryApp23');"  target="_blank" class="stubtn">加入学习计划</a>
+                    </div>
+                    <div class="dec">
+                        <h4><a href="http://itougu.jrj.com.cn/live/62"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp24', 'WT.ti', 'jrj_teacherlotteryApp24');"  target="_blank">趋势巡航</a></h4>
+                        <div>
+                           <a href="http://itougu.jrj.com.cn/live/62"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp25', 'WT.ti', 'jrj_teacherlotteryApp25');"  target="_blank">简介：各大财经网站的一线播主、趋势投资交易者，近20年的实战经验形成对趋势的准确把握，操作稳健，善于运用趋势绝技提前潜伏主力热点个股，不追涨，不杀跌。%以上。</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bt">
+                     <div class="picbox">
+                         <div class="swiperbox">
+                            <h3>专栏案例</h3>
+                             <div class="swiper-container swiper5">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img5_01.png" alt="">
+                                         <p>4月5日介入北方导航， 11日盘中攻击涨停，两次波段操作涨幅近20个点</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img5_02.png" alt="">
+                                         <p>4月6日内参运用趋势绝技“下跌三阴线”，操作天海防，4月6日介入， 4天涨幅6个多点</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img5_03.png" alt="">
+                                         <p>4月10日提示介入002146当天涨停，4月11日再次涨停，两天获利17.08%</p></div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="inper">
+                <div class="up clearfix upl">
+                    <div class="pic fl"><a href="http://itougu.jrj.com.cn/live/57"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp26', 'WT.ti', 'jrj_teacherlotteryApp26');"  target="_blank"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/pimg3.png" alt=""></a></div>
+                    <div class="txt fl">
+                        <h3><a href="http://itougu.jrj.com.cn/tips/9761.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp27', 'WT.ti', 'jrj_teacherlotteryApp27');"  target="_blank">中线稳健波段操作技能提升计划</a></h3>
+                        <ul>                  
+          
+                            <li class="clearfix">
+                                <span class="fl">学习<br />目标</span>
+                                <div class="fr">中线稳健波段操作技能提升计划</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">学习<br />内容</span>
+                                <div class="fr"><i>1</i> 跃顶飞龙个股技术实战<br /><i>2</i> 狙击热点概念反复投机<br /><i>3</i> 运用独创技术波段操作</div>
+                            </li>
+                            <li class="clearfix li_c">
+                                <span class="fl">限时<br />福利</span>
+                                <div class="fr">5月5日前订阅，可每日参与抽奖，中奖率100%</div>
+                            </li>
+                        </ul>
+                        <a href="http://itougu.jrj.com.cn/tips/9761.jspa"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp27', 'WT.ti', 'jrj_teacherlotteryApp27');"  target="_blank" class="stubtn">加入学习计划</a>
+                    </div>
+                    <div class="dec">
+                        <h4><a href="http://itougu.jrj.com.cn/live/57"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp28', 'WT.ti', 'jrj_teacherlotteryApp28');"  target="_blank">程娟</a></h4>
+                        <div>
+                            <p><a href="http://itougu.jrj.com.cn/live/57"  onclick="window.dcsMultiTrack('DCS.dcsuri', 'jrj_teacherlotteryApp29', 'WT.ti', 'jrj_teacherlotteryApp29');"  target="_blank">简介：爱投顾2015年度最佳评选总冠军，爱投顾2015年度最佳评选10强金牌达人。个人独创大盘理论精准分析预测技术和个股关键点研判技术，操盘风格稳健，追求长期持续的收益。</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bt">
+                     <div class="picbox">
+                         <div class="swiperbox">
+                            <h3>专栏案例</h3>
+                             <div class="swiper-container swiper6">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img6_01.png" alt="">
+                                         <p>2016年11月29日分批介入002767，后连续拉升4个涨停板，小中线波段获利47.95%</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img6_02.png" alt="">
+                                         <p>4月6日操作华讯方舟，4月6日介入，4天涨幅超10%以上。</p></div>
+                                    <div class="swiper-slide"><img class="layout-img" data-src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170414teacherlottery/h5img6_03.png" alt="">
+                                         <p>1月20号成功捕获002746小波段慢牛股2个月时间稳健获利高达18.81%。</p></div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item4 clearfix" id="item4">
+        <div class="prizebox">
+            <h3>您有 <em>0</em> 次抽奖机会</h3>
+            <div class="lottery-wrap" id="lottery">
+                <div class="item item-1"><i></i><div class="inner"></div></div><div class="item item-2"><i></i><div class="inner"></div></div><div class="item item-3"><i></i><div class="inner"></div></div><div class="item item-4"><i></i><div class="inner"></div></div><div class="item item-5"><i></i><div class="inner"></div></div><div class="item item-6"><i></i><div class="inner"></div></div><div class="item item-7"><i></i><div class="inner"></div></div><div class="item item-8"><i></i><div class="inner"></div>
+                </div>
+                <a class="btn_lottery">立即<br />抽奖</a>
+            </div>
+        </div>
+        <div class="item4fr">
+            <div class="guize">
+                <h4>活动规则</h4><span class="myprizebtn"></span>
+                <ul>
+                    <li class="clearfix"><span>1</span><p>4月21日-5月5日期间，用户加入任一学习计划，自加入当日起，每日拥有1次抽奖机会</p></li>
+                    <li class="clearfix"><span>2</span><p>活动奖项包含金条、现金、优惠券等，中奖率100%，奖品将在活动结束后5个工作日内发放</p></li>
+                    <li class="clearfix"><span>3</span><p>学习计划服务形式为私信+直播+专栏，全方位实战提升指导</p></li>
+                    <li class="clearfix"><span>4</span><p>本活动解释权归金融界所有，如有疑问，请咨询4001661188-3</p></li>
+                </ul>
+                <div>温馨提示：越早加入，抽奖机会越多哟~</div>
+            </div>
+            <div class="perprize">
+                <h3></h3>
+                <div>
+                <ul>
+                    #foreach($draw in $drawList)
+                     <li>恭喜 <em>${draw.userName}</em> 抽中 <span>${draw.pname}</span></li>
+                     #end
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="mask"></div>
+<!--抽中-->
+<div class="layer layer_cz">
+    <i class="closebtn"></i>
+    <h3>恭喜您！</h3>
+    <p>抽中<b></b></p>
+    <span class="ck_btn">查看</span>
+</div>
+<!--没有抽奖次数-->
+<div class="layer layer_no">
+    <i class="closebtn"></i>
+    <h3>很遗憾</h3>
+    <p>您当前没有抽奖次数</p>
+    <em>请查看活动规则，获取每日抽奖机会。</em>
+    <span class="sb_btn">查看</span>
+</div>
+<!--我的奖品-->
+<div class="layer layer_my">
+    <h3>我的奖品</h3>
+    <div>
+        <p class="clearfix">
+            <span>奖品</span>
+            <span class="mytime">时间</span>
+        </p>
+        <ul>
+            
+        </ul>
+        <span class="close_btn">关闭</span>
+    </div>
+</div>
+<script type="text/javascript" src="http://newjs.jrjimg.cn/common/foot/jrj_dcs_tag-m.js"></script>
+<script type="text/javascript" src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/slide.js"></script>
+<script src="//i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.jcarousellite.pauseOnHover-min.js"></script>
+<script>
+$(function(){ 
+    (function(){
+        $('.item2 li span').click(function(){
+            $('body').scrollTop( $('#item4').offset().top );
+        });
+       
+
+        var K={
+            baodaoming:['阿**卿','杜**世','狂**方','东**客','霜**角','高**猫','寂**线','股**六','天**才','麦**侃','蚂**汉','下**米','李**怪','孤**影','古**航','弧**彩','泛**湖','三**念','你**蓝','匆**兰','锯**熙','铜**尚','低**起','周**下','任**枫','无**形','司**红','一**星','我** ','一**红','生**草','哈**特','长**K','海**约','智**亮','随**子','斜**归','兵**　','看**啥','空**切','莫**饭','我**啊','小**儿','仙**草','爱**梢','星**原','南**啡','欧**光','乐**妍','洞**珠','醉**岩','东**下','飞**海','陌**音','画**峰','塞**狼','浣**剑','小**高','秋**流','渔**时','波**龙','虞**华','幸**风','都**人','任**正','深**调','泛**海','跳**兔','碧**卿','百**月','半**语','百**山','北**克','碧**云','彼**花','彩**龙','荡**千','风**影','风**睿','风**分','小**刀','老**鼠','猎**9','绿** ','萝**公','凉**风','恋**尘','绿**下','股**船','列**9','森**光','老**了','萝**回','龙**海','狼**明','腊**雪','兰**9','浪**士','龙**9','芦**间','零**濛','南**烟','兰**鱼','飘**枫','秋**9','秋**9','倾**9','奇**郎','千**9','财**5','琴**9','晴**9','浅**醒','七**9','骑**团','琴**霞','清**影','清**球','柔**雨','若**香','大**爱','d**猫','大**缘','道**9','丹**竹','短**兵','得**9','淡**9','稻**9','丹**刀','风** ','疯**月','风**旗','卉**妍','夜**珊','横**骥','蝴**9','海**9','红**怪','火**9','和**星','海**9','海**9','江**海','剪**9','寂**心','剑**锋','静**9','积**雄','快**草','客**夏','快**9','烂**语','橙**9','龙**士','凉**9','诗**湖','淡**9','典**下','边** ','花** ','冲** ','蛋** ','锦** ','东** ','空** ','临** ','山**9','十** ','天** ','爱**9','草**雪','会**子','天**9','稻**香','璟**9','中**狼','皎**月','追**9','骠**9','自**子','醉**泉','正**9','娑**树','子**澍','珈**音','靓**画','蜻**使','砺**霄','遨**海','大**9','镰**9','终**9','逍**9','战**云','茜**希','琦**9','缙**云','至**9','紫**斋','艾**9','鲨**利','自**主','乱**杰','卓**凡','汩**9','自**挥','迤**9','沐**风','z**风','一**9','雨**阳','冰**涛','博**远','病**号','博**爵','冰**湖','百**牛','标**线','碧**涛','宝**9','祈**牛','百**9','吃**果','穿**9','持**9','苍**顶','江**春','茶**根','明**9','活**9','小**林','金**少','妄** ','无**9','飘**根','午**猫','财**9','乌**鸦','我**兰','我**扬','无**牛','唯**9','旺**9','五**9','巍**钟','我**9','我**9','万**飘','财**e','无**9','五**生','外**王','无**扬','微**语','我**滴','文**9','温**9','完**初','卧**云','美**花','午**9','温**丝','舞**风','危**人','我**路','從**9','篇**意','月**初','夏**米','白**夜','一**9','风**9','粉**梦','春** ','不** ','欣**阁','乌**9','湘**9','车**梨','当**水','大**兵','阴**阳','风**缘','风**9','飞**9','一**9','冲**9','蝴**彬','湖**线','华**烟','红**窗','财**n','寒**9','和**9','黑**主','河**柏','红**9','惠**9','追**'],
+            init:function(){
+                K.change();
+                K.tab();
+                K.rdm();
+                
+                K.swiperFn();
+
+            },
+            tab:function(){
+                $('.item2 li').each(function(){
+                    var o=$(this);
+                    $(this).click(function(){
+                        $('.item2 li').removeClass('cur');
+                        o.addClass('cur');
+                        if(o.index()==0 || o.index()==1){
+                            $('.list').removeClass('show');
+                            $('.list').eq(o.index()).addClass('show');
+                            K.swiperFn();
+                        }
+                    });
+                });
+            },
+            rdm:function(){
+                $('.baodao em').html(K.baodaoming[parseInt(Math.random()*300)]);
+                var baodaogift=['生肖金条','100元现金'];
+                $('.perprize h3').html('喜报：恭喜'+K.baodaoming[parseInt(Math.random()*300)]+'抽中'+baodaogift[parseInt(Math.random()*2)]);
+                
+                setInterval(function(){
+                    $('.baodao em').html(K.baodaoming[parseInt(Math.random()*300)]);
+                    $('.perprize h3').html('喜报：恭喜'+K.baodaoming[parseInt(Math.random()*300)]+'抽中'+baodaogift[parseInt(Math.random()*2)]);
+                },3000);
+            },
+            change:function(){
+                function changesize(){
+                    document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+                }
+                changesize();
+                window.addEventListener('resize',changesize,false);
+            },
+            swiperFn:function(){
+                var swiper = new Swiper('.swiper1', {
+                    slidesPerView: 1,
+                    paginationClickable: true,autoplay: 2000,loop:true,
+                    effect:'flip',
+                    grabCursor:true,
+                    spaceBetween: 0,
+                    pagination: '.swiper-pagination',
+                    autoplayDisableOnInteraction : false,
+                });
+                var swiper2 = new Swiper('.swiper2', {
+                    slidesPerView: 1,
+                    paginationClickable: true,autoplay: 2000,loop:true,
+                    effect:'flip',
+                    grabCursor:true,
+                    spaceBetween: 0,
+                    pagination: '.swiper-pagination',
+                    autoplayDisableOnInteraction : false,
+                });
+                var swiper3 = new Swiper('.swiper3', {
+                    slidesPerView: 1,
+                    paginationClickable: true,autoplay: 2000,loop:true,
+                    effect:'flip',
+                    grabCursor:true,
+                    spaceBetween: 0,
+                    pagination: '.swiper-pagination',
+                    autoplayDisableOnInteraction : false,
+                });
+                var swiper4 = new Swiper('.swiper4', {
+                    slidesPerView: 1,
+                    paginationClickable: true,autoplay: 2000,loop:true,
+                    effect:'flip',
+                    grabCursor:true,
+                    spaceBetween: 0,
+                    pagination: '.swiper-pagination',
+                    autoplayDisableOnInteraction : false,
+                });
+                var swiper5 = new Swiper('.swiper5', {
+                    slidesPerView: 1,
+                    paginationClickable: true,autoplay: 2000,loop:true,
+                    effect:'flip',
+                    grabCursor:true,
+                    spaceBetween: 0,
+                    pagination: '.swiper-pagination',
+                    autoplayDisableOnInteraction : false,
+                });
+                var swiper6 = new Swiper('.swiper6', {
+                    slidesPerView: 1,
+                    paginationClickable: true,autoplay: 2000,loop:true,
+                    effect:'flip',
+                    grabCursor:true,
+                    spaceBetween: 0,
+                    pagination: '.swiper-pagination',
+                    autoplayDisableOnInteraction : false,
+                });
+            }
+       }; 
+       K.init();
+    })();
+    
+    (function(){
+        //抽奖次数
+        $('.item2 li').eq(0).click();
+        var userId='${userId}';
+        var drawNum='${drawNum}';//抽奖次数
+        $('.prizebox h3 em').html(drawNum); 
+        /*if('${userId}'.length>=18){lotterynum();}*/
+        function lotterynum(){
+            $.ajax({
+                url:"/marketing/checkDrawNum.jspa",
+                data : {userId:userId},
+                dataType : 'json',
+                success : function( _data ){
+                     //drawNum就是剩余抽奖次数
+                     console.log(_data);
+                     drawNum=_data.drawNum;
+                    $('.prizebox h3 em').html(_data.drawNum);                          
+                     
+                }
+            }); 
+        }
+        var lottery={
+            index:0,    //当前转动到哪个位置
+            count:0,    //总共有多少个位置
+            timer:0,    //setTimeout的ID，用clearTimeout清除
+            speed:200,  //初始转动速度
+            times:0,    //转动次数
+            cycle:50,   //转动基本次数：即至少需要转动多少次再进入抽奖环节
+            prize:-1,   //中奖位置
+            init:function(selector){
+                this.obj = $(selector);
+                this.count = this.obj.find(".item").length;
+            },
+            roll:function(){
+                var index = this.index;
+                var count = this.count;
+                var lottery = this.obj;
+                $(lottery).find(".item-"+(index+1)).removeClass("item-cur");
+                index += 1;
+                if (index>count-1) {
+                    index = 0;
+                };
+                $(lottery).find(".item-"+(index+1)).addClass("item-cur");
+                this.index=index;
+                return false;
+            },
+            stop:function(index){
+                this.prize=index;
+                return false;
+            }
+        };
+        function roll(){
+            lottery.times += 1;
+            lottery.roll();
+            if (lottery.times > lottery.cycle+10 && lottery.prize==lottery.index) {
+                clearTimeout(lottery.timer);
+                lottery.prize=-1;
+                lottery.speed=200;
+                lottery.times=0;
+                click=false;
+
+                setTimeout(function(){
+                    if(lottery.callback){
+                        lottery.callback();
+                    }
+                },1000);
+
+            }else{
+                if (lottery.times<lottery.cycle) {
+                    lottery.speed -= 10;
+                }else{
+                    if (lottery.times > lottery.cycle+10 && ((lottery.prize==0 && lottery.index==7) || lottery.prize==lottery.index+1)) {
+                        lottery.speed += 110;
+                    }else{
+                        lottery.speed += 20;
+                    }
+                }
+                if (lottery.speed<40) {
+                    lottery.speed=40;
+                }
+                lottery.timer = setTimeout(roll,lottery.speed);
+            }
+            return false;
+        }
+
+        var click=false;
+        var gift=['10元优惠券','100元现金','10元现金','8元现金','20元现金','30元优惠券','50元优惠券'];
+        var giftnum=[0,1,3,6,7,2,4,5];
+        lottery.init('#lottery');
+        $(".btn_lottery").click(function(){//抽奖按钮
+            //判断时间过期
+            if(compateDate(tdate,'2017-05-05')>0){
+                alert('活动已过期');
+                return;
+            }
+            if('${userId}'.length>=18){ 
+                if(drawNum==0){
+                    $('.layer_no,.mask').show();
+                    return;
+                }
+                if (click) {
+                    return;
+                }
+                $(this).addClass('dis');
+                
+                $.ajax({
+                    url:"/marketing/teacherTrainDraw.jspa",
+                    data : {userId:userId},
+                    dataType : 'json',
+                    success : function( _data ){
+                        console.log(_data);
+                         //prize就是奖品名称 
+                        if(_data.retCode==1){
+                            var prizenum=_data.prizeIndex;
+                            //prizenum =1  10元优惠券 0
+                            //prizenum =2  100元现金 1
+                            //prizenum =3  10元现金  3
+                            //prizenum =4  8元现金   6
+                            //prizenum =5  20元现金  7
+                            //prizenum =6  30元优惠券  2
+                            //prizenum =7  50元优惠券  4
+                            //prizenum =8  金条  5
+                            lottery.prize =giftnum[prizenum-1];
+                            lotterynum();
+                            roll(); 
+                            lottery.callback = function () {
+                                $('.layer_cz,.mask').show();
+                                $('.layer_cz p b').html(gift[prizenum-1]);
+                            };
+                        }
+                    }
+                });
+            }else{
+               jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }))
+            }
+        });
+        
+        //格式化日期
+        function formatDate(now,mask) {
+
+		        var d = now;
+		        var zeroize = function (value, length){
+		            if (!length) length = 2;
+		            value = String(value);
+		            for (var i = 0, zeros = ''; i < (length - value.length); i++)
+		            {
+		                zeros += '0';
+		            }
+		            return zeros + value;
+		        };
+		     
+		        return mask.replace(/"[^"]*"|'[^']*'|\b(?:d{1,4}|m{1,4}|yy(?:yy)?|([hHMstT])\1?|[lLZ])\b/g, function ($0){
+		            switch ($0){
+		                case 'd': return d.getDate();
+		                case 'dd': return zeroize(d.getDate());
+		                case 'ddd': return ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'][d.getDay()];
+		                case 'dddd': return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][d.getDay()];
+		                case 'M': return d.getMonth() + 1;
+		                case 'MM': return zeroize(d.getMonth() + 1);
+		                case 'MMM': return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()];
+		                case 'MMMM': return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][d.getMonth()];
+		                case 'yy': return String(d.getFullYear()).substr(2);
+		                case 'yyyy': return d.getFullYear();
+		                case 'h': return d.getHours() % 12 || 12;
+		                case 'hh': return zeroize(d.getHours() % 12 || 12);
+		                case 'H': return d.getHours();
+		                case 'HH': return zeroize(d.getHours());
+		                case 'm': return d.getMinutes();
+		                case 'mm': return zeroize(d.getMinutes());
+		                case 's': return d.getSeconds();
+		                case 'ss': return zeroize(d.getSeconds());
+		                case 'l': return zeroize(d.getMilliseconds(), 3);
+		                case 'L': var m = d.getMilliseconds();
+		                    if (m > 99) m = Math.round(m / 10);
+		                    return zeroize(m);
+		                case 'tt': return d.getHours() < 12 ? 'am' : 'pm';
+		                case 'TT': return d.getHours() < 12 ? 'AM' : 'PM';
+		                case 'Z': return d.toUTCString().match(/[A-Z]+$/);
+		                // Return quoted strings with the surrounding quotes removeddefault: return $0.substr(1, $0.length - 2);
+		            }
+		        });
+		    };
+        
+        //我的抽奖列表数据拉取
+        function myprizelist(){
+            $.ajax({
+                url:"/marketing/myTeacherTrainPrize.jspa",
+                data : {userId:userId},
+                dataType : 'json',
+                success : function( _data ){
+                    console.log(_data);
+                     //奖品列表                                               
+                     if(!_data.prizeList){
+                        $('.layer_my ul').html('您的奖品为空');
+                        return;
+                     }
+                     var prizeList = _data.prizeList ;
+                     var prizeListstr='';
+                     for(var i=0;i<prizeList.length;i++){
+                        prizeListstr+='<li class="clearfix"><span>'+prizeList[i].pname+'</span><span class="twospan">—</span><span class="threespan">'+formatDate(new Date(prizeList[i].ctime),'yyyy-MM-dd HH:mm:ss')+'</span></li>';
+                     }
+                     $('.layer_my ul').html(prizeListstr);
+                }
+            });
+        }
+        //我的抽奖列表
+        var srolltop;
+        $('.myprizebtn,.ck_btn').click(function(){
+            if('${userId}'.length>=18){ 
+                srolltop=$('body').scrollTop();
+                $('.layer_my,.mask').show();
+                $('body,html').css({
+                    'position':'fixed',
+                    'z-index':'-1',
+                    'width':'100%',
+                    'top':-srolltop+'px'
+                })
+                myprizelist()
+            }else{
+               jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }))
+            }
+        })
+        //奖池效果
+        $('.item4 .perprize div').jCarouselLite({
+            auto: 2000,
+            speed: 500,
+            circular: true,
+            vertical:true,
+            visible: 3,
+            pauseOnHover:true
+        });
+        //关闭弹窗
+        $('.close_btn').click(function(){
+            $('.mask,.layer').hide();
+           $('body,html').css({
+                'position':'static',
+                'z-index':'-1'
+            })
+           $('body').scrollTop(srolltop);
+        });
+        $('.closebtn,.sb_btn').click(function(){
+            $('.mask,.layer').hide();
+        });
+        var t=new Date();
+        var tdate=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();
+        //时间比较
+        function compateDate(e, t) {
+            var n = e.split("-"),
+            o = new Date(parseInt(n[0]), parseInt(n[1]), parseInt(n[2])),
+            r = o.getTime(),
+            c = t.split("-"),
+            a = new Date(parseInt(c[0]), parseInt(c[1]), parseInt(c[2])),
+            i = a.getTime();
+            return r - i
+        };
+    })();
+    
+    (function(){
+
+    var T = { //未登录：/virtual/passportLogin
+         body : $('body')
+        ,url : window.location.href
+        ,Itougu : false
+        ,codeUrl : ''
+        ,width : $(window).width()
+        ,height : $(window).height()
+        ,init : function(){
+            if(!$) alert('$非法!!!')
+            $(function(){
+                T.loading();
+                
+            });
+        } 
+        ,loading : function(){ //图片加载
+            T.body.height(window.innerHeight);
+            var  oLoadingBox = $('.loading-box')
+                ,oLoading = $('#track')
+                ,oTxt = $('#txt')
+                ,count = 0
+                ,timer = null
+                ,imgUrlArr = []
+                ,img = $('.layout-img')
+                ,len = img.length;
+                
+            img.each(function () {
+                var imgUrl = $(this).attr('data-src');
+                imgUrlArr.push(imgUrl);
+            });
+            
+            if (len) {
+                img.each(function( i ){
+                    var  oImage = new Image()
+                        ,self = $(this)
+                        ,src = self.attr('data-src');
+                    oImage.src = src;
+                    oImage.onload = function () {
+                        count++;
+                        oLoading.width(Math.round(count / imgUrlArr.length * 300));
+                        oTxt.children('span').html('');
+                        oTxt.children('span').html('Loading ' + Math.round(count / imgUrlArr.length * 100) + '%');
+                        if (count == len) {
+                            oLoadingBox.hide();
+                            //T.body.css({ 'height': 'auto', 'overflowY': 'auto' });
+                            img.each(function(){
+                                this.src = $(this).attr('data-src');
+                            });
+                            //T.loadDone();
+                       }
+                   }
+                });
+            } else {
+                //T.loadDone();
+                //oLoadingBox.hide();
+            }
+        }
+    }
+    T.init();
+    })();
+});
+</script>
+</body>
+</html>

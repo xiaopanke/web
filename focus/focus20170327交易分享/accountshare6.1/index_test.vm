@@ -1,0 +1,186 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>分享</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#333; text-decoration: none; }
+a:hover{text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333; }
+body{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+
+body{ position: relative;}
+.imgbox{ width:100%; position: absolute;left:0;top:0; height: 70%;}
+
+.btnbox{ width:100%; height:30%;left:0; top:70%; position: absolute;  background:#f24439;text-align: center; }
+.btnbox .txt{ padding-top: 1.5rem; color: #fff; font-size: 1rem; line-height: 1.35rem;}
+.btnbox .share{display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center; width:13.75rem; height: 2.2rem; background:#fff;border-radius: 4px; margin:1.5rem auto 0;}
+.btnbox span{ width:.95rem; height: .95rem; background:url(img/shareicon.png); background-size: 100% 100%; margin-right: .5rem;}
+.btnbox em{ font-size:1rem;color:#f24439; }
+
+.haha{width:100%; height:100%; background:yellow; display:none; position: absolute;}
+canvas{ display:none;}
+</style>
+<body>
+    <!--图片-->
+    <div class="imgbox"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/1.png" alt=""></div>
+    <!--按钮-->
+    <div class="btnbox clearfix">
+        <div class="txt">
+            <p>今天卖出中国神华</p>
+            <p>成功逃顶，避免了5%的损失</p>
+        </div>
+        <div class="share"><span class="icon fl"></span><em>晒一晒</em></div>
+    </div>
+    <!--canvas生成的图片-->
+    <canvas id="qrcodeCanvas"></canvas>
+    <!--尺寸-->
+    <div class="haha"></div>
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script> 
+<script src="https://js.jrjimg.cn/common/foot/v2s_m.js"></script>    
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    $(function(){
+        var domain = 'https://zqttest.yun.pingan.com';
+        var strlen='';
+        //数据请求
+        //账户信息
+        console.log(domain+'/sapi/v2/accountAnalysis/getAccountShareInfo')
+        var accountinfo = function(){
+            setTimeout(function(){
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'get',
+                    url: domain+'/sapi/v2/accountAnalysis/getAccountShareInfo',
+                    callback: 'callbackaccountinfo',
+                }));
+            },200);
+       }
+        accountinfo();
+        window.callbackaccountinfo =function(info){ 
+            setTimeout(function(){
+                console.log(info);
+                info = convertToJsonObject(info);
+                if(info.retcode==0){
+                    var data=info.data;
+                 }
+            },30);     
+        }
+
+    
+        //分享
+        $('.btnbox').click(function(){
+            var canvas = document.getElementById('qrcodeCanvas');
+            var ctx = canvas.getContext('2d');
+            var body = $('.haha');
+            canvas.width = body.width() * 2;
+            canvas.height = body.height() * 2;
+            canvas.style.width = body.width();
+            canvas.style.height = body.height();
+            ctx.scale(2,2);
+            ctx.fillStyle="#FED800";
+            ctx.fillRect(0,0,body.width() * 2,60+canvas.height/3);
+            var image = new Image();
+            image.onload = function() { 
+                ctx.drawImage(image, 0, 20, canvas.width/2, canvas.height/3.3);
+                ctx.font = "14px Microsoft Yahei";
+                ctx.fillStyle = "#38070A";
+                ctx.textAlign='center';
+                ctx.fillText($('.date').html(), canvas.width/4, 0+canvas.height/3);
+
+                ctx.font = "16px Microsoft Yahei";
+                ctx.fillStyle = "#38070A";
+                ctx.textAlign='center';
+                ctx.fillText($('.tit').html(), canvas.width/4, 20+canvas.height/3);
+
+                ctx.font= "20px Microsoft Yahei";
+                ctx.textAlign='center';
+                if(haha==1){
+                    ctx.fillText($('.money1').html(), canvas.width/4,40+canvas.height/3);
+                }else{
+                    ctx.fillText($('.money2').html(), canvas.width/4,40+canvas.height/3);
+                }
+                
+                //console.log(ctx.canvas.toDataURL());
+                var img = new Image();
+                img.onload = function(){
+                    ctx.drawImage(img, 0, 60+canvas.height/3, canvas.width / 2, canvas.height/10);
+                    strlen = ctx.canvas.toDataURL("image/png").substring(22);
+                    jrj.jsCallNative('135', JSON.stringify({imgdata:strlen}));
+                };
+                img.src = '';   
+                
+            };
+            image.src =$('.pic img').attr('src');  
+            dcsMultiTrack('DCS.dcsuri', 'click_fxym_sys', 'WT.ti', 'click_fxym_sys')
+        });
+
+        function doublenum(num){
+            var num=num+'';
+            if(num.indexOf('.')!=-1){
+                var len=num.substring(num.indexOf('.')+1).length;
+                if(len==0){
+                    return num+'00';
+                }else if(len==1){
+                    return num+'0';
+                }else{
+                    return parseFloat(num).toFixed(2);
+                }
+                console.log(n);
+            }else{
+                return num+'.00';
+            }
+        }
+        var convertToJsonObject = function(str){
+
+            if(typeof str != 'object'){      
+                return JSON.parse(str);    
+            }else{
+                return str;
+            }
+        };
+    function getCookie(name){
+        var bikky = document.cookie;
+        name += "=";
+        var i = 0;
+        while (i < bikky.length)
+        {
+        var offset = i + name.length;
+        if (bikky.substring(i, offset) == name)
+        {
+        var endstr = bikky.indexOf(";", offset);
+        if (endstr == -1) endstr = bikky.length;
+        return unescape(bikky.substring(offset, endstr));
+        }
+        i = bikky.indexOf(" ", i) + 1;
+        if (i == 0) break;
+        }
+        return null;
+    }
+    });
+</script>   
+</body>
+</html>

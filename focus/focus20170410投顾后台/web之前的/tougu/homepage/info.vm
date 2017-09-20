@@ -1,0 +1,57 @@
+<style type="text/css">
+        .row_new_style{
+            font-size: 14px;
+            margin-top: 58px;
+        }
+        .row_new_style dl dd{
+            font-size: 16px;
+            font-weight: 600;
+            color: #ea544a;
+        }
+        .row-2 dl{
+            height: 22px !important;
+        }
+</style>
+<div class="personal-info clear">
+	<div class="fl" style=" width:400px;">
+		<img src="$!{user.headImage}" class="fl" />
+		<div class="fl">
+			<h4 class="person-name"><em>$!{user.userName}</em>
+			#if($!{user.verify}==1)
+			<i class="icon-v"></i>
+			#end
+			<span>$!{user.typeDesc}</span>
+			#if($!{user.rankNum}==1)
+			<i class="icon-reward icon-reward-gold" title="$!{user.rankDec}"></i>
+			#elseif($!{user.rankNum}==2)
+			<i class="icon-reward icon-reward-silver" title="$!{user.rankDec}"></i>
+			#elseif($!{user.rankNum}==3)
+			<i class="icon-reward icon-reward-brown" title="$!{user.rankDec}"></i>
+			#end
+			#if($!{user.diagnosticStockRank}==1)
+			<i class="icon-v2" title="$!{user.diagnosticStockDesc}"></i>
+			#end
+			</h4>
+			<div class="btn-row clear">
+				<a href="javascript:void(0);" onclick="Question.clickEvent(false,'$!{user.userName}','$!{user.loginId}');" class="grey-btn">提问</a>
+				<a id="focusId" href="#" class="red-btn btn1" itgid="$!{user.loginId}">关注</a>
+			</div>
+		</div>
+	</div>
+	<div class="fr" style="overflow:hidden;">
+		<div class="clear row-2 row_new_style">
+			<dl>
+				<dt>粉丝</dt>
+				<dd>$!{user.fansNum}</dd>
+			</dl>
+			<dl>
+				<dt>回答</dt>
+				<dd>$!{answeredNum}</dd>
+			</dl>
+			<dl>
+				<dt>观点浏览</dt>
+				<dd>$!{viewPv}</dd>
+			</dl>
+		</div>
+	</div>
+</div>

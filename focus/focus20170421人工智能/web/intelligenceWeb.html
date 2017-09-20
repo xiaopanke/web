@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link type="text/css" rel="stylesheet" href="http://js.jrjimg.cn/common/edition15/css/common2015.css" />
+<style>
+*{-webkit-tap-highlight-color:transparent;}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none; color: #fff; }
+a:active{background-color:transparent; }
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 16px/28px "Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; color: #fff; }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.enter{ font-size: 12px;}
+.in{ width:1000px; margin:0 auto;}
+
+body{min-width:1000px; overflow-x: hidden}
+.show{ display: block !important;}
+
+
+
+.item1{ background:#71baed; padding-bottom: 20px;}
+.item1 img{ margin-top: 43px;}
+.item1txt { width:606px;text-align: center;}
+.item1txt h2{font-weight: normal;font-size: 76px; line-height: 100px; padding-top: 100px;}
+.item1txt h3{font-weight: normal;font-size: 50px; line-height: 80px;}
+.lingqubtn{ display: block;width:317px; line-height: 67px;border:1px solid #fff;border-radius: 10px; margin:20px auto 27px; font-size: 28px;}
+.item1txt .time em{width:33px; height: 37px;float: left;background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/webtime.png) no-repeat; margin-right: 15px; margin-left: 144px;}
+.item1txt .time span{ line-height: 37px; float: left;}
+.item2{ background:#005bac; padding-bottom: 23px;}
+.item2 h3{ font-size: 42px; line-height: 160px; text-align: center;font-weight: normal;}
+.item2 .dec{ margin-left: 280px; line-height: 40px; margin-top: -60px; position: relative; font-size: 18px;}
+.item2  p{ color: #63d6ff;text-align: center; line-height: 40px; margin-bottom: 25px;}
+.bgimg{ border:10px solid rgba(255,255,255,.2);}
+.bgimgin{ border:16px solid #fff;border-left-width: 19px;border-right-width: 19px; border-bottom-width: 21px; background:#f5f5f5;}
+.btlink{ line-height: 45px; text-align: center;}
+.btlink a{text-decoration: underline; color:#aeeaff;}
+.item3{ background:#fed548; padding-bottom: 70px;}
+.item3 .in{ background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/webbg_03.jpg) no-repeat top right;}
+.item3 h3{ line-height: 200px; text-align: center; color: #4a4003;font-size: 42px; font-weight: normal;}
+.item3 .dec{ width:430px; line-height: 40px; color:#000;font-size: 26px; }
+.item3 .dec li{ margin-top: 18px;}
+.item3 .dec span{ width:40px; line-height: 40px; background:#4a4003;border-radius: 50%; text-align: center; font-size: 27px;color:#ebd33d; margin-right: 20px;}
+.item3 .img{ border:13px solid rgba(244,146,12,.2); margin-left: -13px;}
+.item3 .lingqubtn{ border:none;border-radius: 10px; margin:20px auto 27px; font-size: 28px; background: #4a4003; color: #fff; text-align: center; margin-left: 0;}
+
+.item4{ background:#282828; padding-bottom: 34px;}
+.item4 h3{font-size: 42px; line-height: 60px;width:210px; margin:0 auto; border-bottom:1px solid #949494; padding-top: 38px; margin-bottom: 70px;font-weight: normal;}
+.item4 .twoh3{font-size: 30px; width: 122px; line-height: 50px;}
+.item4 .dec li em{ font-size: 24px; margin-top: 6px;}
+.item4 .dec li div{ width:940px;line-height: 40px;}
+.item4 .dec li p{ font-size: 18px;}
+.item4 .dec li span{ font-size: 14px;  display: block;}
+.item4 .img{text-align: center;}
+.item4 .bt{ line-height: 20px; font-size: 14px; margin-bottom: 20px;}
+.item4 .bt span{ color:#f4920c;}
+
+/*弹层*/
+.mask { display: none; position: fixed; width: 100%; height: 100%; background: #000; opacity: .6; filter: alpha(opacity=60); top: 0; left: 0; z-index: 20; }
+.layer{display:none;width: 313px;height: 422px;position: fixed;top: 50%;left: 50%;margin-top: -156px;margin-left: -166px;z-index: 21;color: #000;animation: haha .6s cubic-bezier(1,-0.49, 0, 1.5); color: #97d2ee; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/layerbg_1.png); font-size: 16px;line-height: 20px; text-align: center;}
+@keyframes haha {
+from { transform: scale(6); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+
+
+/*抽中 */
+.layer .code{ padding:2px; background: #fff;border:4px solid rgba(216,194,9,.2); border-radius: 4px; width:168px; margin-left: 44px; margin-top: 15px;}
+.layer h3{  padding-top: 80px;width:214px; margin-left: 26px; font-weight: normal;}
+.layer p{width:270px; margin-top: 8px; }
+.closebtn{ position:absolute;width:42px; height:42px; cursor:pointer;top: 21px;right: 0;}
+
+
+.layer_success{ background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/layerbg_2.png); color:#ddd;}
+.layer_success .code{border:4px solid rgba(202,53,2,.2);}
+
+.layer_sorry{ background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/layerbg_3.png) no-repeat; color:#ddd; font-size: 15px;}
+.layer_sorry .code{border:4px solid rgba(15,69,158,.2);}
+.layer_sorry  h3{ padding-top: 58px;}
+.layer_sorry .closebtn{ top: 0}
+.layer_fx{  background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/layerbg_4.png); color:#ddd; height: 342px; margin-top: -171px;}
+.layer_fx .code{border:4px solid rgba(212,124,9,.2); margin-top: 68px;}
+.layer_fx h3{padding-top: 10px; color: #000}
+
+</style>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.qrcode.min.js"></script>
+</head>
+
+<body>
+    <script src="http://js.jrjimg.cn/common/head/headTop.js"></script>
+    
+    <div class="item1">
+        <div class="in clearfix">
+            <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/webbg_01.jpg" class="fl">
+            <div class="fl item1txt">
+                <h2>交易尊享</h2>
+                <h3><b>人工+智能</b>双重投资保障</h3>
+                <a class="lingqubtn" href="javascript:;">领取投资服务</a>
+                <div class="time clearfix"><em></em><span>活动时间：2017年5月2日——5月31日</span></div>
+            </div>
+        </div>
+    </div>    
+    <div class="item2">
+        <div class="in">
+            <h3><b>1对1专属投顾服务</b>-孟祥斌</h3>
+            <div class="img"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/webbg_02.jpg" alt=""></div>
+            <ul class="dec">
+                <li class="clearfix">
+                    <span class="fl">【专属】</span>
+                    <div class="fl">1对1股市答疑，专属守护</div>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">【专业】</span>
+                    <div class="fl">盘前、盘中、盘后实时解读大盘，挖掘交易时机，分享操作策略</div>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">【专注】</span>
+                    <div class="fl">分享个人操盘战法、策略，解读个股操作机会</div>
+                </li>
+            </ul>
+            <p>17年股票实战操作经验；潜心总结“牛散大揭秘”分析方法，基于智能投资工具，综合交易心理分析，带领用户创造出新的投资价值。</p>
+            <div class="bgimg">
+                <div class="bgimgin"><ul>
+                    <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/gun1.jpg" alt=""></li>
+                    <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/gun2.jpg" alt=""></li>
+                    <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/gun3.jpg" alt=""></li>
+                    <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/gun4.jpg" alt=""></li>
+                </ul></div>
+            </div>
+            <div class="btlink"><a href="" class="">孟老师正在为您服务>></a></div>
+        </div>
+    </div>    
+    <div class="item3">
+        <div class="in">
+            <h3><b>Z³智能投资助理</b>-极智账户</h3>
+            <div class="clearfix">
+                <div class="img fl"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/webbg_04.jpg" alt=""></div>
+                <div class="fr">
+                    <ul class="dec">
+                        <li class="clearfix">
+                            <span class="fl">1</span>
+                            <div class="fl">趋势选股、智能诊股</div>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl">2</span>
+                            <div class="fl">毫秒级行情，10档盘口</div>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl">3</span>
+                            <div class="fl">个股及持仓股票显示ZS信号</div>
+                        </li>
+                    </ul>
+                    <a class="lingqubtn" href="javascript:;">领取投资服务</a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="item4">
+        <div class="in">
+            <h3>贴心小问答</h3>
+            <ul class="dec">
+                <li class="clearfix">
+                    <em class="fl">Q1:</em>
+                    <div class="fr">
+                        <p>专属投顾服务，和智能投资助理的服务内容会冲突吗？</p>
+                        <span>智能投资服务提供基于各种数据指标的客观分析，专属投顾服务，能够随时帮你分析大盘，解读政策，剖析交易心理等，使分析结果更具借鉴价值。</span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <em class="fl">Q2:</em>
+                    <div class="fr">
+                        <p>风险承受力较低的股市新手，适合参与这个活动吗？</p>
+                        <span>新手入市，要充分运用各种信息指标，做到理性投资，人工+智能的投资交易服务，能辅助用户做好行情分析及预判，最大程度降低炒股风险及入市门槛。</span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <em class="fl">Q3:</em>
+                    <div class="fr">
+                        <p></p>
+                        <span>怎么获得人工+智能的双重投资服务？</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="img"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170421intell/webbg_05.jpg" alt=""></div>
+            <h3 class="twoh3">活动规则</h3>
+            <p class="bt">1、领取方式：活动期间到APP活动页面点击“领取”按钮，【人工投顾服务及专栏】在金融界APP开户平安证券并绑定资金账号后2个工作日内发放；智能投资助理【极智账户】新绑定平安账号后自动开启1个月使用权限；</p>
+            <p class="bt">2、人工投顾服务包含专业投顾投资专栏、1对1投资答疑等；智能投资助理即【极智账户】包含Z点操盘和level-2十档极速行情；</p>
+            <p class="bt">3、本次活动最终解释权归金融界所有，智能投资产品非券商提供功能，如有疑问，请咨询<span>400-166-1188</span>。</p>
+            <p class="bt">股市有风险，投资需谨慎。</p>
+        </div>
+    </div>
+
+
+
+<div class="mask"></div>
+<!--待顀取-->
+<div class="layer layer_wait">
+    <i class="closebtn"></i>
+    <h3>您暂不能领取【极智账户】和投顾专栏服务，请先绑定平安证券账号，就可查看所有股票的ZS点和level-2十档行情。</h3>
+    <div class="code"><div class="codein"></div></div>
+    <p>下载金融界APP<br />体验人工+智能双重服务</p>
+</div>
+<!--领取成功-->
+<div class="layer layer_success">
+    <i class="closebtn"></i>
+    <h3>您成功领取【极智账户】，可查看所有股票的ZS点和level-2十档行情，开户并绑定还能再得投顾服务专栏。</h3>
+    <div class="code"><div class="codein"></div></div>
+    <p>下载金融界APP<br />体验人工+智能双重服务</p>
+</div>
+<!--sorry-->
+<div class="layer layer_sorry">
+    <i class="closebtn"></i>
+    <h3>很抱歉，此次活动对象是活动期间新绑定平安证券账号用户。关注“交易助手”投顾号，后续活动还会有更多惊喜！</h3>
+    <div class="code"><div class="codein"></div></div>
+    <p>下载金融界APP<br />体验人工+智能双重服务</p>
+</div>
+
+<!--分享-->
+<div class="layer layer_fx">
+    <i class="closebtn"></i>
+    <div class="code"><div class="codein"></div></div>
+    <h3>分享到微信好友、朋友圈和微博，送给好友人工+智能双重投资服务，好东西大家分享~</h3>
+</div>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.jcarousellite.pauseOnHover-min.js"></script>
+<script>
+$(function(){ 
+    (function(){
+       var K={
+            init:function(){
+                K.gun();
+                K.codeimg();
+            },
+            gun:function(){
+                $('.bgimgin').jCarouselLite({
+                    auto: 3000,
+                    speed: 500,
+                    circular: true,
+                    vertical:true,
+                    visible: 1,
+                    pauseOnHover:true
+                });
+            },
+            codeimg:function(){
+                $('.layer .codein').empty().qrcode({
+                    width: "168",
+                    height: "168",
+                    image: null,
+                    text: 'http://appcms.jrj.com.cn/download.jspa?channel=mainsite2'
+                });
+            }
+       }; 
+       K.init();
+    })();
+});
+</script>
+</body>
+</html>
+
+
+

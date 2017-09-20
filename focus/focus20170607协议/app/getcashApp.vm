@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>全民领现金，一起赚翻天</title>
+    <style>
+   * {-webkit-tap-highlight-color: transparent}
+body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,textarea,table,th,td,i {margin: 0;padding: 0;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;-khtml-user-select: none;user-select: none;}address,cite,em,i {font-style: normal;}
+body {-webkit-appearance: none;background: #ffffff;}
+li {list-style: none;}
+a {color: #fff;text-decoration: none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);outline: none;}
+a:hover {text-decoration: none;}img {vertical-align: top;border: 0;}
+html,body {font: 20px/1rem 'Microsoft Yahei';color: #fff;}
+.clearfix:after {display: block;content: '';clear: both;}
+.fl {float: left;}
+.fr {float: right;}
+.bsbb {box-sizing: border-box;}
+.hide {display: none !important;}
+.show {display: block !important;}body {background: #ffbb36;padding-bottom: 10rem;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;-khtml-user-select: none;user-select: none;}
+.item1 {height: 21.65rem;width: 100%;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5bg_01.jpg?b) no-repeat center center;background-size: 100%;}
+.item2 {height: 22.075rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5bg_02.jpg) no-repeat center center;background-size: 100%;}
+.item3 {height: 17.55rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5bg_03.jpg) no-repeat center center;background-size: 100%;}
+.item4 {height: 16.375rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5bg_04.jpg) no-repeat center center;background-size: 100%;}
+.item4 .tit{ padding-top: .7rem;}
+.sharebtn {width: 2rem;height: 2rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20161123xianxia/share.png) no-repeat center center;background-size: 80% 80%;position: absolute;right: .5rem;top: .5rem;}
+.item2 .p1,.item3 .p1 {text-align: center;line-height: 2rem;}
+.item2 a,.item3 .p1 a {color: #feeb12;font-size: .7rem;}
+.item3 .p1 {line-height: 1.5rem;    margin-bottom: -.4rem;}
+.item2 .p2 {color: #feeb12;font-size: .75rem;text-align: center;line-height: 1.6rem;margin-top: 5.03rem;}
+.item2 .div1 {width: 17rem;height: 11.7rem;margin: 0 auto;border-radius: 9px;border: 4px solid #ec532f;background-color: #fff;padding: .3rem .35rem 0;}
+.item2 .div1 .img1 {width: 5.7rem;float: left;}
+.item2 .div1 .div2 {float: right;width: 10.4rem;}
+.item2 .div1 .div2 .div3 {padding-bottom: .3rem;border-bottom: 2px dashed #d8d8d8;}
+.item2 .div2 .p3 {font-size: .9rem;color: #000000;line-height: 1.1rem;}
+.item2 .div2 .p4 {font-size: .65rem;color: #666666;}
+.item2 .div2 .div4 {padding-top: .3rem;}
+.item2 .div2 .div4 .p5 {font-size: .55rem;color: #000000;line-height: .8rem;}
+.item2 .div2 .div4 .p6 a {color: #ff491f;font-size: .6rem;}
+.div-bottom .p-up {font-size: .6rem;color: #000000;}
+.div-bottom .p-bottom {font-size: .65rem;color: #000000;line-height: 1rem;}
+.tit h3 {font-size: 1.16rem;color: #ffee35;text-align: center;line-height: 1.4rem;font-weight: normal;}
+.tit p {font-size: .72rem;color: #ffffff;text-align: center;line-height: 1.2rem;}
+.level2_body ul {margin-left: 1.3rem;margin-top: .6rem;}
+.level2_body li {font-size: .65rem;text-align: left;float: left;line-height: 1.8rem;}
+.level2_body li span {border: 1px solid #000;border-radius: 50%;float: left;width: .9rem;height: .9rem;text-align: center;line-height: .9rem;margin-top: .4rem;margin-right: .5rem;color: #ff613c;background: #fff;}
+.tit-bottom p {font-size: .87rem;color: #ffee35;text-align: center;line-height: 2rem;margin-top: .5rem;}
+.level2_bottom ul {margin-left: 1.3rem;margin-top: .4rem;}
+.level2_bottom li span {border: 2px solid #ffffff;border-radius: 50%;float: left;width: .9rem;height: .9rem;text-align: center;line-height: .9rem;margin-top: 0;margin-right: .5rem;}
+.level2_bottom li div {width: 16.3rem;font-size: .65rem;}
+.bottom {margin-top: 3.5rem;font-size: .57rem;text-align: center;}
+.item5 {position: fixed;width: 100%;bottom: 0;z-index: 2}
+.item5 .img {background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5dibu.png) no-repeat center center;background-size: 100%;height: 4.575rem;width: 18.75rem;}
+.item5 .img .btn {width: 8.7rem;height: 2rem;background: #fff;border: 2px solid #000;border-radius: 11px;color: #000;text-align: center;line-height: 2rem;position: absolute;top: -0.8rem;right: .3rem;cursor: pointer;font-size: .9rem;}
+.item5 .img .btn:hover {color: #000;}
+.item5 .img .btn:active {background: #ffb401}
+.Slide1box {padding-top: 2.5rem;}
+.zy-Slide {font-size: 12px;position: relative;height: 10rem;}
+.zy-Slide .swipe-left,.zy-Slide .swipe-right {position: absolute;top: 1rem;width: 3rem;height: 9rem;z-index: 2;cursor: pointer;}
+.zy-Slide .swipe-left {left: 0;}
+.zy-Slide .swipe-right {right: 0;}
+.zy-Slide ul {position: relative;height: 100%;margin: 0;padding: 0;}
+.zy-Slide li {position: absolute;list-style: none;background: #000;height: auto !important;top: 146px;left: 377px;z-index: 0;cursor: pointer;margin: 0;padding: 0;box-shadow: 0 0 5px 0 #1c3d99;background: #fff;text-align: center;color: #ff613c}
+.zy-Slide li img {vertical-align: middle;width: 100%}
+.zy-Slide li p {font-size: .6rem;}
+.zy-Slide section:nth-child(1),.zy-Slide section:nth-child(2) {position: absolute;top: 50%;width: 39px;height: 40px;margin-top: -20px;cursor: pointer;line-height: 40px;padding-left: 12px;padding-right: 12px;}
+.zy-Slide section:nth-child(1) {left: -60px;}
+.zy-Slide section:nth-child(2) {right: -60px;}
+.point-box {text-align: center;padding: 0 0 10px}
+.point-box a {display: inline-block;*display: inline;*zoom: 1;vertical-align: middle;width: 7px;height: 7px;background: #fff;border-radius: 50%;box-shadow: 1px 2px 0 #828282;}
+.point-box a.active {background: #ffee35;}
+.lookzbtn {display: block;width: 13rem;line-height: 2.5rem;border-radius: 1.25rem;background: #ffd701;color: #ff613c;text-align: center;font-size: .8rem;box-shadow: 0 4px 0 #e2421c;margin: 2rem auto 0;}
+.lookzbtn:active {color: #fff;}@keyframes haha {from {transform: scale(6);opacity: 0;}to {transform: scale(1);opacity: 1;}}/*弹层*/.mask {position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 9999;display: none;}
+.layer {display: none;width: 16.55rem;height: 12.4rem;position: fixed;top: 50%;left: 50%;margin-top: -6.2rem;margin-left: -8.275rem;z-index: 9999;color: #fff7b9;animation: haha .6s cubic-bezier(1, -0.49, 0, 1.5);background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5layerbg.png) no-repeat;text-align: center;background-size: 100% 100%}
+.layer h3 {font-size: .65rem;line-height: 1rem;font-weight: normal;margin-top: 3.7rem;margin-left: .7rem;}
+.codein {width: 210px;height: 210px;background-color: yellow;margin: 0 auto 30px;}
+.layer .layer_btn {font-size: 18px;color: #fff;width: 4.325rem;height: 1.25rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5btnbg1.png) no-repeat;background-size: 100% 100%;position: absolute;bottom: 1.4rem;left: 6.2rem;font-size: .6rem;color:#ef1448;}
+.layer .layer_btn:active {background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5btnbg2.png);}
+.layer span {display: block;height: 6px;overflow: hidden;}
+.closebtn {width: 1.3rem;height: 1.3rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5close1.png) no-repeat;position: absolute;top: 1rem;right: .5rem;cursor: pointer;background-size: 100% 100%;}
+.closebtn:active {background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5close2.png);}
+.layer_05 h4 {position: absolute;font-weight: normal;color: #ffd02e;font-size: .75rem;left: 5rem;top: .5rem;}
+.layer_05 h3 {margin-top: 3rem;}
+    </style>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.qrcode.min.js"></script>
+</head>
+
+<body>
+    <div class="item1"><span class="sharebtn"></span></div>
+    <div class="item2">
+        <p class="p1"><a href="http://itougu.jrj.com.cn/view/199672.jspa">交易券使用步骤详解></a></p>
+        <p class="p2">绑定平安证券，限量领取</p>
+        <div class="div1">
+            <div class="up clearfix">
+                <img class="img1" src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/h5tou.png">
+                <div class="div2">
+                    <div class="div3">
+                        <p class="p3"><b>猎人X—A股宗师级导师</b></p>
+                        <p class="p4">股市新手保护月，小白进阶必看内参</p>
+                    </div>
+                    <div class="div4">
+                        <p class="p5">爱投顾资深投顾，80后职业证券投资顾问，08年始入行中国A股市场，曾任某知名基金策略分析师。</p>
+                        <p class="p6"><a href="http://itougu.jrj.com.cn/tips/10448.jspa?tgqdcode=249R543NZ">更多精彩，请开户领取本期内参></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="div-bottom">
+                <p class="p-up"><b>内参战绩：</b></p>
+                <p class="p-bottom">1.《新手专享：投资策略专栏》订阅200余人，订阅数量同 期投顾中位列第一；
+                    <br />2.教学收费专栏1088元《猎人X：真教学实战内参A期》，发售两天订阅超过80份，猎人X老师紧急停售。</p>
+            </div>
+        </div>
+    </div>
+    <div class="item3">
+        <div class="Slide1box">
+            <div id="Slide1" class="zy-Slide">
+                <div class="swipe-left"></div>
+                <div class="swipe-right"></div>
+                <ul>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img1.png" />
+                        <p>出现ZS点信号，即可操盘：
+                            <br />Z点加仓，S点减仓</p>
+                    </li>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img4.png" />
+                        <p>一旦自选股、持仓股出现Z点信号，
+                            <br />及时推送消息不错过每一个买入机会</p>
+                    </li>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img3.png" />
+                        <p>3000多只股票，10年数据机器学习演算，
+                            <br />Z点准确率高达75%</p>
+                    </li>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img2.png" />
+                        <p>新增趋势雷达和中线拐点预判功能，
+                            <br />中期炒股风向标</p>
+                    </li>
+                </ul>
+            </div>
+            <p class="p1"><a href="http://itougu.jrj.com.cn/view/196525.jspa">如何玩转Z点操盘？隐藏技能大解密&gt;</a></p>
+            <div class="point-box">
+                <a href="javascript:;" class="active"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+    </div>
+    <div class="item4">
+        <div class="in">
+            <div class="tit">
+                <h3>Level-2超级行情</h3>
+                <p>追踪主力获取最大利益</p>
+            </div>
+            <div class="level2_body clearfix">
+                <ul>
+                    <li><span>1</span>行情升级：五挡升十挡(深市千档)精确定位主力轨迹</li>
+                    <li><span>2</span>逐笔成交：精确查看每一笔成交明细追踪主力资金动向</li>
+                    <li><span>3</span>动态委托队列：检测个股拉升行情助你辨单更直接</li>
+                </ul>
+            </div>
+        </div>
+        <a href="javascript:;" id = "viewZSLV2" class="lookzbtn">如何查看Z点和Level-2行情</a>
+        <div class="bottom">
+            股市有风险，投资需谨慎。客服电话：400-166-1188
+        </div>
+    </div>
+    <div class="item5">
+        <div class="img">
+            <a href="javascript:;" id="one_click_btn" class="btn">一键领取</a>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <!--1-->
+    <div class="layer layer_01">
+        <i class="closebtn"></i>
+        <h3>您好！<br />此现金券仅限未在金融界交易用户领取。<br />关注“交易助手”，后续活动将有“重复<br />交易”现金券等福利发放。</h3>
+        <a href="javascript:;" class="layer_btn">知道了</a>
+    </div>
+    <!--2-->
+    <div class="layer layer_02">
+        <i class="closebtn"></i>
+        <h3 class="h3width">恭喜您获得了15元交易券！可去“我的<br/>”--“交易券”查看提现。<br />活动期间首次绑定还将获得猎人X内参、Z<br/>点操盘+level-2行情1个月权限。</h3>
+        <a href="javascript:;" class="layer_btn">去交易</a>
+    </div>
+    <!--3-->
+    <div class="layer layer_03">
+        <i class="closebtn"></i>
+        <h3 class="h3width">恭喜您获得了15元交易券！可去“我的<br/>”--“交易券”查看提现。<br />绑定平安账号还可自动获得猎人X内参、Z<br/>点操盘+level-2行情1个月权限。</h3>
+        <a href="javascript:;" class="layer_btn">去绑定</a>
+    </div>
+    <!--4-->
+    <div class="layer layer_04">
+        <i class="closebtn"></i>
+        <h3 class="h3width">恭喜您获得了15元交易券！可去“我的<br/>”--“交易券”查看提现。<br />开户绑定平安账号后还可自动获得猎人X<br/>点操盘+level-2行情1个月权限。</h3>
+        <a href="javascript:;" class="layer_btn">去开户</a>
+    </div>
+    <!--5-->
+    <div class="layer layer_05">
+        <i class="closebtn"></i>
+        <h4>如何查看Z点和Level-2</h4>
+        <h3 class="h3width">1、活动期间首次绑定平安证券资金账号<br/>后，即可自动获得1个月Z点操盘和L2行情<br/>使用权限。<br />2、登录金融界APP-->点击自选股或持仓股<br/>-->“分时”查看十档行情，“日K”查看Z<br/>点操盘指标。</h3>
+        <a href="javascript:;" class="layer_btn" id= "view_zs_ensure_btn">确定</a>
+    </div>
+    <script src="https://zqhd.eastmoney.com/Html/aghd/pc/20170512/resource/js/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/wechat-share-without-amd.js"></script>
+    <script>
+    $(function() {
+
+
+            $("#viewZSLV2").click(function (){
+                $(".mask").fadeIn(100);
+                $(".layer_05").show();
+            });
+
+            $("#view_zs_ensure_btn").click(function(){
+                $(".layer_05").hide();
+                $(".mask").fadeOut(100);
+            })
+
+            //获取url参数
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+
+
+            var K = {
+                ssoId: '${ssoId}',
+                appname: '${source}',
+                tgqdcode: getQueryString('tgqdcode'),
+                spToken: encodeURIComponent('${spToken}'),
+                init: function() {
+                    var ua=navigator.userAgent.toLowerCase();
+                    if(/iphone|ipad|ipod/.test(ua)){
+                        //alert('我是Ios机器人啊');
+                        K.ssoId=K.getCookie('passportId');
+                        K.appname=K.getCookie('sourceLocal');
+                        K.spToken=encodeURIComponent(K.getCookie('accessToken'));
+                        //alert('我是cookie里ssoId='+K.getCookie('passportId')+'，appname='+K.getCookie('sourceLocal')+'，spToken='+encodeURIComponent(K.getCookie('accessToken')));
+                    };
+                    //alert('ssoId='+K.ssoId+'，appname='+K.appname+'，spToken='+K.spToken);
+                    K.change();
+                    K.fenxiang();
+                    K.closelayer();
+                    K.btlinkfn();
+                    K.one_click();
+
+                    if (K.appname == 'itougu') { //站内
+                        if ((K.ssoId+'').length >= 18) {
+                            K.codehaha();
+                        }
+                    } else {
+                        if ((K.getCookie('itg_passport_userid') + '').length >= 18) {
+                            K.codehaha();
+                        }
+                        $('.btlink a').hide();
+                    }
+                },
+                btlinkfn: function() {
+                    $('.btlink a').click(function() {
+                        if (K.appname == 'itougu') { //站内
+                            if ((K.ssoId + '').length >= 18) {
+                                window.location.href = 'http://itougu.jrj.com.cn/account/adviser/140704010029944776/';
+                            } else {
+                                jrj.jsCallNative('108', JSON.stringify({
+                                    returnUrl: encodeURI(window.location.href)
+                                }))
+                            }
+                            //window.dcsMultiTrack('DCS.dcsuri', 'intelligenceApp_lianqu', 'WT.ti', 'intelligenceApp_lianqu');
+                        } else { //站外
+                            if ((K.getCookie('itg_passport_userid') + '').length >= 18) {
+                                window.location.href = 'http://itougu.jrj.com.cn/account/adviser/140704010029944776/';
+                            } else {
+                                window.location.href = '//sso.jrj.com.cn/sso/mobileToLogin?mode=sms&from=TG_Msite&tgqdcode=' + (window.tgqdcode || '') + '&ReturnUrl=' + encodeURIComponent(window.location.href);
+                            }
+
+                        }
+                    });
+                },
+                codehaha: function() {
+                    $.ajax({
+                        url: 'https://t.jrj.com.cn/activities/common/join?matchId=6&ssoId=' + K.ssoId + '&tgqdcode=' + K.tgqdcode + '&spToken=' + K.spToken,
+                        type: "get",
+                        cache: false,
+                        dataType: 'jsonp',
+                        jsonp: 'callback',
+                        success: function(v) {
+                            console.log(v);
+                            if (v.retcode == 0) {
+
+                            }
+                        },
+                        error: function() {
+
+                        }
+                    });
+                },
+                change: function() {
+                    function changesize() {
+                        document.documentElement.style.fontSize = 20 * document.documentElement.clientWidth / 375 + 'px';
+                    }
+                    changesize();
+                    window.addEventListener('resize', changesize, false);
+                },
+                fenxiang: function() {
+                    if (!(K.appname == 'itougu')) {
+                        $('.sharebtn').hide();
+
+                    }
+                    $('.sharebtn').click(function() {
+                        if ((K.ssoId + '').length >= 18) {
+                            var href = 'http://www.itougu.com/?share={"title":"' + encodeURIComponent('全民领取15元现金，一起赚翻天！') + '","content":"' + encodeURIComponent('在金融界绑定平安证券，获得投资内参3重礼包，还送15元现金。') + '","url":"' + encodeURIComponent(window.location.href + '&ssoId=' + K.ssoId) + '","imgurl":"' + encodeURIComponent('https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/share.jpg') + '"}';
+                            window.location.href = href;
+                        } else {
+                            jrj.jsCallNative('108', JSON.stringify({
+                                returnUrl: encodeURI(window.location.href)
+                            }));
+                            //window.dcsMultiTrack('DCS.dcsuri', 'intelligenceApp_share', 'WT.ti', 'intelligenceApp_share');
+                        }
+                    });
+                    InitWeChatShare({
+                        shareTitle: '全民领取15元现金，一起赚翻天！',
+                        shareLink: window.location.href,
+                        shareDesc: '在金融界绑定平安证券，获得投资内参3重礼包，还送15元现金。',
+                        shareImg: 'https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/share.jpg',
+                        callback: function(wx) {
+
+                        }
+                    });
+                },
+                closelayer: function() {
+                    $('.closebtn,.layer_05 .layer_btn').each(function() {
+                        $(this).click(function() {
+                            $('.mask,.layer').hide();
+                        });
+                    });
+                },
+                // 一键领取.
+                one_click: function() { //点击开通按钮
+                    $('.item5').click(function() {
+                        //alert('appname='+K.appname); 
+                        if (K.appname == 'itougu') { //站内
+                            if ((K.ssoId + '').length >= 18) {
+                                //请求一键领取接口.
+                                $.ajax({
+                                    url: 'https://t.jrj.com.cn/activities/june/one_click?matchId=7&ssoId=' + K.ssoId + '&spToken=' + K.spToken + '&tgqdcode=' + K.tgqdcode+'&fromCode='+K.tgqdcode,
+                                    type: "get",
+                                    cache: false,
+                                    dataType: 'jsonp',
+                                    jsonp: 'callback',
+                                    success: function(v) {
+                                        // 站外未登录情况下，跳转手机端登录.
+                                        if (v.retcode == 700010) {
+                                            window.location.href = location.href + "&type=virtual/accessTokenInvalid";
+                                            return;
+                                        }
+
+                                        if (v.retcode == 0) {
+                                            $(".mask").show();
+
+                                            var status = v.data.status;
+                                            // 1= 已经完成首次交易， 2= 已经绑定 3= 完成开户未绑定，4=未开户
+                                            if (status >= 1 && status <= 4) {
+                                                $(".layer_0" + status).fadeIn(100);
+                                            }
+                                            $('.layer_btn').unbind().click(function() {
+                                                $('.mask,.layer_0' + status).hide();
+                                                jrj.jsCallNative('139', JSON.stringify({})); //交易-实盘账户主页
+                                            });
+                                        }
+                                    },
+                                    error: function() {
+
+                                    }
+                                });
+                            } else {
+                                jrj.jsCallNative('108', JSON.stringify({
+                                    returnUrl: encodeURI(window.location.href)
+                                }))
+                            }
+                            //window.dcsMultiTrack('DCS.dcsuri', 'intelligenceApp_lianqu', 'WT.ti', 'intelligenceApp_lianqu');
+                        } else { //站外
+                            if ((K.getSsoId() + '').length >= 18) {
+                                $.ajax({
+                                    url: 'https://t.jrj.com.cn/activities/june/one_click?matchId=7&tgqdcode=' + K.tgqdcode+'&fromCode='+K.tgqdcode,
+                                    type: "get",
+                                    cache: false,
+                                    dataType: 'jsonp',
+                                    jsonp: 'callback',
+                                    success: function(v) {
+                                        // 站外未登录情况下，跳转手机端登录.
+                                        if (v.retcode == 700010) {
+                                            window.location.href = '//sso.jrj.com.cn/sso/mobileToLogin?mode=sms&from=TG_Msite&tgqdcode=' + (window.tgqdcode || '') + '&ReturnUrl=' + encodeURIComponent(window.location.href);
+                                            return;
+                                        }
+
+                                        if (v.retcode == 0) {
+                                            $(".mask").show();
+
+                                            var status = v.data.status;
+                                            // 1= 已经完成首次交易， 2= 已经绑定 3= 完成开户未绑定，4=未开户
+                                            if (status >= 1 && status <= 4) {
+                                                $(".layer_0" + status).fadeIn(100);
+                                            }
+
+                                            // 弹窗按钮绑定站外跳转事件.
+                                            $('.layer_btn').unbind().click(function() {
+                                                window.location.href = 'http://appcms.jrj.com.cn/download.jspa?channel=mainsite2';
+                                            })
+                                        }
+
+
+
+                                    },
+                                    error: function() {
+
+                                    }
+                                });
+
+                            } else {
+                                window.location.href = '//sso.jrj.com.cn/sso/mobileToLogin?mode=sms&from=TG_Msite&tgqdcode=' + (window.tgqdcode || '') + '&ReturnUrl=' + encodeURIComponent(window.location.href);
+                            }
+
+                            //window.dcsMultiTrack('DCS.dcsuri', 'intelligenceApp_lianquout', 'WT.ti', 'intelligenceApp_lianquout');
+                        }
+
+                    })
+                },
+                getSsoId: function() {
+                    var result = K.getCookie("itg_passport_userid");
+                    if (result == null) {
+                        result = K.getCookie("myjrj_userid");
+                    }
+                    return result;
+                },
+                getCookie: function(name) {
+                    var bikky = document.cookie;
+                    name += "=";
+                    var i = 0;
+                    while (i < bikky.length) {
+                        var offset = i + name.length;
+                        if (bikky.substring(i, offset) == name) {
+                            var endstr = bikky.indexOf(";", offset);
+                            if (endstr == -1) endstr = bikky.length;
+                            return unescape(bikky.substring(offset, endstr));
+                        }
+                        i = bikky.indexOf(" ", i) + 1;
+                        if (i == 0) break;
+                    }
+                    return null;
+                }
+
+            };
+            K.init();
+        //window.dcsMultiTrack('DCS.dcsuri', 'intelligneceApp_Appall', 'WT.ti', 'intelligneceApp_Appall');
+    });
+    </script>
+    <script type="text/javascript">
+    //让bind函数支持IE8
+    if (!Function.prototype.bind) {
+        Function.prototype.bind = function(oThis) {
+            if (typeof this !== "function") {
+                throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+            }
+            var aArgs = Array.prototype.slice.call(arguments, 1),
+                fToBind = this,
+                fNOP = function() {},
+                fBound = function() {
+                    return fToBind.apply(this instanceof fNOP && oThis ? this : oThis,
+                        aArgs.concat(Array.prototype.slice.call(arguments)));
+                };
+            fNOP.prototype = this.prototype;
+            fBound.prototype = new fNOP();
+            return fBound;
+        };
+    }
+    //-------------------------------------------------------------------------//
+    (function($) {
+        // 创建构造函数
+        function Slide(ele, options) {
+            this.$ele = $(ele) //this. 构造函数的实例对象
+            this.options = $.extend({
+                    speed: 1000,
+                    delay: 3000
+                }, options) //拓展
+            this.states = [
+                {
+                    '&zIndex': 1,
+                    width: '66.6%',
+                    
+                    top: '9%',
+                    left: '1.3%',
+                    opacity: 0.8
+                }, {
+                    '&zIndex': 2,
+                    width: '85%',
+                    top: 0,
+                    left: '7.2%',
+                    opacity: 1
+                }, {
+                    '&zIndex': 1,
+                    width: '66.6%',
+                    top: '9%',
+                    left: '32.5%',
+                    opacity: 0.8
+                }, {
+                    '&zIndex': 1,
+                    width: '66.6%',
+                    top: '9%',
+                    left: '16%',
+                    opacity: 0.8
+                }
+            ]
+            this.lis = this.$ele.find('li')
+            this.interval
+                // 点击切换到下一张
+
+            $('.zy-Slide').find('.swipe-right').on('click', function() {
+                    this.stop()
+                    this.next()
+                    this.play()
+                    for (var i in $('.zy-Slide').find('li')) {
+                        if ($('.zy-Slide').find('li').eq(i).css('z-index') == 2) {
+                            $('.point-box a').removeClass('active');
+                            $('.point-box a').eq(i).addClass('active');
+                        }
+                    }
+            }.bind(this));
+                // 点击切换到上一张
+            $('.zy-Slide').find('.swipe-left').on('click', function() {
+                this.stop()
+                this.prev()
+                this.play()
+                for (var i in $('.zy-Slide').find('li')) {
+                    if ($('.zy-Slide').find('li').eq(i).css('z-index') == 2) {
+                        $('.point-box a').removeClass('active');
+                        $('.point-box a').eq(i).addClass('active');
+                    }
+                }
+            }.bind(this));
+            this.move()
+                // 让轮播图开始自动播放
+            this.play()
+        }
+
+
+        Slide.prototype = {
+
+
+            // 原型是一个对象，所以写成一个花括号
+
+            // move()方法让轮播图到达states指定的状态
+            // <1>当页面打开时将轮播图从中心点展开
+            // <2>当轮播图已经展开时，会滚动轮播图(需要翻转states数组中的数据)
+            move: function() {
+
+                this.lis.each(function(i, el) {
+                    $(el)
+                        .css('z-index', this.states[i]['&zIndex'])
+                        .finish().animate(this.states[i], this.options.speed)
+                        // .stop(true,true).animate(states[i], 1000)
+                        .find('img').css('opacity', this.states[i].$opacity)
+                }.bind(this))
+                for (var i in this.lis) {
+                    if (this.lis.eq(i).css('z-index') == 2) {
+                        $('.point-box a').removeClass('active');
+                        $('.point-box a').eq(i).addClass('active');
+                    }
+                }
+            },
+            // 让轮播图切换到下一张
+            next: function() {
+
+                this.states.unshift(this.states.pop())
+                this.move()
+            },
+            // 让轮播图滚动到上一张
+            prev: function() {
+
+                this.states.push(this.states.shift())
+                this.move()
+            },
+            play: function() {
+
+                this.interval = setInterval(function() { //这个this指window
+                    // setInterval、setTimeOut 中的this指向window
+
+                    // states.unshift(states.pop())       //从后往前走
+                    // states.push(states.shift())     //从前往后走
+                    this.next()
+                }.bind(this), this.options.delay)
+            },
+            // 停止自动播放
+            stop: function() {
+                // var _this = this
+                clearInterval(this.interval)
+            }
+
+        }
+        $.fn.zySlide = function(options) {
+            this.each(function(i, ele) {
+                new Slide(ele, options)
+            })
+            return this
+        }
+    })(jQuery)
+    </script>
+    <script>
+    $(function() {
+        jQuery('.zy-Slide').zySlide({
+            speed: 500
+        }).css('border', '0px solid blue');
+
+
+    });
+    </script>
+</body>
+
+</html>

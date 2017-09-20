@@ -1,0 +1,144 @@
+#parse('../velocity/macro/page.vm')
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的收入-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/calendar.css" rel="stylesheet" />
+</head>
+<body>
+    <!--site-top-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-header-->
+     <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="" class="cur">投顾空间</a>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            
+            <div class="site-main-right">
+               <h1 class="revenue-page-tit clearfix">
+                    <a href="/account/income/help.jspa" target="_blank" class="fr link f14">帮助</a>
+                    <span class="f18">我的收入</span>
+                    <span class="sub f14">（金额单位：元）</span>
+                    <span class="condition">
+                        <input id="sum-cal-from" type="text" class="txtbox-calendar" readonly />
+                        <span class="unit">至</span>
+                        <input id="sum-cal-to" type="text" class="txtbox-calendar" readonly />
+                    </span>
+                </h1>
+                <div class="revenue-summary-block mt20">
+                	<div class="revenue-summary-block-row-1 clearfix">
+                      <div class="revenue-summary-item-1">
+                        <p>
+                            <span>投资内参总销售额</span>
+                            <i class="icon tooltip icon-tooltip" id="tooltip-total" title="投资内参销售金额汇总，投顾获得收益部分以官方实发为准"></i>
+                        </p>
+                        <p id="sum-tips" class="num income-detail" data-amount-actual="0" data-amount-real="0" data-amount-virtual="0"><span>0</span><i class="icon icon-rmb"></i></p>
+                      </div>
+                      <div class="revenue-summary-item-2">
+                        <p>
+                            <span>组合跟投总销售额</span>
+                            <i class="icon tooltip icon-tooltip" id="tooltip-total" title="组合跟投销售金额汇总，投顾获得收益部分以官方实发为准"></i>
+                        </p>
+                        <p id="sum-portfolio" class="num income-detail" data-amount-actual="0" data-amount-real="0" data-amount-virtual="0"><span>0</span><i class="icon icon-rmb"></i></p>
+                      </div>
+                      <div class="revenue-summary-item-3">
+                        <p>
+                            <span>奖金总收入</span>
+                            <i class="icon tooltip icon-tooltip" id="tooltip-total" title="每月5日生成上月账单，20日前结算"></i>
+                        </p>
+                        <p id="sum-bonus" class="num"><span>0</span><i class="icon icon-rmb"></i></p>
+                      </div>
+                      <div class="revenue-summary-item-4">
+                        <p>
+                            <a href="/account/income/bill.jspa" target="_blank" class="link-v2">奖金账单</a>
+                            <!--  <a href="#" class="link-v2">提现</a>-->
+                        </p>
+                      </div>
+                    </div>
+            
+                <div class="revenue-summary-block-row-2 clearfix">
+                        <div class="revenue-summary-item-1">
+                            <p>
+                                <span>礼物总销售额</span>
+                                <i class="icon tooltip icon-tooltip" id="tooltip-total" title="礼物金额汇总，投顾获得收益部分以官方实发为准"></i>
+                            </p>
+                            <p id="sum-gift" class="num income-detail" data-amount-actual="0" data-amount-real="0" data-amount-virtual="0"><span>0</span><i class="icon icon-rmb"></i></p>
+                        </div>
+                        <div class="revenue-summary-item-2">
+                            <p>
+                                <span>打赏总销售额</span>
+                                <i class="icon tooltip icon-tooltip" id="tooltip-total" title="打赏金额汇总，投顾获得收益部分以官方实发为准"></i>
+                            </p>
+                            <p id="sum-reward" class="num income-detail" data-amount-actual="0" data-amount-real="0" data-amount-virtual="0"><span>0</span><i class="icon icon-rmb"></i></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="revenue-sub-tab clearfix mt30">
+                    <li id="menu_1" class="cur" >投资内参</li>
+                    <li id="menu_2" >组合跟投</li>
+                    <li id="menu_3" >奖金</li>
+                    <li id="menu_4" >礼物</li>
+                    <li id="menu_5" >打赏</li>
+                </ul>
+                <!-- 内参详情 start -->
+                <div id="con_1"></div>
+                <!-- 内参详情 end -->
+                <!-- 组合详情 start -->
+                <div id="con_2"></div>
+                <!-- 组合详情 end -->
+                <!-- 奖金详情 start -->
+                <div id="con_3"></div>
+                <!-- 奖金详情 end -->
+                <!-- 礼物详情 start -->
+                <div id="con_4"></div>
+                <!-- 礼物详情 end -->
+                <!-- 打赏详情 start -->
+                <div id="con_5"></div>
+                <!-- 打赏详情 end -->
+			</div>
+        </div>
+        <!--site-main-right-->
+    </div>
+
+	<!--\#include virtual="/common_head_js.html" -->
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/calendar.js"></script>
+	<script type="text/javascript" src="http://js.jrjimg.cn/itougu/account/date.js"></script>
+	<script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/account/income.js?20161230"></script>
+    <script type="text/javascript">
+        $(function () {
+            initSumCal();
+            querySummary();
+            initTab();
+            tipsTab.show();
+        });
+    </script>
+    <!--footer-->
+    <!--\#include virtual="/common_footer.html" -->
+    <!--footer-->
+</body>
+</html>

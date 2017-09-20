@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt/css/styles.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt/js/jquery.watermark.min.js"></script>
+
+
+    <link href="http://js.jrjimg.cn/zqt/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt/js/editor/EditorConfig-compact.js"></script>
+    <script src="http://js.jrjimg.cn/zqt/js/editor/JRJEditor.js"></script>
+	
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+            //checkbox
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable')) {
+                    $('.custom-checkbox li').removeClass('checked');
+                    $(this).addClass('checked');
+                } else {
+                    $(this).removeClass('checked');
+                }
+            });
+
+            //checkbox
+
+            $('#Checkbox1').click(function () {
+                if ($(this).is(':checked')) {
+                    $('.custom-checkbox li[data-only="1"]').addClass('disable');
+                } else {
+                    $('.custom-checkbox li[data-only="1"]').removeClass('disable');
+                }
+            });
+        });
+    </script>
+</head>
+<body style="background:#fff;">
+    <div class="dialog-cnt dialog-ask clearfix">
+        <p class="title tr"><span>今日剩余<span class="num">100</span>条</span></p>
+        <div class="editor-wrap" style="height:230px;">
+            <script>
+                var editor = new JRJEditor("editor1", 670, 200, "default", '');
+                var sBasePath = '/jsp/portal/mngr/';
+                JRJEditConfig.BasePath = sBasePath;
+                JRJEditConfig.UploadImage = true;
+                JRJEditConfig.UploadFile = true;
+                editor.create({
+                    hasNumCheck: true,
+                    num: 500
+                });
+            </script>
+        </div>
+        <a href="" class="link" style="position:relative;top:-20px;">群发记录</a>
+        <p class="mt20 tc"><a href="#" class="btn btn-113-30">发送</a></p>
+    </div>
+        
+
+</body>
+</html>

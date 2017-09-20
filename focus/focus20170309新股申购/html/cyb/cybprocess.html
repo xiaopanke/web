@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>创业板转签</title>
+	<meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link href="/html/css/trading-cyb.min.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="trading-wrap">
+        <div class="company-logo">
+            <img src="/stockauth/images/PAZQ_mobile.png" alt="" />
+			<h2 style="white-space: nowrap;">
+				平安证券
+			</h2>
+        </div>
+    </section>
+    <div class="transfer-form">
+        <div class="progress-img progress-img-1"></div>
+        
+        <div class="btn-wrap">
+            <!-- <div>
+                <a class="btn btn-blue">如何开通创业板</a>
+            </div> -->
+            <div style="text-align:right;">
+                <a onclick="cybhelp()" style="color:#3996F2;">转签常见问题</a>
+            </div>
+        </div>
+        <p class="service-cell">平安证券客服：<a href="tel:4000-188-288"><span>4000-188-288</span></a></p>
+    </div>
+
+
+    <script type="text/template" id="dlg-time">
+        <div class="dlg-time" style="height:8rem;">
+            <p style="text-align: center;margin-top: 1.5rem;">您的申请已提交，请稍后查询结果。</p>
+            <div class="dlg-btn-wrap layout-box">
+                <a class="dlg-btn submit" style="color:#3996F2">确认</a>
+            </div>
+        </div>
+    </script>
+
+    <script src="/html/js/zepto.min.js"></script>
+    <script src="/html/js/vue.min.js"></script>
+    <script src="/html/js/bootstrap-slider.min.js"></script>
+    <script>
+        var domain=location.protocol+"//"+location.host;
+
+        $('html').css({'font-size':$(window).width()/375 * 100 + '%'});
+
+        var vm = new Vue({
+            el: $('body')[0],
+            data: {
+                isKeepOnline: true,
+                txtAccount: '',
+                txtIdentity: '',
+				btnEnabled : true
+            },
+            created: function () {
+            },
+            methods: {
+				inputIdentity : function(){
+					var tag = $(event.target).val();
+					this.btnEnabled = tag.length>2?false:true;
+				},
+				clearIdentity : function( tag ){
+					$(tag).val('');
+					this.btnEnabled = true;
+				},
+                showDlg: function () {
+
+                    $('.focus-dlg').html($('#dlg-time').html());
+
+
+                    $('html').addClass('md-slidein-show');
+
+                    $('.focus-dlg, .dlg-close').unbind().click(function () {
+                        $('html').removeClass('md-slidein-show');
+                    });
+                    $('.focus-dlg div').unbind().click(function (e) {
+                        e.stopPropagation();
+                    });
+                    $('.dlg-btn.submit').unbind().bind('click', function () {
+                        $('.trading-link').text(window.slider.element.defaultValue);
+                    })
+                }
+            }
+        });
+        var cybhelp=function(){
+            window.location.href = domain + '/html/cyb/cybhelp.html';
+        };
+
+        $(function () {
+            $('.note-wrap-chk i, .note-wrap-chk span').click(function () {
+                vm.$data.isKeepOnline = !vm.$data.isKeepOnline;
+            });
+        });
+
+        $('.btn-blue').click(function(){
+            window.location.href = domain + '/html/cyb/cybhelp.html';
+        });
+    </script>
+</body>
+</html>

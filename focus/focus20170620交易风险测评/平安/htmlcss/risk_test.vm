@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>风险测评</title>
+    <style type="text/css">
+    *{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#878C92; }
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+ .con{ margin-top: -.5rem; }
+.list{border-top:.5rem solid #efeff4; padding-top: .7rem; padding-bottom: .675rem;  }
+.hd{ padding:.3rem 1rem ;line-height: 1.1rem; font-size:.8rem; font-weight: normal;}
+.bd{ background: #fff; }
+.bd li{ padding:.3rem 1rem .3rem 1.5rem; }
+.icon{border: 1px solid #B2B2B2;border-radius: 50%; float:left; margin-right: .6rem;width:.8rem; height:.8rem; margin-top: 2px; }
+.sel{ background: #F8F8F8;}
+.sel .icon{ background: url(https://i0.jrjimg.cn/zqt-m/quanerong/icon.png) no-repeat; background-size:100% 100%; border-color: #3996F2;  }
+.txt{ line-height: 1.1rem; width:14rem; float: left;font-size:.8rem; color: #666; }
+.ok{ background: #3996F2; }
+.submitbtn {display: block;background: #F24439;width: 17.5rem;line-height: 2.5rem;color: #fff;font-size: .8rem;border-radius: 4px;text-align: center;margin: 0 auto 2rem;}
+ .tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+/*关于弹窗*/
+.mask{display:none;position: fixed;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10;bottom: 0;right: 0;}
+.layer{display:none;width: 13rem;height: 7rem;background: #fff;position: fixed;top: 50%;left: 50%;margin-top: -3.5rem;margin-left: -6.5rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%;border-radius: 5px;}
+.layer .hd{padding:0;}
+.layer_c{ padding:10px; font-size: 1.1rem;}
+.layer_c .tit{ font-size:1.2rem; margin-bottom: 6px;text-align: center; }
+.layer_c .hd{ color: #666;}
+.layer .bd{ position: absolute;width:100%;bottom:0;border-top:1px solid #ddd;background:none;}
+.layer .bd span{text-align: center;font-size: .8rem; line-height: 2rem;display: block; }
+#submit {display: block;background: #F24439;width: 17.5rem;line-height: 2.5rem;color: #fff;font-size: .8rem;border-radius: 4px;text-align: center;margin: 0 auto 2rem;}
+    </style>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+
+	<form id="tradeform" name="tradeform" action="/stockauth/redictTradeForm.jspa" method="post">
+		<input type="hidden" name="redirectkey" value="$!{redirectkey}"/>
+        <input type="hidden" name="usercode" value="$!{usercode}"/>
+	</form>
+
+	#foreach($ques in $list)
+    <h3>题目$ques.quCode $ques.quText</h3>
+		#foreach($choice in $ques.choice)
+        <h5>$choice.quChoice $choice.choiceText</h5>
+		#end
+	#end
+<div class="con">
+        <div class="timu">
+            #foreach( $ques in $list)
+                #if($!{ques.selType}==0)
+                  <div class="list danxuan" data-quCode="$ques.quCode">
+                      <h3 class="hd">$ques.quCode（<i>单选</i>）$ques.quText</h3>
+                    <ul class="bd">
+                        #foreach( $choice in  $!{ques.choice})
+                            <li class="clearfix sel" data-quChoice="$choice.quChoice">
+                                <em class="icon"></em>
+                                <span class="txt">$choice.quChoice $choice.choiceText</span>
+                            </li>
+                        #end
+                    </ul>
+                  </div> 
+                #elseif($!{ques.selType}==1)
+                  <div class="list duoxuan" data-quCode="$ques.quCode">
+                      <h3 class="hd">$ques.quCode（<i>多选</i>）$ques.quText</h3>
+                    <ul class="bd">
+                        #foreach( $choice in  $!{ques.choice})
+                            <li class="clearfix sel" data-quChoice="$choice.quChoice">
+                                <em class="icon"></em>
+                                <span class="txt">$choice.quChoice $choice.choiceText</span>
+                            </li>
+                        #end
+                    </ul>
+                  </div>
+                #end 
+            #end
+
+          <!--
+            <div class="list">
+                <h3 class="hd">1.（<i>单选</i>）您的家庭年收入情况：</h3>
+                <ul class="bd">
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix sel">
+                        <em class="icon"></em>
+                        <span class="txt">E. 10-50万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="list">
+                <h3 class="hd">2.（单选）最近您家庭预计进行证券投资的资金占家庭的比例是：</h3>
+                <ul class="bd">
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix sel">
+                        <em class="icon"></em>
+                        <span class="txt">E. 10-50万元话说的撒娇就回答啥合适的话回家撒花大叔的金卡收到货</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                    <li class="clearfix">
+                        <em class="icon"></em>
+                        <span class="txt">C. ≤3万元</span>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
+
+
+    <input type="button" id="submit" value="提交测评试题" />
+    <div class="tiperror"></div>
+    <div class="mask"></div>
+    <div class="layer">
+        <div class="layer_c">
+          <p class="tit">测评结果</p>
+          <div class="hd"></div>
+        </div>
+        <div class="bd clearfix">
+            <span class="okbtn">确定</span>
+        </div>
+    </div>
+    <script>
+         /*计算字体大小*/
+function change(){
+    document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+}
+change();
+window.addEventListener('resize',change,false);
+//错误提示框，一会儿就消失toast
+function tiperror(msg){
+    $('.tiperror').html(msg).show();
+    setTimeout(function (){
+        $('.tiperror').hide();
+    }, 2000);
+    return;
+}
+//点击选题
+//多选
+$('.timu .duoxuan li').toggle(function(){
+  $(this).addClass('sel');
+},function(){
+    $(this).removeClass('sel');
+});
+//单选
+$('.timu .danxuan li').click(function(){
+    $(this).parent('ul').find('li').removeClass('sel');
+    $(this).addClass('sel');
+});
+        var convertToJsonObject = function(str){
+
+            if(typeof str != 'object'){
+                return JSON.parse(str);
+            }else{
+                return str;
+            }
+        };
+
+    $('.okbtn').click(function(){
+        $("#tradeform").submit();
+    });
+
+    var isClick = false;
+    $("#submit").click(function () {
+        if (isClick) {
+            return;
+        }
+        isClick = true;
+        var surveyCols='';
+        var surveyCells='';
+          for(var i=0;i<$('.timu .list').length;i++){
+                var o=$('.timu .list').eq(i);
+              if(o.find('.sel').index()==-1){
+                 tiperror('请填写第'+(i+1)+'题');return; 
+              }
+              if(o.hasClass('duoxuan')){
+                  for(var j=0;j<o.find('.sel').length;j++){
+                    surveyCells+=(o.find('.sel').eq(j).attr('data-quChoice')+',');
+                  }
+                  surveyCells=surveyCells.substring(0,surveyCells.length-1);
+                  surveyCells+='|';
+              }else{
+                  surveyCells+=(o.find('.sel').attr('data-quChoice')+'|');
+              }
+              surveyCols=o.attr('data-quCode')+'|';
+          }
+          surveyCells=surveyCells.substring(0,surveyCells.length-1);
+         surveyCols=surveyCols.substring(0,surveyCols.length-1);
+         alert('surveyCells='+surveyCells+',surveyCols='+surveyCols);
+        var datasubmit = {
+            usercode: $('input[name=usercode]').val(),
+            surveyCols: surveyCols,
+            surveyCells: surveyCells
+        };
+
+        $.ajax({
+            url: '/stockauth/submitRiskTestAnswer',
+            type: 'POST',
+            cache: false,
+            dataType: 'json',
+            data: datasubmit,
+            success: function (data) {
+                var resp = convertToJsonObject(data);
+                if (resp.retcode == '0') {
+                    alert(resp.data.ratingLvlName);
+                    $('.mask,.layer').show();
+                    $('.layer .hd').html('您的风险测评结果是：'+resp.data.ratingLvlName);
+                    
+                } else {
+                    alert("提交失败，请重新提交！");
+                }
+                isClick = false;
+            }
+        });
+    })
+</script>
+
+</body>
+</html>

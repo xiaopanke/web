@@ -1,0 +1,17 @@
+<div class="agency-top clearfix">
+            <div class="agency-top-left clearfix">
+                <img class="agency-logo" src="$!{headImage}" alt="" data-pf="true" data-pf-container="body" data-pf-min="0" data-pf-max="30" data-pf-direction="horizontal" />
+                <span>$!{name}</span>
+            </div>
+            <div class="agency-top-right">
+                <div class="row-1">
+                    <span class="agency-icon agency-icon-tougu" id="adviser_num_label">$!{adviserNum}</span>
+                    <span class="agency-icon agency-icon-fans"  id="fans_num_label">$!{fansNum}</span>
+                </div>
+                <div class="row-2">
+                    <span class="no-border">发布观点 <i  id="view_num_label">$!{viewNum}</i></span>
+                    <span>解答问题 <i id="answer_num_label">$!{answerNum}</i></span>
+                    <span>组合跟投 <i id="portfolio_num_label">$!{portfolioNum}</i></span>
+                </div>
+            </div>
+        </div>

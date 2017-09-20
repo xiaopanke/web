@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投资机构注册-爱投顾-金融界</title>
+    <meta name="keywords" content="投资机构注册-爱投顾-金融界" />
+    <meta name="description" content="投资机构注册-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css_js.html" -->
+
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.bgiframe.min.js"></script>
+	
+	<!--/loginInfo-->
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/json2.js"></script>
+	<!--search use-->
+	
+	
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+    <script type="text/javascript">
+        $(function () {
+	        var businessLicenceImage = "$!{orgApply.businessLicence}";
+	        
+	        if($("#businessLicence").val()!="" && $("#businessLicence").val() != "http://i5.jrjimg.cn/sys/default_m.jpg"){
+	        	
+	        	$("#cardId").attr("src",businessLicenceImage);
+	
+	        }else{
+	        	$("#cardId").attr("src","http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg");
+	        }
+
+            window.OnUploadFinished = function(filename){
+            	$('#businessLicence').val("http://idpic.jrjimg.cn"+filename);
+            	$('#businessLicence').attr({'src':"http://js.jrjimg.cn/zqt-red-1000/images/img-success.jpg"});
+            	$('#business_image_id').hide();
+            	$('#cardId').attr({'src':"http://js.jrjimg.cn/zqt-red-1000/images/img-success.jpg"});
+            };
+            
+            //$('#upload-fake2').click(function (e) {
+            	//e.preventDefault();
+                //$('#File2').trigger('click');
+            //});
+                //图片上传
+                 $('#File2').change(function(){
+                   var fileValue = $(this).val();
+                    if(fileValue == "" || fileValue == undefined){
+                      return false;
+                   }
+
+                   var file_name = fileValue.substr(fileValue.lastIndexOf(".")+1).toLowerCase();
+                   var pic_type = ['jpg','gif','png','jpeg'];
+                   var exist = $.inArray(file_name, pic_type);
+                   if(exist == -1){ 
+                      $('#cardId').attr({'src':"http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg"});
+                      $("#business_image_id").text("请选择正确的图片格式");
+                      $("#business_image_id").show();
+                     return false;
+                   }else{
+                   
+                     $("#business_image_id").hide();
+                   }
+                   
+                   $("#upcard").submit();
+                });
+                
+                 //选择机构入驻协议
+                 $("#agreeCheck").click(function() {
+                	 setTimeout(function(){
+                		if(!this.setattr) this.setattr = false;
+	                    this.setattr = !this.setattr;
+	                    if(this.setattr){
+	                    	$("#agreeCheck").attr("checked","checked");
+	                    	$("#agreeCheckMsg").hide();
+				        
+	                    }else{
+	                    	$("#agreeCheck").removeAttr('checked');
+	                    	$("#agreeCheckMsg").show();
+	                    }
+                	 },200)
+                    
+                	
+                       //var agreeCheckBox = $(this).is(':checked');
+                      //var agreeCheckBox = document.getElementById("agreeCheck").checked;
+			          // if(!agreeCheckBox){
+			        	//   $("#agreeCheckMsg").show();
+			        	//   return false;
+			           //}else{
+			        	//   $("#agreeCheckMsg").hide();
+			          // }
+                 }); 
+               
+         });
+       
+       window.uploadImage = function(){
+       		JRJ.MiniAlerts.prompt({trigger: '#cardId', message: "<p>营业执照副本上传成功</p>" });
+       }
+       
+        function next_3(){
+           if($("#businessLicence").val()=='' || $("#businessLicence").val() == 'http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg' || $("#businessLicence").val() == 'http://i5.jrjimg.cn/sys/default_m.jpg'){
+        	   //alert("头像不能为空,请上传后再提交");
+        	   //JRJ.MiniAlerts.prompt({target:'#upload-fake1',message:'身份证不能为空,请上传后再提交'});
+        	   $("#business_image_id").show();
+        	   return false;
+        	}
+           //同意爱投顾协议
+           var agreeCheckBox = $("#agreeCheck").is(':checked');
+           if(!agreeCheckBox){
+        	   $("#agreeCheckMsg").show();
+        	   return false;
+           }else{
+        	   $("#agreeCheckMsg").hide();
+           }
+        
+        	$("#form_1").submit();
+        	
+        }
+        
+   </script>
+</head>
+<body>
+	<form method="post" id="form_1" action="/account/applyOrg_3.jspa">
+	<input type="hidden" name="businessLicence" id="businessLicence" value="$!{orgApply.businessLicence}"/>
+	 
+	</form>
+   <!--# include virtual="/site_top_header.html" -->
+
+    <div class="page-title">
+       <div class="wrapper">
+            <h1>投资机构入驻</h1>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-single-cnt">
+                <div class="steps-wrap steps-wrap-3">
+                    <div class="step-item step-item-2"></div>
+                    <div class="step-text clearfix">
+                        <span class="past">录入机构信息</span>
+                        <span>上传营业执照副本</span>
+                        <span class="last">提交审核</span>
+                    </div>
+                </div>
+                
+                <form id="upcard" enctype="multipart/form-data"  action="http://up3.jrj.com.cn/upload" method="post" target="uploadimgw_1">
+                <input type="hidden" name="sizeMax" id="sizeMax" value="10485760" />
+                 <input type="hidden" name="channel" id="channel" value="tcard_attach"/>
+                 <input type="hidden" name="returnUrl" id="returnUrl_normal" value="http://itougu.jrj.com.cn/account/uploadOrgImg.jspa"/>
+                 <input type="hidden" id="cardPath" value="1"/>
+                <h2 class="block-title mt30">上传营业执照副本</h2>
+                <div class="pic-upload pic-upload-last clearfix">
+                   <div class="fl">
+                     <img id="cardId" src="http://js.jrjimg.cn/zqt-red-1000/images/sample-2.jpg" class="example fl" width="200" height="150" />
+                     <!--<img src="images/sample-3.jpg" class="example fl" width="200" height="150" />-->
+                     <p class="red" style="display:none;clear: both;" id="business_image_id">营业执照副本不能为空</p>
+                   </div>
+                    
+                    <div class="pic-upload-info" style="width: 540px;">
+                        <p class="field">要求：</p>
+                        <p class="mt10">1、可上传副本照片或扫描件，保证信息清晰可见；</p>
+                        <p>2、支持jpg、gif、png格式照片，大小不超过10M；</p>
+                        <p class="mt20">
+                            <a href="#" class="btn btn-79-25 file-control" id="upload-fake">
+                                                                                            上传照片
+                                <input id="File2" type="file" name="filename" class="file-control-input" />
+                            </a>
+                        </p>
+                    </div>
+					<div class='readly'><input type='checkbox' id="agreeCheck"> 我已经同意<a href="http://itougu.jrj.com.cn/site/org-protocol.html" class="link" style="margin-top:-3px" target="_blank">爱投顾平台机构服务协议</a>
+					   <span class="msg-wrap">
+                                <span class="agree-error-msg" id="agreeCheckMsg" style="color: rgb(204, 51, 51); display: none;">请勾选服务协议</span>
+                       </span>
+					</div>
+                </div>
+                  <iframe frameborder="0" scrolling="no" width="0" height="0" name="uploadimgw_1" id="uploadimgw_1" target="_self" style='display:none'></iframe>
+                </form>
+				<div class="btn-wrap tc btn-wrap-border">
+                    <a href="/account/applyOrg.jspa" class="btn btn-123-40 mr30">上一步</a>
+                    <a href="javascript:void(0);" class="btn btn-123-40" onclick="next_3();">下一步</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

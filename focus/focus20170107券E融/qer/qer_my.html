@@ -1,0 +1,101 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>可质押股票</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-m/quanerong/qer_base.css" />
+<style>
+body{background:#fff;line-height:1rem;font-size:.7rem;}
+header{background:#F8F8F8; line-height:1.5rem; color:#878C92;font-size:.6rem;}
+.col{ width:33%; box-sizing:border-box;}
+.col1{ padding-left:.6rem;}
+.col2,.col3{ padding-right:.6rem; text-align:right;}
+.list span{display:block;}
+.list .up{  color:#353535; padding-top:.6rem;}
+.list .down{ color:#878C92; padding-bottom:.6rem;}
+.list .col2 em{ display:block; line-height:3.35rem; color:#333;}
+footer{ padding-top: 1rem; text-align: right; padding-right: .8rem;}
+footer span{ color:#888;}
+footer em{ color:#333;}
+</style>
+<script src="qer_base.js"></script>
+<body>
+    <header class="clearfix">
+        <div class="fl col col1">持仓股票</div>
+        <div class="fl col col2">持仓股数</div>
+        <div class="fl col col3">市值/可融资</div>
+    </header>
+    <ul class="list">
+        <li class="clearfix b">
+            <div class="fl col col1">
+                <span class="up">中国中车</span>
+                <span class="down">600021</span>
+            </div>
+            <div class="fl col col2">
+                <em>2000</em>
+            </div>
+            <div class="fl col col3">
+                <span class="up">中国中车</span>
+                <span class="down">600021</span>
+            </div>
+        </li>
+        <li class="clearfix b">
+            <div class="fl col col1">
+                <span class="up">中国中车</span>
+                <span class="down">600021</span>
+            </div>
+            <div class="fl col col2">
+                <em>2000</em>
+            </div>
+            <div class="fl col col3">
+                <span class="up">中国中车</span>
+                <span class="down">600021</span>
+            </div>
+        </li>
+        <li class="clearfix b">
+            <div class="fl col col1">
+                <span class="up">中国中车</span>
+                <span class="down">600021</span>
+            </div>
+            <div class="fl col col2">
+                <em>2000</em>
+            </div>
+            <div class="fl col col3">
+                <span class="up">中国中车</span>
+                <span class="down">600021</span>
+            </div>
+        </li>
+    </ul>
+    <footer>
+        <span>预计可融资：</span>
+        <em><i class="moneynum">50000.00</i>元</em>
+    </footer>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+<script>
+    $(function(){
+        //列表数据
+        /*jrj.jsCallNative('130', JSON.stringify({
+            method: 'get',
+            url: domain+'/sapi/v2/quaneeerong/？？？？',
+            params: {},
+            callback: 'mylist'
+        }));
+        window.moneynum = function (text) { 
+            var json = convertToJsonObject(text);
+            if(json.retcode==0) {
+                var str='';
+                for(var i=0;i<json.???.length;i++){
+                    str+='<li class="clearfix b"><div class="fl col col1"><span class="up">'++'</span><span class="down">'++'</span></div><div class="fl col col2"><em>'++'</em></div><div class="fl col col3"><span class="up">'++'</span><span class="down">'++'</span></div></li>';
+                }
+                $('.list').html(str);
+            }
+        };*/
+    });
+</script>
+</body>
+</html>

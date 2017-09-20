@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--# include virtual="/v2/common_head_css.html" -->
+<style>
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; background: #ffffff; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none;}
+
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 18px/28px 'Microsoft Yahei'; color: #333; }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+body{min-width:1000px; color:#333;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/pc_02.png) no-repeat center 420px #a10723;}
+.in { width:1000px; margin:0 auto;}
+.bc{overflow: hidden;}
+/*top*/
+.top{ height:400px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/pc_01.png) no-repeat center; padding-top: 20px;}
+.top .guize{width:117px;line-height: 32px; background:rgba(0,0,0,0.3);border-radius: 16px; color:#ffa422; font-size: 16px; cursor: pointer; }
+.top .guize i{ width:25px;height:20px; float:left; margin-left:15px; margin-top:7px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat; }
+.top .time{ margin-top: 290px; margin-left:142px; color:#fff;}
+/*con*/
+.con{width:1000px; background: #fff;border-radius:20px; margin:0 auto 65px; position:relative;}
+.con .tit{ padding-top: 30px;color:#f43e06;font-size:34px; line-height: 40px;text-align: center; font-weight:normal;}
+.con .subtit{ color:#f5a701; font-size: 19px; text-align: center;}
+/*set*/
+.set{ position: absolute;top:27px ; right:0; width:64px; line-height: 36px; background:#6969c2; border-radius: 18px 0 0 18px; color:#fff; font-size:14px; cursor: pointer }
+.set i{ width:20px; height: 18px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -112px -1px; float:left; margin-top: 10px; margin-left: 10px;}
+/*personlist*/
+.personlist{ padding-bottom: 35px;}
+.list{ width:470px; margin-left:30px; float:left; margin-top: 40px;}
+.pic{ margin-right: 20px;}
+.pic a{display: block;position: relative;}
+.pic a img{width:180px;height:220px;}
+.pic a span{position: absolute;width:100%; line-height:49px; background: rgba(0,0,0,0.7); color: #fff;text-align: center; bottom: 0;left:0;}
+.out .pic img{-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;}
+.out .pic em{ width:102px; height: 56px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat 0 -60px; position: absolute; left:0; top:-6px;}
+.txt{width:236px;float:left;}
+.txt .msg{font-weight: normal; height: 130px; display: block; color: #333; line-height: 30px;}
+/*yushou*/
+.yushou .up{ line-height: 24px; color:#06a2fc;}
+.yushou .icon{float: left;width:24px; height:24px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -80px 0; margin:0 7px 0 23px;}
+.yushoubtn{ width:228px; line-height: 40px; display: block;margin-top: 8px; margin-left:14px; text-align: center; background: #f43e06; border-radius:5px; box-shadow:0 1px 2px 1px #ff6131;}
+.yushoubtn:hover{ background: #e23601;}
+.yushoudisbtn{ width:228px; line-height: 40px; display: block;margin-top: 8px; margin-left:14px; text-align: center; background: #947a76; border-radius:5px; box-shadow:0 1px 2px 1px #ad9c99;}
+/*kaishou*/
+.kaishou .up { font-size: 14px; margin-bottom: 16px;}
+.kaishou .up span{ color: #ff5000;font-size: 20px;}
+.kaishoubtn{width:154px; line-height: 40px; float: left; text-align: center; background: #f43e06; border-radius:5px; box-shadow:0 1px 2px 1px #ff6131; margin-right:10px; }
+.kaishoudisbtn{width:154px; line-height: 40px; float: left; text-align: center; background: #947a76; border-radius:5px; box-shadow:0 1px 2px 1px #947a76; margin-right:10px; }
+.kaishoubtn:hover{background: #e23601;}
+.lookdetail{width:72px; line-height: 40px;float:left; text-align: center; background: #16a1f9; border-radius:5px; box-shadow:0 1px 2px 1px #54bdff;}
+.lookdetail:hover{ background: #048ce2;}
+.outtxt{color:#f43e06;font-size: 14px;    line-height: 20px;margin-bottom: 7px; }
+/*conbt*/
+.conbt{ background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/pc_03.png) no-repeat center 50px  #fffbf1; border-radius: 0 0 20px 20px; height:134px; padding-top: 160px;  }
+.conbt a{width:400px; line-height: 80px; display: block;margin:0 auto; background:linear-gradient(#ffe400 0,#ffcb00 79%,#ffd800); font-size: 30px; color: #873200; text-align: center; border-radius: 40px;box-shadow:0 3px 12px 0px #ffe400;}
+.conbt .alldisbtn{background: #947a76;box-shadow:0 3px 12px 0px #947a76;color:#eae4e4;}
+
+/*关于弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 5; display: none;}
+.layer{width: 580px;height: 380px;background:#fff7ec;position: fixed;top: 50%;left: 50%;margin-top:-200px;margin-left: -300px;z-index: 10;color: #000;animation: haha .3s linear; display: none;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.layer_gz{padding:30px; margin-top: -220px; margin-left: -320px; border-radius: 10px;}
+.layer_gz h3{text-align: center; color: #f43e06;font-size: 26px; line-height: 40px; padding-bottom: 20px; font-weight: normal; }
+.layer_gz p{ font-size: 14px;}
+.layer_gz .p1{font-size: 16px;}
+.layer_gz .p2{color:#f43e06; margin-top: 20px;}
+.layer_gz .p4{color:#999;font-size: 12px; text-align: center; margin-top: 20px;}
+.closebtn{ position:absolute; top:-56px;right:50px;width:32px; height:57px; cursor:pointer; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -40px 0;  }
+/*layer_set*/
+.layer_set{ width:560px;padding:40px 60px; background:#fff; border-radius:10px; margin-left: -320px; color:#333; height:auto;}
+.layer_set p{ font-size: 14px;}
+.layer_set .myper{ padding:34px 10px;  overflow: hidden; }
+.layer_set .myper p{ text-align: center; font-size: 16px; line-height: 50px;}
+.layer_set ul{width:900px;      }
+.layer_set ul li{ float:left; width:194px; margin-right:150px; margin-bottom: 20px; line-height: 36px; }
+.layer_set ul li span{ float: left;}
+.layer_set ul li .option{ cursor: pointer; width:60px; height:32px;padding:2px; border-radius: 18px; background:#f53d05; float: right;transition:all .3s;}
+.layer_set ul li .option i{ float: left;width:32px; height:32px; background:#fff; border-radius: 50%; margin-left:29px ; transition:all .3s; }
+.layer_set ul li .close{ background:#947a76; }
+.layer_set ul li .close i{ margin-left: 0; }
+.setbtn{width:240px; line-height:55px; border:1px solid #f53d05; display: block; margin:0 auto; text-align: center; color:#f53d05; cursor: pointer; border-radius: 3px;}
+/*layer_dy*/
+.layer_dy{ width:560px;padding:40px 60px; background:#fff; border-radius:10px; margin-left: -320px; color:#333; height:180px; margin-top: -130px;}
+.layer_dy p span{ font-weight: bold;color:#f53d05; margin:0 5px;}
+.dybtn{width:240px; line-height:55px; background:#f53d05; color:#fff; display: block; border-radius: 3px; cursor: pointer; margin:40px auto 0; text-align: center}
+</style> 
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head> 
+<body>
+    <!--# include virtual="/v2/site_top_compact.html" -->
+    <div class="top">
+        <div class="in">
+            <div class="guize clearfix"><i class="fl"></i>大赛规则</div>
+            <p class="time">比赛时间：<b>2017年2月20日-2017年3月24日</b></p>
+        </div>
+    </div>
+    <div class="con">
+        <div class="set hide"><i></i>设置</div>
+        <h2 class="tit">大赛入围名单</h2>
+        <p class="subtit">（排名不分先后）</p>
+        <ul class="personlist clearfix">
+            <li class="list">
+                <div class="pic fl">
+                    <a href="javascript:;"><img src="img/img1.png" height="220" width="180" alt=""><span>考拉小良</span><em></em></a>
+                </div>
+                <div class="txt">
+                    <a href="javascript:;" class="msg">爱投顾资深达人，预赛总收益42.61%，平均持股周期3-5天，右侧交易选手，交易纪律极为严格。</a>
+                    <div class="yushou">
+                        <div class="up"><span class="icon"></span>2017.02.20 正式开赛</div>
+                        <a href="javascript:;" class="yushoubtn">¥998 限量预售中</a>
+                        <a href="javascript:;" class="yushoudisbtn hide">成功订阅 敬请期待</a>
+                    </div>
+                    <div class="kaishou hide">
+                        <div class="up">已捞金：<span class="">1000元</span></div>
+                        <div class="bt clearfix">
+                            <a href="javascript:;" class="kaishoubtn">¥998 实时跟单</a>
+                            <a href="javascript:;" class="kaishoudisbtn hide">已跟单</a>
+                            <a href="javascript:;" class="lookdetail">详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+                <div class="pic fl">
+                    <a href="javascript:;"><img src="img/img1.png" height="220" width="180" alt=""><span>考拉小良</span><em></em></a>
+                </div>
+                <div class="txt">
+                    <a href="javascript:;" class="msg">爱投顾资深达人，预赛总收益42.61%，平均持股周期3-5天，右侧交易选手，交易纪律极为严格。</a>
+                    <div class="yushou">
+                        <div class="up"><span class="icon"></span>2017.02.20 正式开赛</div>
+                        <a href="javascript:;" class="yushoubtn">¥998 限量预售中</a>
+                        <a href="javascript:;" class="yushoudisbtn hide">成功订阅 敬请期待</a>
+                    </div>
+                    <div class="kaishou  hide">
+                        <div class="up">已捞金：<span class="">1000元</span></div>
+                        <div class="outtxt">收益率跌破8%，已被淘汰，您可以在比赛结束后查看其交易记录。</div>
+                        <div class="bt clearfix">
+                            <a href="javascript:;" class="kaishoubtn">¥998 实时跟单</a>
+                            <a href="javascript:;" class="kaishoudisbtn hide">已跟单</a>
+                            <a href="javascript:;" class="lookdetail">详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="conbt">
+            <a href="javascript:;" class="allbtn"><b>¥2888</b>&nbsp;&nbsp;十人打包订阅</a>
+            <a href="javascript:;" class="alldisbtn hide">已打包订阅</a>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <!--规则 -->
+    <div class="layer layer_gz">
+        <i class="closebtn"></i>
+        <h3>大赛介绍</h3>
+        <p class="p1">实盘争霸赛总决赛共10名选手，以平均36%的月收益从众多参赛选手中脱颖而出，投资实力卓越。总决赛阶段的资金由金融界爱投顾提供，分阶段发放，操盘收益全部归选手所有。用户可通过订阅“实时跟单”查看选手决赛期间的调仓记录，收到实时交易提醒，跟单牛人实盘。</p>
+        <p class="p2">订阅须知：</p>
+        <p class="p3">1、订阅后，选手的实时交易动态将以短信+爱投顾APP推送两种形式进行通知，保证您不错过任何一个交易机会；</p>
+        <p class="p3">2、订阅“实时跟单”的服务时间为2017年2月20日-2017年3月24日；</p>
+        <p class="p3">3、决赛期间的淘汰止损线为-8%，选手盘中触及该止损线即诶淘汰，淘汰后该选手的交易动态将停止推送；</p>
+        <p class="p4">* 本活动由金融界爱投顾主办，最终解释权归金融界爱投顾所有。</p>
+    </div>
+    <div class="layer layer_set">
+        <i class="closebtn"></i>
+        <p>对于您已经订阅的选手，我们会将选手的操作动态发送给您，若您觉得造成困扰，可自定义是否发送操作动态</p>
+        <div class="myper">
+            <p>您当前没有订阅选手</p>
+            <ul class="clearfix">
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利2</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利2</span>
+                    <div class="option"><i></i></div>
+                </li>
+            </ul>
+        </div>
+        <span class="setbtn">确定</span>
+        <!--<span class="setbtn">知道了</span>-->
+    </div>
+    <div class="layer layer_dy">
+        <i class="closebtn"></i>
+        <p>订阅“实时跟单”功能后，xxxx在2017年2月20日-3月24日之间的实盘交易将以 <span>短信+爱投顾APP推送</span> 两种方式进行通知，保证您不错过任何一个跟单机会。</p>
+        <span class="dybtn">确定</span>
+        <!--<span class="setbtn">知道了</span>-->
+    </div>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+<script>
+    $(function(){
+        var ssoid='${ssoId}';
+
+
+        $('.closebtn').click(function(){
+            $('.layer,.mask').hide();
+        });
+        $('.guize').click(function(){
+            $('.layer_gz,.mask').show();
+        });
+        /*设置*/
+        $('.set').click(function(){
+            $('.layer_set').css('margin-top',-($('.layer_set').height()/2+40));
+            $('.layer_set,.mask').show();
+        });
+        $('.layer_set .option').each(function(){
+            $(this).click(function(){   
+                if(!$(this).hasClass('close')){
+                    $(this).addClass('close');
+                }else{
+                    $(this).removeClass('close');
+                } 
+            });
+        });
+        $('.kaishoubtn').each(function(){
+            $(this).click(function(){
+                $('.layer_dy,.mask').show();
+            });
+        });
+    });
+</script> 
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Z点操盘介绍</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--# include virtual="/v2/common_head_css.html" -->
+
+<style>
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none;}
+a:active{background-color:transparent;}
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 16px/26px "DIN Alternate","Pingfang SC","Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; color: #666; -webkit-font-smoothing: antialiased ;
+-moz-osx-font-smoothing: grayscale}
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+
+body{min-width:990px; color:#666；}
+.in { width:990px; margin:0 auto;}
+.bc{overflow: hidden;}
+.tit{ line-height: 60px; color:#2b2b33; font-size: 28px; text-align: center; padding-top: 30px; font-weight: normal;}
+.tit b{ position: relative; margin-right: 10px; }
+.tit b span{ position: absolute;width: 60px; height: 4px; background: #ff1c37; bottom: -13px; left:0;}
+
+.top{ height: 582px; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/bg_2.jpg) no-repeat center #0e0f29;    margin-top: 39px;}
+.top p{ padding-top:213px; margin-left: 218px; font-size: 40px; color: #f3f3f3; opacity: 0.85;}
+.top img{ display: block; margin:0 auto; margin-top: 63px;}
+.top b{ display: block;color: #ff1c37;margin-top: 10px; text-align: center; font-weight: normal;}
+
+.item01 { padding-bottom: 40px;}
+.item01 .wenzi{width:770px; margin:35px auto 40px; }
+.item01 img{ display: block; margin:0 auto;}
+
+.item02{ background:#0e0f29 url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/bg_1.png) no-repeat center bottom; padding-bottom: 44px;}
+.item02 .tit{ color: #fff;}
+.item02 ul{ width:917px; margin: 24px auto 0;}
+.item02 ul li { width:253px;}
+.item02 ul .one { margin-right: 80px;}
+.item02 ul li h4{ text-align: center;color: #fff;font-size: 16px; margin-bottom: 6px;}
+.item02 ul p{ height: 110px; color: #fff;font-size: 14px; line-height: 22px; opacity: .7;}
+
+.item03 ul{ width:917px; margin: 24px auto 0;}
+.item03 ul li { width:253px;}
+.item03 ul .one { margin-right: 80px;}
+.item03 ul .one .pic img{margin-top: 17px}
+.item03 ul li h4{ text-align: center;color: #2b2b33;font-size: 20px; margin-bottom: 16px;}
+.item03 .pic{height: 150px; overflow: hidden;}
+.item03 ul p{ height: 136px;font-size: 14px; line-height: 22px;}
+
+
+.item04 .in,.item05 .in{ width:900px; margin:0 auto;}
+.item04 .article{ width:580px; margin-top: 40px;}
+.item04 .tit{ text-align: left;}
+.item04 .tit span{left: 0;}
+.item04 img{ margin-top: 100px; margin-bottom: 68px;}
+.item04 p{ color: #fff;opacity: .7; }
+.item04 .one{  margin-top: 40px; margin-bottom: 10px; }
+
+.item05{ padding-bottom: 77px;}
+.item05 .article{ width:640px; margin-top: 10px;}
+.item05 .tit{ text-align: left;}
+.item05 .tit span{left: 0;}
+.item05 .pic .first{ margin-top: 150px; margin-bottom: 50px;}
+.item05 p{  }
+.item05 .one{  margin-bottom: 53px; }
+.item05 .pic{ width: 170px;}
+.item05 h4{line-height: 60px; font-size: 20px; color: #161729; margin-top: 17px;}
+
+.item06 h3{ line-height: 90px; color: #ff1c37;font-size:40px; padding-top: 40px;}
+.item06 .article{ width:570px; font-size: 14px; color: #fff;}
+.item06 p{ padding-bottom: 20px; font-size: 14px; opacity: .7;}
+.item06 .pic{ margin-left: 80px; margin-top: 100px;}
+.item06 .pic b{ display: block; color: #ff1c37;margin-top: 10px; font-weight: normal;}
+</style> 
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head> 
+<body>
+    <!--# include virtual="/v2/site_top_compact.html" -->
+    <div class="top">
+        <div class="in">
+            <p>今天出Z（买）点，明日可操盘。</p>
+            <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_11.png" alt="">
+            <b>下载金融界app 体验Z点操盘</b>
+        </div>
+    </div>
+    <div class="item01">
+        <div class="in">
+            <h3 class="tit"><b>01. <span></span></b>产品介绍</h3>
+            <p class="wenzi">Z³智能金融超级引擎，打造A股实战选股利器—Z点操盘，闪亮登场！Z点操盘可准确及时提醒股票加减仓信号，让您像专业操盘手一样把握交易时机。Z点操盘依托于金融界Z³智能金融超级引擎，是由金融界智能金融团队使用业界最先进的人工智能算法，并对近十年沪深A股数据进行机器学习演算后的最新研发成果。</p>
+            <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_1.png" alt="">
+        </div>
+    </div>
+    <div class="item02">
+        <div class="in">
+            <h3 class="tit"><b>02. <span></span></b>核心功能</h3>
+            <ul class="clearfix">
+                <li class="fl one">
+                    <h4>Z点精选</h4>
+                    <p>从每天出现Z点（加仓信号）的股票中精选具备短线爆发潜力的金股，同时解决选股和择时两大难题。</p>
+                    <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_2.png" alt="">
+                </li>
+                <li class="fl">
+                    <h4>Z点操盘指标</h4>
+                    <p>可在任一股票的个股页中点击Z点操盘指标，查看该股票的Z点（加仓信号）和S点（风险预警信号）。</p>
+                    <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_3.png" alt="">
+                </li>
+                <li class="fr">
+                    <h4>自选股Z点提示</h4>
+                    <p>自动提示所有自选股的最新Z点（加仓信号），不再错过建仓机会。</p>
+                    <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_4.png" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="item03">
+        <div class="in">
+            <h3 class="tit"><b>03. <span></span></b>操作风格</h3>
+            <ul class="clearfix">
+                <li class="fl one">
+                    <div class="pic"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_5.png" alt=""></div>
+                    <h4>上升趋势</h4>
+                    <p>Z点操盘信号，适用于处于上升趋势的股票（可使用趋势雷达识别），在股价上升趋势中，寻找短线回调时的理想加仓信号，避免追涨杀跌造成的短线套牢。</p>
+                    
+                </li>
+                <li class="fl">
+                    <div class="pic"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_6.png" alt=""></div>
+                    <h4>震荡趋势</h4>
+                    <p>处于震荡趋势中的股票，Z点操盘同样适用，Z点操盘可自动识别震荡过程中发生的多空力量转换过程，为您自动提示震荡过程中出现的加减仓机会。</p>
+                </li>
+                <li class="fr">
+                    <div class="pic"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_7.png" alt=""></div>
+                    <h4>短线操作</h4>
+                    <p>Z点操盘适用于上升趋势或震荡趋势中的波段操作，因此操作周期更适合短线或波段交易用户。</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="item04 item02">
+        <div class="in clearfix">
+            <div class="fl article">
+                <h3 class="tit"><b>04. <span></span></b>研发理念</h3>
+                <p class="one">金融界Z³智能金融超级引擎，聚合中美顶尖人才，用人工智能重新定义技术选股！</p>
+                <p>Z点操盘，一款全新的智能操盘决策工具，它融合了技术分析经典理论，以及前沿量化模型，采用大数据分析技术，回溯A股交易历史，同时还借助数学模型、人工智能算法，开创性的深度精算股价运行过程，还原股价波动真相，从中挖掘股价波动轨迹，并前瞻性捕捉股价多空拐点！</p>
+            </div>
+            <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_8.png" class="fr" alt="">
+        </div>
+    </div>
+    <div class="item05">
+        <div class="in clearfix">
+            <div class="fl article">
+                <h3 class="tit"><b>05. <span></span></b>产品特点</h3>
+                <h4>高效</h4>
+                <p class="one">或许您正每天复盘，凭肉眼翻看3000多只股票（数量还在不断增加中）；或许您每日盘中盘后花费大量时间精力盯盘面、识别个股走势、猜测个股涨跌；每日花费如此多的精力选股、择时、看盘，但效果却不得而知；Z点操盘，助您改变现状，帮您高效决策、精准选股！ </p>
+                <h4>精准</h4>
+                <p>传统的技术分析指标，弊端重重，例如时间滞后、使用复杂。投资者面对一堆技术指标，依然迷茫，不知如何使用。根据历史统计分析，传统技术指标选股成功率很难超过50%，概率和投硬币差不多！优秀的交易系统，都在实践过程中不断优化，以实现更高的操作胜算。Z点操盘系统，依靠业界最先进的人工智能算法，针对沪深A股3000只股票近10年历史数据进行回溯计算和自动学习，自动识别股价短线多空力量博弈变化。目前Z点精选短线成功率高达75%！！！</p>
+            </div>
+            <div class="pic fr"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_9.png" alt="" class="first"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_10.png" alt=""></div>
+        </div>
+    </div>
+    <div class="item06 item02">
+        <div class="in clearfix">
+            <div class="fl article">
+                <h3 class="">继承经典，超越经典</h3>
+                <p class="one">19世纪末期，查尔斯·亨利·道 建立了以趋势交易为核心理念的技术分析体系。</p>
+                <p> 20世纪70年代，威尔德（J.W.Wilder），著名的技术分析大师，创建了诸多技术分析经典指标，例如强弱指标RSI、抛物线SAR指标、动力指标MOM、摇摆指数、市价波动率等。在当时为广大投资者提供了有力的投资决策参考依据。但随着时间推移，传统的经典技术指标由于算法陈旧、使用复杂、信号滞后等原因，已无法满足当前投资者的需要。</p>
+                <p> Z点操盘，继承了传统经典技术分析理论的优点，同时通过人工智能算法和大数据演算，用量化模型重新定义技术选股。</p>
+                <p> Z点操盘，是新一代的技术分析方法，它继承了经典，同时超越了经典！</p>
+            </div>
+            <div class="pic fl">
+                <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170309intelstock/img_11.png" class="" alt="">
+                <b>下载金融界app 体验Z点操盘</b>
+            </div>
+        </div>
+    </div>
+ <script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+ <script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+
+</body>
+</html>

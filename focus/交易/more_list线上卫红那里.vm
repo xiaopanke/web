@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<HTML lang='zh-cn'>
+<header>
+	<title>更多功能</title>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style>
+	@media only screen and (-webkit-min-device-pixel-ratio: 2){
+    html { -webkit-text-size-adjust: none; -moz-text-size-adjust:none; -ms-text-size-adjust:none; text-size-adjust:none; }}
+	body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td{margin:0;padding:0;}address,cite,em,i{font-style:normal;}li{list-style:none;}a{text-decoration:none;}a:hover{text-decoration:underline;}legend{color:#000;}fieldset,img{border:0;}table{border-collapse:collapse;border-spacing:0;}
+	body {
+	       color:#333; background:#f1f1f1;
+	       -webkit-appearance: none;
+	      font-family:"Microsoft YaHei","微软雅黑",tahoma,Helvetica,arial,sans-serif,simsun,"宋体";
+	      font-size:1rem;
+	}
+	input[type=button]{
+	    -webkit-appearance:none;
+	    outline:none
+	}
+	/* element */
+	dfn{ font-style:normal;}
+	em{ font-style:normal; color:#f24439;}
+
+	/* misc */
+	.clearfix:after,.wrapper:after  { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	.clearfix { display: inline-block; }
+	/* start commented backslash hack \*/
+	* html .clearfix { height: 1%; }
+	.clearfix { display: block; }
+
+	.icon-list{ margin-bottom: .625rem;background:#fff; overflow:hidden; padding-top: .5rem; padding-left: .5rem; height: 11.8rem;}
+	.icon-list .gray .warting{display: block;}
+	.icon-list ul{ width:19rem; text-align: center; }
+	.icon-list h2{ line-height: 1.2rem;padding-top: .1rem; font-size: .7rem;  font-weight: normal; color: #333; }
+	.icon-list li p{ font-size: .75rem; color: #878C92;}
+	.icon-list li{ width: 5rem; float: left; margin-right: 1.25rem; padding-top: .4rem; padding-bottom: 1.4rem; position: relative;}
+	.icon-list li span{ color: #888; font-size: .6rem; display: block;}
+	.icon-list li .warting{ width: 3rem; height: 3rem;background:url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/wait.png') no-repeat ; position: absolute;right:-.6rem; top:-.6rem; background-size: 100% 100%; display: none; }
+	.icon-list li i{ display: block; width: 2.25rem; height: 2.25rem; background-repeat: no-repeat;
+		background-size: contain; margin:0 auto; 
+	 }
+	 .icon-list li .i-1{ background-image: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/banktransfer.png');}
+	 .icon-list li .i-2{ background-image: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/business.png');}
+	 .icon-list li .i-3{ background-image: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/newipo.png');}
+	 .icon-list li .i-4{ background-image: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/lend.png');}
+	 .icon-list li .i-5{ background-image: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/fundrede.png');}
+	 .icon-list li .i-6{ background-image: url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/rongyiloan.png');}
+
+	 .banner li{ margin-bottom: .625rem; overflow: hidden; background: #fff; text-align: center; background: #FFFFFF; border-bottom:1px solid #DBDBDB;}
+	 .banner .img{ display: block; max-height:10.375rem; overflow: hidden;  }
+	 .banner img{ display: block; width: 100%; margin: 0 auto;}
+	 .banner h2{ height: 1.875rem; line-height: 1.875rem; opacity: 0.8; font-size:.8125rem; color: #B2B2B2; font-weight: normal;}
+
+
+	 /* -------------------------------- dialog -------------------------------- */
+	 .layout-box { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;display: flexbox;display: box; }
+	.md-slidein-show { visibility: visible; z-index: 200; }
+	.md-slidein-show .md-overlay { opacity: 1; visibility: visible; -moz-transition: all 1s; -o-transition: all 1s; -webkit-transition: all 1s; transition: all 1s; }
+	.md-slidein-show .focus-dlg { visibility: visible; opacity: 1;-moz-transform:scale(1); -ms-transform:scale(1); -o-transform:scale(1); -webkit-transform:scale(1); transform:scale(1);}
+
+	.focus-dlg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; opacity: 0; visibility: hidden; -moz-transform: scale(.5); -ms-transform: scale(.5); -o-transform: scale(.5); -webkit-transform: scale(.5); transform: scale(.5);  -moz-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -o-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -webkit-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); transition: transform .3s cubic-bezier(.17,.67,.42,1.22); display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }
+	.md-overlay { position: fixed; width: 100%; height: 100%; visibility: hidden; top: 0; left: 0; z-index: 1000; opacity: 0; background: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#50000000',EndColorStr='#50000000'); -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+
+	/* 时长 */
+	.dlg-time { background:#f5f5f5;width:89.3%;height:12.1875rem;border-radius:4px;position:relative; }
+	.dlg-time .tit { text-align:center;font-size:1.0625rem;padding:0.9375rem 0; }
+	.dlg-time .dlg-btn-wrap { width:100%;height:3.125rem;position:absolute;bottom:0;left:0;border-top:1px solid #d5d5d5; }
+	.dlg-time .dlg-btn { height:3rem;line-height:3rem;text-align:center; font-size:0.875rem;color: #878C92;-webkit-box-flex: 1; -webkit-flex: 1; -moz-flex: 1; -ms-flex: 1; flex: 1;}
+	.dlg-time .dlg-btn:first-child { border-right:1px solid #d5d5d5; }
+	.dlg-time .dlg-btn:hover,.dlg-time .dlg-btn:active { background:#ddd; }
+	.dlg-time .slider-wrap { padding:1rem 1.40625rem; }
+	.dlg-time .slider-wrap .slider-tick-container{display:none;}
+	.dlg-time .slider-wrap .slider.slider-horizontal{width:100%;}
+	.dlg-time .slider-wrap .slider-tick-label{font-size:.625rem;color:#878C92;}
+		.dlg-time .slider-wrap .slider-tick-label:first-child { left: 1rem; position: relative; }
+		.dlg-time .slider-wrap .slider-tick-label:last-child { right: .9rem; position: relative; }
+		.dlg-time .slider-wrap .slider-selection.tick-slider-selection { 
+			background-image: -webkit-linear-gradient(top,#F24439 0,#F24439 100%);
+			background-image: -o-linear-gradient(top,#F24439 0,#F24439 100%);
+			background-image: linear-gradient(to bottom,#F24439 0,#F24439 100%);
+			background-repeat: repeat-x;
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffF24439',endColorstr='#ffF24439',GradientType=0)
+		}
+		.dlg-time .slider-wrap .slider-handle { 
+			background: #fff;
+			box-shadow: 0 0 5px rgba(255, 192, 188, .5);
+		}
+		.dlg-time .slider-wrap .slider-track-high { 
+			background: #dcdcdc;
+		}
+	</style>
+</header>
+<body>
+	<article>
+		<section class="icon-list">
+			<ul class="clearfix">
+				<li class="banktransfer">
+					<i class="i-1"></i>
+					<h2>银证转帐</h2>
+					<span>快速出入金</span>
+					<em class="warting"></em>
+				</li>
+				<li class="gray business">
+					<i class="i-2"></i>
+					<h2>创业板转签</h2>
+					<span>在线转签</span>
+					<em class="warting"></em>
+				</li>
+				<li class="gray newipo">
+					<i class="i-3"></i>
+					<h2>新股申购</h2>
+					<span>一键打新</span>
+					<em class="warting"></em>
+				</li>
+				<li class="gray lend">
+					<i class="i-4"></i>
+					<h2>我要放贷</h2>
+					<span>国债逆回购</span>
+					<em class="warting"></em>
+				</li>
+				<li class="gray fundrede">
+					<i class="i-5"></i>
+					<h2>基金申赎</h2>
+					<span>场内基金交易</span>
+					<em class="warting"></em>
+				</li>
+				<li class="gray rongyiloan">
+					<i class="i-6"></i>
+					<h2>融易贷</h2>
+					<span>股票质押回购</span>
+					<em class="warting"></em>
+				</li>
+			</ul>
+		</section>
+		<section class="banner">
+			<ul>
+				<li>
+					<a class="img" onclick="dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20161014_shipan', 'WT.ti', 'ITOUGU_focus20161014_shipan');" href='http://itougu.jrj.com.cn/marketing/redirect.jspa?url=http://i0.jrjimg.cn/zqt-m/webview/transaction/firm/index.html'>
+						<img src='http://i0.jrjimg.cn/zqt-m/openAccount/images/shipan.jpg'>
+					</a>
+					<h2>活动时间：10.24 - 12.30</h2>
+				</li>
+				<li>
+					<a class="img" href='http://itougu.jrj.com.cn/marketing/zhuanti/common/drawpingan_v11.jspa?tgqdcode=T67CVY75B'>
+						<img src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus20161220pingan/picad.jpg'>
+					</a>
+					<h2>活动时间：01.05 - 02.28</h2>
+				</li>
+			</ul>
+		</section>
+	</article>
+
+	<!--dialog-->
+    <div class="focus-dlg"></div>
+    <div class="md-overlay"></div>
+    <!--dialog-->
+
+	<script src="http://i0.jrjimg.cn/itougu-msite/jquery-3.1.0.min.js" type="text/javascript"></script>
+	<script type="text/template" id="dlg-error">
+        <div class="dlg-time" style="height:8rem;">
+            <p style="text-align: center;margin-top: 1.5rem;"></p>
+            <div class="dlg-btn-wrap layout-box">
+                <a class="dlg-btn submit" style="color:#3996F2">确认</a>
+            </div>
+        </div>
+    </script>
+	<script>
+		function change(){
+		    document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+		}
+		change();
+		var domain = 'http://jrj.yun.pingan.com';
+		
+		$('.focus-dlg, .dlg-close').unbind().click(function () {
+            $('html').removeClass('md-slidein-show');
+        });
+        $('.focus-dlg div').unbind().click(function (e) {
+            e.stopPropagation();
+        });
+
+        function errorMsg(text, btnEvent){
+            $('.focus-dlg').html($('#dlg-error').html());
+            $('.focus-dlg').find('p').text(text);
+            $('html').addClass('md-slidein-show');
+            setTimeout(function(){
+                $('.dlg-btn').click(function(e){
+                    e.preventDefault();
+                    if (btnEvent) {btnEvent();}
+                    $('html').removeClass('md-slidein-show');
+                });
+            }, 60);
+        }
+
+		var convertToJsonObject = function(str){
+
+            if(typeof str != 'object'){      
+                return JSON.parse(str);    
+            }else{
+                return str;
+            }
+        };
+        //创业板转签
+		$('.icon-list li > .i-2').click(function(){
+
+			if($(this).parent().hasClass('gray')){
+				return;
+			}
+
+			jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain + '/sapi/v2/cybrest/cybquery',
+                params: {},
+                callback: 'callbackTransFunc',
+                version:'3.10.0'
+            }));
+
+		});
+
+		//新股申购 
+		$('.icon-list li > .i-3').click(function(){
+			if($(this).parent().hasClass('gray')){
+				return;
+			}
+			window.location.href=domain+'/sapi/page/ipoindex.jspa';
+		});
+		//银证转账 
+		$('.icon-list li > .i-1').click(function(){
+
+			if($(this).parent().hasClass('gray')){
+				return;
+			}
+
+			jrj.jsCallNative('131', JSON.stringify({}));
+
+		});
+		//我要放贷逆回购
+		$('.icon-list li > .i-4').click(function(){
+
+			if($(this).parent().hasClass('gray')){
+				return;
+			}
+
+			jrj.jsCallNative('132', JSON.stringify({}));
+
+		});
+		//基金申赎
+		$('.icon-list li > .i-5').click(function(){
+
+			if($(this).parent().hasClass('gray')){
+				return;
+			}
+
+			jrj.jsCallNative('133', JSON.stringify({}));
+
+		});
+
+		var callbackTransFunc=function(transResp){
+
+            transResp=convertToJsonObject(transResp);
+            if(transResp.retcode==0) {
+            	if(!transResp.data.accountstatus){
+            	window.location.href=(domain + '/sapi/page/cybadd.jspa');
+	            }else if(transResp.data.accountstatus=='1'){
+	                window.location.href=(domain + '/sapi/page/cybsuccess.jspa');
+	            }else if(transResp.data.accountstatus=='0'){
+	            	window.location.href=(domain + '/sapi/page/cybprocess.jspa');
+	            }else if(transResp.data.accountstatus=='-1'){
+	            	window.location.href=(domain + '/sapi/page/cybfail.jspa');
+	            }else{
+	            	window.location.href=(domain + '/sapi/page/cybadd.jspa');
+	            }
+            }else{
+            	errorMsg(transResp.msg);
+            }
+       };
+
+	   	function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]); return null;
+		}
+		
+		if(getQueryString('brokerId') == 'PAZQ'){
+			$('.icon-list .business').removeClass('gray');
+		}
+
+		window.appver = '${appver}';
+		//window.appver=getQueryString('appver');
+		if(parseFloat(window.appver.split('.')[0] + '.' + window.appver.split('.')[1]) < 3.11){
+			$('.icon-list .banktransfer').remove(); //把银转去了
+		}
+		if((parseFloat(window.appver.split('.')[0] + '.' + window.appver.split('.')[1]) >= 3.11) && getQueryString('brokerId') == 'PAZQ'){
+			$('.icon-list .newipo').removeClass('gray'); //新股点亮
+		}
+
+		if((parseFloat(window.appver.split('.')[0] + '.' + window.appver.split('.')[1]) >= 5.0) && getQueryString('brokerId') == 'PAZQ'){
+			$('.icon-list .newipo').removeClass('gray');
+			$('.icon-list .lend').removeClass('gray');
+			$('.icon-list .fundrede').removeClass('gray');
+		}
+	</script>
+
+	<script src="http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js" type="text/javascript"></script>
+	
+	
+</body>
+</HTML>

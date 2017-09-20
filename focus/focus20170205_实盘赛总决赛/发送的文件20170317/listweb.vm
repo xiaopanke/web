@@ -1,0 +1,1450 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>总决赛牛人报告</title>
+<meta name="keywords" content="" />
+<meta name="description" content="实盘牛人月收益36%，布局策略大曝光！" />
+<!--# include virtual="/v2/common_head_css.html" -->
+<style>
+body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/24px "Pingfang SC","Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,em,i{font-style:normal}
+li{list-style:none}
+a{text-decoration:none;color:inherit}
+a:hover{text-decoration:none;}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%;line-height:normal}
+table{border-collapse:collapse;border-spacing:0}
+input[type="button"],input[type="submit"],input[type="reset"]{cursor:pointer}
+.middle *{display:inline-block;vertical-align:middle}
+.clearfix{display:block}
+.clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden}
+.clearfix:after{clear:both}
+.clearfix{zoom:1}
+.tl{text-align:left}
+.tc{text-align:center}
+.tr{text-align:right}
+.fl{float:left}
+.fr{float:right}
+.up{color:#e22222!important}
+.fall{color:#00a34e!important}
+.disnone{display:none !important;}
+.color_rise{color:#e22222}
+.color_fall{color:#00a34e}
+.sell_in{color:#e22222;margin:0 10px}
+.sell_out{color:#008de8;margin:0 10px}
+.user_name{display:inline-block;line-height:42px;margin-left:7px;margin-right:22px;width:93px;cursor:pointer;font-size:16px;color:#333;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.user_account{display:inline-block;width:88px;height:34px;line-height:34px;text-align:center;color:#e22222;font-size:14px;border-radius:6px;border:1px solid #e22222;cursor:pointer}
+.outer{width:100%;}
+.focus_map{width:100%;position:relative;padding:28px 0;overflow:hidden}
+.focus_map>img{position:absolute;width:100%;height:100%;top:0;left:0;filter:url(blur.svg#blur);/**/-webkit-filter:blur(40px);-moz-filter:blur(40px);-ms-filter:blur(40px);filter:blur(40px);filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=40,MakeShadow=false)}
+.inner{width:1200px;margin:0 auto;}
+.b_opcity{position:absolute;width:100%;height:100%;top:0;left:0;background:#000;opacity:.7;z-index:996}
+.inner>.focus_img{width:536px;height:264px}
+.inner>.focus_img>img{width:100%;display:block}
+.inner>.focus_info{width:279px;background:#fff;color:#333;padding:26px 22px}
+.inner>.focus_info div{font-size:20px;overflow:hidden;line-height:28px;max-height:56px;margin-bottom:10px;font-weight:600}
+.inner>.focus_info p{font-size:14px;color:#666;line-height:20px;max-height:40px;overflow:hidden}
+.inner>.focus_info>ul{padding-top:10px}
+.inner>.focus_info>ul li{font-size:16px;color:#333;line-height:22px;margin-top:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.inner>.focus_info>ul li::before{content:" ";width:4px;height:4px;background:#d7d7d7;display:inline-block;margin:4px 6px}
+.focus_signIn,.focus_signIn_over{margin-left:20px;width:318px;background:#e65151;border:1px solid #b83737}
+.new_news{font-size:12px;padding:4px 6.5px;color:#fff;background:#ed8107;border-radius:10px;position:relative;top:-2px}
+.focus_signIn>.div_top,.focus_signIn_over>.div_top{border-bottom:1px solid #f54f4f}
+.focus_signIn>.div_bottom,.focus_signIn_over>.div_bottom{border-top:1px solid #c83c3c}
+.focus_signIn>.div_top>div,.focus_signIn>.div_bottom>div{margin-top:6px}
+.focus_signIn>.div_bottom>a{background:#ffa300;box-shadow:0 2px 2px 0 #c83c3c;border-radius:4px;display:inline-block;font-size:18px;color:#fff;width:130px;height:56px;text-align:center;line-height:56px}
+.focus_signIn>.div_top>a{background:#7300ff;box-shadow:0 2px 2px 0 #c83c3c;border-radius:4px;display:inline-block;font-size:18px;color:#fff;width:130px;height:56px;text-align:center;line-height:56px}
+.focus_signIn>.div_top>div>p,.focus_signIn>.div_bottom>div>p{font-size:18px;color:#fff;line-height:25px}
+.focus_signIn>.div_top>div>span,.focus_signIn>.div_bottom>div>span{opacity:.59;font-size:14px;color:#fff;line-height:20px}
+.focus_signIn_over>.div_top>p,.focus_signIn_over>.div_bottom>p{opacity:.8;font-size:16px;line-height:45px;color:#fff}
+.focus_signIn_over>.div_top>span,.focus_signIn_over>.div_bottom>span{opacity:.8;font-size:16px;line-height:25px;color:#fff}
+.focus_signIn_over>.div_top>p>span,.focus_signIn_over>.div_bottom>p>span{font-size:32px;color:#fff;text-shadow:0 1px 0 #c83c3c}
+.focus_signIn_over>.div_top>span>span,.focus_signIn_over>.div_bottom>span>span{font-size:18px;color:#fff;text-shadow:0 1px 0 #c83c3c}
+.focus_signIn>div{padding:37px 20px}
+.focus_signIn_over>div{padding:28px 20px}
+.focus_signIn_over>.div_top>p *,.focus_signIn_over>.div_bottom>p *{vertical-align:middle}
+.focus_signIn_over>.div_top>span *,.focus_signIn_over>.div_bottom>span *{vertical-align:middle}
+
+.red_and_h1{font-size:18px;color:#333;line-height:18px}
+.red_and_h1>span{display:inline-block;width:3px;height:18px;background:#e22222;margin-right:6px;vertical-align:middle;margin-bottom:4px}
+.myAccount{background:#f5f5f5;padding-top:32px;padding-bottom:90px}
+.myAccount_head{height:154px;background:#fff;margin-bottom:20px}
+.myAccount_AssetInformation{background:#fff;height:222px;margin-bottom:20px;padding:30px 14px}
+.myAccount_CurrentPosition{padding:30px 14px;background:#fff;margin-bottom:20px}
+.myAccount_TransactionRecord{padding:30px 14px;background:#fff}
+.myAccount_user_info{padding:33px 0;padding-left:44px;width:490px}
+.myAccount_user_name{width:200px;color:#333;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px;line-height:88px;margin-left:22px}
+.disk_ranking{color:#333}
+.myAccount_user_photo{width:88px;height:88px;overflow:hidden;border-radius:50%;background:#000;border:4px solid #ebebeb}
+.myAccount_user_photo img{width:88px;display:block;height: 108px;}
+.FirmVirtual_disk{border-left:1px solid #e7e7e7;width:50%}
+.FirmVirtual_disk>div{width:330px;margin:35px 0;padding:6px 0;position:relative}
+.FirmVirtual_disk div p{font-size:16px;color:#666;line-height:33px;padding-left:70px}
+.FirmVirtual_disk div p span{font-size:24px;line-height:33px;font-weight:600}
+.FirmVirtual_disk>div>div{width:52px;height:52px;position:absolute;top:-35px;left:0}
+.FirmVirtual_disk>div>.sp{background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/img/buy_sell_sp.png") 0 0 no-repeat}
+.FirmVirtual_disk>div>.mp{background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/img/buy_sell_mp.png") 0 0 no-repeat}
+
+.myAccount_TransactionRecord ul{padding:0 40px;margin-top:26px}
+.myAccount_TransactionRecord ul li{padding:16px 0;border-bottom:1px solid #e7e7e7}
+.myAccount_TransactionRecord ul li:first-child{border-top:1px solid #e7e7e7}
+.myAccount_TransactionRecord ul li div{float:left;line-height:48px}
+.myAccount_TransactionRecord ul li>.li_sharesState{width:50px;height:50px;margin-left:60px}
+.myAccount_TransactionRecord ul li>.buy{background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/img/buy_sell.png) 0 0 no-repeat}
+.myAccount_TransactionRecord ul li>.sell{background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/img/buy_sell.png) -52px 0 no-repeat}
+.myAccount_TransactionRecord ul li>.li_sharesName{font-size:16px;color:#333;font-weight:600;margin-left:70px;width:160px;text-align:center;overflow:hidden}
+.myAccount_TransactionRecord ul li>.li_sharesPrice{font-size:16px;color:#666;margin-left:60px;width:160px;text-align:left;overflow:hidden}
+.myAccount_TransactionRecord ul li>.li_sharesPrice span{color:#333}
+.myAccount_TransactionRecord ul li>.li_sharesTimg{margin-left:50px;margin-right:70px;font-size:14px;color:#999}
+.myAccount_TransactionRecord ul li>.li_sharesPlaces{font-size:16px;color:#666;width:226px;text-align:left;overflow:hidden}
+.myAccount_TransactionRecord ul li>.li_sharesPlaces span{color:#333}
+.myAccount_TransactionRecord ul li>.li_sharesFollow{border:1px solid #dbdbdb;border-radius:4px;width:80px;height:36px;line-height:36px;font-size:16px;color:#666;text-align:center;float:right;margin-top:6px;cursor:pointer}
+.li_sharesFollow a:hover{color:#fff}
+.myAccount_TransactionRecord ul li>.li_sharesFollow:hover{color:#fff;background:#e22222}
+.CurrentPosition_h1{position:relative}
+.CurrentPosition_h1>span{font-size:14px;color:#999}
+.CurrentPosition_h1>div{position:absolute;background:#e22222;border-radius:4px;width:120px;height:46px;line-height:46px;font-size:18px;color:#fff;text-align:center;right:27px;top:0;cursor:pointer}
+
+.myAccount_CurrentPosition .currentInFinal{width:1120px;margin:0 auto;margin-top:33px; overflow: hidden;}
+.myAccount_CurrentPosition .currentInFinal .topdiv{height:40px;line-height:40px;font-size:14px;color:#666;background:#f2f4f5}
+.myAccount_CurrentPosition ul li{height:68px;line-height:64px;font-size:16px;color:#333}
+.myAccount_CurrentPosition .currentInFinal li div,.myAccount_CurrentPosition .currentInFinal>div>div{float:left;width:160px;overflow:hidden;text-align:center}
+.myAccount_CurrentPosition ul li div img{width:40px;height:20px;margin:0 auto;vertical-align:text-top;background:#f2f4f5;display:inline-block;border-radius:3px;border:1px solid #e5e5e5}
+.myAccount_CurrentPosition ul li div a{width:80px;height:36px;margin:0 auto;line-height:36px;}
+.myAccount_CurrentPosition ul li:hover{background:#fafafa}
+.Asset_information{width:610px}
+.Asset_information div{margin-top:40px}
+.Asset_information div p{margin-left:42px;width:260px;line-height:22px;font-size:16px;margin-bottom:18px;color:#333}
+.Asset_information div p span{display:inline-block;width:100px;color:#666}
+.no_TransactionRecord,.no_CurrentPosition{height:140px;font-size:20px;line-height:140px;text-align:center;color:#999}
+.no_CurrentPosition{margin-top:30px}
+.b_opacity{position:fixed;width:100%;height:100%;top:0;left:0;z-index:9910;background:rgba(0,0,0,0.7)}
+.alert_box{z-index:9990}
+.alert_box>div{position:fixed;top:50%;left:50%;margin-left:-200px;margin-top:-240px;width:400px;height:480px;z-index:9990;background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/img/SweepParticipate.png") 0 0 no-repeat}
+.alert_box>.alert_close{cursor:pointer;position:fixed;top:50%;left:50%;margin-left:144px;margin-top:-303px;width:36px;height:63px;z-index:9990;background:url("http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/img/close.png") 0 0 no-repeat}
+.suo{ display: none; width:670px;line-height:60px; background: #FF4040; color:#fff;font-size: 18px;
+border-radius: 8px; margin: 40px auto 0; }
+.suo span,.suodis span{ width:20px; height:24px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/suo2.png) no-repeat;    margin-right: 6px;
+    float: left;
+    margin-left: 249px;
+    margin-top: 17px;
+}}
+.bc{overflow: hidden;}
+.suodis{display:none;background: #947a76;width:670px;line-height:60px;color:#fff;font-size: 18px;
+border-radius: 8px; margin: 40px auto 0; }
+/*关于弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 99998; display: none;}
+.layer{width: 580px;height: 380px;background:#fff7ec;position: fixed;top: 50%;left: 50%;margin-top:-200px;margin-left: -300px;z-index: 99999;color: #000;animation: haha .3s linear; display: none;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.closebtn{ position:absolute; top:-56px;right:50px;width:32px; height:57px; cursor:pointer; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -40px 0;  }
+/*layer_dy*/
+.layer_dy{ width:560px;padding:40px 60px; background:#fff; border-radius:10px; margin-left: -320px; color:#333; height:180px; margin-top: -130px;font-size: 16px;}
+.layer_dy p span{ font-weight: bold;color:#f53d05; margin:0 5px;}
+.dybtn{width:240px; line-height:55px; background:#f53d05; color:#fff; display: block; border-radius: 3px; cursor: pointer; margin:40px auto 0; text-align: center}
+.btn-106-30-gray {width: 106px;background: #a3a2a2;}
+.btn-106-30-gray, .btn-97-30 {height: 30px;line-height: 30px;color: #fff;font-size: 14px;border-radius: 3px;}
+.btn-106-30-gray:hover {background: #666;}
+.btn-97-30 {width: 97px;background: #f6554a;}
+.revenue-dlg-payment {background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/revenue-icon-payment.png) no-repeat;padding-left: 130px;padding-bottom: 50px;}
+.bc{overflow: hidden;}
+</style>
+
+ <script src="http://js.jrjimg.cn/lib/jquery-1.7.min.js"></script>
+
+</head>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/stockMarketCompetition/web/js/echarts.min.js"></script>
+
+
+<body>
+<!--# include virtual="/v2/site_top_compact.html" -->
+<div class="outer myAccount">
+    <div class="inner">
+        <div class="myAccount_head">
+            <div class="myAccount_user_info fl clearfix">
+                <div class="fl myAccount_user_photo"></div>
+                <div class="myAccount_user_name fl"></div>
+            </div>
+            <div class="FirmVirtual_disk fr clearfix">
+                <div class="fl">
+                    <div class="sp"></div>
+                    <p >参赛总收益：<span class="up totalIncome txtcolor">0.00</span></p>
+                    <p style="text-indent: 1em;">总盈亏额：<span class="disk_ranking totalIncomeBalance txtcolor"></span></p>
+                </div>            
+            </div>
+        </div>
+        <div class="myAccount_AssetInformation clearfix">
+            <h1 class="red_and_h1"><span></span>资产信息</h1>
+            <div class="Asset_information clearfix fl">
+                <div class="fl">
+                    <p class=""><span>今日收益</span><em class="dayIncome txtcolor">0.00%</em></p>
+                    <p class=""><span>日盈亏额</span><em class="dayIncomeBalance txtcolor">0.00元</em></p>
+                </div>
+                <div class="fl">
+                    <p><span>持仓比例</span><em class="positionRate ">0.00%</em></p>
+                    <p><span>股票市值</span><em class="marketValue ">0.00元</em></p>
+                </div>
+            </div>
+            <div class="lne_graph fl">
+                <div id="main1" style="width: 540px;height:210px;"></div>
+            </div>
+        </div>
+       <div class="myAccount_CurrentPosition myAccount_CurrentPosition_sp">
+            <div class="clearfix CurrentPosition_h1">
+                <h1 class="red_and_h1 fl"><span></span>当前持仓</h1>            
+            </div>
+            <div class="currentInFinal">
+                <div class="clearfix topdiv">
+                    <div>代码</div>
+                    <div>名称</div>
+                    <div>走势图</div>
+                    <div>成本价</div>
+                    <div>当前价</div>
+                    <div>盈亏比率</div>
+                    <div>仓位</div>
+                </div>
+                <ul>
+                </ul>
+                <div class="no_TransactionRecord disnone">
+                    暂无持仓记录
+                </div>
+            </div>    
+            
+            
+        </ul>
+            <div class="suo disnone"><span></span>解锁交易动态和持仓</div>
+            <div class="suodis disnone"><span></span>解锁交易动态和持仓</div>
+        </div>
+        <div class="myAccount_TransactionRecord">
+            <h1 class="red_and_h1"><span></span>交易记录</h1>
+            <ul class="">
+            </ul>
+            <div class="no_TransactionRecord disnone">
+                暂无交易记录
+            </div>
+            <div class="suo disnone"><span></span>解锁交易动态和持仓</div>
+            <div class="suodis disnone"><span></span>解锁交易动态和持仓</div>
+        </div>
+    </div>
+</div>
+<div class="mask"></div>
+<div class="layer layer_dy">
+    <i class="closebtn"></i>
+    <p>订阅“实时跟单”功能后，<i class="playername"></i>在2017年2月27日-3月30日之间的实盘交易将以 <span>短信+金融界APP推送</span> 两种方式进行通知（可在金融界web端完善手机信息接收短信提醒），保证您不错过任何一个跟单机会。</p>
+    <span class="dybtn">去支付</span>
+    <!--<span class="setbtn">知道了</span>-->
+</div>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+<script>
+    
+ /* 优惠券通用弹窗
+ */
+window.CouponDlg = (function () {      
+
+    var api_buy = 'http://itougu.jrj.com.cn/order/showbuyweb.jspa?pid={pid}&orderType={type}',
+        api_place = 'http://itougu.jrj.com.cn/order/buyweb.jspa?pid={pid}&cid={cid}&orderType={type}&month={month}',
+        api_buy_4_gift = 'http://itougu.jrj.com.cn/order/showbuyweb2.jspa?pid={pid}&orderType={type}&tgid={tgid}&num={num}&rmb={rmb}&content={content}',
+        api_place_4_gift = 'http://itougu.jrj.com.cn/order/buyweb2.jspa?pid={pid}&cid={cid}&orderType={type}&tgid={tgid}&num={num}&rmb={rmb}&uniqueid={uniqueid}',
+        api_place_4_vote = 'http://itougu.jrj.com.cn/order/buyweb8.jspa?pid={pid}&cid={cid}&orderType={type}&tgid={tgid}&num={num}&rmb={rmb}&uniqueid={uniqueid}&content={content}',
+        dlgTmpl = ['<div class="dialog-cnt">',
+                        '<div class="product-desc">',
+                            '<h2>{{tname}}：{{pname}}</h2>',
+                            '{{#ismaster}}',
+                            '<p>比赛时间：{{startTime}} 至 {{endTime}}</p>',
+                            '{{/ismaster}}',
+                            '{{^ismaster}}',
+                            '{{#isGlance}}',
+                            '<p>偷看时长：<span class="red">30</span> 分钟</p>',
+                            '{{/isGlance}}',
+                            '{{^isGlance}}',
+                            '<p>最长周期：{{startTime}} 至 {{endTime}}</p>',
+                            '{{/isGlance}}',
+                            '{{/ismaster}}',
+                            '{{#isGlance}}',
+                            '<p>偷看价格：<span class="red">{{amount}}</span> 元',
+                            '{{/isGlance}}',
+                            '{{^isGlance}}',
+                            '<p>订阅价格：<span class="red">{{amount}}</span> 元</p>',
+                            '{{/isGlance}}',
+                        '</div>',
+                        '<div id="coupon-list" class="coupon-list"></div>',
+                        '<p class="note">{{note}}</p>',
+                        '<p class="agreement middle"><input id="chkAgreement" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/risk.html" target="_blank">风险揭示书</a><span>》</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=agreement" target="_blank">服务使用协议</a><span>》</span></p>',
+                        '{{#orgId}}<p class="agreement middle"><input id="chkAgreement2" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=trader_{{orgId}}" target="_blank">{{agreementName}}</a><span>》</span></p>{{/orgId}}',
+                        '<div class="btn-wrap clearfix">',
+                            '<a id="btnCouponPay" href="" class="btn btn-89-31 fr">立即支付</a>',
+                            '<span class="price">实付款：<span id="finalPrice" class="red">{{amount}}</span>元</span><span id="notice" class="red ml5" style="display:none;">优惠券购买商品多出金额不予退还</span>',
+                        '</div>',
+                    '</div>'].join(''),
+        dlgTmp6 = ['<div class="dialog-cnt">',
+                        '<div class="product-desc">',
+                            '<h2>{{tname}}：{{pname}}</h2>',
+                            '<ul class="long-term-month" id="long-term-month"></ul>',
+                            '<p class="long-term-p">服务周期：<span class="start-time">{{startTime}}</span> 至 <span class="end-time">{{endTime}}</span></p>',
+                            '<p class="long-term-p" id="original-disc">订阅价格：<span class="red disc">{{amount}}</span> 元<del class="line"></del></p>',
+                        '</div>',
+                        '<div id="coupon-list" class="coupon-list"></div>',
+                        '<p class="note">订阅须知：此内容仅代表个人研究成果，供学习参考，不是投资依据，据此操作风险自担。</p>',
+                        '<p class="agreement middle"><input id="chkAgreement" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/risk.html" target="_blank">风险揭示书</a><span>》</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=agreement" target="_blank">服务使用协议</a><span>》</span></p>',
+                        '{{#orgId}}<p class="agreement middle"><input id="chkAgreement2" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=trader_{{orgId}}" target="_blank">{{agreementName}}</a><span>》</span></p>{{/orgId}}',
+                        '<div class="btn-wrap clearfix">',
+                            '<a id="btnCouponPay" href="" class="btn btn-89-31 fr">立即支付</a>',
+                            '<span class="price">实付款：<span id="finalPrice" class="red">{{amount}}</span>元</span><span id="notice" class="red ml5" style="display:none;">优惠券购买商品多出金额不予退还</span>',
+                        '</div>',
+                    '</div>'].join(''),          
+        dlgTmplGift = ['<div class="dialog-cnt">',
+                        '<div class="product-desc"><h2>支付项目：{{pname}}</h2><p>价格：<span class="red">{{amount}}</span> 元</p></div>',
+                        '<div id="coupon-list" class="coupon-list"></div>',
+                        '<p class="note">{{note}}</p>',
+                        '<p class="agreement middle"><input id="chkAgreement" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/risk.html" target="_blank">风险揭示书</a><span>》</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=agreement" target="_blank">服务使用协议</a><span>》</span></p>',
+                        '{{#orgId}}<p class="agreement middle"><input id="chkAgreement2" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=trader_{{orgId}}" target="_blank">{{agreementName}}</a><span>》</span></p>{{/orgId}}',
+                        '<div class="btn-wrap clearfix">',
+                            '<a id="btnCouponPay" href="" class="btn btn-89-31 fr">立即支付</a>',
+                            '<span class="price">实付款：<span id="finalPrice" class="red">{{amount}}</span>元</span><span id="notice" class="red ml5" style="display:none;">优惠券购买商品多出金额不予退还</span>',
+                        '</div>',
+                    '</div>'].join(''),
+        couponTmpl = ['<div class="tit"><a href="http://itougu.jrj.com.cn/site/help.html?tag=coupon" class="fr link-v2" target="_blank">[了解优惠券规则]</a>可用优惠券(<span class="red">{{count}}</span>)</div>',
+                        '<div class="table-wrap">',
+                            '<table></table>',
+                        '</div>'].join(''),
+        couponItemTmpl = ['<tr>',
+                            '<td class="col-1"><input id="Checkbox1" type="checkbox" name="couponChk" data-price="{{price}}" data-id="{{id}}" /></td>',
+                            '<td class="col-2"><span class="red">{{price}}</span> 元</td>',
+                            '<td class="col-3">{{name}}</td>',
+                            '<td class="col-4">有效期至{{endTime}}</td>',
+                            '<td class="col-5">满{{limitPrice}}减{{price}}</td>',
+                        '</tr>'].join('');
+
+    window.dlgClone = $.extend(true, {}, JRJ.Dialogs);
+
+    var enum_CouponType = {
+        PORTFOLIO: 1,   //组合
+        GIFT: 2,        //礼物
+        VIEWPOINT: 3,   //观点
+        REWARD: 4,      //打赏
+        REFERENCE: 6,    //内参
+        VOTE: 8,        //投票
+        GLANCE: 9,      //偷看
+        SHIPANSAI: 11       //实盘赛
+    };
+    var enum_ReturnCode_Buy = {
+        Failed: -1,     //失败
+        Free: 1,        //免费订购成功
+        Existed: 2,     //有未支付的订单
+        GoPay: 3        //第三方支付页面
+    };
+    var enum_ReturnCode_Place = {
+        Failed: -1,     //失败
+        Free: 1,        //免费订购成功
+        Existed: 2,     //有未支付的订单
+        GoPay: 3,       //第三方支付页面
+        CouponFree: 4   //优惠卷够支付款
+    };
+    var productPrice = 0;
+    var ___lock = false;
+
+    var couponConfig = {
+        productId: '',
+        productName: '',
+        type: '',
+        checkOrderUrl: '',
+        tgid: '',   //投顾id
+        num: '',    //礼物数量
+        rmb: '',     //打赏金额（单位：分）
+        uniqueid: '',     //唯一id
+        month: ''     //新加,长期内参 月份
+    };
+
+    var Util = {
+        leadingZero: function (num, size) {
+            var s = "000000000" + num;
+            return s.substr(s.length - size);
+        },
+        dateFormat: function (date, formatString) {
+            if (!date.valueOf())
+                return '';
+
+            var d = date;
+
+            return formatString.replace(/(yyyy|mm|dd|hh|nn|ss)/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case 'yyyy': return d.getFullYear();
+                        case 'mm': return Util.leadingZero((d.getMonth() + 1), 2);
+                        case 'dd': return Util.leadingZero(d.getDate(), 2);
+                        case 'hh': return Util.leadingZero(((h = d.getHours() % 12) ? h : 12), 2);
+                        case 'nn': return Util.leadingZero(d.getMinutes(), 2);
+                        case 'ss': return Util.leadingZero(d.getSeconds(), 2);
+                    }
+                }
+            );
+        },
+        cutoff: function (text, limit) {
+
+            if (limit == 0) {
+                return text;
+            }
+
+            var temp1 = text.replace(/[^\x00-\xff]/g, "**");
+            var temp2 = temp1.substring(0, limit);
+            var x_length = temp2.split("\*").length - 1;
+            var hanzi_num = x_length / 2;
+            limit = limit - hanzi_num;
+            var res = text.substring(0, limit);
+
+            var end = '';
+            if (limit < text.length) {
+                end = res + '...';
+            } else {
+                end = res;
+            }
+        
+            return end;
+        
+        }
+    }
+
+    //等待支付完成弹窗
+    var showWaitingPaymentDlg = function () {
+        dlgClone.close();
+        dlgClone.isShow = false;
+        dlgClone.standardDialog({
+            title: "支付提示",
+            width: 450,
+            content: ['<div class="revenue-dlg-payment">',
+                          '<p class="mt20">支付完成前 请不要关闭此支付验证窗口</p>',
+                          '<p class="mt10"><strong>请在2小时内支付，超时将关闭订单；</strong></p>',
+                          '<p class="mt10"><a class="btn btn-106-30-gray mr10" href="/site/help.html?tag=pay" target="_blank">支付遇到问题</a><a class="btn btn-97-30" id="finishPay">支付完成</a></p>',
+                      '</div>'].join(''),
+            okBtnText: "确定",
+            cancelBtnText: "取消",
+            hasCloseBtn: true,
+            hasOkBtn: false,
+            hasBtn: false,
+            hasCancelBtn: true,
+            okCallback: function () { },
+            cancelCallback: function () { location.href = location.href; },
+            isFixed: true
+        });
+        $('#finishPay').unbind('click').bind('click', function () {
+            
+            $.ajax({
+                url: 'https://t.jrj.com.cn/activities/match/getSubStatus?matchId=3&saleNo='+couponConfig.productId,
+                type: 'GET',
+                data: {},
+                dataType: 'jsonp',
+                async: false,
+                success: function (json) {
+                    if (json.retcode==0) {
+                        if(json.data.status==1){
+                            window.location.href='http://itougu.jrj.com.cn/marketing/zhuanti/web/common/finalswebkai.jspa';
+                        }else{
+                            //支付提示: failed
+                            dlgClone.standardDialog({
+                                title: "支付提示",
+                                width: 450,
+                                content: ['<div>',
+                                              '<p class="tc mt30">支付未完成，您可以去消费记录中继续支付</p>',
+                                          '</div>'].join(''),
+                                okBtnText: "继续支付",
+                                cancelBtnText: "取消",
+                                hasCloseBtn: true,
+                                hasOkBtn: true,
+                                hasBtn: true,
+                                hasCancelBtn: false,
+                                okCallback: function () {
+                                    location.href = '/order/orderList.jspa';
+                                },
+                                cancelCallback: function () {
+                                },
+                                isFixed: true
+                            });
+                        }    
+                    } else {
+                        
+                    }
+                }
+            });
+        });
+    };
+
+    var bindEvent = function (data) {
+
+        $('#coupon-list').find('input[type="checkbox"]').click(function () {
+            var finalPrice = $('#finalPrice'),
+                notice = $('#notice'),
+                btnCouponPay = $('#btnCouponPay');
+
+            $('#coupon-list').find('input[type="checkbox"]').not(this).prop('checked', false);
+            //alert(1);
+            var _price = parseInt($(this).attr('data-price'), 10);
+
+            if(data.pdType == 2){
+               
+                var discPrice = parseInt($('#original-disc').find("span").text(),10);
+                if($(this).is(':checked')){
+                    if(discPrice-_price > 0){
+                        finalPrice.text(discPrice-_price);
+                        notice.hide();
+                     }else{
+                        finalPrice.text(0);
+                        notice.show();
+                     }
+                    if (couponConfig.type == enum_CouponType.REFERENCE || couponConfig.type == enum_CouponType.PORTFOLIO || couponConfig.type == enum_CouponType.GLANCE) {
+                        btnCouponPay.text(discPrice - _price > 0 ? '立即支付' : '立即订阅');
+                    } else {
+                        btnCouponPay.text('立即支付');
+                    }
+                }else{
+                    
+                    finalPrice.text(discPrice);
+                    notice.hide();
+                    btnCouponPay.text('立即支付');
+                }
+
+            }else{
+                //不是长期内参
+                if ($(this).is(':checked')) {
+                    if (productPrice - _price > 0) {
+                       
+                        finalPrice.text(productPrice - _price);
+                        notice.hide();
+                    } else {
+                        finalPrice.text(0);
+                        notice.show();
+                    }
+
+                    if (couponConfig.type == enum_CouponType.REFERENCE || couponConfig.type == enum_CouponType.PORTFOLIO || couponConfig.type == enum_CouponType.GLANCE) {
+                        btnCouponPay.text(productPrice - _price > 0 ? '立即支付' : '立即订阅');
+                    } else {
+                        btnCouponPay.text('立即支付');
+                    }
+                }else{
+                    finalPrice.text(productPrice);
+                    notice.hide();
+                    btnCouponPay.text('立即支付')
+                }    
+            }
+        });
+     
+
+        $("#long-term-month").on('click','li',function(){
+            $(this).css("border-color","#ff5050").addClass('month-border').siblings().css("border-color","#dbdbdb").removeClass('month-border');
+            var index=$(this).index(),
+                discountPrice=data.tipsDisCountVos[index].discountPrice/100,
+                originalPrice=data.tipsDisCountVos[index].originalPrice/100,
+                discount=data.tipsDisCountVos[index].discount;
+              
+                if(discount >= 1){
+                    $(".line").hide();
+                }else{
+                    $(".line").show();
+                }
+                $("#original-disc").find("span").html(discountPrice).next().html(originalPrice+'元');
+                //console.log(originalPrice*discount);
+                
+                //日期
+                var time=data.tipsDisCountVos[index],
+                    startTime=time.beginTime,
+                    endTime=time.endTime;
+               
+                $(".start-time").html(startTime);
+                $(".end-time").html(endTime);
+          
+            for(var i=0;i<data.items.length;i++){
+                var limitPrice=data.items[i].limitPrice;
+                if(discountPrice >= limitPrice){ //50 0 10 10
+                    //复选框能点
+                    $('#coupon-list').find('input[type="checkbox"]').eq(i).attr('disabled', false);
+                    $('#coupon-list').find('tr').eq(i).find('*').css('color','#666').find('span').addClass('red');
+                }else{
+                    //不能点
+                   $('#coupon-list').find('input[type="checkbox"]').eq(i).attr('disabled', true);
+                   $('#coupon-list').find('tr').eq(i).find('*').css('color','#999').find('.red').removeClass('red');
+                }
+                /*if(discountPrice <= limitPrice){
+                    //console.log(discountPrice <= limitPrice);
+                    $('#coupon-list').find('input[type="checkbox"]').eq(i).attr('disabled', true);
+                    $('#coupon-list').find('tr').eq(i).find('*').css("color","#999").find('.red').removeClass('red');
+
+                }*/
+            }
+
+            var discPrice = $('#original-disc').find("span").text();
+           
+            $('#finalPrice').text(discPrice);
+            $('#coupon-list').find('input[type="checkbox"]').not(this).prop('checked', false);
+
+        })
+        $('#long-term-month>li:last').click();//模拟点击
+
+        //下单
+        $('#btnCouponPay').click(function (e) {
+            e.preventDefault();
+            
+            if (!$('#chkAgreement').is(':checked')) {
+                JRJ.MiniAlerts.prompt({ message: '<p>请勾选并同意服务协议</p>' });
+                return;
+            }
+
+            if ($('#chkAgreement2').length>0 && !$('#chkAgreement2').is(':checked')) {
+                JRJ.MiniAlerts.prompt({ message: '<p>请勾选并同意服务协议</p>' });
+                return;
+            }
+
+            if (___lock) {
+                return;
+            }
+            ___lock = true;
+
+            var cid = $('#coupon-list').find('input[type="checkbox"]:checked').attr('data-id');
+            var month=$('.month-border').attr('data-month');
+            
+            switch (couponConfig.type) {
+                case enum_CouponType.PORTFOLIO:
+                case enum_CouponType.REFERENCE:
+                   
+                     window.open(api_place.replace(/({pid}|{cid}|{type}|{month})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{month}': return month || '';
+                            }
+                        }));
+                    break;
+
+                case enum_CouponType.SHIPANSAI:
+                   
+                    window.open(api_place_4_vote.replace(/({pid}|{cid}|{type}|{tgid}|{num}|{rmb}|{uniqueid}|{content})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{tgid}': return '';
+                                case '{num}': return '';
+                                case '{rmb}': return '';
+                                case '{uniqueid}': return '';
+                                case '{content}': return '';
+                            }
+                        }));
+
+                    break;
+
+
+                case enum_CouponType.GLANCE:
+                    window.open(api_place.replace(/({pid}|{cid}|{type})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                            }
+                        }));
+                    break;
+                case enum_CouponType.GIFT:
+                case enum_CouponType.REWARD:
+                case enum_CouponType.VIEWPOINT:
+                    window.open(api_place_4_gift.replace(/({pid}|{cid}|{type}|{tgid}|{num}|{rmb}|{uniqueid})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{tgid}': return couponConfig.tgid;
+                                case '{num}': return couponConfig.num;
+                                case '{rmb}': return couponConfig.rmb;
+                                case '{uniqueid}': return couponConfig.uniqueid;
+                            }
+                        }));
+                    break;
+                case enum_CouponType.VOTE:
+                    window.open(api_place_4_vote.replace(/({pid}|{cid}|{type}|{tgid}|{num}|{rmb}|{uniqueid}|{content})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{tgid}': return couponConfig.tgid;
+                                case '{num}': return couponConfig.num;
+                                case '{rmb}': return couponConfig.rmb;
+                                case '{uniqueid}': return couponConfig.uniqueid;
+                                case '{content}': return couponConfig.content;
+                            }
+                        }));
+                    break;
+                default:
+                    break;
+            };
+
+            //弹出支付完成弹窗
+            showWaitingPaymentDlg();
+
+            //$.ajax({
+            //    url: api_place.replace('{pid}', couponConfig.productId).replace('{cid}', cid || '').replace('{type}', couponConfig.type),
+            //    dataType: 'jsonp',
+            //    type: 'get',
+            //    cache: false,
+            //    timeout: 5000,
+            //    success: function (d) {
+            //        switch (d.retCode) {
+            //            case enum_ReturnCode_Place.Free, enum_ReturnCode_Place.CouponFree:
+            //                JRJ.MiniAlerts.prompt({ message: '<p>订阅成功！</p>' });
+            //                break;
+            //            case enum_ReturnCode_Place.Existed:
+            //                JRJ.Alerts.alert({
+            //                    message: d.msg, autoClose: false, okCallback: function () {
+            //                        window.location.href = d.redirectUrl;
+            //                    }
+            //                });
+            //                break;
+            //            case enum_ReturnCode_Place.GoPay:
+            //                JRJ.Alerts.alert({
+            //                    message: d.msg, autoClose: false, okCallback: function () {
+            //                        window.open(d.redirectUrl);
+            //                    }
+            //                });
+            //                break;
+            //            case enum_ReturnCode_Place.Failed:
+            //                JRJ.Alerts.alert({ message: d.msg, autoClose: false });
+            //                break;
+            //            default:
+            //                break;
+            //        }
+            //    },
+            //    complete: function () {
+            //        ___lock = false;
+            //    }
+            //});
+        });
+    };
+
+
+    var checkLogin = function () {
+        if (typeof basicUserInfo == 'undefined' || basicUserInfo == null || basicUserInfo.userId == null) {
+            return false;
+        }
+        return true;
+    };
+
+    var getApi = function (couponConfig) {// alert('couponConfig.type'+couponConfig.type);
+        switch (couponConfig.type) {
+            case enum_CouponType.SHIPANSAI:
+                return api_buy_4_gift.replace(/({pid}|{type}|{tgid}|{num}|{rmb}|{content})/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case '{pid}': return couponConfig.productId;
+                        case '{type}': return couponConfig.type;
+                        case '{tgid}': return couponConfig.tgid;
+                        case '{num}': return couponConfig.num;
+                        case '{rmb}': return couponConfig.rmb;
+                        case '{content}': return couponConfig.content || '';
+                    }
+                });
+                break;
+            case enum_CouponType.PORTFOLIO:
+                return api_buy.replace('{pid}', couponConfig.productId).replace('{type}', enum_CouponType.PORTFOLIO);
+                break;
+            case enum_CouponType.REFERENCE:
+                return api_buy.replace('{pid}', couponConfig.productId).replace('{type}', enum_CouponType.REFERENCE);
+                break;
+            case enum_CouponType.GLANCE:
+                return api_buy.replace('{pid}', couponConfig.productId).replace('{type}', enum_CouponType.GLANCE);
+                break;
+            case enum_CouponType.GIFT:
+            case enum_CouponType.REWARD:
+            case enum_CouponType.VIEWPOINT:
+                return api_buy_4_gift.replace(/({pid}|{type}|{tgid}|{num}|{rmb}|{content})/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case '{pid}': return couponConfig.productId;
+                        case '{type}': return couponConfig.type;
+                        case '{tgid}': return couponConfig.tgid;
+                        case '{num}': return couponConfig.num;
+                        case '{rmb}': return couponConfig.rmb;
+                        case '{content}': return couponConfig.content || '';
+                    }
+                });
+                break;
+            case enum_CouponType.VOTE:
+                return api_buy_4_gift.replace(/({pid}|{type}|{tgid}|{num}|{rmb}|{content})/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case '{pid}': return couponConfig.productId;
+                        case '{type}': return couponConfig.type;
+                        case '{tgid}': return couponConfig.tgid;
+                        case '{num}': return couponConfig.num;
+                        case '{rmb}': return couponConfig.rmb;
+                        case '{content}': return couponConfig.content || '';
+                    }
+                });
+                break;
+            default:
+                break;
+        }
+    };
+
+    var adjustData = function (data) {
+        data.amount = data.amount / 100;
+        data.startTime = Util.dateFormat(new Date(parseInt(data.startTime, 10)), 'yyyy-mm-dd');
+        data.endTime = Util.dateFormat(new Date(parseInt(data.endTime, 10)), 'yyyy-mm-dd');      
+
+        //if (data.items != null && data.items.length > 0) {
+        //    for (var i = 0; i < data.items.length; i++) {
+        //        data.items[i].endTime = Util.dateFormat(new Date(parseInt(data.items[i].endTime, 10)), 'yyyy-mm-dd');
+        //        data.items[i].price = data.items[i].price / 100;
+        //    }
+        //}
+
+        switch (couponConfig.type) {
+            case enum_CouponType.PORTFOLIO:
+                if ((data.matchid || 0) > 0) {
+                    data.note = '注意事项：付款后即可接收该组合的调仓信息，跟单更快速。大师赛组合没有目标收益和退款机制，请确认后购买。';
+                } else {
+                    data.note = '订阅须知：运行过程中，组合清仓后达到目标收益时可提前结束运行。若组合触及止损或到期未达到目标收益，视为失败，将于组合完成后的7~15个工作日内全额退款。';
+                }
+                break;
+            case enum_CouponType.GLANCE:
+                data.note = '支付须知：支付无悔，概不退款，支付成功后30分钟内可以随时查看组合持仓、调仓记录和互动等内容。';
+                break;
+            case enum_CouponType.REFERENCE:
+                data.note = '订阅须知：此内容仅代表个人研究成果，供学习参考，不是投资依据，据此操作风险自担。';
+                break;
+            case enum_CouponType.VIEWPOINT:
+                data.pname = Util.cutoff(couponConfig.productName, 30);
+                break;
+            default:
+                break;
+
+        }
+
+        return data;
+
+    };
+
+
+    //弹窗
+    var showDlg = function (config) {
+
+        ___lock = true;
+
+        //if (!checkLogin()) {
+        //    JRJ.ui.isLogin();
+        //    return;
+        //}
+
+        couponConfig = $.extend(couponConfig, config);
+        console.log(couponConfig);
+        //请求购买接口 并获取优惠券
+        //alert(getApi(couponConfig));
+        $.ajax({
+            url: getApi(couponConfig),
+            dataType: 'jsonp',
+            type: 'get',
+            cache: false,
+            timeout: 5000,
+            success: function (d) {
+                console.log(d);
+                console.log(enum_ReturnCode_Buy);
+                if (typeof d != 'undefined' && d != null) {
+                    switch (d.retCode) {
+                        case enum_ReturnCode_Buy.Free:
+                            JRJ.MiniAlerts.prompt({ message: '<p>订阅成功！</p>' });
+                            break;
+                        case enum_ReturnCode_Buy.GoPay:
+
+                            d = adjustData(d);
+
+                            productPrice = d.amount;
+
+                            var _cnt = '';
+                            if (couponConfig.type == 6) {
+                                
+                                _cnt = Mustache.render(dlgTmp6, d);                             
+
+                            } 
+                            if (couponConfig.type == 11) {
+                                //alert(13456789);
+                                _cnt = Mustache.render(dlgTmplGift, d);                             
+
+                            } else if (couponConfig.type == 1) {
+
+                                d.ismaster = (d.matchid || 0) > 0;
+                                _cnt = Mustache.render(dlgTmpl, d);
+
+                            } else if (couponConfig.type == enum_CouponType.GLANCE) {
+                                d.isGlance = true;
+                                _cnt = Mustache.render(dlgTmpl, d);
+
+                            } else {
+                                _cnt = Mustache.render(dlgTmplGift, d);
+                            }
+
+
+                            dlgClone.standardDialog({
+                                title: "确认购买",
+                                customClass: 'dialog-coupon-buy',
+                                width: 520,
+                                content: _cnt,
+                                okBtnText: "确定",
+                                cancelBtnText: "取消",
+                                hasBtn: false,
+                                hasCloseBtn: true,
+                                hasOkBtn: true,
+                                hasCancelBtn: false,
+                                okCallback: function () { },
+                                cancelCallback: function () { },
+                                isFixed: true
+                            });
+
+                            if(d.pdType == 2){
+                                var str='';
+                                var monthList=d.tipsDisCountVos;
+                                $.each(monthList,function(i,val){
+                                    if(monthList[i].discount < 1 && monthList[i].discount > 0){
+                                        //var discount=(monthList[i].discount*10).toFixed(1);
+                                        var discount=Math.round(monthList[i].discount*10 * 10) / 10
+                                        //console.log(discount);
+                                         str+='<li class="month-heightauto" data-month='+monthList[i].month+'><em>'+monthList[i].month+'个月</em><i>('+discount+'折)</i><span></span></li>';
+                                                                                                     
+                                    }else{
+                                       str+='<li class="month-height45" data-month='+monthList[i].month+'><em>'+monthList[i].month+'个月</em><i></i><span></span></li>'; 
+                                        
+                                    }
+                                                                   
+                                })
+                                $("#long-term-month").html(str);
+                                $("#long-term-month").find('li:last').addClass("month-red");                              
+                                 
+                            }else{
+                                $("#long-term-month").hide();
+                            }
+                            //绑定优惠券
+                            if (d.items.length > 0) {
+                                var couponList = $(Mustache.render(couponTmpl, { count: d.items.length }));
+                                for (var i = 0; i < d.items.length; i++) {
+                                    var _couponItem = $(Mustache.render(couponItemTmpl, d.items[i]));
+                                    couponList.find('table').append(_couponItem);
+                                    if(d.items[i].limitPrice==0){
+                                        couponList.find('table').find(".col-5").eq(i).html("无金额门槛");
+                                    }
+                                    
+                                }
+                                $('#coupon-list').html(couponList);
+                            }
+                            
+                            if (d.items.length > 4) {
+                                $('.dialog-coupon-buy .coupon-list .table-wrap').css({ 'height': '176px' });
+                            } else {
+                                $('.dialog-coupon-buy .coupon-list .table-wrap').css({ 'height': 'auto' });
+                            }
+
+                            bindEvent(d);
+
+                            break;
+                        case enum_ReturnCode_Buy.Existed:
+                            JRJ.Alerts.alert({
+                                message: d.msg || '订单已存在， 请前往订单列表支付。', autoClose: false, okCallback: function () {
+                                    window.location.href = d.redirectUrl;
+                                }
+                            });
+                            break;
+                        case enum_ReturnCode_Buy.Failed:
+                            JRJ.Alerts.alert({ message: d.msg || '订阅失败，请重试。', autoClose: false });
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                    //是否需要可用性评测
+                    if ((couponConfig.type == enum_CouponType.GLANCE || couponConfig.type == enum_CouponType.PORTFOLIO || couponConfig.type == enum_CouponType.REFERENCE) && d.evaluated == 1) {
+                        JRJ.usability.show();
+                    }
+                   
+                }
+            },
+            complete: function (xhr, text) {
+                ___lock = false;
+
+                window.console && console.log(text + '<<<<<<<<<<<<<<<<<<<<<');
+            }
+        });
+    };
+
+    var guid = function () {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+          s4() + '-' + s4() + s4() + s4();
+    };
+    return {
+        show: showDlg,
+        guid: guid
+    };
+
+})();
+
+
+</script>
+<script>
+$(function(){
+
+
+    var domain='https://jrj.yun.pingan.com';
+    var playerSsoId=getQueryString('playerSsoId');
+    var playerName,saleNo,matchStatus,price;
+    var myjrj_md5=getCookie('itg_passport_md5');
+    //var myjrj_userid=getCookie('myjrj_userid') || getCookie('itg_passport_userid');
+    var myjrj_userid=getCookie('itg_passport_userid');
+    var SSOUser=getCookie('JRJ.SSOUser');
+
+    var isDyStatus=false;
+    var out=false;
+
+    dareninfo();
+    dyed(myjrj_userid);
+    function dyed(abcid){
+        $.ajax({
+           url:'https://t.jrj.com.cn/activities/match/querySubedProducts?matchId=3&ssoId='+abcid,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+                console.log(v);
+                if(v.retcode==0){
+                    if(v.data.items.length==0){
+                        $('.myAccount_CurrentPosition ul').hide();
+                        $('.myAccount_CurrentPosition .suo').show();
+                        $('.myAccount_TransactionRecord ul').hide();
+                        $('.myAccount_TransactionRecord .suo').show();
+                        
+                        return;
+                    }
+                    for(var i=0;i<v.data.items.length;i++){
+                        var o=v.data.items[i];
+                        if(o.saleNo=='20000001' || o.saleNo==saleNo){
+                            isDyStatus=true;
+                            console.log('1270'+isDyStatus);
+                            $('.btn').addClass('hide');
+                            $('.btndis').removeClass('hide');
+                            chaxun();
+                        }else{
+                            
+                        }
+                    }
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+    //获取达人的信息
+    
+    
+    function dareninfo(){
+        $.ajax({
+           url:'https://t.jrj.com.cn/activities/match/queryProductInfo?anchorSsoId='+playerSsoId,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+                console.log(v);
+                if(v.retcode==0){
+                    var oImg=new Image();
+                    oImg.src=v.data.playerPic;
+                    $('.myAccount_user_photo').append(oImg);
+                    $('.myAccount_user_name').html(v.data.playerName);
+                    playerName=v.data.playerName;
+                    saleNo=v.data.saleNo;
+                    matchStatus=v.data.matchStatus;
+                    price=v.data.price;
+                    if(v.data.matchStatus==0){ //out了
+                        out=true;
+                        $('.suo').addClass('disnone');
+                        $('.suodis').removeClass('disnone');
+                        if(out==true){ 
+                            $('.suodis').show();
+                        }
+                    }else{
+                        out=false;
+                        $('.suodis').addClass('disnone');
+                        $('.suo').removeClass('disnone');
+                    }
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+    //头部数据请求
+    accountinfo();
+    function accountinfo(){
+        $.ajax({
+           url:domain+'/match/real/account/accountinfoInFinal?matchId=2&anchorUserId='+playerSsoId,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+            console.log(v);
+                if(v.retcode==0){
+                    $('.totalIncome').html((v.data.totalIncome*100).toFixed(2)+'%');
+                    $('.totalIncomeBalance').html(doublenum(v.data.totalIncomeBalance)+'元');
+                    $('.dayIncome').html((v.data.dayIncome*100).toFixed(2)+'%');
+                    $('.positionRate').html((v.data.positionRate*100).toFixed(2)+'%');
+                    $('.dayIncomeBalance').html(doublenum(v.data.dayIncomeBalance)+'元');
+                    $('.marketValue').html((v.data.marketValue).toFixed(2)+'元');
+                    txtcolor();
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+
+    function txtcolor(){
+        $('.txtcolor').each(function(){
+            if($(this).html().indexOf('-')!=-1){
+                $(this).addClass('fall');
+            }else{
+                $(this).addClass('up');
+            }
+        });
+    }
+    //收益率走势
+    yieldcurve();
+    function yieldcurve(){
+        $.ajax({
+           url:domain+'/match/real/rank/yieldcurveInFinal?matchId=2&anchorUserId='+playerSsoId,
+           type:"get",
+           cache : false,
+           dataType: 'jsonp',
+           jsonp: 'callback',
+           success:function(v) {
+            console.log(v);
+                if(v.retcode==0){
+                    drawline(v);
+                }
+           },
+           error : function() {
+                
+           }
+        });
+    }
+
+    /*var data1 = {"retcode":0,"msg":"","data":{"incomeList":[{"initDate":20161012,"incomeRate":0.0302},{"initDate":20161013,"incomeRate":0.0372},{"initDate":20161014,"incomeRate":0.1352},{"initDate":20161017,"incomeRate":0.1372},{"initDate":20161018,"incomeRate":0.0372},{"initDate":20161019,"incomeRate":0.0399},{"initDate":20161020,"incomeRate":0.0366}],"incomeListHS300":[{"initDate":20161013,"incomeRate":0.1234},{"initDate":20161014,"incomeRate":0.5123},{"initDate":20161018,"incomeRate":0.2012},{"initDate":20161019,"incomeRate":0.3210},{"initDate":20161020,"incomeRate":0.5468}]}};*/
+function drawline(data1){
+    data1 = data1.data;
+
+    var incomeRate = [] ,
+        initDate = [] ,
+        incomeListHS300 = [];
+    $.each(data1.incomeList,function( i , obj ){
+        var _date = String(obj.initDate).slice(4),
+            _datemat = _date.substr(0,2)+'-'+_date.substr(2,2);
+        initDate.push(_datemat);
+        incomeRate.push((obj.incomeRate *100).toFixed(2))
+    });
+    $.each(data1.incomeListHS300,function( i , obj ){
+
+        incomeListHS300.push((obj.incomeRate *100).toFixed(2))
+    });
+
+    var myChart1 = echarts.init(document.getElementById('main1'));
+
+    // 指定图表的配置项和数据
+    var option1 = {
+        title:{
+            show:true,
+            text:'收益率走势',
+            textAlign:'left',
+            left:'198'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            show:true,
+            width:'10%',
+            height:'10%',
+            data:['最高气温','最低气温']
+        },
+
+        toolbox:{
+            show: true,
+            feature: {
+                magicType: {type: ['line', 'bar']}
+            }
+        },
+        backgroundColor:'#fff',
+        grid:{
+            x:80,
+            y:40,
+            x2:20,
+            y2:30
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            axisLabel : {
+                textStyle : {
+                    color:"#878C92",
+                    fontSize:12
+                }
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'#D2D2D2'
+                }
+            },
+            axisTick :{
+                show:false
+            },
+
+            data: initDate
+        },
+        yAxis: {
+            type: 'value',
+            position:'left',
+            offset:'20',
+            axisLabel : {
+                textStyle : {
+                    color:"#878C92",
+                    fontSize:12
+                },
+                formatter: function(v){
+                    return (v).toFixed(2)+'%'
+                }
+            },
+            axisLine:{
+                show:false
+            },
+            axisTick :{
+                show:false
+            },
+
+            splitLine:{
+                show : true,
+                lineStyle:{
+                    width : 1,
+                    color:'#D2D2D2'
+                }
+            },
+        },
+
+        series: [{
+            name: '用户累计',
+            type: 'line',
+            smooth: true,
+            symbol:'diamond',
+
+            lineStyle:{
+                normal:{
+                    color : '#FF7B57',
+                    width:3
+                }
+            },
+            data: incomeRate
+        },
+            {
+                name: '沪深300参赛',
+                type: 'line',
+                symbol:'diamond',
+                smooth: true,
+                lineStyle:{
+                    normal:{
+                        color:'#98CEF7',
+                        width:3
+                    }
+                },
+                data: incomeListHS300
+            }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart1.setOption(option1);
+}
+
+    //当前持仓
+    console.log('1270'+isDyStatus);
+    function chaxun(){
+        if(isDyStatus){currentInFinal();}else{
+            $('.myAccount_CurrentPosition ul').hide();
+            $('.myAccount_CurrentPosition .suo').show();
+            if(out==true){
+                $('.suodis').show();
+            }
+        }
+        if(isDyStatus){recordInFinal();}else{
+            $('.myAccount_TransactionRecord ul').hide();
+            $('.myAccount_TransactionRecord .suo').show();
+            if(out==true){ 
+                $('.suodis').show();
+            }
+        }
+    }
+
+    
+    function currentInFinal(){
+        $.ajax({
+            url:domain+'/match/real/position/currentInFinal?matchId=2&anchorUserId='+playerSsoId+'&myjrj_md5='+myjrj_md5+'&myjrj_userid='+myjrj_userid+'&SSOUser='+SSOUser,
+            type:"get",
+            cache : false,
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success:function(v) {
+                console.log('持仓比例');
+                console.log(v);
+                
+                if(v.retcode==0){
+                    $('.myAccount_CurrentPosition .suo,.myAccount_CurrentPosition .suodis').hide();
+                    if(v.data.list.length==0){
+                        $('.myAccount_CurrentPosition .no_TransactionRecord').removeClass('disnone');
+                        return;
+                    }
+                    var str='';
+                    for(var i=0;i<v.data.list.length;i++){
+                        var o=v.data.list[i];
+                        str+='<li class="clearfix"><div><b><a href="http://itougu.jrj.com.cn/stock/'+o.stockCode+'.jspa" target="_blank">'+o.stockCode+'</a></b></div><div><b><a href="http://itougu.jrj.com.cn/stock/'+o.stockCode+'.jspa" target="_blank">'+o.stockName+'</a></b></div><div><img src="http://chart.jrjimg.cn/pngdata/minpic/pic40/'+o.stockCode+'.png"></div><div>'+o.costPrice+'</div><div>'+o.marketPrice+'</div><div class="up txtcolor">'+o.incomeRateStr+'</div><div>'+o.holdPercentStr+'</div></li>'
+                    }
+                    $('.myAccount_CurrentPosition ul').html(str);
+                    //$('.myAccount_user_name').html(str);
+                    txtcolor();
+                }else if(v.retcode==703001){ //没有订阅
+                    $('.myAccount_CurrentPosition ul').hide();
+                    $('.myAccount_CurrentPosition .suo').show();
+                    if(out==true){
+                        $('.suodis').show();
+                    }
+                }
+            },
+            error : function() {
+                
+            }
+        });
+    }
+    //交易记录
+    
+    
+    function recordInFinal(){
+        $.ajax({
+            url:domain+'/match/real/position/recordInFinal?matchId=2&anchorUserId='+playerSsoId+'&myjrj_md5='+myjrj_md5+'&myjrj_userid='+myjrj_userid+'&SSOUser='+SSOUser,
+            type:"get",
+            cache : false,
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success:function(v) {
+                console.log(v);
+                if(v.retcode==0){
+                    $('.myAccount_TransactionRecord .suo,.myAccount_TransactionRecord .suodis').hide();
+                    if(v.data.list.length==0){
+                        $('.myAccount_TransactionRecord .no_TransactionRecord').removeClass('disnone');
+                        return;
+                    }
+                    var str='';
+                    for(var i=0;i<v.data.list.length;i++){
+                        var o=v.data.list[i];
+                        str+='<li class="clearfix"><div class="li_sharesState '+o.entrustBs.toLowerCase()+'"></div><div class="li_sharesName"><a href="http://itougu.jrj.com.cn/stock/'+o.stockCode+'.jspa" target="_blank">'+o.stockName+' '+o.stockCode+'</a></div><div class="li_sharesPrice">参考成交价：<span>'+o.dealPrice+'</span></div><div class="li_sharesTimg">'+o.dealTimeStr+'</div><div class="li_sharesPlaces">仓位：<span>'+o.rateChangeStr+'</span></div></li>';
+                    }
+                    $('.myAccount_TransactionRecord ul').html(str);
+
+                }else if(v.retcode==703001){ //没有订阅
+                    $('.myAccount_TransactionRecord ul').hide();
+                    $('.myAccount_TransactionRecord .suo').show();
+                    if(out==true){ 
+                        $('.suodis').show();
+                    }
+                }
+            },
+            error : function() {
+                
+            }
+        });
+    }
+    //点击解锁按钮
+    $('.suo').each(function(){
+        $(this).click(function(){
+            JRJ.ui.isLogin(function(){
+                
+                //传参数
+                $.ajax({
+                    url:'https://t.jrj.com.cn/activities/match/doSingleSubscribePlayer?matchId=3&saleNo='+saleNo,
+                    type:"get",
+                    cache : false,
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    success:function(v) {
+                    console.log(v);
+                        if(v.retcode==0){
+                            $('.mask,.layer_dy').show();
+                            $('.layer_dy .playername').html(playerName);
+                            $('.dybtn').unbind().click(function(){
+                                $('.mask,.layer_dy').hide();
+                                CouponDlg.show({
+                                    productId: saleNo,
+                                    type: 11,
+                                    checkOrderUrl: 'http://itougu.jrj.com.cn/order/checkOrder.jspa?uniqueid=1'
+                                });
+                                
+                            });
+                        }
+                   },
+                   error : function() {
+                        
+                   }
+                });
+            });
+        });
+    });
+    $('.closebtn').click(function(){
+        $('.layer,.mask').hide();
+
+    });
+    function getCookie(name){
+        var bikky = document.cookie;
+        name += "=";
+        var i = 0;
+        while (i < bikky.length)
+        {
+        var offset = i + name.length;
+        if (bikky.substring(i, offset) == name)
+        {
+        var endstr = bikky.indexOf(";", offset);
+        if (endstr == -1) endstr = bikky.length;
+        return unescape(bikky.substring(offset, endstr));
+        }
+        i = bikky.indexOf(" ", i) + 1;
+        if (i == 0) break;
+        }
+        return null;
+    }
+    //获取url参数
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    function doublenum(num){var num=num+"";if(num.indexOf(".")!=-1){var len=num.substring(num.indexOf(".")+1).length;if(len==0){return num+"00"}else{if(len==1){return num+"0"}else{return parseFloat(num).toFixed(2)}}}else{if(num=="--"){return"--"}else{return num+".00"}}};
+});    
+</script>
+
+</body>
+</html>

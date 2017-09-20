@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>群发记录-爱投顾-金融界</title>
+    <meta name="keywords" content="群发记录,爱投顾,金融界" />
+    <meta name="description" content="群发记录,爱投顾,金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <!--\#include virtual="/common_head_css_js.html"  -->
+	<script type="text/javascript" src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+	
+	<script type="text/javascript">
+		var menuId = #if(!${menuId})'' #else $!{menuId} #end;
+	</script>
+</head>
+<body>
+    <!--\#include virtual="/site_top_header.html" -->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="http://itougu.jrj.com.cn">首页</a>
+            <span>&gt;</span>
+            <a href="http://itougu.jrj.com.cn/view/myPointlist.jspa?tabid=1">投顾空间</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0)" class="cur">群发记录</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="my-points my-member-wrap">
+                    <h2 class="block-title mb20">
+                        <span class="f16" style="margin-left:0;">历史群发记录</span>
+                    </h2>
+                    <ul class="tab tab-364 clearfix">
+                        <li id="menu_1" class="cur" style="display: none;" >我的签约用户</li> 
+                        <li id="menu_2"  style="border-right:1px solid #ddd;">我的粉丝用户</li>
+                    </ul>
+                    <div id="conBox" class="msg-history">
+                    </div>
+                    <div class="loading tc middle"><img src="http://i0.jrjimg.cn/zqt-red-1000/loading.gif" alt="" width="50" height="50" data-bd-imgshare-binded="1"><span>正在加载...</span></div>
+                    <div class="pager">
+                    </div>
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+
+    <!--<script type="text/javascript" src="http://js.jrjimg.cn/itougu/message/msgGroupList.js"></script>-->
+<script type="text/javascript">
+$(function() {
+    $('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');
+
+    Date.prototype.format = function (format) {  
+        var o = {  
+            "M+": this.getMonth() + 1,  
+            "d+": this.getDate(),  
+            "h+": this.getHours(),  
+            "m+": this.getMinutes(),  
+            "s+": this.getSeconds(),  
+            "q+": Math.floor((this.getMonth() + 3) / 3),  
+            "S": this.getMilliseconds()  
+        }  
+        if (/(y+)/.test(format)) {  
+            format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));  
+        }  
+        for (var k in o) {  
+            if (new RegExp("(" + k + ")").test(format)) {  
+                format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));  
+            }  
+        }  
+        return format;  
+    }  
+    
+    // site-top 用户信息
+    var _timer = null;
+    var dropDownListEvent = function(op, obj) {
+        window.clearTimeout(_timer);
+        _timer = setTimeout(function() {
+            if (op == 'open') {
+                $(obj).find('.trigger').addClass('trigger-drop');
+                $(obj).find('.cnt').show();
+            } else {
+                $(obj).find('.trigger').removeClass('trigger-drop');
+                $(obj).find('.cnt').hide();
+            }
+        }, 300);
+    };
+
+    $('.site-top .userinfo').mouseenter(function() {
+        dropDownListEvent('open', this);
+    }).mouseleave(function() {
+        dropDownListEvent('close', this);
+    });
+    // site-top 用户信息
+
+    // menu
+    $('.site-menu-title').click(
+            function() {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate(
+                            {
+                                height : $(this).parent().outerHeight()
+                                        + $(this).next().outerHeight() + 'px'
+                            }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({
+                        height : '47px'
+                    }, 200);
+                }
+            });
+    $('.site-menu-title .stop').click(function(e) {
+        e.stopPropagation();
+    });
+    $('.site-menu-cur').find('.site-menu-title').click();
+    $('.site-menu').mouseenter(function() {
+        $(this).addClass('site-menu-hover');
+    }).mouseleave(function() {
+        $(this).removeClass('site-menu-hover');
+    });
+    // menu
+    
+    //根据menu判断选中还是不选中
+    if(menuId=='1'){
+        //$("#menu_2").removeClass("cur");
+        //$("#menu_1").addClass("cur");
+        rType = 6;
+    }else if(menuId=='2'){
+        //$("#menu_1").removeClass("cur");
+        //$("#menu_2").addClass("cur");
+        rType = 5;
+        
+    }else{
+        rType=menuId
+    }
+    
+    
+    var initPage = {
+            thisDate : null,
+            pn : 1,
+            ps : 10,
+            rtype : rType,
+            //6表示签约用户
+            //rtype : 6,
+            //5表示粉丝群发类型
+            //rtype : 5,
+            loadList : function(rtype){
+                $(".my-points .loading").show();
+                $("#conBox").hide();
+                initPage.rtype = rtype;
+                var url = "list/" + rtype + ".jspa?pn=" + initPage.pn + "&ps=" + initPage.ps;
+                $.ajax({
+                    url : url,
+                    method: "GET",
+                    dataType: "json",
+                    success: function(msg){
+                        if(msg.retCode == 0){
+                            $(".my-points .loading").hide();
+                            if(msg.list.length == 0){
+                                $("#conBox").empty().append('<div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png"><span class="ml10">暂无数据</span></div>').show();
+                                $(".pager").hide();
+                                return;
+                            }
+                            $("#conBox").empty().show();
+                            var thisDate = null;
+                            var finalHtml = [];
+                            for(var i = 0 ;i < msg.list.length; i++){
+                                var m = msg.list[i];
+                                var ctime = typeof(m.ctime) == "undefined" ? new Date() : new Date(m.ctime);
+                                var tDate = ctime.format("yyyyMMdd");
+                                if(thisDate != null && thisDate != tDate){
+                                    finalHtml.push('</ul></div>');
+                                }
+                                if(thisDate == null || thisDate != tDate){
+                                    var sDate = ctime.format("MM月dd日");
+                                    finalHtml.push('<p class="title-date">' + sDate + '</p><div class="time-line-block mt10"><ul class="clearfix">');
+                                }
+                                var sTime = ctime.format("hh:mm");
+                                var sContent = m.content;
+                                //取sendType,如果等于1，表示单发，取接收者,显示“向  接收者”
+                                var sendType = m.sendType;
+                                if(sendType == 1){
+                                    if(m.receiverName!=''){
+                                        finalHtml.push('<li class="clearfix"><em></em><span>' + sTime + '</span><p><span style="color:#666">&nbsp;向&nbsp;'+ m.receiverName+":</span></p><p>" + sContent + '</p></li>');
+                                    }else{
+                                        finalHtml.push('<li class="clearfix"><em></em><span>' + sTime + '</span><p>' + sContent + '</p></li>');
+                                    }
+                                }else{
+                                    //finalHtml.push('<li class="clearfix"><em></em><span>' + sTime + '</span><p>' + sContent + '</p></li>');
+                                    if(m.receiverid=='' || typeof(m.receiverid)=='undefined'){
+                                        if(rtype == 5){
+                                            finalHtml.push('<li class="clearfix"><em></em><span>' + sTime + '</span><p><span style="color:#666">&nbsp;向&nbsp;粉丝群:</span></p><p>'+ sContent + '</p></li>');
+                                        }else{
+                                            finalHtml.push('<li class="clearfix"><em></em><span>' + sTime + '</span><p><span style="color:#666">&nbsp;向&nbsp;'+$('.tab .cur').html()+':</span></p><p>' + sContent + '</p></li>');
+                                        }           
+                                    }else{
+                                        finalHtml.push('<li class="clearfix"><em></em><span>' + sTime + '</span><p>' + sContent + '</p></li>');
+                                    }
+                                    
+                                }
+                                //alert(('<li class="clearfix"><em></em><span>' + '0' + '</span><p><span style="float:right;color:#666">向'+ '0'+'</span>' + '0' + '</p></li>'));
+                                if(i == msg.list.length - 1){
+                                    finalHtml.push('</ul></div>');
+                                }
+                                thisDate = tDate;
+                            }
+                            $("#conBox").append(finalHtml.join(''));
+                            $(".pager").show().pagefoot({
+                                pagesize: initPage.ps,
+                                count: msg.count,
+                                css: "",
+                                current: initPage.pn,
+                                displaynum: 5,
+                                displaylastNum: 2,
+                                previous: "上一页",
+                                next: "下一页",
+                                enableArrowKey: true,
+                                paging: function (page) {
+                                    initPage.pn = page.current;
+                                    initPage.loadList(initPage.rtype);
+                            }
+                            }); 
+                        }else{
+                            $(".my-points .loading").hide();
+                            $("#conBox").empty().append('<div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png"><span class="ml10">' + msg.msg + '</span></div>').show();
+                            $(".pager").hide();
+                        }
+                    }
+                });
+            }
+    }
+    initPage.loadList(initPage.rtype);
+
+($).ajax({
+      url : '/account/customerrm/getgroups.jspa',
+      type : 'get',
+      success : function(ret) {
+          if (ret == undefined) {
+              JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+              return;
+          }
+
+          //ret = JSON.parse(ret);
+          for(var i=0;i<ret.length;i++){
+              $('.tab').append('<li id="menu_'+ret[i].groupId+'" style="border-right:1px solid #ddd;"  data-groupId="'+ret[i].groupId+'">'+ret[i].groupName+'</li>');
+              
+          }
+          $('.tab li').removeClass('cur');
+         $('#menu_'+menuId).addClass('cur');
+         initPage.loadList(initPage.rtype);
+          
+      },
+      error : function() {
+          JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+          return;
+      }
+    }); 
+$('.tab').delegate('li','click',function(){
+      $('.tab li').removeClass('cur');
+      $(this).addClass('cur');
+      if($(this).index()==1){
+            initPage.rtype=5
+        }else if($(this).index()==0){
+            initPage.rtype=6
+        }else{
+            initPage.rtype=$(this).attr('data-groupid');
+      }
+      initPage.loadList(initPage.rtype);
+})
+    
+    //判断菜单的tab切换
+
+    
+    
+    window.reloadList = function(){
+        initPage.loadList(initPage.rtype);
+    }
+    
+    $('#btn-send-all').click(function () {
+        if ($(this).attr('data-type') == 'user') {
+            JRJ.Dialogs.iframeDialog({
+                content: [''].join(''),
+                loadingImg: '',
+                width: 712,
+                hasBtn: false,
+                hasOkBtn: false,
+                okBtnText: '',
+                title: '向 签约用户 群发',
+                titleRight: '',
+                bottomContent: '',
+                protocolHtml: '',
+                hasCancelBtn: false,
+                enableKeyCtrl: true,
+                ifrSrc: '/message/sendMsg.jspa',
+                ifrReHeight: false,
+                isFixed: true,//defaultCf.isFixed,
+                okCallback: function () {
+                },
+                cancelCallback: function () {
+                }
+            });
+        } else {
+            JRJ.Dialogs.iframeDialog({
+                content: [''].join(''),
+                loadingImg: '',
+                width: 712,
+                hasBtn: false,
+                hasOkBtn: false,
+                okBtnText: '',
+                title: '向 粉丝 群发',
+                titleRight: '',
+                bottomContent: '',
+                protocolHtml: '',
+                hasCancelBtn: false,
+                enableKeyCtrl: true,
+                ifrSrc: '/message/sendMsg.jspa',
+                ifrReHeight: false,
+                isFixed: true,//defaultCf.isFixed,
+                okCallback: function () {
+                },
+                cancelCallback: function () {
+                }
+            });
+        }
+        
+    });
+    
+});
+
+//标签却换
+/*******
+ $('#menu_'+menuId).click(function(e) {
+    //根据menu判断选中还是不选中
+    if(menuId=='1'){
+        $("#menu_2").removeClass("cur");
+        $("#menu_1").addClass("cur");
+        rType = 6;
+    }else if(menuId=='2'){
+        $("#menu_1").removeClass("cur");
+        $("#menu_2").addClass("cur");
+        rType = 5;
+    }
+ })*****/
+
+    </script>
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

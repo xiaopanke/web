@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的问答-爱投顾-金融界</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，问股、金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    
+    <!--# include virtual="/v2/common_head_css.html" -->
+    
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/rateit.min.css" rel="stylesheet" />
+    
+    <!--问答css: start-->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-question.min.css" rel="stylesheet" />
+    <!--问答css: end-->
+</head>
+<body>
+    <!--site-top-and-header-->
+    <!--# include virtual="/v2/site_top_header-v2.html" -->
+    <!--site-top-and-header-->
+
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">首页</a>
+            <span>&gt;</span>
+            <a href="" class="cur">投顾空间</a>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <h1 class="page-title-2 q-page-title-2 middle">
+                    <span class="fr">
+                        <span id="q-setting-dialog-trigger" class="q-img q-icon-marketing" data-id="$!{tguserid}">推广位设置</span>
+                        <span class="split">|</span>
+                        <span id="q-count-dialog-trigger" class="q-img q-icon-great"><span>本周有帮助&nbsp;</span><em>$!weekPraiseNum</em></span>
+                    </span>
+                    <span class="mr20">我的回答</span>
+                    <span id="switcher_id" class="q-switcher q-switcher-on"><em></em></span>
+                    <span class="q-switcher-note"></span>
+                </h1>
+                <div class="tabs-v2 q-tabs-v2">
+                
+                	<div id="searchbox_id" class="q-searchbox"  style="display:none;">
+                        <input id="txtSearchBoxQ" type="text" class="txtbox" />
+                        <span class="btn-search" id="btnSearchBoxQ"></span>
+                    </div>
+                
+                    <span id="menu_1" class="item cur">问我的
+                    #if(${noanswernum}>0)
+                         <i>${noanswernum}</i>
+                    #end
+                    </span>
+                    <span id="menu_2" class="item">推荐回答</span>
+                    <span id="menu_3" class="item">去抢答</span>
+                    <span id="menu_4" class="item">已回答</span>
+                </div>
+                
+<!--tab1------------------------------------------------------------------------------------------------------------------>
+                <div id="con_1" class="tab-cnt">
+                    <div class="q-mine-note mt10">如果您能对提问全面解析，帮助投资者第一时间把握投资机会！可以申请为值班投顾获得更多提问，申请热线：15801061215</div>
+
+                    <div class="q-mine-list">
+                    
+                    #if($t == 1)
+                        #if(!$!asks||$!asks.isEmpty())
+                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+                        #end
+                        #foreach($ask in $asks)
+                    	#set($temp="$!{ask.id}.jspa")
+                    	<div class="q-mine-list-item">
+	                    	<div class="row-1">
+                                <a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a>
+                            </div>
+	                    	<div class="row-2 clearfix">
+                                <span class="fr">
+                                    <span><em>$!ask.answeredTimes</em>人回答</span>
+                                    <a class="refuse-answer" ask="$!ask.id">不回答</a>
+                                    <input id="Button1" type="button"  ask="$!ask.id" value="回答" class="q-btn answer-clas" />
+                                </span>
+                                <span class="name">$!ask.askUserName</span>
+                                <span class="mr20">提问于$!dateUtils.getTimeDifference($!ask.ctime)</span>
+                                #if($!dateUtils.athanb($!dateUtils.getTargetMinuteDate($!ask.ctime,$!ask.openTime),$!now))
+                                	<span class="time">$!dateUtils.diffTime($!now, $!dateUtils.getTargetMinuteDate($!ask.ctime,$!ask.openTime))后</span>
+                                #end
+                                <span>所有投顾可答</span>
+                            </div>
+	                    </div>
+						#end
+					#end
+					
+                    </div>
+
+                    #if($!asks && !$!asks.isEmpty())
+                    <div class="pager"></div>
+                    #end
+
+                </div>
+                
+<!--tab1 end-------------------------------------------------------------------------------------------------------------->   
+             
+<!--tab2------------------------------------------------------------------------------------------------------------------>                
+                <div id="con_2" style="display:none;" class="tab-cnt">
+
+                    <div class="q-mine-list">
+                        
+                        #if($t == 2)
+                        	#if(!$!asks||$!asks.isEmpty())
+	                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+	                        #end
+                        	#foreach($ask in $asks)
+	                        	#set($temp="$!{ask.id}.jspa")
+	                        	#set($answerable="0")
+	                        	#foreach($auid in $ask.answeredUids)
+		                        	#if($tguserid==$auid) 
+		                        		#set($answerable="1")
+			                        #end
+	                        	#end
+	                        	<div class="q-mine-list-item">
+		                            <div class="row-1">
+		                                <a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.content)</a>
+		                            </div>
+		                            <div class="row-2 clearfix">
+		                                <span class="fr">
+		                                    <span><em>$!ask.answeredTimes</em>人回答</span>
+		                                    #if($answerable=="1") 
+				                        		<input id="Button1" type="button" disabled="true" value="已回答" class="q-btn-disable" />
+					                        #else
+		                                    	<input id="Button1" ask="$!ask.id" type="button" value="回答" class="q-btn answer-clas" />
+		                                    #end
+		                                </span>
+		                                <span class="name">$!ask.userName</span>
+		                                <span class="mr20">提问于$!dateUtils.getTimeDifferenceByStr($!ask.pubTime)</span>
+		                            </div>
+		                        </div>
+                        	#end
+
+						#end
+
+                    </div>
+
+                    #if($!asks && !$!asks.isEmpty())
+                    <div class="pager"></div>
+                    #end
+                </div>
+                
+<!--tab2 end-------------------------------------------------------------------------------------------------------------->   
+             
+<!--tab3------------------------------------------------------------------------------------------------------------------>
+                <div id="con_3" style="display:none;" class="tab-cnt">
+
+                    <div class="q-mine-list">
+                        
+                        #if($t == 3)
+                        	#if(!$!asks||$!asks.isEmpty())
+	                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+	                        #end
+                        	#foreach($ask in $asks)
+	                        	#set($temp="$!{ask.id}.jspa")
+	                        	#set($answerable="0")
+	                        	#foreach($auid in $ask.answeredUids)
+		                        	#if($tguserid==$auid) 
+		                        		#set($answerable="1")
+			                        #end
+	                        	#end
+	                        	<div class="q-mine-list-item">
+		                            <div class="row-1">
+		                                <a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.content)</a>
+		                            </div>
+		                            <div class="row-2 clearfix">
+		                                <span class="fr">
+		                                    <span><em>$!ask.answeredTimes</em>人回答</span>
+		                                    #if($answerable=="1") 
+				                        		<input id="Button1" type="button" disabled="true" value="已回答" class="q-btn-disable" />
+					                        #else
+		                                    	<input id="Button1" ask="$!ask.id" type="button" value="回答" class="q-btn answer-clas" />
+		                                    #end
+		                                </span>
+		                                <span class="name">$!ask.userName</span>
+		                                <span class="mr20">提问于$!dateUtils.getTimeDifferenceByStr($!ask.pubTime)</span>
+		                            </div>
+		                        </div>
+                        	#end
+
+						#end
+
+                    </div>
+
+                    #if($!asks && !$!asks.isEmpty())
+                    <div class="pager"></div>
+                    #end
+                </div>
+                
+<!--tab3 end-------------------------------------------------------------------------------------------------------------->   
+             
+<!--tab4------------------------------------------------------------------------------------------------------------------>
+                <div id="con_4" style="display:none;" class="tab-cnt">
+                	<div class="q-mine-list">   
+                	#if($t == 4)
+                        #if(!$!asks||$!asks.isEmpty())
+                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+                        #end
+                        #foreach($ask in $asks)
+                        #set($temp="$!{ask.id}.jspa")
+                        
+                        <div class="q-mine-list-item q-mine-list-item-answer">
+                            <div class="row-1">
+                                <a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a>
+                            </div>
+                            <div class="row-2 clearfix">
+                                <span class="fr">
+                                    <span>$!dateUtils.getTimeDifference($!ask.ctime)</span>
+                                </span>
+                            </div>
+                        </div>
+                        #end
+					#end
+					</div>
+
+                    #if($!asks && !$!asks.isEmpty())
+                    <div class="pager"></div>
+                    #end
+                </div>
+<!--tab4 end-------------------------------------------------------------------------------------------------------------->                  
+            </div>
+
+        </div>
+        <!--site-main-right-->
+    </div>
+
+
+	<!--\#include virtual="/v2/common_head_js.html" -->
+	
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+
+   	<!--\#include virtual="/v2/common-footer-v2.html" -->
+
+
+	<script type="text/javascript">
+	    var type = ${t};
+	    var currentPageNo = ${p};
+	    var searCode = ${c};
+	    var pageCount = ${pageCount};
+	    var pageSize = ${page.pageSize};
+	    var totalCount = ${page.totalCount};
+    </script>
+
+    <script type="text/javascript">
+    
+    	if(type==3){
+    		$("#searchbox_id").show();
+    	}
+    
+    	$("#menu_"+type).addClass('cur').siblings().removeClass('cur');
+    	$("#con_"+type).show().siblings('.tab-cnt').hide();
+    	$(function () {
+    		var tab = new JRJ.ui.TabSwitch({
+            	currTab: type,
+                menuPre: "menu_",
+                conPre: "con_",
+                total: 4,
+                onClass: "cur",
+                eventType: 'click',
+                onSwitch: {
+                    fcn: function (q) {
+						var curr = tab.currTab;
+	                    if (curr != type) {
+	                      var index = location.href.indexOf('?');
+	                      location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?t=' + curr;
+	                    }
+                    }, args: []
+                }
+            });
+    
+    		$('.pager').pagefoot({
+	              pagesize: pageSize,
+	              count: totalCount,
+	              css: '',
+	              current: currentPageNo,
+	              displaynum: 5,
+	              displaylastNum: 2,
+	              previous: '上一页',
+	              next: '下一页',
+	              enableArrowKey: true,
+	              paging: function (page) {
+		                var current = page.current;
+		                var index = location.href.indexOf('?');
+		                if((searCode+'').length==6){
+		                	location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?p=' + current + '&t=' + type + '&c=' + searCode;
+		                }else{
+		                	location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?p=' + current + '&t=' + type;
+		                }
+	              }
+            });
+            
+    	});
+    	
+    	
+    	//-------------------------------------- 回答统计 start ----------------------------------------------------
+    	$('#q-count-dialog-trigger').click(function () {
+	    	//  dialog - (回答统计)
+	        JRJ.Dialogs.standardDialog({
+	            title: '',
+	            noTitle: true,
+	            customClass: 'dialog-ques-stat',
+	            width: 550,
+	            content: ['<div class="dialog-cnt">',
+	                            '<div class="dialog-ques-tit clearfix">',
+	                                '<span>回答统计</span>',
+	                            '</div>',
+	                            '<div class="dialog-ques-cnt mt20 clearfix">',
+	                                '<ul class="clearfix">',
+	                                    '<li days="7" class="cur">7天</li>',
+	                                    '<li days="30">30天</li>',
+	                                    '<li days="0" style="margin-right:0;">总</li>',
+	                                '</ul>',
+	                                '<div class="dialog-ques-stat-block clearfix">',
+	                                    '<div class="item">',
+	                                        '<p>回答问题数</p>',
+	                                        '<p class="num">0</p>',
+	                                    '</div>',
+	                                    '<div class="item">',
+	                                        '<p>获评有帮助数</p>',
+	                                        '<p class="num">0</p>',
+	                                    '</div>',
+	                                    '<div class="item" style="margin-right:0;">',
+	                                        '<p>平均响应时间</p>',
+	                                        '<p class="num">--</p>',
+	                                    '</div>',
+	                                '</div>',
+	                            '</div>',
+	                        '</div>'].join(''),
+	            okBtnText: "确定",
+	            cancelBtnText: "取消",
+	            hasBtn: false,
+	            hasCloseBtn: true,
+	            hasOkBtn: true,
+	            hasCancelBtn: false,
+	            okCallback: function () { },
+	            cancelCallback: function () { },
+	            isFixed: true
+	        });
+	        
+		    $('.dialog-ques-stat ul li').click(function () {
+		    	$(this).addClass('cur').siblings().removeClass();
+		    	var days = $(this).attr("days")
+		    	$.ajax({
+	                url: '/ques/getAdviserAnswerStat.jspa?days='+days,
+	                type: 'GET',
+	                dataType: 'json',
+	                async: false,
+	                success: function(data){
+	                  	$('.dialog-ques-stat-block .item').eq(0).find('.num').text(data.answersCount);
+			            $('.dialog-ques-stat-block .item').eq(1).find('.num').text(data.praiseCount);
+			            $('.dialog-ques-stat-block .item').eq(2).find('.num').text(data.responseAvg);
+	                },
+	                error: function(msg){
+	                },
+	                statusCode: {
+	                  '404': function() {
+	                    	JRJ.MiniAlerts.prompt({message: '<p>出现错误！</p>'});
+	                  },
+	                  '500': function() {
+	                    	JRJ.MiniAlerts.prompt({message: '<p>出现错误！</p>'});
+	                  }
+	                }
+	         	});
+	         	
+		    });
+		    
+		    $('.dialog-ques-stat ul li:first').click();
+    	});
+    	//-------------------------------------- 回答统计 end ----------------------------------------------------
+    
+     	//-------------------------------------- 不回答提问 start ----------------------------------------------------
+        $('.refuse-answer').click(function (e) {
+            var me = $(this);
+            //请选择不回答原因
+            JRJ.Dialogs.standardDialog({
+                title: '请选择不回答原因',
+                width: 578,
+                content: [
+                    '<div class="dialog-cnt dialog-cnt-reason clearfix">',
+                        '<p class="c_666">1. 您有权选择“不回答”问题；</p>',
+                        '<p class="c_666">2. 您选择不回答的问题，系统将自动分配到“问投顾”大厅，由其他投顾抢答；</p>',
+                        '<p class="c_666">3. 用户将无法评价您退回的问题；</p>',
+                        '<p class="c_666">4. 退回的问题不会出现在您的问答列表中；</p>',
+                        '<p class="c_666">5. 退回的问题不会影响您的问答满意度。</p>',
+                        '<ul class="custom-checkbox clearfix mt30">',
+                            '<li reason="120">不擅长</li>',
+                            '<li reason="80">暂无时间</li>',
+                            '<li reason="40">不理解问题</li>',
+                            '<li reason="0">其他</li>',
+                        '</ul>',
+                    '</div>',
+                ].join(''),
+                okBtnText: '确定',
+                cancelBtnText: '取消',
+                hasCloseBtn: true,
+                hasBtn: true,
+                hasOkBtn: true,
+                hasCancelBtn: true,
+                okCallback: function () {
+                      var reason = 0;
+                      $('.dialog-cnt-reason .custom-checkbox li').each(function() {
+	                      if($(this).hasClass('checked')){
+	                         reason = $(this).attr('reason');
+	                      }
+                      });
+                      $.ajax({
+	                        type: 'POST',
+	                        dataType: 'json',
+	                        async: false,
+	                        cache: false,
+	                        url: '/ques/invest/ignore.jspa',
+	                        data: {
+		                        askId: me.attr('ask'),
+		                        reason: reason
+	                        },
+	                        success: function(data) {
+			                    if(data.success) {
+			                       	location.href = location.href;
+			                    }else{
+			                        JRJ.MiniAlerts.prompt({
+			                        	message: '<p>' + (data.msg ? data.msg : '操作失败！') + '</p>'
+			                        });
+			                    }
+	                        },
+	                        error: function() {
+	                        	JRJ.MiniAlerts.prompt({
+	                        		message: '<p>操作失败！</p>'
+	                        	});
+	                        },
+	                        statusCode: {
+		                        '404': function() {
+		                        	JRJ.MiniAlerts.prompt({
+		                        		message: '<p>操作失败！</p>'
+		                        	});
+		                        },
+		                        '500': function() {
+		                        	JRJ.MiniAlerts.prompt({
+		                        		message: '<p>操作失败！</p>'
+		                        	});
+		                        }
+	                        }
+                      });
+                },
+                
+                cancelCallback: function () {
+                	return true;
+                },
+                
+                isFixed: true
+            });
+
+            //checkbox
+            $('.custom-checkbox li').mouseenter(function () {
+                if(!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                if(!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('checked').siblings().removeClass('checked');
+                }else{
+                    $(this).removeClass('checked');
+                }
+            });
+        });
+		//-------------------------------------------- 不回答提问  end ----------------------------------------------------
+            
+  		//-------------------------------------------- 回答  start ----------------------------------------------------
+  		
+  		 // 禁言判断
+        function checkSilenced() {
+              var b = false;
+              ($).ajax({
+	                url: '/ques/invest/checkSilenced.jspa',
+	                type: 'POST',
+	                data: {},
+	                dataType: 'json',
+	                async: false,
+	                success: function(data){
+		                  if(data.ret == 0){
+		                     JRJ.Dialogs.standardDialog({
+		                        title: '消息提示',
+		                        width: 360,
+		                        content: '<div class="dialog-cnt dialog-confirm">' + data.msg + '</div>',
+		                        okBtnText: '确认',
+		                        hasCloseBtn: false,
+		                        hasOkBtn: true,
+		                        hasCancelBtn: false
+		                     });
+		                  } else {
+		                    b = true;
+		                  }
+	                },
+	                error: function(msg){
+	                  //alert(msg.msg);
+	                },
+	                statusCode: {
+		                  '404': function() {
+		                    JRJ.MiniAlerts.prompt({
+		                      message: '<p>操作失败！</p>'
+		                    });
+		                  },
+		                  '500': function() {
+		                    JRJ.MiniAlerts.prompt({
+		                      message: '<p>操作失败！</p>'
+		                    });
+		                  }
+	                }
+              });
+              return b;
+        }
+        
+        var answer_pop = function(){//http://itougu.jrj.com.cn/ques/invest/myanswer.jspa?answer=true&qid=431213
+        	if(checkSilenced()){
+	  			 var askId = $(this).attr('ask'); 
+				 window.answerDialog = JRJ.Dialogs.iframeDialog({
+					  content: [''].join(''),
+					  customClass: 'dialog-ques-answer',
+					  loadingImg: '',
+					  width: 840,
+					  iframeHeight : 370 ,
+					  hasBtn: false,
+					  hasOkBtn: false,
+					  okBtnText: '',
+					  title: '回答问题',
+					  noTitle: true,
+					  titleRight: '',
+					  bottomContent: '',
+					  protocolHtml: '',
+					  hasCancelBtn: false,
+					  enableKeyCtrl: true,
+					  ifrSrc: '/ques/answer.jspa?aid=' + askId + '&askId=' + askId,
+					  ifrReHeight: true,
+					  isFixed: true,//defaultCf.isFixed,
+					  okCallback: function () {
+						  defaultCf.okCallback();
+					  },
+					  cancelCallback: function () {
+					  	  
+						  return true;
+					  }
+				 });
+			 }
+        };
+            
+  		
+		
+		(function(){//判断参数 answer=true&qid=431213
+			var  href = window.location.href 
+				,id = ''
+			
+			if( href.indexOf('answer=true&qid=') > -1 ){
+				id = window.location.href.match(/answer=true&qid=\w+/)[0];
+				id = id.replace('answer=true&qid=','');
+				
+				$('.answer-clas').each( function(){
+					if($(this).attr('ask') == id ){
+						answer_pop.call(this);
+					}
+				})
+			}
+			
+			$('.answer-clas').click(function (e) {
+		  		answer_pop.call(this);
+			 });
+		})();
+		 
+		 //answer();
+		function answerDone1(){
+			var pop , msg = '<div class="dialog-ask-new-inner clearfix">'
+								+'<div class="inner" style="padding:20px 0; color:#333">'
+									+'<div class="tit clearfix tc">'
+										+'回答成功!'
+									+'</div>'
+								+'</div>'
+							+'</div>';
+			
+			pop = new JRJ.DialogBase({
+				title: "提示",  //标题
+				okCallback: null, //ok回调
+				cancelCallback: null, //cancel回调，关闭时也触发,
+				className : "md-confirm" , 
+				hasMask: false
+			});
+			pop.container.html(msg);
+			pop.show();
+			pop.resetPosition();
+			setTimeout(function(){
+				pop.close();
+				window.location.reload();
+			},2000);
+		}
+	
+		 window.answerOne = function(){
+			 
+			 //JRJ.MiniAlerts.alert({
+		 		 //message:"回答成功！",
+				 //trigger: null, 
+				 //hasAnimate: true 
+			 //})
+// 			 setTimeout(function(){
+				JRJ.Dialogs.close();
+// 			 },3000);
+				
+			
+// 			 JRJ.Dialogs.standardDialog({
+// 				title: '',
+// 				noTitle: true,
+// 				customClass: 'dialog-ques-answer',
+// 				width: 300,
+// 				content: ['<div class="dialog-ask-new-inner clearfix">',
+// 							'<div class="inner" style="padding-bottom:20px;" >',
+// 								'<div class="tit clearfix tc">',
+// 									'回答成功！',
+// 								'</div>',
+// // 							'<div class="btn-wrap" style="padding:20px 0;">',
+// // 								'<span class="btn btn-89-31 ok-btn-scusses">确定</span>',
+// 							'</div>',
+// 						'</div>'].join(''),
+// 				okBtnText: "确定",
+// 				cancelBtnText: "取消",
+// 				hasBtn: false,
+// 				hasCloseBtn: false,
+// 				hasOkBtn: false,
+// 				hasCancelBtn: false,
+// 				okCallback: function () { },
+// 				cancelCallback: function () { },
+// 				isFixed: true
+// 			});
+			setTimeout(function(){
+				answerDone1();
+			},50);
+		 }
+		 //answerOne()
+		 
+		 
+		 
+		 
+		 window.answerDone = function(){
+			 JRJ.Dialogs.standardDialog({
+				title: '',
+				noTitle: true,
+				customClass: 'dialog-ques-answer',
+				width: 550,
+				content: ['<div class="dialog-ask-new-inner clearfix">',
+							'<div class="inner">',
+								'<div class="tit clearfix tc">',
+									'回答成功，{股票名称} 还有<em>4</em>条提问待您解答',
+								'</div>',
+								'<div class="btn-wrap" style="padding:20px 0;">',
+									'<span class="btn btn-89-31 ok-btn-scusses">我要回答</span>',
+									'<span class="btn btn-89-31 btn-reverse">关闭</span>',
+								'</div>',
+							'</div>',
+						'</div>'].join(''),
+				okBtnText: "确定",
+				cancelBtnText: "取消",
+				hasBtn: false,
+				hasCloseBtn: true,
+				hasOkBtn: true,
+				hasCancelBtn: false,
+				okCallback: function () { },
+				cancelCallback: function () { },
+				isFixed: true
+			});
+			$('.dialog-ques-answer .ok-btn-scusses').click(answer)
+			$('.dialog-ques-answer .btn-reverse').click(function(){
+				JRJ.Dialogs.close();
+			})
+		}
+		
+		window.answerNo = function(){
+			 JRJ.Dialogs.standardDialog({
+				title: '',
+				noTitle: true,
+				customClass: 'dialog-ques-answer',
+				width: 550,
+				content: ['<div class="dialog-ask-new-inner clearfix">',
+							'<div class="inner">',
+								'<div class="tit clearfix tc">',
+									'您已经不能回答该问题！',
+								'</div>',
+								'<div class="btn-wrap" style="padding:20px 0;">',
+									'<span class="btn btn-89-31 ok-btn-scusses">确定</span>',
+								'</div>',
+							'</div>',
+						'</div>'].join(''),
+				okBtnText: "确定",
+				cancelBtnText: "取消",
+				hasBtn: false,
+				hasCloseBtn: true,
+				hasOkBtn: true,
+				hasCancelBtn: false,
+				okCallback: function () { },
+				cancelCallback: function () { },
+				isFixed: true
+				,closeIfShowed : true
+			});
+			
+			$('.dialog-ques-answer .ok-btn-scusses').click(function(){
+				JRJ.Dialogs.close();
+			})
+		}
+		//answerDone();
+		
+		
+	    //-------------------------------------------- 回答  end ----------------------------------------------------
+    
+    
+        $(function () {
+        //-------------------------------------------- 问答开关  start ------------------------------------------
+        
+            $('.q-switcher').click(function () {
+                $(this).toggleClass('q-switcher-on');
+                //$('.q-switcher-note').toggle();
+                if ($(this).hasClass('q-switcher-on')) {
+                    $('.q-switcher-note').fadeOut(function () {
+                        $(this).text('问答已经开启，用户可以向您提问了');
+                    }).fadeIn();
+                } else {
+                    $('.q-switcher-note').fadeOut(function () {
+                        $(this).text('问答已经关闭，用户不能向您提问了');
+                    }).fadeIn();
+                }
+                
+                if($('#switcher_id').hasClass('q-switcher-on')){
+                	($).ajax({
+		                url: '/ques/invest/changeAdviserOpenStatus.jspa',
+		                type: 'POST',
+		                data: {"isOpen":true},
+		                dataType: 'json',
+		                async: false,
+		                success: function(data){
+		                },
+		                error: function(msg){
+		                  //alert(msg.msg);
+		                },
+		                statusCode: {
+			                  '404': function() {
+			                    JRJ.MiniAlerts.prompt({
+			                      message: '<p>操作失败！</p>'
+			                    });
+			                  },
+			                  '500': function() {
+			                    JRJ.MiniAlerts.prompt({
+			                      message: '<p>操作失败！</p>'
+			                    });
+			                  }
+		                }
+	                });
+                }else{
+                	($).ajax({
+		                url: '/ques/invest/changeAdviserOpenStatus.jspa',
+		                type: 'POST',
+		                data: {"isOpen":false},
+		                dataType: 'json',
+		                async: false,
+		                success: function(data){
+		                },
+		                error: function(msg){
+		                  //alert(msg.msg);
+		                },
+		                statusCode: {
+			                  '404': function() {
+			                    JRJ.MiniAlerts.prompt({
+			                      message: '<p>操作失败！</p>'
+			                    });
+			                  },
+			                  '500': function() {
+			                    JRJ.MiniAlerts.prompt({
+			                      message: '<p>操作失败！</p>'
+			                    });
+			                  }
+		                }
+	                });
+                }
+            });
+
+            
+			($).ajax({
+	                url: '/ques/invest/getAdviserOpenStatus.jspa',
+	                type: 'GET',
+	                data: {},
+	                dataType: 'json',
+	                async: false,
+	                success: function(data){
+		                  if(data.isopen == false){
+			                     $('#switcher_id').removeClass('q-switcher-on');
+			                     //$('.q-switcher-note').hide();
+			                     $('.q-switcher-note').fadeOut(function () {
+			                        	$(this).text('问答已经关闭，用户不能向您提问了');
+			                     }).fadeIn();
+		                  }else{
+		                  		 $('.q-switcher-note').fadeOut(function () {
+				                        $(this).text('问答已经开启，用户可以向您提问了');
+				                 }).fadeIn();
+		                  }
+	                },
+	                error: function(msg){
+	                  //alert(msg.msg);
+	                },
+	                statusCode: {
+		                  
+	                }
+              });
+
+		//-------------------------------------------- 问答开关  end --------------------------------------------
+            //searchbox
+            var stockTagBox = new JRJ.ui.SearchBox("txtSearxhQues", 'btnSearxhQues', stockCodeListBox, "&item=5&type=cn&typepri=s.sa|i&areapri=cn&inc=utf8&otc=utf8", null, null, { hasTougu: false, watermark: '请输入股票名称或代码' });//&otc=utf8&inc=utf8
+            stockTagBox._enterHandler = function (event) {
+                var items = this.container.getElementsByTagName("tr");
+                this.updateInputAndClist(items[this.selectedIndex], true);
+                if (!this.enterEffective) {
+                    this.hide();
+                    return;
+                }
+                //单只查询
+                if (!this.muti) {
+                    //提交查询或执行自定处理方法
+                    this._searchHandler(event);
+                    this.hide();
+                } else {
+                    this.container.innerHTML = "";
+                    return;
+                }
+            };
+
+            function stockCodeListBox(obj) {
+                if (obj[0]) {
+                    console.log(obj[0]);
+                }
+            }
+
+        });
+    </script>
+
+
+    <!--template:start-->
+    <script type="text/template" id="wizard_template">
+        <div id="q-wizard" class="q-wizard">
+            <div class="wizard-item wizard-item-1">
+                <span class="q-wizard-close"></span>
+                <span class="q-wizard-next"></span>
+            </div>
+            <div class="wizard-item wizard-item-2" style="display:none;">
+                <span class="q-wizard-close"></span>
+                <span class="q-wizard-next"></span>
+            </div>
+            <div class="wizard-item wizard-item-3" style="display:none;">
+                <span class="q-wizard-close"></span>
+                <span class="q-wizard-next"></span>
+            </div>
+            <div class="wizard-item wizard-item-4" style="display:none;">
+                <span class="q-wizard-close"></span>
+                <span class="q-wizard-next"></span>
+            </div>
+            <div class="wizard-item wizard-item-5" style="display:none;">
+                <span class="q-wizard-close"></span>
+                <span class="q-wizard-next"></span>
+            </div>
+        </div>
+    </script>
+    <!--template:end-->
+
+
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/AMD/require.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/AMD/config.js"></script>
+    <script type="text/javascript">
+
+        require(['question/QuesWizard'], function (QuesWizard) {
+
+            QuesWizard.run({
+                template: $('#wizard_template'),
+                id: '#q-wizard',
+                cookieKey: 'ITG_QUES_WIZARD'
+            });
+
+        });
+
+//-------------------------------------------- 推广位设置  start --------------------------------------------
+		
+
+        //  dialog - (设置回答提问中要推广的组合或内参)
+        $('#q-setting-dialog-trigger').click(function () {
+        
+        		var uid=$(this).attr('data-id');
+        		var oo = null;
+				($).ajax({
+	                url: '/ques/getTgMyAdverts.jspa',
+	                type: 'GET',
+	                data: {},
+	                dataType: 'json',
+	                async: false,
+	                success: function(d){
+		                  	oo = d;
+				        	
+				        	var tips="";
+				        	var portfolios="";
+				        	
+				        	$.ajax({
+				        		url:'http://itougu.jrj.com.cn/tips/gettipsbytgidandcount.jspa',
+				        		type:'GET',
+				        		data:{
+				        			count:15,
+				        			tgids:uid
+				        		},
+				        		dataType:'json',
+					            success: function(data){
+					            
+					            	if(data.list!=null&&data.list!=""){
+					            		 $.each(data.list, function(idx,obj){
+					            		 	if(obj!=null&&obj!=""){
+					                             $.each(obj,function(idx2,obj2){
+					                             	if(oo!=null&&oo!=""){
+					                             		var flags=false;
+						                             	$.each(oo,function(idx3,ooo){
+						                             		if(obj2.id == ooo.adId){
+						                             			flags=true;
+						                             		}	
+						                                });     
+						                                
+						                                if(flags==true){
+					                             			tips+='<li class="checked" type="1" id="'+obj2.id+'" title="'+obj2.title+'">'+obj2.title+'</li>';
+					                             		}else{
+		                                     				tips+='<li type="1" id="'+obj2.id+'" title="'+obj2.title+'">'+obj2.title+'</li>';
+					                                    }	
+						                                
+					                                }else{
+			                                     		tips+='<li type="1" id="'+obj2.id+'" title="'+obj2.title+'">'+obj2.title+'</li>';
+			                                     	}
+					                                     	
+					                             });
+				                             }else{
+									            tips+='无内参';
+									         }
+				                     	});
+										$('[data-id=tips_id]').empty().html(tips);
+					            	}else{
+					            		tips+='无内参';
+					            	}
+					            },
+					            error:function(data){
+					            	alert('获取内参信息失败,代号:'+data.ret);
+					            }
+				        	});
+				      /**  	$.ajax({
+				        		url:'http://itougu.jrj.com.cn/portfolio/getMasterSubPf/'+uid+'/3.jspa',
+				        		type:'GET',
+				        		data:{},
+				        		dataType:'json',
+					            success: function(data){
+					            	if(data.list!=null){
+				            			$.each(data.list, function(idx,obj){
+					            			if("2_"+obj.pid == oo.p)
+					            				portfolios+='<li class="checked" type="2" id="'+obj.pid+'" title="'+obj.pname+'">'+obj.pname+'</li>';
+					            			else
+					            				portfolios+='<li type="2" id="'+obj.pid+'" title="'+obj.pname+'">'+obj.pname+'</li>';
+					            		});	
+					            	}else{
+					            		portfolios+='无投资组合';
+					            	}
+					            	$('[data-id=portfolios_data]').empty().html(portfolios);
+					            },
+					            error:function(data){
+					            	alert('获取组合信息失败,代号:'+data.recordnum);
+					            }
+				        	});
+        				**/
+        	
+        			},
+	                error: function(msg){
+	                  //alert(msg.msg);
+	                },
+	                statusCode: {
+		                  '404': function() {
+		                    JRJ.MiniAlerts.prompt({
+		                      message: '<p>操作失败！</p>'
+		                    });
+		                  },
+		                  '500': function() {
+		                    JRJ.MiniAlerts.prompt({
+		                      message: '<p>操作失败！</p>'
+		                    });
+		                  }
+	                }
+              	});
+        	
+        	
+        	
+        	
+        	
+        	/**
+            JRJ.Dialogs.standardDialog({
+                title: '',
+                noTitle: true,
+                customClass: 'dialog-ques-setting',
+                width: 550,
+                content: ['<div class="dialog-cnt">',
+                                '<div class="dialog-ques-tit clearfix">',
+                                    '<span>设置回答提问中要推广的组合或内参</span><span class="note">(最多只能选择2个)</span>',
+                                '</div>',
+                                '<div class="dialog-ques-cnt mt20 clearfix">',
+                                    '<div class="dialog-ques-cnt-left">',
+                                        '<p>交易和预售中的投资组合</p>',
+                                        '<ul name="data_ul" data-id="portfolios_data">',
+                                        '</ul>',
+                                    '</div>',
+                                    '<div class="dialog-ques-cnt-right">',
+                                        '<p>更新和预售中的投资内参</p>',
+                                        '<ul name="data_ul" data-id="tips_id">',
+                                        '</ul>',
+                                    '</div>',
+                                '</div>',
+                            '</div>'].join(''),
+                okBtnText: "确认",
+                cancelBtnText: "取消",
+                hasBtn: true,
+                hasCloseBtn: true,
+                hasOkBtn: true,
+                hasCancelBtn: false,
+                okCallback: function () {
+                	var list= new Array();
+                	if($('.dialog-ques-setting li.checked').length > 0){
+            			$.each($('.dialog-ques-setting li.checked'), function(idx, obj){
+            				list.push('{adId:"'+obj.id+'",adType:'+obj.type+',adTitle:"'+obj.title+'"}');
+	            		});	
+	            	}
+	            	var jsonstr = "["+list.join(',')+"]";
+                	$.ajax({
+		        		url:'/ques/invest/changeTgAdverts.jspa',
+		        		type:'POST',
+		        		data:{"jsonstr":jsonstr},
+		        		dataType:'json',
+			            success: function(data){
+			            	
+			            },
+			            error:function(data){
+			            	alert('出现错误');
+			            }
+		        	});
+                	
+                },
+                cancelCallback: function () { },
+                isFixed: true
+            });
+
+            $('.dialog-ques-setting li').live('click',function () {
+                if ($(this).hasClass('checked')) {
+                    $(this).removeClass();
+                } else if ($('.dialog-ques-setting li.checked').length < 2) {
+                    $(this).addClass('checked');
+                }
+            });
+            
+            **/
+            
+            
+            
+            JRJ.Dialogs.standardDialog({
+                title: '',
+                noTitle: true,
+                customClass: 'dialog-ques-setting',
+                width: 550,
+                content: ['<div class="dialog-cnt">',
+                                '<div class="dialog-ques-tit clearfix">',
+                                    '<span>设置回答提问中要推广的内参</span><span class="note">(最多只能选择2个)</span>',
+                                '</div>',
+                                '<div class="dialog-ques-cnt mt20 clearfix" style="padding-bottom:10px">',
+                                    //'<div class="dialog-ques-cnt-left">',
+                                    //    '<p>交易和预售中的投资组合</p>',
+                                    //    '<ul>',
+                                    //        '<li>三倍用户免费2月补救内参</li>',
+                                    //        '<li>【牛股周周赢】回馈广大粉丝</li>',
+                                    //        '<li>趋势先锋 赢在11月（包月）</li>',
+                                    //    '</ul>',
+                                    //'</div>',
+                                    '<div class="dialog-ques-cnt-right" style="width:auto;height:auto;">',
+                                        '<ul class="clearfix"  data-id="tips_id">',
+                                            
+                                        '</ul>',
+                                    '</div>',
+                                '</div>',
+                            '</div>'].join(''),
+                okBtnText: "确认",
+                cancelBtnText: "取消",
+                hasBtn: true,
+                hasCloseBtn: true,
+                hasOkBtn: true,
+                hasCancelBtn: false,
+                okCallback: function () { 
+                
+                	var list= new Array();
+                	if($('.dialog-ques-setting li.checked').length > 0){
+            			$.each($('.dialog-ques-setting li.checked'), function(idx, obj){
+            				list.push('{adId:"'+obj.id+'",adType:'+obj.type+',adTitle:"'+obj.title+'"}');
+	            		});	
+	            	}
+	            	var jsonstr = "["+list.join(',')+"]";
+                	$.ajax({
+		        		url:'/ques/invest/changeTgAdverts.jspa',
+		        		type:'POST',
+		        		data:{"jsonstr":jsonstr},
+		        		dataType:'json',
+			            success: function(data){
+			            	
+			            },
+			            error:function(data){
+			            	alert('出现错误');
+			            }
+		        	});
+		        	
+                },
+                cancelCallback: function () { },
+                isFixed: true
+            });
+
+            $('.dialog-ques-setting li').live('click',function () {
+                if ($(this).hasClass('checked')) {
+                    $(this).removeClass();
+                } else if ($('.dialog-ques-setting li.checked').length < 2) {
+                    $(this).addClass('checked');
+                }
+            });
+            
+            
+
+        });
+        
+//-------------------------------------------- 推广位设置  end --------------------------------------------    
+      
+//-------------------------------------------- searchbox start --------------------------------------------
+
+        var stockTagBox = new JRJ.ui.SearchBox("txtSearchBoxQ", 'btnSearchBoxQ', stockCodeListBox, "&item=5&type=cn&typepri=s.sa|i&areapri=cn&inc=utf8&otc=utf8", null, null,
+            {
+                hasTougu: false,
+                hasStock: true,
+                watermark: '搜索股票相关问答',
+                customEvent: function (obj) {
+                    console.log(obj.inputText);
+                    console.log(obj.clickObj);
+                    console.log(obj.clickObj.attr('data-touguId'));
+                }
+            });//&otc=utf8&inc=utf8
+            
+        stockTagBox._enterHandler = function (event) {
+            var items = this.container.getElementsByTagName("tr");
+            this.updateInputAndClist(items[this.selectedIndex], true);
+            if (!this.enterEffective) {
+                this.hide();
+                return;
+            }
+            //单只查询
+            if (!this.muti) {
+                //提交查询或执行自定处理方法
+                this._searchHandler(event);
+                this.hide();
+            } else {
+                this.container.innerHTML = "";
+                return;
+            }
+        };
+
+        function stockCodeListBox(obj) {
+            if (obj[0]) {
+                $('#txtSearchBoxQ').val(obj[0].code);
+                var index = location.href.indexOf('?');
+                location.href = (index >= 0 ? location.href.substring(0, index) : location.href)  + '?t=3&c=' + obj[0].code;
+            }
+        }
+        
+//-------------------------------------------- searchbox end --------------------------------------------
+
+    </script>
+</body>
+</html>

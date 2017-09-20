@@ -1,0 +1,163 @@
+#parse('../velocity/macro/page.vm')
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的收入-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css_js.html" -->
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+
+
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+
+
+
+            $('.icon-tooltip').tooltipster({
+                theme: 'tooltipster-light'
+            });
+        });
+        
+        function turnPage(pageNo) {
+        	window.location = "/account/income/detail.jspa?userId=$!request.getParameter('userId')&"
+        			+"brokerId=$!request.getParameter('brokerId')&startTime=$!request.getParameter('startTime')"
+        			+"&endTime=$!request.getParameter('endTime')&pageNo="+pageNo;
+        }
+    </script>
+</head>
+<body>
+    <!--site-top-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-header-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">金融界爱投顾</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+            <!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            
+            <div class="site-main-right">
+                <h1 class="page-title-2" style="border-bottom: 1px solid #e8e8e8; ">
+                    <a href="/account/income/indexV2.jspa" class="link fr f14">返回</a>
+                    <span class="mr20">贡献明细</span><span>$!user.userName</span>
+                </h1>
+                <div class="revenue-summary-s2">
+                    <span class="mr40">奖金汇总：<span class="red">$!summary.sumTotalRewardDisplay</span></span>
+                    <span class="mr40">投顾奖金：<span class="red">$!summary.sumAdviserRewardDisplay</span></span>
+                    <span class="mr40">经纪奖金：<span class="red">$!summary.sumInviteRewardDisplay</span></span>
+                </div>
+                <table class="table-general table-general-p3">
+                    <thead>
+                        <tr>
+                            <th class="tc" style="width:146px;">交易日期</th>
+                            <th class="tc">交易名称</th>
+                            <th style="text-align: right;">交易金额(万元)</th>
+                            <th style="text-align: right;">交易费用(元)</th>
+                            <th style="text-align: right;">投顾奖金</th>
+                            <th style="text-align: right;">经纪奖金</th>
+                            <th style="text-align: right;">奖金汇总</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	#foreach($income as $page.obj)
+                        <tr
+                        	#if($!velocityCount % 2 != 0)
+                        		class="alt"
+                        	#end
+                        >
+                            <td class="tc">$!income.deal_time_display</td>
+                            <td class="tc">$!income.stock_name <span class="$!income.span_color ml10">$!income.trade_type_display</span></td>
+                            <td class="tr">$!income.deal_total_fee_display</td>
+                            <td class="tr">$!income.deal_fee_display</td>
+                            <td class="tr">$!income.adviser_reward_display</td>
+                            <td class="tr">$!income.invite_reward_display</td>
+                            <td class="tr last">$!income.total_reward_display</td>
+                        </tr>
+                        #end
+                        <!-- <tr class="alt">
+                            <td class="tc">2014-11-30 19:06:34</td>
+                            <td class="tc">西南药业 <span class="green ml10">卖出</span></td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr last">938.32</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div class="pager">
+                
+                	#set($pageNo=$page.curPage)
+                	#set($pageSize=$page.pageCount)
+                	#set($totalCount=$page.total)
+                	
+                	#pagecut($pageNo,$pageSize,$totalCount)
+                    <!-- <a class="prev prev-disable">上一页</a>
+                    <a class="cur">1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a class="dot">...</a>
+                    <a>125</a>
+                    <a class="next">下一页</a>
+                    <span class="total">共 44 条记录</span> -->
+                </div>
+            </div>
+
+        </div>
+        <!--site-main-right-->
+    </div>
+
+    <!--footer-->
+    <!--\#include virtual="/common_footer.html" -->
+    <!--footer-->
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投顾注册-爱投顾-金融界</title>
+    <meta name="keywords" content="投顾注册-爱投顾-金融界" />
+    <meta name="description" content="投顾注册-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor-simple.css" rel="stylesheet" />
+    <!--# include virtual="/common_head_css_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/CharNum.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor.js"></script>
+
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+
+    <div class="page-title">
+        <div class="wrapper">
+            <h1>投顾注册</h1>
+        </div>
+    </div>
+
+    <div class="site-main">
+        <input type="hidden" value="$!{apply.status}" id="flag"/>
+        <div class="wrapper">
+            <div class="site-main-single-cnt">
+                <div class="steps-wrap steps-wrap-2">
+                    <div class="step-item step-item-4"></div>
+                    <div class="step-text clearfix">
+                        <span class="past">录入个人信息</span>
+                        <span class="past">上传照片</span>
+                        <span class="past">填写您的擅长领域</span>
+                        <span class="past last">注册完成</span>
+                    </div>
+                </div>
+                #if($!{apply.status}==4)
+                <div class="register-success" id="result1">
+                    <p class="title">注册完成</p>
+                    <p class="mt10">感谢您注册投资顾问，我们将会在3个工作日内回复您是否通过注册。</p>
+                </div>
+                #end
+                #if($!{apply.status}==5)
+                <div class="register-success" id="result2">
+                    <p class="title">恭喜您，我们通过了您的投资顾问注册申请。</p>
+                    <p class="mt10">您可以在 <a href="/view/myPointlist.jspa?tabid=1" class="link">我的投顾空间</a> 栏目下开展您的投顾服务。</p>
+                </div>
+                #end
+                #if($!{apply.status}==9)
+                <div class="register-success register-error" id="result3">
+                    <p class="title">抱歉并未通过我们的审核</p>
+                    <p class="mt10">原因说明：$!{apply.errorMessage}</p>
+                    <p class="mt10">您可以 <a id="reapplyLink" href="/account/reapplyAdviser.jspa?tgyqcode=$!request.getParameter('tgyqcode')" class="link">重新申请</a> 或者致电：010-83363181</p>
+                </div>
+                #end
+            </div>
+        </div>
+    </div>
+    
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

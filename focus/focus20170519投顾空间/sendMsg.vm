@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾</title>
+    <meta name="keywords" content="爱投顾" />
+    <meta name="description" content="爱投顾" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+	<!--\#include virtual="/common_head_css_js.html"  -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig-compact.js"></script>
+    <script  type="text/javascript">
+    	JRJEditConfig.ToolbarSets["default"] = ['Stock'];
+    </script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+	<script type="text/javascript">
+		var limit = #if(!${limit})'' #else $!{limit}#end;
+		var limitDate = '$!{limitDate}';
+		
+	</script>
+</head>
+<body style="background:#fff;">
+    <div class="dialog-cnt dialog-ask clearfix">
+        <p class="title tr"><span>今日剩余<span class="num">0</span>条</span></p>
+        <div class="editor-wrap" style="height:230px;">
+            <script>
+                var editor = new JRJEditor("editor1", 670, 200, "default", '');
+                var sBasePath = '/jsp/portal/mngr/';
+                JRJEditConfig.BasePath = sBasePath;
+                JRJEditConfig.UploadImage = true;
+                JRJEditConfig.UploadFile = true;
+                editor.create({
+                    hasNumCheck: true,
+                    num: 500
+                });
+            </script>
+        </div>
+        <a href="/message/group/list.jspa?menuId=2" target="_blank" class="link" style="position:relative;top:-20px;">群发记录</a>
+        <p class="mt20 tc"><a id="btnSend" href="javascript:void(0)" class="btn btn-113-30">发送</a></p>
+    </div>
+    <!--<script type="text/javascript" src="http://js.jrjimg.cn/itougu/message/sendMsgDlg.js"></script>-->
+    <script type="text/javascript">
+$(window).load(function(){ 
+	var receiverId = #if(!${receiverid})'' #else '$!{receiverid}' #end;
+    var rtypejrj=getQueryString('rtype');
+    var rtypejrjtemp=false;
+    ($).ajax({
+      url : '/account/customerrm/getgroups.jspa',
+      type : 'get',
+      success : function(ret) {
+          console.log('哈哈');
+          console.log(ret);  
+          for(var i=0;i<ret.length;i++){ //ret[i].groupId
+              if(rtypejrj==ret[i].groupId){
+                console.log('rtypejrj='+rtypejrj);
+                rtypejrjtemp=true;
+                 initSendType(rtypejrj);
+                 
+                 return;
+              }
+          } 
+          console.log('receiverid='+receiverId);
+            initSendType(receiverId);           
+      },
+      error : function() {
+          return;
+      }
+    });
+        
+        
+      
+    setTimeout(function() {
+        frameElement._thisDialog.resizeIfrH();
+        frameElement._thisDialog.dlg.resetPosition();
+    }, 0);
+    
+    if(limitDate != ''){
+        $(".title").html('您被禁言到' + limitDate);
+        JRJ.MiniAlerts.prompt({
+            message : '您被禁言到' + limitDate
+        });
+    }
+    
+     	
+	function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+ 
+    
+    var type="";
+    var receiverUserId = '';
+    var rtype = 0; 
+   //发送
+   $('#btnSend').click(function(e) {
+        if(rtypejrjtemp){
+             if(editor.getContentLength() < 1){
+                JRJ.MiniAlerts.prompt({
+                    message : "消息内容不能为空！"
+                });
+                return;
+            }
+            $.ajax({
+                  url : '/account/customerrm/groupsend.jspa',
+                  type : 'post',
+                  cache : false,
+                  data:{
+                      content:editor.getHtml(),
+                      rtype:rtypejrj
+                  },
+                  success : function(ret) {
+                      console.log('看能不能发过去');
+                      console.log(ret);
+                        if(ret.retCode==0){
+                            JRJ.MiniAlerts.prompt({message:'<p>发送成功</p>'});
+                        }else{
+                            JRJ.MiniAlerts.prompt({message:'<p>'+ret.msg+'</p>'});
+                        }
+                        setTimeout("frameElement._thisDialog.close()",1300);
+                      
+                  },
+                  error : function(v) {
+                      console.log(v);
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+            return;
+        }
+        //判断是否被禁
+        if(limitDate != ''){
+            JRJ.MiniAlerts.prompt({
+               message : '您被禁言到' + limitDate
+           });
+            return;
+        }else{
+        
+            //群发或单发消息前判断消息内容是否含有图片，如果有图片给用户提示“消息不支持图片”
+            var content = editor.getHtml();
+            //alert("content:"+content);
+            //如果内容有图片，则提示不支持图片
+            if(isHaveImg(content)){
+                JRJ.MiniAlerts.prompt({
+                    message : "消息不支持图片！"
+                });
+                return;
+            }
+            
+            if(limit[type] < 1){
+                //根据类型判断，群发提示还是单发提示
+                var msg = "";
+                if(type == "single_user"){
+                    msg = "您今天向该用户发消息次数已经超过上限，明天再发吧！";
+                }else if(type == "fans"){
+                    msg = "您今天向粉丝群发消息次数已经超过上限，明天再发吧！";
+                }
+                JRJ.MiniAlerts.prompt({
+                    message : msg
+                });
+                return;
+            }
+            
+            if (rtype == 0) {
+                JRJ.MiniAlerts.prompt({
+                    message : "接收者类型有误，请刷新页面再试！"
+                });
+                return;
+            }
+
+            if(editor.getContentLength() < 1){
+                JRJ.MiniAlerts.prompt({
+                    message : "消息内容不能为空！"
+                });
+                return;
+            }
+            //var content = editor.getHtml();
+            var params = {};
+            params["content"] = content;
+            params["rtype"] = rtype;
+            //alert("receiverUserId:"+receiverUserId);
+            params["receiverId"] = receiverUserId;
+            var url = "/message/group.jspa";
+            //根据点发还是群发判断调用后台的对应方法
+            if(type=="single_user"){
+                url = "/message/single.jspa";
+            }
+            $.ajax({
+                url : url,
+                data : params,
+                type : "POST",
+                dataType : "json",
+                success: function(msg){
+                    if(msg.retCode == 0){
+                        JRJ.MiniAlerts.prompt({
+                            message : "消息发送成功"
+                        });
+                        //window.parent.reloadList();
+                        window.parent.reloadList && window.parent.reloadList();
+                        setTimeout("frameElement._thisDialog.close()",1300);
+                    }else{
+                        JRJ.MiniAlerts.prompt({
+                            message : msg.msg
+                        });
+                    }
+                }
+            });
+        }
+    });
+    //根据类型判断是群发还是点发
+    function initSendType(receiverId){
+        //alert(receiverId);
+        if(rtypejrjtemp){
+            $.ajax({
+                  url : '/account/customerrm/getmsgnum.jspa',
+                  type : 'get',
+                  cache : false,
+                  data:{
+                      rtype:rtypejrj
+                  },
+                  success : function(ret) {
+                      console.log('还有几次群发的机会呢='+ret);
+                        console.log(ret);
+                      $(".title").html('<span>今日剩余<span class="num">' + ret.sum + '</span>条</span>');
+                  },
+                  error : function(v) {
+                      console.log(v);
+                      JRJ.MiniAlerts.prompt({message:'<p>系统繁忙，请稍后重试</p>'});
+                      return;
+                  }
+              });
+            $(".link").attr("href", "/message/group/list.jspa?menuId="+rtypejrj);
+            return;
+        }
+
+        receiverUserId =receiverId;
+        type = $(window.parent.document.getElementById("fan")).attr("data-type");
+        var singlerUserType = window.parent.$(".btn-57-23.sendMsg").attr("data-type");
+        if(singlerUserType=='single_user'){
+            type = "single_user";
+        }
+        //var rtype = 0;
+        if(limitDate != ''){
+            $(".title").html('您被禁言到' + limitDate);
+        }else{
+            if(type == 'fans'){
+                console.log('1232132');
+                rtype = 5;
+                $(".title").html('<span>今日剩余<span class="num">' + limit[type] + '</span>条</span>');
+            }else if(type == 'single_user'){
+                console.log('45665465456456');
+                rtype = 5;
+                $(".title").html('<span>今日剩余<span class="num">' + limit[type] + '</span>条</span>');
+            }
+        }
+    }
+   
+    //js判断编辑框中是否含有图片
+    function isHaveImg(content){
+         var haveFlag = false;
+         content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match) {
+             //console.log(content);
+             //alert(match);
+             if(match!=''){
+                haveFlag = true;   
+             }
+               
+         });
+         return haveFlag;
+    }
+});
+    </script>
+</body>
+</html>

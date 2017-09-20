@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>风险测评</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+
+	<form id="tradeform" name="tradeform" action="/stockauth/redictTradeForm.jspa" method="post">
+		<input type="hidden" name="redirectkey" value="$!{redirectkey}"/>
+        <input type="hidden" name="usercode" value="$!{usercode}"/>
+	</form>
+
+	#foreach($ques in $list)
+    <h3>题目$ques.quCode $ques.quText</h3>
+		#foreach($choice in $ques.choice)
+        <h5>$choice.quChoice $choice.choiceText</h5>
+		#end
+	#end
+
+	<br/>
+
+    <input type="button" id="submit" value="提交测评试题" />
+
+    <script>
+
+        var convertToJsonObject = function(str){
+
+            if(typeof str != 'object'){
+                return JSON.parse(str);
+            }else{
+                return str;
+            }
+        };
+
+        $("#submit").click(function () {
+            var datasubmit = {
+                usercode: $('input[name=usercode]').val(),
+                surveyCols: '1|2|3|4|5|6|7|8|9|10|11',
+                surveyCells: '1|2|3|1|2|3|2|1,2,3|1|1|1'
+            };
+
+            $.ajax({
+                url: '/stockauth/submitRiskTestAnswer',
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                data: datasubmit,
+                success: function (data) {
+                    var resp = convertToJsonObject(data);
+                    if (resp.retcode == '0') {
+                        alert(resp.data.ratingLvlName);
+                        $("#tradeform").submit();
+                    } else {
+                        alert("提交失败，请重新提交！");
+                    }
+                }
+            });
+        })
+    </script>
+
+</body>
+</html>

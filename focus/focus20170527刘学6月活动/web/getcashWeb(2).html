@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link type="text/css" rel="stylesheet" href="http://js.jrjimg.cn/common/edition15/css/common2015.css" />
+    <style>
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body,
+    div,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    blockquote,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    pre,
+    form,
+    fieldset,
+    legend,
+    button,
+    input,
+    textarea,
+    table,
+    th,
+    td {
+        margin: 0;
+        padding: 0;
+    }
+    
+    address,
+    cite,
+    em,
+    i {
+        font-style: normal;
+    }
+    
+    body {
+        -webkit-appearance: none;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    a {
+        color: #feeb12;
+        text-decoration: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        outline: none;
+    }
+    
+    a:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    a:active {
+        background-color: transparent;
+    }
+    
+    img {
+        vertical-align: top;
+        border: 0;
+    }
+    
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        cursor: pointer;
+    }
+    
+    input {
+        outline: none;
+    }
+    
+    html,
+    body {
+        font: 16px/28px "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "微软雅黑", simsun, "宋体", tahoma, arial;
+        color: #fff;
+    }
+    
+    .clearfix:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+    
+    .fl {
+        float: left;
+    }
+    
+    .fr {
+        float: right;
+    }
+    
+    .bsbb {
+        box-sizing: border-box;
+    }
+    
+    .enter {
+        font-size: 12px;
+    }
+    
+    .in {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .footer {
+        margin-bottom: 224px;
+    }
+    
+    body {
+        min-width: 1000px;
+        overflow-x: hidden;
+        background: #ffbb36;
+        color: #feeb12;
+    }
+    
+    .show {
+        display: block !important;
+    }
+    
+    .item1 {
+        margin-top: 40px;
+        height: 747px;
+        background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/webbg_01.jpg) no-repeat center center; position: relative;
+    }
+    .sharebtn{position: absolute;display: block;width: 65px;height: 85px;top: 100px;right:100px;
+background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160829/web/icn_fx.png) 0 0 no-repeat;
+cursor: pointer;}
+    .item2 {
+        height: 788px;
+        background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/webbg_02.jpg) no-repeat center center;
+        text-align: center;
+    }
+    
+    .item3 {
+        height: 1014px;
+        background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/webbg_03.jpg) no-repeat center center;
+    }
+    
+    .item4 {
+        height: 770px;
+        background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/webbg_04.jpg) no-repeat center center;
+    }
+    
+    .webbt {
+        height: 241px;
+        background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/webbt.png) no-repeat center center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 9;
+    }
+    
+    .lieren {
+        width: 900px;
+        padding: 30px;
+        background: #fff;
+        border-radius: 5px;
+        margin: 0 auto 40px;
+        box-shadow: 0 0 5px #ccc;
+    }
+    
+    .lieren .txt {
+        width: 460px;
+        color: #000;
+    }
+    
+    .lieren .txt a:hover {
+        color: #ff491f
+    }
+    
+    .lieren .txt a {
+        color: #ff491f
+    }
+    
+    .lieren .txt h3 {
+        font-size: 38px;
+        line-height: 38px;
+    }
+    
+    .lieren .txt .p1 {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    
+    .lieren .txt .p2 {
+        margin-bottom: 5px;
+        line-height: 22px;
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    
+    .tit {
+        text-align: center;
+    }
+    
+    .tit h3 {
+        font-size: 46px;
+        line-height: 90px;
+        font-weight: normal;
+    }
+    
+    .tit p {
+        font-size: 20px;
+        color: #fff;
+    }
+    
+    .item2 .p1 {
+        padding-top: 320px;
+        font-size: 20px;
+    }
+    
+    .item2 .p2 {
+        padding-top: 364px;
+        font-size: 30px;
+    }
+    
+    @keyframes haha {
+        from {
+            transform: scale(6);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    .zy-Slide {
+        font-size: 12px;
+        position: relative;
+        margin: 50px auto 50px;
+        height: 360px;
+    }
+    
+    .zy-Slide .swipe-left,
+    .zy-Slide .swipe-right {
+        position: absolute;
+        top: 53px;
+        width: 140px;
+        height: 360px;
+        z-index: 2;
+        cursor: pointer;
+    }
+    
+    .zy-Slide .swipe-left {
+        left: 0;
+    }
+    
+    .zy-Slide .swipe-right {
+        right: 0;
+    }
+    
+    .zy-Slide ul {
+        position: relative;
+        width: 1200px;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .zy-Slide li {
+        position: absolute;
+        list-style: none;
+        background: #000;
+        height: auto !important;
+        top: 146px;
+        left: 377px;
+        z-index: 0;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        box-shadow: 0 0 10px 0 #1c3d99;
+        background: #fff;
+        text-align: center;
+        color: #ff613c;font-size: 15px; line-height: 40px;
+    }
+    
+    .zy-Slide li img {
+        vertical-align: middle;
+        width: 100%
+    }
+    
+    .zy-Slide section:nth-child(1),
+    .zy-Slide section:nth-child(2) {
+        position: absolute;
+        top: 50%;
+        width: 39px;
+        height: 40px;
+        margin-top: -20px;
+        cursor: pointer;
+        line-height: 40px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    
+    .zy-Slide section:nth-child(1) {
+        left: -60px;
+    }
+    
+    .zy-Slide section:nth-child(2) {
+        right: -60px;
+    }
+    
+    .point-box {
+        text-align: center;
+        padding: 0 0 10px
+    }
+    
+    .point-box a {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        vertical-align: middle;
+        width: 9px;
+        height: 9px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 1px 2px 0 #828282;
+    }
+    
+    .point-box a.active {
+        background: #ffee35;
+    }
+    
+    .level2_body {
+        margin: 0 auto;
+        width: 470px;
+        margin-top: 60px;
+    }
+    
+    .level2_body li {
+        text-align: left;
+        line-height: 40px;
+        color: #fff;
+        font-size: 16px;
+    }
+    
+    .level2_body li span {
+        float: left;
+        width: 22px;
+        height: 22px;
+        border: 2px solid #000;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 22px;
+        background-color: #fff;
+        color: #ff8973;
+        margin-right: 11px;
+        margin-top: 9px;
+    }
+    
+    .tit .fontColor {
+        color: #ffee35;
+    }
+    
+    .item4 .in {
+        padding-top: 150px;
+    }
+    
+    .item4 .marginTop {
+        margin-top: 60px;
+        padding-top: 0;
+    }
+    
+    .marginTop .tit {
+        margin-bottom: 20px;
+    }
+    
+    .marginTop .level2_body {
+        margin-top: 0;
+    }
+    
+    .level2_body div {
+        float: left;
+        width: 425px;
+        line-height: 26px;
+    }
+    
+    .marginTop .level2_body li span {
+        margin-top: 0;
+    }
+    
+    .item4 .bottom {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 16px;
+        color: #ff613c;
+    }
+    
+    .webbt .in {
+        padding-top: 87px;
+    }
+    
+    .keyGet {
+        margin-right: 32px;
+        width: 300px;
+        line-height: 70px;
+        border: 3px solid #000;
+        background-color: #fff;
+        color: #000;
+        font-size: 28px;
+        border-radius: 10px;
+        float: right;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+    }
+    
+    .keyGet:hover {
+        color: #000;
+    }
+    
+    .keyGet:active {
+        background: #ffb401
+    }
+    /*弹层*/
+    
+    .mask {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: .6;
+        filter: alpha(opacity=60);
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        display: none;
+    }
+    
+    .layer {
+        display: none;
+        width: 518px;
+        height: 483px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -241px;
+        margin-left: -259px;
+        z-index: 9999;
+        color: #fff7b9;
+        animation: haha .6s cubic-bezier(1, -0.49, 0, 1.5);
+        background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/layer1.png) no-repeat;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+    }
+    
+    .layer h3 {
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: normal;
+        margin-top: 72px;
+        height: 90px;
+        margin-left: 28px;
+    }
+    .layer .h3width em{ display: block;width:340px; text-align: left; margin-left: 94px;}
+    .codein {
+        width: 190px;
+        height: 190px;
+        margin-left: 173px;
+        margin-bottom: 38px;
+        padding:6px;
+        background:#fff;
+    }
+    
+    .layer p {
+        font-size: 18px;
+        color: #fff;
+        padding-top: 7px;
+    }
+    
+    .layer span {
+        display: block;
+        height: 6px;
+        overflow: hidden;
+    }
+    
+    .closebtn {
+        width: 25px;
+        height: 25px;
+        background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/close.png) no-repeat;
+        position: absolute;
+        top: 57px;
+        right: -20px;
+        cursor: pointer;
+    }
+    
+    .closebtn:hover {
+        background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/close.png);
+        background-position: -28px 0;
+    }
+
+    
+    .layer_03 h3 {
+        text-align: center;
+    }
+    
+    .layer .pfont {
+        font-size: 16px;
+        padding-top: 0;
+    }
+    
+    @keyframes haha {
+        from {
+            transform: scale(6);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    </style>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.qrcode.min.js"></script>
+</head>
+
+<body>
+    <script src="http://js.jrjimg.cn/common/head/headTop.js"></script>
+    <div class="item1"><span class="sharebtn"></span></div>
+    <div class="item2">
+        <div class="in">
+            <p class="p1"><a href="javascript:;">交易券使用步骤详解></a></p>
+            <p class="p2">绑定平安证券，限量领取</p>
+        </div>
+    </div>
+    <div class="item3">
+        <div class="in">
+            <div class="lieren clearfix">
+                <img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/webimg1.png" alt="" class="fl">
+                <div class="fr txt">
+                    <h3>猎人X—A股宗师级导师</h3>
+                    <p class="p1">股市新手保护月，小白进阶必看内参</p>
+                    <p class="p2">爱投顾资深投顾，80后职业证券投资顾问，08年始入行中国A股市场，曾任某知名基金策略分析师。</p>
+                    <p class="p2">内参战绩：</p>
+                    <p class="p2">1.《新手专享：投资策略专栏》订阅200余人，订阅数量同期投顾中位列第一；
+                        <br />2.教学收费专栏1088元《猎人X：真教学实战内参A期》，发售两天订阅超过80份，猎人X老师紧急停售。</p>
+                    <a href="javascript:;">更多精彩，请开户领取本期内参></a>
+                </div>
+            </div>
+            <div class="tit">
+                <h3>炒股利器——Z点操盘</h3>
+                <p>四大核心功能，全方位把握短线盈利机会</p>
+            </div>
+            <div id="Slide1" class="zy-Slide">
+                <div class="swipe-left"></div>
+                <div class="swipe-right"></div>
+                <ul>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img1.png" />
+                        <p>出现ZS点信号，即可操盘：Z点加仓，S点减仓</p>
+                    </li>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img4.png" />
+                        <p>一旦自选股、持仓股出现Z点信号，及时推送消息不错过每一个买入机会</p>
+                    </li>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img3.png" />
+                        <p>3000多只股票，10年数据机器学习演算，Z点准确率高达75%</p>
+                    </li>
+                    <li><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170527getcash/swipe_img2.png" />
+                        <p>新增趋势雷达和中线拐点预判功能，中期炒股风向标</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="point-box">
+                <a href="javascript:;" class="active"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+    </div>
+    <div class="item4">
+        <div class="in">
+            <div class="tit">
+                <h3>Level-2超级行情</h3>
+                <p>追踪主力获取最大利益</p>
+            </div>
+            <div class="level2_body">
+                <ul>
+                    <li><span>1</span>行情升级：五挡升十挡(深市千档)精确定位主力轨迹</li>
+                    <li><span>2</span>逐笔成交：精确查看每一笔成交明细追踪主力资金动向</li>
+                    <li><span>3</span>动态委托队列：检测个股</li>
+                </ul>
+            </div>
+        </div>
+        <div class="in marginTop">
+            <div class="tit">
+                <p class="fontColor">如何查看Z点和Level-2行情</p>
+            </div>
+            <div class="level2_body">
+                <ul>
+                    <li class="clearfix"><span>1</span>
+                        <div>活动期间首次绑定平安证券资金账号后，即可自动获得1个月Z点操盘和L2行情使用权限。</div>
+                    </li>
+                    <li class="clearfix"><span>2</span>
+                        <div>登录金融界APP-->点击自选股或持仓股-->“分时”查看十档行情，“日K”查看Z点操盘指标。</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            股市有风险，投资需谨慎。客服电话：400-166-1188
+        </div>
+    </div>
+    <div class="webbt">
+        <div class="in">
+            <a href="javascript:one_click();" class="keyGet">一键领取</a>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <!--1-->
+    <div class="layer layer_01">
+        <i class="closebtn"></i>
+        <h3>您好！此现金券仅限未在金融界交易用户领取<br />关注“交易助手”，<br />后续活动将有“重复交易”现金券等福利发放。
+</h3>
+        <div class="code">
+            <div class="codein"></div>
+        </div>
+        <p>码上扫一扫!</p>
+    </div>
+    <!--2-->
+    <div class="layer layer_02">
+        <i class="closebtn"></i>
+        <h3 class="h3width"><em>恭喜您获得了15元交易券！可去APP“我的”--“交易券”查看提现。<br />活动期间首次绑定还将获得猎人X内参、Z点操盘<br />+level-2行情1个月权限。</em></h3>
+        <div class="code">
+            <div class="codein"></div>
+        </div>
+        <p class="pfont">下载金融界APP
+            <br />一分钟开启</p>
+    </div>
+    <!--3-->
+    <div class="layer layer_03">
+        <i class="closebtn"></i>
+        <h3 class="">恭喜您获得了15元交易券！<br />可去APP“我的”--“交易券”查看提现。<br /><span></span>绑定平安账号还可自动获得猎人X内参、<br />Z点操盘+level-2行情1个月权限。</h3>
+        <div class="code">
+            <div class="codein"></div>
+        </div>
+        <p class="pfont">下载金融界APP
+            <br />提现15元现金</p>
+    </div>
+    <!--3-->
+    <div class="layer layer_04">
+        <i class="closebtn"></i>
+        <h3 class="">恭喜您获得了15元交易券！<br />可去APP“我的”--“交易券”查看提现。<br /><span></span>开户绑定平安账号后还可自动获得猎人X内参、<br />Z点操盘+level-2行情1个月权限。
+
+</h3>
+        <div class="code">
+            <div class="codein"></div>
+        </div>
+        <p class="pfont">下载金融界APP
+            <br />提现15元现金</p>
+    </div>
+    <!--4-->
+    <div class="layer layer_05">
+        <i class="closebtn"></i>
+        <h3 class="h3width"><em><span></span><span></span><span></span>分享到微信好友、朋友圈和微博，送给好友15元现金，还有教学内参、Z点操盘+level-2行情~<em></h3>
+        <div class="code">
+            <div class="codein"></div>
+        </div>
+        <p>分享更有爱～</p>
+    </div>
+    <script src="https://zqhd.eastmoney.com/Html/aghd/pc/20170512/resource/js/jquery.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript">
+    //让bind函数支持IE8
+    if (!Function.prototype.bind) {
+        Function.prototype.bind = function(oThis) {
+            if (typeof this !== "function") {
+                throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+            }
+            var aArgs = Array.prototype.slice.call(arguments, 1),
+                fToBind = this,
+                fNOP = function() {},
+                fBound = function() {
+                    return fToBind.apply(this instanceof fNOP && oThis ? this : oThis,
+                        aArgs.concat(Array.prototype.slice.call(arguments)));
+                };
+            fNOP.prototype = this.prototype;
+            fBound.prototype = new fNOP();
+            return fBound;
+        };
+    }
+    //-------------------------------------------------------------------------//
+    (function($) {
+        // 创建构造函数
+        function Slide(ele, options) {
+            this.$ele = $(ele) //this. 构造函数的实例对象
+            this.options = $.extend({
+                    speed: 1000,
+                    delay: 3000
+                }, options) //拓展
+            this.states = [
+                /*{ '&zIndex': 1, width: 120, height: 150, top: 71, left: 134, $opacity: 0.5 },
+                { '&zIndex': 2, width: 130, height: 170, top: 61, left: 0, $opacity: 0.6 },
+                { '&zIndex': 3, width: 170, height: 218, top: 37, left: 110, $opacity: 0.7 },
+                { '&zIndex': 4, width: 224, height: 288, top: 0, left: 262, $opacity: 1 },
+                { '&zIndex': 3, width: 170, height: 218, top: 37, left: 468, $opacity: 0.7 },
+                { '&zIndex': 2, width: 130, height: 170, top: 61, left: 620, $opacity: 0.6 },
+                { '&zIndex': 1, width: 120, height: 150, top: 71, left: 496, $opacity: 0.5 }*/
+                {
+                    '&zIndex': 1,
+                    width: 500,
+                    height: '300',
+                    top: 53,
+                    left: 0,
+                    $opacity: 0.8
+                }, {
+                    '&zIndex': 2,
+                    width: 700,
+                    height: '380',
+                    top: 0,
+                    left: 150,
+                    $opacity: 1
+                }, {
+                    '&zIndex': 1,
+                    width: 500,
+                    height: '300',
+                    top: 53,
+                    left: 500,
+                    $opacity: 0.8
+                }, {
+                    '&zIndex': 1,
+                    width: 500,
+                    height: '300',
+                    top: 53,
+                    left: 250,
+                    $opacity: 0.8
+                }
+            ]
+            this.lis = this.$ele.find('li')
+            this.interval
+                // 点击切换到下一张
+
+            this.$ele.find('.swipe-right').on('click', function() {
+                    this.stop()
+                    this.next()
+                    this.play()
+                    for (var i in this.$ele.find('li')) {
+                        if (this.$ele.find('li').eq(i).css('z-index') == 2) {
+                            $('.point-box a').removeClass('active');
+                            $('.point-box a').eq(i).addClass('active');
+                        }
+                    }
+                }.bind(this))
+                // 点击切换到上一张
+            this.$ele.find('.swipe-left').on('click', function() {
+                this.stop()
+                this.prev()
+                this.play()
+                for (var i in this.$ele.find('li')) {
+                    if (this.$ele.find('li').eq(i).css('z-index') == 2) {
+                        $('.point-box a').removeClass('active');
+                        $('.point-box a').eq(i).addClass('active');
+                    }
+                }
+            }.bind(this))
+            this.move()
+                // 让轮播图开始自动播放
+            this.play()
+        }
+
+
+        Slide.prototype = {
+
+
+            // 原型是一个对象，所以写成一个花括号
+
+            // move()方法让轮播图到达states指定的状态
+            // <1>当页面打开时将轮播图从中心点展开
+            // <2>当轮播图已经展开时，会滚动轮播图(需要翻转states数组中的数据)
+            move: function() {
+
+                this.lis.each(function(i, el) {
+                    $(el)
+                        .css('z-index', this.states[i]['&zIndex'])
+                        .finish().animate(this.states[i], this.options.speed)
+                        // .stop(true,true).animate(states[i], 1000)
+                        .find('img').css('opacity', this.states[i].$opacity)
+                }.bind(this))
+                for (var i in this.lis) {
+                    if (this.lis.eq(i).css('z-index') == 2) {
+                        $('.point-box a').removeClass('active');
+                        $('.point-box a').eq(i).addClass('active');
+                    }
+                }
+            },
+            // 让轮播图切换到下一张
+            next: function() {
+
+                this.states.unshift(this.states.pop())
+                this.move()
+            },
+            // 让轮播图滚动到上一张
+            prev: function() {
+
+                this.states.push(this.states.shift())
+                this.move()
+            },
+            play: function() {
+
+                this.interval = setInterval(function() { //这个this指window
+                    // setInterval、setTimeOut 中的this指向window
+
+                    // states.unshift(states.pop())       //从后往前走
+                    // states.push(states.shift())     //从前往后走
+                    this.next()
+                }.bind(this), this.options.delay)
+            },
+            // 停止自动播放
+            stop: function() {
+                // var _this = this
+                clearInterval(this.interval)
+            }
+
+        }
+        $.fn.zySlide = function(options) {
+            this.each(function(i, ele) {
+                new Slide(ele, options)
+            })
+            return this
+        }
+    })(jQuery)
+    </script>
+    <script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    };
+
+
+    $(function() {
+        jQuery('.zy-Slide').zySlide({
+            speed: 500
+        }).css('border', '0px solid blue');
+
+        $(".closebtn").click(function() {
+            $(this).parent().fadeOut(100);
+            $(".mask").hide();
+        })
+    });
+
+
+    var tgqdcode = getQueryString('tgqdcode');
+
+$('.layer .codein').empty().qrcode({
+    width: "190",
+    height: "190",
+    image: null,
+    text: 'http://appcms.jrj.com.cn/download.jspa?channel=mainsite2'
+});
+
+    var one_click = function() {
+
+        $.ajax({
+            url: 'https://t.jrj.com.cn/activities/june/one_click?matchId=7&tgqdcode=' + tgqdcode,
+            type: "get",
+            cache: false,
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success: function(v) {
+                if (v.retcode == 700010) {
+                    window.location.href = 'https://sso.jrj.com.cn/sso/ssopassportlogin?ReturnURL=' + location.href + '&fromId=JRJ';
+                    return;
+                }
+
+                if (v.retcode == 0) {
+                    $(".mask").show();
+
+                    var status = v.data.status;
+                    // 1= 已经完成首次交易， 2= 已经绑定 3= 完成开户未绑定，4=未开户
+                    if (status >= 1 && status <= 4) {
+                        $(".layer_0" + status).fadeIn(100);
+                    }
+                }
+
+            },
+            error: function() {
+
+            }
+        });
+
+
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>账户分析</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#878C92; }
+body{background: #f04337 url(img/bg.jpg) no-repeat;background-size: 100% 100%;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+.borb{border-bottom:#EFEFF4 .5rem solid;}
+
+.msg{ position: fixed;top:0; right:.5rem;}
+.msg i{float: left; line-height: 2.5rem;color: #fff4c8;font-size: .75rem; margin-right: .3rem;}
+.msg em{ float: left;width:0;height: 0;border:6px solid transparent;border-left:6px solid #fff4c8; margin-top: .9rem;}
+.txt{ width:14.45rem; margin:10.5rem auto 1rem; background:#fff4c8;border:4px solid #fdcc0f; border-radius: .8rem; line-height: 1rem;font-size:.75rem;color: #721e22;position: relative;padding:10px .6rem; }
+.txt i{ border:10px solid transparent;border-bottom: 10px solid #fdcc0f; position: absolute;left:1.8rem;top:-1.2rem;}
+.txt em{ color: #eb3e32;}
+.jindu{    padding-bottom: .8rem;}
+.jindu .up{ height: 3.5rem;background:url(img/jindu.png) no-repeat; background-size: 100% auto;width:15rem; margin:0 auto .2rem;position: relative;}
+.jindu i{background:url(img/jindu.png) no-repeat;background-size: 15rem auto;background-position: 0 -3.75rem;position: absolute;height: 3.5rem ;transition: all 1s;width:0; /*width:30%;width:70%*/}
+
+.jindu .time {width:14.7rem; margin:0 auto;}
+.jindu .time span{ width:2.625rem; line-height: .9rem;text-align: center; color: #fff;background:#87312a;border-radius: .45rem;font-size: .7rem;}
+.jindu .time span:nth-child(2){ margin-left:3.25rem;}
+.btn1{ width:10.875rem; margin:.6rem auto 0;text-align: center; font-size: .8rem; color: #3e0f11; display: block;background:#ffc90e; line-height: 1.9rem;border-radius: .95rem;box-shadow: 0 5px 0 0 #87312a;}
+.btn2{ width:10.875rem; margin:.6rem auto 0;text-align: center; font-size: .8rem; color: #fff; display: block;background:#738dff; line-height: 1.9rem;border-radius: .95rem;box-shadow: 0 5px 0 0 #445cc6;}
+
+
+/*弹层*/
+.mask {display: none;  position: fixed; width: 100%; height: 100%; background: #000; opacity: .6; filter: alpha(opacity=60); top: 0; left: 0; z-index: 20; }
+.layer{display:none;width: 16.5rem;height: 19.2rem;position: fixed;top: 2rem;left: 50%;margin-left: -8.45rem;z-index: 21;color: #000;animation: haha .6s cubic-bezier(1,-0.49, 0, 1.5); color: #2f0c0a;background: #fff4c8;border: 4px solid #fdcc0f;border-radius: .8rem;}
+.layer p{ font-size:.7rem;line-height: 1.1rem; margin: 0 .6rem;}
+.layer .tit{ text-align: center;font-size: .75rem; line-height: 1.5rem; margin-top: 5px;}
+@keyframes haha {
+from { transform: scale(6); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+.closebtn{ position:absolute;cursor:pointer;left:50%;bottom:-3rem;margin-left:-1.1rem ;width:2.2rem; height: 2.2rem;background:url(img/close.png) no-repeat; background-size: 100% 100%;}
+
+</style>
+<body>
+    <div class="msg"><i>活动说明</i><em></em></div>
+    <div class="txt"><i></i>连续三日截图分享任意页面，我们豪气的送您价值<em>598元的Z点操盘</em>的7日免费体验及<em>50个“金豆”</em>。</div>
+    <div class="jindu">
+        <div class="up"><i></i></div>
+        <div class="clearfix time">
+            <span class="fl">第1天</span>
+            <span class="fl">第2天</span>
+            <span class="fr">第3天</span>
+        </div>
+    </div>
+    <a class="btn1" href="javascript:;">立即去截图分享</a>
+    <a class="btn2" href="javascript:;">立即去体验Z点操盘</a>
+    <div class="mask"></div>
+    <!--抽中-->
+    <div class="layer">
+        <i class="closebtn"></i>
+        <p class="tit">活动说明</p>
+       <p>1、您需要连续三日截图分享到朋友圈、微信好友、QQ、微博后，即可参与成功<br />
+        2、该活动只限于没有体验过Z点操盘的用户，如果您已经体验过z点操盘，则我们将送你8折购买优惠券<br />
+        3、你在分享时一定处在登录状态，分享后我们才能发金豆和Z点操盘7天免费体验。非登录情况下，参加活动无效。<br />
+        4、同一个账号（包括同一个设备、同一个账号、同一个身份证）只能参加一次分享活动。<br />
+        5、Z点操盘免费活动激活后，我们会发放短信给您，请您及时使用。从激活开始算起7天后免费体验结束。<br />
+        6、您在参加活动成功后，我们将在3个工作日内发放金豆（积分），到您的积分商场。</p>
+    </div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>  
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    $(function(){
+        $('.up i').css('width','70%');
+    });
+</script> 
+   
+</body>
+</html>

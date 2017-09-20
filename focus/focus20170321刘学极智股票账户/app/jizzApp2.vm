@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>金融界——“极·智”股票账户</title>
+<meta name="description" content="">
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<style>
+/*reset*/
+* { -webkit-tap-highlight-color:rgba(0, 0, 0, 0) }
+html, body, div, p, h1, h2, h3, h4, h5, ol, ul, li, dl, dt, dd { padding:0; margin:0 }
+html { font-family: "Helvetica Neue", Helvetica, STHeiTi, "Microsoft YaHei", sans-serif; -webkit-text-size-adjust: 100%; }
+body { font-size:14px; background:#000; line-height:1.5 ; width:100%; height:100%}
+img { vertical-align: middle; border:0 }
+a, img { -webkit-touch-callout: none; }
+ul, ol { list-style:none }
+a { text-decoration:none; color:#000 }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+address, cite, em, i { font-style: normal; }
+/*arrow*/
+.arrow_down, .arrow_up { position:absolute; width:100%; height:30px; z-index:11}
+.arrow_down { top:1%; }
+.arrow_up { bottom:0%; margin-bottom: 0%;}
+.arrow_down span, .arrow_up span { position:absolute; top:0; left:0; width:100%; height:100%; -webkit-animation-name:arrowUpDown; -webkit-animation-duration:.4s; -webkit-animation-iteration-count: infinite; -webkit-animation-direction: alternate; -webkit-animation-timing-function:linear; }
+.arrow_down span { background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/arrow_down.png) no-repeat center center; background-size:22px }
+.arrow_up span { background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/arrow_up.png) no-repeat center center; background-size:22px }
+@-webkit-keyframes arrowUpDown { 0% {top:0;}
+100% {top:-15%;}}
+/*main*/
+html, body, #app { width:100%; height:100%; overflow:hidden }
+#app { max-width:100%; margin:0 auto; position:relative; background-color:#000 }
+#main, #main > div { width:100%; height:100%; position:absolute; left:0; top:0; }
+/*1*/
+#section1 {transition:all 1s; background:url(img/h5_bg1.png) no-repeat center top; background-size:100% 100%;z-index:11; }
+#section2 {transition:all 1s; z-index:10; overflow: hidden}
+#section3 {transition:all 1s; z-index:9; }
+#section4 {transition:all 1s; z-index:8;}
+
+/*3*/
+@-webkit-keyframes bounceInUp { 0% {
+opacity:0;
+-webkit-transform:translateY(1000px)
+}
+100% {
+-webkit-transform:translateY(0)
+}
+}
+.bounceInUp { -webkit-animation-name:bounceInUp; }
+
+ @media screen and (min-height:500px) {
+    .todos { padding-top:15px; }
+    .todos .sec { margin-bottom:10px; }
+    .todos dl { margin-bottom: 10px; }
+}
+
+
+
+
+
+.bgsprite{width:1.5rem; height: 1.5rem; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/sprite.png) no-repeat;display: block; background-size: 11rem 11rem;}
+.line{ width:5rem; height: 4px; background: #8080c7; display: block;}
+
+
+.item01{ padding-top: 1.5rem; padding-left: 1.25rem;}
+.item01 .glbtn{color: #5d626f;font-size: .9rem; margin-left: 1.2rem; text-decoration: underline;}
+.itembtn01{display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center; width:13.3rem; height: 2.5rem; background:#105afb;border-radius: 1.25rem; margin:1.5rem auto 0;}
+.itembtn01 span{width:2.1rem;height:1.25rem ;background-position:-4.1rem -3.6rem;background-size: 6rem 6rem; }
+.itembtn01 em{ font-size:1rem;color:#fff; }
+#section1 ul{ margin-top: 10rem; margin-left: 2rem; line-height:1.5rem;}
+#section1 ul span{ float: left;color: #287ed6; margin-right: .7rem;}
+#section1 ul em{ float: left; color: #e4e4e4;}
+
+#section2 .linebox{width:15rem; margin: 0 auto; padding-top: 1.27rem;}
+#section2 h3 { margin-top: .5rem; font-size: 1.2rem; color: #8080c7;line-height: 3.3rem; text-align: center;}
+#section2 h3 b{ font-size: 1.8rem; color: #5050a6;}
+#section2 h3 strong { color: #8080c7; font-size: 1.5rem;}
+#section2 ul{margin-left: 3rem; line-height: 1.925rem; font-size: .7rem; color: #bdbdbd; margin-bottom: 20px; }
+#section2 ul li{overflow: hidden;}
+#section2 ul span{ color: #8080c7; font-weight: bold;font-size:1rem; margin-right: .6rem;float:left;margin-top: 2px;}
+#section2 ul em{color: #000; font-size: .7rem; padding-left: 1rem; border-left:1px solid #bdbdbd; line-height: .8rem;float: left; margin-top: .7rem;}
+#section2 p{ line-height:25px; margin-top: 10px; color:#000;font-size: 14px; }
+
+.sliderbox{ position: absolute;bottom: 19rem; width:10.925rem; margin-left: -5.462rem; left:50%;}
+.phone{width:10.925rem; height:20rem; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/phone.png) no-repeat; position: absolute; box-shadow:0 12px 19px 0px #ccc; border-radius: 1.7rem;top: 0px;z-index: 2;background-size: 100% 100%; left:0;}
+
+
+#section3 .linebox{width:15rem; margin: 0 auto; padding-top: 1.27rem;}
+#section3 .linebox .line{background: #e6cd70;box-shadow: 0 0 19px 0px #fff;}
+#section3 h3 { margin-top: .5rem; font-size: 1.2rem; color: #bda033;line-height: 3.3rem; text-align: center;}
+#section3 h3 b{ font-size: 1.8rem; color: #ffe00c;}
+#section3 h3 strong { color: #ffcc0c; font-size: 1.5rem;}
+#section3 ul{margin-left: 3rem; line-height: 1.925rem; font-size: .7rem; color: #bdbdbd; margin-bottom: 20px; }
+#section3 ul li{overflow: hidden;margin-bottom: .55rem; line-height: 1.8rem;}
+#section3 ul span{  margin-right: 0;float:left;margin-top: 2px; width:1.8rem; height: 1.8rem;background-size: 9rem 9rem; }
+#section3 ul .span1{background-position: -84px -35px;}
+#section3 ul .span2{background-position: -84px -72px;}
+#section3 ul .span3{background-position: -84px -109px;}
+#section3 ul .span4{background-position: -84px -146px;}
+#section3 ul em{color: #865f00; font-size: .7rem; padding-left: 1rem;line-height: .8rem;float: left; margin-top: .7rem;}
+#section3 p{ line-height:25px; margin-top: 10px; color:#000;font-size: 14px; }
+#section3 img{width:12.5rem; margin-left: 3.5rem; }
+
+
+#section4 h3{ line-height: 2.5rem; font-size: 1.8rem; color: #000;text-align: center; padding-top: 3rem;}
+#section4 .line{background:#642600; margin:.6rem auto 0;}
+#section4 .subtit{ line-height: 2.5rem; font-size: 1.1rem;text-align: center;}
+#section4 .subtit span{font-size: 1.3rem; color: #bf0909;}
+#section4  ul { padding-bottom: 2.5rem; margin-left: 2rem;}
+#section4  ul li{  margin-top: 18px;}
+#section4  ul li p{ line-height: 1.1rem;font-size: 1rem; border-left:1px solid #c7b4a9; padding-left: 7px; color: #000;}
+#section4  ul li span{ color: #c7b4a9; display: block; margin-left: .5rem; line-height: 1.6rem; font-size: .6rem; } 
+.section4btn{text-align: center;}
+.section4btn a{font-size: 1rem; color: #000; border-bottom:1px solid #000;}
+
+
+.sec2btn{ position: absolute;bottom:1.2rem; width:18.35rem; left:50% ; margin-left: -9.175rem; z-index: 5;}
+.kaitongbtn{ display: block;width:9rem; height:1.9rem;font-size: .75rem; color: #fff;background:#5050a6; border-radius:3px;text-align: center; line-height: 1.9rem;  cursor: pointer;}
+.kaitongbtn2{ background:rgba(185,186,187,.7);padding-top: .1rem;height: 1.8rem;}
+.kaitongbtn2 em{line-height:.85rem; display: block;}
+.kaitongbtn2 .two{ text-decoration: line-through;}
+.kaitongbtn3{ background: #ffe00c; }
+.kaitongbtn4{ background: #5b5c5e; color: #fff;border:1px solid #a1a2a3; }
+.btn_01{display: none;}
+#img{width:9.8rem; height: 15.8rem;background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/1.png) no-repeat center center; z-index: 3; position: relative; background-size:100% 100%; position: absolute;left:.57rem; top:2.45rem;}
+
+/*关于弹窗*/
+.mask{ /*display:none;*/position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 11;}
+.layer{/*display:none;*/width: 16.25rem;height: 13rem;background: url(img/h5_lay1.png);position: fixed;top: 50%;left: 50%;margin-top: -6.5rem;margin-left: -8.125rem;z-index: 12;color: #000;animation: haha .3s linear; background-size: 100% 100%;}
+.closebtn{ position:absolute; top:2.25rem;right:7px;width:1.8rem; height:1.8rem; cursor:pointer;   }
+.tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+.lay_txt{color: #fff; line-height: 1.25rem; font-size: .75rem; text-align: center; padding-top: 7.25rem;}
+.lay_btn{ line-height: 1.8rem; width:9.7rem; margin:.5rem auto 0; display: block; text-align: center;background:#fed609; border-radius: 6px; font-size: .9rem; box-shadow: 0 3px 0 0 #f6b900;}
+
+.layer_wait{height:14rem; margin-top: -7rem; background-image: url(img/h5_lay2.png); }
+.layer_wait .lay_txt{color: #643902;}
+.layer_wait .lay_btn{background:#714307; color: #fff;box-shadow: 0 3px 0 0 #402605;}
+
+.layer_doneout{height:14.3rem; margin-top: -7.15rem; background-image: url(img/h5_lay3.png); }
+
+.layer_info{height:14rem; margin-top: -7rem; background-image: url(img/h5_lay4.png);}
+.layer_info ul { padding-top: 5.3rem;}
+.layer_info ul li{margin-bottom: .4rem;}
+.layer_info ul span{float: left;width: 5.3rem; margin-right: .5rem; line-height: 1.35rem;font-size: .75rem; color: #643902; text-align: right;}
+.layer_info ul input{outline:none; border:none;float: left; padding-left:.4rem; height:1.35rem; line-height: 1.35rem; background:#fff;border-radius: 4px; color:#643902; font-size: .75rem;}
+
+
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+</style>
+</head>
+
+<body class="b" style="background-color: #fff;">
+<div id="app">
+    <div id="main">
+<!-- section1 -->
+        <div style="top:0px; background-color:#141619;" id="section1">
+            <div class="item01 clearfix">
+                <span class="bgsprite fl"></span>
+                <a href="javascript:;" class="fl glbtn">点击查看攻略</a>   
+            </div>
+            <ul> 
+                <li class="clearfix"><span>极速</span><em>毫秒级行情，10档盘口</em></li>
+                <li class="clearfix"><span>智能</span><em>提醒买卖信号、把握交易时机</em></li>
+                <li class="clearfix"><span>免费</span><em>360°全新股票账户，限量发放，即刻开通</em></li>
+            </ul>
+            <p class="fl">活动时间：2017年4月3日-4月30日</p>
+            <div class="itembtn01">
+                <span class="bgsprite"></span>
+                <em>开通</em>
+            </div>
+        </div>
+
+    <!--section 2 -->
+        <div style="top:0px;background-color:#fff;" id="section2">
+                <div class="linebox"><em class="line"></em></div>
+                <h3><b>智</b>能股票账户-<strong>智慧账户</strong></h3>
+                <ul>
+                    <li><span>快</span><em>准确及时提醒持仓股票买卖信号</em></li>
+                    <li><span>准</span><em>采用金融界Z³智能金融引擎</em></li>
+                    <li><span>精</span><em>提高准确率，节省选股和盯盘时间</em></li>
+                    <li><span>明</span><em>Z点为加仓信号，S为减仓信号</em></li>
+                </ul>
+                <div class="sliderbox">
+                    <div id="img"></div>
+                    <input id="btn_explode" type="button" value="爆炸" class="btn_01" />
+                    <span class="phone"></span>
+                </div>
+                <div class="sec2btn">
+                    <span class="kaitongbtn kaitongbtn1 ktbtn fl" >免费开通“极-智”股票账户</span>
+                    <span class="kaitongbtn kaitongbtn2 ktbtn fr" ><em>Z点操盘598元订阅/季</em><em class="two">原价2000元</em></span>
+                </div>
+        </div>
+
+    <!--section 3-->
+        <div style="top:0px;background-color:#141619;" id="section3">
+            <div class="linebox"><em class="line"></em></div>
+            <h3><b>极</b>速股票账户——-<strong>level-2</strong></h3>
+            <ul>
+                <li><span class="bgsprite span1"></span><em>0.01秒行情 —— 快人一步</em></li>
+                <li><span class="bgsprite span2"></span><em>逐笔成交、买卖队列 —— 更多机会</em></li>
+                <li><span class="bgsprite span3"></span><em>委托数量、加权价格 —— 视角全面</em></li>
+                <li><span class="bgsprite span4"></span><em>势力对比，资金流向 —— 清晰明了</em></li>
+            </ul>
+            <img src="img/h5img1.png" alt="" class="layout-img">
+            <div class="sec2btn">
+                <span class="kaitongbtn kaitongbtn3 ktbtn fl" >免费开通“极-智”股票账户</span>
+                <a class="kaitongbtn kaitongbtn4 fr"  href="http://stock.jrj.com.cn/focus/zblv2/" target="_blank">level-2视频教程</a>
+            </div>
+        </div>
+
+
+    <!--section 4-->
+        <div style="top:0px;background-color:#f2f2f2;" id="section4">
+            <h3>有了金融界APP<br />炒股才如此与众不同</h3>
+            <em class="line"></em>
+            <p class="subtit">一站式证券交易平台<span>金融界</span></p>
+            <ul class="clearfix">
+                <li>
+                    <p>佣金万2.5，一年省下iPhone 7</p>
+                    <span>佣金直降9成，极速开户，费用全免</span>
+                </li>
+                <li>
+                    <p>精英投顾，实时解盘</p>
+                    <span>国内唯一0费用，0条件 享受顶级投顾服务</span>
+                </li>
+                <li>
+                    <p>秒速行情资讯，精彩实盘大赛</p>
+                    <span>和好友一起玩实盘游戏，一键跟单10强选手</span>
+                </li>
+                <li>
+                    <p>银行级安全保障、放心交易</p>
+                    <span>银行级风控，保障个人隐私及交易数据安全</span>
+                </li>
+            </ul>
+            <div class="section4btn"><a href="javascript:;">活动详情</a></div>
+        </div>
+      
+
+    </div>
+    <div class="arrow_down" style="top: -999px; opacity: 1;"><span></span></div>
+    <div style="opacity: 1; bottom: 0%;" class="arrow_up"><span></span></div>
+        
+  
+
+</div>
+<div class="mask"></div>
+<!--已领取-->
+<div class="layer layer_done">
+    <i class="closebtn"></i>
+    <p class="lay_txt">您成功领取“极智”股票账户，去实盘交易<br />页查看持仓股票的ZS点和level-2极速行情</p>
+    <span class="lay_btn">确定</span>
+</div>
+<!--待领取-->
+<div class="layer layer_wait">
+    <i class="closebtn"></i>
+    <p class="lay_txt">您暂不能领取“极智”股票账户，<br />请先去APP绑定平安资金账号就可查看持仓<br />股票的ZS点和level-2极速行情。</p>
+    <span class="lay_btn">确定</span>
+</div>
+<!--站外已领取-->
+<div class="layer layer_doneout">
+    <i class="closebtn"></i>
+    <p class="lay_txt">您已获得“极·智”股票账户中的<br />智慧账户一个月使用权限，<br />下载金融界APP查看，还有更多惊喜！</p>
+    <span class="lay_btn">确定</span>
+</div>
+<!--站外-->
+<div class="layer layer_info">
+    <i class="closebtn"></i>
+    <ul>
+        <li class="clearfix">
+            <span>请输入手机号</span>
+            <input  type="text"  placeholder="请输入手机号" />
+        </li>
+        <li class="clearfix">
+            <span>验证码</span>
+            <input  type="text"  placeholder="验证码" />
+            <div class="codeimg"></div>
+        </li>
+    </ul>
+    <span class="lay_btn">提交信息</span>
+</div>
+<script type="text/javascript" src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/touchslider.js"></script>
+<script type="text/javascript">
+$('.closebtn').click(function(){
+            $('.mask,.layer').hide();
+        });
+    // JavaScript by zns
+function rnd(n, m)
+{
+    return Math.random()*(m-n)+n;
+}
+
+function setStyle(obj, json)
+{
+    if(obj.length)
+    {
+        for(var i=0;i<obj.length;i++)
+        {
+            setStyle(obj[i], json);
+        }
+    }
+    else
+    {
+        for(var i in json)
+        {
+            obj.style[i]=json[i];
+        }
+    }
+}
+function setStyle3(obj, name, value)
+{
+    obj.style['Webkit'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['Moz'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['ms'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style['O'+name.charAt(0).toUpperCase()+name.substring(1)]=value;
+    obj.style[name]=value;
+}
+function buffer(obj, cur, target, fnDo, fnEnd, fs)
+{
+    if(!fs)fs=6;
+    var now={};
+    var x=0;
+    var v=0;
+
+    if(!obj.__last_timer)obj.__last_timer=0;
+    var t=new Date().getTime();
+    if(t-obj.__last_timer>20)
+    {
+        fnMove();
+        obj.__last_timer=t;
+    }
+
+    clearInterval(obj.timer);
+    obj.timer=setInterval(fnMove, 50);
+    function fnMove(){
+        v=Math.ceil((100-x)/fs);
+
+        x+=v;
+
+        for(var i in cur)
+        {
+            now[i]=(target[i]-cur[i])*x/100+cur[i];
+        }
+
+
+        if(fnDo)fnDo.call(obj, now);
+
+        if(Math.abs(v)<1 && Math.abs(100-x)<1)
+        {
+            clearInterval(obj.timer);
+            if(fnEnd)fnEnd.call(obj, target);
+        }
+    }
+};
+/*document.onmousedown=function ()
+{
+    return false;
+};*/
+
+window.onload=function ()
+{
+    var now=0;
+    var oDiv=document.getElementById('img');
+    var ready=true;
+    var W=$('#img').width();
+    var H=$('#img').height();
+    
+    function next(){
+        if(now==4){now=1;}
+        return (now+1)%3;
+    }
+    
+    //爆炸
+    function haha(){
+        if(!ready)return;
+        ready=false;
+        
+        var R=6;
+        var C=3;
+        
+        var cw=W/2;
+        var ch=H/2;
+        
+        oDiv.innerHTML='';
+
+        oDiv.style.background='url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/'+(next()+1)+'.png) center no-repeat';
+        oDiv.style.backgroundSize='100% 100%';
+        
+        var aData=[];
+        
+        var wait=R*C;
+        
+        for(var i=0;i<R;i++)
+        {
+            for(var j=0,k=0;j<C;j++,k++)
+            {
+                aData[i]={left: W*j/C, top: H*i/R};
+                var oNewDiv=document.createElement('div');
+                setStyle(oNewDiv, {
+                    position: 'absolute',
+                    background: 'url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/'+(now+1)+'.png)'+-aData[i].left+'px '+-aData[i].top+'px  no-repeat',
+                    width:Math.ceil(W/C)+'px', height: Math.ceil(H/R)+'px', left: aData[i].left+'px', top: aData[i].top+'px'
+                });
+                //setStyle3(oNewDiv, 'transition', '0.5s all ease-out');
+                
+                oDiv.appendChild(oNewDiv);
+                
+                var l=((aData[i].left+W/(2*C))-cw)*rnd(2,3)+cw-W/(2*C);
+                var t=((aData[i].top+H/(2*R))-ch)*rnd(2,3)+ch-H/(2*R);
+                setTimeout((function (oNewDiv,l,t){
+                    return function ()
+                    {
+                        buffer(
+                            oNewDiv,
+                            {left: oNewDiv.offsetLeft, top: oNewDiv.offsetTop, opacity: 100, x:0,y:0,z:0,scale:1, a:0},
+                            {left: l, top: t, opacity: 0,x:rnd(-180, 180),y:rnd(-180, 180),z:rnd(-180, 180),scale:rnd(1.5, 3), a:1},
+                            function (now){
+                                this.style.left=now.left+'px';
+                                this.style.top=now.top+'px';
+                                this.style.opacity=now.opacity/100;
+                                setStyle3(oNewDiv, 'transform', 'perspective(500px) rotateX('+now.x+'deg) rotateY('+now.y+'deg) rotateZ('+now.z+'deg) scale('+now.scale+')')
+                            }, function (){
+                                setTimeout(function (){
+                                    //oDiv.removeChild(oNewDiv);  这里要改呢，有错误啊
+                                    if($('#img').html()){
+                                        $('#img').html('');
+                                    }
+                                }, 200);
+                                if(--wait==0)
+                                {
+                                    ready=true;
+                                    now=next();
+                                }
+                            }, 10
+                        );
+                    };
+                })(oNewDiv,l,t), rnd(0, 200));
+            }
+        }
+    }
+    var timer=setInterval(function(){
+        haha()  
+    },2000);
+    
+    $('.fp-next').click(function(){
+        now++;if(now==4){now=1;}
+        haha();
+    });
+    $('.fp-prev').click(function(){
+        now--;if(now==0){now=3}
+        haha();
+    });
+    /*$('.sliderbox').hover(function(){
+        clearInterval(timer)
+    },function(){
+        timer=setInterval(function(){
+            haha()  
+        },2000);
+    });*/
+};
+</script>
+<script type="text/javascript">
+    $(function(){
+        /*计算字体大小*/
+        function change(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+        }
+        change();
+        window.addEventListener('resize',change,false);
+        var ssoId='${ssoId}';
+        var spToken=encodeURIComponent('${spToken}');
+        var tgqdcode=getQueryString('tgqdcode');
+
+        //获取url参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    });
+</script>
+<script type="text/javascript">
+ 
+var index = 0;
+var isAnimate = false;
+var isModal = false;
+var yStart;
+var yEnd;
+var slideElem = $(".imgSlider-img li:eq(0)");
+
+$(document).bind("touchstart", function(e) {
+    var touch = e.originalEvent.touches[0];
+    yStart = touch.pageY;
+});
+$(document).bind("touchmove", function(e) {
+    event.preventDefault(); 
+    var touch = e.originalEvent.touches[0];
+    yEnd = touch.pageY;
+    if(isAnimate || isModal) return false;
+    if (yEnd - 100> yStart & yEnd > yStart){ //down
+        if(index == 0) return false;
+        console.log(index);
+        if(index==2){
+            $('.arrow_up span').css('background-image','url(img/arrow_up2.png)');
+            $('.arrow_down span').css('background-image','url(img/arrow_down2.png)');
+        }
+        if(index==1 || index==3){
+            $('.arrow_up span').css('background-image','url(img/arrow_up.png)');
+            $('.arrow_down span').css('background-image','url(img/arrow_down.png)');
+        }
+        setPage(1,--index);
+        
+    } else if (yEnd + 100 < yStart & yEnd < yStart){ //up
+        if(index == 3) return false;
+        if(index==0 || index==2){
+            $('.arrow_up span').css('background-image','url(img/arrow_up2.png)');
+            $('.arrow_down span').css('background-image','url(img/arrow_down2.png)');
+        }
+        if(index==1){
+            $('.arrow_up span').css('background-image','url(img/arrow_up.png)');
+            $('.arrow_down span').css('background-image','url(img/arrow_down.png)');
+        }
+        setPage(0,++index); 
+    }
+}); 
+$(".arrow_down").click(function(){
+    if(isAnimate) return false;
+     if(index == 3) return false;
+    setPage(1,--index);
+})
+$(".arrow_up").click(function(){
+    if(isAnimate) return false;
+    
+    setPage(0,++index)
+})
+
+function setBtn(){
+    $(".arrow_down,.arrow_up").css("opacity",0);
+    if(index == 0){
+        $(".arrow_down").css("top","-999px");
+        $(".arrow_up").css("bottom","0%");
+    }else if(index == 3){
+        $(".arrow_down").css("top","1%");
+        $(".arrow_up").css("bottom","-999px");
+    }else{
+        $(".arrow_down").css("top","1%");
+        $(".arrow_up").css("bottom","0%");
+    }
+}
+
+function setPage(dir,page){
+    isAnimate = true;
+    if(dir == 1){
+        $("#section"+(page+1)).css({"top":"0"});
+    }else{
+        $("#section"+page).css({"top":"-100%"});
+    }
+    /*if(page == 1){
+        $(".intro").addClass("bounceInUp")
+    }
+    if(page == 2){
+        $(".map").addClass("fadeInLeft");
+        $(".round1,.round2,.round3").addClass("bounceIn")
+    }
+    if(page == 3){
+        $(".slide_cont .pic").css({
+            "opacity": 1,
+            "-webkit-transform" : "scale(1)"//-webkit-transform:scale(2)
+        })
+    }else{
+        //hideElem();
+    }*/
+    setBtn();
+    setTimeout(function(){
+        if(isAnimate) isAnimate = false;
+        $(".arrow_down,.arrow_up").animate({opacity:1})
+        if(page == 1){
+            $("#section2 .intro").removeClass("bounceInUp");
+        }
+    },750);
+}
+
+
+function showElem(parent){
+    var parent = parent || slideElem;
+    parent.find(".text").animate({"left":0});
+}
+
+function hideElem(parent){
+    var parent = parent || slideElem;
+    parent.find(".text").css("left","-100%");
+    parent.find(".close").trigger("click");
+}
+
+
+
+
+$(function(){
+  $("div.module_special .wrap .major ul.list li:last-child").addClass("remove_bottom_line");
+});
+
+var t2=new TouchSlider({id:'ban', speed:600, timeout:6000, before:function(index){
+    as[active].className='';
+    active=index;
+    as[active].className='active';
+  }});
+</script>  
+
+
+
+</body></html>

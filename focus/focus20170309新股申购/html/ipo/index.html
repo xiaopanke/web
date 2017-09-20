@@ -1,0 +1,118 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no,initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>新股申购</title>
+    <link rel="stylesheet" href="/html/css/ipo_base.css" />
+    <link rel="stylesheet" href="/html/css/ipo_index.css" />
+    <script src="/html/js/jquery-1.7.2.min.js"></script>
+    <script src="/html/js/fastclick.js"></script>
+    <script src="/html/js/ipo_base.js"></script>
+    <script>
+        window.onload=function(){
+
+            var domain1=location.protocol+"//"+location.host;
+
+            setTimeout(function(){
+
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'get',
+                    url: domain1 + '/sapi/v2/account/checkLogin',
+                    params: {},
+                    callback: 'callbackchuangye',
+                    version:'3.10.0'
+                }));
+
+            },200);
+
+            window.callbackchuangye=function(transResp){
+
+                setTimeout(function(){
+
+
+
+                    transResp=convertToJsonObject(transResp);
+                    if(transResp.retcode==0) {
+                        if(transResp.data.loginCode==1){
+                            change(),"addEventListener"in document&&document.addEventListener("DOMContentLoaded",function(){FastClick.attach(document.body)},!1),$(function(){function t(){$(".gobtn").addClass("gobtn_off");var t=function(){setTimeout(function(){jrj.jsCallNative("130",JSON.stringify({method:"get",url:i+"/sapi/v2/ipo/queryApplyListToday",params:{},callback:"callbacktodayinfo",version:"3.10.0"}))},20)};t(),window.callbacktodayinfo=function(t){setTimeout(function(){function s(){0==$(".choose_pa").length?$(".gobtn").addClass("gobtn_off"):$(".gobtn").removeClass("gobtn_off")}t=convertToJsonObject(t);var a=t.data,n="";if(0==t.retcode){if(0==a.list.length)return $(".todaylist ul").html('<div class="nothing">今日无新股申购</div>'),void $(".gobtn").hide();$(".gobtn").show();for(var e=0;e<a.list.length;e++){var o=a.list[e],l=ipotype(o.ipoMkt);n+='<li class="clearfix open choose_pa" dataAmount="'+o.canApplyAmount+'" applyAmount="'+o.applyAmount+'" buyCeil="'+o.buyCeil+'"><span class="icon_l fl choose"></span><div class="msg fl" databuycount="'+o.buyCode+'"><h3 class="clearfix"><i class="type color'+o.ipoMkt+'">'+l+'</i><span><i class="stockName">'+o.stockName+'</i> <i class="buyCode">'+o.buyCode+'</i></span></h3><p class="clearfix"><span>申购价格</span><em class="issPrc">'+doublenum(changenull(o.issPrc))+'</em><span class="applysucctxt">可申购</span><em class="canApplyAmount">'+o.canApplyAmount+'股</em></p><div class="num clearfix"><span>申购数量</span><div class="numbox fl"><strong class="btn_reduce" datacount="'+o.tradeMktRef+'"></strong><b class="numin" data-count="'+o.canApplyAmount+'">'+o.canApplyAmount+'</b><strong class="btn_add" datacount="'+o.tradeMktRef+'"></strong></div><span>股</span></div></div><span class="icon_r fl"></span><em class="applysuccess"></em></li>'}n=changenull(n),$(".todaylist ul").html(n),$(".todaylist li").each(function(){0==$(this).attr("dataAmount")&&($(this).removeClass("open").addClass("close"),$(this).find(".num").hide(),$(this).find(".icon_l").removeClass("choose"),$(this).removeClass("choose_pa"))}),$(".todaylist li").each(function(){$(this).attr("applyAmount")>0?($(this).removeClass("open").addClass("close"),$(this).find(".num").hide(),$(this).find(".applysuccess").show(),$(this).find(".canApplyAmount").html($(this).attr("applyAmount")+"股"),$(this).find(".applysucctxt").html("已申购"),$(this).find(".icon_l").removeClass("choose"),$(this).removeClass("choose_pa")):1e4*parseFloat($(this).attr("buyCeil"))<$(this).attr("dataAmount")&&($(this).find(".canApplyAmount").html(parseFloat($(this).attr("buyCeil"))+"万股"),$(this).find(".numin").html(1e4*parseFloat($(this).attr("buyCeil"))).data("count",1e4*parseFloat($(this).attr("buyCeil"))),$(this).find(".applysucctxt").html("顶格申购"))}),s(),$(".con .open .icon_l").toggle(function(){return 0==$(this).parent("li").find(".numin").html()?($(".tipsuccess").show().html("申购数量不可为0"),void setTimeout(function(){$(".tipsuccess").hide()},3e3)):($(this).addClass("choose"),$(this).parent().addClass("choose_pa"),void $(".gobtn").removeClass("gobtn_off"))},function(){$(this).removeClass("choose"),$(this).parent().removeClass("choose_pa"),0==$(".choose_pa").length&&$(".gobtn").addClass("gobtn_off")}),$(".btn_add").click(function(){return $(this).prev().html(parseInt($(this).prev().html())+500*parseInt($(this).attr("datacount"))),$(this).parents(".msg").prev(".icon_l").addClass("choose"),$(this).parents(".msg").parent("li").addClass("choose_pa"),s(),parseInt($(this).prev().html())>=parseInt($(this).prev().data("count"))&&$(this).prev().html($(this).prev().data("count")),!1}),$(".btn_reduce").click(function(){return $(this).next().html(parseInt($(this).next().html())-500*parseInt($(this).attr("datacount"))),parseInt($(this).next().html())<=0&&($(this).next().html(0),$(this).parents(".msg").prev(".icon_l").removeClass("choose"),$(this).parents(".msg").parent("li").removeClass("choose_pa")),s(),!1}),$(".con .todaylist div").click(function(){window.location.href=i+"/sapi/page/ipodetail.jspa?buyCode="+$(this).attr("databuycount")+"&fillApplyAmount=1"}),$(".con .msg .numbox .numin").click(function(t){t.stopPropagation()})}},0)}}function s(){var t=function(){setTimeout(function(){jrj.jsCallNative("130",JSON.stringify({method:"get",url:i+"/sapi/v2/ipo/queryApplyListFeature",params:{},callback:"callbackwaitinfo",version:"3.10.0"}))},20)};t(),window.callbackwaitinfo=function(t){setTimeout(function(){t=convertToJsonObject(t);var s=t.data,a="";if(0==t.retcode){if(0==s.list.length)return void $(".waitlist").html('<div class="nothing">今日无待申购</div>');for(var n=0;n<s.list.length;n++){a+='<div class="inlist"><p class="date">'+s.list[n].onlAplDate+" "+s.list[n].onlAplWeek+"</p><ul>";for(var e=0;e<s.list[n].list.length;e++){var o=s.list[n].list[e],l=ipotype(o.ipoMkt);a+='<li databuycount="'+o.buyCode+'"><div class="msg"><h3 class="clearfix"><i class="type color'+o.ipoMkt+'">'+l+"</i><span>"+o.stockName+"  "+o.buyCode+'</span></h3><p class="clearfix"><span>申购价格</span><em>'+doublenum(changenull(o.issPrc))+'</em><span class="type2">市盈率</span><em>'+o.peCeilAft+'</em></p><p class="clearfix"><span>股份上限</span><em>'+o.buyCeil+'万股</em><span class="type2">顶格市值</span><em>'+o.topMarketValue+'万</em></p></div><span class="icon_r fl"></span></li>'}a+="</ul></div>"}a=changenull(a),$(".waitlist").html(a),$(".waitlist li").click(function(){window.location.href=i+"/sapi/page/ipodetail.jspa?buyCode="+$(this).attr("databuycount")+"&fillApplyAmount=0"})}},0)}}function a(){var t=new Date,s=setdateval(t);$(".newtime").val(s);var a=t.getTime(),n=a-5184e5;t.setTime(n),$(".prevtime").val(setdateval(t));var e=new Date;e.setMonth(e.getMonth()-3);var o=setdateval(e);$(".seldate span").click(function(){var t=$(".prevtime").val(),a=$(".newtime").val();if(compateDate(t,a)>0)return $(".tipsuccess").html("请确保结束时间大于开始时间").show(),void setTimeout(function(){$(".tipsuccess").hide()},2e3);if(compateDate(t,s)>0||compateDate(a,s)>0||compateDate(t,o)<0||isNaN(compateDate(t,a)))return $(".tipsuccess").html("暂时只能查询最近三个月的记录").show(),void setTimeout(function(){$(".tipsuccess").hide()},2e3);var n=function(){setTimeout(function(){jrj.jsCallNative("130",JSON.stringify({method:"get",url:i+"/sapi/v2/ipo/queryApplyListHistory",params:{beginDate:t,endDate:a},callback:"callbackdateinfo",version:"3.10.0"}))},20)};n()});var l=function(){setTimeout(function(){jrj.jsCallNative("130",JSON.stringify({method:"get",url:i+"/sapi/v2/ipo/queryApplyListHistory",params:{},callback:"callbackmybuyinfo",version:"3.10.0"}))},20)};l(),window.callbackmybuyinfo=window.callbackdateinfo=function(t){setTimeout(function(){t=convertToJsonObject(t);var s=t.data,a="";if(0==t.retcode){if(0==s.list.length)return void $(".mybuylist").html('<div class="nothing">无申购记录</div>');for(var n=0;n<s.list.length;n++){a+='<div class="inlist"><p class="date">'+s.list[n].applyDate+" "+s.list[n].applyDateOfWeek+"</p><ul>";for(var e=0;e<s.list[n].list.length;e++){var o=s.list[n].list[e],l=ipotype(o.ipoMkt);a+='<li databuycount="'+o.buyCode+'"><div class="msg"><h3 class="clearfix"><i class="type color'+o.ipoMkt+'">'+l+"</i><span>"+o.stockName+"  "+o.buyCode+'</span><em class="paysta paystacolor'+o.payStatus+'">'+paystutas(o.payStatus)+'</em></h3><p class="clearfix"><span>申购价</span><em>'+doublenum(o.issPrice)+'</em><span class="type2">中签数</span><em>'+o.appliedSuccessStockAmount+'</em></p><p class="clearfix"><span>申购数</span><em>'+o.applyAmount+'股</em><span class="type2">应缴款</span><em>'+o.shouldPayment+'</em></p></div><span class="icon_r fl"></span><span class="status skewicon'+o.appliedStatus+'"></span></li>'}a+="</ul></div>"}a=changenull(a),$(".mybuylist").html(a),a="",$(".paysta").each(function(){"undefined"==$(this).html()||"null"==$(this).html()?$(this).hide():$(this).show()}),$(".mybuylist li").click(function(){window.location.href=i+"/sapi/page/iporecord.jspa?buyCode="+$(this).attr("databuycount")})}},0)}}window.addEventListener("resize",change,!1),$(".dlg-btn-wrap .submit,.dlg-btn-wrap .dlg-close,.focus-dlg").click(function(){$("body").removeClass("md-dialog-show")}),$(".focus-dlg div").unbind().click(function(t){t.stopPropagation()}),$(".tab_btn span").click(function(){$(".tab_btn span").removeClass("cur"),$(".tab_bd").hide(),$(this).addClass("cur"),$(".tab_bd").eq($(this).index()).show(),1==$(this).index()&&s(),0==$(this).index()&&t(),2==$(this).index()&&a()});var i=location.protocol+"//"+location.host,n=[];$(".newrule a").click(function(){window.location.href=i+"/sapi/page/iporule.jspa"}),$(".hd_r .btn").click(function(){window.location.href=i+"/sapi/page/ipopay.jspa"});var e=function(){setTimeout(function(){jrj.jsCallNative("130",JSON.stringify({method:"get",url:i+"/sapi/v2/ipo/queryIpoFund",params:{},callback:"callbackheadinfo",version:"3.10.0"}))},20)};e(),window.callbackheadinfo=function(t){setTimeout(function(){t=convertToJsonObject(t);var s=t.data;if(0==t.retcode){$(".shAmount").html(s.shAmount),$(".szAmount").html(s.szAmount),$(".needPayBalance").html(three0(s.needPayBalance)+"元");var a=s.enableBalance;a=a>1e4?(a/1e4).toFixed(2)+"万":three0(a)+"元",$(".enableBalance").html(a)}},0)},t(),$(".gobtn").click(function(){if(n.length=0,0!=$(".choose_pa").length){$("body").addClass("md-dialog-show");for(var s="",a=0;a<$(".choose_pa").length;a++){var e=$(".choose_pa").eq(a),o="";o=1==e.find(".btn_add").attr("datacount")?"SZ":"SH",n.push({stockcode:e.find(".buyCode").html(),stockName:e.find(".stockName").html(),entrustPrice:e.find(".issPrc").html(),entrustAmount:e.find(".numin").html(),exchangeType:o}),s+="<li>"+e.find(".stockName").html()+" "+e.find(".numin").html()+"股</li>"}$(".dlg-con ul").html(s),$(".dlg-con .msg").show(),$(".dlg-close").show(),$(".dlg-con .tit,.dlg-con .subtit").hide(),s="",$(".submit").hide(),$(".submitbtn").show(),$(".submitbtn").unbind().click(function(){var s=function(){setTimeout(function(){jrj.jsCallNative("130",JSON.stringify({method:"post",url:i+"/sapi/v2/ipo/ipobatchapply",params:n,header:{"Content-Type":"application/json"},callback:"callbackgobtninfo",version:"3.10.0"}))},20)};s(),window.callbackgobtninfo=function(s){setTimeout(function(){if(s=convertToJsonObject(s),0==s.retcode){$(".dlg-con .msg").hide();for(var a="",i=0;i<s.data.list.length;i++){var n=s.data.list[i];$("body").addClass("md-dialog-show"),$(".dlg-close").hide(),0==n.applyStatus?$(".dlg-con .tit").show().html(n.applyMsg):(a+=n.applyMsg+"<br />",$(".dlg-con .subtit").show().html(a))}a="",$(".submit").show(),$(".submitbtn").hide()}else errorMsg(s.msg);t()},0)}})}})})
+                        }else if(transResp.data.loginCode==-1){
+                            jrj.jsCallNative('134', JSON.stringify({}));
+                        }
+                    }
+
+                },0);
+            };
+
+
+        };
+
+
+    </script>
+    <script type="text/template" id="dlg-error"><div class="dlg-time" style="height:8rem;">
+    <p style="text-align: center;margin-top: 1.5rem;"></p>
+    <div class="dlg-btn-wrap layout-box">
+        <a class="dlg-btn submiterror" style="color:#3996F2">确认</a>
+    </div>
+    </div></script>
+</head>
+<body>
+<header class="clearfix">
+    <div class="hd_l fl">
+        <p>您账户可申购额度为(股)</p>
+        <ul class="clearfix">
+            <li class="fl"><strong class="num shAmount"></strong> <span class="type">沪市</span></li>
+            <li class="fl"><strong class="num szAmount"></strong> <span class="type">深市</span></li>
+        </ul>
+    </div>
+    <div class="hd_r fr">
+        <ul>
+            <li class="clearfix"><span class="fl">可用余额</span> <i class="fr enableBalance"></i></li>
+            <li class="clearfix"><span class="fl">中签需缴</span> <i class="fr needPayBalance"></i></li>
+        </ul>
+        <a href="javascript:;" class="btn">中签缴款</a>
+    </div>
+</header>
+<section class="con">
+    <div class="clearfix tab_btn">
+        <span class="cur">今日申购</span>
+        <span>待申购</span>
+        <span>申购记录</span>
+    </div>
+    <div class="todaylist tab_bd">
+        <ul></ul>
+        <p class="newrule"><a href="javascript:;">打新规则，一看就会</a></p>
+        <input type="button" value="一键申购" class="gobtn gobtn_off" />
+    </div>
+    <div class="waitlist tab_bd"></div>
+    <div class="mybuy tab_bd">
+        <div class="seldate clearfix">
+            <b><input type="date" value="2014-01-13" class="prevtime" /></b>
+            <i>-</i>
+            <b><input type="date" value="2016-01-13" class="newtime" /></b>
+            <span>查询</span>
+        </div>
+        <div class="mybuylist"></div>
+    </div>
+</section>
+<div class="focus-dlg">
+    <div class="dlg-con">
+        <div class="tit"></div>
+        <p class="subtit red"><em></em></p>
+        <div class="msg clearfix">
+            <span class="fl">您即将申购：</span>
+            <ul class="fl"></ul>
+        </div>
+        <div class="dlg-btn-wrap layout-box">
+            <a class="dlg-btn dlg-close">取消</a>
+            <a class="dlg-btn submit">确认</a>
+            <a class="dlg-btn submitbtn">确认</a>
+        </div>
+    </div>
+</div>
+<div class="md-overlay"></div>
+<div class="tipsuccess"></div>
+</body>
+</html>

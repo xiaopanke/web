@@ -1,0 +1,104 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>账户分析</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#878C92; }
+body{background: #fff;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+.borb{border-bottom:#EFEFF4 .5rem solid;}
+
+.item2 li{width:33.3%; float:left; text-align: center;}
+.item2 li p{font-size:.7rem; line-height: .7rem; padding-top: 1rem;}
+.item2 li b{ display: block; font-size:.75rem;line-height: .75rem; margin-top: 8px; padding-bottom: 1rem;color:#F24637;}
+.item2 li .blue{color:#2DC678;}
+.canvas1{ padding-bottom: .5rem; }
+.tit{ font-size: 1rem;}
+</style>
+<body>
+    
+    <div class="item2 borb">
+        <h3 class="tit">收益率走势</h3>
+        <div class="canvas1"><div id="main1" style="width:98%; height: 8rem;"></div></div>
+    </div>
+
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>  
+<script src="https://i0.jrjimg.cn/zqt-m/account/js/echarts.min.js"></script>  
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    var domain = 'https://zqtrc.yun.pingan.com';
+    //收益率走势
+var yieldcurve = function(){
+    setTimeout(function(){
+        jrj.jsCallNative('130', JSON.stringify({
+            method: 'get',
+            url: domain+'/analysis/income/yieldcurve?timeLookupType=1',
+            callback: 'callbackyieldcurve',
+        }));
+    },200);
+}
+yieldcurve();
+window.callbackyieldcurve =function(info){
+    setTimeout(function(){
+        info = convertToJsonObject(info);
+        if(info.retcode==0){
+            
+        }
+    },30);    
+}
+    
+
+var convertToJsonObject = function(str){
+    if(typeof str != 'object'){
+      return JSON.parse(str);
+    }else{
+      return str;
+    }
+}
+function doublenum(num){
+    var num=num+'';
+    if(num.indexOf('.')!=-1){
+        var len=num.substring(num.indexOf('.')+1).length;
+        if(len==0){
+            return num+'00';
+        }else if(len==1){
+            return num+'0';
+        }else{
+            return parseFloat(num).toFixed(2);
+        }
+        console.log(n);
+    }else{
+        return num+'.00';
+    }
+}
+</script> 
+   
+</body>
+</html>

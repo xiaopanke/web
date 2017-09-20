@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+body, button, input, select, textarea { font:12px/24px "Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, em, i { font-style: normal; }
+li { list-style: none; }
+a { text-decoration: none; }
+a:link { text-decoration: none; }
+a:active{  background:none !important;  }
+legend { color: #000; }
+fieldset, img { border: 0; }
+button, input, select, textarea { font-size: 100%; line-height: normal; }
+table { border-collapse: collapse; border-spacing: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+.clearfix:after, .wrapper:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+body { margin: 0; padding: 0;  background: #efeff4;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.fl{float: left;}.fr{float: right;}
+.disnone{  display: none;}
+.fall {color: #2DC678 !important;}
+.up {color: #F24637 !important;}
+/*分享头部*/
+.share{width: 100%;height: 5.3333rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/share.jpg') no-repeat;background-size: 100% 5.3333rem;overflow: hidden;position: relative;}
+.dec{width: 2.0533rem;height: 2.0533rem;border-radius: 50%;background: #fff;border:0.1067rem solid #fff;margin: 0 auto;margin-top: 1.0667rem;overflow: hidden;}
+.dec>img{height: 2.0533rem;width: 2.0533rem;}
+.share>p{width: 2.4rem;height: 0.64rem;background: #db3030;border-radius: 0.32rem;position: absolute;top: 0.3733rem;right: 0.4rem;text-align: center;line-height: 0.64rem;color: #fff;}
+.share>ul{margin-top: 0.2667rem;text-align: center;}
+.share>ul>li:first-child{font-size: 0.4rem;color: #fff;font-weight: 600;}
+.share>ul>li:first-child +li{font-size: 0.3467rem;line-height: 0.3733rem;color: #ffe598;margin-top: 0.2133rem;word-spacing: 0.0267rem;}
+.bookIn{width: 100%;height: 2.3733rem;background: #fff;overflow: hidden;}
+.bookIn_bg{height: 1.1733rem;width: 9.2rem;background: url('https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/img/bookIn_05.jpg') no-repeat;background-size: 9.2rem 1.1733rem;margin: 0 auto;margin-top: 0.6rem;}
+.bookIn_bg>p{font-size: 0.3467rem;line-height: 0.3733rem;color: #fff;text-align: center;line-height: 1.1733rem;}
+
+
+height{height: 0.5867rem}
+
+
+
+
+

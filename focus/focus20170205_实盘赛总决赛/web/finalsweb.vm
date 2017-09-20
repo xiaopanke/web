@@ -1,0 +1,1136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--# include virtual="/v2/common_head_css.html" -->
+<style>
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; background: #ffffff; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none;}
+
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font: 18px/28px 'Microsoft Yahei'; color: #333; }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+body{min-width:1000px; color:#333;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/pc_02.png) no-repeat center 420px #a10723;}
+.in { width:1000px; margin:0 auto;}
+.bc{overflow: hidden;}
+/*top*/
+.top{ height:400px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/pc_01.png) no-repeat center; padding-top: 20px;}
+.top .guize{width:117px;line-height: 32px; background:rgba(0,0,0,0.3);border-radius: 16px; color:#ffa422; font-size: 16px; cursor: pointer; }
+.top .guize i{ width:25px;height:20px; float:left; margin-left:15px; margin-top:7px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat; }
+.top .time{ margin-top: 290px; margin-left:142px; color:#fff;}
+/*con*/
+.con{width:1000px; background: #fff;border-radius:20px; margin:0 auto 65px; position:relative;}
+.con .tit{ padding-top: 30px;color:#f43e06;font-size:34px; line-height: 40px;text-align: center; font-weight:normal;}
+.con .subtit{ color:#f5a701; font-size: 19px; text-align: center;}
+/*set*/
+.set{ position: absolute;top:27px ; right:0; width:64px; line-height: 36px; background:#6969c2; border-radius: 18px 0 0 18px; color:#fff; font-size:14px; cursor: pointer }
+.set i{ width:20px; height: 18px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -112px -1px; float:left; margin-top: 10px; margin-left: 10px;}
+/*personlist*/
+.personlist{ padding-bottom: 35px;}
+.list{ width:470px; margin-left:30px; float:left; margin-top: 40px;}
+.pic{ margin-right: 20px;}
+.pic a{display: block;position: relative;}
+.pic a img{width:180px;height:220px;}
+.pic a span{position: absolute;width:100%; line-height:49px; background: rgba(0,0,0,0.7); color: #fff;text-align: center; bottom: 0;left:0;}
+.out .pic img{-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;}
+.out .pic em{ width:102px; height: 56px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat 0 -60px; position: absolute; left:0; top:-6px;}
+.txt{width:236px;float:left;}
+.txt .msg{font-weight: normal; height: 130px; display: block; color: #333; line-height: 30px;}
+/*yushou*/
+.yushou .up{ line-height: 24px; color:#06a2fc;}
+.yushou .icon{float: left;width:24px; height:24px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -80px 0; margin:0 7px 0 23px;}
+.yushoubtn{ width:228px; line-height: 40px; display: block;margin-top: 8px; margin-left:14px; text-align: center; background: #f43e06; border-radius:5px; box-shadow:0 1px 2px 1px #ff6131;}
+.yushoubtn:hover{ background: #e23601;}
+.yushoudisbtn{ width:228px; line-height: 40px; display: block;margin-top: 8px; margin-left:14px; text-align: center; background: #947a76; border-radius:5px; box-shadow:0 1px 2px 1px #ad9c99;}
+.yushou a:hover{ color: #fff;}
+/*kaishou*/
+.kaishou .up { font-size: 14px; margin-bottom: 16px;}
+.kaishou .up span{ color: #ff5000;font-size: 20px;}
+.kaishoubtn{width:154px; line-height: 40px; float: left; text-align: center; background: #f43e06; border-radius:5px; box-shadow:0 1px 2px 1px #ff6131; margin-right:10px; }
+.kaishoudisbtn{width:154px; line-height: 40px; float: left; text-align: center; background: #947a76; border-radius:5px; box-shadow:0 1px 2px 1px #947a76; margin-right:10px; }
+.kaishoubtn:hover{background: #e23601;}
+.lookdetail{width:72px; line-height: 40px;float:left; text-align: center; background: #16a1f9; border-radius:5px; box-shadow:0 1px 2px 1px #54bdff;}
+.lookdetail:hover{ background: #048ce2;}
+.outtxt{color:#f43e06;font-size: 14px;    line-height: 20px;margin-bottom: 7px; }
+.kaishou a:hover{ color: #fff;}
+/*conbt*/
+.conbt{ background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/pc_03.png) no-repeat center 50px  #fffbf1; border-radius: 0 0 20px 20px; height:134px; padding-top: 160px;  }
+.conbt a{width:400px; line-height: 80px; display: block;margin:0 auto; background:linear-gradient(#ffe400 0,#ffcb00 79%,#ffd800); font-size: 30px; color: #873200; text-align: center; border-radius: 40px;box-shadow:0 3px 12px 0px #ffe400;}
+.conbt .alldisbtn{background: #947a76;box-shadow:0 3px 12px 0px #947a76;color:#eae4e4;}
+
+/*关于弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 5; display: none;}
+.layer{width: 580px;height: 380px;background:#fff7ec;position: fixed;top: 50%;left: 50%;margin-top:-200px;margin-left: -300px;z-index: 10;color: #000;animation: haha .3s linear; display: none;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.layer_gz{padding:30px; margin-top: -220px; margin-left: -320px; border-radius: 10px;}
+.layer_gz h3{text-align: center; color: #f43e06;font-size: 26px; line-height: 40px; padding-bottom: 20px; font-weight: normal; }
+.layer_gz p{ font-size: 14px;}
+.layer_gz .p1{font-size: 16px;}
+.layer_gz .p2{color:#f43e06; margin-top: 20px;}
+.layer_gz .p4{color:#999;font-size: 12px; text-align: center; margin-top: 20px;}
+.closebtn{ position:absolute; top:-56px;right:50px;width:32px; height:57px; cursor:pointer; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -40px 0;  }
+/*layer_set*/
+.layer_set{ width:560px;padding:40px 60px; background:#fff; border-radius:10px; margin-left: -320px; color:#333; height:auto;}
+.layer_set p{ font-size: 14px;}
+.layer_set .myper{ padding:34px 10px;  overflow: hidden; }
+.layer_set .myper p{ text-align: center; font-size: 16px; line-height: 50px;}
+.layer_set ul{width:900px;      }
+.layer_set ul li{ float:left; width:194px; margin-right:150px; margin-bottom: 20px; line-height: 36px; }
+.layer_set ul li span{ float: left;}
+.layer_set ul li .option{ cursor: pointer; width:60px; height:32px;padding:2px; border-radius: 18px; background:#f53d05; float: right;transition:all .3s;}
+.layer_set ul li .option i{ float: left;width:32px; height:32px; background:#fff; border-radius: 50%; margin-left:29px ; transition:all .3s; }
+.layer_set ul li .close{ background:#947a76; }
+.layer_set ul li .close i{ margin-left: 0; }
+.setbtn{width:240px; line-height:55px; border:1px solid #f53d05; display: block; margin:0 auto; text-align: center; color:#f53d05; cursor: pointer; border-radius: 3px;}
+/*layer_dy*/
+.layer_dy{ width:560px;padding:40px 60px; background:#fff; border-radius:10px; margin-left: -320px; color:#333; height:180px; margin-top: -130px;}
+.layer_dy p span{ font-weight: bold;color:#f53d05; margin:0 5px;}
+.dybtn{width:240px; line-height:55px; background:#f53d05; color:#fff; display: block; border-radius: 3px; cursor: pointer; margin:40px auto 0; text-align: center}
+.btn-106-30-gray {width: 106px;background: #a3a2a2;}
+.btn-106-30-gray, .btn-97-30 {height: 30px;line-height: 30px;color: #fff;font-size: 14px;border-radius: 3px;}
+.btn-106-30-gray:hover {background: #666;}
+.btn-97-30 {width: 97px;background: #f6554a;}
+.revenue-dlg-payment {background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/revenue-icon-payment.png) no-repeat;padding-left: 130px;padding-bottom: 50px;}
+</style> 
+
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head> 
+<body>
+    <!--# include virtual="/v2/site_top_compact.html" -->
+    <div class="top">
+        <div class="in">
+            <div class="guize clearfix"><i class="fl"></i>大赛规则</div>
+            <p class="time">比赛时间：<b>2017年2月20日-2017年3月24日</b></p>
+        </div>
+    </div>
+    <div class="con">
+        <div class="set hide"><i></i>设置</div>
+        <h2 class="tit">大赛入围名单</h2>
+        <p class="subtit">（排名不分先后）</p>
+        <ul class="personlist clearfix">
+            <!--<li class="list">
+                <div class="pic fl">
+                    <a href="#"><img src="img/img1.png" height="220" width="180" alt=""><span>考拉小良</span><em></em></a>
+                </div>
+                <div class="txt">
+                    <a href="javascript:;" class="msg">爱投顾资深达人，预赛总收益42.61%，平均持股周期3-5天，右侧交易选手，交易纪律极为严格。</a>
+                    <div class="yushou">
+                        <div class="up"><span class="icon"></span>2017.02.20 正式开赛</div>
+                        <a href="javascript:;" class="yushoubtn">¥998 限量预售中</a>
+                        <a href="javascript:;" class="yushoudisbtn hide">成功订阅 敬请期待</a>
+                    </div>
+                    <div class="kaishou hide">
+                        <div class="up">已捞金：<span class="">1000元</span></div>
+                        <div class="bt clearfix">
+                            <a href="javascript:;" class="kaishoubtn">¥998 实时跟单</a>
+                            <a href="javascript:;" class="kaishoudisbtn hide">已跟单</a>
+                            <a href="javascript:;" class="lookdetail">详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+                <div class="pic fl">
+                    <a href="#"><img src="img/img1.png" height="220" width="180" alt=""><span>考拉小良</span><em></em></a>
+                </div>
+                <div class="txt">
+                    <a href="javascript:;" class="msg">爱投顾资深达人，预赛总收益42.61%，平均持股周期3-5天，右侧交易选手，交易纪律极为严格。</a>
+                    <div class="yushou">
+                        <div class="up"><span class="icon"></span>2017.02.20 正式开赛</div>
+                        <a href="javascript:;" class="yushoubtn">¥998 限量预售中</a>
+                        <a href="javascript:;" class="yushoudisbtn hide">成功订阅 敬请期待</a>
+                    </div>
+                    <div class="kaishou  hide">
+                        <div class="up">已捞金：<span class="">1000元</span></div>
+                        <div class="outtxt">收益率跌破8%，已被淘汰，您可以在比赛结束后查看其交易记录。</div>
+                        <div class="bt clearfix">
+                            <a href="javascript:;" class="kaishoubtn">¥998 实时跟单</a>
+                            <a href="javascript:;" class="kaishoudisbtn hide">已跟单</a>
+                            <a href="javascript:;" class="lookdetail">详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>-->
+        </ul>
+        <div class="conbt">
+            <a href="javascript:;" class="allbtn moneybtn"><b>¥<i></i></b>&nbsp;&nbsp;十人打包订阅</a>
+            <a href="javascript:;" class="alldisbtn hide">已打包订阅</a>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <!--规则 -->
+    <div class="layer layer_gz">
+        <i class="closebtn"></i>
+        <h3>大赛介绍</h3>
+        <p class="p1">实盘争霸赛总决赛共10名选手，以平均36%的月收益从众多参赛选手中脱颖而出，投资实力卓越。总决赛阶段的资金由金融界爱投顾提供，分阶段发放，操盘收益全部归选手所有。用户可通过订阅“实时跟单”查看选手决赛期间的调仓记录，收到实时交易提醒，跟单牛人实盘。</p>
+        <p class="p2">订阅须知：</p>
+        <p class="p3">1、订阅后，选手的实时交易动态将以短信+爱投顾APP推送两种形式进行通知，保证您不错过任何一个交易机会；</p>
+        <p class="p3">2、订阅“实时跟单”的服务时间为2017年2月20日-2017年3月24日；</p>
+        <p class="p3">3、决赛期间的淘汰止损线为-8%，选手盘中触及该止损线即诶淘汰，淘汰后该选手的交易动态将停止推送；</p>
+        <p class="p4">* 本活动由金融界爱投顾主办，最终解释权归金融界爱投顾所有。</p>
+    </div>
+    <div class="layer layer_set">
+        <i class="closebtn"></i>
+        <p>对于您已经订阅的选手，我们会将选手的操作动态发送给您，若您觉得造成困扰，可自定义是否发送操作动态</p>
+        <div class="myper">
+            <p>您当前没有订阅选手</p>
+            <ul class="clearfix">
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利2</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利企鹅</span>
+                    <div class="option"><i></i></div>
+                </li>
+                <li>
+                    <span>套利2</span>
+                    <div class="option"><i></i></div>
+                </li>
+            </ul>
+        </div>
+        <span class="setbtn">确定</span>
+        <!--<span class="setbtn">知道了</span>-->
+    </div>
+    <div class="layer layer_dy">
+        <i class="closebtn"></i>
+        <p>订阅“实时跟单”功能后，<i class="playername"></i>在2017年2月20日-3月24日之间的实盘交易将以 <span>短信+爱投顾APP推送</span> 两种方式进行通知，保证您不错过任何一个跟单机会。</p>
+        <span class="dybtn">去支付</span>
+        <!--<span class="setbtn">知道了</span>-->
+    </div>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s.js" type="text/javascript"></script>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+<script>
+    
+ /* 优惠券通用弹窗
+ */
+window.CouponDlg = (function () {      
+
+    var api_buy = 'http://itougu.jrj.com.cn/order/showbuyweb.jspa?pid={pid}&orderType={type}',
+        api_place = 'http://itougu.jrj.com.cn/order/buyweb.jspa?pid={pid}&cid={cid}&orderType={type}&month={month}',
+        api_buy_4_gift = 'http://itougu.jrj.com.cn/order/showbuyweb2.jspa?pid={pid}&orderType={type}&tgid={tgid}&num={num}&rmb={rmb}&content={content}',
+        api_place_4_gift = 'http://itougu.jrj.com.cn/order/buyweb2.jspa?pid={pid}&cid={cid}&orderType={type}&tgid={tgid}&num={num}&rmb={rmb}&uniqueid={uniqueid}',
+        api_place_4_vote = 'http://itougu.jrj.com.cn/order/buyweb8.jspa?pid={pid}&cid={cid}&orderType={type}&tgid={tgid}&num={num}&rmb={rmb}&uniqueid={uniqueid}&content={content}',
+        dlgTmpl = ['<div class="dialog-cnt">',
+                        '<div class="product-desc">',
+                            '<h2>{{tname}}：{{pname}}</h2>',
+                            '{{#ismaster}}',
+                            '<p>比赛时间：{{startTime}} 至 {{endTime}}</p>',
+                            '{{/ismaster}}',
+                            '{{^ismaster}}',
+                            '{{#isGlance}}',
+                            '<p>偷看时长：<span class="red">30</span> 分钟</p>',
+                            '{{/isGlance}}',
+                            '{{^isGlance}}',
+                            '<p>最长周期：{{startTime}} 至 {{endTime}}</p>',
+                            '{{/isGlance}}',
+                            '{{/ismaster}}',
+                            '{{#isGlance}}',
+                            '<p>偷看价格：<span class="red">{{amount}}</span> 元',
+                            '{{/isGlance}}',
+                            '{{^isGlance}}',
+                            '<p>订阅价格：<span class="red">{{amount}}</span> 元</p>',
+                            '{{/isGlance}}',
+                        '</div>',
+                        '<div id="coupon-list" class="coupon-list"></div>',
+                        '<p class="note">{{note}}</p>',
+                        '<p class="agreement middle"><input id="chkAgreement" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/risk.html" target="_blank">风险揭示书</a><span>》</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=agreement" target="_blank">服务使用协议</a><span>》</span></p>',
+                        '{{#orgId}}<p class="agreement middle"><input id="chkAgreement2" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=trader_{{orgId}}" target="_blank">{{agreementName}}</a><span>》</span></p>{{/orgId}}',
+                        '<div class="btn-wrap clearfix">',
+                            '<a id="btnCouponPay" href="" class="btn btn-89-31 fr">立即支付</a>',
+                            '<span class="price">实付款：<span id="finalPrice" class="red">{{amount}}</span>元</span><span id="notice" class="red ml5" style="display:none;">优惠券购买商品多出金额不予退还</span>',
+                        '</div>',
+                    '</div>'].join(''),
+        dlgTmp6 = ['<div class="dialog-cnt">',
+                        '<div class="product-desc">',
+                            '<h2>{{tname}}：{{pname}}</h2>',
+                            '<ul class="long-term-month" id="long-term-month"></ul>',
+                            '<p class="long-term-p">服务周期：<span class="start-time">{{startTime}}</span> 至 <span class="end-time">{{endTime}}</span></p>',
+                            '<p class="long-term-p" id="original-disc">订阅价格：<span class="red disc">{{amount}}</span> 元<del class="line"></del></p>',
+                        '</div>',
+                        '<div id="coupon-list" class="coupon-list"></div>',
+                        '<p class="note">订阅须知：此内容仅代表个人研究成果，供学习参考，不是投资依据，据此操作风险自担。</p>',
+                        '<p class="agreement middle"><input id="chkAgreement" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/risk.html" target="_blank">风险揭示书</a><span>》</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=agreement" target="_blank">服务使用协议</a><span>》</span></p>',
+                        '{{#orgId}}<p class="agreement middle"><input id="chkAgreement2" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=trader_{{orgId}}" target="_blank">{{agreementName}}</a><span>》</span></p>{{/orgId}}',
+                        '<div class="btn-wrap clearfix">',
+                            '<a id="btnCouponPay" href="" class="btn btn-89-31 fr">立即支付</a>',
+                            '<span class="price">实付款：<span id="finalPrice" class="red">{{amount}}</span>元</span><span id="notice" class="red ml5" style="display:none;">优惠券购买商品多出金额不予退还</span>',
+                        '</div>',
+                    '</div>'].join(''),          
+        dlgTmplGift = ['<div class="dialog-cnt">',
+                        '<div class="product-desc"><h2>支付项目：{{pname}}</h2><p>价格：<span class="red">{{amount}}</span> 元</p></div>',
+                        '<div id="coupon-list" class="coupon-list"></div>',
+                        '<p class="note">{{note}}</p>',
+                        '<p class="agreement middle"><input id="chkAgreement" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/risk.html" target="_blank">风险揭示书</a><span>》</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=agreement" target="_blank">服务使用协议</a><span>》</span></p>',
+                        '{{#orgId}}<p class="agreement middle"><input id="chkAgreement2" type="checkbox" checked="checked" /><span>我已阅读并同意</span><span>《</span><a class="link-v2" href="http://itougu.jrj.com.cn/site/help.html?tag=trader_{{orgId}}" target="_blank">{{agreementName}}</a><span>》</span></p>{{/orgId}}',
+                        '<div class="btn-wrap clearfix">',
+                            '<a id="btnCouponPay" href="" class="btn btn-89-31 fr">立即支付</a>',
+                            '<span class="price">实付款：<span id="finalPrice" class="red">{{amount}}</span>元</span><span id="notice" class="red ml5" style="display:none;">优惠券购买商品多出金额不予退还</span>',
+                        '</div>',
+                    '</div>'].join(''),
+        couponTmpl = ['<div class="tit"><a href="http://itougu.jrj.com.cn/site/help.html?tag=coupon" class="fr link-v2" target="_blank">[了解优惠券规则]</a>可用优惠券(<span class="red">{{count}}</span>)</div>',
+                        '<div class="table-wrap">',
+                            '<table></table>',
+                        '</div>'].join(''),
+        couponItemTmpl = ['<tr>',
+                            '<td class="col-1"><input id="Checkbox1" type="checkbox" name="couponChk" data-price="{{price}}" data-id="{{id}}" /></td>',
+                            '<td class="col-2"><span class="red">{{price}}</span> 元</td>',
+                            '<td class="col-3">{{name}}</td>',
+                            '<td class="col-4">有效期至{{endTime}}</td>',
+                            '<td class="col-5">满{{limitPrice}}减{{price}}</td>',
+                        '</tr>'].join('');
+
+    window.dlgClone = $.extend(true, {}, JRJ.Dialogs);
+
+    var enum_CouponType = {
+        PORTFOLIO: 1,   //组合
+        GIFT: 2,        //礼物
+        VIEWPOINT: 3,   //观点
+        REWARD: 4,      //打赏
+        REFERENCE: 6,    //内参
+        VOTE: 8,        //投票
+        GLANCE: 9,      //偷看
+        SHIPANSAI: 11       //实盘赛
+    };
+    var enum_ReturnCode_Buy = {
+        Failed: -1,     //失败
+        Free: 1,        //免费订购成功
+        Existed: 2,     //有未支付的订单
+        GoPay: 3        //第三方支付页面
+    };
+    var enum_ReturnCode_Place = {
+        Failed: -1,     //失败
+        Free: 1,        //免费订购成功
+        Existed: 2,     //有未支付的订单
+        GoPay: 3,       //第三方支付页面
+        CouponFree: 4   //优惠卷够支付款
+    };
+    var productPrice = 0;
+    var ___lock = false;
+
+    var couponConfig = {
+        productId: '',
+        productName: '',
+        type: '',
+        checkOrderUrl: '',
+        tgid: '',   //投顾id
+        num: '',    //礼物数量
+        rmb: '',     //打赏金额（单位：分）
+        uniqueid: '',     //唯一id
+        month: ''     //新加,长期内参 月份
+    };
+
+    var Util = {
+        leadingZero: function (num, size) {
+            var s = "000000000" + num;
+            return s.substr(s.length - size);
+        },
+        dateFormat: function (date, formatString) {
+            if (!date.valueOf())
+                return '';
+
+            var d = date;
+
+            return formatString.replace(/(yyyy|mm|dd|hh|nn|ss)/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case 'yyyy': return d.getFullYear();
+                        case 'mm': return Util.leadingZero((d.getMonth() + 1), 2);
+                        case 'dd': return Util.leadingZero(d.getDate(), 2);
+                        case 'hh': return Util.leadingZero(((h = d.getHours() % 12) ? h : 12), 2);
+                        case 'nn': return Util.leadingZero(d.getMinutes(), 2);
+                        case 'ss': return Util.leadingZero(d.getSeconds(), 2);
+                    }
+                }
+            );
+        },
+        cutoff: function (text, limit) {
+
+            if (limit == 0) {
+                return text;
+            }
+
+            var temp1 = text.replace(/[^\x00-\xff]/g, "**");
+            var temp2 = temp1.substring(0, limit);
+            var x_length = temp2.split("\*").length - 1;
+            var hanzi_num = x_length / 2;
+            limit = limit - hanzi_num;
+            var res = text.substring(0, limit);
+
+            var end = '';
+            if (limit < text.length) {
+                end = res + '...';
+            } else {
+                end = res;
+            }
+        
+            return end;
+        
+        }
+    }
+
+    //等待支付完成弹窗
+    var showWaitingPaymentDlg = function () {
+        dlgClone.close();
+        dlgClone.isShow = false;
+        dlgClone.standardDialog({
+            title: "支付提示",
+            width: 450,
+            content: ['<div class="revenue-dlg-payment">',
+                          '<p class="mt20">支付完成前 请不要关闭此支付验证窗口</p>',
+                          '<p class="mt10"><strong>请在2小时内支付，超时将关闭订单；</strong></p>',
+                          '<p class="mt10"><a class="btn btn-106-30-gray mr10" href="/site/help.html?tag=pay" target="_blank">支付遇到问题</a><a class="btn btn-97-30" id="finishPay">支付完成</a></p>',
+                      '</div>'].join(''),
+            okBtnText: "确定",
+            cancelBtnText: "取消",
+            hasCloseBtn: true,
+            hasOkBtn: false,
+            hasBtn: false,
+            hasCancelBtn: true,
+            okCallback: function () { },
+            cancelCallback: function () { location.href = location.href; },
+            isFixed: true
+        });
+        $('#finishPay').unbind('click').bind('click', function () {
+            if (couponConfig.checkOrderUrl && couponConfig.checkOrderUrl != '') {
+                
+                var _url = couponConfig.checkOrderUrl;
+
+                if (couponConfig.type == enum_CouponType.VIEWPOINT || 
+                    couponConfig.type == enum_CouponType.REWARD ||
+                    couponConfig.type == enum_CouponType.VOTE ||
+                    couponConfig.type == enum_CouponType.GIFT) {
+                    if (couponConfig.checkOrderUrl.indexOf('?') > 0) {
+                        _url = couponConfig.checkOrderUrl + '&orderType=' + couponConfig.type;
+                    } else {
+                        _url = couponConfig.checkOrderUrl + '?orderType=' + couponConfig.type;
+                    }
+                }
+
+
+                $.ajax({
+                    url: _url,
+                    type: 'GET',
+                    data: {},
+                    dataType: 'json',
+                    async: false,
+                    success: function (json) {
+                        if (json && json.success) {
+                            location.href = location.href;
+                        } else {
+                            //支付提示: failed
+                            dlgClone.standardDialog({
+                                title: "支付提示",
+                                width: 450,
+                                content: ['<div>',
+                                              '<p class="tc mt30">支付未完成，您可以去消费记录中继续支付</p>',
+                                          '</div>'].join(''),
+                                okBtnText: "继续支付",
+                                cancelBtnText: "取消",
+                                hasCloseBtn: true,
+                                hasOkBtn: true,
+                                hasBtn: true,
+                                hasCancelBtn: false,
+                                okCallback: function () {
+                                    location.href = '/order/orderList.jspa';
+                                },
+                                cancelCallback: function () {
+                                },
+                                isFixed: true
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    };
+
+    var bindEvent = function (data) {
+
+        $('#coupon-list').find('input[type="checkbox"]').click(function () {
+            var finalPrice = $('#finalPrice'),
+                notice = $('#notice'),
+                btnCouponPay = $('#btnCouponPay');
+
+            $('#coupon-list').find('input[type="checkbox"]').not(this).prop('checked', false);
+            //alert(1);
+            var _price = parseInt($(this).attr('data-price'), 10);
+
+            if(data.pdType == 2){
+               
+                var discPrice = parseInt($('#original-disc').find("span").text(),10);
+                if($(this).is(':checked')){
+                    if(discPrice-_price > 0){
+                        finalPrice.text(discPrice-_price);
+                        notice.hide();
+                     }else{
+                        finalPrice.text(0);
+                        notice.show();
+                     }
+                    if (couponConfig.type == enum_CouponType.REFERENCE || couponConfig.type == enum_CouponType.PORTFOLIO || couponConfig.type == enum_CouponType.GLANCE) {
+                        btnCouponPay.text(discPrice - _price > 0 ? '立即支付' : '立即订阅');
+                    } else {
+                        btnCouponPay.text('立即支付');
+                    }
+                }else{
+                    
+                    finalPrice.text(discPrice);
+                    notice.hide();
+                    btnCouponPay.text('立即支付');
+                }
+
+            }else{
+                //不是长期内参
+                if ($(this).is(':checked')) {
+                    if (productPrice - _price > 0) {
+                       
+                        finalPrice.text(productPrice - _price);
+                        notice.hide();
+                    } else {
+                        finalPrice.text(0);
+                        notice.show();
+                    }
+
+                    if (couponConfig.type == enum_CouponType.REFERENCE || couponConfig.type == enum_CouponType.PORTFOLIO || couponConfig.type == enum_CouponType.GLANCE) {
+                        btnCouponPay.text(productPrice - _price > 0 ? '立即支付' : '立即订阅');
+                    } else {
+                        btnCouponPay.text('立即支付');
+                    }
+                }else{
+                    finalPrice.text(productPrice);
+                    notice.hide();
+                    btnCouponPay.text('立即支付')
+                }    
+            }
+        });
+     
+
+        $("#long-term-month").on('click','li',function(){
+            $(this).css("border-color","#ff5050").addClass('month-border').siblings().css("border-color","#dbdbdb").removeClass('month-border');
+            var index=$(this).index(),
+                discountPrice=data.tipsDisCountVos[index].discountPrice/100,
+                originalPrice=data.tipsDisCountVos[index].originalPrice/100,
+                discount=data.tipsDisCountVos[index].discount;
+              
+                if(discount >= 1){
+                    $(".line").hide();
+                }else{
+                    $(".line").show();
+                }
+                $("#original-disc").find("span").html(discountPrice).next().html(originalPrice+'元');
+                //console.log(originalPrice*discount);
+                
+                //日期
+                var time=data.tipsDisCountVos[index],
+                    startTime=time.beginTime,
+                    endTime=time.endTime;
+               
+                $(".start-time").html(startTime);
+                $(".end-time").html(endTime);
+          
+            for(var i=0;i<data.items.length;i++){
+                var limitPrice=data.items[i].limitPrice;
+                if(discountPrice >= limitPrice){ //50 0 10 10
+                    //复选框能点
+                    $('#coupon-list').find('input[type="checkbox"]').eq(i).attr('disabled', false);
+                    $('#coupon-list').find('tr').eq(i).find('*').css('color','#666').find('span').addClass('red');
+                }else{
+                    //不能点
+                   $('#coupon-list').find('input[type="checkbox"]').eq(i).attr('disabled', true);
+                   $('#coupon-list').find('tr').eq(i).find('*').css('color','#999').find('.red').removeClass('red');
+                }
+                /*if(discountPrice <= limitPrice){
+                    //console.log(discountPrice <= limitPrice);
+                    $('#coupon-list').find('input[type="checkbox"]').eq(i).attr('disabled', true);
+                    $('#coupon-list').find('tr').eq(i).find('*').css("color","#999").find('.red').removeClass('red');
+
+                }*/
+            }
+
+            var discPrice = $('#original-disc').find("span").text();
+           
+            $('#finalPrice').text(discPrice);
+            $('#coupon-list').find('input[type="checkbox"]').not(this).prop('checked', false);
+
+        })
+        $('#long-term-month>li:last').click();//模拟点击
+
+        //下单
+        $('#btnCouponPay').click(function (e) {
+            e.preventDefault();
+            
+            if (!$('#chkAgreement').is(':checked')) {
+                JRJ.MiniAlerts.prompt({ message: '<p>请勾选并同意服务协议</p>' });
+                return;
+            }
+
+            if ($('#chkAgreement2').length>0 && !$('#chkAgreement2').is(':checked')) {
+                JRJ.MiniAlerts.prompt({ message: '<p>请勾选并同意服务协议</p>' });
+                return;
+            }
+
+            if (___lock) {
+                return;
+            }
+            ___lock = true;
+
+            var cid = $('#coupon-list').find('input[type="checkbox"]:checked').attr('data-id');
+            var month=$('.month-border').attr('data-month');
+            
+            switch (couponConfig.type) {
+                case enum_CouponType.PORTFOLIO:
+                case enum_CouponType.REFERENCE:
+                   
+                     window.open(api_place.replace(/({pid}|{cid}|{type}|{month})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{month}': return month || '';
+                            }
+                        }));
+                    break;
+
+                case enum_CouponType.SHIPANSAI:
+                   
+                    window.open(api_place_4_vote.replace(/({pid}|{cid}|{type}|{tgid}|{num}|{rmb}|{uniqueid}|{content})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{tgid}': return '';
+                                case '{num}': return '';
+                                case '{rmb}': return '';
+                                case '{uniqueid}': return '';
+                                case '{content}': return '';
+                            }
+                        }));
+
+                    break;
+
+
+                case enum_CouponType.GLANCE:
+                    window.open(api_place.replace(/({pid}|{cid}|{type})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                            }
+                        }));
+                    break;
+                case enum_CouponType.GIFT:
+                case enum_CouponType.REWARD:
+                case enum_CouponType.VIEWPOINT:
+                    window.open(api_place_4_gift.replace(/({pid}|{cid}|{type}|{tgid}|{num}|{rmb}|{uniqueid})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{tgid}': return couponConfig.tgid;
+                                case '{num}': return couponConfig.num;
+                                case '{rmb}': return couponConfig.rmb;
+                                case '{uniqueid}': return couponConfig.uniqueid;
+                            }
+                        }));
+                    break;
+                case enum_CouponType.VOTE:
+                    window.open(api_place_4_vote.replace(/({pid}|{cid}|{type}|{tgid}|{num}|{rmb}|{uniqueid}|{content})/gi,
+                        function ($1) {
+                            switch ($1.toLowerCase()) {
+                                case '{pid}': return couponConfig.productId;
+                                case '{cid}': return cid || '';
+                                case '{type}': return couponConfig.type;
+                                case '{tgid}': return couponConfig.tgid;
+                                case '{num}': return couponConfig.num;
+                                case '{rmb}': return couponConfig.rmb;
+                                case '{uniqueid}': return couponConfig.uniqueid;
+                                case '{content}': return couponConfig.content;
+                            }
+                        }));
+                    break;
+                default:
+                    break;
+            };
+
+            //弹出支付完成弹窗
+            showWaitingPaymentDlg();
+
+            //$.ajax({
+            //    url: api_place.replace('{pid}', couponConfig.productId).replace('{cid}', cid || '').replace('{type}', couponConfig.type),
+            //    dataType: 'jsonp',
+            //    type: 'get',
+            //    cache: false,
+            //    timeout: 5000,
+            //    success: function (d) {
+            //        switch (d.retCode) {
+            //            case enum_ReturnCode_Place.Free, enum_ReturnCode_Place.CouponFree:
+            //                JRJ.MiniAlerts.prompt({ message: '<p>订阅成功！</p>' });
+            //                break;
+            //            case enum_ReturnCode_Place.Existed:
+            //                JRJ.Alerts.alert({
+            //                    message: d.msg, autoClose: false, okCallback: function () {
+            //                        window.location.href = d.redirectUrl;
+            //                    }
+            //                });
+            //                break;
+            //            case enum_ReturnCode_Place.GoPay:
+            //                JRJ.Alerts.alert({
+            //                    message: d.msg, autoClose: false, okCallback: function () {
+            //                        window.open(d.redirectUrl);
+            //                    }
+            //                });
+            //                break;
+            //            case enum_ReturnCode_Place.Failed:
+            //                JRJ.Alerts.alert({ message: d.msg, autoClose: false });
+            //                break;
+            //            default:
+            //                break;
+            //        }
+            //    },
+            //    complete: function () {
+            //        ___lock = false;
+            //    }
+            //});
+        });
+    };
+
+
+    var checkLogin = function () {
+        if (typeof basicUserInfo == 'undefined' || basicUserInfo == null || basicUserInfo.userId == null) {
+            return false;
+        }
+        return true;
+    };
+
+    var getApi = function (couponConfig) { alert('couponConfig.type'+couponConfig.type);
+        switch (couponConfig.type) {
+            case enum_CouponType.SHIPANSAI:
+                return api_buy_4_gift.replace(/({pid}|{type}|{tgid}|{num}|{rmb}|{content})/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case '{pid}': return couponConfig.productId;
+                        case '{type}': return couponConfig.type;
+                        case '{tgid}': return couponConfig.tgid;
+                        case '{num}': return couponConfig.num;
+                        case '{rmb}': return couponConfig.rmb;
+                        case '{content}': return couponConfig.content || '';
+                    }
+                });
+                break;
+            case enum_CouponType.PORTFOLIO:
+                return api_buy.replace('{pid}', couponConfig.productId).replace('{type}', enum_CouponType.PORTFOLIO);
+                break;
+            case enum_CouponType.REFERENCE:
+                return api_buy.replace('{pid}', couponConfig.productId).replace('{type}', enum_CouponType.REFERENCE);
+                break;
+            case enum_CouponType.GLANCE:
+                return api_buy.replace('{pid}', couponConfig.productId).replace('{type}', enum_CouponType.GLANCE);
+                break;
+            case enum_CouponType.GIFT:
+            case enum_CouponType.REWARD:
+            case enum_CouponType.VIEWPOINT:
+                return api_buy_4_gift.replace(/({pid}|{type}|{tgid}|{num}|{rmb}|{content})/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case '{pid}': return couponConfig.productId;
+                        case '{type}': return couponConfig.type;
+                        case '{tgid}': return couponConfig.tgid;
+                        case '{num}': return couponConfig.num;
+                        case '{rmb}': return couponConfig.rmb;
+                        case '{content}': return couponConfig.content || '';
+                    }
+                });
+                break;
+            case enum_CouponType.VOTE:
+                return api_buy_4_gift.replace(/({pid}|{type}|{tgid}|{num}|{rmb}|{content})/gi,
+                function ($1) {
+                    switch ($1.toLowerCase()) {
+                        case '{pid}': return couponConfig.productId;
+                        case '{type}': return couponConfig.type;
+                        case '{tgid}': return couponConfig.tgid;
+                        case '{num}': return couponConfig.num;
+                        case '{rmb}': return couponConfig.rmb;
+                        case '{content}': return couponConfig.content || '';
+                    }
+                });
+                break;
+            default:
+                break;
+        }
+    };
+
+    var adjustData = function (data) {
+        data.amount = data.amount / 100;
+        data.startTime = Util.dateFormat(new Date(parseInt(data.startTime, 10)), 'yyyy-mm-dd');
+        data.endTime = Util.dateFormat(new Date(parseInt(data.endTime, 10)), 'yyyy-mm-dd');      
+
+        //if (data.items != null && data.items.length > 0) {
+        //    for (var i = 0; i < data.items.length; i++) {
+        //        data.items[i].endTime = Util.dateFormat(new Date(parseInt(data.items[i].endTime, 10)), 'yyyy-mm-dd');
+        //        data.items[i].price = data.items[i].price / 100;
+        //    }
+        //}
+
+        switch (couponConfig.type) {
+            case enum_CouponType.PORTFOLIO:
+                if ((data.matchid || 0) > 0) {
+                    data.note = '注意事项：付款后即可接收该组合的调仓信息，跟单更快速。大师赛组合没有目标收益和退款机制，请确认后购买。';
+                } else {
+                    data.note = '订阅须知：运行过程中，组合清仓后达到目标收益时可提前结束运行。若组合触及止损或到期未达到目标收益，视为失败，将于组合完成后的7~15个工作日内全额退款。';
+                }
+                break;
+            case enum_CouponType.GLANCE:
+                data.note = '支付须知：支付无悔，概不退款，支付成功后30分钟内可以随时查看组合持仓、调仓记录和互动等内容。';
+                break;
+            case enum_CouponType.REFERENCE:
+                data.note = '订阅须知：此内容仅代表个人研究成果，供学习参考，不是投资依据，据此操作风险自担。';
+                break;
+            case enum_CouponType.VIEWPOINT:
+                data.pname = Util.cutoff(couponConfig.productName, 30);
+                break;
+            default:
+                break;
+
+        }
+
+        return data;
+
+    };
+
+
+    //弹窗
+    var showDlg = function (config) {
+
+        ___lock = true;
+
+        //if (!checkLogin()) {
+        //    JRJ.ui.isLogin();
+        //    return;
+        //}
+
+        couponConfig = $.extend(couponConfig, config);
+        console.log(couponConfig);
+        //请求购买接口 并获取优惠券
+        alert(getApi(couponConfig));
+        $.ajax({
+            url: getApi(couponConfig),
+            dataType: 'jsonp',
+            type: 'get',
+            cache: false,
+            timeout: 5000,
+            success: function (d) {
+                console.log(d);
+                console.log(enum_ReturnCode_Buy);
+                if (typeof d != 'undefined' && d != null) {
+                    switch (d.retCode) {
+                        case enum_ReturnCode_Buy.Free:
+                            JRJ.MiniAlerts.prompt({ message: '<p>订阅成功！</p>' });
+                            break;
+                        case enum_ReturnCode_Buy.GoPay:
+
+                            d = adjustData(d);
+
+                            productPrice = d.amount;
+
+                            var _cnt = '';
+                            if (couponConfig.type == 6) {
+                                
+                                _cnt = Mustache.render(dlgTmp6, d);                             
+
+                            } 
+                            if (couponConfig.type == 11) {
+                                alert(13456789);
+                                _cnt = Mustache.render(dlgTmplGift, d);                             
+
+                            } else if (couponConfig.type == 1) {
+
+                                d.ismaster = (d.matchid || 0) > 0;
+                                _cnt = Mustache.render(dlgTmpl, d);
+
+                            } else if (couponConfig.type == enum_CouponType.GLANCE) {
+                                d.isGlance = true;
+                                _cnt = Mustache.render(dlgTmpl, d);
+
+                            } else {
+                                _cnt = Mustache.render(dlgTmplGift, d);
+                            }
+
+
+                            dlgClone.standardDialog({
+                                title: "确认购买",
+                                customClass: 'dialog-coupon-buy',
+                                width: 520,
+                                content: _cnt,
+                                okBtnText: "确定",
+                                cancelBtnText: "取消",
+                                hasBtn: false,
+                                hasCloseBtn: true,
+                                hasOkBtn: true,
+                                hasCancelBtn: false,
+                                okCallback: function () { },
+                                cancelCallback: function () { },
+                                isFixed: true
+                            });
+
+                            if(d.pdType == 2){
+                                var str='';
+                                var monthList=d.tipsDisCountVos;
+                                $.each(monthList,function(i,val){
+                                    if(monthList[i].discount < 1 && monthList[i].discount > 0){
+                                        //var discount=(monthList[i].discount*10).toFixed(1);
+                                        var discount=Math.round(monthList[i].discount*10 * 10) / 10
+                                        //console.log(discount);
+                                         str+='<li class="month-heightauto" data-month='+monthList[i].month+'><em>'+monthList[i].month+'个月</em><i>('+discount+'折)</i><span></span></li>';
+                                                                                                     
+                                    }else{
+                                       str+='<li class="month-height45" data-month='+monthList[i].month+'><em>'+monthList[i].month+'个月</em><i></i><span></span></li>'; 
+                                        
+                                    }
+                                                                   
+                                })
+                                $("#long-term-month").html(str);
+                                $("#long-term-month").find('li:last').addClass("month-red");                              
+                                 
+                            }else{
+                                $("#long-term-month").hide();
+                            }
+                            //绑定优惠券
+                            if (d.items.length > 0) {
+                                var couponList = $(Mustache.render(couponTmpl, { count: d.items.length }));
+                                for (var i = 0; i < d.items.length; i++) {
+                                    var _couponItem = $(Mustache.render(couponItemTmpl, d.items[i]));
+                                    couponList.find('table').append(_couponItem);
+                                    if(d.items[i].limitPrice==0){
+                                        couponList.find('table').find(".col-5").eq(i).html("无金额门槛");
+                                    }
+                                    
+                                }
+                                $('#coupon-list').html(couponList);
+                            }
+                            
+                            if (d.items.length > 4) {
+                                $('.dialog-coupon-buy .coupon-list .table-wrap').css({ 'height': '176px' });
+                            } else {
+                                $('.dialog-coupon-buy .coupon-list .table-wrap').css({ 'height': 'auto' });
+                            }
+
+                            bindEvent(d);
+
+                            break;
+                        case enum_ReturnCode_Buy.Existed:
+                            JRJ.Alerts.alert({
+                                message: d.msg || '订单已存在， 请前往订单列表支付。', autoClose: false, okCallback: function () {
+                                    window.location.href = d.redirectUrl;
+                                }
+                            });
+                            break;
+                        case enum_ReturnCode_Buy.Failed:
+                            JRJ.Alerts.alert({ message: d.msg || '订阅失败，请重试。', autoClose: false });
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                    //是否需要可用性评测
+                    if ((couponConfig.type == enum_CouponType.GLANCE || couponConfig.type == enum_CouponType.PORTFOLIO || couponConfig.type == enum_CouponType.REFERENCE) && d.evaluated == 1) {
+                        JRJ.usability.show();
+                    }
+                   
+                }
+            },
+            complete: function (xhr, text) {
+                ___lock = false;
+
+                window.console && console.log(text + '<<<<<<<<<<<<<<<<<<<<<');
+            }
+        });
+    };
+
+    var guid = function () {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+          s4() + '-' + s4() + s4() + s4();
+    };
+    return {
+        show: showDlg,
+        guid: guid
+    };
+
+})();
+
+
+</script>
+<script>
+    $(function(){
+        var ssoid='${ssoId}';
+
+        //查询当前用户已经订阅的商品
+        function dyed(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/match/querySubedProducts?matchId=3',
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        for(var i=0;i<v.data.items.length;i++){
+                            var o=v.data.items[i];
+                            if(o.saleNo==$('.allbtn').attr('datano')){
+                                $('.moneybtn').addClass('hide');
+                                $('.moneybtn').next().removeClass('hide');
+                            }else{
+                                for(var j=0;j<$('.personlist .moneybtn').length;j++){
+                                    if(o.saleNo==$('.personlist .moneybtn').eq(j).attr('datano')){
+                                        $('.personlist .moneybtn').eq(j).addClass('hide');
+                                        $('.personlist .moneybtn').eq(j).next().removeClass('hide');
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+               },
+               error : function() {
+                    
+               }
+            });
+        }
+
+        //拉十个人到页面
+        persons();
+
+        function persons(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/match/queryProducts?matchId=3',
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        var str='';
+                        for(var i=0;i<v.data.singleProductList.length;i++){
+                            var o=v.data.singleProductList[i];
+                            str+='<li class="list" dataid="'+o.playerSsoId+'"><div class="pic fl"><a href="#"><div class="newimg" data_src="'+o.playerPic+'"></div><span>'+o.playerName+'</span><em></em></a></div><div class="txt"><a href="javascript:;" class="msg">'+o.playerDesc+'</a><div class="yushou"><div class="up"><span class="icon"></span>2017.02.20 正式开赛</div><a href="javascript:;" class="yushoubtn moneybtn"  datano="'+o.saleNo+'">¥'+o.price+' 限量预售中</a><a href="javascript:;" class="yushoudisbtn hide">成功订阅 敬请期待</a></div></div></li>';
+                        }   
+                        $('.personlist').html(str);
+                        $('.newimg').each(function(){
+                            var oImg=new Image();
+                            oImg.src=$(this).attr('data_src');
+                            $(this).append(oImg);
+                        });
+                        $('.allbtn i').html(v.data.complexProductList[0].price);
+                        $('.allbtn').attr('datano',v.data.complexProductList[0].saleNo);
+                        if(ssoid.length>=18){
+                            dyed(); 
+                        }
+                    }
+               },
+               error : function() {
+                    
+               }
+            });
+        }
+        //点击预售按钮
+        $('body').delegate('.moneybtn','click',function(){
+            var o=$(this);
+            JRJ.ui.isLogin(function(){
+                $.ajax({
+                   url:'https://t.jrj.com.cn/activities/match/doSingleSubscribePlayer?matchId=3&saleNo='+o.attr('datano'),
+                   type:"get",
+                   cache : false,
+                   dataType: 'jsonp',
+                   jsonp: 'callback',
+                   success:function(v) {
+                    console.log(v);
+                        if(v.retcode==0){
+                            $('.mask,.layer_dy').show();
+                            $('.layer_dy .playername').html(o.parents('.list').find('.pic span').html());
+                            $('.dybtn').unbind().click(function(){
+                                CouponDlg.show({
+                                    productId: o.attr('datano'),
+                                    type: 11,
+                                    checkOrderUrl: 'http://itougu.jrj.com.cn/order/checkOrder.jspa?uniqueid=1'
+                                });
+                                dcsMultiTrack('DCS.dcsuri', 'ITOUGU_shipansaiweb_yushou2', 'WT.ti', 'ITOUGU_shipansaiweb_yushou2')
+                            });
+                        }
+                   },
+                   error : function() {
+                        
+                   }
+                });
+            });
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_shipansaiweb_yushou1', 'WT.ti', 'ITOUGU_shipansaiweb_yushou1')  
+        });
+
+        $('.closebtn').click(function(){
+            $('.layer,.mask').hide();
+        });
+        $('.guize').click(function(){
+            $('.layer_gz,.mask').show();
+        });
+        /*设置*/
+        $('.set').click(function(){
+            $('.layer_set').css('margin-top',-($('.layer_set').height()/2+40));
+            $('.layer_set,.mask').show();
+        });
+        $('.layer_set .option').each(function(){
+            $(this).click(function(){   
+                if(!$(this).hasClass('close')){
+                    $(this).addClass('close');
+                }else{
+                    $(this).removeClass('close');
+                } 
+            });
+        });
+        $('.kaishoubtn').each(function(){
+            $(this).click(function(){
+                $('.layer_dy,.mask').show();
+            });
+        });
+    });
+</script> 
+</body>
+</html>

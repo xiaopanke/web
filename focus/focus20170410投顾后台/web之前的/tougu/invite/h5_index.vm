@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>我的邀请</title>
+    <meta name="description" content="爱投顾 好友邀请" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <script src="http://js.jrjimg.cn/lib/jquery-1.9.1.min.js"></script>
+    <script src="http://js.jrjimg.cn/lib/zepto-min.js"></script>
+	<script type="text/javascript" src="http://js.jrjimg.cn/itougu/account/jquery.qrcode-min.js"></script>
+    <style type="text/css">
+	@media only screen and (-webkit-min-device-pixel-ratio: 2){html{-webkit-text-size-adjust:none}}
+	body { font: 1em/16em;font-size:75%; }
+	body * {-webkit-appearance:none; }
+	body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td{margin:0;padding:0;}h1,h2,h3,h4,h5,h6{font-size:100%;}address,cite,em,i{font-style:normal;}li{list-style:none;}a{text-decoration:none;}a:hover{text-decoration:underline;}legend{color:#000;}fieldset,img{border:0;}table{border-collapse:collapse;border-spacing:0;}input[type="button"],input[type="submit"],input[type="reset"]{cursor:pointer;}
+	body { font-family:"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",tahoma,Helvetica,arial,sans-serif,simsun,"宋体";
+		   color:#666;background:#fff;}
+	input { font-family:"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",tahoma,Helvetica,arial,sans-serif,simsun,"宋体";}
+	.clearfix:after,.wrapper:after  { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	.clearfix { display: inline-block; }
+	/* start commented backslash hack \*/
+	* html .clearfix { height: 1%; }
+	.clearfix { display: block; }
+	/* close commented backslash hack */
+	/* misc */
+	.tl { text-align:left;}.tc { text-align:center;}.tr { text-align:right;}
+	.fl { float:left;}.fr { float:right;}
+	a:hover{ text-decoration:none;}
+	.mt5 { margin-top:5px;}.mt10 { margin-top:10px;}.mt15 { margin-top:15px;}.mt20 { margin-top:20px;}.mt25 { margin-top:25px;}.mt30 { margin-top:30px;}.mt60 { margin-top:60px;}
+	.ml5 { margin-left:5px;}.ml10 { margin-left:10px;}.ml20 { margin-left:20px;}.ml30 { margin-left:30px;}.ml40 { margin-left:40px;}
+	.mr5 { margin-right:5px;}.mr10 { margin-right:10px;}.mr20 { margin-right:20px;}.mr30 { margin-right:30px;}
+	.mb30 { margin-bottom:30px;}.pt20 { padding-top:20px;}
+	input { outline:none;}input[type=checkbox] { -webkit-appearance:checkbox;}
+    header{ background-color:#de3031; text-indent:-99999px;}
+	.bn1{background: url(http://i0.jrjimg.cn/focus/2015/InviteCode/b1.jpg) center top no-repeat; background-size:cover; }
+	.bn2{background: url(http://i0.jrjimg.cn/focus/2015/InviteCode/b2.jpg) center top no-repeat; background-size:cover; }
+	.bn3{background: url(http://i0.jrjimg.cn/focus/2015/InviteCode/b3.jpg) center top no-repeat; background-size:cover; }
+	.bn4{background: url(http://i0.jrjimg.cn/focus/2015/InviteCode/b4.jpg) center top no-repeat; background-size:cover; }
+	.bn5{background: url(http://i0.jrjimg.cn/focus/2015/InviteCode/b5.jpg) center top no-repeat; background-size:cover; }
+	.bn6{background: url(http://i0.jrjimg.cn/focus/2015/InviteCode/b6.jpg) center top no-repeat; background-size:cover; }
+	.maincon{padding:0 24px 25px;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170314SharePage/app/img/bg-1.jpg) no-repeat;background-size: 100% 100%; height:100%;}
+	.jion-tit{position: absolute;left:0;top:75px;color:#fff;/* padding: 54px 32px; */right:0;bottom:0;margin:auto;width: 98%;}
+	.jion-tit strong{font-size: 1.2em}
+	.line{display: inline-block;width: 57px;border: 1px solid #6e757b;position: relative;top:-4px;}
+	.line2{margin-left: 12px;}
+	.line1{margin-right: 12px;}
+	.conbox{  border-radius:8px; background:#fddea5 url(http://i0.jrjimg.cn/focus/2015/InviteCode/mony.png) 32px 6px no-repeat; background-size:27px 18px; padding:5px 15px 25px;}
+	.ico_circle{ display:inline-block; width:4px; height:4px; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170314SharePage/app/img/circle.png) no-repeat; background-size:4px; vertical-align:middle;}
+	.ico_square{ display:inline-block; width:6px; height:6px; background-color:#e43023; transform:rotateZ(45deg); -webkit-transform:rotateZ(45deg); -moz-transform:rotateZ(45deg); -ms-transform:rotateZ(45deg); -o-transform:rotateZ(45deg); vertical-align:middle;}
+	.fs16{ font-size:0.67em;}.fs20{ font-size:0.84em;}.fs22{ font-size:0.92em;}.fs24{ font-size:1em;}.fs36{ font-size:1.5em;}
+	.cor_red{ color:#e43023;}.col_gray{ color:#727272;}.col_ltgray{ color:#999;}.col_4{color:#444;}.cor_re2{color:#e60012;}
+	.conbox p a.col_gray:hover{ color:#A5A5A5; text-decoration:none;}
+	.mr6{ margin-right:6px;}.ml6{ margin-left:6px;}
+	.ewm{ /*width:72px; height:72px;*/ padding: 5px;margin: 10px auto 0;position: relative;left: 0;top: -47px;background: #fff;border-radius: 4px;border: 1px solid #e60012;}
+	.code-red{border:1px solid #e60012;border: 1px solid #e60012;position: absolute;     left: 143px;top: 87px; }
+
+	.text{ height:30px; background-color:#fff; border:1px solid #e4e4e4; border-radius:2px; padding:10px 6px 0px 8px;position: relative;}
+	.ipt{ display:inline-block; border:none; height:18px; line-height:18px; font-size:1.2em; color:#727272; white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
+	.btn_red{ display:inline-block; width:70px; height:38px; line-height:38px; text-align:center; color:#fff; background-color:#ff4040; font-size:1em;position: absolute;right:1px;top:1px;border-radius:2px;}
+    </style>
+</head>
+<body style="background-color:#152534;">
+	<header style="display:none;">
+    	<div class="bn1">邀请好友来领钱 加入爱投顾 从领红包开始</div>
+        <div class="bn2"></div>
+        <div class="bn3"></div>
+        <div class="bn4"></div>
+        <div class="bn5"></div>
+        <div class="bn6"></div>
+    </header>
+	<section class="maincon" style="padding:117px 21px 21px 21px;">
+		<!--  <p class="mt20 jion-tit"><span class="line line1"></span><strong class="fs24">当面邀请好友时，扫码参与更方便</strong><span class="line line2"></span></p> -->
+    	<div class="conbox" style="background:#f5f5f5;">
+           
+            <div id="qrcodeDemo" class="ewm"></div>
+            <p class="mt20"><i class="ico_circle mr6"></i><strong class="fs24 col_4">分享您的专属邀请链接</strong></p>
+            <p class="text mt10">
+                <a href="$!shareUrl" class="btn_red fr">立即分享</a>
+                <!--<input type="text" value="http://itougu.jrj.com.cn/?from=itougu" readonly />-->  
+                <span class="ipt">$!inviteUrl</span>
+            </p>
+            <p class="mt20"><i class="ico_circle mr6"></i><strong class="fs24 col_4">您的邀请码</strong></p>
+            <p class="text mt10">
+                <a href="$!copyUrl" class="btn_red fr">复制</a>
+                <!--<input class="ipt" type="text" readonly />-->
+                <span class="ipt">$!inviteCode</span>
+            </p>
+            <p class="mt25"><i class="ico_circle mr6"></i><strong class="fs24 col_4">最新邀请活动</strong></p>
+            #foreach($ad in ${ads})
+            <p class="mt10 ml10"><a class="fs24 cor_re2" href="$!ad.url"> $!{velocityCount}.$!{ad.text}</a></p>
+            #end
+            <!-- <p class="mt10 ml10"><a class="fs24 col_gray" href="#" target="_blank">1.成功推荐一位投顾获得20元红包奖励</a></p>
+            <p class="mt10 ml10"><a class="fs24 col_gray" href="#" target="_blank">2.成功推荐一位投顾获得30元红包奖励</a></p>
+            <p class="mt10 ml10"><a class="fs24 col_gray" href="#" target="_blank">3.成功推荐一位投顾获得50元红包奖励</a></p> -->
+        </div>
+    </section>
+</body>
+<script>
+$(function(){
+	$('[class*=bn]').height($(window).width()/320*24);
+	$('.ipt').width($('.text').width()-90);
+	$(window).resize(function(){
+		$('[class*=bn]').height($(this).width()/320*24);
+		$('.ipt').width($('.text').width()-90);
+		})
+	})
+</script>
+<script>
+	jQuery(document).ready(function (){
+		/* 如果中文的二维码内容，则必须转为UTF-8 */
+		var iptstr=$('.ipt').first().text();
+		var str = ChsToUtf8(iptstr);
+		var ww=$(window).width()*0.4;
+		var hh=$(window).width()*0.4;
+		jQuery('#qrcodeDemo').qrcode({	
+			/* render with table or canvas */
+			/* 更改了jquery.qrcode源码，使得不支持canvas的浏览器使用table */
+			//render: "table",
+			width: ww,
+			height: hh,
+			image: 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170314SharePage/app/qrcode-logo.png',
+			text: 'http://appcms.jrj.com.cn/download.jspa?tgyqcode=$!inviteCode',
+		});
+		$('.ewm').width(ww);
+		$('.ewm').height(hh);
+		
+		
+	});
+</script>
+</html>
+

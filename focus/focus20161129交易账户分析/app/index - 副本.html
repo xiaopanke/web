@@ -1,0 +1,389 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>账户分析</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#878C92;font-family: "Microsoft YaHei","微软雅黑",tahoma,Helvetica,arial,sans-serif,simsun,"宋体"; }
+body{background: #fff;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+.borb{border-bottom:#EFEFF4 .5rem solid;}
+header{ text-align: center; padding-bottom: 1.2rem; }
+header .top{ padding-top: 1rem; font-size:.7rem; }
+header h2{ color:#F24439 ;font-size:2.2rem; line-height: 2.7rem;  font-weight: bold; margin-bottom: .6rem; }
+header li{box-sizing: border-box; width:33.3%; float:left;}
+header .c{position: relative;}
+header .c:before{content: ''; display: block; position: absolute;left:0;top:0;  border-left: 1px solid #AEB1B4;border-right:1px solid #AEB1B4; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%; height:200%;}
+header li p{font-size:.7rem; line-height: .7rem;}
+header li b{ color:#333; display: block; font-size:.75rem;line-height: .75rem;  font-weight:normal; margin-top: 8px;}
+.tit {background: #FAFAFA;line-height: 2.2rem;font-size: .75rem;font-weight: normal; position: relative; color:#333;}
+.tit:before{content: ''; display: block; position: absolute;left:0;bottom:0; height: 0; border-bottom: 1px solid #dbdbdb; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+.tit i {background: #FF5F57;width: 3px;height: 17px;float: left;margin-right: .6rem;margin-top: .675rem;}
+.tit em{ width:6px; height:6px;  background: #98CEF7;border-radius: 50%; float:right; margin-right:4px; margin-top:.9rem;}
+.tit span{ line-height:2.2rem;float:right; font-size:.6rem;}
+.tit .two{ margin-right:.8rem; }
+.tit .one{ margin-right:.6rem; }
+.tit .orange{background: #FF7B57; }
+
+
+.item2 li{width:33.3%; float:left; text-align: center;}
+.item2 li p{font-size:.7rem; line-height: .7rem; padding-top: 1rem;}
+.item2 li b{ display: block; font-size:.75rem;line-height: .75rem; margin-top: 8px; padding-bottom: 1rem;color:#F24637;}
+.item2 li .blue{color:#2DC678;}
+.canvas1{ padding-bottom: .5rem; }
+.canvas2{position: relative;}
+.canvas2 .in{position: absolute; top:5rem; width:3.6rem; left:50%; margin-left:-1.8rem; text-align: center; }
+.canvas2 .in p{ font-size: .75rem; color: #878C92;}
+.canvas2 .in span{ font-size: .8rem; color: #333;}
+.item3list{ width:11rem; margin:0 auto; padding-bottom:1rem;}
+.item3list li{  box-sizing: border-box;  margin-bottom: .5rem; }
+.item3list i{background: #4D7AD4;border-radius:50%; width:.5rem; height:.5rem; float: left; margin-top: 3px;}
+.item3list span{  float: left; margin-left:5px; font-size:.7rem; color:#333; }
+.item3list b{  float: left; margin-left:5px; font-size:.7rem; color:#898E94; font-weight:normal;}
+.item3list em{  float: right; font-size:.7rem;color:#898E94; }
+.item3list .bg1{background: #4D7AD4;}
+.item3list .bg2{background: #F67F76;}
+.item3list .bg3{background: #FEC972;}
+.item3list .bg4{background: #F7EC7E;}
+.item3list .bg5{background: #CAD9D7;}
+</style>
+<body>
+    <header class="borb">
+        <p class="top">账户资产(元)</p>
+        <h2 class="asset"></h2>
+        <ul class="clearfix">
+            <li><p>持仓市值</p><b class="marketValue"></b></li>
+            <li class="c"><p>可用余额</p><b class="enableBalance"></b></li>
+            <li><p>可取资金</p><b class="fetchBalance"></b></li>
+        </ul>
+    </header>
+    <div class="item2 borb">
+        <h3 class="tit"><i></i>账户收益率</h3>
+        <ul class="clearfix">
+            <li><p>日收益</p><b class="dayIncome"></b></li>
+            <li><p>周收益</p><b class="weekIncome"></b></li>
+            <li><p>月收益</p><b class="monthIncome"></b></li>
+        </ul>
+    </div>
+    <div class="item2 borb">
+        <h3 class="tit"><i></i>收益率走势<span class="one">沪深300</span><em></em><span class="two">我的收益</span><em class="orange"></em></h3>
+        <div class="canvas1"><div id="main1" style="width:98%; height: 8rem;"></div></div>
+    </div>
+    <div class="item3">
+        <h3 class="tit"><i></i>持仓比例</h3>
+        <div class="canvas2">
+            <div class="in">
+                <p>当前仓位</p>
+                <span class="stockTotalRate"></span>
+            </div>
+            <div id="main2" style="width:13rem; margin:0 auto; height:12rem;"></div>
+        </div>
+        <ul class="item3list clearfix" id="ratelist"></ul>
+    </div>
+<script src="//js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>   
+<script src="//i0.jrjimg.cn/zqt-red-1000/focus/common/js/fastclick.js"></script>
+<script src="js/echarts.min.js"></script>  
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    if ('addEventListener' in document) {  
+        document.addEventListener('DOMContentLoaded', function() {  
+            FastClick.attach(document.body);  
+        }, false);  
+    } 
+    window.addEventListener('resize',change,false);
+    var domain='http://jrj.yun.pingan.com';
+    //账户信息
+    var accountinfo = function(){
+        setTimeout(function(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/analysis/account/accountinfo',
+                callback: 'callbackaccountinfo',
+            }));
+        },200);
+   }
+    accountinfo();
+    window.callbackaccountinfo =function(info){ 
+        setTimeout(function(){
+            info = convertToJsonObject(info);
+            if(info.retcode==0){
+                accinfo(info.data);
+             }
+        },30);     
+    }
+   function accinfo(data){
+        $('.asset').html(doublenum(data.asset));
+        $('.marketValue').html(doublenum(data.marketValue));
+        $('.enableBalance').html(doublenum(data.enableBalance));
+        $('.dayIncome').html((data.dayIncome*100).toFixed(2)+'%');
+        $('.weekIncome').html((data.weekIncome*100).toFixed(2)+'%');
+        $('.monthIncome').html((data.monthIncome*100).toFixed(2)+'%');
+        $('.fetchBalance').html(doublenum(data.fetchBalance));
+        if((data.dayIncome+'').indexOf('-')!=-1){
+            $('.dayIncome').addClass('blue');
+        }
+        if((data.weekIncome+'').indexOf('-')!=-1){
+            $('.weekIncome').addClass('blue');
+        }
+        if((data.monthIncome+'').indexOf('-')!=-1){
+            $('.monthIncome').addClass('blue');
+        }
+   }
+
+    //收益图请求
+    var data1={};
+    var incomeRate = [];
+    var initDate = [];
+    var incomeListHS300 = [];
+    var yieldcurveinfo = function(){
+        setTimeout(function(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/analysis/income/yieldcurve',
+                callback: 'callbackyieldcurveinfo',
+            }));
+        },200);
+   }
+    yieldcurveinfo();
+    window.callbackyieldcurveinfo =function(info){
+        setTimeout(function(){
+            info = convertToJsonObject(info);
+            if(info.retcode==0){
+                data1=info.data;
+                $.each(data1.incomeList,function( i , obj ){
+                //console.log((obj.incomeRate*100).toFixed(2)+'%');
+                var _date = String(obj.initDate).slice(4),
+                    _datemat = _date.substr(0,2)+'-'+_date.substr(2,2)
+                    initDate.push(_datemat);
+                    incomeRate.push(obj.incomeRate);
+
+
+                });
+                $.each(data1.incomeListHS300,function( i , obj ){
+                    
+                    incomeListHS300.push(obj.incomeRate)
+                });
+                var myChart1 = echarts.init(document.getElementById('main1'));
+                myChart1.setOption(option1);
+            }
+        },30);    
+    }
+
+        
+    // 指定图表的配置项和数据
+    var option1 = {
+        title:{show:false},
+        tooltip: { show:false},
+        legend: {show:false},
+        toolbox:{show:false},
+        backgroundColor:'#fff',
+        grid:{x:30,y:15,x2:50,y2:30},
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            axisLabel : {
+                textStyle : {
+                    color:"#878C92",
+                    fontSize:10
+                }
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'#D2D2D2'
+                }
+            },
+            axisTick :{
+                show:false
+            },
+
+            data: initDate
+        },
+        yAxis: {
+            type: 'value',
+
+            position:'right',
+            axisLabel : {
+                textStyle : {
+                    color:"#878C92",
+                    fontSize:10
+                },
+                formatter: function(v){
+                    return (v*100).toFixed(2)+'%'
+                 }
+            },
+            axisLine:{
+                show:false
+            },
+            axisTick :{
+                show:false
+            },
+         
+            splitLine:{
+                show : true,
+                lineStyle:{
+                    width : .5,
+                    color:'#D2D2D2'
+                }
+            },
+        },
+       
+        series: [{
+            name: '用户累计',
+            type: 'line',
+            smooth: true,
+            symbol:'diamond',
+          
+            lineStyle:{
+                normal:{
+                    color : '#FF7B57',
+                    width:2
+                }
+            },
+            data: incomeRate 
+        },
+        {
+            name: '沪深300参赛',
+            type: 'line',
+            symbol:'diamond',
+            smooth: true,
+            lineStyle:{ 
+                normal:{
+                    color:'#98CEF7',
+                    width:1
+                }
+            },
+            data: incomeListHS300
+        }]
+    };
+        
+//持仓比例请求
+    var arrrate=[];
+    var rateinfo = function(){
+        setTimeout(function(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/analysis/position/positionrate',
+                callback: 'callbackrateinfo',
+            }));
+        },200);
+   }
+    rateinfo();
+    window.callbackrateinfo =function(info){
+        setTimeout(function(){
+            info = convertToJsonObject(info);
+            if(info.retcode==0){
+                $('.stockTotalRate').html((parseFloat(info.data.stockTotalRate)*100).toFixed(2)+'%');
+                $.each(info.data.list,function( i , obj ){
+                    
+                    //incomeListHS300.push(obj.incomeRate)
+                    arrrate.push({
+                        value:obj.positionRate,name: obj.stockName
+                    });
+                    $('#ratelist').append('<li class="clearfix"><i class="bg'+(i+1)+'"></i><span>'+obj.stockName+'</span><b>('+obj.stockCode+')</b><em>'+(parseFloat(obj.positionRate)*100).toFixed(2)+'%</em></li>');
+
+                });  
+                $('#ratelist b').each(function(){
+                    if($(this).html().length<7){
+                        $(this).hide();
+                    }
+                });    
+                var myChart2 = echarts.init(document.getElementById('main2'));
+                option2 = {
+                     tooltip: {
+                        trigger: 'right',
+                        //formatter: "{a} <br/>{b}: {c} ({d}%)"  显示的文字
+                        position: function (point, params, dom) {
+                              return [point[0]-40, point[1]-70];
+                        },
+                        backgroundColor:'none',
+                        formatter: function(v){
+                            //console.log(v);
+                            var html='<div style="width:2.85rem; height:3.4rem;background:url(img/tip.png);background-size:100% 100%;font-size:.7rem; line-height:2.8rem; text-align:center;">'+v.percent+'%</div>';
+                            return html;
+                        }
+                    },
+                    color:['#4D7AD4','#F67F76','#FEC972','#F7EC7E','#CAD9D7'],
+                    series: [
+                        {
+                            name:'访问来源',
+                            type:'pie',
+                            radius: ['47%', '70%'],
+                            center: ['50%', '50%'],  //控制 圆的位置
+                            avoidLabelOverlap: false,
+                            label: {
+                                normal: {
+                                    show: false,
+                                    position: 'center'
+                                }
+                            },
+                            labelLine: {
+                                normal: {
+                                    show: false
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    
+                                }
+                            },
+                            data:arrrate
+                        }
+                    ]
+                };
+                myChart2.setOption(option2);
+            }
+        },30);    
+    }
+
+var convertToJsonObject = function(str){
+    if(typeof str != 'object'){
+      return JSON.parse(str);
+    }else{
+      return str;
+    }
+}
+function doublenum(num){
+    var num=num+'';
+    if(num.indexOf('.')!=-1){
+        var len=num.substring(num.indexOf('.')+1).length;
+        if(len==0){
+            return num+'00';
+        }else if(len==1){
+            return num+'0';
+        }else{
+            return parseFloat(num).toFixed(2);
+        }
+        console.log(n);
+    }else{
+        return num+'.00';
+    }
+}
+</script> 
+   
+</body>
+</html>

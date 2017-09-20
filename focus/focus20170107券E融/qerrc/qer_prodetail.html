@@ -1,0 +1,225 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>产品详情</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-m/quanerong/qer_base.css" />
+<style>
+header{ height:5rem; background:url(https://i0.jrjimg.cn/zqt-m/quanerong/banner.jpg) no-repeat; background-size:100% 100%; color:#fff; text-align: center;}
+header p{ padding-top: 1.1rem; }
+header h3{font-size: 1.5rem; font-weight: bold; line-height: 1.6rem;}
+.item2 {background: #fff; padding:.5rem 0; margin-bottom: .4rem;}
+.item2 li{ width:50%; box-sizing:border-box; padding: .5rem; float: left; }
+.item2 .pic{ width:2.5rem; height:2.5rem; background: url(https://i0.jrjimg.cn/zqt-m/quanerong/icon2.png); background-size: 10rem 2.5rem; margin-right: .2rem;}
+.item2 .pic2{background-position: -2.5rem 0;}
+.item2 .pic3{background-position: -5rem 0;}
+.item2 .pic4{background-position: -7.5rem 0;}
+.item2  h3{font-size: .8rem; line-height: 1rem; padding-top: .3rem;  }
+.item2  em{font-size: .6rem; color: #888; }
+.item3{ background: #fff;}
+.item3 h3{ font-size:.8rem; line-height: 2rem; font-weight: normal; }
+.item3 h3 i{width:2px; height: .8rem; background: #F24637; margin-left: .6rem; margin-right: .5rem;float: left; margin-top: .6rem;}
+.item3 .in{ padding-left: .6rem; margin-top: .75rem; padding-bottom: 1.5rem;}
+.item3 .round{ float:left; width:3rem; height: 2rem; padding-top: .4rem; border-radius: 1.25rem; background:#FFF4F2; text-align: center; line-height: 1.25rem;}
+.round:before{ border-color:#F24439; border-radius:2.5rem; border-style: dashed;}
+.item3 .icon{ float:left; border:.3rem solid transparent; border-left:.45rem solid #DBDBDB; margin:.9rem .38rem 0 .75rem;}
+.item4{ margin-top: .4rem; margin-bottom: .4rem;}
+.item4 .round{background: #F2F9FF;}
+.item4 .round:before{border-color: #3996F2;}
+.btn{ width:100%; border-radius: 0;}
+.item5{margin-bottom:3.5rem;}
+.item5 a{ display: block;line-height: 3rem; background: #fff;  color: #333;}
+.item5 a *{float: left;}
+.item5 i{width: .9rem; height:1.1rem; margin:1rem .4rem 0 .6rem; background: url(https://i0.jrjimg.cn/zqt-m/quanerong/rule.png); background-size: 100% 100%; margin-right: 4px;}
+.item5 a em{float: right;margin-right: .6rem;}
+/*弹窗*/
+.focus-dlg {position:fixed;top:0;left:0;width:100%;height:100%;z-index:2000;opacity:0;visibility:hidden;-moz-transform:scale(.5);-ms-transform:scale(.5);-o-transform:scale(.5);-webkit-transform:scale(.5);transform:scale(.5);-moz-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);-o-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);-webkit-transition:transform .3s cubic-bezier(.17,.67,.42,1.22);transition:transform .3s cubic-bezier(.17,.67,.42,1.22);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;}
+.md-dialog-show .focus-dlg {visibility:visible;opacity:1;-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);-webkit-transform:scale(1);transform:scale(1); }
+.md-dialog-show .md-overlay {opacity:1;visibility:visible;-moz-transition:all 1s;-o-transition:all 1s;-webkit-transition:all 1s;transition:all 1s;}
+.md-overlay {position:fixed;width:100%;height:100%;visibility:hidden;top:0;left:0;z-index:1000;opacity:0;background:rgba(0,0,0,0.75);filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#50000000',EndColorStr='#50000000');-webkit-transition:all .3s;-moz-transition:all .3s;transition:all .3s;}
+.focus-dlg .in{ width:16.75rem;background: #fff;border-radius: 4px; }
+.focus-dlg h3{ text-align:center; line-height:1rem; padding-top:1rem; font-size:.9rem;}
+.focus-dlg p{padding-top: 1rem; padding-left: 1.25rem; padding-right:1.25rem; font-size:.8rem;}
+.focus-dlg b{font-size:.7rem; line-height: 2.7rem;font-size:1.2rem;display: block;text-align:center;}
+.focus-dlg a{ font-size:.7rem; font-size:.8rem;display: block;text-align:center; color: #3996F2; line-height: 2.5rem; position: relative; margin-top: 1rem;}
+.focus-dlg a:before{content: ''; display: block; position: absolute;left:0;top:0; width: 200%;border-top: 1px solid #d5d5d5; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;  }
+.focus-dlg  .dlg-btn{ width:50%;float:left;}
+.btn{ position: fixed;left:0;bottom:0;width:100%; margin-bottom: 0;}
+</style>
+<script src="qer_base.js"></script>
+<body>
+    <header>
+        <p>预计可融资（元）</p>
+        <h3 clss="moneynum">0.00</h3>
+    </header>
+    <div class="item2">
+        <ul class="clearfix">
+            <li>
+                <span class="fl pic"></span>
+                <div class="fl msg">
+                    <h3>门槛低</h3>
+                    <em>信用良好有股票</em>
+                </div>
+            </li>
+            <li>
+                <span class="fl pic pic2"></span>
+                <div class="fl msg">
+                    <h3>费用少</h3>
+                    <em>6.88%-8.35%</em>
+                </div>
+            </li>
+            <li>
+                <span class="fl pic pic3"></span>
+                <div class="fl msg">
+                    <h3>用途广</h3>
+                    <em>不限资金用途</em>
+                </div>
+            </li>
+            <li>
+                <span class="fl pic pic4"></span>
+                <div class="fl msg">
+                    <h3>到账快</h3>
+                    <em>1个交易日到账</em>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="item3">
+        <h3 class="clearfix"><i></i>融资流程</h3>
+        <div class="in clearfix">
+            <div class="round allb">申请<br />融资</div>
+            <i class="icon"></i>
+            <div class="round allb">在线<br />签约</div>
+            <i class="icon"></i>
+            <div class="round allb">质押<br />股票</div>
+            <i class="icon"></i>
+            <div class="round allb">T+1<br />放款</div>
+        </div>
+    </div>
+    <div class="item3 item4">
+        <h3 class="clearfix"><i></i>购回流程</h3>
+        <div class="in clearfix">
+            <div class="round allb">选择<br />合约</div>
+            <i class="icon"></i>
+            <div class="round allb">申请<br />购回</div>
+            <i class="icon"></i>
+            <div class="round allb">确认<br />金额</div>
+            <i class="icon"></i>
+            <div class="round allb">股票<br />解押</div>
+        </div>
+    </div>
+    <div class="item5">
+        <a href="javascript:;" class="clearfix">
+            <i></i>
+            <span>详细规则</span>
+            <em>&gt;</em>
+        </a>
+    </div>
+    <span class="btn red submit">立刻申请</span>
+    <!--复制-->
+    <div class="focus-dlg">
+        <div class="in">
+            <h3>提示</h3>
+            <p>您的年龄不符合券e融业务的要求,目前暂无法开展券e融业务</p>
+            <a href="javascript:;" class="dlg-close">知道了</a>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+    <script type="text/template" id="dlg-did-lottery">
+        <div class="dlg-time">
+            <div class="in">
+                <h3>提示</h3>
+                <p>您的风险测评结果不符合券e融业务的要求,目前暂无法开展券e融业务.</p>
+                <div class="dlg-btn-wrap layout-box clearfix">
+                    <a class="dlg-btn dlg-close r">取消</a>
+                    <a class="dlg-btn cepingbtn">确认</a>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/template" id="dlg-did-lottery2">
+        <div class="dlg-time">
+            <div class="in">
+                <h3>提示</h3>
+                <p>您的年龄不符合券e融业务的要求,目前暂无法开展券e融业务</p>
+                <a href="javascript:;" class="dlg-close">知道了</a>
+            </div>
+        </div>
+    </script>
+    <div class="tiperror"></div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script> 
+<script>
+    $(function(){
+        //可融资数
+        setTimeout(function(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/sapi/v2/quaneeerong/getQuanFinancingLimit',
+                params: {},
+                callback: 'moneynum'
+            }));
+        },100);
+        window.moneynum = function (text) { 
+            setTimeout(function(){
+                var json = convertToJsonObject(text);
+                if(json.retcode==0) {
+                   $('.moneynum').html(doublenum(json.data.totalLimit));
+                }else{
+                   $('.moneynum').html('0.00'); 
+                }
+            },10);    
+        };
+        //点击提交按钮
+        $('.submit').click(function(){
+            setTimeout(function(){ 
+                jrj.jsCallNative('130', JSON.stringify({
+                    method: 'get',
+                    url: domain+'/sapi/v2/quaneeerong/canOpenQer',
+                    params: {},
+                    callback: 'dispatch'
+                }));
+            },100);
+            window.dispatch = function (text) { 
+                setTimeout(function(){
+                    var json = convertToJsonObject(text);
+                    if(json.retcode==0) {
+                        window.location.href='qer_qsxieyi.html';
+                    }else if(json.retcode==701041 || json.retcode==701042 || json.retcode==701043){
+                        $('body').addClass('md-dialog-show');
+                        if(json.retcode==701041 || json.retcode==701043){
+                            $('.focus-dlg').html($('#dlg-did-lottery2').html());
+                            $('.focus-dlg p').html(json.msg+'。详情请咨询95511');
+                        }else if(json.retcode==701042){
+
+                            $('.focus-dlg').html($('#dlg-did-lottery').html());
+                            $('.focus-dlg p').html(json.msg+'。更多疑问请在帮助中心查询');
+                            $('.cepingbtn').click(function(){
+                                window.location.href='qer_ceping.html';
+                            });
+                        }
+
+                        $('.dlg-close').unbind().click(function(){
+                            $('body').removeClass('md-dialog-show');
+                        });
+
+                    }else if(json.retcode==700008){
+                        tiperror('网络错误');
+                    }
+                },10);
+            };
+
+        });
+        //关闭弹层
+
+        $('.item5').click(function(){ 
+            window.location.href='qer_what.html';
+        });
+    });
+</script>   
+</body>
+</html>

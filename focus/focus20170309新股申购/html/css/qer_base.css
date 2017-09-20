@@ -1,0 +1,30 @@
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html{font-size:20px;}
+body{font:.7rem/1rem 'Microsoft Yahei';color:#333;background: #efeff4; }
+.clearfix:after{ display: block;counter-reset: ;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;}
+.b,.l,.t,.r,.allb{ position: relative;}
+.b:before,.l:before,.t:before,.r:before,.allb:before{ position: relative;content: ''; display: block; position: absolute;-webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;}
+.l:before{left:0;top:0; height: 200%; border-left: 1px solid #dbdbdb; }
+.r:before{right:0;top:0; height: 200%; border-right: 1px solid #dbdbdb; }
+.t:before{left:0;top:0; width: 200%; border-top: 1px solid #dbdbdb; }
+.b:before{left:0;bottom:0; width: 200%; border-bottom: 1px solid #dbdbdb; }
+.allb:before{left:0;top:0;height:200%; width: 200%; border: 1px solid #dbdbdb; }
+.btn {display: block;width: 17.5rem;line-height: 2.5rem;color: #fff;font-size: .8rem;border-radius: 4px;text-align: center;margin: 0 auto 2rem;}
+.btn.gray{background: #ccc;}
+.btn.red{background: #F24439;}
+.tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+.bbt{ border-top:  #EFEFF4 .5rem solid}
+.bbb{ border-bottom:  #EFEFF4 .5rem solid}
+.tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}

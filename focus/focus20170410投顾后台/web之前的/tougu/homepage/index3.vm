@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{user.userName}的个人主页-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{user.userName}的个人主页，爱投顾，金融界" />
+    <meta name="description" content="$!{user.userName}的个人主页，爱投顾，金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/styles-v2.min.css" rel="stylesheet" />
+  	<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-css.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+	
+</head>
+<body>
+	
+	<!--header begin-->
+   	<!--\#include virtual="/v2/site_top_compact.html" -->
+	<!--header end-->
+	
+	<!--container begin-->
+	<div class="container">
+		<div class="m-wrap">
+			<div class="m-1000">
+				<!--头部信息 begin-->
+				<!--\#include virtual="/account/adviser/$!{user.loginId}/infov1.html" -->
+				<!--头部信息 end-->
+				<!--头部主导航 begin-->
+				#set($nav = 0)
+				#set($adviserId = $user.loginId)
+				#parse("tougu/homepage/nav.vm")
+				<!--头部主导航 end-->
+			</div>
+			
+			
+			<div class="clear">
+				<!--主体左边-->
+				<div class="fl">
+					<!--直播-->
+					<div class="m-680">
+						<h3 class="m-tit-row">
+							<a href="/account/adviser/$!{user.loginId}/3"><span class="tit">TA的直播</span></a>
+							<span class="s-tit" id="zhiboTimes"><a href="/account/adviser/$!{user.loginId}/3"><em class="hot num">0</em></a> 次直播</span>
+						</h3>
+						<div class="live-cont clear" id="zhiboData1">
+							正在加载......
+						</div>	
+					</div>
+					
+					<!--投资组合-->
+					
+					<div class="m-680 ">
+						<!-- <h3 class="m-tit-row bor-none"> --> 
+						<h3 class="m-tit-row bor-none">
+							<a href="/account/adviser/$!{user.loginId}/4"><span class="tit">TA的组合跟投</span></a>
+							<span class="s-tit"><a href="/account/adviser/$!{user.loginId}/4"><em class="hot num" id="itPfNum"></em></a> 款组合</span>
+							<input id="pfListUrl" type="hidden" value="/portfolio/account/pf/${adviserId}.jspa"/>
+							<input id="cusUserPort" type="hidden" value="1"/>
+							<input id="pfShowNum" type="hidden" value="3"/>
+						</h3>
+						<div class="pf-pflist pf-pflist-mine pf-pflist-mine_mm">
+							
+			            </div>
+					</div>
+					
+					<!--投资内参-->
+					<div class="m-680" id="tipsBox">
+                        <h3 class="m-tit-row">
+                            <a href="/account/adviser/$!{user.loginId}/5"><span class="tit">TA的投资内参</span></a>
+                            <span class="s-tit"><a href="/account/adviser/$!{user.loginId}/5"><span class="red">$!{tips.tipsCount}</span></a> 个</span>
+                        </h3>
+                        <div class="refer-list">
+                        #if($tips && ${tips.tipsCount}>0)
+                        	#foreach($t in $tips.list)
+                        	<div class="refer-item">
+                                <div class="refer-item-tit clearfix">
+                                    <a href="/tips/$!{t.id}.jspa" target="_blank"><span class="tip-title">$!{t.title}</span></a>
+                                </div>
+                                <div class="refer-item-cnt clearfix">
+                                    <div class="refer-item-pic">
+                                        <a href="/tips/$!{t.id}.jspa" target="_blank"><img src="$!{t.img}" width="185" height="87" /></a>
+                                         #if(${t.status}==0)
+                                        <span class="status status-end"></span>
+                                        #elseif(${t.status}==10)
+                                        <span class="status status-reject"></span>
+                                        #elseif(${t.status}==20)
+                                        <span class="status status-waiting"></span>
+                                        #elseif(${t.status}==30)
+                                        <span class="status status-pause"></span>
+                                        #elseif(${t.status}==40)
+                                        <span class="status status-selling"></span>
+                                        #elseif(${t.status}==50)
+                                        <span class="status status-updating"></span>
+                                        #end
+                                    </div>
+                                    <div class="refer-item-desc">
+                                        <p><span data-cutoff="true" data-cutoff-limit="170" data-cutoff-ellipse="..." title="$!{t.tdesc}">$!{t.tdesc}</span></p>
+                                    </div>
+                                </div>
+                                <div class="btn-wrap clearfix">
+                                    <span class="fr">
+                                        #set($price = ${countUtils.changeCentsToDollars(${t.price})})
+                                        #set($signprice = ${countUtils.changeCentsToDollars(${t.signprice})})
+                                        
+                                        #if(${t.isBuy})
+                                            <a href="/tips/$!{t.id}.jspa" class="red-btn">立即查看</a>
+                                        #elseif(${t.status}==40 || ${t.status}==50)
+                                        	#if(${relation} && ${relation.tid}==${user.loginId})
+                                            <a href="javascript:void(0);" class="blue-btn subscribe-btn" price-value="$!{signprice}" tgid="$!{user.loginId}" tipid="$!{t.id}" endtime="$!{t.dateEndtime.getTime()}">￥$!{signprice} · 签约订阅</a>
+                                        	#else
+                                            <a href="javascript:void(0);" class="red-btn subscribe-btn" price-value="$!{price}" tipid="$!{t.id}" endtime="$!{t.dateEndtime.getTime()}">￥$!{price} · 订阅</a>
+                                        	<a href="javascript:void(0);" class="blue-btn subscribe-btn sign-subscribe-btn" price-value="$!{price}" tgid="$!{user.loginId}" tipid="$!{t.id}" endtime="$!{t.dateEndtime.getTime()}">￥$!{signprice} · 签约订阅</a>
+                                        	#end
+                                        #end
+                                    </span>
+                                    <span class="expiration" begin-date="$!{t.strBegintime}" end-date="$!{t.strEndtime}">服务期：$!{dateUtils.format($t.dateBegintime,"MM月dd日")} - $!{dateUtils.format($t.dateEndtime,"MM月dd日")}</span>
+                                    <span class="split">|</span>
+                                    <span><span class="red">$!{t.purchaseamount}</span>人订阅</span>
+                                </div>
+                            </div>
+                            #end
+                        #end
+                        </div>
+                    </div>
+					
+					<!--回答-->
+					<div class="m-680">
+						<h3 class="m-tit-row">
+							<a href="/account/adviser/$!{user.loginId}/2"><span class="tit">TA的回答</span></a>
+							<span class="s-tit" id="quesTimes"><a href="/account/adviser/$!{user.loginId}/2"><em class="hot num">0</em></a> 回答</span>
+						</h3>
+						<div class="answer-cont" id="quesData">
+							正在加载......
+						</div>	
+					</div>
+
+					<!--观点-->
+					<div class="m-680">
+						<h3 class="m-tit-row">
+							<a href="/account/adviser/$!{user.loginId}/1"><span class="tit">TA的观点</span></a>
+							<span class="s-tit" id="viewTimes"><a href="/account/adviser/$!{user.loginId}/1"><em class="hot num">0</em></a> 篇</span>
+						</h3>
+						<div class="note-cont" id="viewData">
+							正在加载......
+						</div>	
+					</div>
+				</div>
+				
+				<!--主体右边-->
+				<div class="m-300 m-300-index fr">
+					<ul class="intr-list">
+						<li>
+							<h4 class="o-tit o-tit-1">个人公告</h4>
+							<p>$!{annt}</p>	
+						</li>
+						<li>
+							<h4 class="o-tit o-tit-2">关于$!{user.userName}</h4>
+							<p id="intro">$!{user.intro}</p>
+						</li>
+						<li>
+							<h4 class="o-tit o-tit-3">身份信息</h4>
+							<div class="clear">
+								<dl>
+									<dt>城市：</dt>
+									<dd>$!{user.province}-$!{user.city}</dd>
+								</dl>	
+								#if($!{user.type}!=1)
+								<dl>
+									<dt>从业机构：</dt>
+									<dd>$!{user.company}</dd>
+								</dl>
+								<dl>
+									<dt>证券执业资格号：</dt>
+									<dd>$!{user.certificationNum}</dd>
+								</dl>
+								#end
+							</div>	
+						</li>
+						<li>
+							<h4 class="o-tit o-tit-4">擅长领域</h4>	
+							<div class="label clear">
+								#set($li = 0)
+								#foreach($l in $label)
+								#set($li = $li + 1)
+								<span #if($li == $!{label.size()})) class="last" #end>$!{l}</span>
+								#end
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--container end-->
+	
+	<!--footer begin-->
+	<!--\#include virtual="/v2/common_head_js.html" -->    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/highcharts.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.min.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/account/myadviser.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/cutoff.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/partial-refer.min.js"></script>
+    
+    <script src="http://js.jrjimg.cn/itougu/account/homepage.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/homepage-infov1.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script>
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/dialog-coupon.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			var subscribeTips = function($target){
+	    		var oneDayTimes = 24*60*60*1000, dateNow = $!{dateUtils.now().getTime()};
+	    		var dif = $target.attr('endtime') - dateNow;
+    			var showNotes = dif < oneDayTimes*10;
+	    		if(showNotes){
+	    			var expDays = Math.ceil(dif/oneDayTimes);
+        			JRJ.Alerts.alert({
+                        message: '<p>距服务期结束还有<span class="red">' + (expDays==0?1:expDays) + '</span>天，您确定订阅吗？</p>',
+                        autoClose: false,
+                        okCallback: function() {
+                        	CouponDlg.show({
+                                productId: $target.attr('tipid'),
+                                type:6,
+                                checkOrderUrl: '/tips/checkorder.jspa?tid=' +　$target.attr('tipid')
+                            });
+                        },
+                        cancelCallback: function () {
+                          return true;
+                        }
+                    });
+    			}else{
+    				CouponDlg.show({
+                        productId: $target.attr('tipid'),
+                        type:6,
+                        checkOrderUrl: '/tips/checkorder.jspa?tid=' +　$target.attr('tipid')
+                    });
+    			}
+	    	}
+			
+            //订阅投资内参
+            jQuery('#tipsBox').bind('click', function(e){
+            	var $target = $(e.target);
+            	if($target.hasClass('subscribe-btn')){
+            		var oneDayTimes = 24*60*60*1000, dateNow = $!{dateUtils.now().getTime()};  
+            		JRJ.ui.isLogin(function(){
+            			var dif = $target.attr('endtime') - dateNow;
+            			var showNotes = dif < oneDayTimes*10;
+
+            			var $parent = $target.parents('.refer-item');
+            			if($target.hasClass('sign-subscribe-btn')){
+    	            		var tipTitle = '$!{user.userName}：' + $parent.find('.tip-title').text();
+    	            		var tipOnline='', tipPriceNote='', tipButtons='<a id="btPay" href="javascript:void(0);" class="btn btn-89-31">立即支付</a>';
+            				#if(!${relation})
+    		        			tipOnline = '与该投顾签约后，就能享受签约优惠';
+    		        			tipButtons = '<a href="javascript:void(0);" class="btn btn-89-31" onclick="F.toSinging(\'$!{user.loginId}\')">立即签约</a>' + 
+    		        			'<a id="btPay" href="javascript:void(0);" class="btn btn-89-31 btn-reverse">原价订阅</a>';
+    		        		#elseif(${relation} && ${relation.tid}!=${adviser.loginId})
+    		        			tipOnline = '您已签约其他投顾，不能享受签约后价格';
+    		        			tipButtons = '<a href="/account/adviser/$!{relation.tid}/" class="btn btn-89-31 btn-reverse" target="_blank">看看签约了谁</a>' +
+    		        			'<a id="btPay" href="javascript:void(0);" class="btn btn-89-31">原价订阅</a>';
+   		        			#elseif(${relation} && ${relation.tid}==${adviser.loginId})
+   		        				tipPriceNote = '（您已签约，可享受价格优惠）';
+    		        		#end
+    		        		JRJ.Dialogs.standardDialog({
+    			                title: "订阅投资内参",
+    			                customClass: 'dialog-refer-subscribe',
+    			                width: 507,
+    			                content: ['<div class="dialog-cnt">',
+				                            	'<div class="refer-info clearfix">',
+				                            	'<div class="refer-pic">',
+				                                	'<img src="' + $parent.find('img').attr('src') + '" width="185" height="87" />',
+				                            	'</div>',
+				                            	'<div class="refer-desc">',
+				                                	'<p class="tit" data-cutoff="true" data-cutoff-limit="40" data-cutoff-ellipse="" title="' + tipTitle + '">' + tipTitle + '</p>',
+				                                	'<p class="mt15"><span class="expiration">服务期：' + $parent.find('.expiration').attr('begin-date') + " 至 " + $parent.find('.expiration').attr('end-date') + '</span></p>',
+				                                	'<p><span class="money">订阅价格：<span class="red">' + $target.attr('price-value') + '元' + tipPriceNote + '</span></span></p>',
+				                            	'</div>',
+				                        	'</div>',
+				                        	'<p class="note mt10">风险提示：投资内参是投顾老师的个人研究成果，供学习参考，不是投资依据，据此操作风险自担。</p>',
+				                        	'<div class="notice">' + tipOnline + '</div>',
+				                        	'<div class="btn-wrap">' + tipButtons + '</div>',
+				                    	'</div>'].join(''),
+    			                            
+    			                okBtnText: "确定",
+    			                cancelBtnText: "取消",
+    			                hasBtn:false,
+    			                hasCloseBtn: true,
+    			                hasOkBtn: true,
+    			                hasCancelBtn: false,
+    			                okCallback: function () { },
+    			                cancelCallback: function () { },
+    			                isFixed: true
+    			            });
+    		        		$('#btPay').click(function(){
+    		        			subscribeTips($target);
+    		        		});
+            			}else{
+            				subscribeTips($target);
+            			}
+		            });
+            	}
+            });
+    	});
+    	
+		function embedFlash(mp3,flashId) {
+	        //flash player-------------
+	        var flashvars = {
+	            mp3_url: mp3 // 通过flashvars变量传递实际的音频mp3文件的url给到Flash
+	        };
+	        var params = {
+	            menu: "false",
+	            scale: "noScale",
+	            wmode: "transparent"
+	        };
+	        var attributes = {
+	            id: "AudioPlayerLite"+flashId
+	        };
+	        swfobject.embedSWF(
+	            "http://f0.jrj.com.cn/tg/audioplayerlite.swf",
+	            "FlashInHere", "525", "70", "10.0.0",
+	            "",
+	            flashvars, params, attributes);   
+    	};
+	</script>
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/mouseenterDelay.js"></script>
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/jrj.ui.tooltip.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v3/jrj.ui.tooltip.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/jquery.pagefoot.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v3/pcommon.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v3/accpflists.js"></script>
+	<script type="text/javascript">
+         loadPfList(1);
+    </script>
+	<!--footer end-->
+	
+    
+	<script>
+
+        $(function () {
+        	$intro = $('#intro'), introHeight=$intro.height(), minHeight=110;
+        	if(introHeight>minHeight){
+        		$intro.css({display:'block', overflow:'hidden'}).height(minHeight);
+        		$intro.after('<a id="btMore" href="javascript:void(0);" class="more">更多&gt;</a>');
+        		$('#btMore').toggle(
+	        		function(){ $intro.height(introHeight); $(this).html('收起&gt;');},
+	        		function(){ $intro.height(minHeight); $(this).html('更多&gt;');
+        		});
+        	}
+        	loadZhiBo('$!{user.loginId}');
+        	loadView('$!{user.loginId}');
+        	loadQues('$!{user.loginId}');
+        });
+
+    </script>
+	<script type="text/javascript">
+		
+			
+	</script>
+</body>
+</html>

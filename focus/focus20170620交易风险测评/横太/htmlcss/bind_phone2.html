@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<title>恒泰交易</title>
+	<link rel="stylesheet" href="css/wrap.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style>
+    body{height: 100%}
+/*关于弹窗*/
+.mask{display:block;position: fixed;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10;bottom: 0;right: 0;}
+.layer{display:block;width: 15rem;height: 11.95rem;background: #fff;position: fixed;top: 50%;left: 50%;margin-top: -7.5rem;margin-left: -6.677rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%;border-radius: 5px;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.layer_c{ padding:10px; font-size: 1.1em;}
+.layer_c .tit{ font-size:1.2em; margin-bottom: 3px; }
+.layer_c .hd{ color: #666;}
+.layer .bd{ position: absolute;width:100%;bottom:0;border-top:1px solid #ddd;}
+.layer .bd span{float:left;width:50%;text-align: center;font-size: 1.2em; line-height: 40px; }
+.layer .bd .okbtn{ border-right:1px solid #ddd;box-sizing: border-box}
+    </style>
+	
+</head>
+<body>
+	32
+
+	<div class="mask">mask</div>
+    <div class="layer">
+        <div class="layer_c">
+        	<p class="tit">尊敬的用户：</p>
+        	<div class="hd"></div>
+        </div>
+        <div class="bd clearfix">
+            <span class="okbtn">现在就去</span>
+            <span class="nobtn">以后再说</span>
+        </div>
+    </div>
+
+	<script>
+	 	alert($(window).height());
+	</script>
+</body>
+</html>

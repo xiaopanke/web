@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/dialog.effect.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+	<script type="text/javascript" src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+
+
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+
+
+
+            $('.icon-tooltip').tooltipster({
+                theme: 'tooltipster-light'
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--site-top-->
+    <div class="site-top">
+        <div class="wrapper">
+            <div class="userop middle">
+                <a href="">消息</a>
+                <span>|</span>
+                <a href="">积分</a>
+                <span>|</span>
+                <a href="">帮助</a>
+            </div>
+            <div class="userinfo">
+                <div class="trigger middle">
+                    <img src="images/sample-1.jpg" />
+                    <span>孙小桥</span>
+                    <em></em>
+                </div>
+                <div class="cnt">
+                    something goes here...
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--site-top-->
+    <!--site-header-->
+    <div class="site-header">
+        <div class="wrapper">
+            <h1 class="site-logo-wrap"><a href="" class="site-logo fl"><span class="beta"></span><span class="hide">证券通-金融界</span></a></h1>
+            <ul class="site-nav">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">我的证券通</a></li>
+                <li><a href="#">投顾大厅</a></li>
+                <li><a href="#">观点大厅</a></li>
+                <li><a href="#">咨询大厅</a></li>
+                <li><a href="#">直播大厅</a></li>
+            </ul>
+            <div class="site-search-popup">
+                <!-- <a href="" class="btn btn-apply fr">申请投顾</a> -->
+                <span class="btn-search fr"></span>
+            </div>
+        </div>
+    </div>
+    <!--site-header-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">金融界证券通</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的证券通</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-left">
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span class="fr"><a href="#" class="stop">管理</a></span>
+                        <span><span>全部账户</span><i class="btn-refresh ml10 stop"></i></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            <a href="" class="btn btn-addaccount">增加其他交易账户</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>我的自选股</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>投顾服务</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <ul class="menu-list menu-list-services">
+                            <li>
+                                <a href="#" class="item-1">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-2">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-3">
+                                    <span class="notify fr">999</span>
+                                    <span>我的关注</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>投顾后台</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <ul class="menu-list menu-list-back">
+                            <li>
+                                <a href="#" class="item-1">
+                                    <span class="notify fr">999</span>
+                                    <span>我的个人主页</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-2">
+                                    <span class="notify fr">999</span>
+                                    <span>重大财经资讯</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-3">
+                                    <span class="notify fr">999</span>
+                                    <span>我的观点</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-4">
+                                    <span class="notify fr">999</span>
+                                    <span>我的问答</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-5">
+                                    <span class="notify fr">999</span>
+                                    <span>我的直播</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-6">
+                                    <span class="notify fr">999</span>
+                                    <span>我的组合</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-7">
+                                    <span class="notify fr">999</span>
+                                    <span>我的积分</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-8">
+                                    <span class="notify fr">999</span>
+                                    <span>用户管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-9">
+                                    <span class="notify fr">999</span>
+                                    <span>个人设置</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--site-main-right-->
+            
+            <div class="site-main-right">
+                <h1 class="page-title-2 page-title-2-float clearfix">
+                    <span class="f16">账单记录</span>
+                    <i class="icon icon-tooltip" title="提示"></i>
+                </h1>
+                
+                <div class="revenue-searchbar clearfix">
+                    <span>日期：</span>
+                    <input id="cal-1" type="text" class="txtbox-calendar" />
+                    <a href="" class="btn btn-45-24-blue">查询</a>
+                </div>
+
+                <div class="revenue-table-th clearfix">
+                    <span>创建时间</span>
+                    <span>投顾奖金</span>
+                    <span>经纪奖金</span>
+                    <span>奖惩</span>
+                    <span>奖金合计</span>
+                    <span>实发奖金</span>
+                    <span>状态</span>
+                </div>
+
+                <div class="revenue-record-item">
+                    <div class="revenue-record-item-title">
+                        <a href="" class="fr link">明细</a>
+                        <span>账单周期：</span><strong>11月</strong>         <span class="ml40">账单编号：ITG201411100983</span>
+                    </div>
+                    <div class="revenue-record-item-cnt clearfix">
+                        <span>2014-11-30</span>
+                        
+                        <span>2000.00</span>
+                        <span>2000.00</span>
+                        <span class="red">+200.00</span>
+                        <span>2000.00</span>
+                        <span class="red">2000.00</span>
+                        <span class="last">未发放</span>
+                    </div>
+                </div>
+
+                <div class="revenue-record-item">
+                    <div class="revenue-record-item-title">
+                        <a href="" class="fr link">明细</a>
+                        <span>账单周期：</span><strong>11月</strong>         <span class="ml40">账单编号：ITG201411100983</span>
+                    </div>
+                    <div class="revenue-record-item-cnt clearfix">
+                        <span>2014-11-30</span>
+                        
+                        <span>2000.00</span>
+                        <span>2000.00</span>
+                        <span class="red">+200.00</span>
+                        <span>2000.00</span>
+                        <span class="red">2000.00</span>
+                        <span class="last">未发放</span>
+                    </div>
+                </div>
+
+                <div class="revenue-record-item">
+                    <div class="revenue-record-item-title">
+                        <a href="" class="fr link">明细</a>
+                        <span>账单周期：</span><strong>11月</strong>         <span class="ml40">账单编号：ITG201411100983</span>
+                    </div>
+                    <div class="revenue-record-item-cnt clearfix">
+                        <span>2014-11-30</span>
+                        
+                        <span>2000.00</span>
+                        <span>2000.00</span>
+                        <span class="red">+200.00</span>
+                        <span>2000.00</span>
+                        <span class="red">2000.00</span>
+                        <span class="last">未发放</span>
+                    </div>
+                </div>
+
+                <div class="pager">
+                    <a class="prev prev-disable">上一页</a>
+                    <a class="cur">1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a class="dot">...</a>
+                    <a>125</a>
+                    <a class="next">下一页</a>
+                    <span class="total">共 44 条记录</span>
+                </div>
+            </div>
+
+        </div>
+        <!--site-main-right-->
+    </div>
+
+    <!--footer-->
+    <div class="footer clearfix">
+        <div class="wrapper clearfix">
+            <div class="fl foot_fl">
+                <ul class="clearfix">
+                    <li><a href="/site/aboutus.html" title="关于我们" target="_blank">关于我们</a></li>
+                    <li><a href="/site/usertips.html" title="用户提示" target="_blank">用户提示</a></li>
+                    <li><a href="/site/help.html" title="帮助中心" target="_blank">帮助中心</a></li>
+                    <li class="last"><a href="http://bbs.jrj.com.cn/11907" title="意见反馈" target="_blank">意见反馈</a></li>
+                </ul>
+                <p class="prompt">
+                    风险提示：爱投顾网站上所载文章、数据仅供参考，网站所有普通用户、投资顾问和投资达人所提供的信息均由其个人发布，爱投顾提供互动平台并不代表认可其立场。用户据此操作的风险自行承担。爱投顾不承担任何责任。市场有风险，投资须谨慎。
+                </p>
+                <p>Copyright ©
+                <script>document.write(new Date().getFullYear());</script> JRJ.COM All Rights Reserved.</p>
+            </div>
+            <div class="fl foot_fr">
+                <div>
+                    <span class="contact" href="/site/contactus.html" title="联系我们">联系我们</span>
+                    <a class="custom" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA4OTg4N18xNjM0NzRfODAwMDg5ODg3XzJf">QQ客服</a>
+                </div>
+                <div class="phone">
+                    <p class="mt10"><span class="pho_title">电话：</span><strong>400-166-1188</strong> <a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA4OTg4N18xNjM0NzRfODAwMDg5ODg3XzJf"><a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA4OTg4N18xNjM0NzRfODAwMDg5ODg3XzJf">企业QQ：<b>800089887</b></a></a></p>
+                    <p><span class="pho_title"></span> <span class="time" style="margin-left:57px;*margin-left:0;">( 7*24小时 )</span><span class="time" style="margin-left:100px;*margin-left:110px;">( 7*24小时 )</span></p>
+                    <p class="mt10"><span class="pho_title">邮箱：</span><strong>services@jrj.com.cn</strong></p>
+                </div>
+                <div class="share mt10">分享：</div>
+                <div class="bdsharebuttonbox mt10"><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-sidebar">
+        <!-- <a href="http://itougu.jrj.com.cn/app/index.html" class="site-sidebar-item site-sidebar-item-app" target="_blank"></a>
+        <a href="#" class="site-sidebar-item site-sidebar-item-goto"></a> -->
+        <a href="http://itougu.jrj.com.cn/app/index.html" title="" target="_blank"><img src="http://js.jrjimg.cn/zqt-red-1000/images/ewm.png" alt=""></a>
+    </div>
+
+    <script>
+        //sidebar
+        var _sidebarGoTo = $('.site-sidebar-item-goto');
+        if (typeof _sidebarGoTo != 'undefined' && _sidebarGoTo != null) {
+            _sidebarGoTo.click(function (e) {
+                e.preventDefault();
+                $('html,body').animate({ scrollTop: 0 });
+            });
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 300) {
+                    _sidebarGoTo.show();
+                } else {
+                    _sidebarGoTo.hide();
+                }
+            });
+        }
+
+        window._bd_share_config = {
+            common: {
+                bdText: '投资，从未感觉到的轻松，数千名投资顾问的帮助，个性化定制，交易的便捷，还有和同行们的实时无障碍交流，这一切，都在金融界"爱投顾"。',
+                bdDesc: '投资，从未感觉到的轻松，数千名投资顾问的帮助，个性化定制，交易的便捷，还有和同行们的实时无障碍交流，这一切，都在金融界"爱投顾"。',
+                bdUrl: '',
+                bdPic: '',
+                onBeforeClick: function (cmd, config) {
+                    //console.log(config);
+                }
+            },
+            share: [
+                {
+                    "bdSize": 24,
+                    "bdStyle": "1"
+                },
+                {
+                    "tag": "share_article",
+                    bdText: '文章详情页',
+                    bdDesc: '',
+                    bdUrl: '',
+                    bdPic: '',
+                    "bdSize": 24,
+                    "bdStyle": "1"
+                },
+                {
+                    "tag": "share_live",
+                    bdText: '直播详情页',
+                    bdDesc: '',
+                    bdUrl: '',
+                    bdPic: '',
+                    "bdSize": 24,
+                    "bdStyle": "1"
+                },
+                {
+                    "tag": "share_inquire",
+                    bdText: '咨询详情页',
+                    bdDesc: '',
+                    bdUrl: '',
+                    bdPic: '',
+                    "bdSize": 24,
+                    "bdStyle": "1"
+                }
+            ]
+        };
+
+        window.updateBDShareConfig = function (config) {
+            for (var i = 0, len = window._bd_share_config.share.length; i < len; i++) {
+                if (window._bd_share_config.share[i].tag == config.tag) {
+                    $.extend(window._bd_share_config.share[i], config);
+                }
+            }
+        }
+
+        //以下为js加载部分
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+
+    </script>
+
+
+    <script src="http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js"></script>
+    <!--footer-->
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+
+            //头像上传
+            window.postImg = function (imgString) {
+
+                $(window.parent.document).find('.pic-upload-result img').attr({ 'src': 'http://js.jrjimg.cn/zqt-red-1000/images/loading.gif' });
+                $('.flash-loading').show();
+
+                if (/base64/.test(imgString)) {
+
+                    //$.ajax({
+                    //    url: 'http://itougu.jrj.com.cn/upload',
+                    //    data: { channel: 'itougu', backJson: '1', sizeMax: '4194304', isNeedGenScales: 'isNeedGenScales', imageFormats: 'jpg,150,150,_150_150;jpg,75,75,_75_75;jpg,50,50,_50_50;' },
+                    //    dataType: 'json',
+                    //    contentType: 'multipart/form-data',
+                    //    type: 'post',
+                    //    cache: false,
+                    //    success: function (data) {
+                    //        console.log(data);
+                    //    },
+                    //    complete: function () {
+                    //    }
+                    //});
+
+                    $('<form action="http://up1.jrj.com.cn/upload" enctype="multipart/form-data" target="UploadWindow" method="post" data-id="frmUpload">'
+                    // $('<form action="http://upfile.jrj.com.cn/upload" enctype="multipart/form-data" target="UploadWindow" method="post" data-id="frmUpload">'
+                              + '<input type="hidden" name="base64Str" value=' + imgString + '>'
+                              + '<input type="hidden" name="channel" value="itougu" >'
+                            //  + '<input type="hidden" name="returnUrl" value="' + 'http://js.jrjimg.cn/itougu/account/img-upload.html' + '" >'
+                            + '<input type="hidden" name="returnUrl" value="' + 'http://itougu.jrj.com.cn/account/imgUpload.jspa' + '" >'
+                              + '<input type="hidden" name="sizeMax" value="4194304" />'
+                              + '<input type="hidden" name="imageFormats" value="m,550,550,_m;s,120,120,_s;_400_243,400,243,_400_243;_180,180,180,_180;_680,680,680,_680;"/>'
+                              + '<iframe src="javascript:void(0);" style="display: none" name="UploadWindow"></iframe>'
+                              + '</form>'
+                            ).appendTo('body')[0].submit();
+                } else {
+                    $('<form action="http://up1.jrj.com.cn/upload" enctype="multipart/form-data" target="UploadWindow" method="post" data-id="frmUpload">'
+                    //$('<form action="http://upfile.jrj.com.cn/upload" enctype="multipart/form-data" target="UploadWindow" method="post" data-id="frmUpload">'
+                              + '<input type="hidden" name="remoteUrl" value=' + imgString + '>'
+                              + '<input type="hidden" name="channel" value="itougu" >'
+                             // + '<input type="hidden" name="returnUrl" value="' + 'http://js.jrjimg.cn/itougu/account/img-upload.html' + '" >'
+                              + '<input type="hidden" name="returnUrl" value="' + 'http://itougu.jrj.com.cn/account/imgUpload.jspa' + '" >'
+                              + '<input type="hidden" name="sizeMax" value="4194304" />'
+                              + '<input type="hidden" name="imageFormats" value="m,550,550,_m;s,120,120,_s;_400_243,400,243,_400_243;_180,180,180,_180;_680,680,680,_680;"/>'
+                              + '<iframe src="javascript:void(0);" style="display: none" name="UploadWindow"></iframe>'
+                              + '</form>'
+                            ).appendTo('body')[0].submit();
+                }
+            };
+
+            window.transferImageBase64Value = function (imageCodeFromFlash) {
+                window.postImg('data:image/jpg;base64,' + imageCodeFromFlash);
+
+            };
+
+            window.OnUploadCompleted = function (filename) {
+                window.parent.updateImgs(filename);
+                $('.flash-loading').hide();
+                frameElement._thisDialog.close();
+
+            };
+
+            var flashvars = {};
+            var params = { menu: "false", scale: "noScale", wmode: "transparent", allowScriptAccess: "always" };
+            var attributes = { id: "_FlashInHere" };
+            swfobject.embedSWF('http://f0.jrj.com.cn/tg/imageUploadWithAdjustPanel.swf', 'FlashInHere', '720', '420', "10.0.0", "", flashvars, params, attributes);
+            setTimeout(function(){
+                $(window.parent.document).find('html,body').animate({ scrollTop: 1 }).animate({ scrollTop: 0 });
+            },0);
+            
+        });
+    </script>
+</head>
+<body style="background:#fff;position:relative;width: 720px;height: 428px;overflow:hidden;">
+    <div id="FlashInHere"></div><img class="flash-loading" src="http://js.jrjimg.cn/zqt-red-1000/images/loading.gif" alt="" style="width: 50px; height: 50px; position: absolute; right: 75px; top: 145px;display:none;" />
+</body>
+</html>

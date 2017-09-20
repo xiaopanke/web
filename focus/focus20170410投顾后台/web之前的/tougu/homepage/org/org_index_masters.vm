@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾-金融界-最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/waves.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-agency.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://i0.jrjimg.cn/itougu-web/masters/styles/master_main.70e8b1c2.css">
+    <link rel="stylesheet" href="http://i0.jrjimg.cn/itougu-web/masters/styles/master_index.b4491ee7.css">
+    <style type="text/css">
+    .wrap {
+    width:1000px;
+    margin:0 auto
+    }
+    .wrap a {
+        text-decoration:none;
+        color:#2b2b2b
+    }
+    .wrap a:hover {
+        color:#f6554a
+    }
+    .wrap h3,.wrap h4 {
+        color:#2b2b2b
+    }
+    .wrap h3 {
+        font-size:22px
+    }
+    .wrap h4 {
+        font-size:18px
+    }.sections {
+        padding:28px 20px 10px;
+        background:#fff url(../images/masters/sec_bg.png) 895px 20px no-repeat;
+        box-shadow:0 1px 1px rgba(0,0,0,.2)
+    }
+    .sections>h3 {
+        width:876px;
+        padding-bottom:6px;
+        border-bottom:1px solid #e0e0e0;
+        margin-bottom:16px;
+        position:relative
+    }
+    .sections>h3:after {
+        content:'';
+        position:absolute;
+        left:100%;
+        bottom:-2px;
+        width:3px;
+        height:3px;
+        background-color:#e0e0e0
+    }
+    .for-agency {
+        position: relative;
+        height: 50px;
+    }
+    
+    .for-agency>p {
+        font-size: 12px;
+        line-height: 25px;
+        color: #2b2b2b
+    }
+    
+    .for-agency>p>span {
+        font-size: 22px;
+        color: #f6554a;
+    }
+    
+    .for-agency .seasons-opts {
+        left: 0;
+        top: 50%;
+        margin-top: -16px;
+    }
+    
+    </style>
+</head>
+<body>
+    <!--site_top_compact.html start-->
+    <!--\#include virtual="/v2/site_top_compact.html" -->
+    <!--site_top_compact.html end-->
+
+    <div class="wrapper agency-bg">
+        <!--\#include virtual="/account/organization/$!{orgId}/info.html" -->
+        <ul class="agency-nav">
+            <li class="cur"><a href="/account/organization/$!{orgId}/">主页</a></li>
+            <li><a href="/account/organization/$!{orgId}/3">直播</a></li>
+            <li style="display:none;"><a href="/account/organization/$!{orgId}/4">投资组合</a></li>
+            <li><a href="/account/organization/$!{orgId}/2">回答</a></li>
+            <li><a href="/account/organization/$!{orgId}/1">观点</a></li>
+            <li><a href="/account/organization/$!{orgId}/5">投资内参</a></li>
+            <li ><a href="/account/organization/$!{orgId}/6">投顾</a></li>
+        </ul>
+    </div>
+
+    <div class="wrap consult-rank">
+       
+        <div class="sections">            
+            <div class="for-agency">
+                <p class="fr">机构赛排名 <span>$!{rank}</span></p>
+                <ul class="seasons-opts clearfix"  data-bind="foreach: new Array(consultTable.seasons), event: {click: switchSeason}">
+                    <li data-bind="attr: {title: 'agencyInner'+$!{orgId}+'_'+($index()+1)}, css: $parent.consultListSeason()=='agencyInner'+$!{orgId}+'_'+($index()+1) && 'curr', text: '第'+ #[[$parent.toCNumber( $index() )]]# +'季'"></li>
+                </ul>
+            </div>
+            <!--个人排行:start-->
+                <!--\#include virtual="/masters/include/masters_agency_inner_ranking_list_$!{orgId}.shtml" -->
+            <!--个人排行:end-->
+        </div>
+
+        <div class="paging-wrap"></div>
+        <div class="loading-bg"></div>
+        <div class="loading"></div>
+    </div>
+
+
+    <!--页面js: start-->
+
+    <script src="http://i0.jrjimg.cn/itougu-web/masters/scripts/lib.2907ce55.js"></script>
+
+    <script src="http://i0.jrjimg.cn/itougu-web/masters/scripts/consult_lib.0acefd86.js"></script>
+    <!--页面js: end-->
+    
+    <script>
+
+        $(function() {
+
+            var viewmore = $('.viewmore');
+            viewmore.hide();
+            
+            function pagingGen(currPage, recodeNum) {
+                var pageElem = $('<div class="pagination'+currPage+'">').appendTo('.paging-wrap')
+                pageElem.pagefoot({
+                    pagesize: 15,
+                    count: +recodeNum,
+                    current: +currPage,
+                    displaynum: 5,
+                    previous: '上一页',
+                    next: '下一页',
+                    enableArrowKey: true,
+                    paging: function(page){   
+                        pageElem.remove();
+                    }
+                });
+            }
+
+            function redrawPaging(currPage, recodeNum) {
+                $('[class^=pagination]').remove();
+                pagingGen(currPage || 1, recodeNum);
+                ko.applyBindings(consultViewModel, $('[class^=pagination]').get(0));
+            }
+            
+            function resetCursor(){
+                var cursor = $('.curr-cursor');
+                cursor.animate({top:  $('tbody').position().top}, 50);
+            }
+            
+            var consultDefaultList = CONSULT_TABLE['agencyInner'+$!{orgId}+'_'+CONSULT_TABLE.seasons+'_1'].list;
+            
+            var consultViewModel = {
+                consultTable: CONSULT_TABLE,
+                consultList: ko.observable( consultDefaultList ),
+                consultDetail: ko.observable( consultDefaultList[0] ),
+                consultListType: ko.observable(1),
+                consultListSeason: ko.observable('agencyInner'+$!{orgId}+'_'+CONSULT_TABLE.seasons),
+                currentNum: ko.observable(0), //显示排名数字使用
+                consultCurrUrl: ko.observable( (consultDefaultList[0] && consultDefaultList[0].transferLink) || "#" ),
+
+                toCNumber: function( index ){
+                    return ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"][index];
+                },
+
+                ellipsis: function( str ){
+                    return str.length > 6 ? str.substring(0,6) + "..." : str;
+                },
+
+                showDetails: function(data, evt){
+                    if(!evt.target.tagName.match(/td/i)) return;
+                    var tar = $(evt.target), tr = tar.parents('tr') 
+                        cursor = tar.parents('table').next(),
+                        currTop = tar.position().top,
+                        type= $(tar).parents('table').data("type"),
+                        rank = this[type+'ListType'](),
+                        season = this[type+'ListSeason'](),
+                        list = window[type.toUpperCase()+'_TABLE'][season+'_'+rank]['list'];
+
+                    cursor.animate({top: currTop}, 50);
+                    this[type+'Detail'](list[tr.index()]);
+                    this[type+'CurrUrl'](list[tr.index()].transferLink);
+                },
+
+                switchRank: function(data, evt){
+                    var tar = evt.target, cRank = tar.title,
+                        type= $(tar).parents('table').data('type'),
+                        oRank = this[type+'ListType'](),
+                        season = this[type+'ListSeason']();
+
+                    if( cRank == oRank ) return;
+                    
+                    var list = window[type.toUpperCase()+'_TABLE'][season+'_'+cRank],
+                        currPage = list.currPage || 1;
+            var list2 = window[type.toUpperCase()+'_TABLE'][season+'_'+cRank]['list'];
+                    if(type=='consult') {
+                        if(list2[0]) {
+                            this[type+'CurrUrl'](list2[0].transferLink);
+                        } else {
+                            this[type+'CurrUrl']("#");
+                        }
+                    }
+
+                    this[type+'List']( list['list'] );
+                    this[type+'Detail'](list['list'][0]);
+                    this[type+'ListType'](cRank);                    
+                    this.currentNum((currPage-1)*15);
+
+                    resetCursor();
+                    redrawPaging(currPage, list.recordnum);
+                },
+
+                switchSeason: function(data, evt){
+                    if(!evt.target.tagName.match(/li/i)) return;
+                    var tar = evt.target, cSeason = tar.title, 
+                        type= 'consult',
+                        num = cSeason.split('_')[1];
+                        var oSeason = this[type+'ListSeason']();
+
+                    if( cSeason == oSeason ) return;
+
+                    var list = window[type.toUpperCase()+'_TABLE'][cSeason+'_1'];
+                    var currPage = list.currPage || 1; 
+            var list2 = window[type.toUpperCase()+'_TABLE'][cSeason+'_1']['list'];
+                    if(type=='consult') {
+                        if(list2[0]) {
+                            this[type+'CurrUrl'](list2[0].transferLink);
+                        } else {
+                            this[type+'CurrUrl']("#");
+                        }
+                    }
+
+                    this[type+'List']( list['list'] );
+                    this[type+'Detail'](list['list'][0]);
+                    this[type+'ListType'](1);
+                    this[type+'ListSeason']( cSeason );
+                    this.currentNum((currPage-1)*15);
+                    
+                    resetCursor();
+                    redrawPaging(currPage, list.recordnum);
+                },
+
+                pagination: function(data, evt){
+                    var currPage = $(evt.target).attr('href');
+                    if(!currPage) return;
+
+                    var self = this,
+                        type = this.consultListType(),
+                        season = this.consultListSeason(),
+                        list = CONSULT_TABLE[season+'_'+type],
+                        orgId = $!{orgId},
+                        term = list.currentTerm;
+                    
+                    $.ajax({
+                        url: '/masters/v2/fetchMastersAgencyInnerRankingList.jspa',
+                        type: 'GET',
+                        data: {currentTerm: term, rankType: type, pn: currPage, code: orgId},
+                        beforeSend: function(){
+                            $('[class^=loading]').show();
+                        },
+                        dataType: 'json',
+                        error: function(){
+                            JRJ.MiniAlerts.prompt({message:'<p>抱歉，系统错误，请稍后再试</p>', callback: function(){$('[class^=loading]').hide()}});
+                        },
+                        success: function(data) {
+                            if( data.returnCode == 200 ){
+                                self.consultList( data['list'] );
+                                self.consultDetail( data['list'][0] );
+                                self.currentNum((currPage-1)*15);
+
+                                list['list'] = data['list'];
+                                list['recordnum'] = data['recordnum'];
+                                list['currPage'] = currPage;
+
+                                resetCursor();
+                                redrawPaging(currPage, data.recordnum);
+                                $('[class^=loading]').hide(); 
+                            } else {
+                                JRJ.MiniAlerts.prompt({message:'<p>' + data.returnMsg + '</p>', callback: function(){$('[class^=loading]').hide()}});
+                            }
+                        }
+                    });
+                }
+            };
+
+            pagingGen(1, CONSULT_TABLE['agencyInner'+$!{orgId}+'_'+CONSULT_TABLE.seasons+'_1'].recordnum);
+            ko.applyBindings(consultViewModel);
+        });
+
+    </script>
+    
+    <!--common-footer-v2.html start-->
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+    <!--common-footer-v2.html end-->
+
+</body>
+
+</html>

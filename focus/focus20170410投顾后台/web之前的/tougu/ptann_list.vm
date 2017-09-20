@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{adviser.userName}的平台公告-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{adviser.userName}的平台公告-爱投顾-金融界" />
+    <meta name="description" content="$!{adviser.userName}的平台公告-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+	<!--\#include virtual="/common_head_css.html" -->
+
+    <style>
+        .platform-announce{padding:20px 0;min-height: 400px;}
+        .platform-announce li { font-size: 14px;padding:5px 0; }
+        .platform-announce li .fr{ color: #878C92; }
+    </style>
+</head>
+<body>
+    <!--site-top-->
+    <!--\#include virtual="/v2/site_top_header.html" -->
+    <!--site-nav-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <span class="cur">平台公告</span>
+        </div>
+    </div>
+    <!--bread-crumb-end-->
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <h2 class="block-title">平台公告</h2>
+                #if ($announcementList && $announcementList.size() != 0)
+                <ul class="platform-announce">
+	                    #foreach($announce in $announcementList)
+                        <li>
+                            <span class="fr">${announce.ptimeStr}</span>
+                            <a href="/account/ptann/${announce.id}/detail.jspa" class="link-v2">${announce.title}</a>
+                        </li>
+	                    #end
+                </ul>
+                #else
+                    <div class="middle tc f16" style="padding:100px 0">
+                        <span class="ml10">暂无公告</span>
+                    </div>                
+                #end
+                <div class="pager" id="page_data"></div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+    
+    <!--footer begin-->
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+    #if ($announcementList && $announcementList.size() != 0)
+    <script>
+   		$("#page_data").pagefoot(
+		{
+			pagesize : $!{ps},
+			count : $!{totalCnt},
+			css : "",
+			current : $!{pn},
+			displaynum : 5,
+			displaylastNum : 1,
+			previous : "上一页",
+			next : "下一页",
+			enableArrowKey : true,
+			paging : function(page) {
+				window.location.href="/account/ptann/list.jspa?pn="+page.current;
+			}
+		});
+   	</script>
+	#end
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+	<!--footer end-->
+</body>
+</html>

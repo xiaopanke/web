@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>爱投顾开户交易大礼包</title>
+<meta name="keywords" content="3999元实战专栏、开户交易大礼包、平安证券、证券开户交易、爱投顾APP首次交易、level-2行情、盈利宝返现券" />
+<meta name="description" content="活动期间，在爱投顾APP平台完成首次证券交易的用户可得到3999元大礼包。享受三重好礼，实战专栏、开户礼包、功能升级。" />
+<!--# include virtual="/v2/common_head_css.html" -->
+<link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/slide.css">
+<style>
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td,i { margin: 0; padding: 0;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; background: #ffffff; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none;}
+
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font:20px/1rem 'Microsoft Yahei'; color: #333;}
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+body{ color:#333;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_bg1.png);}
+
+.tit{ background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/h5_line1.png) no-repeat center; background-size: 100% auto; margin-bottom: .7rem;}
+.tit span{display:block;font-size: 1rem; color:#fff; text-align: center; padding-top:.25rem; padding-bottom: .25rem; line-height: 1rem; background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(205, 205, 205, 1)), to(rgba(255, 255, 255, 1)));-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+/*top*/
+.topup{ height: 12.825rem;background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/h5_01.png);background-size: 100% 100%;}
+.top{ background:#5b1a1c ; position: relative;}
+.topbtn{ width:7.5rem; height:1.7rem; position: absolute;bottom:.2rem;right:.6rem; cursor: pointer;}
+.nav{  border-bottom: 1.5px solid #2a0d0e; box-shadow:0 2px 12px 3px #2a0d0e; z-index: 2; text-align: center; color: #ffedb7;font-size: .8rem; height: 2.012rem; background: #5b1a1c; width:100%; position: absolute;top:13.375rem;}
+.nav em{ float: left;width:25%;margin-top: .597rem; position: relative; line-height: .8rem;}
+.nav em:before{position: relative;content: ''; display: block; position: absolute;-webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;right:0;top:0; height: 200%; border-right: 1px solid #d44f4d;}
+.nav em:last-child:before{height: 0;}
+.nav .cur{ color: #fff;}
+.con{ margin-top: 2.012rem;}
+.item{ display: none;}
+.item01{ background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_bg2.png);padding-top: .7rem; overflow: hidden;padding-bottom: .5rem;}
+.pic img{ width: 4.7rem; height: 5.4rem;}
+.p2{background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_bg1.png);    margin-top: 6px;  margin-bottom: 6px;}
+.p2 .pic{ position: absolute;bottom: 0;right: -.7rem;}
+.p2 img{ width:8rem; height: auto;}
+.p3 img{ width:5rem; height: auto;}
+.p2 .dec{ margin-top: 1.5rem;}
+.permsg{ margin-left: 1rem; position: relative;}
+.dec{ width:12.5rem; margin-top: .3rem; margin-left:.4rem;}
+.p3 .dec{ width: 11.5rem;}
+.p3 .permsg{ padding-top: .5rem;}
+.hd{ line-height: 1rem}
+.hd i{ width:12px; margin-top: .35rem;height: 12px; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/websprite.png) no-repeat -7.875rem -1.325rem; background-size: 10rem 10rem;}
+.hd span{ font-size: .7rem;background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(205, 205, 205, 1)), to(rgba(255, 255, 255, 1)));-webkit-background-clip: text;-webkit-text-fill-color: transparent; color: #fff;  }
+.hd h4{ font-size: .7rem;background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(248, 226, 183, 1)), to(rgba(255, 255, 255, 1)));-webkit-background-clip: text;-webkit-text-fill-color: transparent; color: #fff;  margin-bottom: 4px;}
+.bd{ color:#fff; font-size: .6rem; line-height: .75rem; }
+.looklook{color: #f25555; display: block; font-size: .75rem; line-height: 1.4rem; }
+.p1 .looklook{ position: absolute;bottom:.4rem ;right:1rem;}
+.p3 .looklook{ margin-top: 4px;}
+.swiperbox{background:#842124; box-shadow:0 1px 3px 1px #2a0d0e;padding:.35rem;  position: relative; background: #842124;}
+.item02{ height:18.925rem; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/h5_03.png) no-repeat top center; background-size: 100% 100%; padding-top: 1.2rem;}
+.item03{ height:18.375rem; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/h5_02.png) no-repeat top center; background-size: 100% 100%; padding-top: 1.2rem;}
+.item02 .tit,.item03 .tit{ background: none; margin-bottom: 0;}
+.item03 .tit span{ padding-top: 0;}
+
+/*关于弹窗*/
+
+.layer_gz{border-radius: 10px;}
+.closebtn{ position:absolute; top:-1.4rem;right:.6rem;width:1rem; height:1.4rem; cursor:pointer; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/sprite.png) no-repeat -1rem 0;  background-size: 5rem 5rem;}
+.swiper-container {padding:0 1rem;}
+.swiper-slide{text-align: center;}
+.swiper-container img{ width: 12.5rem;}
+.swiper-slide {background-position: center;background-size: cover;}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{right: .8rem;background:rgba(0,0,0,.15) url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/websprite.png) no-repeat -2.5rem -3.2rem;width:1.3rem; height: 2.8rem;background-size: 10rem 10rem; border-radius: 2px;}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{left: .8rem;background:rgba(0,0,0,.15) url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/websprite.png) no-repeat .2rem -3.2rem;width:1.3rem; height: 2.8rem;background-size: 10rem 10rem;border-radius: 2px;}
+.arrow{ position: absolute;width: 0; height: 0;border: 4px solid transparent;border-bottom: 4px  solid #842124; left: 16.75rem; top: -8px;}
+.p2 .arrow{ left:6rem;}
+.wenzi{ margin:2rem auto 0;}
+.wenzi li{float:left; width:33.3%; text-align: center; color: #fff;}
+.wenzi .up{ height: 3rem; font-size: .8rem; font-weight: normal; }
+.wenzi .down { font-size: .5rem; line-height:.7rem;}
+.wenzi .down p{ color: #edbb76;font-size: .5rem;    padding-bottom:.3rem;}
+.one .up{ line-height: .9rem;}
+.two .up{ line-height: .9rem; font-size: .7rem}
+.one .down{ margin-left: -5px;}
+.three .up{ line-height: 1.8rem; font-size: .8rem;}
+.item04btn{ width:8rem; line-height: 1.9rem; display: block;margin: 2rem auto 0; background: linear-gradient(#cfa76c,#dbbb8c);background:#cfa76c\9; text-align: center; font-size: .9rem; color: #231411; cursor: pointer;}
+.item05txt { color: #fff; margin-left: 1rem;}
+.item05txt div{ width: 8rem; margin-top: 1.5rem;}
+.item05txt div p{color:#8a3022;font-size:.8rem; margin-bottom: 1rem;}
+.item05txt ul { margin-left: 1.5rem; line-height: 1.46rem; font-size: .6rem;}
+.item05txt .yijian{ width:9rem;}
+.item05txt .yijian ul{margin-left: 3.2rem}
+.item03 .item04btn{    background: linear-gradient(#a14031,#ee5a42);background: #a14031\9;color: #fff0c7;}
+.item04{ background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_bg1.png); padding-top: .7rem;  padding-bottom: 1rem;}
+.item04 .tit{ font-size: .6rem;}
+.item04 ul{ width:16.5rem; margin: .5rem auto 0; line-height: .8rem; color: #fff;font-size: .6rem;}
+.item04 li{ margin-bottom: .5rem}
+.item04 .last{ color: #8a4c3b;font-size: .5rem;}
+.item04 a{ color: #f25555;}
+.item04 .tit{ background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/h5_line2.png);}
+/*关于弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 5; display: none;}
+.layer{background:#fff7ec;position: fixed;top: 50%;left: 50%;margin-top:-200px;margin-left: -300px;z-index: 10;color: #000;display: none;}
+
+.looklook:hover{ color: #f25555}
+.closebtn{ position:absolute;top: -4px;right: 1rem;width:1.4rem; height:1.4rem; cursor:pointer;  }
+
+.layer_p{ width:18.5rem; height: 16.25rem;margin-top: -8.75rem; margin-left: -8.2rem; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/layer2.png) no-repeat; background-size: 100% 100%;}
+.layer_p h3{width:16.75rem; line-height: 2.5rem; color: #fff; font-size: .9rem; text-align: center;}
+.layer_p h4{width:16.75rem; line-height: 1.5rem; color: #000; font-size: .7rem; text-align: center;}
+.layer_p ul{margin-top: 2rem; margin-left: 1rem; }
+.layer_p li{ margin-bottom: .4rem;}
+.layer_p li span{ float: left;width: 2.5rem; line-height:.8rem; color: #fff;background:#f93934; border-radius: .4rem; text-align: center; margin-right:.4rem; font-size: .5rem;}
+.layer_p li p{ float: left;width: 11rem; line-height:.7rem;font-size: .5rem; }
+.layer_p .bdtxt{ width:13.75rem;margin-left:1rem; line-height: .6rem; font-size: .5rem;}
+.layer_p .closebtn{ top: 3px;right: 2rem}
+.layer_p3 ul{ margin-top: 1.5rem;}
+.layer_p3 li{ margin-bottom: .4rem}
+.layer_p3 h4{ line-height: 1rem;}
+.layer_p3 .bdtxt{ width: 14.5rem; margin-left:.75rem}
+.swiper-slide{ display: none; }
+</style> 
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head> 
+<body>
+    <div class="top">
+        <div class="topup"></div>
+        <a class="topbtn downloadbtn" href="javascript:;"></a>
+    </div>
+    <div class="nav">
+        <em class="cur">实战专栏</em>
+        <em>开户礼包</em>
+        <em>功能升级</em>
+        <em>领奖方式</em>
+    </div>
+    <div class="con">
+        <div class="item item01 show">
+            <h3 class="tit"><span>春季实战专栏3选1</span></h3>
+            <div class="person p1">
+                <div class="permsg clearfix">
+                    <div class="fl pic">
+                        <!--<a href="http://itougu.jrj.com.cn/account/adviser/150831010078177717/"   onclick="window.dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20170220_dalibaoapp1', 'WT.ti', 'ITOUGU_focus20170220_dalibaoapp1');"  class="haha"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_img1.png"></a>-->
+                        <a href="http://itougu.jrj.com.cn/account/adviser/141120010079383950/" class="haha"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_img1.png"></a>
+                    </div>
+                    <div class="fl dec">
+                        <div class="hd clearfix">
+                            <i class="round fl"></i>
+                            <span class="name fl">猎人X</span>
+                            <h4>《实战出击-伏击短线龙头》</h4>
+                        </div>  
+                        <div class="bd">实战派短线高手，熟悉游资做股手法，以超短游资炒作热点个股为主要标的，善于擒获主力接棒空挡和连板个股</div>
+                        <a class="looklook look1" href="javascript:;">查看详情 &gt;</a>
+                    </div>
+                </div>
+                <div class="swiperbox">
+                    <i class="arrow"></i>
+                    <div class="swiperin">
+                        <div class="swiper-container swiper1">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per1_01.png"></div>
+                                <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per1_02.png"></div>
+                                <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per1_03.png"></div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-button-next swiper-button-next1"></div>
+                            <div class="swiper-button-prev swiper-button-prev1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="person p2">
+                <div class="permsg clearfix">
+                    <div class="fl dec">
+                        <div class="hd clearfix">
+                            <i class="round fl"></i>
+                            <span class="name fl">蚂蚁搬家</span>
+                            <h4>《实战出击-波段盈利宝典》</h4>
+                        </div>  
+                        <p class="bd">知名财经博主，多年任私募操盘手、风控经理擅长跟庄做波段，不追涨杀跌，近几年每年收益率100%左右 </p>
+                        <a class="looklook look2" href="javascript:;">查看详情&gt;</a>
+                    </div>
+                    <div class="fl pic">
+                        <!--<a href="http://itougu.jrj.com.cn/account/adviser/150706010037869395/"   onclick="window.dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20170220_dalibaoapp2', 'WT.ti', 'ITOUGU_focus20170220_dalibaoapp2');"  class="haha"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_img3.png"></a>-->
+                        <a href="http://itougu.jrj.com.cn/account/adviser/141120010079383950/" class="haha"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_img3.png"></a>
+                    </div>
+                </div>
+                <div class="swiperbox">
+                    <i class="arrow"></i>
+                    <div class="swiper-container swiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per2_01.jpg"></div>
+                            <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per2_02.jpg"></div>
+                            <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per2_03.jpg"></div>
+                        </div>
+
+                        <!-- Add Pagination -->
+
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-prev swiper-button-prev2"></div>
+                        <div class="swiper-button-next swiper-button-next2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="person p3">
+                <div class="permsg clearfix">
+                    <div class="fl pic">
+                        <!--<a href="http://itougu.jrj.com.cn/account/adviser/141205010056369904/"   onclick="window.dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20170220_dalibaoapp3', 'WT.ti', 'ITOUGU_focus20170220_dalibaoapp3');"  class="haha"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_img2.png"></a>-->
+                        <a href="http://itougu.jrj.com.cn/account/adviser/141120010079383950/" class="haha"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/web_img2.png"></a>
+                    </div>
+                    <div class="fl dec">
+                        <div class="hd clearfix">
+                            <i class="round fl"></i>
+                            <span class="name fl">张贵杰</span>
+                            <h4>《实战出击-狙击热点板块》</h4>
+                        </div>  
+                        <p class="bd">善抓市场热点<br />春节后的宝鼎科技，连续三涨停；中国船舶5天收益10%+ </p>
+                        <a class="looklook look3" href="javascript:;">查看详情&gt;</a>
+                    </div>
+                </div>
+                <div class="swiperbox">
+                    <i class="arrow"></i>
+                    <div class="swiperin">
+                        <div class="swiper-container swiper3">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per3_01.png"></div>
+                                <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per3_02.png"></div>
+                                <div class="swiper-slide"><img src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/img/perimg/per3_03.jpg"></div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-button-next swiper-button-next3"></div>
+                            <div class="swiper-button-prev swiper-button-prev3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item item02">
+            <h3 class="tit"><span>鸡年开户大礼包</span></h3>
+            <ul class="wenzi clearfix">
+                <li class="one">
+                    <div class="up">66元<br />返现券</div>
+                    <div class="down">
+                        <p>理财坐享收益<br/>符合条件后</p>
+                        <span>T+1可提取相应<br />金额到银行卡 </span>
+                    </div>
+                </li>
+                <li class="two">
+                    <div class="up">Level2 行情<br />3个月</div>
+                    <div class="down">
+                        <p>千档行情<br />0.01秒刷新</p>
+                        <span>炒股必备的<br />看盘神器</span>
+                    </div>
+                </li>
+                <li class="three">
+                    <div class="up">20元话费</div>
+                    <div class="down">
+                        <p>开户交易<br />话费到账</p>
+                        <span>让您给亲人一个<br />温暖的电话</span>
+                    </div>
+                </li>
+            </ul>
+            <a class="item04btn downloadbtn" href="javascript:;">免费领取</a>
+        </div>
+        <div class="item item03 ">
+            <h3 class="tit"><span>鸡年开户功能全升级</span></h3>
+            <div class="item05txt clearfix">
+                <div class="fl">
+                    <p>现有开户基础服务</p>
+                    <ul>
+                        <li>万2.5交易佣金</li>
+                        <li>公募基金申购费1折</li>
+                        <li>股市直播免费看</li>
+                        <li>自选股资讯实时更新</li>
+                    </ul>
+                </div>
+                <div class="fr yijian">
+                    <p>鸡年开户额外开通功能</p>
+                    <ul>
+                        <li>一键打新功能</li>
+                        <li>股票成交回报提醒</li>
+                        <li>创业板转签功能</li>
+                        <li>现金宝理财福利</li>
+                    </ul>
+                </div>
+            </div>
+            <a class="item04btn downloadbtn" href="javascript:;">免费领取</a>
+        </div>
+        <div class="item item04 ">
+            <h3 class="tit"><span>奖品领奖方式</span></h3>
+            <ul>
+                <li>1、 价值2980春季实战专栏，在用户使用爱投顾APP完成首次证券交易后5个工作日内，发放等额优惠券至用户账号，用户根据个人投资风格订阅相应专栏；</li>
+                <li>2、 鸡年开户大礼包，66元理财返现券（盈利宝新用户66元，老用户66元返现券）将在用户开户成功并绑定资金账号后发放短信兑换码， <a href="javascript:;" class="haha">返现券兑换链接</a>；3个月level-2行情和20元话费，在爱投顾APP开户成功并完成首次交易后5个工作日发放给用户；</li>
+                <li>3、鸡年开户升级功能在用户开户成功并绑定资金账号后自动开通;</li>
+                <li>4、所有未在爱投顾APP证券交易的用户都可参与。  </li>
+                <li class="last">活动最终解释权归“爱投顾”所有，用户可拨打客服电话咨询活动详情：400-166-1188；投资有风险，入市需谨慎。 </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mask"></div>
+    
+    <div class="layer layer_p layer_p1">
+        <i class="closebtn"></i>
+        <h3>猎人X实战内参</h3>
+        <ul>
+            <li class="clearfix"><span>主要内容</span><p>每日解读龙虎榜经典个股及次日实战操作思路。</p></li>
+            <li class="clearfix"><span>内参特色</span><p>强势股短线炒作，包括买入卖出时机判断，一次涉及个股不超过2只，执行一进一出，再进下一只的连贯超短操作。</p></li>
+            <li class="clearfix"><span>适合人群</span><p>适合有操作能力及时间，并热爱短线的交易者。</p></li>
+        </ul>
+        <h4>猎人X老师想对你说：</h4>
+        <p class="bdtxt">超短交易是一种绝对的交易艺术，努力做到跟紧游资主力，他吃肉来我喝汤，努力做到大赚小赔稳定盈利。让我们在超短复利的路上一起前行！</p>
+    </div>
+    <div class="layer layer_p layer_p2">
+        <i class="closebtn"></i>
+        <h3>蚂蚁搬家实战内参</h3>
+        <ul>
+            <li class="clearfix"><span>主要内容</span><p>包含大盘未来分析，板块热点，选股理由，买卖点介绍等。</p></li>
+            <li class="clearfix"><span>内参特色</span><p>内参每次一只股，连续分析，不会出现一次几只股让大家无法适应的情况，其实就是学习本人的盈利模式，基本上完整下来就能学会赚钱。</p></li>
+            <li class="clearfix"><span>适合人群</span><p>想天天赚钱，买进大涨，天天搞短线的，不适合订阅！</p></li>
+        </ul>
+        <h4>蚂蚁搬家老师想对你说：</h4>
+        <p class="bdtxt">赚钱是其次，方法是主要。学会了方法，赚钱是必然。</p>
+    </div>
+    <div class="layer layer_p layer_p3">
+        <i class="closebtn"></i>
+        <h3>张贵杰实战专栏</h3>
+        <ul>
+            <li class="clearfix"><span>主要内容</span><p>利用独创的《三维分析体系》操盘方法捕捉市场热点，分享选股时机、交易价格、理由及后续连续跟踪。</p></li>
+            <li class="clearfix"><span>内参特色</span><p>捕捉市场热点为主，2-5天的交易节奏。在本服务期内，未实现盈利的情况下，将适当延长服务期，不用担心后续服务问题。</p></li>
+            <li class="clearfix"><span>适合人群</span><p>中线找不到标的，短线找不到买卖点，总是买在高点卖在低点，愿意用5%的风险换取15%以上收益的投资者。</p></li>
+        </ul>
+        <h4>张贵杰老师想对你说：</h4>
+        <p class="bdtxt">我对市场热点有着敏锐的预见力，提前洞悉热点的变化轨迹。在结合实际案例的情况下，会通过视频教学，帮助愿意交流的朋友掌握“三维分析体系”的逻辑和应用。</p>
+    </div>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+    <script type="text/javascript" src="https://js.jrjimg.cn/common/foot/v2s_m.js"></script>
+<script type="text/javascript" src="https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170220dalibao/slide.js"></script>
+<script>
+    $(function(){
+        /*计算字体大小*/
+        function change(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+        }
+        change();
+        window.addEventListener('resize',change,false);
+        var ssoId='${ssoId}';
+        var spToken=encodeURIComponent('${spToken}');
+        var tgqdcode=getQueryString('tgqdcode');
+
+        $('.closebtn').click(function(){
+            $('.layer,.mask').hide();
+        });
+        $('.item04 .haha').click(function(){ 
+            if(ssoId != 'null'){
+                window.location.href="https://8.jrj.com.cn/m/coupons/exchanges_coupons.do";
+            }else{
+                jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+            }
+        });
+        $('.downloadbtn').each(function(){
+            $(this).click(function(){
+                if(ssoId != 'null'){
+                    window.location.href='http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+                
+            });
+        });
+        //码
+        codehaha();
+        function codehaha(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/common/join?matchId=4&ssoId='+ssoId+'&spToken='+spToken,
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    console.log(v);
+                    if(v.retcode==0){
+                        
+                    }
+               },
+               error : function() {
+                    
+               }
+            });
+        }
+         //滚动判断报名按钮的隐藏与显示
+        var navtop = $('.nav').offset().top;
+        var navtop2=$('.con').offset().top-$('.nav').height();
+        $(window).scroll(function () {
+            if ($(document).scrollTop() >= navtop) { 
+                $('.nav').css({ position: 'fixed',top:0 });
+            } else {
+                 $('.nav').css({ position: 'absolute',top:navtop2+'px' });
+            }
+        })
+        //下载按钮
+        $('.downloadbtn').each(function(){
+            $(this).click(function(){
+                if(ssoId != 'null'){
+                    window.location.href="http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq";
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            });
+        });
+        $('.nav em').each(function(){
+            var o=$(this);
+            $(this).click(function(){
+                $('.nav em').removeClass('cur');
+                $('.item').removeClass('show');
+                $('.nav em').eq(o.index()).addClass('cur');
+                $('.item').eq(o.index()).addClass('show');
+            });
+        });
+          window.dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20170220_dalibaoappall', 'WT.ti', 'ITOUGU_focus20170220_dalibaoappall'); 
+        $('.look1').click(function(){
+            $('.layer_p1,.mask').show();
+            window.dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20170220_dalibaoapp4', 'WT.ti', 'ITOUGU_focus20170220_dalibaoapp4');
+        });
+        $('.look2').click(function(){
+            $('.layer_p2,.mask').show();
+            window.dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20170220_dalibaoapp5', 'WT.ti', 'ITOUGU_focus20270220_dalibaoapp5');
+        });
+        $('.look3').click(function(){
+            $('.layer_p3,.mask').show();
+            window.dcsMultiTrack('DCS.dcsuri', 'ITOUGU_focus20170220_dalibaoapp6', 'WT.ti', 'ITOUGU_focus20170220_dalibaoapp6');
+        });
+    function tab(o){
+        var prev=o.find('.swiper-button-prev');
+        var next=o.find('.swiper-button-next');
+        var slidechi=o.find('.swiper-slide');
+        var inum=o.find('.show').index();
+        console.log(inum);
+        var timer;
+        prev.click(function(){ 
+            inum--;
+            if(inum==-1){inum=slidechi.length-1}
+            gotab(inum)
+        });
+        next.click(function(){
+            inum++;
+            if(inum==slidechi.length){inum=0}
+            gotab(inum)
+        });
+        timer=setInterval(function(){
+            inum++;if(inum==slidechi.length){inum=0}
+            gotab(inum);
+        },2000);
+        function gotab(inum){
+            slidechi.removeClass('show');
+            slidechi.eq(inum).addClass('show');
+        }
+    }
+    tab($('.swiper1'));
+    tab($('.swiper2'));
+    tab($('.swiper3'));
+        //获取url参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    });
+</script> 
+
+
+</body>
+</html>

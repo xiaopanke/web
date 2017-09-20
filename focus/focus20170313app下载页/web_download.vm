@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>金融界一站式App</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <style type="text/css">
+
+    </style>
+    <![endif]-->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/dialog.effect.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/styles-v2.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/styles-v3.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/share-stylish.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/LoginDialog.css" rel="stylesheet" />
+    <style>
+        body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+        body, button, input, select, textarea { font: 12px/24px "Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; }
+        h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+        address, cite, em, i { font-style: normal; }
+        li { list-style: none; }
+        a { text-decoration: none; }
+        a:hover { text-decoration: none; }
+        legend { color: #000; }
+        fieldset, img { border: 0; }
+        button, input, select, textarea { font-size: 100%; line-height: normal; }
+        table { border-collapse: collapse; border-spacing: 0; }
+        input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+
+        .clearfix:after, .wrapper:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+        .clearfix { display: inline-block; }
+        /* start commented backslash hack \*/
+        * html .clearfix { height: 1%; }
+        .clearfix { display: block; }
+        /* close commented backslash hack */
+
+        /* pace */
+        .pace { -webkit-pointer-events: none; pointer-events: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none; }
+        .pace-inactive { display: none; }
+        .pace .pace-progress { background: #ff0; position: fixed; z-index: 2000; top: 0; right: 100%; width: 100%; height: 2px; }
+        /* ./img/banner-bg.jpg?20151202 */
+        /* layout */
+        body { background: #fff; font-size: 14px; }
+        .focus-wrapper { width: 1000px; margin: 0 auto; position: relative; }
+        .focus-banner {  }
+        .section-banner { background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/banner-bg.jpg?20151202) 50% 50% no-repeat;height: 698px; position: relative;}
+        .focus-index{position: absolute;top:23px;right: 90px;}
+        .focus-index a{cursor: pointer;color:#bbe0ff;font-size: 16px;}
+        .focus-index a:hover{color:#fff;}
+        .focus-index .focus-index-a1{margin-right:39px;}
+        .focus-banner-phone { position: absolute; left: 0; top:-80px; width: 471px; height: 976px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/banner-phone.png) no-repeat; -moz-transition: all 1s linear; -o-transition: all 1s linear; -webkit-transition: all 1s linear; transition: all 1s linear; -moz-transform: translateY(300px); -ms-transform: translateY(300px); -o-transform: translateY(300px); -webkit-transform: translateY(300px); transform: translateY(300px); opacity: 0; }
+
+        .focus-banner-right { padding: 0px 0 0 400px; margin-top: 85px;position: relative;}
+        .focus-banner-right h1 { font-size: 87px; line-height: 87px; color: #fff; margin: 26px 0 0 -20px;}
+        .focus-banner-right h2 { font-size: 38px; line-height: 38px; font-weight: normal; color: #fff; margin: 24px 0 35px -49px; }
+        .focus-banner-right .qrcode { padding-left: 236px; height: 221px; position:relative; }
+        .focus-banner-right .qrcode .qrcode-wrap { position:absolute;width:211px;height:211px;top:0;left:0;padding:5px;border:1px solid #8cbde5; }
+        .focus-banner-right .qrcode .qrcode-inner { width:205px;height:205px;display:inline-block; }
+
+
+        .focus-banner-right .qrcode p { font-size: 14px; color: #fff; padding-top: 14px; }
+
+        .focus-banner-right .focus-top-goto {position: absolute;bottom:-124px;left: 50%;margin-left: -285px;}
+        .focus-top-goto .focus-btn { background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/btn.png?20151202) no-repeat;height: 81px;margin-right: 26px;width: 302px;float: left; }
+        .focus-banner-right .focus-top-goto .focus-btn-ios{ background-position: 0 0;}
+        .focus-banner-right .focus-top-goto .focus-btn-android{ background-position: -325px 0;}
+        .section { overflow: hidden; border-bottom:1px solid #3aa6ff;z-index: 1;}
+
+        .section-1 { background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-2-bg.png) 50% 50% no-repeat;height:701px;}
+        .section-1 .focus-wrapper { padding: 140px 0;}
+        .section-1 h1 { font-size: 55px; line-height: 48px; color: #3e3e3e; font-weight: normal; }
+        .section-1 h2 { font-size: 48px; line-height: 48px; color: #126ad2; font-weight: normal; padding: 16px 0 0 0; margin-top:-95px; }
+        .section-1 ul {  color: #999ea1; font-size: 28px; padding: 40px 0; }
+        .section-1 ul li { line-height: 40px; padding-left: 3px; }
+        .section-1 img { position: absolute; top: 50%; }
+        .section-1 .pic-1 { width: 639px; height: 591px; left: 98px; margin-top: -133px; z-index: 99; opacity: 1; /* -moz-transform: translateX(-20px); -ms-transform: translateX(-20px); -o-transform: translateX(-20px); -webkit-transform: translateX(-20px); transform: translateX(-20px); -moz-transition: all .5s linear; -o-transition: all .5s linear; -webkit-transition: all .5s linear; transition: all .5s linear;  */}
+        .section-1 .focus-inner { padding-left: 650px; }
+        .border-write{border: 1px solid #fff;width: 313px; display: block; position:absolute; left: 50%;z-index: 1000;margin-left: -396px;margin-top: -2px;}
+        .border-write2{margin-left: 200px;}
+        .border-write3{margin-left: -390px;}
+        .border-write4{margin-left: 224px;}
+        .border-write5{margin-left: -377px;}
+        .border-write6{margin-left: 219px;}
+
+        .section-2{height: 701px;background: #fff;}
+        .section-2 .focus-wrapper { padding: 140px 0; }
+        .section-2 h1 {  font-size: 55px; line-height: 48px; color: #3e3e3e; font-weight: normal;margin-left: 40px;}
+        .section-2 h2 { font-size: 48px; line-height: 48px; color: #126ad2; font-weight: normal; padding: 16px 0 0 0; margin-top: -23px;}
+        .section-2 ul {color: #999ea1; font-size: 32px; padding: 40px 0 20px 40px;}
+        .section-2 ul li { line-height: 50px; padding-left: 3px; }
+        .section-2 img { position: absolute; top: 50%; }
+        .section-2 .pic-1 { width: 661px; height: 591px; left: 360px; margin-top: -133px; z-index: 3; opacity: 1;}
+        .section-2 .focus-inner { padding-left: 650px; }
+
+        .section-3 { background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-2-bg.png) 50% 50% no-repeat; height:701px;}
+        .section-3 .focus-wrapper { padding: 140px 0; }
+        .section-3 h1 { font-size: 55px; line-height: 55px; color: #3e3e3e; font-weight: normal; margin: 92px 0 0 20px;}
+        .section-3 h2 { font-size: 48px; line-height: 48px; color: #126ad2; font-weight: normal; padding: 16px 0 0 0; margin-top: -176px;}
+        .section-3 ul {color: #999ea1; font-size: 35px;margin:20px 0 0 17px;
+            width: 371px; }
+        .section-3 ul li { line-height: 40px; padding-left: 3px; }
+        .section-3 img { position: absolute; }
+        .section-3 .pic-1 { width: 623px; height: 590px; top: 50%; margin-top: -133px; left:104px;opacity:1; z-index: 3; /* -moz-transform:translateY(50px); -ms-transform:translateY(50px); -o-transform:translateY(50px); -webkit-transform:translateY(50px); transform:translateY(50px); -moz-transition:all .5s linear; -o-transition:all .5s linear; -webkit-transition:all .5s linear; transition:all .5s linear; */ }
+        .section-3 .focus-inner { padding-left: 650px; }
+
+        .section-4{background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-4-bg.jpg) 50% 50% no-repeat;height: 617px; }
+        .section-4 .editor-cnt { padding: 30px 0 0 200px; background: url(./img/editor-cnt-icon.png) 0 30px no-repeat; position: relative; height: 129px; }
+        .section-4 .editor-cnt .inner {  position:relative; }
+        .section-4 .editor-cnt .inner .btn-detail-qrcode { position: absolute; width: 176px; height: 85px; background: url(./img/btn-event.png) no-repeat; right: 0; top: 0; }
+        .section-4 .editor-cnt .inner .btn-detail-qrcode:hover { background-position:0 -85px; }
+        .section-4 .editor-cnt .inner ul li { font-size: 24px; color: #333; line-height: 30px; }
+        .section-4 .editor-cnt .inner .line-1 {  }
+        .section-4 .editor-cnt .inner .line-2 { padding-top: 20px; }
+        .section-4 .editor-cnt .inner .line-2 p { padding-top: 10px; }
+        .section-4 .editor-cnt .inner ul li .highlight { color: #ee8123; font-size: 30px; font-weight:bold; }
+        .section-4 .editor-cnt .inner ul li .btn-detail { display: inline-block; width: 124px; height: 43px; line-height: 43px; color: #fff; background: #ee8123; border-radius: 10px; text-align: center; font-size: 20px; margin-left: 20px; -moz-transition: all .2s; -o-transition: all .2s; -webkit-transition: all .2s; transition: all .2s; }
+        .section-4 .editor-cnt .inner ul li .btn-detail:hover { text-decoration: none; background: #ed9040; }
+        .section-4 .editor-cnt .gift-1-qrcode { position: absolute; width: 200px; height: 200px; top: 100px; right: -10px; box-shadow: 0 0 50px rgba(0,0,0,0.2);display:none; }
+        .section-5{height: 701px;background-color: #fff;}
+        .section-5 .focus-wrapper { padding: 140px 0; }
+        .section-5 h1 { font-size: 55px; line-height: 48px; color: #3e3e3e; font-weight: normal;margin-left: 70px; margin-top: 35px;}
+        .section-5 h2 { font-size: 48px; line-height: 48px; color: #126ad2; font-weight: normal; padding: 16px 0 0 0;margin-top: 56px; }
+        .section-5 ul { color: #999ea1; font-size: 32px;padding: 35px 0 0 70px; }
+        .section-5 ul li { line-height: 46px; padding-left: 3px; }
+        .section-5 .focus-inner { padding-left: 650px; }
+        .section-5 img { position: absolute; top:50%;}
+        .section-5 .pic-1 { width: 604px; height: 589px; left:440px; margin-top: -133px; z-index: 3; opacity: 1; /* -moz-transform: translateX(-20px); -ms-transform: translateX(-20px); -o-transform: translateX(-20px); -webkit-transform: translateX(-20px); transform: translateX(-20px); -moz-transition: all .5s linear; -o-transition: all .5s linear; -webkit-transition: all .5s linear; transition: all .5s linear;  */}
+
+        .section-6 { background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-2-bg.png) 50% 50% no-repeat; height:701px;}
+        .section-6 .focus-wrapper { padding: 140px 0; }
+        .section-6 h1 { font-size: 55px; line-height: 55px; color: #3e3e3e; font-weight: normal; margin-top: 51px;margin-left: 61px; }
+        .section-6 h2 { font-size: 48px; line-height: 48px; color: #126ad2; font-weight: normal; padding: 16px 0 0 0; margin-top: -176px;}
+        .section-6 ul {color: #999ea1; font-size: 32px; padding: 33px 0;  }
+        .section-6 ul li { line-height: 40px; padding-left: 3px; }
+        .section-6 img { position: absolute; }
+        .section-6 .pic-1 { width: 686px; height: 589px; top: 50%;  margin-top: -133px; left:118px;opacity:1; z-index: 3; /* -moz-transform:translateY(50px); -ms-transform:translateY(50px); -o-transform:translateY(50px); -webkit-transform:translateY(50px); transform:translateY(50px); -moz-transition:all .5s linear; -o-transition:all .5s linear; -webkit-transition:all .5s linear; transition:all .5s linear; */ }
+        .section-6 .focus-inner { padding-left: 650px; }
+        .section-7{height: 701px;background: #fff;}
+        .section-7 .focus-wrapper { padding: 140px 0; }
+        .section-7 h1 { font-size: 55px; line-height: 48px; color: #3e3e3e; font-weight: normal;margin-top: 81px; margin-left: 50px;}
+        .section-7 h2 { font-size: 48px; line-height: 48px; color: #126ad2; font-weight: normal; padding: 16px 0 0 0;margin-top: 56px; }
+        .section-7 ul { color: #999ea1; font-size: 32px; padding: 40px 0 0 50px; }
+        .section-7 ul li { line-height: 40px; padding-left: 3px; }
+        .section-7 .focus-inner { padding-left: 650px; }
+        .section-7 img { position: absolute; top:50%;}
+        .section-7 .pic-1 { width: 681px; height: 589px; left: 359px; margin-top: -133px; z-index: 3; opacity: 1; /* -moz-transform: translateX(-20px); -ms-transform: translateX(-20px); -o-transform: translateX(-20px); -webkit-transform: translateX(-20px); transform: translateX(-20px); -moz-transition: all .5s linear; -o-transition: all .5s linear; -webkit-transition: all .5s linear; transition: all .5s linear;  */}
+
+
+        .section-8 { background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-2-bg.png) 50% 50% no-repeat; height:701px;}
+        .section-8 .focus-wrapper { padding: 140px 0; }
+        .section-8 h1 { font-size: 55px; line-height: 55px; color: #3e3e3e; font-weight: normal;margin-left: -75px;margin-top: 66px;}
+        .section-8 h2 { font-size: 48px; line-height: 48px; color: #126ad2; font-weight: normal; padding: 16px 0 0 0; margin-top: -176px;}
+        .section-8 ul {color: #999ea1; font-size: 32px; padding: 25px 0;width: 510px; margin-left: -77px;}
+        .section-8 ul li { line-height: 40px; padding-left: 3px; }
+        .section-8 img { position: absolute; }
+        .section-8 .pic-1 { width: 851px; height: 588px; top: 50%; margin-top:  -133px; left:105px;opacity:1; z-index: 3; /* -moz-transform:translateY(50px); -ms-transform:translateY(50px); -o-transform:translateY(50px); -webkit-transform:translateY(50px); transform:translateY(50px); -moz-transition:all .5s linear; -o-transition:all .5s linear; -webkit-transition:all .5s linear; transition:all .5s linear; */ }
+        .section-8 .focus-inner { padding-left: 650px; }
+
+        .focus-footer { text-align: center; padding-bottom: 92px;padding-top:147px; width: 700px;}
+        .focus-footer .focus-footer-logo { width: 150px; height: 150px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/logo.png) no-repeat; margin: 0 auto; padding-bottom: 20px;}
+        .focus-footer h1 { font-size: 38px; font-weight: normal; color: #c30d23; line-height: 38px; padding: 20px 0; }
+        .focus-footer h1 strong { font-size: 38px; }
+        .focus-footer h1 * { margin: 0 6px; }
+        .focus-footer h2 { font-size: 32px; font-weight: normal; line-height: 32px; }
+        .focus-footer h2 span { margin: 0 12px; }
+
+        .focus-footer .focus-btn-wrap { float: left; }
+
+        .focus-btn-wrap .footer-btn{ width: 352px; height: 162px; display: inline-block; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/btn-gotop.png) no-repeat; }
+        .focus-btn-wrap .footer-btn-ios{ background-position: 0 0;}
+        .focus-btn-wrap .footer-btn-android{ background-position: 0 -173px;}
+
+
+        .focus-footer .qrcode2{position:relative; background: #fff;width: 290px;height: 290px;margin-left: 617px;}
+        .focus-footer .qrcode2 .qrcode-wrap2 { position:absolute;width:270px;height:270px;top:0;left:0;padding:10px;}
+        /*  .focus-banner-right .qrcode { padding-left: 236px; height: 221px; position:relative; }
+            .focus-banner-right .qrcode .qrcode-wrap { position:absolute;width:211px;height:211px;top:0;left:0;padding:5px;border:1px solid #8cbde5; }
+            .focus-banner-right .qrcode .qrcode-inner { width:205px;height:205px;display:inline-block; } */
+        .iphone-slider-wrap { position: absolute; width: 280px; height: 579px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/iphone.png) no-repeat; top: 50%; margin-top: -289.5px; left: 0; z-index: 10; }
+        .iphone-slider { position: absolute; width: 280px; height: 579px; /*background: url(./img/iphone.png) no-repeat;*/ top: 50%; margin-top: -289.5px; left: 0; z-index: 9; }
+        .iphone-slider div { z-index: 8; position: absolute; display: block; background: #fff; box-shadow: 0 0 50px rgba(0,0,0,0.2); }
+        .iphone-slider div img { display: block; width: 100%; }
+        .iphone-slider div.p1 { z-index: 10; /*top:71px; left:18px;*/ }
+        .section .iphone-slider-nav { background: none; padding: 0; left: 98px; position: absolute; bottom: -30px; }
+        .section .iphone-slider-nav li { display: inline-block; width: 11px; height: 11px; background: url(./img/pager.png) -19px 0 no-repeat; float: left; padding: 0; margin: 0 5px; }
+        .section .iphone-slider-nav li.cur { background-position: 0 0; }
+
+        .focus-arrow { display: inline-block; width: 26px; height: 20px; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/arrow.png) no-repeat; position: absolute; bottom: 15px; left: 50%; margin-left: -13px; -moz-animation: arrow-move 2s infinite linear; -o-animation: arrow-move 2s infinite linear; -webkit-animation: arrow-move 2s infinite linear; animation: arrow-move 2s infinite linear; }
+
+    </style>
+    <link href="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.fullPage-v2.7.5.min.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+<div class="section section-banner"> <!--fp-auto-height-->
+    <div class="focus-index">
+        <a href="http://www.jrj.com.cn" target="_blank" class="focus-index-a focus-index-a1">网站首页</a>
+        <a href="http://www.jrj.com.cn/sitemap.shtml" target="_blank" class="focus-index-a"> 网站地图</a>
+    </div>
+    <div class="focus-banner">
+        <div class="focus-wrapper">
+            <div class="focus-banner-right">
+
+                <div class="clearfix">
+                    <div class="qrcode">
+                        <span class="qrcode-wrap"><span class="qrcode-inner"></span></span>
+                    </div>
+                </div>
+                <h1>金融界</h1>
+                <h2>您的智能投资助理</h2>
+                <div class="focus-top-goto">
+                    <a class="focus-btn focus-btn-ios" target="_blank" id="focus-btn-ios" href="https://itunes.apple.com/cn/app/apple-store/id420570910?pt=118122749&ct=$!{channelId}&mt=8"></a>
+                    <a href="$!{androidUrl}"  class="focus-btn focus-btn-android" id="focus-btn-android"></a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="section section-1">
+    <div class="focus-wrapper">
+        <div class="focus-inner">
+            <!-- <h1>投顾</h1> -->
+            <h1><b>智</b>头条</h1>
+            <ul>
+                <li>智能聚合一手财经情报</li>
+                <li> 只给你看最重要的</li>
+            </ul>
+            <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-1-pic-1.png" class="pic-1" />
+
+        </div>
+    </div>
+</div>
+<span class="border-write"></span>
+<div class="section section-2">
+    <div class="focus-wrapper">
+        <h1><b>大V</b>直播</h1>
+        <ul>
+            <li>数千专业投顾在线实时解盘</li>
+            <li>个股买卖不懂就问</li>
+        </ul>
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-2-pic-1.png" class="pic-1" />
+
+    </div>
+</div>
+<span class="border-write border-write2"></span>
+<div class="section section-3">
+    <div class="focus-wrapper">
+        <div class="focus-inner">
+            <h1><b>智能</b>选股</h1>
+            <ul>
+                <li>智能选牛股  操盘不求人</li>
+            </ul>
+            <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-3-pic-1.png" class="pic-1" />
+        </div>
+    </div>
+</div>
+<span class="border-write border-write3"></span>
+<div class="section section-5">
+    <div class="focus-wrapper">
+
+        <h1><b>炒股</b>比赛</h1>
+        <ul>
+            <li>每天收益为正就能瓜分现金红包</li>
+            <li>百万大奖等你来领</li>
+
+        </ul>
+
+
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-5-pic-1.png" class="pic-1" />
+
+    </div>
+</div>
+<span class="border-write border-write4"></span>
+<div class="section section-6">
+    <div class="focus-wrapper">
+        <div class="focus-inner">
+            <h1><b>秒级</b>行情</h1>
+            <ul>
+                <li>全市场行情实时刷新</li>
+            </ul>
+            <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-6-pic-1.png" class="pic-1" />
+        </div>
+    </div>
+</div>
+<span class="border-write border-write5"></span>
+<div class="section section-7">
+    <div class="focus-wrapper">
+        <h1><b>个股</b>诊断</h1>
+        <ul>
+            <li>智能诊股 趋势研判  及时获知买卖参考</li>
+        </ul>
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-7-pic-1.png" class="pic-1" />
+
+    </div>
+</div>
+<span class="border-write border-write6"></span>
+<div class="section section-8">
+    <div class="focus-wrapper">
+        <div class="focus-inner">
+            <h1><b>万2.5</b>极速开户</h1>
+            <ul>
+                <li>交易佣金低至万2.5   三分钟极速开户</li>
+            </ul>
+            <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/section-8-pic-1.png" class="pic-1" />
+        </div>
+    </div>
+</div>
+<div class="section section-4 fp-auto-height">
+    <!--fp-auto-height-->
+    <div class="focus-wrapper">
+
+        <div class="focus-footer">
+
+            <!-- <div class="focus-btn-wrap"><a href="#" class="focus-btn-gotop"></a></div> -->
+            <div class="focus-btn-wrap">
+                <a class="footer-btn footer-btn-ios" target="_blank" id="footer-btn-ios" href="https://itunes.apple.com/cn/app/apple-store/id420570910?pt=118122749&ct=$!{channelId}&mt=8"></a>
+                <a href="$!{androidUrl}"   class="footer-btn footer-btn-android" id="footer-btn-android"></a>
+            </div>
+            <div class="qrcode2">
+                <span class="qrcode-wrap2"><span class="qrcode-inner-2"></span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min-amd.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/sea.js"></script>
+<script src="http://itougu.jrj.com.cn/account/getBasicUserInfo.jspa"></script>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/modernizr.custom.46516.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.fullPage-v2.7.5.min.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/iphone-slider.min.js"></script>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.qrcode.min.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.easing.1.3.min.js"></script>
+<script src='http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js' type="text/javascript"></script>
+
+<script>
+    seajs.config({
+        base: "http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/",
+        alias: {
+            "LazyLoading": "lazy-loading-v2.js"
+        },
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1?v=20151201']
+        ]
+    });
+
+    $(function () {
+
+        $('#fullpage').fullpage({
+            //Navigation
+            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage','fifthPage','sixPage','sevenPage','eightPage', 'lastPage'],
+            menu: '#menu',
+            lockAnchors: false,
+            navigation: false,
+            navigationPosition: 'right',
+            navigationTooltips: [],
+            showActiveTooltip: false,
+            slidesNavigation: true,
+            slidesNavPosition: 'bottom',
+
+            //Scrolling
+            css3: true,
+            scrollingSpeed: 700,
+            autoScrolling: true,
+            fitToSection: true,
+            fitToSectionDelay: 1000,
+            scrollBar: false,
+            easing: 'easeOutQuad',
+            easingcss3: 'cubic-bezier(1,.15,.64,.89)',
+            loopBottom: false,
+            loopTop: false,
+            loopHorizontal: true,
+            continuousVertical: false,
+            scrollOverflow: false,
+            touchSensitivity: 15,
+            //normalScrollElements: '.section-4',
+            normalScrollElementTouchThreshold: 5,
+
+            //Accessibility
+            keyboardScrolling: true,
+            animateAnchor: true,
+            recordHistory: true,
+
+            //Design
+            controlArrows: true,
+            verticalCentered: true,
+            resize: false,
+            sectionsColor: ['#fff', '#fff', '#fff', '#f7f7f7', '#fff','#f7f7f7','#fff','#fff','#fff'],
+            responsiveWidth: 0,
+            responsiveHeight: 0,
+
+            //Custom selectors
+            sectionSelector: '.section',
+            slideSelector: '.slide',
+
+            //events
+            onLeave: function (index, nextIndex, direction) {
+                if (index == 2 && direction == 'up') {
+                    $('.fullpage-wrapper').css('transform', 'translate3d(0px, 0px, 0px)');
+                }
+            },
+            afterLoad: function (anchorLink, index) {
+                if (index == 2) {
+                    $('.section-1').addClass('section-1-anim');
+                }
+                if (index == 4) {
+                    $('.section-3').addClass('section-3-anim');
+                }
+                if(index == 5) {
+                    $('.section-5').addClass('section-5-anim');
+                }
+            },
+            afterRender: function () { },
+            afterResize: function () { },
+            afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) { },
+            onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) { }
+        });
+
+
+        $('.focus-btn-gotop').click(function (e) {
+            e.preventDefault();
+            $('.fullpage-wrapper').css('transform', 'translate3d(0px, 0px, 0px)');
+            $.fn.fullpage.moveTo(1);
+        });
+
+        $('.btn-detail-qrcode').click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $('.gift-1-qrcode').fadeIn();
+        });
+        $('.section-4').click(function () {
+            $('.gift-1-qrcode').fadeOut();
+
+        });
+
+
+        //qrcode
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        var channel = getQueryString('channel')  ? '&channel=' + getQueryString('channel') : '';
+        var tgqdcode = getQueryString('tgqdcode') ? '&tgqdcode=' + getQueryString('tgqdcode') : '';
+        var params = (channel + tgqdcode).replace(/^&/g, '');
+        var productId = "6000002";
+        var channelId = "$!{channelId}";
+
+        $("#focus-btn-ios,#footer-btn-ios").click(function(){
+            window.dcsMultiTrack('DCS.dcsuri', 'jrj_landing_ios', 'WT.ti', 'jrj_landing_ios');
+//            window.location.href="https://itunes.apple.com/cn/app/apple-store/id420570910?pt=118122749&ct=mainsite&mt=8";
+        })
+
+        $("#focus-btn-android,#footer-btn-android").click(function(){
+            window.dcsMultiTrack('DCS.dcsuri', 'jrj_landing_android', 'WT.ti', 'jrj_landing_android');
+        })
+        $('.qrcode-inner').qrcode({
+            width: 211,
+            height: 211,
+            image: 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/logo.png',
+            text: 'http://appcms.jrj.com.cn/download.jspa?channel='+channelId+tgqdcode
+        });
+
+        $('.qrcode-inner-2').qrcode({
+            width: 270,
+            height: 270,
+            image: 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170304loadding/web/img/logo.png',
+            text: 'http://appcms.jrj.com.cn/download.jspa?channel='+channelId+tgqdcode
+        });
+
+
+
+    });
+    window.onload = function () {
+
+        $('body').addClass('anim');
+    };
+
+    //获取渠道码
+    var btn = $('.focus-btn'), _href = window.location.href;
+    if (_href.search(/\?/) > 0) {
+        var _str = _href.slice(_href.search(/\?/) + 1);
+        btn.each(function () {
+            var _href = $(this).attr('href');
+            if (_href.indexOf('?') > 0) {
+                $(this).attr({ href: _href + '&' + _str });
+            } else {
+                $(this).attr({ href: _href + '?' + _str });
+            }
+        });
+    }
+</script>
+</body>
+
+
+
+</html>

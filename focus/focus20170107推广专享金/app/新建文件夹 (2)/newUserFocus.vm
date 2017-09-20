@@ -1,0 +1,252 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="Keywords" content="王伦、崔雪桐、猎人X、优惠券、投资内参" />
+<meta name="Description" content="爱投顾集合王伦、崔雪桐、猎人X三位大咖，赠送1888元投资红包，助你把握春节红包行情！" />
+<title>1888元投资红包免费领</title>
+<style type="text/css">
+/* init */
+body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td{margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#e52727;}
+li { list-style: none; }
+a { color:#535862; text-decoration: none;-webkit-tap-highlight-color:transparent; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;}
+.btnbottom{ height: 1.7rem; background: #efeff4; padding-top: 2.3rem; padding-right: .75rem;} 
+.btnbottom .btna{ margin-left: 1.75rem;}
+.bgbig { width: 100%; height: 100%; background: url(http://i0.jrjimg.cn/wap2014/wxbug/bgbig.png) repeat; position: fixed; top: 0; left: 0; z-index: 9998; }
+.tsbox { position: fixed; top: 0; right: 0; z-index: 9999; }
+.tsbox img{ width:100% !important;}
+.bg{ width:18.75rem;height:15.025rem; background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/bg_01.png) center center; background-size: 100% 100%;}  
+
+.bg .msg{ width: 11rem; color: #fff; margin-top:.6rem; }
+.bg .msg h3{ font-size: .7rem; line-height: .7rem; margin-bottom: .5rem; }
+.bg .msg p{ line-height: .8rem; font-size: .6rem;}
+.bg .btn{ width: 14rem; height: 2.25rem; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/btn.png) no-repeat; display: block; margin:2.85rem auto 0;    background-size: 100% auto;}
+.bg .gray{ background-position: 0 -2.25rem;} 
+.bg2{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/bg_02.png); height:13.125rem;} 
+.bg2 .in{ padding-top: .75rem; width: 14rem; margin:0 auto;}
+.bg2 p{ font-size:.7rem; color: #666; text-indent: 2em; margin-bottom: .25rem; }
+.bg3{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/bg_03.png);height: 6.225rem;} 
+.bg4{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/bg_04.png);height: 6.275rem;} 
+.bg5{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/bg_05.png);height:12.35rem;} 
+.bg6{background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/bg_06.png);height: 10.675rem;}
+.bg1 {  text-align:center;}
+.bg1 h3 { animation: haha .5s cubic-bezier(0.9,-0.09, 0, 2.0) infinite; padding-top:9rem;  color:#e42826; line-height:1.8rem ; font-size:1.5rem; font-weight:bold; transform-origin:center center;}
+.bg1 p {font-size:.6rem; color:#3c1c03; line-height:1rem; margin-top: .3rem;  }
+.picbox {margin-left:1.5rem; margin-right:.5rem; }
+.picbox span{display:block;   width:3.875rem; height:3.875rem;border:2px solid #fed000; border-radius:50%; padding:3px;}
+.bg .pic{display:block; width: 3.875rem; height:3.9rem; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/pic.png) no-repeat;border-radius: 50%;background-size: 100% auto;}
+.bg .pic2{background-position: 0 -4.075rem;}
+.bg .pic3{background-position: 0 -8.15rem;}
+.picbox h3 {  color:#fff; line-height:1.1rem; font-size:.7rem; font-weight:bold; text-align:center;}
+.bg6  h3{color:#fcdc02; text-align:center;font-weight:bold;  font-size:.8rem; line-height:.8rem; margin-bottom:1.2rem;  }
+.bg6 li {  font-size:.6rem; color:#fff; line-height:1rem;}
+.bg6 li b {color:#fcdc02; }
+.bg6 .in { margin-left:1.5rem;}
+.icon {  width:1.2rem; height:1.2rem; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170107xiangjin/icon.png) no-repeat; background-size:100% 100%; margin-top:.35rem;}
+.tel {  font-size:.8rem; margin-top:.4rem;}
+@keyframes haha{
+    from {transform:scale(1.05);}
+    top {transform:scale(.95);}
+}
+</style>
+</head>
+<body>
+    <div class="bg bg1">
+        <h3>投资红包免费领</h3>
+        <p>马上行动！把握春节红包行情</p>
+    </div>
+    <div class="bg bg2">
+        <div class="in">
+            <p>A股历来都有“春节红包行情”一说，时间跨度至少都在一个月以上，指数涨幅都在10%以上。对于今年来说更是如此，指数经过近期的连续回调，已经释放了大部分风险，这是年底不可错失的机会。可以说，春节红包行情一触即发!</p>
+            <p>爱投顾携手三位股市大咖，为你提供最专业最全面的投资指导，助你抓住春节红包行情！</p>
+        </div>
+    </div>
+    <div class="bg bg3">
+        <div class="up clearfix">
+            <div class="fl picbox">
+                <span>
+                    <a href="javascript:;" class="pic pic1"></a>
+                </span>
+                <h3>王伦</h3>
+            </div>
+            <div class="msg fl">
+                <p>金融界首席评论员，10余年股市从业经验，精通量化分析，<b>风格稳健</b>，将自己的20万实盘账户分享给用户，一起见证<b>20万实盘百万之路</b>。</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg bg4">
+        <div class="up clearfix">
+            <div class="fl picbox">
+                <span>
+                    <a href="javascript:;" class="pic pic2"></a>
+                </span>
+                <h3>崔雪桐</h3>
+            </div>
+            <div class="msg fl">
+                <p>爱投顾金牌达人，北京著名投资人，知名实战财经博主，各大财经媒体特约嘉宾，独创“<b>越顶擒牛</b>”和“<b>尾盘一阳三线</b>”等经典操盘战法，深受股民喜欢！</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg bg5">
+        <div class="up clearfix">
+            <div class="fl picbox">
+                <span>
+                    <a href="javascript:;" class="pic pic3"></a>
+                </span>
+                <h3>猎人X</h3>
+            </div>
+            <div class="msg fl">
+                <p>爱投顾明星达人，业内资深职业操盘手，深知A股市场，技术功底娴熟深厚，尤其在<b>窥探资金意图</b>及<b>热点嗅觉</b>上超出常人，有很强的游资特色！</p>
+            </div>
+        </div>
+        <span class="btn"></span>
+    </div>
+    <div class="bg bg6">
+        <h3>活动规则</h3>
+        <ul class="in">
+            <li>1.适用于爱投顾所有新注册用户。</li>
+            <li>2.<b>1888</b>元投资红包只能用于购买以上三位老师中任意一<br />&nbsp;&nbsp;位的“投资专享内参”使用。</li>
+            <li>3.如有疑问，欢迎致电爱投顾客服热线</li>
+            <li class="clearfix">
+                <span class="icon fl"></span>
+                <em class="fl tel">400-166-1188 （7*24小时）</em>
+            </li>
+        </ul>
+    </div>
+    <div class="tsbox" style="display:none;"><img src="https://i0.jrjimg.cn/wap2014/wxbug/newtcphone.png" /></div> <div class="bgbig" style="display:none;"></div>
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>    
+<script>
+    /*计算字体大小*/
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    window.addEventListener('resize',change,false);
+    $(function(){
+
+        var appname='${source}';
+        var userId = '${uid}'=='null' ? '':'$!{uid}';
+        var platId='${platId}';
+        var itmp=true;
+        if (appname=='itougu') {
+            //站内
+           $('.btn').unbind().click(function(){
+                if(itmp){
+                 if(userId){
+                    $.ajax({
+                        url:'http://itougu.jrj.com.cn/marketing/sendCouponToUserForActivity.jspa',
+                        type:'post',
+                        dataType:'json',
+                        data:{
+                            userId:userId,
+                            couponInfoId:213,
+                            platId:platId
+                        },
+                        success:function(data){
+                            if(data=='1'){
+                                $('.btn').addClass('gray');
+                                itmp = false;
+                            }
+                        }
+                    });
+                }else if(userId==''){
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }))
+                }
+               }
+            });
+           $('.pic1').unbind().click(function(){
+                window.location.href='http://itougu.jrj.com.cn/account/adviser/091124010076736396/';
+           });
+           $('.pic2').unbind().click(function(){
+                window.location.href='http://itougu.jrj.com.cn/account/adviser/141221010086616010/';
+           });
+           $('.pic3').unbind().click(function(){
+                window.location.href='http://itougu.jrj.com.cn/account/adviser/150831010078177717/';
+           });
+           //跳投顾个人主页
+           
+        }else{
+            //站外
+            $('.btn,.pic1,.pic2,.pic3').unbind().click(function(){
+                goDownload();
+                return;
+            });
+        }
+        var goDownload = function() {
+            var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+                IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+                IS_IOS = IS_IPAD || IS_IPHONE,
+                IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+                IS_MOBILE = IS_IOS || IS_ANDROID;
+
+            //判断是不是微信打开
+            function is_weixin() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            //如果是用微信打开并且是ios
+            function is_weixin_ios() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger" && browser.versions.ios == true) {
+                    return true; } else {
+                    return false; }
+            };
+
+            $(".bgbig").unbind().click(function() {
+                $(".tsbox,.bgbig").hide();
+            });
+
+            if (is_weixin() == true) {
+                $(".tsbox,.bgbig").show();
+            } else if (is_weixin_ios() == true) {
+                window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.jrj.tougu";
+            } else if (IS_IOS) {
+                var iFrame = document.createElement('iframe');
+                iFrame.style.display = "none";
+                iFrame.src = 'aitougu://';
+
+                document.body.appendChild(iFrame);
+
+                setTimeout(function() {
+
+                    if (!document.webkitHidden) {
+                        window.location.href = 'https://itunes.apple.com/cn/app/ai-tou-gu/id935173185?mt=8';
+                    }
+
+                }, 25);
+
+            } else if (IS_ANDROID) {
+
+                window.location.href = 'aitougu://tougu';
+                setTimeout(function() {
+                    if (!document.webkitHidden) {
+                        window.location.href = 'http://sjcms.jrj.com.cn/app_tg.php';
+                    }
+
+                }, 25);
+            }
+
+        };
+       
+    });
+</script>    
+</body>
+</html>

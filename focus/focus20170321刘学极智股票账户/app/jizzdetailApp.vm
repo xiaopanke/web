@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>金融界——“极·智”股票账户</title>
+<meta name="description" content="">
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<style>
+/*reset*/
+* { -webkit-tap-highlight-color:rgba(0, 0, 0, 0) }
+html, body, div, p, h1, h2, h3, h4, h5, ol, ul, li, dl, dt, dd { padding:0; margin:0 }
+html { font-family: "Helvetica Neue", Helvetica, STHeiTi, "Microsoft YaHei", sans-serif; -webkit-text-size-adjust: 100%;font-size: 20px;}
+body { font-size:20px; background:#141619; line-height:1.5 ; width:100%; height:100%}
+img { vertical-align: middle; border:0 }
+a, img { -webkit-touch-callout: none; }
+ul, ol { list-style:none }
+a { text-decoration:none; color:#000 }
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+address, cite, em, i { font-style: normal; }
+.tit{ line-height:5rem;font-size: .9rem; color: #fff;text-align: center;}
+.wenzi{width:17rem; margin:0  auto;}
+.wenzi li{ margin-bottom: 1.5rem;}
+.wenzi span{ width:1.5rem; line-height: 1rem;color: #fff;border-radius: .5rem; background:#c60000; text-align: center; float: left;font-size: .85rem;}
+.wenzi p{font-size: .65rem; color: #fff; line-height: .9rem; float:right; width:14.5rem;}
+.bt{ width:100%;color: #fff ;margin-top: 1rem;}
+.bt p{ margin:0 1rem;font-size: .6rem; }
+.bt span{text-align: center;display: block; font-size: .7rem; line-height: 3rem;}
+.itembtn01{display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center; width:11rem; height: 2.5rem; background:#105afb;border-radius: 1.25rem; margin:0 auto; font-size: 1rem; color:#fff;}
+.itembtn01 span{width:2.1rem;height:1.25rem ;background-position:-4.1rem -3.6rem;background-size: 6rem 6rem; }
+.itembtn01 em{ font-size:1rem;color:#fff; }
+.bgsprite{width:1.5rem; height: 1.5rem; background:url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/sprite.png) no-repeat;display: block; background-size: 11rem 11rem;}
+/*关于弹窗*/
+.mask{ display:none;position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 11;}
+.layer{display:none;width: 16.25rem;height: 13rem;background: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/h5_lay1.png);position: fixed;top: 50%;left: 50%;margin-top: -6.5rem;margin-left: -8.125rem;z-index: 12;color: #000;animation: haha .3s linear; background-size: 100% 100%;}
+.closebtn{ position:absolute; top:2.25rem;right:7px;width:1.8rem; height:1.8rem; cursor:pointer;   }
+.tiperror{z-index:9999; width: 13rem; line-height: 2.5rem; background: rgba(0,0,0,.68); border-radius: 4px; color: #fff; font-size: .8rem; text-align: center; position: fixed;top: 50%; left: 50%; margin-left: -6.5rem; margin-top: -1.25rem; display: none;}
+.lay_txt{color: #fff; line-height: 1.25rem; font-size: .75rem; text-align: center; padding-top: 7.25rem;}
+.lay_btn{ line-height: 1.8rem; width:9.7rem; margin:.5rem auto 0; display: block; text-align: center;background:#fed609; border-radius: 6px; font-size: .9rem; box-shadow: 0 3px 0 0 #f6b900;}
+
+.layer_wait{height:14rem; margin-top: -7rem; background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/h5_lay2.png); }
+.layer_wait .lay_txt{color: #643902;}
+.layer_wait .lay_btn{background:#714307; color: #fff;box-shadow: 0 3px 0 0 #402605;}
+
+.layer_doneout{height:14.3rem; margin-top: -7.15rem; background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/h5_lay3.png); }
+
+.layer_info{height:14rem; margin-top: -7rem; background-image: url(https://i0.jrjimg.cn/zqt-red-1000/focus/focus20170321jizz/h5_lay4.png);}
+.layer_info ul { padding-top: 5rem;}
+.layer_info ul li{margin-bottom: .9rem;}
+.layer_info ul span{float: left;width: 5.3rem; margin-right: .5rem; line-height: 1.9rem;font-size: .75rem; color: #643902; text-align: right;}
+.layer_info input{padding:0;outline:none; border:none;float: left; padding-left:.4rem; height:1.9rem; line-height: 1.9rem; background:#fff;border-radius: 4px; color:#643902; font-size: .75rem; width:8.5rem;}
+.layer_info .codenum{width:5rem;}
+.layer_info li div{float: left; width:3.5rem; margin-left: 2px;}
+.layer_info li div img{width:100%; height: 1.9rem; border-radius: 4px;}
+.layer_info .lay_btn{background: #714307;color: #fff;}
+.bttxt{ position: absolute;bottom: 0;left:0;width:100%;text-align: center;font-size: .6rem; color: #643902; line-height: 1.2rem;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.time{ color: #5d626f;font-size: .7rem; text-align: center;line-height: 3em;}
+.bgbig { width: 100%; height: 100%; background: url(//i0.jrjimg.cn/wap2014/wxbug/bgbig.png) repeat; position: fixed; top: 0; left: 0; z-index: 9998; }
+.tsbox { position: fixed; top: 0; right: 0; z-index: 9999; }
+.tsbox img { width: 98%; height: auto; display: block; margin: 0 auto; }
+
+#img div{ background-size: 100% auto !important;}
+
+</style>
+</head>
+
+<body>
+    <h3 class="tit">活动详情</h3>
+    <ul class="wenzi">
+        <li class="clearfix">
+            <span>1</span>
+            <p>绑定平安资金账号后，到此活动页面点击开通“极·智”股票账户，即可开通智慧账户，持仓股票显示ZS点，下一日开盘前就可收到APP消息通知；</p>
+        </li>
+        <li class="clearfix">
+            <span>2</span>
+            <p>极速股票账户level-2，在金融界APP绑定平安证券资金账号后5个工作日内开通3个月使用权限（限活动期间首次绑定用户）;</p>
+        </li>
+        <li class="clearfix">
+            <span>3</span>
+            <p>智慧账户基础使用期限为1个月，分享还可再增加智慧账户使用期限1个月。每分享邀请一个好友在金融界APP完成首次交易（买入或卖出）就能延期1个月，同时好友也能领取智慧账户一个月使用权限。</p>
+        </li>
+    </ul>
+    <div class="itembtn01 ktbtn">
+        <span class="bgsprite"></span>
+        <em>开通</em>
+    </div>
+    <div class="bt">
+        <p>活动最终解释权归”金融界“所有，智慧账户非券商提供功能，用户可拨打客服电话咨询活动详情400-166-1188。
+温馨提示：智慧账户及金融界Z点操盘所提示的所有信息仅供参考，您需独立做出投资决策。</p>
+        <span>股市有风险，投资需谨慎</span>
+    </div>
+    <div class="mask"></div>
+    <!--已领取-->
+<div class="layer layer_done">
+    <i class="closebtn"></i>
+    <p class="lay_txt">您成功领取“极智”股票账户，去实盘交易<br />页查看持仓股票的ZS点和level-2极速行情</p>
+    <span class="lay_btn">确定</span>
+</div>
+<!--待领取-->
+<div class="layer layer_wait">
+    <i class="closebtn"></i>
+    <p class="lay_txt">您暂不能领取“极智”股票账户，<br />请先去APP绑定平安资金账号就可查看持仓<br />股票的ZS点和level-2极速行情。</p>
+    <span class="lay_btn">确定</span>
+</div>
+<!--站外已领取-->
+<div class="layer layer_doneout">
+    <i class="closebtn"></i>
+    <p class="lay_txt">您已获得“极·智”股票账户中的<br />智慧账户一个月使用权限，<br />下载金融界APP查看，还有更多惊喜！</p>
+    <span class="lay_btn">确定</span>
+</div>
+<!--站外-->
+<div class="layer layer_info">
+    <i class="closebtn"></i>
+    <p class="bttxt">*请保持注册金融界手机号与此号码一致，方便领奖。</p>
+    <ul>
+        <li class="clearfix">
+            <span>请输入手机号</span>
+            <input  type="text" class="phonenum"  placeholder="请输入手机号"  maxlength="11" />
+        </li>
+        <li class="clearfix">
+            <span>验证码</span>
+            <input  type="text"  class="codenum" placeholder="验证码"  maxlength="4" />
+            <div class="codeimg"></div>
+        </li>
+    </ul>
+    <span class="lay_btn">提交信息</span>
+</div>
+<div class="tiperror"></div>
+<div class="tsbox" style="display:none;"><img src="http://i0.jrjimg.cn/wap2014/wxbug/newtcphone6.png" /></div>
+<div class="bgbig" style="display:none;"></div>
+    <script src="http://newjs.jrjimg.cn/common/foot/jrj_dcs_tag-m.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+        /*计算字体大小*/
+        function change(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+        }
+        change();
+        window.addEventListener('resize',change,false);
+
+$('.closebtn').click(function(){
+    $('.mask,.layer').hide();
+});
+var ssoId=getQueryString('ssoId');
+var spToken=getQueryString('spToken').replace(/\+/g, '%2B');
+var tgqdcode=getQueryString('tgqdcode');
+var appname=getQueryString('appname');
+        //查看是否开通，来决定按钮的方案
+if(appname=='itougu'){
+    if((ssoId+'').length>=18){
+        $.ajax({
+            url:'https://t.jrj.com.cn/activities/nbAccount/queryOpenNbAccountStatus?matchId=5&ssoId='+ssoId+'&spToken='+spToken+'&tgqdcode='+tgqdcode,
+            type:"get",
+            cache : false,
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success:function(v) {
+                console.log(v);
+                if(v.retcode==0){ 
+                    if(v.data.status==1){
+                        $('.ktbtn').html('已开通');
+                    }
+                }
+            },
+            error : function() {
+                
+            }
+        });
+    }
+}
+//点击开通按钮
+$('.ktbtn').each(function(){
+    var o=$(this);
+    $(this).click(function(){
+        if(appname=='itougu'){ //站内
+            if((ssoId+'').length>=18){
+                if(o.html()=='已开通'){
+                    jrj.jsCallNative('139', JSON.stringify({}));
+                    return false;
+                }
+                //请求是否绑定接口
+                $.ajax({
+                    url:'https://t.jrj.com.cn/activities/nbAccount/record?matchId=5&ssoId='+ssoId+'&spToken='+spToken+'&tgqdcode='+tgqdcode,
+                    type:"get",
+                    cache : false,
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    success:function(v) {
+                        console.log(v);
+                        if(v.retcode==0){ //已绑定
+                            $('.mask,.layer_done').show();
+                            $('.layer_done .lay_btn').unbind().click(function(){
+                                //window.location.reload();
+                                $('.mask,.layer').hide();
+                                jrj.jsCallNative('121', JSON.stringify({})); //交易-实盘账户主页
+                                
+                            });
+                        }else if(v.retcode==701011){ //未绑定
+                            $('.mask,.layer_wait').show();
+                            $('.layer_wait .lay_btn').unbind().click(function(){
+                                //window.location.reload();
+                                $('.mask,.layer').hide();
+                                jrj.jsCallNative('121', JSON.stringify({})); //交易-实盘账户主页
+                                
+                            });
+                        }
+                        
+                    },
+                    error : function() {
+                        
+                    }
+                });
+            }else{
+                jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }))
+            }
+            window.dcsMultiTrack('DCS.dcsuri', '20170321_jizzdetailAppall1', 'WT.ti', '20170321_jizzdetailAppall1');
+        }else{//站外
+            getimgcode();//获取图片验证码
+            $('.mask,.layer_info').show();
+
+            window.dcsMultiTrack('DCS.dcsuri', '20170321_jizzdetailAppall2', 'WT.ti', '20170321_jizzdetailAppall2');
+        }
+        
+    })
+});
+//点击填写信息上的按钮
+var phonenum = $('.phonenum');// 手机输入框
+var codenum = $('.codenum');//手机短信验证码输入框
+var key;
+$('.layer_info .lay_btn').click(function(){
+    
+    if (phonenum.val().length==0) {
+        tiperror('请输入手机号');
+        return;
+    }
+    if (!/^1[34578]\d{9}$/.test(phonenum.val())) {
+        tiperror('请输入合理的手机号');
+        return;
+    }
+    if (codenum.val().length<=3) {
+        tiperror('请输入四位验证码');
+        return;
+    }
+    $.ajax({
+        url:'https://t.jrj.com.cn/sapi/v2/activity/join',
+        dataType:'jsonp',
+        data:{
+            mobile:$.trim(phonenum.val()),
+            yqcode:getQueryString('ssoId')||'',
+            brokerId:'PAZQ',
+            txtCode:$.trim(codenum.val()),
+            key:key,
+            activityName:'5'
+        },
+        type:'post',
+        contentType:'application/json; charset=utf-8',
+        success:function(data){
+            console.log(data);
+            if(data.retcode == 0 || data.retcode == 10001){
+                $('.layer_info').hide();
+                $('.layer_doneout').show();
+                goDown();
+            }else{
+                getimgcode();
+                tiperror('验证码不正确');
+            }
+        },
+        error:function(data){
+        }
+    });
+    window.dcsMultiTrack('DCS.dcsuri', '20170321_jizzAppsubmit', 'WT.ti', '20170321_jizzAppsubmit');
+
+});
+if(navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == "micromessenger"){
+    $(".tsbox,.bgbig").show();
+    $(".bgbig").unbind().click(function(){
+        $(".tsbox,.bgbig").hide();
+    });
+}
+function goDown(){
+    $('.layer_doneout .lay_btn').click(function(){
+        var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+            IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+            IS_IOS = IS_IPAD || IS_IPHONE,
+            IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+            IS_MOBILE = IS_IOS || IS_ANDROID;
+
+
+        function is_weixin() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function is_weixin_ios() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger" && browser.versions.ios == true)
+            { return true; } else { return false; }
+        };
+
+        $(".bgbig").unbind().click(function(){
+            $(".tsbox,.bgbig").hide();
+        });
+        
+        if (is_weixin() == true) {
+            $(".tsbox,.bgbig").show();
+        } else if (is_weixin_ios() == true) { 
+            window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.jrj.stock.level2";
+        } else if (IS_IOS) {
+            var iFrame = document.createElement('iframe');
+            iFrame.style.display = "none";
+            iFrame.src = 'jrjnews://';
+
+            document.body.appendChild(iFrame);
+
+                setTimeout(function () {
+                    if (!document.webkitHidden) {
+                        window.location.href = 'http://appcms.jrj.com.cn/download.jspa?channel=mainsite2';
+                    }
+                }, 25);
+            } else if (IS_ANDROID) {
+                var iFrame = document.createElement('iframe');
+                iFrame.style.display = "none";
+                iFrame.src = 'jrjnews://';
+                document.body.appendChild(iFrame);
+                setTimeout(function () {
+                    if (!document.webkitHidden) {
+                        window.location.href = 'http://appcms.jrj.com.cn/download.jspa?channel=mainsite2';
+                    }
+                }, 25);
+            }
+
+       
+    });
+}
+//点击图片验证码
+$('.layer_info li div').click(function(){
+    getimgcode();
+});
+function getimgcode(){
+    $.ajax({
+        url:'https://t.jrj.com.cn/sapi/v2/activity/generateImgCode',
+        type:"get",
+        cache : false,
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        success:function(v) {
+            console.log(v);
+            if(v.retcode==0) {
+                $('.codeimg').html('');
+                var oImg = new Image();
+                oImg.src = 'data:image/jpg;base64,' + v.data.image;
+                $('.codeimg').append(oImg); 
+                key=v.data.key;       
+            }
+            
+        },
+        error : function() {
+            
+        }
+    });
+}
+});
+//错误提示框，一会儿就消失
+function tiperror(msg){
+    $('.tiperror').html(msg).show();
+    setTimeout(function (){
+        $('.tiperror').hide();
+    }, 2000);
+    return;
+} 
+//获取url参数
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}
+</script>
+
+</body></html>

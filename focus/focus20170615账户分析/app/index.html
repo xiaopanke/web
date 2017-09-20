@@ -1,0 +1,1167 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>账户分析</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+
+<style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none;}
+li { list-style: none; }
+a {  text-decoration: none; }
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;border: none; background-color:transparent;  
+    color:#fff; FILTER: alpha(opacity=0);appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+html,body{font:20px/1rem 'Microsoft Yahei';color:#666; }
+body{background: #fff;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+.bsbb{ box-sizing:border-box;} 
+.hide{ display:none !important;}
+.show{ display:block !important;}
+.red{color: #ff4040 !important; }
+.gray{color: #666 !important;}
+.green{color: #26be6a !important;}
+
+header{ text-align: center; padding-bottom: 1.2rem; }
+header .top{ padding-top: 1rem; font-size:.7rem; }
+header h2{ color:#F24439 ;font-size:2.2rem; line-height: 2.7rem;  font-weight: normal; margin-bottom: .6rem; }
+header li{box-sizing: border-box; width:33.3%; float:left;}
+header .c{border-left:1px solid #AEB1B4;border-right:1px solid #AEB1B4;}
+header li p{font-size:.7rem; line-height: .7rem;}
+header li b{ color:#333; display: block; font-size:.75rem;line-height: .75rem;  font-weight:normal; margin-top: 8px;}
+
+.tit {background: #FAFAFA;line-height: 2.2rem;font-size: .75rem;font-weight: normal; position: relative; color:#333;}
+.tit:before{content: ''; display: block; position: absolute;left:0;bottom:0; height: 0; border-bottom: 1px solid #dbdbdb; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+.tit i {background: #FF5F57;width: 3px;height: 17px;float: left;margin-right: .6rem;margin-top: .675rem;}
+.borb{border-top:#EFEFF4 .5rem solid;}
+/*.tips*/
+.tips{background:#fff2f0; position: relative;line-height: 1.5rem;display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;}
+.tips:before{content: ''; display: block; position: absolute;left:0;bottom:0; height: 200%; border-bottom: 1px solid #dfdfdf;border-top:1px solid #dfdfdf; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+.tips i{ font-size: .65rem; color: #666;}
+.tips span{ width:1rem;height: 1rem;background:url(http://i0.jrjimg.cn/zqt-m/account/img/tips.png);background-size: 100% auto;margin-right: .3rem;}
+
+/*seltime*/
+.seltime{ position: relative;padding:.5rem 0;}
+.seltime:before{content: ''; display: block; position: absolute;left:0;top:0; height: 200%; border-bottom: 1px solid #dfdfdf;border-top:1px solid #dfdfdf; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+.seltime ul{width:17.25rem;margin:0 auto;}
+.seltime li{width: 25%;float: left;text-align: center;color:#666;font-size: .7rem;line-height: 1.25rem;position: relative;}
+.seltime li:before{content: ''; display: block; position: absolute;right:0;top:0; height: 200%; border-left:1px solid #dfdfdf; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:0;}
+.seltime li:nth-last-child(1):before{height: 0;}
+.seltime li span{width:1.25rem;height: 2px;background: #ff4040;position: absolute;left:50%; margin-left: -.625rem;bottom:-.5rem;display: none;}
+.seltime .cur{color:#333;}
+.seltime .cur span{ display: block;}
+.allmoney {text-align: center;}
+.allmoney h2{font-size: 1rem;font-weight: normal; line-height: 1.7rem;padding-top: .9rem;}
+.allmoney h3{display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;}
+.allmoney h3{ line-height: 2rem;padding-bottom: .7rem;}
+.allmoney h3 b{font-size: 1.5rem;font-weight: normal; }
+.allmoney h3 span{font-size: 1.1rem; margin-left: 1rem;font-weight: normal;}
+
+/*shouyilu*/
+.seltype{width:17.25rem;margin:0 auto;padding:.7rem 0;position: relative;}
+.seltype li{float:left;width:33.3%;display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;}
+.seltype span{width:1rem; height: 1rem;background:url(http://i0.jrjimg.cn/zqt-m/account/img/tips.png);background-size: 100% auto; }
+.seltype li:nth-child(1) span{background-position:0 -4rem; }
+.seltype .only span{background-position:0 -6rem; }
+.seltype li:nth-child(3){position: relative;}
+.seltype .cur span{background-position:0 -5rem; }
+.seltype i{font-size: .65rem;margin-left: .2rem;}
+.seltype a {position: absolute;right: -.7rem;top:0; width:2rem; height: 2rem;}
+.seltype a strong{width:1rem; height: 1rem;background:url(http://i0.jrjimg.cn/zqt-m/account/img/tips.png);background-size: 100% auto; background-position: 0 -1rem;display: block;margin:.5rem auto 0;}
+.canvas1{}
+
+/*zichan*/
+.zichan{}
+.zichan_in{width:17rem;margin:0 auto; padding-bottom: .8rem;}
+.zichan_up li{ float: left;width:33.3%;text-align: center;}
+.zichan_up li span{display: block;color: #333;font-size: 1rem;font-weight: bold; line-height: 2rem;padding-top: .5rem;}
+.zichan_up li i{display: block;font-size: .7rem;line-height: 1rem;padding-bottom: .3rem;}
+.zichan_down{border-radius: .75rem;background: #f5f5f8;line-height: 1.5rem;font-size: .75rem; margin-top: .4rem; display: none;}
+.zichan_down span{float: left;width:1rem; height: 1rem; background: url(http://i0.jrjimg.cn/zqt-m/account/img/tips.png);background-size: 100% auto;background-position: 0 -2rem; margin-top: 4px; margin-left: .5rem; margin-right: .3rem;}
+.zichan_down p{float: left;}
+.zichan_down p a{color: #3996f2;margin-left: .3rem;}
+
+/*tongji*/
+.tongji_in{width: 16rem; margin:0 auto;text-align: center; padding-top: .5rem;padding-bottom: .5rem;}
+.tongji_in h3{ line-height: 1.5rem;font-size: 1rem; margin-bottom: 6px;font-weight: normal;}
+.tongji .icon{width:4.35rem; line-height: 1.35rem; color: #fff; display: block;background:#4b4b4b; border-radius: .675rem;font-size: .7rem;margin:0 auto;}
+.tongji .big{ background: #333;width:5.25rem; }
+.tongji ul{background: url(http://i0.jrjimg.cn/zqt-m/account/img/bg.png) no-repeat center 0;background-size: 100% auto;padding-top: 1.75rem;}
+.tongji li{float: left;width:4.35rem;}
+.tongji li:nth-child(2){margin-left:1.4rem;}
+.tongji li:nth-child(3){float: right;}
+.tongji li i{ line-height: 1.5rem;font-size: .7rem;}
+
+/*chichuang*/
+.chi_l{width:8.5rem;float: left;}
+.chi_r{width:10rem;float: left;overflow-x: auto;}
+.chichuang{overflow: hidden;}
+.allchi { position: relative; padding-bottom: .2rem;}
+.allchi:before{content: ''; display: block; position: absolute;left:0;bottom:0; height: 0; border-bottom: 1px solid #dbdbdb; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+.allchi li{width: 3.5rem; float: left;text-align: center;line-height: 2rem; font-size: .75rem;}
+.allchi .bigwidth{width:4.3rem;position: relative;}
+.chi_r_in{width:18.9rem;}
+.allchi .chi_hd{position: relative;}
+.allchi .chi_hd:before{content: ''; display: block; position: absolute;left:0;bottom:0; height: 0; border-bottom: 1px solid #dbdbdb; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+.allchi .chi_hd li{color: #333;}
+.allchi .xianjia{color: #3996f2;font-size: .5rem;position: relative; display: inline-block;width:1.3rem;line-height: .625rem; text-align: center;vertical-align: middle; margin-left: 2px; display: none;position: absolute;top:0.1rem;right: 0;}
+.allchi .xianjia:before{content: ''; display: block; position: absolute;left:0;top:0; height: 200%; border:1px solid #3996f2; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+.chichuang .lookall,.chichuang .nolookall,.chichuang .nochichuang{line-height: 1.925rem;background:#f6f7f9;display: flex; display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;}
+.chichuang .lookall i{color:#333;font-size: .75rem;}
+.chichuang .nolookall,.chichuang .nochichuang{display: none;text-align: center}
+.chichuang .nolookall i,.chichuang .nochichuang i{color:#666;font-size: .75rem;}
+.chichuang .lookall em{width:1rem;height: 1rem;background:url(http://i0.jrjimg.cn/zqt-m/account/img/tips.png);background-size: 100% auto;background-position: 0 -3rem;}
+
+/*yingkui*/
+.yingkui{}
+.yingkui .year{display: block;width:1.75rem; line-height: .7rem;text-align: center; position: relative;font-size: .6rem; border-radius: 1px; margin:.4rem  .6rem 0;}
+.yingkui .year:before{content: ''; display: block; position: absolute;left:0;top:0; height: 200%; border:1px solid #666; -webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box; width:200%;}
+
+.canvas2{position: relative;}
+.canvas2 .in{position: absolute; top:5rem; width:3.6rem; left:50%; margin-left:-1.8rem; text-align: center; }
+.canvas2 .in p{ font-size: .75rem; color: #878C92;}
+.canvas2 .in span{ font-size: .8rem; color: #333;}
+.item3list{ width:11rem; margin:0 auto; padding-bottom:1rem;}
+.item3list li{  box-sizing: border-box;  margin-bottom: .5rem; }
+.item3list i{background: #4D7AD4;border-radius:50%; width:.5rem; height:.5rem; float: left; margin-top: 3px;}
+.item3list span{  float: left; margin-left:5px; font-size:.7rem; color:#333; }
+.item3list b{  float: left; margin-left:5px; font-size:.7rem; color:#898E94; font-weight:normal;}
+.item3list em{  float: right; font-size:.7rem;color:#898E94; }
+.item3list .bg1{background: #4D7AD4;}
+.item3list .bg2{background: #F67F76;}
+.item3list .bg3{background: #FEC972;}
+.item3list .bg4{background: #F7EC7E;}
+.item3list .bg5{background: #CAD9D7;}
+</style>
+<body>
+     <a href="javascript:;" class="go hide">
+        哈哈嘻嘻嘎嘎呵呵槑槑槑槑槑<br />
+        哈哈嘻嘻嘎嘎呵呵槑槑槑槑槑<br />
+        哈哈嘻嘻嘎嘎呵呵槑槑槑槑槑<br />
+        哈哈嘻嘻嘎嘎呵呵槑槑槑槑槑<br />
+        哈哈嘻嘻嘎嘎呵呵槑槑槑槑槑<br />
+        哈哈嘻嘻嘎嘎呵呵槑槑槑槑槑<br />
+        哈哈嘻嘻嘎嘎呵呵槑槑槑槑槑<br />
+    </a>
+    <div class="tips">
+        <span></span>
+        <i>数据从绑定平安证券时起算，截止到至上个交易日</i>
+    </div>
+    <div class="seltime">
+        <ul class=" clearfix">
+           <li class="cur" attr-time="1">近一个月<span></span></li> 
+           <li attr-time="2">近三个月<span></span></li> 
+           <li attr-time="3">近半年<span></span></li> 
+           <li attr-time="4">全部<span></span></li> 
+        </ul>
+    </div>
+    <div class="allmoney">
+        <h2>盈亏</h2>
+        <h3><b class="totalIncomeBalance">--</b><span class="totalIncomeRate">--</span></h3>
+    </div>
+    <!--收益率走势-->
+    <div class="shouyilu borb">
+        <h3 class="tit"><i></i>账户收益率</h3>
+        <div class="canvas1"><div id="main1" style="width:98%; height: 8rem;"></div></div>
+        
+        <div class="seltype">
+            <ul class="clearfix">
+                <li><span></span><i>我的收益</i></li>
+                <li data-type="incomeListHS300" class="only cur"><span></span><i>沪深300</i></li>
+                <li data-type="incomeListZStrategy" class="only"><span></span><i>大奖章1号</i></li>
+            </ul>
+            <a href="javascript:;" class="liyang"><strong></strong></a>
+        </div>
+
+    </div>
+    <!--账户表现-->
+    <div class="zichan borb">
+        <h3 class="tit"><i></i>账户收益</h3>
+        <div class="zichan_in">
+            <ul class="clearfix zichan_up">
+                <li><span class="selectSuccessRate">--</span><i>选股成功率</i></li>
+                <li><span class="incomeRate">--</span><i>盈亏比</i></li>
+                <li><span class="maxDrawDownRate">--</span><i>最大回撤</i></li>
+            </ul>
+            <div class="zichan_down clearfix ZDCP">
+                <span class="icon"></span>
+                <p>您的选股成功率低于<i><a href="http://itougu.jrj.com.cn/activity/app/ZQuantization.jspa#/strategyPayIntro">Z点操盘（成功率75%）</a></i></p>
+            </div>
+            <div class="zichan_down clearfix DJZ">
+                <span class="icon"></span>
+                <p>您的盈亏比低于<i><a href="javascript:;" class="liyang">大奖章1号（盈亏比1:2）</a></i></p>
+            </div>
+        </div>
+    </div>
+    <!--资产统计-->
+    <div class="tongji borb">
+        <h3 class="tit"><i></i>资产统计</h3>
+        <div class="tongji_in">
+            <span class="icon big">当前总资产</span>
+            <h3 class="endFundBalance">--</h3>
+            <ul class="clearfix">
+                <li>
+                    <span class="icon">初始资产</span>
+                    <i class="startFundBalance">--</i>
+                </li>
+                <li>
+                    <span class="icon">银证净转入</span>
+                    <i class="netBankTransIn">--</i>
+                </li>
+                <li>
+                    <span class="icon">总盈亏</span>
+                    <i class="totalIncomeBalance">--</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--持仓记录-->
+    <div class="chichuang borb">
+        <h3 class="tit"><i></i>持仓记录</h3>
+        <div class="allchi clearfix">
+            <div class="chi_l">
+                <ul class="chi_hd clearfix">
+                    <li class="bigwidth">平仓日期</li>
+                    <li>股票</li>
+                </ul>
+                <ul class="clearfix chichuangzuo">
+                    <!--<li class="bigwidth">持仓中</li>
+                    <li>奥马电器</li>
+                    <li class="bigwidth">20170609</li>
+                    <li>奥马电器</li>
+                    <li class="bigwidth">20170609</li>
+                    <li>奥马电器</li>-->
+                </ul>
+            </div>
+            <div class="chi_r">
+                <div class="chi_r_in">
+                    <ul class="chi_hd clearfix">
+                        <li>收益率</li>
+                        <li class="bigwidth">收益</li>
+                        <li>成本价</li>
+                        <li>平仓价</li>
+                        <li>持股天数</li>
+                    </ul>
+                    <ul class="clearfix chichuangyou">
+                        <!--<li>123</li>
+                        <li class="bigwidth"><i>12345</i><span class="xianjia">现价</span></li>
+                        <li class="red">13</li>
+                        <li>13</li>
+                        <li class="green">13</li>
+                        <li>123</li>
+                        <li class="bigwidth"><i>12345</i><span class="xianjia">现价</span></li>
+                        <li class="red">13</li>
+                        <li>13</li>
+                        <li class="green">13</li>
+                        <li>123</li>
+                        <li class="bigwidth"><i>12345</i><span class="xianjia">现价</span></li>
+                        <li class="red">13</li>
+                        <li>13</li>
+                        <li class="green">13</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="lookall">
+            <i>查看更多</i>
+            <em></em>
+        </div>
+        <div class="nolookall">
+            <i>没有更多数据了</i>
+        </div>
+        <div class="nochichuang">
+            <i>暂无持仓纪录</i>
+        </div>
+    </div>
+    <!--每日盈亏-->
+    <div class="yingkui borb">
+        <h3 class="tit"><i></i>每日盈亏</h3>
+         <div class="canvas1"><div id="main3" style="width:98%; height: 8rem;"></div></div>
+    </div>
+    <!--持仓比例-->
+    <div class="item3">
+        <h3 class="tit"><i></i>持仓比例</h3>
+        <div class="canvas2">
+            <div class="in">
+                <p>当前仓位</p>
+                <span class="stockTotalRate"></span>
+            </div>
+            <div id="main2" style="width:13rem; margin:0 auto; height:12rem;"></div>
+        </div>
+        <ul class="item3list clearfix" id="ratelist"></ul>
+    </div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>  
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/fastclick.js"></script>
+<script src="https://i0.jrjimg.cn/zqt-m/account/js/echarts.min.js"></script>  
+<script>
+var domain = 'https://jrj.yun.pingan.com';
+$('.go').click(function(){
+     window.location.reload() 
+});
+$('.liyang').click(function(){
+    window.location.href='http://itougu.jrj.com.cn/activity/app/ZQuantization.jspa#/ZQuantizationPay';
+});
+
+    K={
+        timetype:1,
+        pageNumber:{
+            1:{
+                total:0 ,
+                Yema:0 ,
+                htmlstr:[]
+            }
+        },
+        init:function(){
+            K.change();
+            window.addEventListener('resize',K.change,false);
+            if ('addEventListener' in document) {  
+                document.addEventListener('DOMContentLoaded', function() {  
+                    FastClick.attach(document.body);  
+                }, false);  
+            }
+            K.changetime(K.timetype);
+            K.seltimefn();
+        },
+        change:function(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+        },
+        seltimefn:function(){
+            $('.seltime li').each(function(){
+                var s=$(this);
+                $(this).click(function(){
+                    K.timetype=s.attr('attr-time');
+                    $('.seltime li').removeClass('cur');
+                    s.addClass('cur');
+                    $('.chichuangzuo').html('');
+                    $('.chichuangyou').html('');
+                    $('.lookall,.nolookall,.nochichuang').hide();
+                    if(K.pageNumber[K.timetype]==undefined){
+                        K.pageNumber[K.timetype]={
+                            total:0 ,
+                            Yema:0 ,
+                            htmlstr:[]
+                        }
+                    }
+                    K.changetime(K.timetype);
+                    $('.only').eq(0).addClass('cur');
+                    $('.only').eq(1).removeClass('cur');
+                    console.log(K.pageNumber);
+                })
+            });
+        },
+        changetime:function(timetype){
+            var fnlist={
+                init:function(){
+                    fnlist.shouyilvfn(K.timetype,'incomeListHS300');
+                    //fnlist.shouyilvfn(K.timetype,'incomeListZStrategy');
+                    fnlist.chichuangjilufn(K.timetype);
+                    fnlist.yingkuifn(K.timetype);
+                    fnlist.chichuangbilifn(K.timetype);
+                    fnlist.allmoneyfn(K.timetype);
+                    $('.only').each(function(){
+                        var o=$(this);
+                        $(this).unbind().click(function(){
+                            console.log(K.timetype);
+                            fnlist.shouyilvfn(K.timetype,o.attr('data-type'));
+                            $('.only').removeClass('cur');
+                            o.addClass('cur');
+                        });
+                    });
+                },
+                allmoneyfn:function(){
+                    var accountsummary = function(){
+                        setTimeout(function(){
+                            jrj.jsCallNative('130', JSON.stringify({
+                                method: 'get',
+                                url: domain+'/analysis/account/accountsummary?timeLookupType='+K.timetype,
+                                callback: 'callbackaccountsummary',
+                            }));
+                        },200);
+                   }
+                    accountsummary();
+                    window.callbackaccountsummary =function(info){ 
+                        setTimeout(function(){
+                            info = convertToJsonObject(info);
+                            if(info.retcode==0){
+                                ////alert(JSON.stringify(info));
+                                $('.totalIncomeBalance').html(doublenum(info.data.totalIncomeBalance)).css('color',addcolor(info.data.totalIncomeBalance));
+                                $('.totalIncomeRate').html('('+doublenum(info.data.totalIncomeRate*100)+'%)').css('color',addcolor(info.data.totalIncomeRate));
+                                $('.selectSuccessRate').html(doublenum(info.data.selectSuccessRate*100)+'%');
+                                $('.incomeRate').html((info.data.incomeRate).toFixed(2)+':1');
+                                $('.maxDrawDownRate').html(doublenum(info.data.maxDrawDownRate*100)+'%');
+                                if(info.data.selectSuccessRate<0.75){$('.ZDCP').show();}
+                                if(info.data.incomeRate<0.5){$('.DJZ').show();}
+
+                                $('.netBankTransIn').html(doublenum(info.data.netBankTransIn)).css('color',addcolor(info.data.netBankTransIn));
+
+                                $('.endFundBalance').html(doublenum(info.data.endFundBalance)).css('color',addcolor(info.data.endFundBalance));
+                                $('.startFundBalance').html(doublenum(info.data.startFundBalance)).css('color',addcolor(info.data.startFundBalance));
+                                $('.endFundBalance').html(doublenum(info.data.endFundBalance)).css('color',addcolor(info.data.endFundBalance));
+                             }
+                        },30);     
+                    }
+
+                   
+                },
+                //收益率
+                shouyilvfn:function(timetype,curtype){
+                    var yieldcurve = function(){
+                        setTimeout(function(){
+                            jrj.jsCallNative('130', JSON.stringify({
+                                method: 'get',
+                                url: domain+'/analysis/income/yieldcurve?timeLookupType='+K.timetype,
+                                callback: 'callbackyieldcurve',
+                            }));
+                        },200);
+                   }
+                    yieldcurve();
+                    window.callbackyieldcurve =function(info){ 
+                        ////alert(JSON.stringify(info));
+                        setTimeout(function(){
+                            info = convertToJsonObject(info);
+                            if(info.retcode==0){
+                                huashouyi(info);
+                             }
+                        },30);     
+                    }
+                    //收益率趋势
+                    function huashouyi(info){
+                        /*var info={
+                            "retcode": 0,
+                            "msg": "",
+                            "data": {
+                                "incomeList": [
+                                    {
+                                        "initDate": 20161127,
+                                        "incomeRate": 0.0325
+                                    },
+                                    {
+                                        "initDate": 20161128,
+                                        "incomeRate": 0.0425
+                                    },
+                                    {
+                                        "initDate": 20161129,
+                                        "incomeRate": 0.0525
+                                    },
+                                    {
+                                        "initDate": 20161130,
+                                        "incomeRate": 0.0825
+                                    }
+                                ],
+                                "incomeListHS300": [
+                                    {
+                                        "initDate": 20161127,
+                                        "incomeRate": 0.0186
+                                    },
+                                    {
+                                        "initDate": 20161128,
+                                        "incomeRate": 0.0212
+                                    },
+                                    {
+                                        "initDate": 20161129,
+                                        "incomeRate": 0.0321
+                                    },
+                                    {
+                                        "initDate": 20161130,
+                                        "incomeRate": 0.0421
+                                    }
+                                ],
+                                "incomeListZStrategy": [
+                                    {
+                                        "initDate": 20161127,
+                                        "incomeRate": 0.0126
+                                    },
+                                    {
+                                        "initDate": 20161128,
+                                        "incomeRate": 0.0312
+                                    },
+                                    {
+                                        "initDate": 20161129,
+                                        "incomeRate": 0.0221
+                                    },
+                                    {
+                                        "initDate": 20161130,
+                                        "incomeRate": 0.0521
+                                    }
+                                ]
+                            }
+                        };*/
+                        var data1={};
+                        var incomeRate = [];
+                        var initDate = [];
+                        var incomeListHS300 = [];
+
+                        data1=info.data;
+                        $.each(data1.incomeList,function( i , obj ){
+                        //console.log((obj.incomeRate*100).toFixed(2)+'%');
+                        var _date = String(obj.initDate).slice(4),
+                            _datemat = _date.substr(0,2)+'-'+_date.substr(2,2)
+                            initDate.push(_datemat);
+                            incomeRate.push(obj.incomeRate);
+
+
+                        });
+                        $.each(data1[curtype],function( i , obj ){
+                            
+                            incomeListHS300.push(obj.incomeRate)
+                        });
+                         
+                            
+                        // 指定图表的配置项和数据
+                        var option1 = {
+                            title:{show:false},
+                            tooltip: { show:false},
+                            legend: {show:false},
+                            toolbox:{show:false},
+                            backgroundColor:'#fff',
+                            grid:{x:30,y:15,x2:50,y2:30},
+                            xAxis: {
+                                type: 'category',
+                                boundaryGap: false,
+                                axisLabel : {
+                                    textStyle : {
+                                        color:"#878C92",
+                                        fontSize:10
+                                    }
+                                },
+                                axisLine:{
+                                    lineStyle:{
+                                        color:'#D2D2D2'
+                                    }
+                                },
+                                axisTick :{
+                                    show:false
+                                },
+                                offset:9,
+                                data: initDate
+                            },
+                            yAxis: {
+                                type: 'value',
+
+                                position:'right',
+                                axisLabel : {
+                                    textStyle : {
+                                        color:"#878C92",
+                                        fontSize:10
+                                    },
+                                    formatter: function(v){
+                                        return (v*100).toFixed(2)+'%'
+                                     }
+                                },
+                                axisLine:{
+                                    show:false
+                                },
+                                axisTick :{
+                                    show:false
+                                },
+                             
+                                splitLine:{
+                                    show : true,
+                                    lineStyle:{
+                                        width : .5,
+                                        color:'#D2D2D2'
+                                    }
+                                },
+                            },
+                            series: [{
+                                name: '用户累计',
+                                type: 'line',
+                                smooth: true,
+                                symbol:'diamond',
+                              
+                                lineStyle:{
+                                    normal:{
+                                        color : '#FF7B57',
+                                        width:2
+                                    }
+                                },
+                                data: incomeRate 
+                            },
+                            {
+                                name: '沪深300参赛',
+                                type: 'line',
+                                symbol:'diamond',
+                                smooth: true,
+                                lineStyle:{ 
+                                    normal:{
+                                        color:'#98CEF7',
+                                        width:1
+                                    }
+                                },
+                                data: incomeListHS300
+                            }]
+                        };
+                        var myChart1 = echarts.init(document.getElementById('main1'));
+                        myChart1.setOption(option1);
+                    }
+                },
+                //持仓记录
+                chichuangjilufn:function(){
+                    var lookallB=true;
+                    $('.lookall').unbind().click(function(){
+                        if(!lookallB)return;
+                        lookallB=false;
+                        K.pageNumber[timetype].Yema++;
+                        tradedetail();
+                        console.log(K.pageNumber);
+                    });
+                    var tradedetail = function(){
+                        setTimeout(function(){
+                            if(K.pageNumber[timetype].Yema==0){
+                                K.pageNumber[timetype].Yema=1
+                            };
+                            jrj.jsCallNative('130', JSON.stringify({
+                                method: 'get',
+                                url: domain+'/analysis/position/tradedetail?pageNumber='+K.pageNumber[timetype].Yema+'&pageSize=5&timeLookupType='+K.timetype,
+                                callback: 'callbacktradedetail',
+                            }));
+                        },200);
+                    }
+                    if(K.pageNumber[timetype].Yema==0){
+                        tradedetail();
+                    }else{
+                        $('.chichuangzuo').html(K.pageNumber[timetype].htmlstr[0]);
+                        $('.chichuangyou').html(K.pageNumber[timetype].htmlstr[1]);
+                        $('.lookall,.nolookall,.nochichuang').hide();
+                        if(K.pageNumber[timetype].htmlstr[0].length==0){
+                            $('.nochichuang').show();
+                        }
+                        if(K.pageNumber[timetype].total==$('.chichuangzuo li').length/2){
+                            $('.nolookall').show();
+                        }
+                        if(K.pageNumber[timetype].total>$('.chichuangzuo li').length/2){
+                            $('.lookall').show();
+                        }
+                    }
+                    console.log(K.pageNumber);
+                    window.callbacktradedetail =function(info){ 
+                        //alert(JSON.stringify(info));
+                        setTimeout(function(){
+                            var infodetail = convertToJsonObject(info);
+                            /*infodetail={
+                                "retcode": 0,
+                                "msg": "",
+                                "data": {
+                                    "list": [{
+                                        "userId": "151024010048025126",
+                                        "dateDesc": "持仓中",
+                                        "stockCode": "600160",
+                                        "stockName": "巨化股份",
+                                        "lastAmount": 600.000,
+                                        "costPrice": 11.489,
+                                        "sellOutPrice": 0,
+                                        "lastDealTime": null,
+                                        "incomeBalance": 0.000,
+                                        "incomeRate": 0.0000,
+                                        "holdDays": 3
+                                    }, {
+                                        "userId": "151024010048025126",
+                                        "dateDesc": "2017.07.06",
+                                        "stockCode": "000778",
+                                        "stockName": "新兴铸管",
+                                        "lastAmount": 0.000,
+                                        "costPrice": 0.000,
+                                        "sellOutPrice": 7.120,
+                                        "lastDealTime": null,
+                                        "incomeBalance": 7120.000,
+                                        "incomeRate": 0.0000,
+                                        "holdDays": 3
+                                    }, {
+                                        "userId": "151024010048025126",
+                                        "dateDesc": "2017.07.03",
+                                        "stockCode": "000778",
+                                        "stockName": "新兴铸管",
+                                        "lastAmount": 0.000,
+                                        "costPrice": 0.000,
+                                        "sellOutPrice": 7.120,
+                                        "lastDealTime": null,
+                                        "incomeBalance": 7120.000,
+                                        "incomeRate": 0.0000,
+                                        "holdDays": 3
+                                    }],
+                                    total:0
+                                }
+                            };*/
+                            if(infodetail.retcode==0){
+                                lookallB=true;
+                                K.pageNumber[K.timetype].total=infodetail.data.total;
+                                if(infodetail.data.total==0){
+                                    $('.lookall,.nolookall').hide();
+                                    $('.nochichuang').show();
+                                    return;
+                                }
+                                var appstrzuo=''
+                                var appstryou=''
+                                $.each(infodetail.data.list,function(i,obj){
+                                    appstrzuo+='<li class="bigwidth">'+obj.dateDesc+'</li><li>'+obj.stockName+'</li>';
+                                    appstryou+='<li class="'+addcolor(obj.incomeRate)+'">'+doublenum(obj.incomeRate*100)+'%</li><li class="bigwidth"><i class="'+addcolor(obj.incomeBalance)+'">'+doublenum(obj.incomeBalance)+'</i><span class="xianjia" style="display:'+(obj.dateDesc == '持仓中' ? 'block' :'')+'">现价</span></li><li>'+obj.costPrice+'</li><li>'+obj.sellOutPrice+'</li><li>'+obj.holdDays+'</li>';
+                                });
+                                $('.chichuangzuo').append(appstrzuo);
+                                $('.chichuangyou').append(appstryou);
+                                
+                                if(K.pageNumber[timetype].htmlstr[0]){
+                                    K.pageNumber[timetype].htmlstr[0]+=appstrzuo;
+                                }else{
+                                    K.pageNumber[timetype].htmlstr.push(appstrzuo);
+                                }
+                                if(K.pageNumber[timetype].htmlstr[1]){
+                                    K.pageNumber[timetype].htmlstr[1]+=appstryou;
+                                }else{
+                                    K.pageNumber[timetype].htmlstr.push(appstryou);
+                                }
+                                if(infodetail.data.total==($('.chichuangyou li').length)/5){
+                                    $('.lookall').hide();
+                                    $('.nolookall').show();
+                                }else{
+                                    $('.lookall').show();
+                                    $('.nolookall').hide();
+                                }
+                                console.log(K.pageNumber);
+                            }
+                        },30);     
+                    }
+                },
+                //每日盈亏
+                yingkuifn:function(){
+                    //每日盈亏
+                    var dailyincome = function(){
+                        setTimeout(function(){
+                            jrj.jsCallNative('130', JSON.stringify({
+                                method: 'get',
+                                url: domain+'/analysis/income/dailyincomelist?timeLookupType='+K.timetype,
+                                callback: 'callbackdailyincome',
+                            }));
+                        },200);
+                    }
+                    dailyincome();
+                    window.callbackdailyincome =function(info){ 
+                        //alert(JSON.stringify(info));
+                        setTimeout(function(){
+                            infoyingkui = convertToJsonObject(info);
+                            /*infoyingkui={
+                                "retcode": 0,
+                                "msg": "",
+                                "data": {
+                                    "incomeStatisticsList": [
+                                        {
+                                            "initDate": 20161217,
+                                            "incomeBalance": 283.12
+                                        },
+                                        {
+                                            "initDate": 20161218,
+                                            "incomeBalance": 1211
+                                        },
+                                        {
+                                            "initDate": 20161219,
+                                            "incomeBalance": -525.1
+                                        },
+                                        {
+                                            "initDate": 20161220,
+                                            "incomeBalance": 453
+                                        },
+                                        {
+                                            "initDate": 20170417,
+                                            "incomeBalance": 283.12
+                                        },
+                                        {
+                                            "initDate": 20170418,
+                                            "incomeBalance": 1211
+                                        },
+                                        {
+                                            "initDate": 20170419,
+                                            "incomeBalance": -525.1
+                                        },
+                                        {
+                                            "initDate": 20170420,
+                                            "incomeBalance": 453
+                                        },
+                                        {
+                                            "initDate": 20170421,
+                                            "incomeBalance": 298.23
+                                        },
+                                        {
+                                            "initDate": 20170422,
+                                            "incomeBalance": 611
+                                        },
+                                        {
+                                            "initDate": 20170423,
+                                            "incomeBalance": -525.1
+                                        },
+                                        {
+                                            "initDate": 20170424,
+                                            "incomeBalance": 0
+                                        },
+                                        {
+                                            "initDate": 20170425,
+                                            "incomeBalance": 118.23
+                                        },
+                                        {
+                                            "initDate": 20170426,
+                                            "incomeBalance": 911
+                                        },
+                                        {
+                                            "initDate": 20170427,
+                                            "incomeBalance": -225.1
+                                        },
+                                        {
+                                            "initDate": 20170428,
+                                            "incomeBalance": -525.1
+                                        },
+                                        {
+                                            "initDate": 20170430,
+                                            "incomeBalance": 0
+                                        },
+                                        {
+                                            "initDate": 20170501,
+                                            "incomeBalance": 118.23
+                                        },
+                                        {
+                                            "initDate": 20170502,
+                                            "incomeBalance": 911
+                                        },
+                                        {
+                                            "initDate": 20170503,
+                                            "incomeBalance": -225.1
+                                        },
+                                        {
+                                            "initDate": 20170504,
+                                            "incomeBalance": 123
+                                        },
+                                        {
+                                            "initDate": 20170505,
+                                            "incomeBalance": 618.23
+                                        },
+                                        {
+                                            "initDate": 20180501,
+                                            "incomeBalance": 118.23
+                                        },
+                                        {
+                                            "initDate": 20180502,
+                                            "incomeBalance": 911
+                                        },
+                                        {
+                                            "initDate": 20180503,
+                                            "incomeBalance": -225.1
+                                        },
+                                        {
+                                            "initDate": 20180504,
+                                            "incomeBalance": 123
+                                        },
+                                        {
+                                            "initDate": 20180505,
+                                            "incomeBalance": 618.23
+                                        }
+                                    ]
+                                }
+                            };*/
+                            huayingkui()
+                        },30);     
+                    }
+                    
+                    function huayingkui(){
+                        if(infoyingkui.retcode==0){
+                            var xAxis_day=[];
+                            var zijinBar=[];
+                            $.each(infoyingkui.data.incomeStatisticsList,function( i , obj ){
+                                xAxis_day.push((obj.initDate+'').substr(4,2)+'-'+(obj.initDate+'').substr(6,2));
+                                if((obj.incomeBalance+'').indexOf('-')!=-1){
+                                    zijinBar.push(
+                                        item = {
+                                            value:obj.incomeBalance,
+                                            itemStyle:{
+                                                normal:{
+                                                    color:'#61ab0b',
+                                                    barBorderRadius:[0,0,3,3]
+                                                }
+                                            },
+                                            label:{
+                                                normal:{
+                                                    show:true,
+                                                    position:'bottom',
+                                                    textStyle:{
+                                                        fontSize:10,
+                                                        color:'#61ab0b'
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    );
+                                }else{
+                                    zijinBar.push(
+                                        item = {
+                                            value: obj.incomeBalance,
+                                            itemStyle:{
+                                                normal:{
+                                                    color:'#ff7043',
+                                                    barBorderRadius:[3,3,0,0]
+                                                }
+                                            },
+                                            label:{
+                                                normal:{
+                                                    show:true,
+                                                    position:'top',
+                                                    textStyle:{
+                                                        fontSize:10,
+                                                        color:'#ff7043'
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    );
+                                }
+                            });
+  
+                            var myChart3 = echarts.init(document.getElementById('main3'));
+                            var option3 = {
+                                legend:{
+                                    show:true,
+                                    data:[
+                                        {
+                                            name:'资金流入',
+                                            icon:'circle',
+                                            textStyle:{
+                                                color:'#ff1d40'
+                                            }
+                                        },
+                                        {
+                                            name:'资金流出',
+                                            icon:'circle',
+                                            textStyle:{
+                                                color:'#14e87b'
+                                            }
+                                        }
+                                    ],
+                                    orient:'horizontal',
+                                    top:'bottom',
+                                    left:'center'
+                                },
+                                xAxis:{
+                                    type:'category',
+                                    axisLine:{show:true},
+                                    axisLabel:{
+                                        show:true,
+                                        textStyle:{
+                                            color:'#000',
+                                            fontSize:10
+                                        }
+                                    },
+                                    axisTick:{show:false},
+                                    splitLine:{show:false},
+                                    offset:14,
+                                    data:xAxis_day
+                                },
+                                yAxis:{             
+                                    type:'value',
+                                    splitLine:{show:false},
+                                    axisLine:{show:false},
+                                    axisLabel:{show:false}
+                                },
+                                grid:{
+                                    x:0,
+                                    y:17,
+                                    x2:0,
+                                    y2:37
+                                },
+                                dataZoom:[
+                                    {
+                                        type: 'inside',
+                                        startValue: xAxis_day.length-6,
+                                        endValue: xAxis_day.length
+                                    },
+                                    {
+                                        show: false,
+                                        type: 'slider',
+                                        y: '91%',
+                                        startValue: xAxis_day.length-6,
+                                        endValue: xAxis_day.length
+                                    }
+                                ],
+                                series:[
+                                    {
+                                        type:'bar',
+                                        stack:'总量',
+                                        barWidth:'30%',
+                                        data: zijinBar
+                                    }
+                                ]
+                            };
+                            myChart3.setOption(option3);
+                        }
+                    }    
+                },
+                //持仓比例
+                chichuangbilifn:function(){
+                    //持仓比例请求
+                    var positionrate = function(){
+                        setTimeout(function(){
+                            jrj.jsCallNative('130', JSON.stringify({
+                                method: 'get',
+                                url: domain+'/analysis/position/positionrate?timeLookupType='+K.timetype,
+                                callback: 'callbackpositionrate',
+                            }));
+                        },200);
+                    }
+                    positionrate();
+                    window.callbackpositionrate =function(info){ 
+                        setTimeout(function(){
+                            info2 = convertToJsonObject(info);
+                            huapositionrate()
+                        },30);     
+                    }
+                    /*
+                    var info2={
+                        "retcode": 0,
+                        "msg": "",
+                        "data": {
+                            "stockTotalRate": 0.8236,
+                            "list": [
+                                {
+                                    "stockCode": "601633",
+                                    "stockName": "长城汽车",
+                                    "positionRate": 0.4
+                                },
+                                {
+                                    "stockCode": "601856",
+                                    "stockName": "中天能源",
+                                    "positionRate": 0.25
+                                },
+                                {
+                                    "stockCode": "601216",
+                                    "stockName": "君正集团",
+                                    "positionRate": 0.1
+                                },
+                                {
+                                    "stockCode": "XXXXXX",
+                                    "stockName": "现金",
+                                    "positionRate": 0.03
+                                },
+                                {
+                                    "stockCode": "000000",
+                                    "stockName": "其它资产",
+                                    "positionRate": 0.17
+                                }
+                            ]
+                        }
+                    };*/
+                    function huapositionrate(){
+                        var arrrate=[];
+                        if(info2.retcode==0){
+                            $('#ratelist').html('');
+                            $('.stockTotalRate').html((parseFloat(info2.data.stockTotalRate)*100).toFixed(2)+'%');
+                            $.each(info2.data.list,function( i , obj ){
+                                
+                                //incomeListHS300.push(obj.incomeRate)
+                                arrrate.push({
+                                    value:obj.positionRate,name: obj.stockName
+                                });
+                                $('#ratelist').append('<li class="clearfix"><i class="bg'+(i+1)+'"></i><span>'+obj.stockName+'</span><b>('+obj.stockCode+')</b><em>'+(parseFloat(obj.positionRate)*100).toFixed(2)+'%</em></li>');
+
+                            });  
+                            $('#ratelist b').each(function(){
+                                if($(this).html().length<7){
+                                    $(this).hide();
+                                }
+                            });    
+                            var myChart2 = echarts.init(document.getElementById('main2'));
+                            option2 = {
+                                 tooltip: {
+                                    trigger: 'right',
+                                    //formatter: "{a} <br/>{b}: {c} ({d}%)"  显示的文字
+                                    position: function (point, params, dom) {
+                                          return [point[0]-40, point[1]-70];
+                                    },
+                                    backgroundColor:'none',
+                                    formatter: function(v){
+                                        //console.log(v);
+                                        var html='<div style="width:2.85rem; height:3.4rem;background:url(https://i0.jrjimg.cn/zqt-m/account/img/tip.png);background-size:100% 100%;font-size:.7rem; line-height:2.8rem; text-align:center;">'+v.percent+'%</div>';
+                                        return html;
+                                    }
+                                },
+                                color:['#4D7AD4','#F67F76','#FEC972','#F7EC7E','#CAD9D7'],
+                                series: [
+                                    {
+                                        name:'访问来源',
+                                        type:'pie',
+                                        radius: ['47%', '70%'],
+                                        center: ['50%', '50%'],  //控制 圆的位置
+                                        avoidLabelOverlap: false,
+                                        label: {
+                                            normal: {
+                                                show: false,
+                                                position: 'center'
+                                            }
+                                        },
+                                        labelLine: {
+                                            normal: {
+                                                show: false
+                                            }
+                                        },
+                                        itemStyle:{
+                                            normal:{
+                                                
+                                            }
+                                        },
+                                        data:arrrate
+                                    }
+                                ]
+                            };
+                            myChart2.setOption(option2);
+                        }
+                    }
+                }
+            };
+            fnlist.init();
+        },
+        
+    };
+    K.init();
+     
+    
+
+    
+
+
+var convertToJsonObject = function(str){
+    if(typeof str != 'object'){
+      return JSON.parse(str);
+    }else{
+      return str;
+    }
+}
+function addcolor(d){
+    if((d+'').indexOf('-')!=-1){
+        return 'green'
+    }else{
+        return 'red';
+    }
+}
+function doublenum(num){
+    var num=num+'';
+    if(num.indexOf('.')!=-1){
+        var len=num.substring(num.indexOf('.')+1).length;
+        if(len==0){
+            return num+'00';
+        }else if(len==1){
+            return num+'0';
+        }else{
+            return parseFloat(num).toFixed(2);
+        }
+    }else{
+        return num+'.00';
+    }
+}   
+
+</script> 
+   
+</body>
+</html>

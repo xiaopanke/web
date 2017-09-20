@@ -1,0 +1,44 @@
+﻿<!DOCTYPE HTML>
+<HTML lang='zh-cn'>
+<header>
+	<title>更多功能</title>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style>
+	
+	</style>
+</header>
+<body>
+	<canvas id="qrcodeCanvas"></canvas>
+	<div class="pay-qrcode">
+		<div>sdfsdfwefsdfsdfsdfsd</div>
+	</div>
+	<img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/banktransfer.png" alt="" id="imgQrcode">
+	<img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/business.png" alt="" id="imgQrcodeBG">
+	<script src="http://i0.jrjimg.cn/itougu-msite/jquery-3.1.0.min.js" type="text/javascript"></script>
+
+<script>
+                var canvas = document.getElementById('qrcodeCanvas');
+                var ctx = canvas.getContext('2d');
+                var wrap = $('.pay-qrcode > div');
+                canvas.width = wrap.width() * 2;
+                canvas.height = wrap.height() * 2;
+                canvas.style.width = wrap.width();
+                canvas.style.height = wrap.height();
+                ctx.scale(2,2);
+                var image = new Image();
+                image.onload = function() {
+                    ctx.drawImage(image, 0, 0, canvas.width/2, canvas.height/2);
+                    var img = new Image();
+                    img.onload = function(){
+                        ctx.drawImage(img, canvas.width * 0.205 / 2, canvas.width * 0.123 / 2, canvas.width * 0.59 / 2, canvas.width * 0.59 / 2);
+                        $('#imgQrcode').attr({src:ctx.canvas.toDataURL()});
+                    };
+                    img.src = 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160909/fundrede.png';
+                };
+                image.src = $('#imgQrcodeBG').attr('src');
+
+           
+</script>
+</body>
+</HTML>

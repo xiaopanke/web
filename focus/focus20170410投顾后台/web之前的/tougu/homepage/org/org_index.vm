@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾-金融界-最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/waves.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-agency.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--site_top_compact.html start-->
+    <!--\#include virtual="/v2/site_top_compact.html" -->
+    <!--site_top_compact.html end-->
+
+    <div class="wrapper agency-bg">
+        <!--\#include virtual="/account/organization/$!{orgId}/info.html" -->
+        <ul class="agency-nav">
+            <li class="cur"><a href="/account/organization/$!{orgId}/">主页</a></li>
+            <li><a href="/account/organization/$!{orgId}/3">直播</a></li>
+            <li style="display:none;"><a href="/account/organization/$!{orgId}/4">组合跟投</a></li>
+            <li><a href="/account/organization/$!{orgId}/2">回答</a></li>
+            <li><a href="/account/organization/$!{orgId}/1">观点</a></li>
+            <li><a href="/account/organization/$!{orgId}/5">投资内参</a></li>
+            <li ><a href="/account/organization/$!{orgId}/6">投顾</a></li>
+        </ul>
+    </div>
+
+    <div class="agency-main wrapper clearfix">
+        <div class="agency-main-left">
+            <!--直播: start -->
+            <div class="agency-block agency-block-zhibo">
+                <h3 class="m-tit-row">
+                    <span class="tit">TA的直播</span>
+                    <span class="s-tit" style="display:none"><a href="/account/organization/$!{orgId}/3"><em class="hot num" id="zhibocount">0</em></a>次直播</span>
+                </h3>
+            </div>
+            <div class="agency-block-zhibo-cnt" id="zhiboDiv">
+                <div id="live-event" class="live-index-block-cnt">
+                    <ul class="clearfix" id="zhibolist">
+                        <!-- 直播列表 -->
+                    </ul>
+                </div>
+            </div>
+            <!--直播: end -->
+            <!--组合: start
+            <div class="agency-block agency-block-portfolio mt15">
+                <h3 class="m-tit-row">
+                    <span class="tit">TA的组合</span>
+                    <span class="s-tit"><a href="/account/organization/$!{orgId}/4"><em class="hot num" id="portfolio_count">0</em></a>款组合</span>
+                </h3>
+                <div id="portfoliolist">
+	                
+                </div>
+            </div>
+                                组合: end-->
+            <!--回答: start-->
+            <div class="agency-block mt15">
+                <h3 class="m-tit-row" id="answerH3" style="border-bottom:0">
+                    <span class="tit">TA的回答</span>
+                    <span class="s-tit"><a href="/account/organization/$!{orgId}/2"><em class="hot num" id="answer_count">0</em></a>回答</span>
+                </h3>
+                <div class="answer-cont">
+                    <ul id="answerlist">
+                        <!-- 回答列表 -->
+                    </ul>
+                </div>
+            </div>
+            <!--回答: end-->
+            <!--日志: start-->
+            <div class="agency-block agency-block-log mt15">
+                <h3 class="m-tit-row"  id="viewH3" style="border-bottom:0">
+                    <span class="tit">TA的观点</span>
+                    <span class="s-tit"><a href="/account/organization/$!{orgId}/1"><span class="highlight" id="view_count" >0</span></a>篇</span>
+                </h3>
+                <ul class="article-list clearfix" id="viewlist">
+                    
+                    <!-- 日志列表 -->
+                </ul>
+            </div>
+            <!--日志: end-->
+            <!--内参: start-->
+            <div class="agency-block mt15">
+                <h3 class="m-tit-row"  id="tipsH3" style="border-bottom:0">
+                    <span class="tit">TA的内参</span>
+                    <span class="s-tit"><a href="/account/organization/$!{orgId}/5"><span class="highlight" id="tipscount" >0</span></a>个</span>
+                </h3>
+                <div class="refer-list" id="tipslist">
+                        <!-- 内参列表 -->
+                </div>
+            </div>
+            <!--内参: end-->
+
+        </div>
+        <div class="agency-main-right">
+            <!--\#include virtual="/account/organization/$!{orgId}/right.html" -->
+        </div>
+    </div>
+
+
+    <!--页面js: start-->
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/bdshare-stylish.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/AMD/seajs-Config.js"></script>
+    <script>
+    	$(function(){
+    		
+    		
+    	
+    	function StringBuffer(){
+			this.data_ = [];
+		}
+		StringBuffer.prototype.append = function(){
+			this.data_.push(arguments[0]);
+			return this;
+		}
+		StringBuffer.prototype.toString = function(){
+			return this.data_.join("");
+		} 
+        $(function () {
+            //'hover' for zhibo
+            $('#live-event ul li').live('mouseenter', function () {
+                $(this).addClass('hover').siblings().removeClass('hover');
+            }).live('mouseleave', function () {
+                $(this).removeClass('hover');
+            });
+        });
+
+        function timeToNow(time){
+        	var timestamp = new Date().getTime();
+            var timeS = Math.round((timestamp - time)/1000); //秒单位
+            if(timeS/60>1){
+                var timeM = Math.round(timeS/60); //分钟单位
+                if(timeM/60>1){
+                    var timeH = Math.round(timeM/60); //小时单位
+                    if(timeH/24>1){
+                        var timeD = Math.round(timeM/24); //天单位
+                        if(timeD/10>1){
+                            return new Date(time).toLocaleString().substr(0,10);
+                        }else{
+                            return timeD+' 天前';
+                        }
+                    }else{
+                        return timeH+' 小时前';
+                    }
+                }else{
+                    return timeM + ' 分钟前';
+                }
+            }else{
+                return timeS + ' 秒前';
+            }
+        }
+        //--内参
+        function loadTipsData(orgId){
+			var jsurl = "http://itougu.jrj.com.cn/organization/tips/tips_"+orgId+"_index.js";
+			var tmpTips = 0; 
+			$.getScript(jsurl, function() {
+				if (typeof(tdata)!='undefined' && tdata!=null && tdata!='null' && tdata!=undefined) { 
+					var content = new StringBuffer();
+					$.each(tdata.list, function(idx, obj){
+						tmpTips ++ ;
+                        if(idx>4){
+                            content.append('<div class="refer-item refer-item-disable" >');
+                        }else{
+                            content.append('<div class="refer-item">');
+                        }
+							content.append('<div class="refer-item-tit clearfix">');
+							content.append('<a href="/tips/'+obj.id+'.jspa" target="_blank"><span>'+obj.username+'：'+obj.title+'</span></a>');
+							content.append('</div>');
+							content.append('<div class="refer-item-cnt clearfix">');
+							content.append('<div class="refer-item-pic">');
+							content.append('<img src="'+obj.img+'" width="185" height="87">');
+							if(obj.status==50)
+								content.append('<span class="status status-updating"></span>');
+							else if(obj.status==40)
+								content.append('<span class="status status-selling"></span>');
+							else if(obj.status==0)
+								content.append('<span class="status status-end"></span>');
+							else if(obj.status==30)
+								content.append('<span class="status status-pause-2"></span>');
+							else if(obj.status==10)
+								content.append('<span class="status status-reject"></span>');
+							else if(obj.status==20)
+								content.append('<span class="status status-waiting"></span>');
+							else if(obj.status==-10)
+								content.append('<span class="status status-pause"></span>');
+							content.append('</div>');
+							content.append('<div class="refer-item-desc">');
+							content.append('<p><span data-cutoff="true" data-cutoff-limit="170" data-cutoff-ellipse="..." title="'+obj.tdesc+'">');
+							if(obj.tdesc.length>170){
+								content.append(obj.tdesc.substr(0,170));
+								content.append('... </span>');
+								content.append('<a href="/tips/'+obj.id+'.jspa" class="link-v2 more"  target="_blank">更多</a>');
+							}else{
+								content.append(obj.tdesc);
+								content.append('</span>');
+							}
+							content.append('</div>');
+							content.append('</div>');
+							content.append('<div class="btn-wrap clearfix">');
+							content.append('<span class="fr">');
+							content.append('<a class="red-btn" href="/tips/'+obj.id+'.jspa">立即查看</a>');
+							content.append('</span>');
+							content.append('<span class="expiration">服务期：'+obj.shortStrBegintime+' - '+obj.shortStrEndtime+'</span>');
+							content.append('<span class="split">|</span>');
+							content.append('<span><span class="red">'+obj.purchaseamount+'</span>人订阅</span>');
+                            content.append('</div>');
+                            content.append('</div>');
+					});
+					if(tmpTips > 0){
+						$('#tipsH3').removeAttr("style");
+					}
+					$('#tipslist').empty().append(content.toString());
+					$('#tipscount').html(tdata.totalRecord);
+				}
+			});	
+		}
+        //--组合
+		function loadPortfolioData(orgId){
+			var jsurl = "http://itougu.jrj.com.cn/organization/portfolio/org_"+orgId+"_index.js";
+			$.getScript(jsurl, function() {
+				if (typeof(pdata)!='undefined' && pdata!=null && pdata!='null' && pdata!=undefined) { 
+					var content = new StringBuffer();
+					$.each(pdata.list, function(idx, obj){
+							content.append('<div class="invest-cont">');
+							if(obj.isFree==0)
+								content.append('<span class="portfolio-rank-item-status"></span>');
+							content.append('<h4 class="sub-tit"><a href="/portfolio/v2/detail/'+obj.pid+'.jspa" target="_blank">'+obj.pname+'</a></h4>');
+							content.append('<div class="invest-info">');
+							content.append('<dl class="invest-info-1">');
+							content.append('<dt>总收益</dt>');
+							if(obj.portfolioStatis.totalReturnsDouble>0){
+								content.append('<dd class="hot">'+obj.portfolioStatis.totalReturnsDouble+'%</dd>');
+							}else{
+								content.append('<dd class="green">'+obj.portfolioStatis.totalReturnsDouble+'%</dd>');
+							}
+							content.append('</dl>');
+							content.append('<dl class="invest-info-2">');
+							content.append('<dt>月均交易次数</dt>');
+							content.append('<dd class="mt15">'+obj.portfolioStatis.stringMonthConcludeTimes+'次</dd>');
+							content.append('</dl>');
+							content.append('<dl class="trend">');
+							content.append('<dt>走势图</dt>');
+							content.append('<dd>');
+							content.append('<img src="http://itougu.jrj.com.cn/portfolio/chart/'+obj.pid+'.png" alt="" width="146" height="50" />');
+							content.append('</dd>');
+							content.append('</dl>');
+							content.append('</div>');
+							content.append('<p class="pre-row">');
+							content.append('<span class="fl">月目标收益&nbsp;<em>'+obj.portfolioStatis.monthReturnsDouble+'%</em></span>');
+							content.append('<a class="waves-effect waves-button fr red-btn" href="/portfolio/v2/detail/'+obj.pid+'.jspa">立即查看</a>');
+							content.append('</p>');
+							content.append('</div>');
+					});
+					$('#portfoliolist').empty().append(content.toString());
+				}
+			});	
+		}
+        //-回答
+		function loadAnswerData(orgId){
+			var jsurl = "http://itougu.jrj.com.cn/organization/ques/oquesindex_"+orgId+".js";
+			var tmpAnswer = 0;
+			$.getScript(jsurl, function() {
+				if (typeof(quesIndex)!='undefined' && quesIndex!=null && quesIndex!='null' && quesIndex!=undefined) {
+					var content = new StringBuffer();
+                    var timestamp = new Date().getTime();
+					$.each(quesIndex, function(idx, obj){
+							tmpAnswer ++;
+							content.append('<li class="clearfix">');
+							content.append('<div class="avatar">');
+							content.append('<a href="/account/adviser/'+obj.answers[0].answerUserId+'/" target="_blank"><img src="'+obj.answers[0].avatarUrl+'" alt="'+obj.answers[0].answerUserId  +'"  class="tgHeadImage_2" itgid_2="'+obj.answers[0].answerUserId+'"/></a>');
+							content.append('<p><a href="/account/adviser/'+obj.answers[0].answerUserId+'/" target="_blank">'+obj.answers[0].answerUserName+'</a></p>');
+							content.append('</div>');
+							content.append('<div class="desc">');
+							content.append('<h4><a href="/ques/'+obj.id+'.jspa" class="hot">'+obj.textContent+'</a></h4>');
+							content.append('<p class="note">'+timeToNow(obj.answers[0].ctime)+'</p>');
+							content.append('<p class="text">'+obj.answers[0].textContent+'</p>');
+							content.append('</div>');
+							content.append('</li>');
+							
+					});
+					if(tmpAnswer > 0){
+						$('#answerH3').removeAttr("style");
+					}
+					$('#answerlist').empty().append(content.toString());
+					$(function(){
+					F.hoverCls( '.tgHeadImage_2' , 'itgid_2' );
+					});
+				}
+			});
+			
+		}
+        //-直播
+        function loadLiveData(orgId){
+            var jsurl = "http://itougu.jrj.com.cn/organization/live/live_"+orgId+"_1.js";
+            var tmpNum = 0;
+            $.getScript(jsurl, function() {
+                if (typeof(liveInfo)!='undefined' && liveInfo!=null && liveInfo!='null' && liveInfo!=undefined) { 
+                    var content = new StringBuffer();
+                    var timestamp = new Date().getTime();
+                    $.each(liveInfo.list, function(idx, obj){
+                        if(idx<5){
+                        	tmpNum++;
+                            content.append('<li class="clearfix">');
+                            content.append('<div class="col-1"><a href="/account/adviser/'+obj.userId+'/" class="avatar"><img src="'+obj.headImage+'" class="tgHeadImage_1" itgid_1="'+obj.userId+'" /></a></div>');
+                            content.append('<div class="col-2"><a href="/account/adviser/'+obj.userId+'/">'+obj.userName+'</a></div>');
+                            
+                            if(obj.zhibo_isopen==1){
+	                            content.append('<div class="col-4"><div class="tit-wrap" style="display:none;"><a href="/account/adviser/'+obj.userId+'/3" data-cutoff="true" data-cutoff-limit="56" title="'+obj.zhibo_title+'">');
+	                            content.append(obj.zhibo_title+'</a></div></div>');
+                            	content.append('<div class="col-5"><a href="/account/adviser/'+obj.userId+'/3" class="btn btn-88-30">我要参与</a></div>');
+                            }else{
+                            	content.append('<div class="col-4"><div class="tit-wrap" style="display:none;"><a href="'+obj.url+'" data-cutoff="true" data-cutoff-limit="56" title="'+obj.zhibo_title+'">');
+                            	content.append(obj.zhibo_title+'</a></div></div>');
+                            	content.append('<div class="col-5"><a href="'+obj.url+'" class="btn btn-88-30">查看详情</a></div>');
+                            }
+                            content.append('</li>');
+                        }
+                    });
+                    if(tmpNum>0){
+                    	$('#zhiboDiv').show();
+                    }
+                    $('#zhibolist').empty().append(content.toString());
+                    $('#zhibolist').find('li:last').addClass('last');
+                    $('#zhibocount').html(liveInfo.live_total_num);
+                    $(function(){
+                    	F.hoverCls( '.tgHeadImage_1' , 'itgid_1' );
+                    });
+                }
+            }); 
+            if($('#zhibolist').children().length==0&&tmpNum==0){
+            	$('#zhiboDiv').hide();
+            }
+        }
+        //-日志
+        function loadViewData(orgId){
+            var jsurl = "http://itougu.jrj.com.cn/organization/view/view_"+orgId+"_index.js";
+            var tmpView = 0;
+            $.getScript(jsurl, function() {
+                if (typeof(vdata)!='undefined' && vdata!=null && vdata!='null' && vdata!=undefined) { 
+                    var content = new StringBuffer();
+                    var timestamp = new Date().getTime();
+                    $.each(vdata.list, function(idx, obj){
+                        if(idx<=5){
+                        	tmpView ++ ;
+                            content.append('<li class="clearfix">');
+                            content.append('<div class="fl browse-info">');
+                            content.append('<em>'+obj.readCount+'</em>');
+                            content.append('<span>浏览</span>');
+                            content.append('</div>');
+                            content.append('<div class="fl note-details">');
+                            content.append('<h3><a href="/view/'+obj.id+'.jspa" class="hot">'+obj.username+':'+obj.title+'</a></h3>');
+                            content.append('<p class="time">'+obj.chinaDate+'</p>');
+                            content.append('<p class="txt">'+obj.summary+'<a href="/view/'+obj.id+'.jspa" class="b-link" target="_blank">查看全部</a></p>');
+                            content.append('<p class="remark-row">');
+                            content.append('<span class="agree" action-value="viewid='+obj.id+'&adUserid='+obj.userid+'">赞 ( <em>'+obj.likeCount+'</em> )</span>');
+                            content.append('<a href="/view/'+obj.id+'.jspa" target="_blank"><span class="remark">评论 ( <em>'+obj.commentCount+'</em> )</span></a>');
+                            content.append('<span class="bdshare-stylish fl" data-style="popup" data-shareitems="weibo|qzone|qq|wechat" data-tag="share_'+obj.id+'" data-url="http://itougu.jrj.com.cn/view/'+obj.id+'.jspa" data-text="'+obj.title+'（分享自：金融界爱投顾）" data-desc="'+obj.summary+'" data-pic="http://js.jrjimg.cn/zqt-red-1000/images/site-logo-compact.png"><span class="share bdshare-stylish-trigger">分享</span></span>');
+                            content.append('</p>');
+                            content.append('</div>');
+                            content.append('</li>');
+                    
+                        }
+                            
+                    });
+                    if(tmpView > 0){
+						$('#viewH3').removeAttr("style");
+					}
+                    $('#viewlist').empty().append(content.toString());
+                    //赞
+                    $('.article-list').on('click', function(e){
+		    			var $target = $(e.target);
+		    			if($target.hasClass('agree')){
+		    				if(!$target.hasClass('praise-disable')){
+			    				JRJ.ui.isLogin(function(){
+				    				$.ajax({
+										url : "/view/likePoint.jspa",
+										type : "POST",
+										data : $target.attr('action-value'),
+										dataType : "json",
+										success : function(data){
+											if(data.ret==0){
+												var num = $target.find('em').text();
+												num= isNaN(num) ? 1: ++num;
+												var html = '赞 ( <em>' + num + '</em> )';
+												var tmpl = '<span class="highlight f16">+1</span>',
+							                    _left = $target.offset().left,
+							                    _top = $target.offset().top;
+								                $(tmpl).css({ position: 'absolute', left: (_left + 40) + 'px', top: _top + 'px', opacity: 1, 'z-index': 110 }).appendTo($('body'))
+								                .animate({ opacity: 0, top: '-=50' }, 1000);
+												$target.html(html);
+												$target.addClass('praise-disable');
+											}else if(data.ret==-1){
+												
+											}else{
+												
+											}
+										},
+										error : function(msg){
+										}
+									});
+								});
+							}
+		    			}
+		    		});
+                    
+                    //分享
+                   	JRJ.util.JRJShareWidget.init({
+	                tmpl_style_popup: ['<span class="share bdshare-stylish-trigger">分享</span>',
+	                            '<div class="bdsharebuttonbox-wrap">',
+	                                '{bdshare}',
+	                                '<div class="bdshare-stylish-qrcode" style="display:none;"></div>',
+	                            '</div>'].join('')
+	               });  
+                }
+            }); 
+        }
+        
+        loadTipsData($!{orgId});
+		loadPortfolioData($!{orgId});
+		loadAnswerData($!{orgId});
+		loadLiveData($!{orgId});
+		loadViewData($!{orgId});    
+		
+		
+            JRJ.util.JRJShareWidget.init({
+                tmpl_style_popup: ['<span class="share bdshare-stylish-trigger">分享</span>',
+                            '<div class="bdsharebuttonbox-wrap">',
+                                '{bdshare}',
+                                '<div class="bdshare-stylish-qrcode" style="display:none;"></div>',
+                            '</div>'].join('')
+            });
+        
+        
+       
+			F.hoverCls( '.tgHeadImage_right' , 'itgid_right' );
+		             
+
+      if (!($.browser.msie && $.browser.version < 10)) {
+              seajs.use(['wave', 'jquery'], function (wave, $) {
+		            wave.init();
+		        }); 
+         }   
+        
+        seajs.use(['ExpandHelper'], function (expandHelper) {
+            expandHelper.execute({
+                selector: '#intro',
+                minHeight: 110
+            });
+        });
+      });                  
+    </script>
+    <script>
+    	//type:adviser   fans  view  answer   portfolio
+    	//id : 数字的标签ID
+    	//txt:可不传，数字后跟的文字。
+    	function gettypenum(id ,type ,txt){
+    			txt = txt||'';
+    			$('#'+id).html($('#'+type+'_num_label').html()+txt);
+    	}
+    	gettypenum('portfolio_count','portfolio');
+    	gettypenum('answer_count','answer');
+    	gettypenum('view_count','view');
+    	gettypenum('adviser_count','adviser');
+    </script>
+    <!--页面js: end-->
+    <!--common-footer-v2.html start-->
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+    <!--common-footer-v2.html end-->
+
+</body>
+
+</html>

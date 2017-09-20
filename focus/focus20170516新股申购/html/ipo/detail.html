@@ -1,0 +1,156 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no,initial-scale=1"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"><title>申购详情</title><link rel="stylesheet" href="/html/css/ipo_base.css"><style>h3{background:#FAFAFA;line-height:2.2rem;border-top:#EFEFF4 .5rem solid;font-size:.8rem;font-weight:400;position:relative}h3:before{content:'';display:block;position:absolute;left:0;bottom:0;width:200%;border-bottom:1px solid #dbdbdb;-webkit-transform-origin:0 0;transform-origin:0 0;pointer-events:none;-webkit-transform:scale(.5);transform:scale(.5);-webkit-box-sizing:border-box;box-sizing:border-box}h3 i{background:#FF5F57;width:3px;height:17px;float:left;margin-right:.6rem;margin-top:.675rem}.intro{font-size:.75rem;line-height:1.3rem;padding:.75rem 0 .75rem 1rem}.intro span{float:left;color:#888}.intro em{float:right;margin-right:1rem}.intro strong{display:block;margin-top:.75rem;margin-bottom:.75rem;position:relative}.intro strong:before{content:'';display:block;position:absolute;left:0;bottom:0;width:200%;border-bottom:1px solid #dbdbdb;-webkit-transform-origin:0 0;transform-origin:0 0;pointer-events:none;-webkit-transform:scale(.5);transform:scale(.5);-webkit-box-sizing:border-box;box-sizing:border-box}.intro b{margin-left:.5rem;float:left;font-weight:500}.intro .marl{margin-left:4rem}.profile{margin:1rem;margin-bottom:3rem;font-size:.75rem;line-height:1.2rem}.profile p{margin-bottom:1rem}.gobuy{line-height:2.75rem;position:fixed;bottom:0;left:0;width:100%;background:#f2f2f2;display:none}.gobuy b{font-size:.6rem;color:#b2b2b2;float:left;font-weight:400}.gobuy b:first-child{padding-left:.6rem;color:#888}.btn_add,.btn_reduce{width:1.75rem;height:1.75rem;background:url(/html/img/reduce2.png);float:left;background-size:100% 100%}.btn_add{background-image:url(/html/img/add2.png)}.numbox{margin:.5rem .25rem 0}.numbox .numin{width:3.825rem;float:left;padding-left:.675rem;font-size:.7rem;font-weight:400;line-height:1.75rem;color:#333;position:relative}.numbox .numin:before{content:'';display:block;position:absolute;left:0;top:0;height:200%;width:200%;border-bottom:1px solid #d2d2d2;border-top:1px solid #d2d2d2;-webkit-transform-origin:0 0;transform-origin:0 0;pointer-events:none;-webkit-transform:scale(.5);transform:scale(.5);-webkit-box-sizing:border-box;box-sizing:border-box}.gobuy a{width:5.25rem;color:#fff;float:right;font-size:.85rem;text-align:center}.gobuy .gobtn{background:#F24637}.gobuy .gobtn_off{background:#dbdbdb}.tipbox{position:fixed;bottom:0;left:0;width:100%;background:#FFF5EB;font-size:.85rem;line-height:2.75rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;color:#FBA736;display:none;text-align:center}.tipbox span{width:1.2rem;height:1.2rem;background:url(/html/img/tip2.png);background-size:100% 100%;margin-top:.75rem;margin-right:.44rem;display:inline-block;vertical-align:top}</style><script src="/html/js/jquery-1.7.2.min.js"></script><script src="/html/js/fastclick.js"></script><script src="/html/js/ipo_base.js"></script>
+<script> 
+	change(),
+"addEventListener" in document && document.addEventListener("DOMContentLoaded",
+function() {
+    FastClick.attach(document.body)
+},
+!1),
+$(function() {
+    function t(t) {
+        var n = new RegExp("(^|&)" + t + "=([^&]*)(&|$)", "i"),
+        o = window.location.search.substr(1).match(n);
+        return null != o ? decodeURIComponent(o[2]) : null
+    }
+    window.addEventListener("resize", change, !1);
+    var n = t("buyCode"),
+    o = t("fillApplyAmount"),
+    dataapplystatus = t("dataapplystatus"),
+    dataapplyStatusName = t("dataapplyStatusName"),
+    e = location.protocol + "//" + location.host,
+    a = {},
+    l = function() {
+        setTimeout(function() {
+            jrj.jsCallNative("130", JSON.stringify({
+                method: "get",
+                url: e + "/sapi/v2/ipo/queryStockInfo?buyCode=" + n + "&fillApplyAmount=" + o,
+                params: {},
+                callback: "callbackdetailinfo",
+                version: "3.10.0"
+            }))
+        },
+        200)
+    };
+
+    l(),
+    window.callbackdetailinfo = function(t) {
+        setTimeout(function() {
+            t = convertToJsonObject(t);
+            var n = t.data;
+            if (0 == t.retcode) {
+                var e = Math.min(1e4 * n.buyCeil, n.canApplyAmount);
+                $(".guIssPrc").html(doublenum(changenull(n.guIssPrc))),
+                $(".buyCode").html(n.buyCode),
+                $(".ttlShr").html(changenull(n.ttlShr + "万")),
+                $(".peCeilAft").html(changenull(n.peCeilAft)),
+                $(".onlShr").html(changenull(n.onlShr + "万")),
+                $(".buyCeil").html(changenull(n.buyCeil + "万")),
+                $(".onlAplDate").html(changenull(n.onlAplDate)),
+                $(".lotDclDt").html(changenull(n.lotDclDt)),
+                $(".listDate").html(changenull(n.listDate)),
+                $(".onlLotRate").html(changenull(n.onlLotRate)),
+                $(".stockDes").html("<p>" + n.stockDes + "</p>"),
+                $(".intro").html(changenull($(".intro").html())),
+                setTimeout(function() {
+                    document.setTitle(n.stockName)
+                },
+                1e3),
+                document.title = n.stockName,
+                0 == o ? $(".tipbox").hide() : (0 != n.applyAmount && ($(".tipbox").html("<span></span>已申购" + n.applyAmount + "股"), $(".tipbox").show()), 0 == n.canApplyAmount && 2 == n.tradeMktRef && ($(".tipbox").html("<span></span>您没有沪市申购额度"), $(".tipbox").show()), 0 == n.canApplyAmount && 1 == n.tradeMktRef && ($(".tipbox").html("<span></span>您没有深市申购额度"), $(".tipbox").show()), n.canApplyAmount > 0 && 0 == n.applyAmount && ($(".gobuy").show(), $(".gobuy .numin").html(e), $(".gobuy .numbox").attr("tradeMktRef", n.tradeMktRef), $(".btn_add").click(function() {
+                    return $(this).prev().html(parseInt($(this).prev().html()) + 500 * parseInt($(this).parent().attr("tradeMktRef"))),
+                    $(".gobuy a").addClass("gobtn").removeClass("gobtn_off"),
+                    parseInt($(this).prev().html()) >= e && $(this).prev().html(e),
+                    !1
+                }), $(".btn_reduce").click(function() {
+                    return $(this).next().html(parseInt($(this).next().html()) - 500 * parseInt($(this).parent().attr("tradeMktRef"))),
+                    parseInt($(this).next().html()) <= 0 && ($(this).next().html(0), $(".gobuy a").removeClass("gobtn").addClass("gobtn_off")),
+                    !1
+                }), a = {
+                    stockcode: n.buyCode,
+                    stockName: n.stockName,
+                    entrustPrice: n.issPrc,
+                    entrustAmount: 0,
+                    exchangeType: "SH"
+                })),
+                null != n.stockDes && "null" != n.stockDes || $(".stockDes").html("<p>暂无数据</p>");
+                if(dataapplystatus==0){
+                	$(".tipbox").show().html("<span></span>"+dataapplyStatusName);
+                	$(".tipsuccess,.gobuy").hide()
+                }
+            }
+        },
+        0)
+    },
+    $(".gobtn").unbind().click(function() {
+        if (0 != $(".numin").html()) {
+            $("body").addClass("md-dialog-show");
+            var t = "";
+            a.entrustAmount = $(".numin").html();
+            var n = "";
+            n = 1 == $(".numbox").attr("tradeMktRef") ? "SZ": "SH",
+            a.exchangeType = n,
+            t = "您即将申购：" + a.stockName + a.entrustAmount + "股",
+            $(".dlg-con .msg").show(),
+            $(".dlg-con .msg .zhuanjian").hide(),
+            $(".dlg-con .msg .shengou").show().html(t),
+            $(".dlg-close").html("取消"),
+            $(".submitbtn").html("确定"),
+            $(".focus-dlg, .dlg-close").unbind().click(function() {
+                $("body").removeClass("md-dialog-show")
+            }),
+            $(".submitbtn").unbind().click(function() {
+                var t = function() {
+                    setTimeout(function() {
+                        jrj.jsCallNative("130", JSON.stringify({
+                            method: "post",
+                            url: e + "/sapi/v2/ipo/iposingleapply",
+                            params: a,
+                            header: {
+                                "Content-Type": "application/json"
+                            },
+                            callback: "callbackgobtninfo",
+                            version: "3.10.0"
+                        }))
+                    },
+                    200)
+                };
+                t(),
+                window.callbackgobtninfo = function(t) {
+                    setTimeout(function() {
+                        t = convertToJsonObject(t),
+                        0 == t.retcode ? ($(".tipsuccess").show(), $(".tipbox").html("<span></span>已申购" + a.entrustAmount + "股"), $(".tipbox").show(), setTimeout(function() {
+                            $(".tipsuccess,.gobuy").hide()
+                        },
+                        3e3)) : 790001 == t.retcode ? ($("body").addClass("md-dialog-show"), $(".dlg-con .msg").show(), $(".dlg-con .msg .zhuanjian").show(), $(".dlg-con .msg .shengou").hide().html(""), $(".dlg-close").html("不了，谢谢"), $(".submitbtn").html("去转签"), $(".focus-dlg, .dlg-close").unbind().click(function() {
+                            $("body").removeClass("md-dialog-show")
+                        }), $(".focus-dlg div").unbind().click(function(t) {
+                            t.stopPropagation()
+                        }), $(".submitbtn").unbind().click(function(t) {
+                            t.preventDefault(),
+                            $("body").removeClass("md-dialog-show"),
+                            jrj.jsCallNative("130", JSON.stringify({
+                                method: "get",
+                                url: e + "/sapi/v2/cybrest/cybquery",
+                                params: {},
+                                callback: "callbackTransFunc",
+                                version: "3.10.0"
+                            }))
+                        })) : errorMsg(t.msg)
+                    },
+                    0)
+                }
+            })
+        }
+    }),
+    window.callbackTransFunc = function(t) {
+        t = convertToJsonObject(t),
+        0 == t.retcode ? t.data.accountstatus ? "1" == t.data.accountstatus ? window.location.href = e + "/sapi/page/cybsuccess.jspa": "0" == t.data.accountstatus ? window.location.href = e + "/sapi/page/cybprocess.jspa": "-1" == t.data.accountstatus ? window.location.href = e + "/sapi/page/cybfail.jspa": window.location.href = e + "/sapi/page/cybadd.jspa": window.location.href = e + "/sapi/page/cybadd.jspa": errorMsg(t.msg)
+    }
+})
+</script>
+<script type="text/template" id="dlg-error"><div class="dlg-time" style="height:8rem;">
+            <p style="text-align: center;margin-top: 1.5rem;"></p>
+            <div class="dlg-btn-wrap layout-box">
+                <a class="dlg-btn submit" style="color:#3996F2">确认</a>
+            </div>
+        </div></script></head><body><h3><i></i>基本资料</h3><div class="intro"><p class="clearfix"><span>申购代码</span><b class="buyCode"></b><span class="marl">发行市盈率</span><b class="peCeilAft"></b></p><p class="clearfix"><span>发行价格</span><b class="guIssPrc"></b></p><strong></strong><p class="clearfix"><span>发行总量（股）</span><em class="ttlShr"></em></p><p class="clearfix"><span>网上发行数量（股）</span><em class="onlShr"></em></p><p class="clearfix"><span>申购数量上限（股）</span><em class="buyCeil"></em></p><strong></strong><p class="clearfix"><span>网上发行日期</span><em class="onlAplDate"></em></p><p class="clearfix"><span>中签公告日</span><em class="lotDclDt"></em></p><p class="clearfix"><span>上市日期</span><em class="listDate">--</em></p><p class="clearfix"><span>中签率（预计）</span><em class="onlLotRate">--</em></p></div><h3><i></i>公司简介</h3><div class="profile stockDes"></div><div class="tipbox"><span></span>---</div><div class="gobuy"><b>申购数量</b><div class="numbox fl"><strong class="btn_reduce"></strong> <span class="numin">1000</span> <strong class="btn_add"></strong></div><b>股</b> <a href="javascript:;" class="gobtn">一键申购</a></div><div class="tipsuccess">您已申购成功，请等待中签结果！</div><div class="focus-dlg"><div class="dlg-con"><div class="msg clearfix"><p class="zhuanjian"><i></i>金融界检测到您的平安账户没有创业板权限，无法交易创业板股票。若您在其它券商开通过创业板，可转签到平安证券。</p><p class="shengou"></p></div><div class="dlg-btn-wrap layout-box"><a class="dlg-btn dlg-close">不了,谢谢</a> <a class="dlg-btn submitbtn">去转签</a></div></div></div><div class="md-overlay"></div></body></html>

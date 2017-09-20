@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<!--\#include virtual="/common_head_css_js.html" -->
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					url:"https://8.jrj.com.cn/account/ssogetassert.jspa",
+					data:{hasassert:false},
+					dataType:"jsonp",
+					jsonp:"callback",
+					async:false
+				}).done(function(data) {
+					var no = data.ylbcustno;
+					var flag = no!=''&&no!=null;
+					window.location= "/account/income/introduction.jspa?flag="+flag;
+				})
+			})
+		</script>
+	</head>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>爱投顾-金融界-最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+
+    <!--\#include virtual="/v2/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/partial-agency.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+</head>
+<body onload="initBody();">
+    <!--site_top_compact.html start-->
+    <!--\#include virtual="/v2/site_top_compact.html" -->
+    <!--site_top_compact.html end-->
+	<input type="hidden" id="orgId" value="$!{orgId}">
+    <div class="wrapper agency-bg">
+        <!--\#include virtual="/account/organization/$!{orgId}/info.html" -->
+        <ul class="agency-nav">
+            <li><a href="/account/organization/$!{orgId}/">主页</a></li>
+            <li class="cur"><a href="/account/organization/$!{orgId}/3">直播</a></li>
+            <li style="display:none;"><a href="/account/organization/$!{orgId}/4">组合跟投</a></li>
+            <li><a href="/account/organization/$!{orgId}/2">回答</a></li>
+            <li><a href="/account/organization/$!{orgId}/1">观点</a></li>
+            <li><a href="/account/organization/$!{orgId}/5">投资内参</a></li>
+            <li><a href="/account/organization/$!{orgId}/6">投顾</a></li>
+        </ul>
+    </div>
+
+    <div class="agency-main wrapper clearfix">
+        <div class="agency-main-left">
+            <!--直播: start -->
+            <div class="agency-block agency-block-zhibo" id="tit">
+                <h3 class="m-tit-row">
+                    <span class="tit">TA的直播</span>
+                    <span class="s-tit" style="display:none"><em class="hot num" id="lives_count">0</em>次直播</span>
+                </h3>
+                <div id="blankDivId" style="display:none"></div>
+            </div>
+            <div class="live-cont-wrap" id="firstId">
+            	
+            </div>
+            <div class="agency-block-zhibo-cnt" id="dataDivId">
+                <div id="live-event" class="live-index-block-cnt live-index-block-cnt-list">
+                    <ul class="clearfix" id="contentList">
+                    
+                    </ul>
+                    
+                    <div id="pagerId" class="pager pager-v2"></div>
+                </div>
+            </div>
+            <!--直播: end -->
+            
+
+        </div>
+        <div class="agency-main-right">
+            <!--\#include virtual="/account/organization/$!{orgId}/right.html" -->
+        </div>
+    </div>
+
+
+    <!--页面js: start-->
+    <!--\#include virtual="/v2/common_head_js.html" -->
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/AMD/seajs-Config.js"></script>
+    <script>
+    
+    	function initBody(){
+			loadData(1);
+		}
+		
+		function StringBuffer(){
+			this.data_ = [];
+		}
+		StringBuffer.prototype.append = function(){
+			this.data_.push(arguments[0]);
+			return this;
+		}
+		StringBuffer.prototype.toString = function(){
+			return this.data_.join("");
+		} 
+    	Date.prototype.format = function (format) { 
+			var o = { 
+				"M+": this.getMonth() + 1, 
+				"d+": this.getDate(), 
+				"h+": this.getHours(), 
+				"m+": this.getMinutes(), 
+				"s+": this.getSeconds(), 
+				"q+": Math.floor((this.getMonth() + 3) / 3), 
+				"S": this.getMilliseconds() 
+			} 
+			if (/(y+)/.test(format)) { 
+				format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length)); 
+			} 
+			for (var k in o) { 
+				if (new RegExp("(" + k + ")").test(format)) { 
+					format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)); 
+				} 
+			} 
+			return format; 
+		} 
+		
+		function getFormatDateByLong(l, pattern) { 
+			return new Date(l).format(pattern); 
+		}
+    	function gettypenum(id ,type ){
+    		$('#'+id).html($('#'+type+'_num_label').html());
+    	}
+        gettypenum('adviser_count','adviser');
+    	function loadData(p){
+			var orgId=$("#orgId").val();
+			var jsurl = "http://itougu.jrj.com.cn/organization/live/live_"+orgId+"_"+p+".js";
+			var dataTag = 0;
+			//$.getScript(jsurl, function() {
+			$.ajax({
+				type : "get",
+				url : jsurl,
+				async : false,
+				dataType : "script",
+				timeout : 10000,
+				success : function(d, textStatus) {
+				if (typeof(liveInfo)!='undefined' && liveInfo!=null && liveInfo!='null' && liveInfo!=undefined && liveInfo!='' ) { 
+					dataTag = 1;
+					//$("#pagerId").show();
+					$("#tit").addClass("agency-block-zhibo");
+					$("#dataDivId").show();
+					$("#firstId").show();
+					$('#blankDivId').hide();
+					if(p==1){
+						var fstContent = new StringBuffer();
+						fstContent.append('<div class="live-cont clearfix">');
+						fstContent.append('<img src="http://js.jrjimg.cn/zqt-red-1000/images/v2/pic_01.jpg" class="fl" style="width:100px; height:100px;">');
+						fstContent.append('<div class="fl">');
+						fstContent.append('<p class="txt-tit"><a href="/account/adviser/'+liveInfo.list[0].userId+'/3"  target="_blank">');
+						if(liveInfo.list[0].zhibo_isopen==1)
+							fstContent.append('正在直播：');
+						else
+							fstContent.append('历史直播：');
+						fstContent.append(liveInfo.list[0].zhibo_title+'</a></p>');
+						fstContent.append('<p class="txt-info" style="margin-top: 13px;">');
+						//fstContent.append('<span><em class="hot">'+liveInfo.list[0].uv_show+'</em>人气</span>');
+						//fstContent.append('<span style="displya:none;"><em class="hot">'+liveInfo.list[0].praise_num+'</em>人支持</span>');
+						//fstContent.append('<span><em class="hot">'+liveInfo.list[0].talk_num+'</em>条互动消息</span>');
+						fstContent.append('</p>');
+						if(liveInfo.list[0].zhibo_isopen==1)
+							fstContent.append('<a href="/account/adviser/'+liveInfo.list[0].userId+'/3" class="red-btn" target="_blank">我要参与</a>');
+						else
+							fstContent.append('<a href="'+liveInfo.list[0].url+'" class="red-btn" target="_blank">查看详情</a>');
+						fstContent.append('</div>');
+						fstContent.append('</div>');
+						$('#firstId').empty().append(fstContent.toString());
+					}
+					
+					var content = new StringBuffer();
+					$.each(liveInfo.list, function(idx, obj){
+							if(p==1&&idx==0)
+								return true;
+							content.append('<li class="clearfix">');
+							content.append('<div class="col-1"><a href="/account/adviser/'+obj.userId+'/" class="avatar" target="_blank"><img class="tgHeadImage" src="'+obj.headImage+'" aitgid="'+obj.userId+'" /></a></div>');
+							content.append('<div class="col-2"><a href="/account/adviser/'+obj.userId+'/" target="_blank">'+obj.userName+'</a></div>');
+							if(obj.zhibo_isopen==1){
+								content.append('<div class="col-4"><div class="tit-wrap" style="display:none;"><a href="/account/adviser/'+obj.userId+'/3"  target="_blank" data-cutoff="true" data-cutoff-limit="56" title="'+obj.zhibo_title+'">'+obj.zhibo_title+'</a></div></div>');
+								content.append('<div class="col-5"><a href="/account/adviser/'+obj.userId+'/3" class="btn btn-88-30" target="_blank">我要参与</a></div>');
+							}else{
+								content.append('<div class="col-4"><div class="tit-wrap" style="display:none;"><a href="'+obj.url+'"  target="_blank" data-cutoff="true" data-cutoff-limit="56" title="'+obj.zhibo_title+'">'+obj.zhibo_title+'</a></div></div>');
+								content.append('<div class="col-5"><a href="'+obj.url+'" class="btn btn-88-30" target="_blank">查看详情</a></div>');
+							}
+							content.append('</li>');
+					});
+					$('#contentList').empty().append(content.toString());
+					
+					$('#lives_count').html(liveInfo.live_total_num);
+					
+					F.hoverCls( '.tgHeadImage' , 'aitgid' );
+					
+					$("#pagerId").pagefoot({
+			            pagesize:10,
+			            count:liveInfo.num<200?liveInfo.num:200,
+			            css:"",
+			            current : p,
+			            displaynum : 5,
+			            displaylastNum :2,
+			            previous:"上一页",
+			            next:"下一页",
+			            enableArrowKey: true,
+			            paging:function(page){
+		            		var p = page.current;
+		            		loadData(p)
+		            		window.location.hash="tit";
+			            }
+			        });
+				}
+				}
+			});	
+			if(dataTag == 0){
+				$("#dataDivId").hide();
+				$("#firstId").hide();
+				$("#tit").removeClass("agency-block-zhibo")
+				$('#blankDivId').empty().append('<div class="empty-cont">机构正在酝酿精品内容</div>');
+				$('#blankDivId').show();
+				//$("#pagerId").hide();
+			}
+		}
+    
+        $(function () {
+            //'hover' for zhibo
+            $('#live-event ul li').live('mouseenter', function () {
+                $(this).addClass('hover').siblings().removeClass('hover');
+            }).live('mouseleave', function () {
+                $(this).removeClass('hover');
+            });
+        });
+
+        seajs.use(['ExpandHelper'], function (expandHelper) {
+            expandHelper.execute({
+                selector: '#intro',
+                minHeight: 110
+            });
+        });
+        
+    </script>
+    <!--页面js: end-->
+    <!--common-footer-v2.html start-->
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+    <!--common-footer-v2.html end-->
+</body>
+</html>

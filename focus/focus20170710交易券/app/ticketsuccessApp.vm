@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>兑现成功</title>
+  <style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#333; text-decoration: none; }
+a:hover{text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333; }
+body{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+
+.main { margin: 1.6rem .75rem; background: linear-gradient(to bottom right,#ff4040,#c048bf);color: #fff;border-radius: 3px;}
+.main .content-1 { font-size: 1.25rem;padding-top: 1rem;text-align: center;}
+.main .content-2 { font-size: 1rem;text-align: center;padding-top: 0.75rem;padding-bottom: 0.9rem;}
+.main .content-2 span {font-size: 1.6rem;}
+.main .content-3 { border-top: 1px dashed #fff;margin: 0 .3rem;font-size: .6rem;text-align: center;line-height: 1.4rem;}
+.dibu {text-align: center;margin-top: 1.7rem;}
+.dibu a{ font-size:.75rem;color: #3c80f0;text-decoration: underline;}
+
+  </style>
+ </head>
+ <body>
+
+<div class="main">
+  <p class="content-1">兑现成功！</p>
+  <p class="content-2"><span></span>元</p>
+  <p class="content-3">在“我的红包”中查看兑现总金额，可随时提现</p>
+</div>
+
+<div class="dibu">
+  <a href="http://itougu.jrj.com.cn/match/v7/h5/myRedList.jspa">我的红包</a>
+</div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+<script>
+$(function(){
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    var ssoId = '${ssoId}',spToken=encodeURIComponent('${spToken}');
+    $('.content-2 span').html(getQueryString('ticketPrice'));
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+    //我的可兑现券列表
+    $.ajax({
+        url:'https://t.jrj.com.cn/activities/ticket/queryMyTickets?status=0&ssoId='+ssoId+'&spToken='+spToken,
+        type:"get",
+        cache : false,
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        success:function(v) {
+             console.log(v);
+            console.log(v);
+            if(v.retcode==0){
+                if(v.data.items.length==0){
+                    $('.noquan').show();
+                    return;
+                }
+                var str='';
+                for(var i=0;i<v.data.items.length;i++){
+                    var o=v.data.items[i];
+                    str+='<li data-ticketNo="'+o.ticketNo+'" data-ticketType="'+o.ticketType+'"><div class="quan"><div class="fl meg"><div class="up clearfix"><em>￥</em><b>'+changeprice(o.ticketPrice)+'</b><div class="tit"><h3>'+o.ticketName+'</h3><time>有效期至：'+hahatime(o.endTime)+'</time></div></div><p class="tips">'+o.ticketDetail+'</p></div><div class="fr aside"><span>兑现</span><em></em></div></div></li>'
+                }
+                $('.myticketlist').html(str);
+            }    
+        },
+        error : function() {
+             
+        }
+    });
+   function changeprice(n){
+      n=n.substring(0,n.indexOf('.'));
+      return n;
+     
+    }
+});
+
+  </script>
+ </body>
+</html>

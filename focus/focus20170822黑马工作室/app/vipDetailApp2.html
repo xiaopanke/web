@@ -1,0 +1,357 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>AI尊享工作室</title>
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <link href="http://i0.jrjimg.cn/zqt-red-1000/focus/zdcp_20170605/h5/css/animate.mini.css" rel="stylesheet" />
+    <script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/flexible.js"></script>
+<style type="text/css">* {-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td {margin: 0;padding: 0;}address,cite,em,i {font-style: normal;}body {-webkit-appearance: none;background: #ffffff;}li {list-style: none;}a {color: #000;text-decoration: none;}a:hover {text-decoration: none !important;}img {vertical-align: top;border: 0;}input[type="button"],input[type="submit"],input[type="reset"] {cursor: pointer;}input {outline: none;border: none;background-color: transparent;color: #fff;FILTER: alpha(opacity=0);appearance: none;-moz-appearance: none;-webkit-appearance: none;border-radius: 0;}html,body {font: 'Microsoft Yahei';color: #000;}body {background: #fff;}
+.clearfix:after {display: block;content: '';clear: both;}
+.banner {width: 100%;height: 3.98rem;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/banner-img.jpg) no-repeat;background-size: 100% 100%;position: relative;}
+.banner a {width: 3.66rem;height: 0.66rem;position: absolute;bottom: 0;left: 0;}
+.vip-box {width: 100%;position: relative;}
+.vip-box h3 {width: 90%;padding: 0 5%;margin-top: 0.53rem;font-weight: normal;font-size: 0.5rem;}
+.vip-box h3 i {width: 0.13rem;height: 0.32rem;display: inline-block;margin-right: 0.21rem;background-color: #e3b45e;}
+.vip-box h4 {width: 80%;padding: 0 10%;margin-top: 0.5rem;font-weight: normal;font-size: 0.45rem;text-align: center;}
+.vip-box h4 span {height: 0.15rem;width: 0.53rem;border-top: 0.5px #888 solid;display: inline-block;margin: 0 0.3rem;}
+.vip-box h4 p {display: inline-block;color: #444;position: relative;padding-left: 0.86rem;}
+.vip-box h4 i {width: 0.53rem;height: 0.53rem;display: inline-block;position: absolute;top: 0.05rem;left: 0;}
+.vip-box-con1 {width: 80%;padding: 0 10%;display: flex;margin-top: 0.63rem;}
+.vip-box-con1 span {width: 2.3rem;height: 0.58rem;line-height: 0.6rem;background-color: #e1b05f;color: #fff;text-align: center;font-size: 0.33rem;border-radius: 0.3rem;margin: 0 0.1rem;}
+.vip-box .vip-tit {text-align: center;font-size: 0.35rem;color: #888;line-height: 0.5rem;margin: 0.66rem 0 0.41rem 0;}
+.vip-box-con2 {width: 90%;margin: 0.46rem 5% 0 5%;background-color: #f6f6f6;float: left;}
+.vip-box-con2 ul {width: 100%;/*margin: 0 2.5%;*/padding: 0 0 0.5rem 0;float: left;}
+.vip-box-con2 ul li {width: 25%;float: left;font-size: 0.33rem;text-align: center;margin: 0.55rem 0;height: 1rem;}
+.vip-box-con2 ul li span {width: 100%;float: left;text-align: center;padding: 0.15rem;color: #555;}
+.vip-box-con2 ul li div {float: left;width: 0.8rem;height: 0.8rem;margin-left: 0.81rem;}
+.vip-box>p {font-size: 0.36rem;color: #555;width: 90%;padding: 0 5%;margin-top: 0.53rem;line-height: 0.64rem;}
+.vip-box>p em {font-style: italic;font-weight: bold;}
+.vip-box-con3 {width: 90%;padding: 0 5%;text-align: center;margin: 0.53rem 0;position: relative;}
+.vip-box-con3 h5 {font-size: 0.37rem;background-color: #e5b65e;width: 80%;padding: 0.13rem 0.26rem;margin: 0 auto;border-radius: 0.13rem;color: #fff;position: relative;z-index: 2;}
+.vip-box-con3 p {text-align: center;width: 80%;margin: 0 3%;padding: 0.4rem 7% 0.2rem 7%;background-color: #f8ecd5;font-size: 0.37rem;color: #555;position: relative;top: -0.26rem;z-index: 1;border-radius: 0.13rem;}
+.vip-box-ul {width: 80%;padding: 0 12% 0 8%;margin: 0.26rem 0;}
+.vip-box-ul li {font-size: 0.37rem;color: #555;}
+.vip-box-ul li a { color: #555; text-decoration: underline; }
+.vip-box-ul li i {width: 0.33rem;display: inline-block;}
+.vip-box-ul li span {color: #ff4040;}
+.vip-btn {width: 100%;height: 1.3rem;margin-top: 0.53rem;position: fixed;bottom: -2px;left: 0;z-index: 5;display: none;}
+.vip-btn span {width: 70%;background-color: #fff;text-align: center;line-height: 1.3rem;float: left;font-size: .45rem;color: #ff5151;}
+.vip-btn button {width: 30%;line-height: 1.3rem;text-align: center;float: left;font-size: 0.37rem;color: #fff;border: none;outline: none;background-color: #ff5151;}
+.vip-btn button i {width: 0.16rem;height: 0.3rem;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/icon4.png) no-repeat;display: inline-block;background-size: 100% 100%;margin-left: 0.3rem;margin-top: -0.5rem;}/*评测*/.testTips,.goDownload {width: 9rem;height: 7.24rem;position: fixed;top: 50%;left: 50%;margin-top: -3.61rem;margin-left: -4.5rem;background: #fff;border-radius: 0.1rem;display: none;z-index: 9999;}
+.goDownload {display: none;height: 5.6rem;margin-top: -2.8rem}
+.tips {width: 9rem;min-height: 4.25rem;border-bottom: 1px solid #d6d6d6;}
+.tips-info {padding: 0.8rem;font-size: 0.4rem;color: #333333;line-height: 0.6rem}
+.btn-group {width: 9rem;height: 1.35rem;}
+.btn {width: 4.4rem;height: 1.35rem;line-height: 1.35rem;text-align: center;float: left}
+.quit {border-right: 1px solid #d6d6d6;font-size: 0.42rem;color: #aaaaaa}
+.go-test,.download {font-size: 0.42rem;color: #3996F2}
+.authIdentity,.phoneIdentity {width: 9rem;height: 5.4rem;position: fixed;top: 50%;left: 50%;margin-top: -2.7rem;margin-left: -4.5rem;background: #ffffff;border-radius: 0.1rem;display: none;z-index: 9999;}
+.authIdentity-tips {width: 9rem;height: 4rem;border-bottom: 1px solid #d6d6d6}
+.identity-btn,.phone-btn {width: 9rem;height: 1.4rem;line-height: 1.4rem;text-align: center;color: #3996F2;font-size: 0.42rem}
+.mask {display: none;position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 20;}
+.vip_bg { background-color: #f6f6f6; width: 100%; height: 0.26rem; }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <a href="http://itougu.jrj.com.cn/activity/app/vipapp.jspa">&nbsp;</a>
+    </div>
+    <div class="vip-box">
+        <h3><i></i>核心价值</h3>
+        <h4><span></span><p><i style='background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/icon1.png) no-repeat; background-size: 100% 100%;'></i>三种策略股票池</p><span></span></h4>
+        <div class="vip-box-con1">
+            <span>中线黑马</span>
+            <span>波段优选</span>
+            <span>主力控盘</span>
+            <span>热点狙击</span>
+        </div>
+        <p class="vip-tit">热点+波段交易<br />我们只优选最适合您的策略进行操作</p>
+        <h4 style="margin-top:0.6rem;"><span></span><p><i style='background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/icon2.png) no-repeat; background-size: 100% 100%;'></i>尊享服务</p><span></span></h4>
+        <div class="vip-box-con2 clearfix" style="margin-bottom: 0.5rem;">
+            <ul>
+                <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i9.png" /><span>理财配置</span></li>
+                <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i10.png" /><span>解套方案</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i1.png) no-repeat; background-size: 100% 100%;"></div><span>专家投顾</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i2.png) no-repeat; background-size: 100% 100%;"></div><span>7小时在线服务</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i3.png) no-repeat; background-size: 100% 100%;"></div><span>视频节目</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i4.png) no-repeat; background-size: 100% 100%;"></div><span>掘金报告</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i5.png) no-repeat; background-size: 100% 100%;"></div><span>投资训练营</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i6.png) no-repeat; background-size: 100% 100%;"></div><span>交易助手</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i7.png) no-repeat; background-size: 100% 100%;"></div><span>电话1对1</span></li>
+                <li><div style="background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/app/i8.png) no-repeat; background-size: 100% 100%;"></div><span>核心内参</span></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="vip_bg"></div>
+    <div class="vip-box">
+        <h3><i></i>团队介绍</h3>
+        <p style="width:85%;padding: 0 7.5%;margin-top:0.4rem;">量化至尊VIP工作室由首席投顾<em>尤勇</em>，投顾讲师<em>彭力</em>、研究所成员<em>黄维</em>、<em>任辰羽</em>，金融工程研究员<em>魏源</em>，<em>李超</em>、<em>孙鑫</em>组成的强大智能金融团队，团队成员全部拥有证券从业资质，其实战能力和金融研究功底早已得到市场认可.</p>
+        <div class="vip-box-con3">
+            <h5>智能金融团队以协助投资者创造价值为核心</h5>
+            <p>在准确把握行情趋势的基础上，实现无微不至的服务</p>
+        </div>
+    </div>
+    <div class="vip_bg"></div>
+    <div class="vip-box">
+        <h3><i></i>适合人群</h3>
+        <ul class="vip-box-ul" style="margin:0.26rem 0 0.7rem 0;">
+            <li>1. 资金量50万以上</li>
+            <li>2. 短线或中线的进取型投资者</li>
+            <li>3. 能够认同产品的投资理念</li>
+        </ul>
+    </div>
+    <div class="vip_bg"></div>
+    <div class="vip-box" style="margin-bottom:0.53rem;">
+        <h3><i></i>购买须知</h3>
+        <ul class="vip-box-ul">
+            <li>1. 为了保障您的权益，我们承诺5个工作日内无理由退款</li>
+            <li>2. 若遇到支付问题或其他疑问，请<a href="tel://400-166-1188">联系客服</a></li>
+            <!-- <li><i></i><span>400-166-1188</span></li> -->
+        </ul>
+    </div>
+    <div class="vip_bg" style="margin-bottom:1.3rem;"></div>
+    <div class="vip-btn">
+        <!-- <button type="button" name="button" style="background-color:#017cf4;">8800/季</button>
+        <button type="button" name="button" style="background-color:#ff4040;">29800/年</button> -->
+    </div>
+
+    <div class="mask"></div>
+    <div class="testTips">
+        <div class="tips">
+            <div class="tips-info">
+                在您购买或使用《量化黑马工作室》产品之前，需要填写《投资者风险承受能力问卷》。本问卷旨在了解您可承受的风险程度等情况，借此协助您选择合适的产品或服务类别，以符合您的风险承受能力。还请您认真填写。如需帮助请咨询客服。客服电话：400-166-1188
+            </div>
+        </div>
+        <div class="btn-group">
+            <div class="quit btn">退出</div>
+            <a class="test">
+                <div class="go-test btn">进入测评</div>
+            </a>
+        </div>
+    </div>
+    <div class="goDownload">
+        <div class="tips">
+            <div class="tips-info">
+                请下载金融界App完成购买。
+            </div>
+        </div>
+        <div class="btn-group">
+            <div class="quit btn">退出</div>
+            <a class="test">
+                <div class="download btn">前去下载</div>
+            </a>
+        </div>
+    </div>
+    <div class="authIdentity">
+        <div class="authIdentity-tips">
+            <div class="tips-info">系统检测到您的信息不全，为保障您的权益，请先补充真实身份信息后再进行购买，如需帮助请咨询客服。客服电话:400-166-1188</div>
+        </div>
+        <a class="auth">
+            <div class="identity-btn">
+                立即认证
+            </div>
+        </a>
+    </div>
+    <div class="phoneIdentity">
+        <div class="authIdentity-tips">
+            <div class="tips-info">系统检测到您尚未绑定手机号码，为保障您的权益，请先绑定手机号码后再进行购买，如需帮助请咨询客服。客服电话:400-166-1188</div>
+        </div>
+        <a class="phone">
+            <div class="phone-btn">
+                立即绑定
+            </div>
+        </a>
+    </div>
+    <script src='http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js' type="text/javascript"></script>
+    <script>
+        $(function() {
+            window.dcsMultiTrack('DCS.dcsuri', 'page_vipinfo_in', 'WT.ti', 'page_vipinfo_in');
+            $('.banner a').click(function(){
+                window.dcsMultiTrack('DCS.dcsuri', 'click_vipinfo_what', 'WT.ti', 'click_vipinfo_what');
+            })
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+           function getCookie(name){
+               var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+               if(arr=document.cookie.match(reg)){
+                   if((unescape(arr[2])+'').length<18){
+                       return null
+                   }else{
+                       return unescape(arr[2]);
+                   }
+               }else{
+                   return null;
+               }
+           }
+            window.passportId = getCookie('passportId');
+            window.devId = getCookie('devid');
+            window.accessToken = getCookie('accessToken');
+            window.myStocks = [];
+            window.appver= getCookie('appver');
+
+            // if(window.passportId != null){
+            //     localStorage.passportId=getCookie('passportId');
+            //     localStorage.devId=getCookie('devid');
+            //     localStorage.accessToken=getCookie('accessToken');
+            //     localStorage.myStocks=[];
+            //     localStorage.appver=getCookie('appver');
+            // }
+            if (getQueryString('nextStep') == 'authIdentity') {
+                $.ajax({
+                    type: 'get',
+                    url: '//itougu.jrj.com.cn/account/service/identityHasVerified.jspa',
+                    dataType: 'json',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('passportId', window.passportId);
+                        xhr.setRequestHeader('accessToken', window.accessToken);
+                        xhr.setRequestHeader('DEVID', window.devId);
+                    },
+                    success: function(data) {
+                        if (data.data.bindingIdentity == 0) {
+                            $('.mask').css('display', 'block');
+                            $('.authIdentity').css('display', 'block');
+
+                            var url = window.location.href + '?nextStep=goTest';
+                            $('.auth').attr('href', 'http://i.jrj.com.cn/home/app/nameIdentity?ReturnURL=' + encodeURIComponent(url));
+                            return;
+                        } else if (data.data.riskAssessed == 0) {
+                            $('.mask').css('display', 'block');
+                            $('.testTips').css('display', 'block')
+                        } else if (data.data.riskAssessed == 1) {
+                            window.location.href = 'http://itougu.jrj.com.cn/activity/app/strategyInfoNew.jspa#/riskResult?productId=100050009&reNew=5&type=' + getQueryString('type');
+                        }
+                    }
+                })
+            }
+
+            function contact(atype) {
+                $.ajax({
+                    type: 'get',
+                    url: '//itougu.jrj.com.cn/account/service/identityHasVerified.jspa',
+                    dataType: 'json',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('passportId', window.passportId);
+                        xhr.setRequestHeader('accessToken', window.accessToken);
+                        xhr.setRequestHeader('DEVID', window.devId);
+                    },
+                    success: function(data) {
+                        if (data.data.bindingMobile == 0) {
+                            //未绑定手机号未实名验证
+                            var url = window.location.href + '?nextStep=authIdentity&type=' + atype;
+                            $('.mask').css('display', 'block');
+                            $('.phoneIdentity').css('display', 'block');
+                            $('.phone').attr('href', 'http://i.jrj.com.cn/home/app/phoneIdentity?ReturnURL=' + encodeURIComponent(url));
+                            return;
+                        } else if ((data.data.bindingMobile == 1) && (data.data.bindingIdentity == 0) && (data.data.riskAssessed == 1)) {
+                            //已绑定手机号未绑定实名信息已测评
+                            $('.mask').css('display', 'block');
+                            $('.authIdentity').css('display', 'block');
+
+                            var url = 'http://itougu.jrj.com.cn/activity/app/strategyInfoNew.jspa#/riskResult?productId=100050009&reNew=5&type=' + atype
+                            $('.auth').attr('href', 'http://i.jrj.com.cn/home/app/nameIdentity?ReturnURL=' + encodeURIComponent(url));
+                        } else if ((data.data.bindingMobile == 1) && (data.data.bindingIdentity == 0) && (data.data.riskAssessed == 0)) {
+                            //已经绑定手机号未绑定身份信息未测评
+                            var url = window.location.href + '&nextStep=goTest';
+
+                            $('.mask').css('display', 'block');
+                            $('.authIdentity').css('display', 'block');
+                            $('.auth').attr('href', 'http://i.jrj.com.cn/home/app/nameIdentity?ReturnURL=' + encodeURIComponent(url))
+                            return
+                        } else if ((data.data.bindingMobile == 1) && (data.data.bindingIdentity == 1) && (data.data.riskAssessed == 0)) {
+                            //已绑手机号已验证实名未测评
+                            $('.mask').css('display', 'block');
+                            $('.testTips').css('display', 'block')
+                            $('.testTips .go-test').attr('atype', atype);
+                        } else if ((data.data.bindingMobile == 1) && (data.data.bindingIdentity == 1) && (data.data.riskAssessed == 1)) {
+                            window.location.href = 'http://itougu.jrj.com.cn/activity/app/strategyInfoNew.jspa#/riskResult?productId=100050009&reNew=5&type=' + atype
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        //                            alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.readyState + ' ' + textStatus);
+                        //                $('.mask').css('display', 'block');
+                        //                $('.newError').css('display', 'block')
+                    }
+                })
+            }
+
+
+
+            $('.go-test').click(function() {
+                var atype = $(this).attr('atype');
+                var url = 'http://itougu.jrj.com.cn/activity/app/strategyInfoNew.jspa#/riskResult?productId=100050009&reNew=5&type=' + atype
+                window.location.href = 'http://i.jrj.com.cn/home/app/fxcpNotes?layer=0&ReturnURL=' + encodeURIComponent(url);
+            })
+
+            $('.quit').click(function() {
+                $('.testTips').css('display', 'none');
+                $('.goDownload').css('display', 'none');
+                $('.mask').css('display', 'none');
+            })
+
+
+            var tgid = getQueryString('tgid');
+            var passportId = getCookie('passportId');
+            $.ajax({
+                url: 'http://itougu.jrj.com.cn/xlive/vipShopInfo.jspa?adviserId=' + tgid,
+                type: "get",
+                cache: false,
+                success: function(data) {
+                    var htmls = "";
+                    if (data != null) {
+                        for (var i = 0; i < data.length; i++) {
+                            if(data[i].type == 4){
+                                htmls += '<span>' + parseFloat(data[i].price) + '/' + data[i].priceUnit + '</span>';
+                                htmls += '<button type="button" name="button" atype="' + parseInt(data[i].type) + '">立即购买</button>';
+                            }
+                        }
+                        $('.vip-btn').html(htmls).show();
+                        $('.testTips .go-test').attr('atype', $(".vip-btn button").attr('atype'));
+                        if (getQueryString('nextStep') == 'goTest') {
+                           $('.mask').css('display', 'block');
+                           $('.testTips').css('display', 'block')
+                       }
+                        $(".vip-btn button").bind('click', function() {
+                            var atype = $(this).attr('atype');
+                            if(atype == 2){
+                                window.dcsMultiTrack('DCS.dcsuri', 'click_vipinfo_3M', 'WT.ti', 'click_vipinfo_3M');
+                            }else if(atype == 4){
+                                window.dcsMultiTrack('DCS.dcsuri', 'click_vipinfo_1Y', 'WT.ti', 'click_vipinfo_1Y');
+                            }
+                            if (window.passportId != null) {
+                                contact(atype);
+                            } else {
+                                jrj.jsCallNative(108, JSON.stringify({
+                                    url: 'http://itougu.jrj.com.cn/live/'+tgid
+                                }));
+                            }
+                        })
+                    } else {
+                        //alert(data);
+                        if(data == null){
+                            alert('获取数据出错，请稍后再试！');
+                        }
+                    }
+                },
+                error: function() {
+                    alert('error');
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>

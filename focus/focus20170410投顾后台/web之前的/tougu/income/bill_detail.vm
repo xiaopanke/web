@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的收入-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css_js.html" -->
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+	<script type="text/javascript" src="http://js.jrjimg.cn/itougu/account/webpage.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+
+
+
+            /* $('.icon-tooltip').tooltipster({
+                theme: 'tooltipster-light'
+            }); */
+        });
+        
+		var page;  
+        
+		window.onload = function () {  
+			if (document.getElementById('billDetailTable')) {  
+				page = new PagingClass(20, 'billDetailTable', 'billDetailTableBody');  
+				$(".pager").find("a").eq(1).addClass("cur");
+				initClass(1);
+				//document.getElementById('pageindex').innerHTML = page.pageIndex + 1 + ' / ' + page.pageCount;  
+			}  
+		};  
+		
+		function nextPage() {  
+			page.nextPage();  
+			initClass(Number(page.pageIndex)+1);
+			//document.getElementById('pageindex').innerHTML = page.pageIndex + 1 + ' / ' + page.pageCount;  
+		}  
+		
+		function prePage() {  
+			page.prePage();  
+			initClass(Number(page.pageIndex)-1);
+			//document.getElementById('pageindex').innerHTML = page.pageIndex + 1 + ' / ' + page.pageCount;  
+		}
+		
+		function turnPage(a) {
+			var flag = $(a).hasClass("cur");
+			if(flag)
+				return;
+			$(".pager").find("a").removeClass("cur");
+			$(a).addClass("cur");
+			var pageNo = Number($(a).text())-1;
+			page.aimPage(pageNo);
+			initClass(pageNo+1);
+		}
+		
+		function initClass(pageNo) {
+			var totalPage = page.pageCount;
+			var totalCount = page._rowCount;
+			var html = "";
+			html += '<a class="prev" onclick="prePage();">上一页</a>';
+			if(pageNo<=5&&totalPage>=5) 
+				html += createPageHtml(1, 6);
+			else if(pageNo<=5&&totalPage<=5) 
+				html += createPageHtml(1, totalPage+1);
+			else if(pageNo>5&&pageNo<totalPage-5) 
+				html += createPageHtml(pageNo-2, totalPage+3);
+			else if(pageNo>=totalPage-5) 
+				html += createPageHtml(totalPage-4, totalPage+1);
+			html += '<a class="next" onclick="nextPage();">下一页</a>';
+			html += '<span class="total">共 '+totalCount+' 条记录</span>';
+			$(".pager").html(html);
+			if(pageNo==1)
+				$(".pager").find("a").first().addClass("prev-disable");
+			if(pageNo==totalPage) 
+				$(".pager").find("a").last().addClass("next-disable");
+			$(".pager").find("a[title='"+pageNo+"']").addClass("cur");
+		}
+		
+		function createPageHtml(start, end) {
+			var html = "";
+			for(var i=start;i<end;i++) {
+				html += '<a href="javascript:;" onclick="turnPage(this);" title="'+i+'">'+i+'</a>'
+			}
+			return html;
+		}
+    </script>
+</head>
+<body>
+    <!--site-top-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-header-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">金融界爱投顾</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+            <!--site-main-left-->
+	        <!--# include virtual="/tgself.html" -->
+	        <!--site-main-left-->
+            <!--site-main-right-->
+            
+            <div class="site-main-right">
+                <h1 class="page-title-2 page-title-2-float clearfix">
+                    <a href="/account/income/bill.jspa" class="link fr f14">返回</a>
+                    <span>$!request.getParameter("month")月账单明细</span>
+                </h1>
+                <!-- 
+                <div class="revenue-subtab mt20">
+                    <a href="" class="cur">奖金</a>
+                    <span class="split">|</span>
+                    <a href="/account/income/billOrderDetail.jspa?type=3&billId=$!request.getParameter('billId')">组合跟投</a>
+                </div>
+                 -->
+                #if($!list.size()==0)
+                	<div class="empty-wrap middle tc f16">
+                		<img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png">
+                		<span class="ml10">暂无数据</span>
+                	</div>
+	            #else
+                <div class="revenue-summary-s2">
+                    <span class="mr40">奖金汇总：<span class="red">$!bill.total_reward_display</span></span>
+                    <span class="mr40">投顾奖金：<span class="red">$!bill.adviser_reward_display</span></span>
+                    <span class="mr40">经纪奖金：<span class="red">$!bill.invite_reward_display</span></span>
+                </div>
+                <table class="table-general table-general-p3" id="billDetailTable">
+                    <thead>
+                        <tr>
+                            <th class="tc" style="width:55px;">客户</th>
+                            <th class="tc">证券公司</th>
+                            <th class="tc">总资产</th>
+                            <th style="text-align: right;">交易金额(万元)</th>
+                            <th style="text-align: right;" style="width:60px;">交易费用(元)</th>
+                            <th style="text-align: right;" style="width:60px;">投顾奖金</th>
+                            <th style="text-align: right;" style="width:60px;">经纪奖金</th>
+                            <th style="text-align: right;" style="width:60px;">奖金汇总</th>
+                            <!-- <th class="tc last">详细</th> -->
+                        </tr>
+                    </thead>
+                    <tbody id="billDetailTableBody">
+                    	#foreach($detail in $list)
+                        <tr
+	                        #if($velocityCount%2==0)
+	                        	class="alt"
+	                        #end
+                        >
+                            <td class="tc"><!-- <a href="#" class="link"> -->$!detail.user_name<!-- </a> --></td>
+                            <td class="tc">$!detail.broker_name</td>
+                            <td class="tc middle"><span class="icon icon-tooltip $!detail.iconCss mytooltip" content="$!detail.balanceTitle">$!detail.balanceDesc</span></td>
+                            <td class="tr">$!detail.sumDealTotalFeeDisplay</td>
+                            <td class="tr">$!detail.sumDealFeeDisplay</td>
+                            <td class="tr">$!detail.sumAdviserRewardDisplay</td>
+                            <td class="tr">$!detail.sumInviteRewardDisplay</td>
+                            <td class="tr">$!detail.sumTotalRewardDisplay</td>
+                            <!-- <td class="tc last"><a href="/account/income/billIncomeDetail.jspa?billId=$!detail.bill_id&userId=$!detail.user_id&brokerId=$!detail.broker_id" target="_blank" class="link">详细</a></td> -->
+                        </tr>
+                        #end
+                        <!-- <tr class="alt">
+                            <td class="tc"><a href="#" class="link">秦大山儿</a></td>
+                            <td class="tc">西南药业</td>
+                            <td class="tc middle"><span class="icon icon-middle">中</span></td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tc last"><a href="#" class="link">详细</a></td>
+                        </tr>
+                        <tr>
+                            <td class="tc"><a href="#" class="link">秦大山儿</a></td>
+                            <td class="tc">西南药业</td>
+                            <td class="tc middle"><span class="icon icon-small">小</span></td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tc last"><a href="#" class="link">详细</a></td>
+                        </tr>
+                        <tr class="alt">
+                            <td class="tc"><a href="#" class="link">秦大山儿</a></td>
+                            <td class="tc middle">西南药业</td>
+                            <td class="tc"><span class="icon icon-small">小</span></td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tr">938.32</td>
+                            <td class="tc last"><a href="#" class="link">详细</a></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div class="pager">
+                    <!-- <a class="prev prev-disable">上一页</a>
+                    <a class="cur">1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a class="dot">...</a>
+                    <a>125</a>
+                    <a class="next">下一页</a>
+                    <span class="total">共 44 条记录</span> -->
+                </div>
+                #end
+            </div>
+
+        </div>
+        <!--site-main-right-->
+    </div>
+
+    <!--footer-->
+    <!--\#include virtual="/common_footer.html" -->
+    <!--footer-->
+</body>
+</html>

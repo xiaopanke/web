@@ -1,0 +1,476 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>银行鉴权</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="https://i0.jrjimg.cn/zqt-m/quanerong/qer_base.css" />
+<style>
+input{ font-size:.8rem; color:#333;}
+.up{ height:4rem; width:100%; background:#fff url(https://i0.jrjimg.cn/zqt-m/quanerong/img2.png) no-repeat center; background-size: 13.45rem 2.5rem;} 
+.item1{ background:#fff; margin-bottom: 1.5rem;}
+.item1 ul{ padding-left: .6rem;}
+.item1 ul li{padding:.75rem 0;}
+.item1  .name{ width:4rem; color:#888;}
+.item1 .txtbox{ width:11.95rem; position:relative;}
+.item1 input{ font-size:.7rem; color:#333; width:13rem; line-height: 1rem;}
+.item1 .codenum{ width:8rem;}
+.item1 .phone{ width:8rem;}
+.codebtn{ width:5rem; text-align: center; color:#3996F2;}
+.codebtn.dis{color:#ccc;}
+.item1 .codebox{ width:6rem;}
+.phonebox .name{width:8rem;}
+.phonebox .txtbox{ width: 8rem;}
+.closetel{ position: absolute;width:3rem;height:3rem;  top:-.7rem;  right:-.6rem; }
+.closetel i{  background:url(https://i0.jrjimg.cn/zqt-m/quanerong/close.png); background-size: 100% 100%; display: block;width: .8rem; height: .8rem; margin:0 auto;margin-top: 1.5rem;display:none;}
+.txtbox .closetel{ right:-2rem; height:2rem;}
+.txtbox .closetel i{ margin-top:.8rem;}
+
+
+/*弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 10; display:none;}
+.layer{display:none;width: 16.75rem;height: 10.25rem;background:#f5f5f5;position: fixed;top: 50%;left: 50%;margin-top: -5.125rem;margin-left: -8.375rem;z-index: 10;color: #000;animation: haha .3s linear; background-size: 100% 100%; border-radius:4px;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.layer .allb{margin-bottom:.5rem;}
+.layer .allb:before{border-radius:4px; border-color:#e2e2e2;}
+.layer h3{ color:#F24439;font-size:.7rem;padding:1rem;  font-weight:normal;}
+.layer .in{ margin:0 .5rem; }
+.layer .codeimgbox input{font-size: .75rem; padding-left: .5rem; width:10rem;  height: 2.5rem; background: #fff; box-sizing:border-box; border-radius: 4px;}
+.layer .codeimgbox .img{ width: 5rem; height: 2.5rem; background:#fff;}
+.layer .codeimgbox img{display:block; width: 5.25rem; height: 2.5rem;width:100%; height:100%; }
+.layer .dlg-btn-wrap{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;display: flexbox;display: box; position:absolute;bottom:0;left:0;width:100%;}
+.layer .dlg-con .dlg-btn {height:2.5rem;line-height:2.5rem;text-align:center;font-size:.8rem;color:#3996F2;-webkit-box-flex:1;-webkit-flex:1;-moz-flex:1;-ms-flex:1;flex:1;}
+
+/*验证手机框框*/
+.layer_phone{ height:14rem; margin-top:-7rem; background:#f5f5f5;}
+.layer_phone h3{ color:#333;}
+.layer_phone .in{ position:relative;}
+.yz_phone{font-size: .75rem;padding-left: .5rem;height: 2.5rem;background: #fff;box-sizing: border-box;border-radius: 4px;  width:100%; }
+.phone_yz_btn {width: 5.25rem;line-height: 2.5rem;color: #3996F2;font-size: .8rem;float: right;text-align: center;border-radius: 4px; background:#fff;}
+.phone_yz_btn.dis{color:#ccc;}
+.phone_yz_btn:before{ border-color:#e2e2e2; border-radius:8px;}
+.layer_phone .btn{ width:100%; margin-top:.5rem;}
+.closebtn{ position:absolute; top:-2.4rem;left:.5rem;width:1.4rem; height:2.4rem; background:url(img/closeph.png) no-repeat; background-size: 100% 100%; }
+
+.layer_succ{ height:9.5rem; margin-top:-4.75rem;}
+.layer_succ h4{ text-align:center; padding-top:1.5rem; font-size:.8rem;}
+.layer_succ h3{ color:#333;}
+.layer_succ .dlg-btn{ line-height:2.5rem; text-align:center; display:block; width:100%; color:#3996F2; font-size:.8rem;}
+</style>
+<script src="qer_base.js"></script>
+<body>
+    <div class="up"></div>
+   <div class="item1">
+       <ul class="bbt">
+           <li class="clearfix b">
+               <span class="fl name">银行卡户名</span>
+               <div class="fl txtbox"><input type="text" placeholder="输入您的姓名" class="username" maxlength="50"></div>
+           </li>
+           <li class="clearfix b">
+               <span class="fl name">银行卡号</span>
+               <div class="fl txtbox"><input type="tel" placeholder="输入银行卡号" class="banknum" maxlength="50" autocomplete="off"></div>
+           </li>
+           <li class="clearfix">
+               <span class="fl name">身份证号</span>
+               <div class="fl txtbox"><input type="text" placeholder="输入身份证号码" class="idnum" maxlength="18" autocomplete="off"></div>
+           </li>
+        </ul>
+        <ul class="bbt box">   
+           <li class="clearfix b">
+               <span class="fl name">预留手机号</span>
+               <div class="fl txtbox"><input type="tel" placeholder="请输入银行预留手机号码" class="phone boxin" maxlength="11" autocomplete="off"><em class="closetel"><i style="display:line"></i></em></div>
+           </li>
+           <li class="clearfix">
+               <span class="fl name">短信验证码</span>
+               <div class="fl txtbox codebox"><input type="text" placeholder="输入您收到的验证码" class="codenum" maxlength="6"></div>
+               <em class="codebtn fr l dis btncolor">获取验证码</em>
+           </li>
+       </ul>
+   </div>
+   <span class="btn red btn1">下一步</span>
+   <div class="tiperror"></div>
+   <div class="mask"></div>
+<!--图片验证码框-->
+<div class="layer layer_yz">
+    <div class="dlg-con">
+        <h3>短信验证码输入错误超过3次，请输入验证码再操作</h3>
+        <div class="in">
+           <div class="codeimgbox clearfix">
+            <div class="allb fl"><input type="text" class="fl picnum" placeholder="请输入验证码"  maxlength="4" /></div><div class="img fr allb"></div>
+          </div>         
+        </div>
+      <div class="dlg-btn-wrap t">
+          <a class="dlg-btn dlg-close r">取消</a>
+          <a class="dlg-btn yz_submit">确认</a>
+      </div>
+  </div>
+</div>
+<!--验证手机框框-->
+<div class="layer layer_phone">
+    <i class="closebtn"></i>
+    <h3>您绑定平安证券的手机号和银行预留手机号不一致，需要您对绑定平安证券的手机号进行验证</h3>
+    <div class="in box">
+      
+        <div class="allb "><input type="tel"  maxlength="11" class="yz_phone boxin" placeholder="请输入绑定平安证券的手机号" autocomplete="off" /><em class="closetel"><i style="display:line"></i></em></div>
+      <div class="codeimgbox clearfix ">
+        <div class="allb fl"><input type="text" class="fl yz_codenum" placeholder="请输入验证码"  maxlength="6" /></div><span class="fr phone_yz_btn allb dis btncolor">发送验证码</span>
+      </div>
+      <span class="btn red phone_yz_submit">提交</span>
+    </div>
+</div>
+<!--提交成功框-->
+<div class="layer layer_succ">
+    <h4>申请提交成功</h4>
+    <h3>预计三个工作日内审批完成，审批结果会第一时间短信通信您。</h3>
+    <div class="in">
+      <div class="dlg-btn-wrap t">
+          <a class="dlg-btn submit" href="qer_progress.html">知道了</a>
+      </div>
+    </div>
+</div>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+<script>
+    $(function(){ 
+        var codebtn=$('.codebtn'),phone=$('.phone'),username=$('.username'),banknum=$('.banknum'),idnum=$('.idnum'),codenum=$('.codenum'),btn1=$('.btn1'),picnum=$('.picnum'),picbtn=$('.picbtn'),yz_submit=$('.yz_submit'),yz_phone=$('.yz_phone'),yz_codenum=$('.yz_codenum'),phone_yz_btn=$('.phone_yz_btn'),phone_yz_submit=$('.phone_yz_submit'),sb=$('layer_succ .submit');
+        //发送短信
+        codebtn.click(function (){
+            if (phone.val().length==0) {
+                tiperror('请输入手机号');
+                return;
+            }
+            if (!/^1[34578]\d{9}$/.test(phone.val())) {
+                tiperror('请输入合理的手机号');
+                return;
+            }
+            if ($(this).hasClass('dis')) {
+                return;
+            }
+            time60s(codebtn);
+            sendmesfn1();
+        });
+        //验证两个手机号
+        phone_yz_btn.click(function(){
+            if (yz_phone.val().length==0) {
+                tiperror('请输入手机号');
+                return;
+            }
+            if (!/^1[34578]\d{9}$/.test(yz_phone.val())) {
+                tiperror('请输入合理的手机号');
+                return;
+            }
+            if ($(this).hasClass('dis')) {
+                return;
+            }
+            time60s(phone_yz_btn);
+            sendmesfn1();
+        });
+        btn1.click(function(){
+            if (username.val().length==0) {
+                tiperror('请输入您的银行卡户名');
+                return;
+            }
+            if (banknum.val().length==0) {
+                tiperror('请输入银行卡号');
+                return;
+            }
+            if (idnum.val().length==0) {
+                tiperror('请输入身份证号码');
+                return;
+            }
+            if (phone.val().length==0) {
+                tiperror('请输入手机号');
+                return;
+            }
+
+            if (!/^1[34578]\d{9}$/.test(phone.val())) {
+                tiperror('请输入合理的手机号');
+                return;
+            }
+            if (codenum.val().length==0) {
+                tiperror('请输入验证码');
+                return;
+            }
+            if (codenum.val().length<4) {
+                tiperror('验证码输入错误');
+                return;
+            }
+            needimgcode();
+        });
+        //验证两个手机的按钮
+        phone_yz_submit.click(function(){
+            if (yz_phone.val().length==0) {
+                tiperror('请输入手机号');
+                return;
+            }
+
+            if (!/^1[34578]\d{9}$/.test(yz_phone.val())) {
+                tiperror('请输入合理的手机号');
+                return;
+            }
+            if (yz_codenum.val().length==0) {
+                tiperror('请输入验证码');
+                return;
+            }
+            if (yz_codenum.val().length<4) {
+                tiperror('验证码输入错误');
+                return;
+            }
+            needimgcode2();
+        });
+        //发验证时间60s
+        function time60s(o){
+            var nums = 60;
+            o.addClass('dis');
+            o.html('重新获取(' + nums + 's)');
+            var timer = setInterval(function (){
+                nums--;
+                o.html('重新获取(' + nums + 's)');
+                if (nums ==- 1) {
+                    clearInterval(timer);
+                    o.html('获取验证码');
+                    o.removeClass('dis');
+                }
+            }, 1000);
+        }
+
+        //发送短信请求1
+        function sendmesfn1(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'post',
+                url: domain+'/sapi/v2/quaneeerong/genSmsVerifyCode',
+                params: 'phoneNo='+phone.val()+'&type=B',
+                callback: 'callbacksendmes'
+            }));
+            window.callbacksendmes = function (text) {
+                var json = convertToJsonObject(text);
+                   if(json.retcode==0) {}
+            };
+        }
+        //发送短信请求2
+        function sendmesfn2(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'post',
+                url: domain+'/sapi/v2/quaneeerong/genSmsVerifyCode',
+                params: 'phoneNo='+yz_phone.val()+'&type=S',
+                callback: 'callbacksendmes2'
+            }));
+            window.callbacksendmes2 = function (text) {
+                var json = convertToJsonObject(text);
+                   if(json.retcode==0) {}
+            };
+        }
+        //检查是否需要图片验证码
+        function needimgcode(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/sapi/v2/quaneeerong/seeIfNeedBankAuthVcode',
+                params: {},
+                callback: 'callbackneedimgcode'
+            }));
+            window.callbackneedimgcode = function (text) {
+                var json = convertToJsonObject(text);
+                if(json.retcode==0) {
+                    bankAuth();
+                }else{
+                    $('.mask,.layer_yz').show();
+                    //获取图片验证码
+                    getimgcode();
+                }
+            };
+        }
+        //检查是否需要图片验证码2
+        function needimgcode2(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/sapi/v2/quaneeerong/seeIfNeedBankAuthVcode',
+                params: 'phoneNo='+phone.val()+'&type=S',
+                callback: 'callbackneedimgcode2'
+            }));
+            window.callbackneedimgcode2 = function (text) {
+                var json = convertToJsonObject(text);
+                if(json.retcode==0) {
+                    openqer();
+                }else{
+                    $('.layer_phone').hide();
+                    $('.mask,.layer_yz').show();
+                    //获取图片验证码
+                    getimgcode();
+                }
+            };
+        }
+        //开通
+        function openqer(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'post',
+                url: domain+'/sapi/v2/quaneeerong/openQER',
+                params: 'phoneNo='+yz_phone.val()+'&vcode='+yz_codenum.val()+'&vcode1'+picnum.val(),
+                callback: 'callbackopenQER'
+            }));
+            window.callbackopenQER = function (text) {
+                var json = convertToJsonObject(text);
+                if(json.retcode==0) {
+                    $('.layer_phone').hide();
+                    $('.layer_succ').show();
+                }else{
+                    tiperror(json.msg);
+                }
+            };
+        }
+        //跳页面
+        /*sb.click(function(){
+            window.location.href='qer_progress.jspa';
+        });*/
+        //点击提交按钮，发送一堆数据
+        function bankAuth(){
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'post',
+                url: domain+'/sapi/v2/quaneeerong/bankAuth',
+                params: 'name='+username.val()+'&bankCode='+banknum.val()+'&idCode='+idnum.val()+'&phoneNo='+phone.val()+'&vcode='+codenum.val()+'&vcode1='+picnum.val()+'&isAuth=1&isAgree=1',
+                callback: 'callbackbankAuth'
+            }));
+            window.callbackbankAuth = function (text) {
+                var json = convertToJsonObject(text);
+                if(json.retcode==0){
+                    $('.mask').show();
+                    $('.layer_yz').hide();
+                    if(json.data.needCheck==0){//不需要校验证券手机号
+                        jrj.jsCallNative('130', JSON.stringify({
+                            method: 'post',
+                            url: domain+'/sapi/v2/quaneeerong/openQER',
+                            params: {},
+                            callback: 'callbackopenQER2'
+                        }));
+                        window.callbackopenQER2 = function (text2) {
+                            var json2 = convertToJsonObject(text2);
+                            if(json2.retcode==0) {
+                                $('.layer_succ').show();
+                            }else{
+                                tiperror(json2.msg);
+                            }
+                        };
+                    }else if(json.data.needCheck==1){//需要校验证券手机号
+                        $('.layer_phone').show();
+                    }
+                }else{
+                    tiperror(json.msg);
+                    $('.mask,.layer').hide();
+                }
+            };
+        }
+        //获取图片验证码
+        function getimgcode(){
+            picnum.val('');
+            if($('.layer_yz .img img')){$('.layer_yz .img img').remove()};
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'get',
+                url: domain+'/sapi/v2/quaneeerong/getBankAuthVcode1Image',
+                params:{},
+                callback: 'callbackcode1Image'
+            }));
+            window.callbackcode1Image = function (text) {
+                var json = convertToJsonObject(text);
+                if(json.retcode==0) {
+                    var oImg = new Image();
+                    oImg.src = 'data:image/jpg;base64,' + json.data.vode1Image;
+                    $('.layer_yz .img').append(oImg);        
+                }
+            };
+        }
+        //点击图片验证码，换换换
+        $('.layer_yz .img').click(function(){
+            getimgcode();
+        });
+        //验证图片验证码是否正确
+        $('.yz_submit').click(function(){
+            if (picnum.val().length==0) {
+                tiperror('请输入验证码');
+                return;
+            }
+            if (picnum.val().length<4) {
+                tiperror('验证码输入错误');
+                return;
+            }
+            jrj.jsCallNative('130', JSON.stringify({
+                method: 'post',
+                url: domain+'/sapi/v2/quaneeerong/isVcode1Right',
+                params:'vcode1='+picnum.val(),
+                callback: 'callbackisVcode1Right'
+            }));
+            window.callbackisVcode1Right = function (text) {
+                var json = convertToJsonObject(text);
+                if(json.retcode==0) {
+                   //图片验证码正确
+                   bankAuth();    
+                }else{
+                    tiperror('验证码输入错误');
+                    getimgcode();
+                }
+            };
+        });
+        //处理输入框右边的小XX
+        cosetel(phone);
+        cosetel(yz_phone);
+        //处理只输入数字
+        /*changnum(banknum);
+        changnum(yz_phone);*/
+        
+        //输入电话号码，右边小XX
+        function cosetel(o){
+            var i=o.parent().find('.closetel i');
+            var b=o.parents('.box').find('.btncolor');
+            o.keyup(function(){
+                if (/[^\d]/.test(o.val())) {
+                  //替换非数字字符  
+                  var temp_amount = o.val().replace(/[^\d]/g, '');
+                    o.val(temp_amount);
+                }
+                if (o.val().length == 0) {
+                    i.css('display','inline');
+                }
+                else {
+                    i.css('display','block');
+                }
+                if (o.val().length == 11) {
+                    b.removeClass('dis');
+                }
+                else {
+                    b.addClass('dis');
+                }
+            });
+            o.focus(function (){
+                if (o.val().length == 0) {
+                    i.css('display','inline');
+                }
+                else {
+                    i.css('display','block');
+                }
+            });
+          
+            o.blur(function (){
+                i.css('display','inline');
+            });
+        }
+
+        $('.closetel').each(function(){ 
+            $(this).unbind().click(function(e){
+                var p=$(this).parents('.box');
+                p.find('.boxin').val('');
+                $(this).css('display','inline');;        
+                p.find('.btncolor').addClass('dis');
+                p.find('.boxin').focus();
+            });
+        });
+        $('.dlg-close,.closebtn').unbind().click(function(){
+            $('.mask,.layer').hide();
+        });
+    });
+</script>
+</body>
+</html>

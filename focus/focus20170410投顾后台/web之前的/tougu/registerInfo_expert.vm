@@ -1,0 +1,1232 @@
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{adviserInfo.userName}注册信息-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{adviserInfo.userName}注册信息-爱投顾-金融界" />
+    <meta name="description" content="$!{adviserInfo.userName}注册信息-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <!-- 
+   <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor-simple-2.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/CharNum.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+       --> 
+     <!--# include virtual="/common_head_css_js.html" -->
+  
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor-simple-2.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/CharNum.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+   
+    <script src="http://js.jrjimg.cn/itougu/account/idCard.js"></script>
+   
+    <script src="http://js.jrjimg.cn/itougu/account/upload.js"></script>
+    
+    
+    <script src="http://js.jrjimg.cn/itougu/account/personalSetting.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/checkSameUserName.js"></script>
+   <!--  
+    <script src="/js/personalSetting.js"></script>
+     -->
+ 
+    <script src="http://js.jrjimg.cn/itougu/account/companyload.js"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+          //上传图片
+           $('#upload-fake1').click(function (e) {
+                  //.....flash upload  image start...........
+             e.preventDefault();
+             JRJ.Dialogs.iframeDialog({
+                    content: [''].join(''),
+                    loadingImg: '',
+                    width: 760,
+                    hasBtn: false,
+                    hasOkBtn: false,
+                    okBtnText: '',
+                    title: '上传头像',
+                    titleRight: '',
+                    bottomContent: '',
+                    protocolHtml: '',
+                    hasCancelBtn: false,
+                    enableKeyCtrl: true,
+
+                    //ifrSrc: 'http://js.jrjimg.cn/itougu/account/dlg-flashupload.html',
+                    ifrSrc: '/account/dlg-flashupload.jspa',
+                    ifrReHeight: true,
+                    isFixed: true,//defaultCf.isFixed,
+                    okCallback: function () {
+                    },
+                    cancelCallback: function () {
+
+                        return true;
+                    }
+                });
+                 window.updateImgs = function (filename) {
+                $(window.parent.document).find('#max1').addClass('img-blur').attr({ 'src': filename });
+                $("#headImage").val(filename);
+                $(window.parent.document).find('.pic-upload-result img').addClass('img-blur').attr({ 'src': filename });
+                setTimeout(function () {
+                    $(window.parent.document).find('.pic-upload-result img').removeClass('img-blur');
+                }, 500);
+            };
+                 //.....flash upload  image end...........
+               
+            });
+        
+        
+           
+        
+        
+            //$('#txtUsername').watermark('真实姓名');
+            //$('#txtID').watermark('身份证号');
+            //$('#txtMobile').watermark('手机号');
+            //$('#txtVCode').watermark('验证码');
+            //$('#txtQQ').watermark('QQ号码');
+            //$('#txtMail').watermark('邮箱');
+            //$('#txtNumber').watermark('输入资格证编码');
+            //$('#txtLimit').watermark('从业年限');
+            $('#txtCompany').watermark('所在公司');
+            //$('#txtSearch').watermark('搜索观点/投资品种/投资顾问...');
+
+
+            $('#select1').sSelect({ ddMaxHeight: '168px' });
+            $('#select2').sSelect({ ddMaxHeight: '168px' });
+            $('#select3').sSelect({ ddMaxHeight: '168px', containerClass: 'newListSelected-364' });
+             $('#txtLimit').sSelect({ ddMaxHeight: '168px', containerClass: 'newListSelected-364' });
+
+
+            //tab
+            var tab = new JRJ.ui.TabSwitch({
+                menuPre: "menu_",
+                conPre: "con_",
+                total: 2,
+                onClass: "cur",
+                eventType: 'click'
+            });
+            //tab
+
+
+            //dropdownlist
+           /* $('.dropdownlist-wrap').click(function (e) {
+                e.stopPropagation();
+                $(this).find('.dropdownlist-cnt').toggle();
+                $('.SSContainerDivWrapper').hide();
+                $('.newListSelected').css({ position: 'static' });
+            });
+            $('.dropdownlist-cnt').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.dropdownlist-cnt p').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).on('click', function () {
+                $('#txtCompany').val($(this).text());
+                $('.dropdownlist-cnt').toggle();
+            });
+            $(document).click(function () {
+                $(this).find('.dropdownlist-cnt').hide();
+            });*/
+
+
+            //checkbox
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            })/*.click(function () {
+            	//擅长领域
+            	
+                if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('checked');
+                } else if (!$(this).hasClass('disable')) {
+                    $(this).removeClass('checked');
+                }
+            });*/
+            $('.custom-checkbox-readonly li').unbind('mouseenter click');
+            $('.custom-checkbox-readonly-2 li').unbind('click');
+
+            /*$('.custom-checkbox-2 li').live('mouseenter', function () {
+                if (!$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+                    $(this).addClass('hover');
+                }
+            }).live('mouseleave', function () {
+                $(this).removeClass('hover');
+            }).live('click', function () {
+            	
+                if (!$(this).hasClass('new') && !$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable') && $('.custom-checkbox-2 li.checked').length < 10) {
+                    $(this).addClass('checked');
+                    if ($('.custom-checkbox-2 li.checked').length >= 10) {
+                        $('.custom-checkbox-2 li.new').hide();
+                    }
+                } else {
+                    if (!$(this).hasClass('new') && !$(this).hasClass('disable') && !$(this).hasClass('editable') && !$(this).hasClass('uncheck-disable')) {
+                        $(this).removeClass('checked');
+                        if ($('.custom-checkbox-2 li.checked').length < 10) {
+                            $('.custom-checkbox-2 li.new').show();
+                        }
+                    }
+                }
+            });
+
+            $('.custom-checkbox-2 li.new').mouseenter(function () {
+                $(this).addClass('new-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('new-hover');
+            }).click(function () {
+
+                if ($('.custom-checkbox-2').find('li.editable').length > 0) {
+                } else {
+                    $('<li class="editable"><input id="Text1" type="text" maxlength="8"/><i></i></li>').insertBefore($(this));
+                }
+                $('.custom-checkbox-2').find('li.editable').find('input').focus();
+                $(this).hide();
+
+            });
+
+            $('.custom-checkbox-2 li.editable').live('blur', function () {
+                if ($.trim($(this).find('input').val()).length > 0) {
+                    $('<li class="checked uncheck-disable">' + $(this).find('input').val() + '<i></i></li>').insertBefore($(this));
+                }
+                $(this).remove();
+
+                if ($('.custom-checkbox-2 li.checked').length < 10) {
+                    $('.custom-checkbox-2 li.new').show();
+                }
+
+            });
+            $('.custom-checkbox-2 li i').live('click', function (e) {
+            	
+                e.stopPropagation();
+                $(this).parent().remove();
+                if ($('.custom-checkbox-2 li.checked').length < 10) {
+                    $('.custom-checkbox-2 li.new').show();
+                }
+            });*/
+            //checkbox
+
+
+            var args2 = {
+                name: "miniediter",
+                width: 592,
+                height: 200,
+                value: "",
+                //默认是否具备编辑焦点
+                hasFocus: false,
+
+                //是否需要登陆框
+                hasLoginDlg: false,
+                containerId: "miniediter",
+
+                //标题文字
+                title: "",
+
+                //工具条底部其他提示文字
+                otherTipTxt: "",
+
+                hasOkBtn: false,
+                //按钮文字
+                okBtnTxt: "确定",
+
+                //限制字数(限制为500字)
+                num: 500,
+
+                submitType: 'text',
+                //submitType: 'html',
+                onSubmit: function (content) {
+                    if (Util.ui.CharNum(edit2, 5, '已超过{num}个字符')) {
+                        console.log(content);
+                    }
+                }
+            };
+            /**
+            window.editor = new JRJ.ui.MiniEditor(args2);
+            window.editor.setHtml(['<p style="color:#999;">您可以填写如下信息，以便加快审核的进程：</p>',
+                '<p style="margin-top:20px;color:#999;">1，投顾人员可提供从业背景、学历等信息；</p>',
+                '<p style="color:#999;">2，投顾人员可完善个人的荣誉记录，如新财富最佳分析师、新浪投股大赛、中国基金业金牛奖，等各项认知度较高的赛事荣誉；</p>',
+                '<p style="color:#999;">3，投顾人员可完善个人的成功服务案例、投资案例等信息，以便加快审核的进程。</p>'
+            ].join(''));
+            **/
+            //编辑备注的时候，加载备注
+            window.editor = new JRJ.ui.MiniEditor(args2);
+            window.editor.setHtml(['<p>$!{adviserInfo.intro}</p>'].join(''));
+            //算一下原来的值的长度
+            $(".fool-topbar-num").text(window.editor.getContentLength()+"/500");
+            //保存，取消
+            //编辑
+            var Llist;
+            $('.btnEdit').click(function (e) {
+                e.preventDefault();
+               //alert($("#province_hidden").val());
+                // $("#select1 option[value='"+$("#province_hidden").val()+"']").attr("selected", 'selected');
+                var blockName = $(this).data('blockid');
+               
+                $('.block-view').hide();
+                $('.block-edit').show();
+                $('.save-wrap').show();
+                $('.btnEdit').hide();
+                $('#btn-wrap').show();
+               
+                //隐藏
+                $("#userNameErrorInfo").hide();
+                $("#mobileErrorInfo").hide();
+                $("#qqErrorInfo").hide();
+                $("#emailErrorInfo").hide();
+                //取消个人简介错误提示
+	            $("#introError").text("").hide();
+                
+                //验证码相关的隐藏
+                $("#btnModify").hide();
+                $("#modify-mobile").text('修改');
+                $("#modifyBlock").hide();
+                $("#modify-mobile").attr("data-type","edit");
+                
+               // alert($("#txtLimit").val());
+                //$(".newListSelected newListSelected-364 .selectedTxt .SSContainerDivWrapper").find('.newList li a').removeClass('hiLite');
+                
+                 //展示名还原
+                $("#txtUserName").val($("#userNameView").text());  
+                //图片还原
+                var headImg = $("#headImgView")[0].src ;
+                //alert("headImg="+headImg);
+                //给页面大中小图片还原
+                $("#max1")[0].src  = headImg ;
+                $("#max2")[0].src  = headImg ;
+                $("#mid")[0].src  = headImg ;
+                $("#min")[0].src  = headImg ;
+                
+                //手机号还原
+                 $("#txtMobile").val($("#mobileView").text());
+                 //不可编辑
+                 $("#txtMobile").attr("disabled",true);
+                 
+                //把修改的QQ还原
+                 $("#txtQQ").val($("#qqView").text());
+                 
+                //把修改的邮箱还原
+                //alert("email="+$("#emailView").text());
+                $("#txtMail").val($("#emailView").text());
+               
+                
+                //编辑时，把页面选择的省，市还原
+                function getProvinceCity( _id , index ){
+                	var  select1 = $(_id)
+                		,city = $('#city_hidden')
+                		,sheng = $('#province_hidden')
+                		,value = [sheng.val(),city.val()]
+                		,select_index = 0
+                		,citylist = select1.next().find('.SSContainerDivWrapper .newList li a')
+                		
+	                select1.find("option").removeAttr("selected");
+	                select1.next().find('.selectedTxt').text(value[index])
+	                
+	                citylist.removeClass('hiLite')
+	                citylist.each(function( i ){
+	                	if($(this).text() == value[index]){
+	                		select_index = i
+	                		$(this).addClass('hiLite')
+	                	}
+	                })
+	                select1.find("option").eq(select_index).attr("selected",true);
+	                select1.change()
+                }
+                getProvinceCity('#select1',0)
+                getProvinceCity('#select2',1)
+                 //编辑时，把页面选择的从业年限还原
+                function experienceScopeChange(){
+                	var  current = $.trim($('#experienceScopeView').text())
+                		,select = $('#txtLimit')
+                		,zhi = select.next().find('.selectedTxt')
+                		,citylist = select.next().find('.SSContainerDivWrapper .newList li a')
+                		,select_index = 0
+                		
+                	 select.find("option").removeAttr("selected");
+	                 select.next().find('.selectedTxt').text(current)
+	                
+	                 citylist.removeClass('hiLite')
+	                 citylist.each(function( i ){
+	                	if($(this).text() == current){
+	                		select_index = i
+	                		$(this).addClass('hiLite')
+	                	}
+	                 })
+	                 select.find("option").eq(select_index).attr("selected",true);
+	                 select.change()
+                }
+                experienceScopeChange();
+                
+                //擅长领域还原
+                var lableArray = $("#lableView .lableElement");
+              	if(!Llist){ //添加新标签在personalSettion.js //checkBox-能力标签下
+	                Llist = {
+	                	 label : $("#labelList")
+	                	,addBtn : null
+	                	,list : null
+	                	,catch_addli : []
+	                	,init : function(){
+	                		this.list = this.label.find('li')
+	                		this.removeAll();
+	                		this.addNewli();
+	                		this.updateLi();
+	                		this.updateAddBtn();
+	                	}
+	                	,removeAll : function(){
+	                		Llist.list.removeClass('checked');
+	                		if(Llist.catch_addli.length>0){
+		                		for(var i=0;i<Llist.catch_addli.length;i++){
+		                			$(Llist.catch_addli[i]).remove();
+		                		}
+		                		Llist.catch_addli = [];
+	                		}
+	                		
+	                	}
+	                	,addNewli : function(){
+	                		Llist.addBtn = Llist.label.find('li.new');
+	                		var labArr = '',listArr='',str='';
+	                		for(var i=0;i<lableArray.length;i++){
+	                			var  val = $(lableArray[i]).html();
+	                			labArr += val+',';
+	                			for(var j=0;j<Llist.list.length;j++){
+	                				var self = Llist.list.eq(j)
+	                				if( self.text() == val ){
+	                 					self.addClass('checked');
+	                 					listArr += val+',';
+	                 				}
+	                			}
+							}
+							// a,b,c,d,   a,b,    ,,c d
+							str = labArr.replace(listArr,'');
+							str = str.split(',');
+							if(str.length>0){
+								var val = ''
+								for(var i=0;i<str.length;i++){
+									val = str[i] ;
+									if(val.length>0){
+										$('<li class="checked">'+str[i]+'</li>').insertBefore(Llist.addBtn)
+									}
+								}
+							}
+							if(lableArray.length<10){ //如果能力标签(1-10）则显示添加按钮
+								Llist.addBtn.show()
+							}
+	                	}
+	                	,updateLi : function(){
+	                		this.list = this.label.find('li');
+	                	}
+	                	,updateAddBtn : function(){
+	                		Llist.addBtn.mouseenter(function () {
+				                $(this).addClass('new-hover');
+				            }).mouseleave(function () {
+				                $(this).removeClass('new-hover');
+				            }).click(function () {
+				            	if (Llist.label.find('li.editable').length<1) { //如果没有输入框则添加
+				            		var input = $('<li class="editable"><input id="Text1" type="text" maxlength="8"/><i></i></li>')
+				                    input.insertBefore($(this));
+				                }
+				                $('.custom-checkbox-2').find('li.editable').find('input').focus();//进入输入框状态
+				                $(this).hide();
+				
+				            });
+							
+							var inputbox = $('.custom-checkbox-2 li.editable')
+				            inputbox.live('blur', function () {//当输入框离开时
+				                if ($.trim($(this).find('input').val()).length > 0) { //
+				                	//更新LI，在LI中添加内容
+				                	var input = $('<li class="checked uncheck-disable">' + $(this).find('input').val() + '<i></i></li>')
+				                	Llist.catch_addli.push(input);
+				                    input.insertBefore($(this));
+				                }
+				                $(this).remove();//
+				
+				                if ($('.custom-checkbox-2 li.checked').length < 10) {
+				                    $('.custom-checkbox-2 li.new').show();
+				                }
+				
+				            });
+				            $('.custom-checkbox-2 li i').live('click', function (e) {
+				            	
+				                e.stopPropagation();
+				                $(this).parent().remove();
+				                if ($('.custom-checkbox-2 li.checked').length < 10) {
+				                    $('.custom-checkbox-2 li.new').show();
+				                }
+				            });
+	                	}
+	                }
+                };
+                //清空错误提示
+                 $("#labelListId").remove();
+                //初始化
+                Llist.init();
+              
+              
+                //擅长投资品种去掉用户选择的项
+                $("#shanchang li").removeClass("checked");
+                //擅长投顾品种(数据库)
+                var investArray = $("#investViewValue .mr10")
+                //擅长投顾品种(用户选择)
+                var investCheckArray = $("#shanchang li");
+                //循环判断，如果值是数据库里值添加class
+                investCheckArray.each(function( i ){
+                	var inv = $(this)
+                	investArray.each(function(j){
+                		if(inv.text() == $(this).text()){
+                			inv.addClass("checked");             
+                		}
+                	})
+                })
+             
+               //清空擅长投资品种错误
+               $("#investId").remove();
+               window._click();
+             
+                
+                //个人简介还原
+                 //window.editor.setHtml(['<p>'+$(".user-self-intro").text()+'</p>']);
+                 var introView = $(".user-self-intro").text();
+                 window.editor.setHtml('<p>'+introView+'</p>');
+                
+                
+                $('#select1').resetSS();
+                $('#select2').resetSS();
+                $('#select3').resetSS();
+                 $('#txtLimit').resetSS();
+                //$('.' + blockName + '-view').hide();
+                //$('.' + blockName + '-edit').show();
+
+                $(this).next('.save-wrap').show();
+                $(this).hide();
+                Company.editCompany( $('#companyView').text() );
+                
+                $('.tooltip-1').tooltipster({
+	                theme: 'tooltipster-light',
+	                contentAsHTML: true,
+	                content: '<div class="tl"><p>昵称是您在爱投顾平台展示的名称，</p><p>建议您使用真实姓名，也可使用有影响力的常用网名</p></div>'
+                });
+          
+                
+            });
+            
+            $('.btnCancel').click(function (e) {//$('.btnSave,.btnCancel')
+                e.preventDefault();
+
+                var blockName = $(this).parent().prev('.btnEdit').data('blockid');
+                /**
+                $('.block-view').show();
+                $('.block-edit').hide();
+                $('#btn-wrap').hide();
+                ***/
+
+                //$('.' + blockName + '-view').show();
+                //$('.' + blockName + '-edit').hide();
+
+                $(this).parent().prev('.btnEdit').show();
+                $(this).parent().hide();
+            });
+            
+            /*$('.btnSave').click(function (e) {//$('.btnSave,.btnCancel')
+                e.preventDefault();
+                var blockName = $(this).parent().prev('.btnEdit').data('blockid');
+                $(this).parent().prev('.btnEdit').show();
+                $(this).parent().hide();
+            });*/
+
+           /* $('#btnSave,#btnCancel').click(function (e) {
+                e.preventDefault();
+                
+                $('.block-view').show();
+                $('.block-edit').hide();
+                $('#btn-wrap').hide();
+                $('.btnEdit').show();
+                $('.save-wrap').hide();
+            });*/
+
+
+            $('.btnReverse').click(function (e) {
+                e.preventDefault();
+
+                $('.custom-checkbox-bank li').toggleClass('checked');
+            });
+            //保存，取消
+
+
+            $('#modify-mobile').click(function (e) {
+                e.preventDefault();
+                if ($(this).attr('data-type') == 'edit') {
+                    $('#btnModify').show();
+                    $('#modifyBlock').show();
+                    $(this).text('取消修改');
+                    $(this).attr('data-type','cancel');
+                } else {
+                    $('#btnModify').hide();
+                    $('#modifyBlock').hide();
+                    $(this).text('修改');
+                    $(this).attr('data-type', 'edit');
+                }
+            });
+            
+            //非"编辑时"去掉click事件
+            /**
+        if($("#editId").text()!='编辑'){
+       
+	       $("#editId").unbind('click');
+	       $("#editId").bind('click'); 
+	    }
+	      $("#editId").bind('click'); 
+			 ****/
+			 
+		  
+        });
+        var tmpIntro = filterMark('$!{adviserInfo.intro}');	
+    </script>
+
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="http://itougu.jrj.com.cn">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+    
+    <!--  
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-left">
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span class="fr"><a href="#" class="stop">管理</a></span>
+                        <span><span>全部账户</span><i class="btn-refresh ml10 stop"></i></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            <a href="" class="btn btn-addaccount">增加其他交易账户</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>我的自选股</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                        <p class="tc">
+                            somthing goes here...
+                        </p>
+                    </div>
+                </div>
+                <div class="site-menu">
+                    <div class="site-menu-title">
+                        <span><span>投顾服务</span></span>
+                        <em></em>
+                    </div>
+                    <div class="site-menu-cnt">
+                        <ul class="menu-list menu-list-services">
+                            <li>
+                                <a href="#" class="item-1">
+                                    <span class="notify fr">999</span>
+                                    <span>投顾动态</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-2">
+                                    <span class="notify fr">999</span>
+                                    <span>我的问答</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-3">
+                                    <span class="notify fr">999</span>
+                                    <span>我的投顾</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             -->
+             <div class="site-main">  
+             <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+              
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="my-points">
+                    <ul class="tab clearfix">
+                        <li id="menu_1" class="cur">注册信息</li>
+                        <li id="menu_2" class="">签约条件</li>
+                    </ul>
+                    <div id="con_1" class="tab-cnt tab-cnt-userinfo clearfix">
+                        <p class="title clearfix">
+                        	
+                            <span class="fr" id="operatorArea">
+                               
+                                #if(${verifyStatus}==0)
+                                <a href="javascript:void(0);" class="link btnEdit" data-blockid="block-1" id="editId">
+                                                                                           编辑
+                                 </a>
+                                #else
+                                <span><font color="red">修改的信息正在审核中....</font></span>
+                                #end
+                                <span class="save-wrap">
+                                	
+                                    <a href="javascript:void(0);" class="link btnSave"  onclick="saveAdviserInfo('$!{adviserInfo.headImage}','$!{adviserInfo.company}','$!{adviserInfo.province}','$!{adviserInfo.city}','$!{adviserInfo.experienceScope}','$!{adviserInfo.label}',tmpIntro,'$!{adviserInfo.type}','$!{adviserInfo.userName}')">保存</a>
+                                    <a href="javascript:void(0);" class="link btnCancel" onclick="quitOperator('1')">取消</a>
+                                </span>
+                            </span>
+                            <span>我的基本信息</span>
+                        </p>
+                        <div class="block-view block-1-view">
+                            <img id="headImgView" class="avatar" src="$!{adviserInfo.headImage}" alt="" width="150" height="150"/>
+                            <input type="hidden" value="$!{adviserInfo.loginId}" id="loginId_hidden"/>
+                            <table class="mt30">
+                               #if($!{adviserInfo.type}==2)
+                                <tr>
+                                    <td class="field" style="width:240px;">真实姓名</td>
+                                    <td class="value">$!{adviserInfo.trueName}</td>
+                                </tr>
+                               #else
+                                 <tr>
+                                    <td class="field" style="width:240px;">昵称</td>
+                                    <td id="userNameView" class="value">$!{adviserInfo.userName}</td>
+                                </tr>
+                               #end
+                                <tr>
+                                    <td class="field">性别</td>
+                                    <td class="value">
+                                      #if($!{adviserInfo.sex}==1)
+                                                                                                                  男
+                                       #else
+                                                                                                                 女
+                                       #end
+                                    </td>
+                                </tr>
+                                #if($!{adviserInfo.type}==2)
+                                <tr>
+                                    <td class="field">身份证号</td>
+                                    <td class="value">$!{adviserInfo.identityId}</td>
+                                </tr>
+                                #end
+                                <tr>
+                                    <td class="field">手机号</td>
+                                    <td id="mobileView" class="value">$!{adviserInfo.mobile}</td>
+                                </tr>
+                                <tr>
+                                    <td class="field">QQ号</td>
+                                    <td id="qqView" class="value">$!{adviserInfo.qq}</td>
+                                </tr>
+                                <tr>
+                                    <td class="field">邮箱</td>
+                                    <td id="emailView" class="value">$!{adviserInfo.email}</td>
+                                </tr>
+                                <tr>
+                                    <td class="field">所在城市</td>
+                                    <td id="provinceView" class="value">
+                                      #if($!{adviserInfo.province}=='北京' || $!{adviserInfo.province}=='上海' || $!{adviserInfo.province}=='天津' || $!{adviserInfo.province}=='重庆')
+                                        $!{adviserInfo.city}市
+                                      #else
+                                        $!{adviserInfo.province}省$!{adviserInfo.city}市
+                                      #end
+                                     </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">投资年限</td>
+                                    <td id="experienceScopeView" class="value">
+                                         #if($!{adviserInfo.experienceScope}==1)
+	                                           3年以下
+	                                     #elseif($!{adviserInfo.experienceScope}==2)
+	                                           3-5年
+	                                     #elseif($!{adviserInfo.experienceScope}==3)
+	                                           5-10年
+	                                     #else
+	                                           10年以上
+	                                     #end            
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="block-edit block-1-edit">
+                        
+                        <form id="uphead" enctype="multipart/form-data" action="http://up1.jrj.com.cn/upload" method="post" target="uploadimgw">
+			               	 <input type="hidden" name="channel" value="thead_attach" >
+			              <!-- 
+						       <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://tougu.jrj.com.cn:8080/account/uploadImg.jspa" >
+						    -->   
+						      
+                              <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://itougu.jrj.com.cn/account/uploadImg.jspa" >
+                              
+						       <input type="hidden" name="imageFormats" value="150,75,50"/>
+						       <input type="hidden" name="sizeMax" value="10485760"/>
+						       <input type="hidden" name="sizisNeedGenScaleseMax" value="isNeedGenScales"/>
+                        
+                        
+                            <div class="pic-upload mt30 clearfix">
+                                <div class="fl">
+                                    <img id="max1" src="${adviserInfo.headImage}"  class="example" width="150" height="150">
+                                    <p class="mt10 tc"><a href="javascript:void(0);" class="btn btn-79-25" id="upload-fake1">上传照片</a>
+                                    <!-- 
+                                     <input id="File1" type="file" name="filename" style="display:none;" />
+                                      -->
+                                    </p>
+                                </div>
+                                <div class="pic-upload-result clearfix">
+                                    <div class="result-1">
+                                        <img id="max2" src="${adviserInfo.headImage}" width="150" height="150">
+                                        <p>大</p>
+                                    </div>
+                                    <div class="result-2 tc">
+                                        <img id="mid"  src="${adviserInfo.headImage}" width="75" height="75">
+                                        <p>中</p>
+                                        <img id="min"  src="${adviserInfo.headImage}" width="50" height="50" class="mt30">
+                                        <p>小</p>
+                                    </div>
+                                </div>
+                            </div>
+                             <iframe frameborder="0" scrolling="no" width="0" height="0" name="uploadimgw" id="uploadimgw" target="_self" ></iframe>
+                            </form>
+                             <!--上传图片-->
+                            <form method="post" id="form_1" action="/account/modifyBasicInfo.jspa">
+							   <input type="hidden" name="headImage" id="headImage" value="$!{adviserInfo.headImage}"/>
+							</form>
+							
+                            <table class="table-register mt30">
+                               #if($!{adviserInfo.type}==2)
+                                <tr>
+                                    <td class="field">真实姓名</td>
+                                    <td class="value">$!{adviserInfo.trueName}</td>
+                                </tr>
+                                #else
+                                  <tr>
+                                    <td class="field"><span class="required">*</span><span>昵称</span></td>
+                                    <td class="middle">
+			                            <input name="userName" id="txtUserName" value="$!{adviserInfo.userName}" type="text" class="txtbox" onblur="isHaveSameName('$!{adviserInfo.userName}')" style="width:179px;" />
+			                            <i class="icon tooltip icon-tooltip tooltip-1" title="昵称是您在爱投顾平台展示的名称，建议您使用真实姓名，也可使用有影响力的常用网名"></i>
+			                            <p class="error-msg" id="userNameErrorInfo"></p>
+			                        </td>
+			                        
+                                  </tr> 
+                                #end
+                                <tr>
+                                    <td class="field">性别</td>
+                                    <td class="value">
+                                       #if($!{adviserInfo.sex}==1)
+                                                                                                                           男
+                                       #else
+                                                                                                                           女
+                                       #end
+                                    </td>
+                                </tr>
+                                #if($!{adviserInfo.type}==2)
+                                <tr>
+                                    <td class="field">身份证号</td>
+                                    <td class="value">$!{adviserInfo.identityId}</td>
+                                </tr>
+                                #end
+                                <tr>
+                                    <td class="field"><span class="required">*</span><span>手机号</span></td>
+                                    <td>
+                                        <div class="middle">
+                                            <!-- 
+                                            <input id="txtMobile" type="text" class="txtbox" style="width:179px;" value="$!{adviserInfo.mobile}" onkeydown="limiteMobile(this.value)" onBlur="verifyMoblie()" maxlength="11"/>
+                                             -->
+                                             <input id="txtMobile" type="text" class="txtbox" style="width:179px;" value="$!{adviserInfo.mobile}"  onBlur="verifyMoblie()" maxlength="11" disabled="true"/>
+                                            <!--<a href="" class="link ml10">修改</a>-->
+                                            <a href="javascript:void(0);" id="btnModify" class="btn btn-getcode ml5" style="display:none;"  >获取验证码</a>
+                                            <a href="" class="link" id="modify-mobile" data-type="edit" onclick="quitModifyMobile('$!{adviserInfo.mobile}');">修改</a>
+                                            <span class="msg-wrap middle">
+                                                <span class="msg-info"></span>
+                                            </span>
+                                        </div>
+                                        <!-- 
+                                        <p class="error-msg">您输入的手机号有误请重新输入</p> -->
+                                        <p class="error-msg" id="mobileErrorInfo"></p>
+                                        
+                                    </td>
+                                </tr>
+                                <tr id="modifyBlock" style="display:none;">
+                                    <td class="field"><span>验证码</span></td>
+                                    <td>
+                                        <div class="middle">
+                                            <input id="txtVCode" type="text" class="txtbox" style="width:179px;" />
+                                            <i class="icon icon-right" id="vcode-right"></i>
+                                            <i class="icon icon-error" id="vcode-wrong"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field"><span class="required">*</span><span>QQ号</span></td>
+                                    <td>
+                                        <div class="middle">
+                                            <input id="txtQQ" type="text" class="txtbox" style="width:179px;" value="$!{adviserInfo.qq}"  onBlur="verifyQQ()"/>
+                                            
+                                        </div>
+                                        <p class="error-msg" id="qqErrorInfo"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">邮箱</td>
+                                    <td>
+                                    <div class="middle">
+                                      <input id="txtMail" type="text" class="txtbox" style="width:179px;" value="$!{adviserInfo.email}" onBlur="verifyEmail()"/>
+                                      
+                                    </div>
+                                    <p class="error-msg" id="emailErrorInfo"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field"><span class="required">*</span><span>所在城市</span></td>
+                                    <td>
+                                     <input type="hidden" value="$!{adviserInfo.province}" id="province_hidden"/>
+                        			 <input type="hidden" value="$!{adviserInfo.city}" id="city_hidden"/>
+                        			 
+                                         <select id="select1" name="province" onchange="InitCity(this.options[this.options.selectedIndex].text);$('#select2').resetSS();">
+                                           <option value="">省份</option>
+                                        </select>
+                                        <select id="select2" name="city">
+                                            <option value="">城市</option>
+                                        </select>
+                                        <span class="msg-wrap middle">
+                                            <span class="msg-info">精确到城市</span>
+                                        </span>
+                                        <p class="error-msg" id="prvinceErrorInfo" style="clear:both;"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field"><span class="required">*</span><span>投资年限</span></td>
+                                    <td>
+                                       <!-- 
+                                        <input id="txtLimit" type="text" class="txtbox" style="width:312px;" />
+                                         -->
+                                         
+                                          <select id="txtLimit" name="experienceScope" value="$!{adviserInfo.experienceScope}" class="txtbox" style="width:312px;height:34px;">
+		                                    #if($!{adviserInfo.experienceScope} == 1)
+			                                  <!--<option value="1" >1年</option>  -->
+		                                     <option value="1" selected="selected">3年以下</option>
+		                                      <option value="2">3-5年</option>
+		                                       <option value="3">5-10年</option>
+		                                     <option value="4">10年以上</option>
+			                                #elseif($!{adviserInfo.experienceScope} == 2)
+			                                   <!-- <option value="1" >1年</option> -->
+		                                     <option value="1" >3年以下</option>
+		                                      <option value="2" selected="selected">3-5年</option>
+		                                      <option value="3">5-10年</option>
+		                                     <option value="4">10年以上</option>
+			                                #elseif($!{adviserInfo.experienceScope} == 3)
+			                                  <!-- <option value="1" >1年</option> -->
+		                                      <option value="1">3年以下</option>
+		                                      <option value="2">3-5年</option>
+		                                       <option value="3" selected="selected">5-10年</option>  
+		                                       <option value="4">10年以上</option>
+		                                    #else
+		                                       <option value="1">3年以下</option>
+		                                       <option value="2">3-5年</option>
+		                                       <option value="3">5-10年</option>  
+		                                       <option value="4"  selected="selected">10年以上</option>
+		                                      
+			                                #end		                           
+			                                
+		                              </select>
+                                        <span class="msg-wrap middle">
+                                            <span class="msg-info"></span>
+                                        </span>
+                                    </td>
+                                </tr>   
+                                
+                            </table>
+                        </div>
+                        
+                        <p class="title clearfix mt30">
+                            <!--<span class="fr">
+                                <a href="" class="link btnEdit" data-blockid="block-3">编辑</a>
+                                <span class="save-wrap">
+                                    <a href="" class="link btnSave">保存</a>
+                                    <a href="" class="link btnCancel">取消</a>
+                                </span>
+                            </span>-->
+                            <span>擅长领域</span>
+                        </p>
+                        <div class="block-view block-3-view">
+                            <table class="mt30">
+                                <tr>
+                                    <td id="investView" class="field" style="width:240px;">投资方向</td>
+                                    <td id="investViewValue" class="value">
+                                    #if(${adviserInfo.investDirection})   
+                                        #foreach ($element in $adviserInfo.investDirection.split(","))
+                                          <span class="mr10">$element</span>
+                                        #end
+                                     #end
+                                     </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">擅长领域</td>
+                                    <td class="value">
+                                        <ul id="lableView" class="custom-checkbox custom-checkbox-readonly">
+                                          <!-- 
+                                            <li>技术面</li>
+                                            <li>行业分析</li>
+                                            <li>货币基金</li>
+                                             -->
+                                          #if(${adviserInfo.label})   
+	                                        #foreach ($element in $adviserInfo.label.split(","))
+	                                          <li class="lableElement">$element</li>
+	                                         
+	                                        #end
+                                          #end
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="block-edit block-3-edit fl">
+                            <div class="block-3-edit-inner">
+                                <h2 class="block-title mt30">选择投资方向<span>(1-3项)</span></h2>
+                                <ul class="custom-checkbox clearfix mt30" id="shanchang">
+                                    <li>A股</li>
+                                    <li>港股</li>
+                                    <li>美股</li>
+                                    <li>基金</li>
+                                    <li>贵金属</li>
+                                    <li>其他理财</li>
+                                   #set( $investDirections = ["A股", "B股", "港股","美股","基金","贵金属","其他理财"]) 
+	                               #set($idx = 0)
+                                    #foreach($iDs in $investDirections)
+                                     #foreach ($element in $adviserInfo.investDirection.split(",")) 
+                                        #if( $iDs == $element)
+                                        
+                                           <script>
+                                              //alert("----"+$investDirections.indexOf($iDs));
+                                              
+                                              investDirectionAddClass($investDirections.indexOf($iDs));
+                                           
+                                           </script>  
+                                           #set($idx = $!idx + 1)
+                                        #end
+                                       
+                                     #end   
+	                                #end
+                                 <!-- 
+                                    <li>A股</li>
+                                    <li>港股</li>
+                                    <li>美股</li>
+                                    <li>基金</li>
+                                    <li>贵金属</li>
+                                    <li>其他理财</li>
+                                     -->
+                                </ul>
+                                <h2 class="block-title mt30">选择擅长领域<span>(1-10项，每个标签不超过8个字，例如:债券基金  房地产板块 4g概念 新能源领域 京津冀一体化等。)</span></h2>
+                                <ul class="custom-checkbox-2 clearfix mt30" id="labelList">
+                                   <!--  
+                                    <li>A股</li>
+                                    <li>港股</li>
+                                    <li>美股</li>
+                                    <li>基金</li>
+                                    <li>其他理财</li>
+                                    -->        
+                                    <li>基本面分析</li>
+                                    <li>技术面分析</li>
+                                    <li>长线操作</li>
+                                    <li>短线操作</li>
+                                    <li>波段操作</li>
+                                    <li>大盘分析</li>
+                                    <li>行业分析</li>
+                                    <li>个股分析</li>
+                                    <li>价值投资</li>
+                                    <li>热点追踪</li>
+                                    <li class="new"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="title clearfix mt30">
+                            <!--<span class="fr">
+                                <a href="" class="link btnEdit" data-blockid="block-4">编辑</a>
+                                <span class="save-wrap">
+                                    <a href="" class="link btnSave">保存</a>
+                                    <a href="" class="link btnCancel">取消</a>
+                                </span>
+                            </span>-->
+                            <span>个人简介</span>
+                        </p>
+                        <div class="block-view block-4-view" style="padding-bottom: 50px;">
+                            <p class="user-self-intro">$!{adviserInfo.intro}</p>
+                        </div>
+                        <div class="block-edit block-4-edit">
+                            <div class="register-editor-wrap mt25">
+                                <div id="miniediter"></div>
+                                <span id="introError" class="red"></span>
+                            </div>
+                        </div>
+                        <div id="btn-wrap" class="tc" style="margin: 30px 0; padding-top: 30px; border-top: 1px solid #ddd; display: none;">
+                        	
+                            <a id="btnSave" href="javascript:void(0);" class="btn btn-113-30 mr30" onclick="saveAdviserInfo('$!{adviserInfo.headImage}','$!{adviserInfo.company}','$!{adviserInfo.province}','$!{adviserInfo.city}','$!{adviserInfo.experienceScope}','$!{adviserInfo.label}',tmpIntro,'$!{adviserInfo.type}','$!{adviserInfo.userName}')">保存</a>
+                            <a id="btnCancel" href="javascript:void(0);" class="btn btn-113-30" onclick="quitOperator('2')">取消</a>
+                        </div>
+                    </div>
+                    <!--签约条件-->
+                    <div id="con_2" class="tab-cnt tab-cnt-userinfo clearfix" style="display:none;padding-bottom:50px;">
+                        <p class="title clearfix mt30">
+                            <span>用户类型</span>
+                        </p>
+                       
+                        <div class="block-view block-5-view">
+                            <div class="block-inner">
+                                <ul class="custom-checkbox custom-checkbox-readonly-2 mt30 clearfix">
+                                    <li class="checked">绑定证券通用户</li>
+                                </ul>
+                            </div>
+                        </div> 
+                        <p class="note-building">以下签约条件设置正在开发中......</p>
+                        <ul class="building-wrap mt20">
+                            <li>1、用户资金量条件</li>
+                            <li>2、开户的券商条件</li>
+                            <li>3、设置用户佣金</li>
+                        </ul>
+                        <!--<div class="building-wrap">
+                            <p class="title clearfix mt30">
+                                <span class="fr">
+                                    <span class="link" data-blockid="block-6">编辑</span>
+                                    <span class="save-wrap">
+                                        <a href="" class="link btnSave">保存</a>
+                                        <a href="" class="link btnCancel">取消</a>
+                                    </span>
+                                </span>
+                                <span>用户资金量</span>
+                            </p>
+                            <div class="block-view block-6-view">
+                                <table class="mt30">
+                                    <tr>
+                                        <td class="field" style="width:240px;">最低资金量</td>
+                                        <td class="value">1,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="field">最高资金量</td>
+                                        <td class="value">无限制</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="block-edit block-6-edit">
+                                <table class="table-register mt30">
+                                    <tr>
+                                        <td class="field"><span class="required">*</span><span>最低资金量</span></td>
+                                        <td>
+                                            <input id="txtLimit" type="text" class="txtbox" style="width:312px;" />
+                                            <span class="msg-wrap middle">
+                                                <span class="msg-info"></span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="field"><span class="required">*</span><span>最高资金量</span></td>
+                                        <td>
+                                            <input id="txtLimit" type="text" class="txtbox" style="width:312px;" />
+                                            <span class="msg-wrap middle">
+                                                <span class="msg-info"></span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p class="title clearfix mt30">
+                                <span class="fr">
+                                    <span class="link">反选</span>
+                                </span>
+                                <span>用户的券商</span>
+                            </p>
+                            <div class="block-view block-7-view">
+                                <div class="block-inner">
+                                    <ul class="custom-checkbox custom-checkbox-bank custom-checkbox-bank-disable mt30 clearfix">
+                                        <li class="checked disable">
+                                            <div class="bank-logo-zhongshan-unavailable"></div>
+                                        </li>
+                                        <li class="checked disable">
+                                            <div class="bank-logo-zhongxin-unavailable"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="title clearfix mt30">
+                                <span class="fr">
+                                    <span class="link" data-blockid="block-8">编辑</span>
+                                    <span class="save-wrap">
+                                        <a href="" class="link btnSave">保存</a>
+                                        <a href="" class="link btnCancel">取消</a>
+                                    </span>
+                                </span>
+                                <span>佣金设置</span>
+                            </p>
+                            <div class="block-view block-8-view">
+                                <table class="mt30">
+                                    <tr>
+                                        <td class="field" style="width:240px;">用户佣金</td>
+                                        <td class="value">0.2‰</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="block-edit block-8-edit">
+                                <table class="table-register mt30">
+                                    <tr>
+                                        <td class="field"><span class="required">*</span><span>用户佣金</span></td>
+                                        <td>
+                                            <input id="txtLimit" type="text" class="txtbox" style="width:312px;" />
+                                            <span class="msg-wrap middle">
+                                                <span class="msg-info"></span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>-->
+                    </div>
+                    <!--签约条件-->
+                </div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+    <script src="http://js.jrjimg.cn/itougu/account/initCity.js"></script>
+    <!--  
+    <script charset="utf-8" src="http://js.jrjimg.cn/common/foot/copyright-min.js"></script>-->
+    
+    <!--\#include virtual="/common_footer.html" -->
+    
+</body>
+</html>
+    

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>绑定平安证券</title>
+    <meta charset="utf-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-slider.min.css" rel="stylesheet"/>
+    <link href="css/trading.min.css" rel="stylesheet"/>
+</head>
+<body>
+<section class="trading-wrap">
+    <div class="company-logo">
+        <img src="/stockauth/images/PAZQ_mobile.png" alt=""/>
+        <span>平安证券</span>
+    </div>
+    <div class="login-form">
+
+        <form id="riskform" name="riskform" action="/stockauth/risktest.jspa" method="post">
+            <input type="hidden" name="usercode" value="$!{usercode}"/>
+            <input type="hidden" name="redirectkey" value="$!{redirectkey}"/>
+        </form>
+
+        <form id="tradeform" name="tradeform" action="/stockauth/redictTradeForm.jspa" method="post">
+            <input type="hidden" name="redirectkey" value="$!{redirectkey}"/>
+        </form>
+
+        <form id="bindform" name="bindform" action="/stockauth/bindForm.jspa" method="post">
+            <input type="hidden" name="p" value="$!{p}"/>
+            <input type="hidden" name="s" value="$!{s}"/>
+            <input type="hidden" name="devid" value="$!{devid}"/>
+            <input type="hidden" name="mobile" value="$!{mobile}"/>
+
+            <div class="row">
+                <input id="txtAccount" type="number" name="fundaccount" maxlength="30" placeholder="请输入资金账号"
+                       v-model="txtAccount"/>
+            </div>
+            <div class="row">
+                <input id="txtPassword" type="password" placeholder="请输入交易密码" v-model="txtPassword" name="password"
+                       value="" maxlength="20"/>
+            </div>
+            <div class="row codediv" style="border:none; position:relative;">
+                <input id="codebox" type="text" placeholder="请输入验证码" v-model="" name="vcode" value="" maxlength="4"
+                       style="width:65%;border-bottom:1px solid #e2e2e2;padding: 8px 5px;"/>
+                <span style="border:1px solid #e2e2e2; border-radius:3px;padding:.42rem .6rem; position:absolute;bottom:.625rem; right:0;"><img
+                        src="" class="codeimg" alt="验证码"
+                        style="width:5rem; height:1.5rem;display: block;vertical-align: top;"></span>
+            </div>
+            <div class="note-wrap note-wrap-chk" style="display:none">
+                <i :class="{'trading-chk':true, checked:isKeepOnline}"></i>
+                <span>保持在线</span>
+                <input type="hidden" name="keepAlive" value="5"/>
+                <a class="trading-link" id="time" @click="showDlg">1小时</a>
+            </div>
+        </form>
+        <div class="btn-wrap">
+            <a :class="{btn:true, 'btn-disabled':!btnEnabled}" id="submit">绑定</a>
+        </div>
+        <div class="note-wrap" style="display:block">
+            <div class="flex-1" style="float:left;">
+                <span>还没有平安证券资金账号？</span>
+            </div>
+            <div class="tr" style="float:right;">
+                <a class="trading-link" href="https://i0.jrjimg.cn/zqt-m/openAccount/PAZQ_i_itougu.html">去开户</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--dialog-->
+<div class="focus-dlg"></div>
+<div class="md-overlay"></div>
+<!--dialog-->
+
+<script type="text/template" id="dlg-time">
+    <div class="dlg-time">
+        <div class="tit">在线时长设置</div>
+        <div class="slider-wrap">
+            <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-ticks="[1, 2, 3, 4, 5]"
+                   data-slider-ticks-labels='["10分钟", "30分钟", "1小时", "2小时", "全天"]' data-slider-min="1"
+                   data-slider-max="5" data-slider-step="1" data-slider-value="3"/>
+        </div>
+        <div class="dlg-btn-wrap layout-box">
+            <a class="dlg-btn dlg-close">取消</a>
+            <a class="dlg-btn submit">确认</a>
+        </div>
+    </div>
+</script>
+
+<!--<script src="http://js.jrjimg.cn/zqt-m/js/zepto.min.js"></script>-->
+<script src="/stockauth/js/bind/zepto.min.js"></script>
+<!--<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/vue.min.js"></script>-->
+<script src="/stockauth/js/bind/vue.min.js"></script>
+<script src="js/bootstrap-slider.min.js"></script>
+<script>
+
+    var vm = new Vue({
+        el: $('body')[0],
+        data: {
+            isKeepOnline: true,
+            txtAccount: '',
+            txtPassword: '',
+        },
+        computed: {
+            btnEnabled: function () {
+                return (this.txtAccount.length > 0 && this.txtPassword.length > 0)
+            }
+        },
+        created: function () {
+        },
+        methods: {
+            showDlg: function () {
+
+                $('.focus-dlg').html($('#dlg-time').html());
+
+                window.slider = new Slider("#slider", {
+                    formatter: function formatter(val) {
+                        return $('.slider-tick-label').eq(val - 1).text();
+                    }
+                });
+
+                $('html').addClass('md-slidein-show');
+
+                $('.focus-dlg, .dlg-close').unbind().click(function () {
+                    $('html').removeClass('md-slidein-show');
+                });
+                $('.focus-dlg div').unbind().click(function (e) {
+                    e.stopPropagation();
+                });
+                $('.dlg-btn.submit').unbind().bind('click', function () {
+                    console.log(window.slider.element.defaultValue);
+                    var currentVal = window.slider.element.defaultValue;
+                    $("input[name=keepAlive]").val(currentVal);
+                    var textTipsArray = ["10分钟", "30分钟", "1小时", "2小时", "全天"];
+                    $('#time').text(textTipsArray[currentVal - 1]);
+                    //关闭对话框
+                    $('html').removeClass('md-slidein-show');
+                });
+            }
+        }
+    });
+    //页面上来就请求，发p给后台,看是否显示验证码
+    var codeb = false;
+
+    //判断测评后，重新加载页面，不刷新验证码
+    var redirectFlag = '$!{redirectkey}';
+    if (redirectFlag == null || redirectFlag == '' || redirectFlag == undefined) {
+        codeimgfn();
+    }
+
+    function codeimgfn() {
+        $.ajax({
+            url: '/stockauth/getNewVcode',
+            type: 'POST',
+            cache: false,
+            dataType: 'json',
+            data: {
+                p: $('input[name=p]').val()
+            },
+            success: function (data) {
+                if (data.data.vcodeFlag == 0) {
+                    //不显示
+                    codeb = false;
+                    $('.codediv').css('display', 'none');
+                } else if (data.data.vcodeFlag == 1) {
+                    codeb = true;
+                    $('.codediv').css('display', 'block');
+                    var strimg = "data:image/jpeg;base64," + data.data.vcodeImage;
+                    var strstyle = $('.codediv img').attr('style');
+                    var image = new Image();
+                    image.src = strimg;
+                    $('.codediv img').remove();
+                    $('.codediv span').append(image);
+                    $('.codediv img').attr('style', strstyle);
+                }
+            }
+        });
+    }
+    // 点击验证码，换图片
+    $('.codediv').delegate('img', 'click', codeimgfn);
+
+    var url = 'http://zqt.jrj.com.cn/stock/bind/mobileBind.jspa?retcode=-1&msg=123';
+    var isClick = false;
+    $("#submit").click(function () {
+        if (isClick) {
+            return;
+        }
+        isClick = true;
+        //$("#bindform").submit()
+        //发送请求，提交数据
+        var datasubmit = {
+            p: $('input[name=p]').val(),
+            s: $('input[name=s]').val(),
+            devid: $('input[name=devid]').val(),
+            mobile: $('input[name=mobile]').val(),
+            fundaccount: $('input[name=fundaccount]').val(),
+            password: $('input[name=password]').val(),
+            keepAlive: $('input[name=keepAlive]').val()
+        };
+        if (codeb) {
+            datasubmit.vcode = $('input[name=vcode]').val();
+        }
+        $.ajax({
+            url: '/stockauth/newBindForm',
+            type: 'POST',
+            cache: false,
+            dataType: 'json',
+            data: datasubmit,
+            success: function (data) {
+                if (data.retcode == '0') {
+                    //成功
+                    //url = "http://zqt.jrj.com.cn/stock/bind/mobileBind.jspa?p=" + encodeURIComponent(data.data.p) + "&s=" + encodeURIComponent(data.data.s)
+                    +"&retcode=0&msg=" + encodeURIComponent(data.data.msg);
+                    // 只有原方法才能成功
+                    // 想办法在原方法中加入验证码
+                    $("#bindform").submit();
+                    isClick = false;
+                    return;
+                } else {
+                    //没有成功
+                    codeimgfn();
+                    url = 'http://zqt.jrj.com.cn/stock/bind/mobileBind.jspa?retcode=-1&msg=' + data.data.msg;
+                }
+                isClick = false;
+                window.location = url;
+            }
+        });
+    })
+
+    $(function () {
+        $('.note-wrap-chk i, .note-wrap-chk span').click(function () {
+            vm.$data.isKeepOnline = !vm.$data.isKeepOnline;
+        });
+        var risktest = '$!{risktest}';
+        if (risktest == 1) {
+            if(confirm('是否进行风险测评？')) {
+                $("#riskform").submit();
+            } else {
+                $("#tradeform").submit();
+
+            }
+        }
+    });
+</script>
+</body>
+</html>

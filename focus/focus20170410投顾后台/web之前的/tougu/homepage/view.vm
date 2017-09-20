@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{adviser.userName}的观点-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{adviser.userName}的观点，爱投顾，金融界" />
+    <meta name="description" content="$!{adviser.userName}的观点，爱投顾，金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+   
+   	<!--\#include virtual="/v2/common_head_css.html" -->
+   	<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+	<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-css.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/share-stylish.css" rel="stylesheet" />
+</head>
+
+<body>
+	<!--header begin-->
+	<!--\#include virtual="/v2/site_top_compact.html" -->
+	<!--header end-->
+	
+	<!--container begin-->
+	<div class="container">
+		<div class="m-wrap">
+			<div class="m-1000">
+				<!--头部信息 begin-->
+				<!--# include virtual="/account/adviser/$!{adviserId}/infov1.html" -->
+				<!--头部信息 end-->
+				
+				<!--头部主导航 begin-->
+				#set($nav = 1)
+				#if($!{adviser.type}==2)
+				  #set($tipsDesc = '投资内参')
+				#else
+				  #set($tipsDesc = '专栏订阅')
+				#end
+				#parse("tougu/homepage/nav.vm")
+				<!--头部主导航 end-->
+			</div>
+			
+			<div class="clear">
+				<!--主体左边-->
+				<div class="fl">
+					<div class="m-680">
+						<h3 class="m-tit-row">
+							<span class="tit">TA的观点</span>
+							<span class="s-tit"><span class="highlight">$!{viewCount}</span> 篇</span>
+						</h3>
+					#if($viewList && $viewList.size()>0)
+						<div class="vp-list">
+							#foreach($v in $!{viewList})
+							<div class="vp-list-item">
+								<div class="tit">
+									#if(${v.topTime}>0)
+										<b>置顶</b>
+									#end
+									<a href="$!{v.detailUrl}">$!{v.title}</a>
+									#if($v.type==9)
+										#if($v.riseDrop==1)
+										<i class="vp-icon-looksgreat"></i>
+										#elseif($v.riseDrop==-1)
+										<i class="vp-icon-looksbad"></i>
+										#end
+									#end
+								</div>
+								<div class="author clearfix">
+									<div class="fr">
+										<span class="read">阅读 $!{v.reads}</span>
+										<i class="agree vp-icon-like" action-value="viewid=$!{v.id}&adUserid=$!{adviserId}">$!{v.praise}</i>
+										<!--<span class="bdshare-stylish fl" data-style="popup" data-shareitems="weibo|qzone|qq|wechat" data-tag="share_$!{v.id}" data-url="$!{v.detailUrl}" data-text="$!{adviser.userName}:$!{v.title}（分享自：金融界爱投顾）" data-desc="$!{v.summary}" data-pic="http://js.jrjimg.cn/zqt-red-1000/images/site-logo-compact.png"></span>-->
+									</div>
+ 									<span class="time">$!{countUtils.getBeforeTimeForDate($!{v.ctime})}</span>
+								</div>
+								<p class="desc">$!{v.summary}</p>
+							</div>
+							#end
+						</div>
+						#if($page && $page.pages>1)
+						<div class="pager pager-v2" id="pager_data"></div>
+						#end
+					#else
+						<div class="empty-cont">投顾正在酝酿精品内容</div>
+					#end
+					</div>
+				</div>
+				
+				<!--主体右边-->
+				<div class="m-300 fr">
+					<!--\#include virtual = "/gg-homepage/gg.html" -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--container end-->
+	
+	<!--footer begin-->
+	<!--\#include virtual="/v2/common_head_js.html" -->
+  
+    
+    <script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/myadviser.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/bdshare-stylish.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script>
+    #if($page && $page.pages>1)
+    <script>
+   		$("#pager_data").pagefoot(
+		{
+			pagesize : $!{page.pageSize},
+			count : $!{page.totalCount},
+			css : "",
+			current : $!{page.currentPageNo},
+			displaynum : 5,
+			displaylastNum : 1,
+			previous : "上一页",
+			next : "下一页",
+			enableArrowKey : true,
+			paging : function(page) {
+				window.location.href="/account/adviser/$!{adviserId}/1?page="+page.current;
+			}
+		});
+   	</script>
+	#end
+    <script src="http://js.jrjimg.cn/itougu/account/homepage-infov1.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+	    	F.callback = function(){
+				window.location.reload();
+			}
+    	
+    		$('.vp-list').on('click', function(e){
+    			var $target = $(e.target);
+    			if($target.hasClass('agree')){
+    				if(!$target.hasClass('praise-disable')){
+	    				JRJ.ui.isLogin(function(){
+		    				$.ajax({
+								url : "/view/likePoint.jspa",
+								type : "POST",
+								data : $target.attr('action-value'),
+								dataType : "json",
+								success : function(data){
+									if(data.ret==0){
+										var num = $target.text();
+										num= isNaN(num) ? 1: ++num;
+										var html = '' + num;
+										var tmpl = '<span class="highlight f16">+1</span>',
+					                    _left = $target.offset().left,
+					                    _top = $target.offset().top;
+						                $(tmpl).css({ position: 'absolute', left: (_left + 40) + 'px', top: _top + 'px', opacity: 1, 'z-index': 110 }).appendTo($('body'))
+						                .animate({ opacity: 0, top: '-=50' }, 1000);
+										$target.html(html);
+										$target.addClass('praise-disable');
+									}else{
+									}
+								},
+								error : function(msg){
+								}
+							});
+						});
+					}
+    			}
+    		});
+    		
+    		JRJ.util.JRJShareWidget.init({
+                tmpl_style_popup: ['<span class="share bdshare-stylish-trigger">分享</span>',
+                            '<div class="bdsharebuttonbox-wrap">',
+                                '{bdshare}',
+                                '<div class="bdshare-stylish-qrcode" style="display:none;"></div>',
+                            '</div>'].join('')
+            });
+    	}); 
+            
+        
+    </script>
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+	<!--footer end-->
+</body>
+</html>

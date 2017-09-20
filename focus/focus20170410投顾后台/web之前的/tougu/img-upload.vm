@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        var filename = window.location.search;
+        filename = filename.replace(/^.+=/i, "http://itg1.jrjimg.cn");
+
+        if (typeof filename != 'undefined' && filename !== null && filename != '') {
+            
+            window.parent.OnUploadCompleted(filename);
+        }
+    </script>
+</head>
+<body style="background:#fff;">
+</body>
+</html>

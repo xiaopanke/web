@@ -1,0 +1,181 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>已兑现和已过期的券</title>
+  <style>
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+address, cite, em, i { font-style: normal; }
+body{ -webkit-appearance: none; background:#ffffff;}
+li { list-style: none; }
+a { color:#333; text-decoration: none; }
+a:hover{text-decoration:none !important;}
+img{ vertical-align: top; border: 0;  }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input{outline: none;}
+html,body{font:20px/1rem 'Microsoft Yahei'; color: #333; }
+body{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;}
+.clearfix:after{ display: block;content: ''; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+
+
+.main {padding:0 .75rem;}
+.main a {color: #3c80f0;font-size: .75rem;text-decoration: underline;margin-top: 1rem;}
+.main ul li { margin-top: 1rem;}
+.main ul li img { width: 15rem;height: 5rem;margin-left: 1.3rem;margin-right: 1.1rem;}
+.abv .guize {text-align:center;font-size:.75rem;margin-top:1.4rem}
+.abv .guize a{ color: #666;}
+.abv .goquan {text-align:center;margin-top:2.2rem}
+.abv .goquan a{text-decoration: underline;color: #333; font-size: .75rem;}
+
+
+.quan{ height: 4.75rem; background:url(https://i0.jrjimg.cn/zqt-m/myticket/img/go.png) no-repeat; background-size: 100% 100%; width:14.9rem; margin:0 auto; }
+.quan .meg {width:11.3rem; color: #fff;}
+.quan .tips{ font-size: .5rem;text-align: center;}
+.quan .up{}
+.quan .up em{float: left; font-size: 1.7rem; line-height: 3rem; margin-left: 1.5rem; margin-top: .8rem;}
+.quan .up b{float: left;font-size: 3.3rem; line-height: 3.8rem;}
+.quan .up .tit{float: right;width:5.9rem; margin-top: 1rem;}
+.quan .up .tit h3{font-size: 1.4rem; line-height: 1.4rem; font-weight: normal;}
+.quan .up .tit time{font-size: .5rem; display: block;}
+.quan .aside{width:3.4rem;text-align: center;}
+.quan .aside span{ display: block;width:1.4rem; font-size: 1.2rem; color: #654500;text-align: center; line-height: 1.4rem; margin:.5rem auto 0;}
+.quan .aside em{ display: block;width:1.6rem; background: url(https://i0.jrjimg.cn/zqt-m/myticket/img/arrow.png) no-repeat; background-size: 100% auto; height: 1rem; margin: 0 auto;}
+
+/*已兑现*/
+.doneduixian{ background-image: url(https://i0.jrjimg.cn/zqt-m/myticket/img/ok.png);}
+.doneduixian .aside span{font-size: .8rem; color: #444; line-height: .9rem; margin-top: .7rem;}
+.doneduixian .aside em{background-position: 0 -1.2rem; }
+/*已过期*/
+.guoqi{ background-image: url(https://i0.jrjimg.cn/zqt-m/myticket/img/no.png);}
+.guoqi .aside span{font-size: .8rem; color: #fff; line-height: .9rem; margin-top: .7rem;}
+.guoqi .aside em{background-position: 0 -2.2rem; }
+
+.noquan{width:10rem; margin:5rem auto 0;background:url(https://i0.jrjimg.cn/zqt-m/myticket/img/waiting.png) no-repeat center 0;background-size: 4.425rem auto; padding-top: 4.5rem; text-align: center;font-size: .85rem; color: #333; display:none;}
+.footer{ font-size: .7rem; color: #333;text-align: center; position: fixed;bottom: 1rem; width: 100%; display: none;}
+  </style>
+ </head>
+ <body>
+ <div class="main">
+   <div class="clearfix">
+     <a class="fr" href="http://itougu.jrj.com.cn/match/v7/h5/myRedList.jspa">我的红包</a>
+   </div>
+   <div class="abv">
+        <ul class="duihuanlist"></ul>
+     <!--<ul>
+       <li>
+         <div class="quan doneduixian">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>5</b>
+                      <div class="tit">
+                          <h3>交易券</h3>
+                          <time>有效期至：2017-06-10</time>
+                      </div>
+                  </div>
+                  <p class="tips">在金融界用平安证券完成首笔交易即可兑现</p>
+              </div>
+              <div class="fr aside">
+                <span>已兑现</span>
+                <em></em>
+              </div>
+         </div>
+       </li>
+       <li>
+         <div class="quan guoqi">
+              <div class="fl meg">
+                  <div class="up clearfix">
+                      <em>￥</em>
+                      <b>5</b>
+                      <div class="tit">
+                          <h3>交易券</h3>
+                          <time>有效期至：2017-06-10</time>
+                      </div>
+                  </div>
+                  <p class="tips">在金融界用平安证券完成首笔交易即可兑现</p>
+              </div>
+              <div class="fr aside">
+                <span>已过期</span>
+                <em></em>
+              </div>
+         </div>
+       </li>
+     </ul>-->
+     <div class="noquan">无已兑现和过期交易券</div>
+     <p class="guize"><a href="ticketguizeApp.jspa">使用规则></a></p>
+   </div>
+
+ </div>
+ <p class="footer">交易券通过活动领取和后台发放<br />敬请关注“交易助手”官方号</p>
+<script src="https://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery-1.7.2.min.js"></script>
+<script>
+$(function(){
+    function change(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+    }
+    change();
+    var ssoId = '${ssoId}',spToken=encodeURIComponent('${spToken}');
+    //已兑现券列表
+    $.ajax({
+        url:'https://t.jrj.com.cn/activities/ticket/queryMyTickets?status=1,2&ssoId='+ssoId+'&spToken='+spToken,
+        type:"get",
+        cache : false,
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        success:function(v) {
+             console.log(v);
+            if(v.retcode==0){
+                if(v.data.items.length==0){
+                    $('.noquan,.footer').show();
+                    return;
+                }
+                var str='';
+
+                for(var i=0;i<v.data.items.length;i++){
+                    var o=v.data.items[i];
+                    str+='<li data-ticketNo="'+o.ticketNo+'" data-ticketType="'+o.ticketType+'"><div class="quan '+(o.ticketStatus==1 ? 'doneduixian' : 'guoqi')+'"><div class="fl meg"><div class="up clearfix"><em>￥</em><b>'+changeprice(o.ticketPrice)+'</b><div class="tit"><h3>'+o.ticketName+'</h3><time>有效期至：'+hahatime(o.endTime)+'</time></div></div><p class="tips">'+o.ticketDetail+'</p></div><div class="fr aside"><span>'+(o.ticketStatus==1 ? '已兑现' : '已过期')+'</span><em></em></div></div></li>'
+                }
+                $('.duihuanlist').html(str);
+            }   
+        },
+        error : function() {
+             
+        }
+    });
+
+    var convertToJsonObject = function(str){
+        if(typeof str != 'object'){
+          return JSON.parse(str);
+        }else{
+          return str;
+        }
+    }
+    function hahatime (inputTime) {  
+        var inputTime=Number(inputTime);  
+        var date = new Date(inputTime);  
+        var y = date.getFullYear();    
+        var m = date.getMonth() + 1;    
+        m = m < 10 ? ('0' + m) : m;    
+        var d = date.getDate();    
+        d = d < 10 ? ('0' + d) : d;      
+        return y + '-' + m + '-' + d;    
+    };
+    function changeprice(n){
+      n=n.substring(0,n.indexOf('.'));
+      return n;
+     
+    }
+
+});
+
+  </script>
+ </body>
+</html>

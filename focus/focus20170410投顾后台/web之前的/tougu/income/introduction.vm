@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的收入-爱投顾-金融界</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<!--\#include virtual="/common_head_css_js.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/partial-revennue.min.css" rel="stylesheet" />
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+
+            //menu
+            $('.site-menu-title').click(function () {
+                if (!$(this).parent().hasClass('site-menu-expand')) {
+                    $(this).parent().addClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: $(this).parent().outerHeight() + $(this).next().outerHeight() + 'px' }, 200);
+                } else {
+                    $(this).parent().removeClass('site-menu-expand');
+                    $(this).parent().stop().animate({ height: '47px' }, 200);
+                }
+            });
+            $('.site-menu-title .stop').click(function (e) {
+                e.stopPropagation();
+            });
+            $('.site-menu-cur').find('.site-menu-title').click();
+            $('.site-menu').mouseenter(function () {
+                $(this).addClass('site-menu-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('site-menu-hover');
+            });
+            $('.menu-list li').mouseenter(function () {
+                $(this).addClass('hover');
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            });
+            //menu
+
+
+
+            $('.icon-tooltip').tooltipster({
+                theme: 'tooltipster-light'
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--site-top-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-header-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="">金融界爱投顾</a>
+            <span>&gt;</span>
+            <a href="" class="cur">我的投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+    	<div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/tgself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+
+            <div class="site-main-right">
+                <div class="revenue-intro">
+                    <div class="revenue-desc-block-cnt revenue-desc-block-cnt-1">
+                        <ul>
+                            <li>爱投顾平台给投资顾问或投资达人（以下统称"投顾"）提供包括投顾奖金、经纪奖金、组合跟投收入</li>
+                            <li>收入以多劳多得为原则，保障每一位投顾在爱投顾平台获得公平的回报 </li>
+                        </ul>
+                    </div>
+                    <div class="revenue-desc-block-cnt revenue-desc-block-cnt-2">
+                        <ul>
+                            <li>用户在爱投顾平台和您签约成功，并通过证券通成功交易，您能从交易中获得收益。</li>
+                            <li>投顾等级越高收益越高哦！</li>
+                            <li>投顾奖金=平台收入*投顾分成比率</li>
+                        </ul>
+                    </div>
+                    <div class="revenue-desc-block-cnt revenue-desc-block-cnt-3">
+                        <ul>
+                            <li>邀请用户在证券通开户，用户将自动绑定和您签约，成为您的专属用户团成员。您不仅获得投顾奖金，还有邀请开户的经纪奖金哦！</li>
+                            <li>经纪奖金=平台收入*经纪分成比率</li>
+                        </ul>
+                    </div>
+                    <div class="revenue-desc-block-cnt revenue-desc-block-cnt-4">
+                        <ul>
+                            <li>开通盈利宝，奖金将于每月20日前发放到您的盈利宝账户中！</li>
+                            <li>不要忘了做纳税好公民啊！<br />扣除劳务所得税后才是你的最终收入奖金哦！</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="revenue-btn-wrap tc">
+                    <a href="$!url" class="btn btn-123-40">$!text</a>
+                </div>
+            </div>
+
+        </div>
+        <!--site-main-right-->
+    </div>
+
+    <!--footer-->
+    <!--\#include virtual="/common_footer.html" -->
+    <!--footer-->
+</body>
+</html>

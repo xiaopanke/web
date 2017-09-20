@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--\#include virtual="/v2/common_head_css.html" -->
+<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-common.css" rel="stylesheet" />
+<link href="http://js.jrjimg.cn/zqt-red-1000/css/v2/partial-profile-css.css" rel="stylesheet" />
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+<script src="http://sso.jrj.com.cn/sso/json/userInfo.jsp"></script>
+<style type="text/css">
+* {-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td {margin: 0;padding: 0;}address,cite,em,i {font-style: normal;}body {-webkit-appearance: none;background: #ffffff;}li {list-style: none;}a {color: #000;text-decoration: none;}a:hover {text-decoration: none !important;}img {vertical-align: top;border: 0;}input[type="button"],input[type="submit"],input[type="reset"] {cursor: pointer;}input {outline: none;border: none;background-color: transparent;color: #fff;FILTER: alpha(opacity=0);appearance: none;-moz-appearance: none;-webkit-appearance: none;border-radius: 0;}html,body {font: 'Microsoft Yahei';color: #000;}body {background: #f8f8f8;}.clearfix:after {display: block;content: '';clear: both;}.vipDetail-box {width: 1000px;margin: 0 auto;}
+.vipDetail-left {width: 665px;float: left;border: 1px #e4e4e4 solid;background-color: #fff;border-radius: 5px;position: relative;border-bottom: none;}
+.vip-box {width: 90%;position: relative;padding: 0 5%;}
+.vip-box h3 {width: 100%;height: 33px;line-height: 33px;margin-top: 25px;font-weight: normal;font-size: 18px;background-color: #f6f6f6;}
+.vip-box h3 i {width: 0.25rem;height: 0.6rem;display: inline-block;margin-right: 0.4rem;background-color: #ff4040;}
+.vip-box h4 {width: 100%;margin-top: 30px;font-weight: normal;font-size: 18px;text-align: center;}
+.vip-box h4 span {height: 0.25rem;width: 1rem;border-top: 1px #888 solid;display: inline-block;margin: 0 0.375rem;}
+.vip-box h4 p {display: inline-block;color: #444;position: relative;}
+.vip-box h4 i {width: 1rem;height: 1rem;display: inline-block;position: absolute;top: 0.1rem;left: 0;}
+.vip-box-con1 {width: 65%;padding: 0 22%;margin-top: 1.625rem; display: none;}
+.vip-box-con1.ai{width:80%;padding:0 10%;}
+.vip-box-con1 span {width: 97px;height: 27px;line-height: 28px;background-color: #e1b05f;color: #fff;text-align: center;font-size: 14px;border-radius: 15px;display: inline-block;margin: 0 8px;}
+.vip-box .vip-tit {text-align: center;font-size: 14px;color: #888;line-height: 22px;margin: 25px 0 10px 0;}
+.vip-box-con2 {width: 90%;margin: 0.875rem 5% 0 5%;background-color: #f6f6f6;float: left;}
+.vip-box-con2 ul {width: 90%;margin: 0 5%;padding: 0.5rem 0;float: left;}
+.vip-box-con2 ul li {width: 25%;float: left;font-size: 14px;text-align: center;margin: 20px 0;}
+.vip-box-con2 ul li .ai{display: none;}
+.vip-box-con2 ul li span {width: 100%;float: left;text-align: center;padding-top: 10px;color: #555;}
+.vip-box-con2 ul li img {width: 35px;height: 35px;}
+.vip-box>p {font-size: 14px;color: #555;width: 90%;padding: 0 5%;margin-top: 25px;line-height: 24px;}
+.vip-box>p em {font-style: italic;font-weight: bold;}
+.vip-box-con3 {width: 90%;padding: 0 5%;text-align: center;margin: 1rem 0;position: relative;}
+.vip-box-con3 h5 {font-size: 0.7rem;background-color: #e5b65e;width: 80%;padding: 0.25rem 0.5rem;margin: 0 auto;border-radius: 0.25rem;color: #fff;position: relative;z-index: 2;}
+.vip-box-con3 p {text-align: center;width: 80%;padding: 0.75rem 10%;background-color: #f8ecd5;font-size: 0.7rem;color: #555;position: relative;top: -0.5rem;z-index: 1;border-radius: 0.25rem;}
+.vip-box-ul {width: 90%;padding: 0 5%;margin-top: 25px;}
+.vip-box-ul li {font-size: 14px;color: #555;}
+.vip-box-ul li i {width: 0.625rem;display: inline-block;}
+.vip-box-ul li span {color: #ff4040;}
+.vip-btn {width: 100%;margin-top: 30px;box-shadow: 0 -2px 2px #ccc;position: absolute;left: 0;background-color: #fff;}
+.vip-btn div {width: 100%;height: 66px;line-height: 66px;}
+.vip-btn div span {width: 70%;background-color: #fff;font-size: 26px;color: #ff4040;text-align: center;float: left;}
+.vip-btn button {width: 30%;height: 66px;line-height: 66px;text-align: center;float: left;font-size: 22px;color: #fff;border: none;outline: none;float: left;cursor: pointer;background-color: #ff5151;}
+.vipDetail-right {width: 320px;height: 350px;float: right;border: 1px #e4e4e4 solid;border-radius: 5px;background-color: #fff;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web-right.jpg) no-repeat;background-size: 100% 100%;}
+.vipDetail-right a {width: 100%;height: 100%;display: block;}
+.vip-btn button i {width: 6px;height: 12px;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/icon4.png) no-repeat;display: inline-block;background-size: 100% 100%;margin-left: 10px;}
+.heima{},.ai{ display: none;}
+.vip-header { width: 100%; height: 184px;  background-size: 100% 100%; display: none; }
+.vip-header.heima{background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/header.jpg);}
+.vip-header.ai{background-image: url(http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/header2.jpg?a);}
+</style>
+</head>
+
+<body>
+    <!--header begin-->
+   	<!--\#include virtual="/v2/site_top_compact.html" -->
+    <div class="wrapper">
+        <div class="m-1000">
+            <div class="vip-header heima"></div>
+            <div class="vip-header ai"></div>
+        </div>
+    </div>
+	<!--header end-->
+    <div class="vipDetail-box">
+        <div class="vipDetail-left">
+            <div class="vip-box">
+                <h3><i></i>核心价值</h3>
+                <h4><span></span><p><b class="heima">三</b><b class="ai">四</b>种策略股票池</p><span></span></h4>
+                <div class="vip-box-con1 heima">
+                    <span>波段优选</span>
+                    <span>中线黑马</span>
+                    <span>超短快赢</span>
+                </div>
+                <div class="vip-box-con1 ai">
+                    <span>中线黑马</span>
+                    <span>波段优选</span>
+                    <span>主力控盘</span>
+                    <span>热点狙击</span>
+                </div>
+                <p class="vip-tit">热点+波段交易<br />我们只优选最适合您的策略进行操作</p>
+                <h4><span></span><p>尊享服务</p><span></span></h4>
+                <div class="vip-box-con2 clearfix">
+                    <ul>
+                        <li class="ai"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/i9.png" /><span>理财配置</span></li>
+                        <li class="ai"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/i10.png" /><span>解套方案</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i1.png" /><span>专家投顾</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i2.png" /><span>7小时在线服务</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i3.png" /><span>视频节目</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i4.png" /><span>掘金报告</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i5.png" /><span>投资训练营</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i6.png" /><span>交易助手</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i7.png" /><span class="heima">电话回访</span><span class="ai">电话1对1</span></li>
+                        <li><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/xlive_20170717/images/web/i8.png" /><span>核心内参</span></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="vip-box">
+                <h3><i></i>团队介绍</h3>
+                <p>量化至尊VIP工作室由首席投顾<em class="heima">孟祥彬</em><em class="ai">尤勇</em><em class="ai">，投顾讲师彭力</em>、研究所成员<em>黄维</em>、<em>任辰羽</em>，金融工程研究员<em>魏源</em>，<em>李超</em>、<em>孙鑫</em>组成的强大智能金融团队，团队成员全部拥有证券从业资质，其实战能力和金融研究功底早已得到市场认可.</p>
+            </div>
+            <div class="vip-box">
+                <h3><i></i>适合人群</h3>
+                <ul class="vip-box-ul">
+                    <li>1. 资金量<b class="heima">20-50万</b><b class="ai">50万以上</b></li>
+                    <li>2. 短线或中线的进取型投资者</li>
+                    <li>3. 能够认同产品的投资理念</li>
+                </ul>
+            </div>
+            <div class="vip-box" style="margin-bottom:95px;">
+                <h3><i></i>购买须知</h3>
+                <ul class="vip-box-ul">
+                    <li>1. 为了保障您的权益，我们承诺5个工作日内无理由退款</li>
+                    <li>2. 若遇到支付问题或其他疑问，请联系客服400-166-1188</li>
+                    <!-- <li><i></i>(点击拨号<span></span>）</li> -->
+                </ul>
+            </div>
+            <div class="vip-btn">
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div class="vipDetail-right">
+            <a href="http://itougu.jrj.com.cn/activity/web/vipweb.jspa">&nbsp;</a>
+        </div>
+    </div>
+    <!--footer begin-->
+	<!--\#include virtual="/v2/common_head_js.html" -->
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/highcharts.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.min.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/account/myadviser.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/cutoff.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/partial-refer.min.js"></script>
+
+    <script src="http://js.jrjimg.cn/itougu/account/homepage.js?201706023"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/homepage-infov1.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script>
+
+    <script src="http://itougu.jrj.com.cn/account/getBasicUserInfo.jspa"></script>
+
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/dialog-coupon.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+            
+			var subscribeTips = function($target,$tglevel,$userlevel){
+	    		var oneDayTimes = 24*60*60*1000, dateNow = $!{dateUtils.now().getTime()};
+	    		var dif = $target.attr('endtime') - dateNow;
+    			var showNotes = dif < oneDayTimes*10;
+	    		if(showNotes){
+	    			var expDays = Math.ceil(dif/oneDayTimes);
+        			JRJ.Alerts.alert({
+                        message: '<p>距服务期结束还有<span class="red">' + (expDays==0?1:expDays) + '</span>天，您确定订阅吗？</p>',
+                        autoClose: false,
+                        okCallback: function() {
+                        	CouponDlg.show({
+                                productId: $target.attr('tipid'),
+                                type:6,
+                                checkOrderUrl: '/tips/checkorder.jspa?tid=' +　$target.attr('tipid'),
+                                userName:$(".username").html(),
+                                tglevel:$tglevel,
+                                userlevel:$userlevel
+                            });
+                        },
+                        cancelCallback: function () {
+                          return true;
+                        }
+                    });
+    			}else{
+    				CouponDlg.show({
+                        productId: $target.attr('tipid'),
+                        type:6,
+                        checkOrderUrl: '/tips/checkorder.jspa?tid=' +　$target.attr('tipid'),
+                        userName:$(".username").html(),
+                        tglevel:$tglevel,
+                        userlevel:$userlevel
+                    });
+    			}
+	    	}
+
+            var tgrisklevel;
+			var tgrisklevelstr;
+            var userrisklevel;
+            var userrisklevelstr;
+            //投顾它的主页里的专栏订阅加测评结果
+            $.ajax({
+                url : '/account/getEvaluationResultForTgZone.jspa?version=1&userId=$!{user.loginId}'
+                ,dataType : 'json'
+                ,success : function( _data ){
+                    if(_data.retCode==2){ //没有做过测评啦
+                        tgrisklevel=3;
+                        tgrisklevelstr='中风险';
+                    }else if(_data.retCode==1){//做过测评啦
+                        $('#tipsBox .refer-item-tit').append('<span style="font-size: 12px;display: inline-block;background: #f5e9bc;color: #a47313;height: 22px;line-height: 22px;padding: 0 10px;margin-left: 10px;border-radius: 3px;margin-top: 15px;">'+_data.riskInfo.riskTypeDesc+'</span>');
+                        tgrisklevel=_data.riskInfo.riskLevelCode;
+                        tgrisklevelstr=_data.riskInfo.riskTypeDesc;
+                    }
+
+                }
+
+            });
+
+            //订阅投资内参
+            jQuery('#tipsBox').bind('click', function(e){
+            	var $target = $(e.target);
+            	if($target.hasClass('subscribe-btn')){
+            		var oneDayTimes = 24*60*60*1000, dateNow = $!{dateUtils.now().getTime()};
+            		JRJ.ui.isLogin(function(){
+                        $.ajax({
+                            url: 'http://itougu.jrj.com.cn/account/service/identityHasVerified.jspa',
+                            type: "get",
+                            cache: false,
+                            success: function(v) {
+                                if(v.retCode==0){
+                                    if(v.data.bindingIdentity==0){
+                                        window.location.href='http://i.jrj.com.cn/home/userSetting/nameIdentity?ReturnURL='+encodeURIComponent(window.location.href);
+                                        return;
+                                    }else{
+                                        $.ajax({
+                                            type: 'get',
+                                            url: 'http://itougu.jrj.com.cn/account/getRiskInfo.jspa',
+                                            data:{
+                                                passportId:$.cookie('itg_passport_userid'),
+                                                riskID:3
+                                            },
+                                            contentType: 'application/json',
+                                            dataType: 'json',
+                                            success: function (v) {
+                                                if(v.retCode==0){//做过测评啦
+                                                    userrisklevel=v.riskLevelCode;
+                                                    userrisklevelstr=v.riskLevel;
+                                                    duibiceping();
+                                                }else{ //没有做过啦
+                                                    window.location.href='http://i.jrj.com.cn/home/userSetting/fxcp?ReturnURL='+encodeURIComponent(window.location.href);
+                                                    return;
+                                                }
+                                            }
+                                        });
+                                        function duibiceping(){
+                                            if(userrisklevel==0){
+                                                JRJ.Dialogs.standardDialog({
+                                                    title: "提示",
+                                                    customClass: 'dialog-refer-subscribe',
+                                                    width: 507,
+                                                    content: '<div class="dialog-cnt">您已通过系统投资风险承受能力评估，风险承受能力级别为保守型（最低），未达到购买本产品的最低风险等级要求。</div>',
+                                                    okBtnText: "查看风险级别",
+                                                    cancelBtnText: "取消",
+                                                    hasCloseBtn: true,
+                                                    hasOkBtn: true,
+                                                    hasCancelBtn: true,
+                                                    okCallback: function () {
+                                                        window.open('http://i.jrj.com.cn/home/userSetting/fxcpResult','_blank');
+                                                    },
+                                                    cancelCallback: function () { },
+                                                    isFixed: true
+                                                });
+                                                return;
+                                            }
+                                            if(tgrisklevel==5 && userrisklevel<tgrisklevel){
+                                                JRJ.Dialogs.standardDialog({
+                                                    title: "提示",
+                                                    customClass: 'dialog-refer-subscribe',
+                                                    width: 707,
+                                                    content: '<div class="dialog-cnt"><p>尊敬的投资者：您拟投资的产品为投资顾问服务产品，产品其风险等级为高风险，该风险为投资顾问提供的投资建议，如用户按此操作可能产生的股票亏损风险；高于您在客户风险评估中所显示的风险承受能力等级，可能无法满足您预期的流动性需求或导致其他额外风险。投资该项产品，可能导致高出您自身承受能力的损失。我公司就上述情况向您做出提示，并建议您应当审慎考察该产品的特征及风险，自行做出充分风险评估。请您经审慎考虑后，决定是否坚持投资该产品。</p><p>尊敬的投资者：您拟投资的产品可能无法满足您预期的流动性需求或导致其他额外风险；其投资品种为投资顾问服务，可能与您确认的品种不一致；其风险等级为'+tgrisklevelstr+'，高于您在客户风险评估中所显示的风险承受能力等级。投资该项产品，可能导致高出您自身承受能力的损失。我公司就上述情况向您做出提示，并建议您应当审慎考察该产品的特征及风险，自行做出充分风险评估。若您经审慎考虑后，仍坚持投资该产品，请同意下附投资确认书：本人已认真阅读了贵公司关于平台产品/服务的相关提示，并已充分了解该产品或服务的特征和风险，充分知悉上述不匹配情况。本人经审慎考虑后，仍坚持投资该项产品，并愿意承担该项投资可能引起的损失和其他后果。投资该项产品的决定，系本人独立、自主、真实的意思表示，与贵公司及相关从业人员无关。</p></div>',
+                                                    okBtnText: "确定",
+                                                    cancelBtnText: "取消",
+                                                    hasCloseBtn: true,
+                                                    hasOkBtn: true,
+                                                    hasCancelBtn: true,
+                                                    okCallback: function () {
+                                                        twosteps();
+                                                    },
+                                                    cancelCallback: function () { },
+                                                    isFixed: true
+                                                });
+                                                return;
+                                            }
+                                            if(tgrisklevel==5 && userrisklevel==tgrisklevel){
+                                                JRJ.Dialogs.standardDialog({
+                                                    title: "提示",
+                                                    customClass: 'dialog-refer-subscribe',
+                                                    width: 507,
+                                                    content: '<div class="dialog-cnt"><p>尊敬的投资者：您拟投资的产品为投资顾问服务产品，产品其风险等级为高风险，该风险为投资顾问提供的投资建议，如用户按此操作可能产生的股票亏损风险；高于您在客户风险评估中所显示的风险承受能力等级，可能无法满足您预期的流动性需求或导致其他额外风险。投资该项产品，可能导致高出您自身承受能力的损失。我公司就上述情况向您做出提示，并建议您应当审慎考察该产品的特征及风险，自行做出充分风险评估。请您经审慎考虑后，决定是否坚持投资该产品。</p><p>尊敬的投资者：您的风险承受能力等级为'+userrisklevelstr+'；您拟购买的产品风险等级为'+tgrisklevelstr+'；所属品种为：投资顾问服务。本公司已经向您充分揭示了该产品或服务的风险。您的风险承受能力等级、拟购买期限、品种等投资目标与该产品或服务风险等级、购买期限、投资品种相匹配。本公司就上述适当性评估结果与您进行确认，并建议您审慎考察该产品或服务的特征及风险，进行充分风险评估，自行做出投资决定。本人已认真阅读了贵公司关于平台产品/服务的风险揭示书，并已充分了解该产品或服务的特征和风险，签署了风险揭示书。本人在此确认自身风险承受能力等级、拟购买期限、品种等投资目标与该产品或服务风险等级、投资期限、投资品种等投资目标相匹配。本人投资该项产品或接受该项服务的决定，系本人独立、自主、真实的意思表示，与贵公司及相关从业人员无关。</p></div>',
+                                                    okBtnText: "确定",
+                                                    cancelBtnText: "取消",
+                                                    hasCloseBtn: true,
+                                                    hasOkBtn: true,
+                                                    hasCancelBtn: true,
+                                                    okCallback: function () {
+                                                        twosteps()
+                                                    },
+                                                    cancelCallback: function () { },
+                                                    isFixed: true
+                                                });
+                                                return;
+                                            }
+                                            if(userrisklevel<tgrisklevel){
+                                                JRJ.Dialogs.standardDialog({
+                                                    title: "提示",
+                                                    customClass: 'dialog-refer-subscribe',
+                                                    width: 507,
+                                                    content: '<div class="dialog-cnt"><p>尊敬的投资者：您拟投资的产品可能无法满足您预期的流动性需求或导致其他额外风险；其投资品种为投资顾问服务，可能与您确认的品种不一致；其风险等级为'+tgrisklevelstr+'，高于您在客户风险评估中所显示的风险承受能力等级。投资该项产品，可能导致高出您自身承受能力的损失。我公司就上述情况向您做出提示，并建议您应当审慎考察该产品的特征及风险，自行做出充分风险评估。若您经审慎考虑后，仍坚持投资该产品，请同意下附投资确认书：本人已认真阅读了贵公司关于平台产品/服务的相关提示，并已充分了解该产品或服务的特征和风险，充分知悉上述不匹配情况。本人经审慎考虑后，仍坚持投资该项产品，并愿意承担该项投资可能引起的损失和其他后果。投资该项产品的决定，系本人独立、自主、真实的意思表示，与贵公司及相关从业人员无关。</p></div>',
+                                                    okBtnText: "确定",
+                                                    cancelBtnText: "取消",
+                                                    hasCloseBtn: true,
+                                                    hasOkBtn: true,
+                                                    hasCancelBtn: true,
+                                                    okCallback: function () {
+                                                        twosteps();
+                                                    },
+                                                    cancelCallback: function () { },
+                                                    isFixed: true
+                                                });
+                                                return;
+                                            }
+
+                                            twosteps();
+                                            function twosteps(){
+                                                var dif = $target.attr('endtime') - dateNow;
+                                                var showNotes = dif < oneDayTimes*10;
+
+                                                var $parent = $target.parents('.refer-item');
+                                                if($target.hasClass('sign-subscribe-btn')){
+                                                    var tipTitle = '$!{user.userName}：' + $parent.find('.tip-title').text();
+                                                    var tipOnline='', tipPriceNote='', tipButtons='<a id="btPay" href="javascript:void(0);" class="btn btn-89-31">立即支付</a>';
+                                                    #if(!${relation})
+                                                        tipOnline = '与该投顾签约后，就能享受签约优惠';
+                                                        tipButtons = '<a href="javascript:void(0);" class="btn btn-89-31" onclick="F.toSinging(\'$!{user.loginId}\')">立即签约</a>' +
+                                                        '<a id="btPay" href="javascript:void(0);" class="btn btn-89-31 btn-reverse">原价订阅</a>';
+                                                    #elseif(${relation} && ${relation.tid}!=${adviser.loginId})
+                                                        tipOnline = '您已签约其他投顾，不能享受签约后价格';
+                                                        tipButtons = '<a href="/account/adviser/$!{relation.tid}/" class="btn btn-89-31 btn-reverse" target="_blank">看看签约了谁</a>' +
+                                                        '<a id="btPay" href="javascript:void(0);" class="btn btn-89-31">原价订阅</a>';
+                                                    #elseif(${relation} && ${relation.tid}==${adviser.loginId})
+                                                        tipPriceNote = '（您已签约，可享受价格优惠）';
+                                                    #end
+                                                    JRJ.Dialogs.standardDialog({
+                                                        title: "订阅",
+                                                        customClass: 'dialog-refer-subscribe',
+                                                        width: 507,
+                                                        content: ['<div class="dialog-cnt">',
+                                                                        '<div class="refer-info clearfix">',
+                                                                        '<div class="refer-pic">',
+                                                                            '<img src="' + $parent.find('img').attr('src') + '" width="185" height="87" />',
+                                                                        '</div>',
+                                                                        '<div class="refer-desc">',
+                                                                            '<p class="tit" data-cutoff="true" data-cutoff-limit="40" data-cutoff-ellipse="" title="' + tipTitle + '">' + tipTitle + '</p>',
+                                                                            '<p class="mt15"><span class="expiration">服务期：' + $parent.find('.expiration').attr('begin-date') + " 至 " + $parent.find('.expiration').attr('end-date') + '</span></p>',
+                                                                            '<p><span class="money">订阅价格：<span class="red">' + $target.attr('price-value') + '元' + tipPriceNote + '</span></span></p>',
+                                                                        '</div>',
+                                                                    '</div>',
+                                                                    '<p class="note mt10">风险提示：此内容仅代表个人研究成果，供学习参考，不是投资依据，据此操作风险自担。</p>',
+                                                                    '<div class="notice">' + tipOnline + '</div>',
+                                                                    '<div class="btn-wrap">' + tipButtons + '</div>',
+                                                                '</div>'].join(''),
+
+                                                        okBtnText: "确定",
+                                                        cancelBtnText: "取消",
+                                                        hasBtn:false,
+                                                        hasCloseBtn: true,
+                                                        hasOkBtn: true,
+                                                        hasCancelBtn: false,
+                                                        okCallback: function () { },
+                                                        cancelCallback: function () { },
+                                                        isFixed: true
+                                                    });
+                                                    $('#btPay').click(function(){
+                                                        subscribeTips($target,tgrisklevel,userrisklevel);
+                                                    });
+                                                }else{
+                                                    subscribeTips($target,tgrisklevel,userrisklevel);
+                                                }
+                                            };
+                                        }
+                                    }
+                                }
+                            },
+                            error: function() {
+
+                            }
+                        });
+
+
+		            });
+            	}
+            });
+    	});
+
+		function embedFlash(mp3,flashId) {
+	        //flash player-------------
+	        var flashvars = {
+	            mp3_url: mp3 // 通过flashvars变量传递实际的音频mp3文件的url给到Flash
+	        };
+	        var params = {
+	            menu: "false",
+	            scale: "noScale",
+	            wmode: "transparent"
+	        };
+	        var attributes = {
+	            id: "AudioPlayerLite"+flashId
+	        };
+	        swfobject.embedSWF(
+	            "http://f0.jrj.com.cn/tg/audioplayerlite.swf",
+	            "FlashInHere", "525", "70", "10.0.0",
+	            "",
+	            flashvars, params, attributes);
+    	};
+	</script>
+	<!--\#include virtual="/v2/common-footer-v2.html" -->
+	<!--footer end-->
+    <script>
+        $(function() {
+            btnFixed();
+            $(window).scroll(function(){
+                btnFixed();
+            })
+            function btnFixed(){
+                var footeroffset = $('.vipDetail-left').height()-$('.vip-btn').height()-30;
+                var scrlltop = $(this).scrollTop()+$(window).height()-$('.vip-btn').height()-30-$('.site-top-v2-compact').height()-$('.m-1000').height()-12;
+                console.log(footeroffset);
+                if(scrlltop >= footeroffset){
+                    $('.vip-btn').css('top',footeroffset);
+                }else{
+                    $('.vip-btn').css('top',scrlltop);
+                }
+            }
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+            }
+            var tgid = getQueryString('tgid');
+
+
+            //20170823 盼珂 加ai尊响工作室
+            //100323010017140421  AI尊享工作室账号  （160127010097561172 测试环境）
+            if(tgid=='160127010097561172' || tgid=='100323010017140421'){
+                $('.ai').show();
+                $('.heima').hide();
+                document.title='AI尊享工作室'
+
+            }else if(tgid=='161226010027925289' || tgid=='141210010098595802'){
+                $('.ai').hide();
+                $('.heima').show();
+                document.title='量化黑马工作室'
+            }
+             
+            $.ajax({
+                url: 'http://itougu.jrj.com.cn/xlive/vipShopInfo.jspa?adviserId='+tgid,
+                type: "get",
+                cache: false,
+                success: function(data) {
+                    var htmls = "";
+                    if (data != null) {
+                        for (var i = 0; i < data.length; i++) {
+                            if(data[i].type == 4){
+                                htmls += '<span>'+parseFloat(data[i].price)+'/'+data[i].priceUnit+'</span>';
+                                htmls += '<button type="button" name="button" atype="'+parseInt(data[i].type)+'">立即购买</button>';
+                            }
+                        }
+                        $('.vip-btn div').html(htmls);
+                        $(".vip-btn button").bind('click',function() {
+                            var atype = $(this).attr('atype');
+                            //alert("量化黑马工作室正在紧张筹备中，8月8日正式开放购买。");
+                            if (sso_userID) {
+                                $.ajax({
+                                    url: 'http://itougu.jrj.com.cn/account/service/identityHasVerified.jspa',
+                                    type: "get",
+                                    cache: false,
+                                    success: function(v) {
+                                        if (v.retCode == 0) {
+                                            if (v.data.bindingMobile == 0) {
+                                                window.location.href = 'http://i.jrj.com.cn/home/userSetting/phoneIdentity?ReturnURL=' + encodeURIComponent(window.location.href);
+                                                return;
+                                            } else if (v.data.bindingIdentity == 0) {
+                                                window.location.href = 'http://i.jrj.com.cn/home/userSetting/nameIdentity?ReturnURL=' + encodeURIComponent(window.location.href);
+                                                return;
+                                            } else if (v.data.riskAssessed == 0) {
+                                                window.location.href='http://i.jrj.com.cn/home/userSetting/fxcp?ReturnURL='+encodeURIComponent('http://itougu.jrj.com.cn/activity/web/groupOrderWeb.jspa#/?productSubId=100050009&type='+atype+'&tgid='+tgid);
+                                                return;
+                                            } else {
+                                                // 收银台
+                                                window.location.href='http://itougu.jrj.com.cn/activity/web/groupOrderWeb.jspa#/?productSubId=100050009&type='+atype+'&tgid='+tgid;
+                                            }
+                                        }
+                                    },
+                                    error: function() {
+
+                                    }
+                                });
+                            } else {
+                                JRJ.ui.isLogin();
+
+                                return;
+                            }
+                        })
+                    }else{
+                        alert(data);
+                    }
+                },
+                error: function() {
+
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

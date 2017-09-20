@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--# include virtual="/v2/common_head_css.html" -->
+<style>
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td,i { margin: 0; padding: 0;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none; }
+address, cite, em, i { font-style: normal; }
+body { -webkit-appearance: none; background: #ffffff; }
+li { list-style: none; }
+a { color: #fff; text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0); outline:none; }
+a:hover{ text-decoration:none;}
+
+img { vertical-align: top; border: 0; }
+input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+input { outline: none;  }
+html, body { font:20px/1rem 'Microsoft Yahei'; color: #333;}
+.clearfix:after { display: block; content: ''; clear: both; }
+.fl { float: left; }
+.fr { float: right; }
+.bsbb { box-sizing: border-box; }
+.hide { display: none !important; }
+.show { display: block !important; }
+.blue{ color:#2fc478 !important;}
+body{ color:#333;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;background:#a10723;}
+/*top*/
+.top{ height:15.852rem; padding-top: .5rem; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/h5_01.png) no-repeat center;background-size: 100% 100%; position: relative;}
+.top .guize{width:3.85rem;line-height: 1rem; background:rgba(0,0,0,0.3);border-radius:.5rem; color:#ffa422; font-size: .6rem; cursor: pointer; margin-left:.7rem; }
+.top .guize i{ width:.62rem;height:.62rem; float:left; margin-left:.4rem; margin-top:.3rem; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat; background-size:5rem 5rem; }
+.top .time{ margin-top:12.4rem;  color:#fff; text-align: center;font-size: .7rem;}
+.sharebtn{width:1.5rem;height:1.5rem;background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161123xianxia/share.png);background-size:100% 100%; position: absolute;right:.5rem;top: .5rem;}
+/*con*/
+.con{width:17.75rem; background: #fff;border-radius:.75rem; margin:-1.25rem auto  2.4rem;   position:relative; box-shadow: 0 2px 4px #800011;}
+.con .tit{ padding-top: 1rem;color:#f43e06;font-size:.9rem; line-height: 1rem;text-align: center; font-weight:normal;}
+.con .subtit{ color:#f5a701; font-size: .6rem; text-align: center;}
+/*set*/
+.set{ position: absolute;top:.7rem; right:0; width:2.2rem; line-height: 1.1rem; background:#6969c2; border-radius: .5rem 0 0 .5rem; color:#fff; font-size:.6rem; cursor: pointer }
+.set i{ width:.6rem; height: .6rem; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -2.8rem -1px; float:left; margin-top: .3rem; margin-left: .3rem; background-size: 5rem 5rem;}
+/*personlist*/
+.personlist{ padding-bottom: 35px; padding-left:.75rem; padding-right: .75rem;}
+.list{  margin-top: .9rem; padding-bottom: 1rem; position: relative;}
+.list:before{position: relative;content: ''; display: block; position: absolute;-webkit-transform-origin: 0 0;transform-origin: 0 0;pointer-events: none;-webkit-transform: scale(.5);transform: scale(.5);-webkit-box-sizing: border-box;box-sizing: border-box;left:0;bottom:0; width: 200%; border-bottom: 1px solid #dbdbdb;}
+.list:last-child:before{width:0;}
+.pic{ margin-right: .6rem;}
+.pic a{display: block;position: relative;}
+.pic a img{width:4.5rem;height:5.5rem;}
+.pic a span{position: absolute;width:100%; line-height:1.25rem; background: rgba(0,0,0,0.7); color: #fff;text-align: center; bottom: 0;left:0;font-size: .7rem;}
+.out .pic img{-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;}
+.out .pic em{ width:2.5rem; height:1.4rem; background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat 0 -1.5rem; position: absolute; left:0; top:-6px; background-size: 5rem 5rem;}
+.txt{width:11rem;float:left;    margin-top: -.2rem;}
+.txt .msg{font-weight: normal; height: 2.8rem; display: block; color: #333; line-height: .9rem; font-size:.6rem;}
+/*yushou*/
+.yushou .up{ line-height: .8rem; color:#06a2fc;margin-bottom: .4rem; font-size: .7rem;}
+.yushou .icon{float: left;width:.7rem; height:.7rem; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -2rem 0; margin:4px 7px 0 0; background-size: 5rem 5rem;}
+.yushoubtn{ width:6.4rem; line-height: 1.5rem; display: block; text-align: center; background: #f43e06; border-radius:5px; box-shadow:0 1px 2px 1px #ff6131;font-size: .6rem;}
+.yushoubtn:hover{ background: #e23601; color: #fff;}
+.yushoudisbtn{ width:6.4rem; line-height: 1.5rem; display: block; text-align: center; background: #947a76; border-radius:5px; box-shadow:0 1px 2px 1px #ad9c99; font-size: .6rem;}
+/*kaishou*/
+.kaishou .up { font-size: .6rem; margin-bottom: .15rem;}
+.kaishou .up span{ color: #ff5000;font-size: .7rem;}
+.kaishoubtn{width:6.4rem; line-height:1.5rem; float: left; text-align: center; background: #f43e06; border-radius:5px; box-shadow:0 1px 2px 1px #ff6131; margin-right:.8rem;font-size: .6rem; }
+.kaishoudisbtn{width:6.4rem; line-height:1.5rem; float: left; text-align: center; background: #947a76; border-radius:5px; box-shadow:0 1px 2px 1px #947a76; margin-right:.8rem; font-size: .6rem;}
+.kaishoubtn:hover{background: #e23601;}
+.lookdetail{width:3.8rem; line-height: 1.5rem;float:left; text-align: center; background: #16a1f9; border-radius:5px; box-shadow:0 1px 2px 1px #54bdff;font-size: .6rem;}
+.lookdetail:hover{ background: #048ce2;}
+.outtxt{color:#f43e06; line-height: .8rem; font-size: .5rem;}
+/*conbt*/
+.conbt{ background:url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/h5_03.png) no-repeat center 1.25rem  #fffbf1; border-radius: 0 0 20px 20px; height:4.325rem; padding-top: 5.85rem; background-size:15rem 3.75rem;  }
+.conbt a{width:13.75rem; line-height: 3.55rem; display: block;margin:0 auto; background:linear-gradient(#ffe400 0,#ffcb00 79%,#ffd800); font-size: .9rem; color: #873200; text-align: center; border-radius: 1.7rem;box-shadow:0 3px 12px 0px #ffe400;}
+.conbt .alldisbtn{background: #947a76;box-shadow:0 3px 12px 0px #947a76;color:#eae4e4;}
+
+/*关于弹窗*/
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: .6;filter: alpha(opacity=60);top: 0;left: 0;z-index: 5; display: none;}
+.layer{width: 17rem;height: 20rem;background:#fff7ec;position: fixed;top: 50%;left: 50%;margin-top:-10rem;margin-left: -8.5rem;z-index: 10;color: #000;animation: haha .3s linear; display: none;}
+@keyframes haha {
+    from { transform: scale(6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.layer_gz{border-radius: 10px;}
+.gz_in{ padding:1.1rem;font-size:.6rem;}
+.layer_gz h3{text-align: center; color: #f43e06;font-size: .8rem; line-height: 1rem; padding-bottom: .5rem; font-weight: normal; }
+.layer_gz p{ font-size: .6rem}
+.layer_gz .p1{font-size: .7rem;}
+.layer_gz .p2{color:#f43e06; margin-top: .5rem;}
+.layer_gz .p4{color:#999;font-size: .5rem; text-align: center; margin-top: .5rem;}
+.closebtn{ position:absolute; top:-1.4rem;right:.6rem;width:1rem; height:1.4rem; cursor:pointer; background: url(http://i0.jrjimg.cn/zqt-red-1000/focus/focus20170205shipan/sprite.png) no-repeat -1rem 0;  background-size: 5rem 5rem;}
+/*layer_set*/
+.layer_set{  background:#fff; border-radius:10px; color:#333; height:auto; font-size: .7rem;}
+.set_in{padding:1rem;}
+.layer_set p{ }
+.layer_set .myper{ padding:34px 10px;  overflow: hidden; }
+.layer_set .myper p{ text-align: center; font-size: .7rem; line-height: 50px;}
+.layer_set ul li{  margin-left:1.5rem; margin-bottom:.75rem; line-height:1.35rem; margin-right: 1.5rem; }
+.layer_set ul li span{ float: left;}
+.layer_set ul li .option{ cursor: pointer; width:2.375rem; height:1.2rem;padding:2px; border-radius: .7rem; background:#f53d05; float: right;transition:all .3s;}
+.layer_set ul li .option i{ float: left;width:1.2rem; height:1.2rem; background:#fff; border-radius: 50%; margin-left:1.2rem ; transition:all .3s; }
+.layer_set ul li .close{ background:#947a76; }
+.layer_set ul li .close i{ margin-left: 0; }
+.setbtn{width:12rem; line-height:2rem; border:1px solid #f53d05; display: block; margin:0 auto; text-align: center; color:#f53d05; cursor: pointer; border-radius: 3px;}
+/*layer_dy*/
+.layer_dy{  background:#fff; border-radius:10px; color:#333; height:7rem; margin-top: -130px; width:14.75rem; padding:1.1rem; font-size: .7rem;}
+.layer_dy p span{ font-weight: bold;color:#f53d05; margin:0 5px;}
+.dybtn{width:12rem; line-height:2rem;  background:#f53d05; color:#fff; display: block; border-radius: 3px; cursor: pointer; margin:30px auto 0; text-align: center}
+</style> 
+<script src="https://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+</head> 
+<body>
+    <div class="top">
+        <div class="in">
+            <div class="guize clearfix"><i class="fl"></i>大赛规则</div>
+            <p class="time">比赛时间：<b>2017年2月20日-2017年3月24日</b></p>
+            <span class="sharebtn"></span>
+        </div>
+    </div>
+    <div class="con">
+        <div class="set hide"><i></i>设置</div>
+        <h2 class="tit">大赛入围名单</h2>
+        <p class="subtit">（排名不分先后）</p>
+        <ul class="personlist clearfix">
+            <!--<li class="list clearfix">
+                <div class="pic fl">
+                    <a href="#"><img src="img/img1.png" height="220" width="180" alt=""><span>考拉小良</span><em></em></a>
+                </div>
+                <div class="txt">
+                    <a href="javascript:;" class="msg">爱投顾资深达人，预赛总收益42.61%，平均持股周期3-5天，右侧交易选手，交易纪律极为严格。</a>
+                    <div class="yushou">
+                        <div class="up"><span class="icon"></span>2017.02.20 正式开赛</div>
+                        <a href="javascript:;" class="yushoubtn hide">¥998 限量预售中</a>
+                        <a href="javascript:;" class="yushoudisbtn ">成功订阅 敬请期待</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list clearfix">
+                <div class="pic fl">
+                    <a href="#"><img src="img/img1.png" height="220" width="180" alt=""><span>考拉小良</span><em></em></a>
+                </div>
+                <div class="txt">
+                    <a href="javascript:;" class="msg">爱投顾资深达人，预赛总收益42.61%，平均持股周期3-5天，右侧交易选手，交易纪律极为严格。</a>
+                    <div class="yushou hide">
+                        <div class="up"><span class="icon"></span>2017.02.20 正式开赛</div>
+                        <a href="javascript:;" class="yushoubtn">¥998 限量预售中</a>
+                        <a href="javascript:;" class="yushoudisbtn hide">成功订阅 敬请期待</a>
+                    </div>
+                </div>
+            </li>-->
+        </ul>
+        <div class="conbt">
+            <a href="javascript:;" class="allbtn moneybtn"><b>¥<i></i></b>&nbsp;&nbsp;十人打包订阅</a>
+            <a href="javascript:;" class="alldisbtn hide">已打包订阅</a>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <!--规则 -->
+    <div class="layer layer_gz">
+        <div class="gz_in">
+            <i class="closebtn"></i>
+            <h3>大赛介绍</h3>
+            <p class="p1">实盘争霸赛总决赛共10名选手，以平均36%的月收益从众多参赛选手中脱颖而出，投资实力卓越。总决赛阶段的资金由金融界爱投顾提供，分阶段发放，操盘收益全部归选手所有。用户可通过订阅“实时跟单”查看选手决赛期间的调仓记录，收到实时交易提醒，跟单牛人实盘。</p>
+            <p class="p2">订阅须知：</p>
+            <p class="p3">1、订阅后，选手的实时交易动态将以短信+爱投顾APP推送两种形式进行通知，保证您不错过任何一个交易机会；</p>
+            <p class="p3">2、订阅“实时跟单”的服务时间为2017年2月20日-2017年3月24日；</p>
+            <p class="p3">3、决赛期间的淘汰止损线为-8%，选手盘中触及该止损线即诶淘汰，淘汰后该选手的交易动态将停止推送；</p>
+            <p class="p4">* 本活动由金融界爱投顾主办，最终解释权归金融界爱投顾所有。</p>
+        </div>
+    </div>
+    <div class="layer layer_set">
+        <div class="set_in">
+            <i class="closebtn"></i>
+            <p>对于您已经订阅的选手，我们会将选手的操作动态发送给您，若您觉得造成困扰，可自定义是否发送操作动态</p>
+            <div class="myper">
+                <p>您当前没有订阅选手</p>
+                <ul class="clearfix">
+                    <li class="clearfix">
+                        <span>套利企鹅</span>
+                        <div class="option"><i></i></div>
+                    </li>
+                    <li class="clearfix">
+                        <span>套利企鹅</span>
+                        <div class="option"><i></i></div>
+                    </li>
+                    <li class="clearfix">
+                        <span>套利2</span>
+                        <div class="option"><i></i></div>
+                    </li>
+                    <li class="clearfix">
+                        <span>套利企鹅</span>
+                        <div class="option"><i></i></div>
+                    </li>
+                    <li class="clearfix">
+                        <span>套利企鹅</span>
+                        <div class="option"><i></i></div>
+                    </li>
+                    <li class="clearfix">
+                        <span>套利2</span>
+                        <div class="option"><i></i></div>
+                    </li>
+                </ul>
+            </div>
+            <span class="setbtn">确定</span>
+            <!--<span class="setbtn">知道了</span>-->
+        </div>
+    </div>
+    <div class="layer layer_dy">
+        <i class="closebtn"></i>
+        <p>订阅“实时跟单”功能后，<i class="playername"></i>在2017年2月20日-3月24日之间的实盘交易将以 <span>短信+爱投顾APP推送</span> 两种方式进行通知，保证您不错过任何一个跟单机会。</p>
+        <span class="dybtn">确定</span>
+        <!--<span class="setbtn">知道了</span>-->
+    </div>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/wechat-share-without-amd.js"></script>
+<script src="https://js.jrjimg.cn/common/foot/v2s_m.js"></script>
+<script>
+    $(function(){
+        /*计算字体大小*/
+        function change(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/375+'px';
+        }
+        change();
+        window.addEventListener('resize',change,false);
+        var ssoId='${ssoId}';
+        var appname='${source}';
+        var spToken=encodeURIComponent('${spToken}');
+
+        //查询当前用户已经订阅的商品
+        function dyed(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/match/querySubedProducts?matchId=3&ssoId='+ssoId+'&spToken='+spToken,
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        for(var i=0;i<v.data.items.length;i++){
+                            var o=v.data.items[i];
+                            if(o.saleNo==$('.allbtn').attr('datano')){
+                                $('.moneybtn').addClass('hide');
+                                $('.moneybtn').next().removeClass('hide');
+                            }else{
+                                for(var j=0;j<$('.personlist .moneybtn').length;j++){
+                                    if(o.saleNo==$('.personlist .moneybtn').eq(j).attr('datano')){
+                                        $('.personlist .moneybtn').eq(j).addClass('hide');
+                                        $('.personlist .moneybtn').eq(j).next().removeClass('hide');
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+               },
+               error : function() {
+                    
+               }
+            });
+        }
+
+        //拉十个人到页面
+        persons();
+
+        function persons(){
+            $.ajax({
+               url:'https://t.jrj.com.cn/activities/match/queryProducts?matchId=3',
+               type:"get",
+               cache : false,
+               dataType: 'jsonp',
+               jsonp: 'callback',
+               success:function(v) {
+                    if(v.retcode==0){
+                        var str='';
+                        for(var i=0;i<v.data.singleProductList.length;i++){
+                            var o=v.data.singleProductList[i];
+                            str+='<li class="list clearfix" dataid="'+o.playerSsoId+'"><div class="pic fl"><a href="#"><div class="newimg" data_src="'+o.playerPic+'"></div><span>'+o.playerName+'</span><em></em></a></div><div class="txt"><a href="javascript:;" class="msg">'+o.playerDesc+'</a><div class="yushou"><div class="up"><span class="icon"></span>2017.02.20 正式开赛</div><a href="javascript:;" class="yushoubtn moneybtn"  datano="'+o.saleNo+'">¥'+o.price+' 限量预售中</a><a href="javascript:;" class="yushoudisbtn hide">成功订阅 敬请期待</a></div></div></li>';
+                        }   
+                        $('.personlist').html(str);
+                        $('.newimg').each(function(){
+                            var oImg=new Image();
+                            oImg.src=$(this).attr('data_src');
+                            $(this).append(oImg);
+                        });
+                        $('.allbtn i').html(v.data.complexProductList[0].price);
+                        $('.allbtn').attr('datano',v.data.complexProductList[0].saleNo);
+                        
+                        if(appname=='itougu'){ //站内
+                            if(ssoId.length>=18){
+                                dyed(); 
+                            }
+                        }else{//站外
+                            if(getCookie('itg_passport_userid')>=18){
+                                dyed(); 
+                            }
+                        }    
+                    }
+               },
+               error : function() {
+                    
+               }
+            });
+        }
+        alert(appname);
+        if(appname=='itougu'){ //站内
+        }else{
+            $('.sharebtn').addClass('hide');
+        }
+        //分享
+        $('.sharebtn').click(function(){
+            var href = 'http://www.itougu.com/?share={"title":"'
+                    + encodeURI('空空道人开坛讲股')
+                    + '","content":"' + encodeURI('良好的心态源于过硬的技术，空空道人携“厚黑操盘学”核心技术首次公开招募学员，精品小班，助你打造系统化的操作体系！')
+                    + '","url":"' + encodeURI(window.location.href)
+                    + '","imgurl":"' + encodeURI('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161216mingshi/shareimg.png') + '"}';
+            window.location.href = href;
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_shipansaiapp_fx', 'WT.ti', 'ITOUGU_shipansaiapp_fx')
+        });
+        InitWeChatShare({
+            shareTitle: window.document.title,
+            shareLink: window.location.href,
+            shareDesc: '良好的心态源于过硬的技术，空空道人携“厚黑操盘学”核心技术首次公开招募学员，精品小班，助你打造系统化的操作体系！',
+            shareImg: 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161216mingshi/shareimg.png',
+            callback: function(wx) {
+               
+            }
+        });
+        //点击预售按钮
+        $('body').delegate('.moneybtn','click',function(){
+            var o=$(this); 
+            if(appname=='itougu'){ //站内 
+                alert(ssoId);
+                if(ssoId != 'null'){
+                    $.ajax({
+                        url:'https://t.jrj.com.cn/activities/match/doSingleSubscribePlayer?matchId=3&saleNo='+o.attr('datano')+'&ssoId='+ssoId+'&spToken='+spToken,
+                        type:"get",
+                        cache : false,
+                        dataType: 'jsonp',
+                        jsonp: 'callback',
+                        success:function(v) {
+                            alert(v.retcode);
+                            if(v.retcode==0){
+                                $('.mask,.layer_dy').show();
+                                $('.layer_dy .playername').html(o.parents('.list').find('.pic span').html());
+                                $('.dybtn').unbind().click(function(){
+                                    window.location.href='http://itougu.jrj.com.cn/order/signorder.jspa?orderType=11&pid='+o.attr('datano');
+                                    dcsMultiTrack('DCS.dcsuri', 'ITOUGU_shipansaiapp_yushou2', 'WT.ti', 'ITOUGU_shipansaiapp_yushou2')   
+                                });
+                            }
+                       },
+                       error : function() {
+                            
+                       }
+                    });
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                //站外
+                var id=getCookie('itg_passport_userid');
+                if((id+'').length>=18){
+                    $.ajax({
+                        url:'https://t.jrj.com.cn/activities/match/doSingleSubscribePlayer?matchId=3&saleNo='+o.attr('datano'),
+                        type:"get",
+                        cache : false,
+                        dataType: 'jsonp',
+                        jsonp: 'callback',
+                        success:function(v) {
+                            alert(v.retcode);
+                            if(v.retcode==0){
+                                $('.mask,.layer_dy').show();
+                                $('.layer_dy .playername').html(o.parents('.list').find('.pic span').html());
+                                $('.dybtn').unbind().click(function(){
+                                    if(navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == "micromessenger"){ //微信
+                                         window.location.href='http://itougu.jrj.com.cn/order/signorderWap.jspa?orderType=11&pid='+o.attr('datano')+'&canPayType=2&buyUserId='+id;  
+                                    }else{ //不是微信 
+                                        window.location.href='http://itougu.jrj.com.cn/order/signorderWap.jspa?orderType=11&pid='+o.attr('datano')+'&canPayType=1_4&buyUserId='+id;
+                                    }
+                                     dcsMultiTrack('DCS.dcsuri', 'ITOUGU_shipansaiapp_yushou3', 'WT.ti', 'ITOUGU_shipansaiapp_yushou3') 
+                                });
+                            }
+                       },
+                       error : function() {
+                            
+                       }
+                    });
+                }else{
+                    window.location.href = '//sso.jrj.com.cn/sso/mobileToLogin?mode=sms&from=TG_Msite&tgqdcode='+(window.tgqdcode||'')+'&ReturnUrl='+encodeURIComponent(window.location.href);
+
+                }
+            }
+             dcsMultiTrack('DCS.dcsuri', 'ITOUGU_shipansaiapp_yushou1', 'WT.ti', 'ITOUGU_shipansaiapp_yushou1')   
+             
+        });
+        $('.closebtn').click(function(){
+            $('.layer,.mask').hide();
+        });
+        $('.guize').click(function(){
+            $('.layer_gz,.mask').show();
+        });
+        /*设置*/
+        $('.set').click(function(){
+            $('.layer_set').css('margin-top',-($('.layer_set').height()/2+40));
+            $('.layer_set,.mask').show();
+        });
+        $('.layer_set .option').each(function(){
+            $(this).click(function(){   
+                if(!$(this).hasClass('close')){
+                    $(this).addClass('close');
+                }else{
+                    $(this).removeClass('close');
+                } 
+            });
+        });
+        $('.kaishoubtn').each(function(){
+            $(this).click(function(){
+                $('.layer_dy,.mask').show();
+            });
+        });
+        function getCookie(name)
+            {
+            var bikky = document.cookie;
+            name += "=";
+            var i = 0;
+            while (i < bikky.length)
+            {
+            var offset = i + name.length;
+            if (bikky.substring(i, offset) == name)
+            {
+            var endstr = bikky.indexOf(";", offset);
+            if (endstr == -1) endstr = bikky.length;
+            return unescape(bikky.substring(offset, endstr));
+            }
+            i = bikky.indexOf(" ", i) + 1;
+            if (i == 0) break;
+            }
+            return null;
+        }
+    });
+</script> 
+</body>
+</html>

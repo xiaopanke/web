@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>${currentUser.userName}-爱投顾-金融界</title>
+    <meta name="keywords" content="${currentUser.userName},爱投顾,金融界" />
+    <meta name="description" content="${currentUser.userName},爱投顾,金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/rateit.min.css" rel="stylesheet" />
+    <!--# include virtual="/common_head_css_js.html" -->
+    <style>
+        .inquire-reply-item-new { margin-bottom: 20px; }
+    </style>
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="http://js.jrjimg.cn/js.do?f=/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+    <script type="text/javascript" src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.js"></script>
+    
+    <script>
+      var type = ${t};
+      var currentPageNo = ${p};
+      var pageCount = ${pageCount};
+      var pageSize = ${page.pageSize};
+      var totalCount = ${page.totalCount};
+    </script>
+    
+    <script type="text/javascript">
+        $(function () {
+            
+            var tab = new JRJ.ui.TabSwitch({
+                currTab: type,
+                menuPre: 'menu_',
+                conPre: 'con_',
+                total: 2,
+                onClass: 'cur',
+                eventType: 'click',
+                onSwitch: {
+                  fcn: function(q) {
+                    var curr = tab.currTab;
+                    if (curr != type) {
+                      var index = location.href.indexOf('?');
+                      location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?t=' + curr;
+                    }
+                  },
+                  args : []
+                }
+            });
+            
+            $('.my-points .tab li').removeClass('cur');
+            $('#menu_' + tab.currTab).addClass('cur');
+            $('.my-points .tab-cnt').hide();
+            $('#con_' + tab.currTab).show();
+            
+            $('.inquire-item').mouseenter(function () {
+                $(this).addClass('inquire-item-hover');
+            }).mouseleave(function () {
+                $(this).removeClass('inquire-item-hover');
+            });
+            
+            // 评价弹出/隐藏文本框
+            $('.btn-comment').click(function (e) {
+                e.preventDefault();
+                $(this).parent().parent().find('.for-comment').toggle();
+                $(this).parent().parent().find('.for-ask').hide();
+            });
+            
+            // 星星
+            function calStar(num) {
+              if(!num) {
+                return '';
+              }
+              num = parseInt(num);
+              if (num == 1) {
+                return '非常不满意';
+              } else if (num == 2) {
+                return '不满意';
+              } else if (num == 3) {
+                return '一般';
+              } else if (num == 4) {
+                return '满意';
+              } else if (num == 5) {
+                return '非常满意';
+              }
+              return '';
+            }
+            $('.rateit.can-write-star').bind('over', function(event, value) {
+              if(value != null) {
+                $(this).parent().next().removeClass('red').text(calStar(value));
+              }
+            }).bind('beforerated', function(event, value) {
+              if(value != null) {
+                $(this).attr('data-val', value);
+              }
+            }).live('mouseleave', function() {
+              $(this).parent().next().text(calStar($(this).attr('data-val')));
+            });
+            // 星星
+            
+            // 评价提交
+            $('.evaluateSubmit').click(function() {
+              var me = $(this);
+              var answerId = me.attr('answer');
+              var rateErr = $('[rateErrId="rateErr_' + answerId + '"]').html('').hide();
+              var parent = me.parents('.for-comment');
+              var starErr = parent.find('#backing-title-1').removeClass('red').html('');
+              var star = parent.find('#backing1_' + answerId).val();
+              if(!star || star < '1' || star > '5') {
+                starErr.addClass('red').html('请选择满意度！');
+                return false;
+              }
+              var content = parent.find('#txtComment').val();
+              if(content && content.length && content.length > 35) {
+                rateErr.html('评价字数不能超过35个字！').show();
+                return false;
+              }
+              ($).ajax({
+                type: 'POST',
+                dataType: 'json',
+                async: false,
+                cache: false,
+                url: '/ques/service/evaluate.jspa',
+                data: {
+                  id: answerId,
+                  evaluate: star,
+                  evaContent: content
+                },
+                success: function(data) {
+                  if(data.success) {
+                    location.href = location.href;
+                  } else {
+                    rateErr.html(data.msg || '评价失败').show();
+                  }
+                },
+                error: function() {
+                  //rateErr.html('网络异常，请刷新页面').show();
+                },
+                statusCode: {
+                  '404': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>评价失败！</p>'
+                    });
+                  },
+                  '500': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>评价失败！</p>'
+                    });
+                  }
+                }
+              });
+            });
+            
+            // 追问弹出/隐藏文本框
+            $('.btn-ask-again').click(function (e) {
+                e.preventDefault();
+                $(this).parent().parent().find('.for-comment').hide();
+                $(this).parent().parent().find('.for-ask').toggle();
+            });
+            
+            // 追问提交
+            $('.submitAgainAsk').click(function() {
+              var me = $(this);
+              var askId = me.attr('ask');
+              var answerId = me.attr('answer');
+              var toUserId = me.attr('user');
+              var parent = me.parents('.for-ask');
+              var red = parent.find('.red');
+              var content = parent.find('textarea').val();
+              if(!content || !content.length) {
+                red.text('内容不能为空！').show();
+                return false;
+              }
+              if(content.length > 100) {
+                red.text('内容不能超过100字！').show();
+                return false;
+              }
+              ($).ajax({
+                type: 'POST',
+                dataType: 'json',
+                async: false,
+                cache: false,
+                url: '/ques/service/againAsk.jspa',
+                data: {
+                  toUserId: toUserId,
+                  askId: askId,
+                  anwserId: answerId,
+                  content: content
+                },
+                success: function(data) {
+                  var flag = data.flag;
+                  if (flag == 1) {
+                    location.href = location.href;
+                  } else {
+                    red.text('追问失败！').show();
+                  }
+                },
+                error: function() {
+                  /*
+                  JRJ.MiniAlerts.prompt({
+                    message: '<p>追问失败！</p>'
+                  });
+                  //*/
+                },
+                statusCode: {
+                  '404': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>追问失败！</p>'
+                    });
+                  },
+                  '500': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>追问失败！</p>'
+                    });
+                  }
+                }
+              });
+            });
+            
+            // 取消
+            $('.cancelX').click(function() {
+              $(this).parents('.for-ask').hide();
+              $(this).parents('.for-comment').hide();
+            });
+            
+            $('.pager').pagefoot({
+              pagesize: pageSize,
+              count: totalCount,
+              css: '',
+              current: currentPageNo,
+              displaynum: 5,
+              displaylastNum: 2,
+              previous: '上一页',
+              next: '下一页',
+              enableArrowKey: true,
+              paging: function (page) {
+                var current = page.current;
+                var index = location.href.indexOf('?');
+                location.href = (index >= 0 ? location.href.substring(0, index) : location.href) + '?p=' + current + '&t=' + type;
+              }
+            });
+            
+            // 禁言判断
+            function checkSilenced() {
+              var b = false;
+              ($).ajax({
+                url: '/ques/service/checkSilenced.jspa',
+                type: 'POST',
+                data: {},
+                dataType: 'json',
+                async: false,
+                success: function(data){
+                  if(data.ret == 0){
+                     JRJ.Dialogs.standardDialog({
+                        title: '消息提示',
+                        width: 360,
+                        content: '<div class="dialog-cnt dialog-confirm">' + data.msg + '</div>',
+                        okBtnText: '确认',
+                        hasCloseBtn: false,
+                        hasOkBtn: true,
+                        hasCancelBtn: false
+                     });
+                  } else {
+                    b = true;
+                  }
+                },
+                error: function(msg){
+                  //alert(msg.msg);
+                },
+                statusCode: {
+                  '404': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>操作失败！</p>'
+                    });
+                  },
+                  '500': function() {
+                    JRJ.MiniAlerts.prompt({
+                      message: '<p>操作失败！</p>'
+                    });
+                  }
+                }
+              });
+              return b;
+            }
+            
+            F.hoverCls('.avatar-wrap a img', 'itgid');
+        });
+        function embedFlash(mp3, flashId) {
+            var flashvars = {
+                mp3_url: mp3 // 通过flashvars变量传递实际的音频mp3文件的url给到Flash
+            };
+            var params = {
+                menu: 'false',
+                scale: 'noScale',
+                wmode: 'transparent'
+            };
+            var attributes = {
+                id: 'AudioPlayerLite' + flashId
+            };
+            swfobject.embedSWF('http://f0.jrj.com.cn/tg/audioplayerlite.swf', 'FlashInHere', '525', '70', '10.0.0', '', flashvars, params, attributes);   
+        }
+        window.siteNav='itougu';
+    </script>
+    </head>
+<body>
+    <!--site-top-and-header-->
+    <!--# include virtual="/site_top_header.html" -->
+    <!--site-top-and-header-->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+      <div class="wrapper">
+        <a href="/">首页</a><span>&gt;</span>
+        <a href="javascript:void(0);" class="cur">我的爱投顾</a>
+      </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+			<!--site-main-left-->
+			<!--# include virtual="/myself.html" -->
+			<!--site-main-left-->
+            <!--site-main-right-->
+            <div class="site-main-right">
+                <div class="my-points">
+                    <ul class="tab clearfix">
+                        <li id="menu_1" class="cur">已回答咨询<span class="notify" style="display: none;">(${answerCount})</span></li>
+                        <li id="menu_2" class="">未回答咨询<span class="notify" style="display: none;">(${notAnswerCount})</span></li>
+                    </ul>
+                    <!--已回答-->
+                    <div id="con_1" class="tab-cnt clearfix">
+                        #if($t == 1)
+	                        #if(!$!asks||$!asks.isEmpty())
+	                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+	                        #end
+	                        #foreach($ask in $asks)
+	                        #set($temp="$!{ask.id}.jspa")
+	                        <div class="site-main-single-cnt-left" style="width:685px;margin:20px">
+	                            <!--提问-->
+	                            <div class="inquire-item-new clearfix nobor_bot">
+	                                <p><a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a></p>
+	                            </div>
+	                            <!--提问-->
+	                            <!--回答-->
+	                            #foreach($answer in $!ask.answers)
+	                            <div class="inquire-reply-item-new inquire-reply-item-new-noborder inquire-reply-item-new-autoheight clearfix mt10">
+	                                <div class="inquire-reply-item-new-left">
+	                                    <div><span class="da"></span></div>
+	                                </div>
+	                                <div class="inquire-reply-item-new-right0">
+	                                    #if($!answer.voiceMp3)
+	                                    <div id="FlashInHere"><script type="text/javascript">embedFlash('$!answer.voiceMp3','$!answer.id')</script></div>
+	                                    #else
+	                                    <p class="inquire-reply-item-new-cnt"><a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!answer.textContent)</a></p>
+	                                    #end
+	                                </div>
+	                            </div>
+	                            <div class="inquire-reply-item-new inquire-reply-item-new-autoheight clearfix">
+	                                <div class="inquire-reply-item-new-left">
+	                                    <div class="avatar-wrap"><a href="/account/adviser/$!answer.answerUserId/" target="_blank"><img src="$!answer.avatarUrl" width="25" height="25" itgid="$!answer.answerUserId" /></a></div>
+	                                </div>
+	                                <div class="inquire-reply-item-new-right">
+	                                    <div class="inquire-reply-item-new-title">
+	                                        #if(!$!answer.evaluateScore)
+	                                        <span class="btnComment btn-comment mr10 fr" answer="$!answer.id">评价</span>
+	                                        #else
+	                                        <span class="fr highlight" style="color:#fb5e00;font-family:微软雅黑;font-size:14px;">$!objectUtils.calStar($!answer.evaluateScore)</span>
+	                                        <div class="fr ml10">
+	                                            <input type="range" value="$!answer.evaluateScore" step="1" id="backing3_$!answer.id" style="display: none;" />
+	                                            <div class="rateit" data-rateit-backingfld="#backing3_$!answer.id" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-readonly="true"  data-rateit-min="0" data-rateit-max="5"></div>
+	                                        </div>
+	                                        #end
+	                                        <a class="name f14" href="/account/adviser/$!answer.answerUserId/" target="_blank">$!answer.answerUserName</a><span class="fc">$!dateUtils.getTimeDifference($!answer.ctime)</span>
+	                                    </div>
+	                                    
+	                                    <div class="for-comment mb10" style="display:none;">
+	                                        <div class="inquire-reply-item-comment-new">
+	                                            <em></em>
+	                                            <div class="mt10 clearfix">
+	                                                <span class="fl f14">评价：</span>
+	                                                <div class="fl" style="margin-top:2px">
+	                                                    <input type="range" value="0" step="1" id="backing1_$!answer.id" />
+	                                                    <div id="rateit1" class="rateit" data-rateit-backingfld="#backing1_$!answer.id" data-rateit-resetable="false"  data-rateit-ispreset="true"  data-rateit-min="0" data-rateit-max="5"></div>
+	                                                </div>
+	                                                <span id="backing-title-1" class="highlight fl ml10 f14"></span>
+	                                            </div>
+	                                            <p class="mt10 middle">
+	                                                <input id="txtComment" type="text" class="txtbox txtComment" style="width: 530px;" />
+	                                            </p>
+	                                            <div class="inquire-reply-item-ask-new-btn-wrap clearfix">
+	                                                <span class="fr">
+	                                                    <a class="btn btn-45-24-blue ml10 evaluateSubmit" answer="$!answer.id">提交</a>
+	                                                    <a class="btn btn-45-24-blue ml10 cancelX">取消</a>
+	                                                </span>
+	                                                <span rateErrId="rateErr_$!answer.id" name="rateErr" class="red" style="display: none;">评价字数不能超过35个字！</span>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            #end
+	                            <!--回答-->
+	                        </div>
+	                        #end
+                        #end
+                    </div>
+                    <!--已回答-->
+                    <!--未回答-->
+                    <div id="con_2" class="tab-cnt clearfix need-to-answer" style="display:none">
+                        #if($t == 2)
+	                        #if(!$!asks||$!asks.isEmpty())
+	                          <div class="empty-wrap middle tc f16"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png" data-bd-imgshare-binded="1"><span class="ml10">暂无内容</span></div>
+	                        #end
+	                        #foreach($ask in $asks)
+	                        #set($temp="$!{ask.id}.jspa")
+	                        <div class="site-main-single-cnt-left site-main-single-cnt-left-border">
+	                            <!--提问-->
+	                            <div class="inquire-item-new clearfix nobor_bot">
+	                                <p><a href="/ques/$temp" target="_blank">$objectUtils.removeBrs($!ask.textContent)</a></p>
+	                            </div>
+	                            <div class="inquire-reply-item-new inquire-reply-item-new-noborder inquire-reply-item-new-autoheight clearfix">
+	                                #if($!ask.ignoreReason)
+	                                <span class="fr note" style="padding:0;">$objectUtils.ignoreReasonToString($!ask.ignoreReason)</span>
+	                                #end
+	                                <span class="note middle mt10" style="margin-left: 45px;">
+	                                    <span class="mr10">$!dateUtils.getTimeDifference($!ask.ctime)</span>
+	                                    #if($!ask.answerUserId)
+	                                    <span>向</span> <a class="link-gray" href="/account/adviser/$!ask.answerUserId/" target="_blank">$!ask.answerUserName</a> <span class="mr10">提问</span>
+	                                    #end
+	                                </span>
+	                            </div>
+	                            <!--提问-->
+	                        </div>
+	                        #end
+                        #end
+                    </div>
+                    <!--未回答-->
+                    #if($!asks && !$!asks.isEmpty())
+                    <div class="pager"></div>
+                    #end
+                </div>
+            </div>
+            <!--sit-main-right-->
+        </div>
+    </div>
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>

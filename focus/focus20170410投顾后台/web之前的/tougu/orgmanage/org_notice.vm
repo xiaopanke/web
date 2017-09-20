@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>机构公告-机构管理平台-爱投顾最专业的股市投资咨询服务</title>
+    <meta name="keywords" content="爱投顾，投顾，投资顾问，金融界，证券投资，投资咨询，股票咨询，投资顾问服务，股票，证券，股票推荐，投资顾问，投资顾问交流平台，互联网证券，A股，港股，美股" />
+    <meta name="description" content="爱投顾是金融界旗下专业证券投资领域的综合性服务平台。为股民、投资者和投顾搭起沟通的桥梁，为股民提供最专业的股市投资咨询服务。投资者可以随时在线与投顾探讨炒股心得，并向投资顾问进行免费咨询。" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+
+<!--\#include virtual="/v2/common_head_css.html" -->
+<link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/backstage-agency.css" rel="stylesheet" />
+</head>
+<!--site-top-compact-->
+<!--\#include virtual="/v2/site_top_compact.html" -->
+<!--site-top-compact-->
+
+<!-- 开始 -->
+<div class='wrapper'>
+	<div class='backstage'>
+		<div class='nav'>
+			<h2>机构管理后台</h2>
+			<ul>
+				<li><a href='/account/orgmanage/orgAdviser.jspa'>机构投顾管理</a></li>
+				<li class='current'><a href='/account/orgmanage/notice.jspa'>机构公告</a></li>
+				<li><a href='/account/gotoModifyOrg.jspa'>机构设置</a></li>
+				<li class='last'><a href='/account/organization/$!{orgId}/' target="_blank">我的机构主页</a></li>
+			</ul>
+		</div>
+		<div class='right-side'>
+			<div class='post'>
+				<h2>我的公告</h2>
+				<div class='write-text'>
+					<textarea id='postContent' maxlength='50'  placeholder='不超过50字'></textarea>
+					<p>
+						<input type='button' id='submit' class='btn' value='发布'>
+						<span class='num'>0/50</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 结束 -->
+
+<script src="http://itougu.jrj.com.cn/account/getBasicUserInfo.jspa"></script>
+<script src="http://js.jrjimg.cn/zqt-red-1000/js/jrj.itougu-common.v0.1.0.min.js"></script>
+<script>
+
+	var textLength = 0 , maxNum = 50;
+	function textLenthg( ){
+		var  self = $(this) 
+			,num = self.parent().find('.num')
+			,val = self.val();
+		if(val.length<=maxNum){
+			num.html(val.length+'/'+maxNum)
+		}else{
+			num.html('<em>'+val.length+'</em>/'+maxNum)
+		}
+		textLength = val.length;
+	}
+	//$('#postContent')[0].oninput = textLenthg;
+	//$('#postContent').bind('onpropertychange',textLenthg);
+	$('#postContent').bind('onpropertychange keydown keypress keyup change',textLenthg);
+/**
+	$('#submit').click(function(){
+		if(textLength<=maxNum){
+		
+		}else{
+			alert('最大不能超过'+maxNum+'个字符长度.');
+		}
+	});
+**/
+
+	$('#submit').click(function() {
+ 	  var content = $('#postContent').val();
+ 	
+ 	  if(!content.length) {
+  			JRJ.MiniAlerts.prompt({
+                message: '<p>内容不能为空！</p>'
+            });
+      } else if(content.length > 50) {
+        	JRJ.MiniAlerts.prompt({
+                message: '<p>内容不能超过50字！</p>'
+            });
+      } else {
+        	($).ajax({
+		          type: 'POST',
+		          dataType: 'json',
+		          async: false,
+		          cache: false,
+		          url: '/account/orgmanage/addNotice.jspa',
+		          data: {
+		            	content: content
+		          },
+		          success: function(data) {
+			          if(data=='true'||data==true){
+			          		JRJ.Dialogs.standardDialog({
+				                title: "我的公告",
+				                width: 430,
+				                content: ['<div class="portfolio-dlg">',
+				                                '<div style="padding:30px 0;">',
+				                                    '<p class="f20 middle tc"><span>公告发布成功！</span></p>',
+				                                '</div>',
+				                            '</div>'].join(''),
+				                okBtnText: "确定",
+				                cancelBtnText: "关闭",
+				                hasCloseBtn: true,
+				                hasOkBtn: true,
+				                hasCancelBtn: true,
+				                okCallback: function () { },
+				                cancelCallback: function () { },
+				                isFixed: true
+			            	});
+			              	$('#postContent').val("");
+			              	$('.post .num').text('0/50')
+			          }
+		          },
+		          error: function() {
+		          },
+		          statusCode: {
+		            '404': function() {
+		              JRJ.MiniAlerts.prompt({
+		                message: '<p>提交失败！</p>'
+		              });
+		            },
+		            '500': function() {
+		              JRJ.MiniAlerts.prompt({
+		                message: '<p>提交失败！</p>'
+		              });
+		            }
+	          	}
+        	});
+ 		}
+ 	})
+
+    $('.backstage').height()<500 && $('.backstage').height(500);
+</script>
+<!--\#include virtual="/v2/common-footer-v2.html" -->
+</html>

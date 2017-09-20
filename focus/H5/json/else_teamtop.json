@@ -1,0 +1,65 @@
+{
+    "retCode": "0",
+    "data": {
+       " items": [
+        {
+            "teamName": "测试战队",
+            "tgHeadUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "monthUpOrDown": 0,
+            "lastMonthRank": 0,
+            "totalRank": 1,
+            "tradeCapital": 0,
+            "monthRank": 0,
+            "totalProfit": 0,
+            "tgName": "cat华清",
+            "teamId": 1,
+            "monthProfit": 0,
+            "membersNum": 0,
+            "advantage": 1,
+            "isMyTeam": 0,
+            "tgId": "141120010079383950",
+            "totalUpOrDown": 0
+        },
+        {
+            "teamName": "测试战队",
+            "tgHeadUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "monthUpOrDown": 0,
+            "lastMonthRank": 0,
+            "totalRank": 1,
+            "tradeCapital": 0,
+            "monthRank": 0,
+            "totalProfit": 0,
+            "tgName": "cat华清",
+            "teamId": 1,
+            "monthProfit": 0,
+            "membersNum": 0,
+            "advantage": 1,
+            "isMyTeam": 0,
+            "tgId": "141120010079383950",
+            "totalUpOrDown": 0
+        },
+        {
+            "teamName": "测试战队",
+            "tgHeadUrl": "http://itg1.jrjimg.cn/201501/24/itougu/itougu_14220963126671.jpg",
+            "monthUpOrDown": 0,
+            "lastMonthRank": 0,
+            "totalRank": 1,
+            "tradeCapital": 0,
+            "monthRank": 0,
+            "totalProfit": 0,
+            "tgName": "cat华清",
+            "teamId": 1,
+            "monthProfit": 0,
+            "membersNum": 0,
+            "advantage": 1,
+            "isMyTeam": 0,
+            "tgId": "141120010079383950",
+            "totalUpOrDown": 0
+        },
+    ],
+        "pageSize": 10,
+        "rankType": 4,
+        "currentNum": 1
+    },
+    "msg": ""
+}

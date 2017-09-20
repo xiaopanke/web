@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{keywordShow}-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{keywordShow}" />
+    <meta name="description" content="$!{keywordShow}" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+	<!--\#include virtual="/common_head_css_js.html" -->
+	
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/floatdiv.js"></script>
+    <script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+	<script src="http://js.jrj.com.cn/js.do?f=/stock/js/TradeEntrance.js"></script>
+	
+	<script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/question.min.js"></script> 
+	
+    <script>
+	var type="all";
+	var page=1;
+	var start=0;
+	var size=10;
+	var hasData=true;
+	var isnew = true;
+    //获取股票行情数据
+    function initIndexHq(stockCode){
+    	var i = stockCode + "";
+		var url="http://q.jrjimg.cn/?otc=utf-8&q=cn|s&i="+i+"&n=hqs&c=id,code,name,np,pl,hlp";
+		$.getScript(url, function() {
+			if(hqs.HqData.length==0){
+				$("#stockinfo").hide();
+			}else{
+				for ( var m = 0; m < hqs.HqData.length; m++){
+					if (hqs.HqData[m][hqs.Column.code] == stockCode) {
+						//涨跌幅
+						var pl = hqs.HqData[m][hqs.Column.pl];
+						var hlp = hqs.HqData[m][hqs.Column.hlp];
+						//现价
+						$("#np").text(hqs.HqData[m][hqs.Column.np]);
+						$("#stockName").text(hqs.HqData[m][hqs.Column.name])
+						if(pl>=0){
+							//+0.15（+2.70%）
+							$("#pl").text('+' + hlp +'(' + '+' + pl + '%)');
+							$("#direction").removeClass("icon-down-14");
+							$("#direction").addClass("icon-up-14");
+							$("#np").removeClass("green");
+							$("#pl").removeClass("green");
+							$("#np").addClass("red");
+							$("#pl").addClass("red");
+						}else{
+							$("#pl").text( hlp + '(' + pl + '%)');
+							$("#direction").removeClass("icon-up-14");
+							$("#direction").addClass("icon-down-14");
+							$("#np").removeClass("red");
+							$("#pl").removeClass("red");
+							$("#np").addClass("green");
+							$("#pl").addClass("green");
+						}
+					}
+				}
+			}
+
+		});			
+	}
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            F.hoverCls( '.my-tg-item .col-1 img' , 'itgid' );
+            //开户验证码效果qr-codemy-tg-item
+            $('.qrcode-openaccount span').click(function () {
+                var self = this;
+                if ($(this).parent().hasClass('qrcode-openaccount-hover')) {
+                    $(this).parent().removeClass('qrcode-openaccount-hover');
+                    $('.qrcode-openaccount .btn-114-24').hide();
+                    $('.qrcode-openaccount .btn-194-37').show().stop().animate({ opacity: 1 });
+                } else {
+                    $('.qrcode-openaccount .btn-194-37').stop().animate({ opacity: 0 }, 300, function () {
+                        $(this).hide();
+                    });
+                    $('.qrcode-openaccount .btn-114-24').show();
+                    $(this).parent().addClass('qrcode-openaccount-hover');
+                }
+
+            });
+            //qr-code
+            
+            //自选股接口(post) http://itougu.jrj.com.cn/mystock/addstock.jspa?stockid=${stockMap.stockCode}
+            $("#addMyStockButton").click(function(e) {
+				//判断登录
+				JRJ.ui.isLogin(function(){
+					var stockCode = $("#addMyStockButton").attr("stockcode");
+	            	var url = "/mystock/addstock.jspa";
+					$.ajax({
+					  type: 'POST',
+					  url: url,
+					  data: {"stockid":stockCode},
+					  timeout : 10000,
+					  success: function(data) {
+								if (typeof(data) == "number"){
+									if(data==4){
+										JRJ.Alerts.alert({message:"组合中的自选股数量达到上限",title:"提示框"});
+									}else if(data==6){
+										JRJ.Alerts.alert({message:"您已添加过这只股票！",title:"提示框"});
+									}else{
+										JRJ.Alerts.alert({message:"添加失败!错误码：" + data,title:"提示框"});
+									}
+								}else if(typeof(data) == "object"){
+									JRJ.Alerts.alert({message:"添加成功!",title:"提示框"});
+								}else{
+									JRJ.Alerts.alert({message:"添加失败!",title:"提示框"});
+								}
+							}
+					});
+			     });
+
+            });
+            
+            //向所有人提问
+			$('#asktoall').click(function (e) {
+				var stockcode=$(this).attr("stockcode");
+				var stockname=$(this).attr("stockname");
+				var stocks = stockcode + "," + encodeURIComponent(stockname);
+				e.preventDefault();
+				//判断登录
+				JRJ.ui.isLogin(function(){
+					JRJ.Dialogs.iframeDialog({
+			            content: [''].join(''),
+			            loadingImg: '',
+			            width: 712,
+			            hasBtn: false,
+			            hasOkBtn: false,
+			            okBtnText: '',
+			            title: '向所有人提问',
+			            titleRight: '',
+			            bottomContent: '',
+			            protocolHtml: '',
+			            hasCancelBtn: false,
+			            enableKeyCtrl: true,
+			            ifrSrc: 'http://itougu.jrj.com.cn/ques/asktoall.jspa?stocks=' + stocks,
+			            ifrReHeight: false,
+			            isFixed: true,//defaultCf.isFixed,
+			            okCallback: function () {
+			                defaultCf.okCallback();
+			            },
+			            cancelCallback: function () {
+			                return true;
+			            }
+			        });
+				});
+			});
+			
+			
+			//向所有人提问
+			$('#asktoall_v2').click(function (e) {
+				var stockcode=$(this).attr("stockcode");
+				var stockname=$(this).attr("stockname");
+				var stocks = stockcode + "," + encodeURIComponent(stockname);
+				//JRJ.ui.isLogin(function(){
+		            Question.clickEvent(stockcode,stockname);
+		        //});
+			});
+    
+			
+			
+    
+           function enterLink(adviserId,callback){
+            	//判断当前用户是否和投顾是签约状态 
+            	//callback(obj) obj = {adviser:true,attention:true} 
+            	//adviser投顾签约状态 attention关注状态 true为有关系
+            	F.getSingingState( adviserId , function(obj){
+            		if(obj.adviser){
+            			//已签约，进链接。
+            			callback(true)
+            		}else{
+            			JRJ.Dialogs.standardDialog({
+                            title: "消息提示",
+                            width: 430,
+                            content: '<div class="dialog-cnt tc"><p class="mt20">抱歉！您尚未签约该投资顾问，无法查看TA的私密观点！</p></div>',
+                            okBtnText: "签约投顾",
+                            cancelBtnText: "取消",
+                            hasCloseBtn: true,
+                            hasOkBtn: true,
+                            hasCancelBtn: true,
+                            okCallback: function () {
+                            	F.toSinging(adviserId);
+                            },
+                            cancelCallback: function () {
+                            },
+                            isFixed: true
+                        });
+            			return false;
+            		}
+            	});
+            }
+            
+            
+            $(".enterLink").live("click",function(){
+            	var adviserId = $(this).attr("adviserId");
+            	var vid = $(this).attr("vid");
+            	var _this = $(this);
+            	if(typeof(membership.getUserInfo().userId)!="undefined" && membership.getUserInfo().userId==adviserId){
+            		var openLink = $('<a href="http://itougu.jrj.com.cn/view/private/'+vid+'.jspa" target="_blank"></a>');
+            		$("body").append(openLink);
+    	        	openLink[0].click();
+    	        	openLink.remove();
+    	        	return false;
+            	}
+            	var limits = $(this).attr("limits");
+            	if(limits==2){
+            		enterLink(adviserId , function( bool ){
+            			var flag = bool;
+            			if(flag){
+            				location.href="/view/private/"+vid+".jspa";
+            			}
+            		});
+            	}else{
+            		var openLink = $('<a href="http://itougu.jrj.com.cn/view/private/'+vid+'.jspa" target="_blank"></a>');
+            		$("body").append(openLink);
+    	        	openLink[0].click();
+    	        	openLink.remove();
+    	        	return false;
+            	}
+            });
+            
+            
+
+           //点击交易按钮动作
+           $("#tradeButton").click(function() {
+				var stockCode = $(this).attr("stockcode");
+				//var para = "zqt-20141015-rc-stock-zxg-an-030";
+				//clickTrade(stockCode,para);
+				return true;
+			});
+			
+			
+           #if($isStock)
+           initIndexHq('${stockMap.stockCode}');
+           setInterval("initIndexHq('${stockMap.stockCode}')", 5000);
+           #end
+           
+           
+           //三个tab切换
+           var tabParam = {
+                menuPre: "menu_",
+                conPre: "con_",
+                total: 3,
+                onClass: "cur",
+                eventType: 'click',
+                onSwitch:{fcn:tabClick,args:[123]}
+            };
+           var tab = new JRJ.ui.TabSwitch(tabParam);
+           
+           var asktpl_simple = ['<div class="search-result-ask" askid={{id}}><a href="/ques/{{id}}.jspa" target="_blank">{{&content}}</a></div>'].join('');
+           
+           var asktpl = ['<div class="search-result-ask" askid={{id}}><a href="/ques/{{id}}.jspa" target="_blank">{{&content}}</a></div>',
+	                		'<div class="search-result-answer-wrap"  style="display:none">',
+	                        '<em></em>',
+	                        '<p class="search-result-answer">{{&answerContent}}</p>',
+	                        '<p class="mt10">回答时间： {{answerTime}}</p>',
+	                    	'</div>'].join('');
+	      var asktpl_voice = ['<div class="search-result-ask" askid={{id}}><a href="/ques/{{id}}.jspa" target="_blank">{{&content}}</a></div>',
+	                		'<div class="search-result-answer-wrap" style="display:none">',
+	                        '<em></em>',
+	                        '<div class="FlashInHere"></div>',
+	                        '<div id="FlashInHere">',
+	                        '<script type="text/javascript">embedFlash(\'{{&answerVoiceMp3}}\',\'{{id}}\')',
+	                        '<\/script></div>',
+	                        '<p class="mt10">回答时间： {{answerTime}}</p>',
+	                    	'</div>'].join('');
+	                    	
+		  var asktpl_new = ['<div class="inquire-item-new inquire-item-new0 clearfix">',
+                                '<p><a href="/ques/{{id}}.jspa" target="_blank">{{&content}}</a></p>',
+                            '</div>',
+                            '<div class="inquire-reply-item-new clearfix mt20" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">',
+                                '<div class="inquire-reply-item-new-left">',
+                                    '<div><span class="da">答：</span></div>',
+                                '</div>',
+                                '<div class="inquire-reply-item-new-right xh_right">',
+                                    '<p class="inquire-reply-item-new-cnt">{{&answerContent}}</p>',
+                                '</div>',
+                            '</div>',
+                            '<div class="inquire-reply-item-new mt10 clearfix">',
+                                '<div class="inquire-reply-item-new-left">',
+                                    '<div class="avatar-wrap"> <a href=""><img src="images/sample-5.jpg" width="25" height="25"></a> </div>',
+                                '</div>',
+                                '<div class="inquire-reply-item-new-right" style="width:600px;">',
+                                    '<div class="inquire-reply-item-new-title">',
+                                        '<!-- <a href="" class="btnAsk btn btn-45-24-blue ml10 fr">评价</a> <a href="" class="btnAsk btn btn-45-24-blue ml10 fr">追问</a> -->',
+                                        '<!-- <span class="fr">追问已回答</span> -->',
+                                        '<span class="fr bg">15 位投顾已回答</span>',
+                                        '<span class="name">祝枝山</span><span class="fc">34分钟前回答</span> <span class="fc">响应时间：1分钟</span>',
+                                    '</div>',
+                                '</div>',
+                            '</div>'].join('');
+                            
+         var asktpl_voice_new = ['<div class="inquire-item-new inquire-item-new0 clearfix">',
+                                '<p>请问<a class="link" href="http://stock.jrj.com.cn/cominfo/default_601718.htm"  target="_blank" >际华集团(SH600030)</a>成本11.7，想长期持有几年，等待牛市的收益，请问现在应该如何操作？</p>',
+                            '</div>',
+                            '<div class="inquire-reply-item-new clearfix mt20" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">',
+                                '<div class="inquire-reply-item-new-left">',
+                                    '<div><span class="da">答：</span></div>',
+                                '</div>',
+                                '<div class="inquire-reply-item-new-right xh_right">',
+                                    '<p class="inquire-reply-item-new-cnt">',
+                                        '<div style="height:70px;"><div id="FlashInHere"></div></div>',
+                                    '</p>',
+                                '</div>',
+                            '</div>',
+                            '<div class="inquire-reply-item-new mt10 clearfix">',
+                                '<div class="inquire-reply-item-new-left">',
+                                    '<div class="avatar-wrap"> <a href=""  target="_blank"><img src="images/sample-5.jpg" width="25" height="25"></a> </div>',
+                                '</div>',
+                                '<div class="inquire-reply-item-new-right" style="width:600px;">',
+                                    '<div class="inquire-reply-item-new-title">',
+                                        '<!-- <a href="" class="btnAsk btn btn-45-24-blue ml10 fr">评价</a> <a href="" class="btnAsk btn btn-45-24-blue ml10 fr">追问</a> -->',
+                                        '<!-- <span class="fr">追问已回答</span> -->',
+                                        '<span class="fr bg">15 位投顾已回答</span>',
+                                        '<span class="name">祝枝山</span><span class="fc">34分钟前回答</span> <span class="fc">响应时间：1分钟</span>',
+                                    '</div>',
+                                '</div>',
+                            '</div>',
+                        '</div>'].join('');
+	                    	
+	                    	
+	                    	
+	       var viewtpl = ['<div class="my-tg-item my-tg-item-2 clearfix">',
+                                '<div class="col-1">',
+                                    '<a href="http://itougu.jrj.com.cn/account/adviser/{{userId}}/"  target="_blank"  class="row-pic userOnlineState"><img src="{{headImage}}" itgid="{{userId}}" alt="" width="50" height="50" onerror=""><span class="online" style="display:none;">在线</span></a>',
+                                '</div>',
+                                '<div class="col-2">',
+                                    '<p class="row-title">',
+                                        '<span class="fr">',
+                                            '<span class="icon icon-hkstock">{{typeDesc}}</span>',
+                                        '</span><span class="name">{{userName}}</span><i class="icon icon-v"></i><span class="title ml20"><span>{{adviserTypeDesc}}</span><span class="ml20">{{company}}</span></span></p>',
+                                    '<p class="row-2-f20 mt20">',
+                                        '<a href="http://itougu.jrj.com.cn/view/{{id}}.jspa" target="_blank" >{{&title}}</a>',
+                                    '</p>',
+                                    '<div class="row-cnt mt20">',
+                                        '<p>{{&summary}}</p>',
+                                    '</div>',
+                                    '<div class="tl mt10">',
+                                        '<div class="tools middle fr">',
+                                            '<a href="javascript:void(0);" class="icon icon-read" title="阅读">{{reads}}</a>',
+                                            '<em class="split"></em>',
+                                            '<a href="javascript:void(0);" class="icon icon-like" title="赞">{{praise}}</a>',
+                                            '<em class="split"></em>',
+                                            '<a href="javascript:void(0);" class="icon icon-comment" title="评论">{{comments}}</a>',
+                                        '</div>',
+                                        '<span class="mr10">{{ctimeShow}}</span>',
+                                        '<span>{{sourceShow}}</span>',
+                                    '</div>',
+                                '</div>',
+                            '</div>'].join('');
+	       var viewtpl_secret = ['<div class="my-tg-item my-tg-item-2 clearfix">',
+	                                '<div class="col-1">',
+	                                    '<a href="http://itougu.jrj.com.cn/account/adviser/{{userId}}/" target="_blank" class="row-pic userOnlineState"><img src="{{headImage}}"  itgid="{{userId}}" alt="" width="50" height="50" onerror=""><span class="online" style="display:none;">在线</span></a>',
+	                                '</div>',
+	                                '<div class="col-2">',
+	                                    '<p class="row-title">',
+	                                        '<span class="fr">',
+	                                            <!-- '<span class="icon icon-{{typeCode}}">{{typeDesc}}</span>', -->
+	                                            '<span class="icon icon-privacy">私密</span>',
+	                                        '</span><span class="name">{{userName}}</span><i class="icon icon-v"></i><span class="title ml20"><span>{{adviserTypeDesc}}</span><span class="ml20">{{company}}</span></span></p>',
+	                                    '<p class="row-2-f20 mt20">',
+	                                        '<a vid="{{id}}" target="_blank" class="enterLink" adviserId="{{userId}}" limits="2">{{&title}}</a>',
+	                                    '</p>',
+	                                    '<div class="row-cnt mt20">',
+	                                    	//'<a href="javascript:void(0);" class="btn btn-113-30 ml30 fr xh_ta" dirid="{{userId}}">我要签约</a>',
+	                                        '<span class="highlight">投资顾问私密文章具有极其有效的投资参考性，如果想了解更多文章详情，请您签约该投资顾问......</span>',
+	                                    '</div>',
+	                                    '<div class="tl mt10">',
+	                                        '<div class="tools middle fr">',
+	                                            '<a href="javascript:void(0);" class="icon icon-read" title="阅读">{{reads}}</a>',
+	                                            '<em class="split"></em>',
+	                                            '<a href="javascript:void(0);" class="icon icon-like" title="赞">{{praise}}</a>',
+	                                            '<em class="split"></em>',
+	                                            '<a href="javascript:void(0);" class="icon icon-comment" title="评论">{{comments}}</a>',
+	                                        '</div>',
+	                                        '<span class="mr10">{{ctimeShow}}</span>',
+	                                        '<span>{{sourceShow}}</span>',
+	                                    '</div>',
+	                                '</div>',
+	                            '</div>'].join('');
+                                    	
+           function tabClick(arg){
+				//alert(arg);
+				//alert(tab.currTab);
+				page = 1;
+				start = 0;
+				hasData = true;
+				if(tab.currTab==2){
+					type = "view";
+				}else if(tab.currTab==3){
+					type = "ask";
+				}else{
+					type = "all";
+					location.href = location.href;
+				}
+				var url = "api?keyword="+encodeURIComponent('${keyword}');
+				$.ajax({
+				  type: 'GET',
+				  url: url,
+				  data: {"type":type},
+				  cache:false,
+				  dataTye: "jsonp",
+				  success: function(result) {
+							if(result.success){
+								//console.log(result);
+								if(result.data.recordnum>0){
+									var totalCount = result.data.recordnum;
+									$("#"+type+"_total_result").text(totalCount);
+									var data_list = result.data.list;
+									//数据渲染
+									var html = '';	                            	
+	                            	for(var i=0;i<data_list.length;i++){
+	                            		var data = data_list[i];
+	                            		var tpl;
+	                            		if(type=="ask"){
+			                            	if(typeof(data.answerVoiceMp3) == "undefined" || data.answerVoiceMp3==""){
+			                            		tpl = asktpl;
+			                            	}else{
+			                            		tpl = asktpl_voice;
+			                            	}
+										}else if(type=="view"){
+											if(data.limits==2){
+												tpl = viewtpl_secret;
+											}else{
+												tpl = viewtpl;
+											}
+										}
+	                            		var html_render = Mustache.render(tpl, data);
+	                            		html += html_render;
+	                            	}
+	                            	$("#"+type+"-search-result").html(html);
+	                            	F.hoverCls( '.my-tg-item .col-1 img' , 'itgid' );
+	                            	pageFoot(type,totalCount,page);
+								}else{
+									$("#con_" + tab.currTab).html('<div class="middle tc mt30"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png"><span class="f16 ml10">暂无数据</span></div>');
+								}
+							}
+						}
+				});
+				
+			}
+			$("#askMore").click(function(){
+				$("#menu_3").click();
+			});
+			$("#viewMore").click(function(){
+				$("#menu_2").click();
+				F.hoverCls( '.my-tg-item .col-1 img' , 'itgid' );
+			});
+			//加载分页数据
+			function loadData(type,page){
+				var url = "api?keyword="+encodeURIComponent('${keyword}');
+				start = start + (page-1)*size;
+				//alert(type);
+				//alert("page:" + page);
+				//alert("start:" + start);
+				if(type!="all"){
+					$.ajax({
+					  type: 'GET',
+					  url: url,
+					  data: {"type":type,"start":start,"size":size},
+					  dataTye: "jsonp",
+					  async:false,
+					  success: function(result) {
+								if(result.success){
+									if(start >= result.data.recordnum){
+										hasData = false;
+										$('.loading').find("span").html("已无更多数据");
+									}else{
+										hasData = true;
+									}
+									//alert("hasData:" + hasData);
+									if(hasData){
+										$("#"+type+"_total_result").text(result.data.recordnum);
+										var data_list = result.data.list;
+										//数据渲染
+										var html = '';	                            	
+		                            	for(var i=0;i<data_list.length;i++){
+		                            		var data = data_list[i];
+		                            		var tpl;
+		                            		if(type=="ask"){
+				                            	if(typeof(data.answerVoiceMp3) == "undefined" || data.answerVoiceMp3==""){
+				                            		tpl = asktpl;
+				                            	}else{
+				                            		tpl = asktpl_voice;
+				                            	}
+											}else if(type=="view"){
+												if(data.limits==2){
+													tpl = viewtpl_secret;
+												}else{
+													tpl = viewtpl;
+												}
+											}
+		                            		var html_render = Mustache.render(tpl, data);
+		                            		html += html_render;
+		                            	}
+		                            	$(html).appendTo($("#"+type+"-search-result"));
+		                            	page = page + 1;
+									}
+								}
+							}
+					});
+					
+				}
+				
+			}
+			
+			//分页数据
+			function pageData(page){
+				var url = "api?keyword="+encodeURIComponent('${keyword}');
+				var start = (page-1)*size;
+				if(type!="all"){
+					$.ajax({
+					  type: 'GET',
+					  url: url,
+					  data: {"type":type,"start":start,"size":size},
+					  dataTye: "jsonp",
+					  async:false,
+					  success: function(result) {
+								if(result.success){
+									if(start >= result.data.recordnum){
+										hasData = false;
+									}else{
+										hasData = true;
+									}
+									//alert("hasData:" + hasData);
+									if(hasData){
+										var totalCount = result.data.recordnum;
+										$("#"+type+"_total_result").text(totalCount);
+										var data_list = result.data.list;
+										//数据渲染
+										var html = '';	    
+		                            	for(var i=0;i<data_list.length;i++){
+		                            		var data = data_list[i];
+		                            		var tpl;
+		                            		if(type=="ask"){
+				                            	if(typeof(data.answerVoiceMp3) == "undefined" || data.answerVoiceMp3==""){
+				                            		tpl = asktpl;
+				                            	}else{
+				                            		tpl = asktpl_voice;
+				                            	}
+											}else if(type=="view"){
+												if(data.limits==2){
+													tpl = viewtpl_secret;
+												}else{
+													tpl = viewtpl;
+												}
+											}
+		                            		var html_render = Mustache.render(tpl, data);
+		                            		html += html_render;
+		                            	}
+		                            	//alert(html);
+		                            	$("#"+type+"-search-result").html(html);
+		                            	F.hoverCls( '.my-tg-item .col-1 img' , 'itgid' );
+		                            	pageFoot(type,totalCount,page);
+									}
+								}
+							}
+					});
+					
+				}
+				
+			}
+			
+			//scroll
+			/**
+            $(window).scroll(function () {
+                //$(window).scrollTop()这个方法是当前滚动条滚动的距离
+                //$(window).height()获取当前窗体的高度
+                //$(document).height()获取当前文档的高度
+                var bot = 200; //bot是底部距离的高度
+                if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                    //当底部基本距离+滚动的高度 >= 文档的高度-窗体的高度时；
+                    //我们需要去异步加载数据了
+                    //me.getData();
+                    //$container.masonry('reload');
+                    console.log('我们需要去异步加载数据了');
+                    if(type!="all"){  
+	                    $('.loading').show();
+	                    setTimeout(function () {
+	                        $('.loading').hide();
+	                    }, 3000);
+                    }
+					if(type!="all" && hasData){
+						loadData(type,page);
+					}
+                    
+                }
+            });
+            */
+            
+          function pageFoot(type,totalCount,page){
+            	$("#pager_"+type).pagefoot(
+            			{
+            				pagesize : size,
+            				count : totalCount,
+            				css : "",
+            				current : page,
+            				displaynum : 5,
+            				displaylastNum : 1,
+            				previous : "上一页",
+            				next : "下一页",
+            				enableArrowKey : true,
+            				paging : function(page) {
+            					//alert(page.current)
+            					pageData(page.current);
+            					window.location = "#top";
+            				}
+            			});
+            }
+            
+            
+        });
+        
+        //flash
+		function embedFlash(mp3,flashId) {
+			  //flash player-------------
+		    var flashvars = {
+		        mp3_url: mp3 // 通过flashvars变量传递实际的音频mp3文件的url给到Flash
+		    };
+		    var params = {
+		        menu: "false",
+		        scale: "noScale",
+		        wmode: "transparent"
+		    };
+		    var attributes = {
+		        id: "AudioPlayerLite"+flashId
+		    };
+		    swfobject.embedSWF(
+		        "http://f0.jrj.com.cn/tg/audioplayerlite.swf",
+		        "FlashInHere", "525", "70", "10.0.0",
+		        "",
+		        flashvars, params, attributes);   
+		};
+    </script>
+
+</head>
+<body>
+	<div id="top"></div>
+	<!--# include virtual="/site_top_header.html" -->
+
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="http://itougu.jrj.com.cn/">首页</a>
+            <span>&gt;</span>
+            <a class="cur">搜索结果</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+
+    <div class="site-main">
+        <div class="wrapper">
+            <div class="site-main-single-cnt site-main-single-cnt-2">
+                <div class="search-result clearfix">
+                    <div class="search-result-left">
+                    	#if($isStock)
+                        <div class="stock-info" id="stockinfo">
+                            <span class="fr">
+                            	<a href="javascript:void(0);" class="btn btn-45-24-blue" id="asktoall_v2" stockcode="${stockMap.stockCode}" stockname="${stockMap.stockName}">提问</a>
+                                <a href="javascript:void(0);" class="btn btn-45-24-blue" id="addMyStockButton" stockcode="${stockMap.stockCode}">+自选</a>
+                                <a href="https://t.jrj.com.cn/stock/spread.jspa?stockCode=${stockMap.stockCode}&from=zqt-20141206-rc-itougu-gpjy-an-234" class="btn btn-45-24-blue" id="tradeButton" stockcode="${stockMap.stockCode}">交易</a>
+                            </span>
+                            <span>
+                                <a href="http://stock.jrj.com.cn/share,${stockMap.stockCode}.shtml" target="_blank" class="link mr10">${stockMap.stockCode}</a><a href="http://stock.jrj.com.cn/share,${stockMap.stockCode}.shtml" target="_blank" class="link" id="stockName">${stockMap.stockName}</a>
+                                <span style="padding:0 15px;">&nbsp;</span><span class="red" id="np"></span><span style="padding:0 15px;">&nbsp;</span><i id="direction" class="icon icon-up-14"></i><span class="red" id="pl"></span>
+                            </span>
+                        </div>
+                        #end
+                        <ul class="tab tab-273 clearfix mt20">
+                            <li id="menu_1" #if(${type}=="all")class="cur" #end>全部内容</li>
+                            <li id="menu_2" #if(${type}=="view")class="cur" #end>观点</li>
+                            <li id="menu_3" #if(${type}=="ask")class="cur" #end>咨询</li>
+                        </ul>
+                        <!--con_1-->
+                        <div id="con_1">
+                        	#if(${askQueryResult.recordnum}==0 && ${viewPointQueryResult.recordnum}==0)
+                        	<div class="middle tc mt30"><img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png"><span class="f16 ml10">暂无搜索结果数据</span></div>
+                        	#else
+                            <h2 class="search-result-title mt20">
+                            #if(${askQueryResult.recordnum}>1)
+                                <span class="fr"><a href="javascript:void(0);" class="link" id="askMore">更多</a></span>
+                            #end
+                                与 <span class="red">${keywordShow}</span> 有关的咨询共 <span class="red">${askQueryResult.recordnum}</span> 条
+                            </h2>
+                            #foreach( $ask in $askQueryResult.list)
+							    <div class="search-result-ask" askid="${ask.id}"><a href="http://itougu.jrj.com.cn/ques/${ask.id}.jspa" target="_blank">$!{ask.content}</a></div>
+							    #if(${velocityCount}==1)
+	                            <div class="search-result-answer-wrap"  style="display:none">
+	                                <em></em>
+	                                <p class="search-result-answer">$!{ask.answerContent}</p>
+	                                #if("$!{ask.answerVoiceMp3}"!="")
+		                             <div id="FlashInHere"><script type="text/javascript">embedFlash('$!ask.answerVoiceMp3','${ask.id}')</script></div>
+		                        	#end
+	                                <p class="mt10">回答时间： $!{ask.answerTime}</p>
+	                            </div>
+	                            #end
+							#end
+                            <h2 class="search-result-title mt30">
+                            #if(${viewPointQueryResult.recordnum}>5)
+                                <span class="fr"><a href="javascript:void(0);" class="link" id="viewMore">更多</a></span>
+                            #end
+                                与 <span class="red">${keywordShow}</span> 有关的投顾观点共 <span class="red">${viewPointQueryResult.recordnum}</span> 条
+                            </h2>
+                            #foreach( $viewPoint in $viewPointQueryResult.list)
+                            <div class="my-tg-item my-tg-item-2 clearfix">
+                                <div class="col-1">
+                                    <a href="http://itougu.jrj.com.cn/account/adviser/${viewPoint.userId}/"  target="_blank"  class="row-pic userOnlineState"><img src="${viewPoint.headImage}" itgid="$!{viewPoint.userId}" alt="" width="50" height="50" onerror="javascript:this.src='http://i5.jrjimg.cn/sys/default_s.jpg';this.onerror=null;"><span class="online" style="display:none;">在线</span></a>
+                                    <!--
+                                    <p class="row-level tc mt10"><i class="icon-level icon-level-1"></i><span class="ml5">LV 49</span></p>
+                                    <p class="row-level-2"><span class="level-bar"><em style="width: 50%;"></em></span></p>
+                                    -->
+                                </div>
+                                <div class="col-2">
+                                    <p class="row-title">
+                                        <span class="fr">
+                                            <!-- <span class="icon icon-${viewPoint.typeCode}">${viewPoint.typeDesc}</span> -->
+                                            #if(${viewPoint.limits}==2)
+                                            <span class="icon icon-privacy">私密</span>
+                                            #end
+                                        </span><span class="name">${viewPoint.userName}</span><i class="icon icon-v"></i><span class="title ml20"><span>$!{viewPoint.adviserTypeDesc}</span><span class="ml20">$!{viewPoint.company}</span></span></p>
+                                    <p class="row-2-f20 mt20">
+                                    	#if(${viewPoint.limits}==2)
+                                        <a vid="${viewPoint.id}" class="enterLink" target="_blank" adviserId="${viewPoint.userId}" limits="2">${viewPoint.title}</a>
+                                        #else
+                                        <a href="http://itougu.jrj.com.cn/view/${viewPoint.id}.jspa" target="_blank">${viewPoint.title}</a>
+                                        #end
+                                    </p>
+                                    <div class="row-cnt mt20">
+                                    	#if(${viewPoint.limits}==2)
+                                    	<!--
+                                    	<a href="javascript:void(0);" class="btn btn-113-30 ml30 fr xh_ta">我要签约</a>
+                                    	-->
+                                        <span class="highlight">投资顾问私密文章具有极其有效的投资参考性，如果想了解更多文章详情，请您签约该投资顾问......</span>
+                                        #else
+                                        <p>$!{viewPoint.summary}</p>
+                                        #end
+                                    </div>
+                                    <div class="tl mt10">
+                                        <div class="tools middle fr">
+                                            <a href="javascript:void(0);" class="icon icon-read"  title="阅读">${viewPoint.reads}</a>
+                                            <em class="split"></em>
+                                            <a href="javascript:void(0);" class="icon icon-like"  title="赞">${viewPoint.praise}</a>
+                                            <em class="split"></em>
+                                            <a href="javascript:void(0);" class="icon icon-comment" title="评论">${viewPoint.comments}</a>
+                                        </div>
+                                        <span class="mr10">${viewPoint.ctimeShow}</span>
+                                        <span>$!{viewPoint.sourceShow}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            #end
+                            #end
+                        </div>
+                        <!--con_2-->
+                        <div id="con_2" style="display:none;">
+                            <h2 class="search-result-title mt20">
+                                与 <span class="red">${keywordShow}</span> 有关的投顾观点共 <span class="red" id="view_total_result">0</span> 条
+                            </h2>
+							<div id="view-search-result">
+							</div>
+							<div class="pager" id="pager_view"></div>
+                        </div>
+                        <!--con_2-->
+                        <!--con_3-->
+                        <div id="con_3" style="display:none;">
+                            <h2 class="search-result-title mt20">
+                                与 <span class="red">${keywordShow}</span> 有关的咨询共 <span class="red" id="ask_total_result">0</span> 条
+                            </h2>
+                            <div id="ask-search-result">
+							</div>
+							<div class="pager" id="pager_ask"></div>
+                        </div>
+                        <!--con_3-->
+                        <div class="loading tc middle">
+							<img src="http://i0.jrjimg.cn/zqt-red-1000/loading.gif" alt="" width="50" height="50" />
+							<span>正在加载...</span>
+						</div>
+                    </div>
+                    <div class="search-result-right">
+                        <div class="qrcode-openaccount">
+                            <span class="handler"></span>
+                            <a href="http://t.jrj.com.cn/?from=zqt-20141206-rc-itougu-wskzh-an-231" class="btn-194-37" target="_blank"></a>
+                            <a href="http://www.m.jrj.com.cn/" class="btn-114-24" style="display:none;" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!--\#include virtual="/v2/common-footer-v2.html" -->
+</body>
+</html>

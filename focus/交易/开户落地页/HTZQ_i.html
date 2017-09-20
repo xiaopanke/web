@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<title>恒泰证券简介</title>
+<link rel="stylesheet" href="http://js.jrjimg.cn/common/zt-base-min.css" />
+<style>
+body{ background:#efefef; }
+.logohead{ border-bottom:1px solid #cacaca; overflow:hidden; }
+.logohead img{ display:block; width:100%; margin:0 auto; }
+
+.tab tr{ border-bottom:1px solid #cacaca; }
+.tab td{  padding:5px 0;text-align:center;}
+.tab td img{ display:block; width:60%; margin:0 auto;}
+.tab td p{ height:55px; display:box; display:-webkit-box; -webkit-box-pack:center; box-pack:center; box-align:center; -webkit-box-align:center; font-size:.875rem; color:#7a7a7a;}
+.tab td p i{ font-size:.75rem;}
+
+.khzb{ padding-top:10px;}
+.khzb img{ display:block; width:100%; margin:0 auto; }
+</style>
+</head>
+<body>
+<div class="logohead"><img src="http://i0.jrjimg.cn/tg_wapapp/htlogo.png" /></div>
+<div class="iconbox">
+	<table class='tab' cellpadding="0" cellspacing="0" width="100%" border="0">
+    	<tr><td><p>佣金低<br /><i>万2.5交易佣金</i></p><img src="http://i0.jrjimg.cn/tg_wapapp/icon05.png" /></td><td><p>壹诺宝<br /><i>闲置保证金理财</i></p><img src="http://i0.jrjimg.cn/zqt-m/openAccount/images/icon06.png" /></td></tr>
+        <tr><td><p>金牌投顾<br /><i>为您提供专属服务</i></p><img src="http://i0.jrjimg.cn/tg_wapapp/icon07.png" /></td><td><p>网上柜台<br /><i>创业板、融资融券、沪港通</i></p><img src="http://i0.jrjimg.cn/tg_wapapp/icon08.png" /></td></tr>
+    </table>
+</div>
+<div class="khzb"><img src="http://i0.jrjimg.cn/tg_wapapp/zbbottom.png" /></div>
+<!--open account : start-->
+<script>
+    var getQueryString = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURIComponent(r[2]); return null;
+    }
+    var brokerId = 'HTZQ' , AppName=getQueryString('appName');
+</script>
+<script src="http://js.jrjimg.cn/zqt-m/js/broker-open-account.min.js"></script>
+    <script src="http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js"></script>
+
+<!--open account : end-->
+</body>
+</html>

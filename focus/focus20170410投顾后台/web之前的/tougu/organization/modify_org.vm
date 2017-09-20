@@ -1,0 +1,685 @@
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{adviserInfo.userName}注册信息-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{adviserInfo.userName}注册信息-爱投顾-金融界" />
+    <meta name="description" content="$!{adviserInfo.userName}注册信息-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <!-- 
+   <link href="http://js.jrjimg.cn/zqt-red-1000/css/reset-min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor-simple-2.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/styles.min.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery-1.7.2.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/CharNum.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/rAF-Polyfill.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/dialogs-effect.js"></script>
+       --> 
+     <!--# include virtual="/common_head_css_js.html" -->
+  
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/stylish-select.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor-simple-2.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/backstage-agency.css" rel="stylesheet" />
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.watermark.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.stylish-select.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/CharNum.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/MiniEditor/MiniEditor.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/jquery.tooltipster.min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/swfobject.js"></script>
+
+    <script src="http://js.jrjimg.cn/itougu/account/upload.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/initCompany.js"></script>
+    <script type="text/javascript">
+    
+        
+       
+    </script>
+</head>
+<body>
+
+ <!--site-top-compact-->
+ <!--\#include virtual="/v2/site_top_compact.html" -->
+ <!--site-top-compact-->
+   
+    <!--bread-crumb-->
+    <!-- 
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="http://itougu.jrj.com.cn">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">机构空间</a>
+        </div>
+    </div>
+     -->
+    <!--bread-crumb-->
+    
+        <div class="site-main">  
+
+        <!--site-main-right-->
+   
+        <div class='wrapper'>
+          <!--  
+			<div class='backstage-banner'><img src='http://js.jrjimg.cn/zqt-red-1000/images/v3/banner.jpg'></div>-->
+			<div class='backstage'>
+			 ####tgMenuVelocity("13","101","leftMenu")
+			
+				<div class='nav'>
+					<h2>机构管理后台</h2>
+					<ul>
+						<li><a href='/account/orgmanage/orgAdviser.jspa'>机构投顾管理</a></li>
+						<li><a href='/account/orgmanage/notice.jspa'>机构公告</a></li>
+						<li class='current'><a href='/account/gotoModifyOrg.jspa'>机构设置</a></li>
+						<li class='last'><a href='/account/organization/$!{orgId}/' target="_blank">我的机构主页</a></li>
+					</ul>
+				</div> 
+				<div class='right-side'>
+					<div class='menu'>
+						<ul>
+							<li class='current'>注册信息</li>
+						</ul>
+					</div>
+					<div class='backstage-reginfo'>
+						<h2 class='member-title line'>
+						   <div class='right' id="operatorArea">
+							   #if(${verifyStatus}==0)
+	                                <span class='edit' id="editView">编辑</span>
+	                                <span class='edit' id="saveView" style="display:none">保存</span>
+	                                <span class='edit' id="cancleView" style="display:none">取消</span>
+	                           #else
+	                                <span><font color="red">修改的信息正在审核中....</font></span>
+	                           #end
+							</div>
+							<div class='name' id="baseInfoView"><i class='i-line'></i>基本信息</div>
+							<div class='name' id="baseInfoModify" style="display:none">基本信息</div>
+						</h2>
+						
+						<!-- 查看  start -->
+						<!--  
+						  <div class="pic-upload noborder clearfix tc" id="orgLogoView">
+						    <img src="$!{org.orgLogo}" id="modifyOrgLogoView" class="example" width="150" height="150">
+		                  </div>	
+                            
+                          <table class="table-register-show" id="orgInfoView">
+		                    <tr>
+		                        <td class="field"><span>机构名称</span></td>
+		                        <td id="modifyOrgNameView">$!{org.orgName}</td>
+		                    </tr>
+		                    <tr>
+		                        <td class="field"><span>机构简称</span></td>
+		                        <td id="modifyOrgShortNameView">$!{org.orgShortName}</td>
+		                    </tr>
+							<tr>
+		                       <td class="field"><span>机构所在地</span></td>
+		                       <td id="modifyProvinceCityView">$!{org.province}  $!{org.city}</td>
+		                    </tr>
+		                    <tr>
+		                        <td class="field"><span>法人代表</span></td>
+		                        <td id="modifyArtificialPersonView">$!{org.artificialPerson}</td>
+		                    </tr>
+							<tr>
+		                        <td class="field">机构简介</td>
+		                        <td id="modifyOrgSummaryView" style="word-break:break-all;">$!{org.orgSummary}</td>
+		                    </tr>
+		                </table>
+		                
+                            
+                        <h2 class='member-title line' id="applyInfoTitleView">
+							<div class='name'>机构联络人</div>
+						</h2>
+						<table class="table-register-show" id="applyInfoView">
+		                    <tr>
+		                        <td class="field"><span>姓名</span></td>
+		                        <td width='250' id="modifyApplyNameView">$!{org.applyName}</td>
+		                        </tr>
+							<tr>
+		                        <td class="field"><span>职位</span></td>
+		                        <td id="modifyPositionView">$!{org.position}</td>
+		                    </tr>
+							<tr>
+		                        <td class="field"><span>邮箱</span></td>
+		                        <td width='250' id="modifyEmailView">$!{org.email}</td>
+		                    </tr>
+							<tr>
+		                        <td class="field"><span>座机</span></td>
+		                        <td id="modifyTelephoneView">$!{org.telephone}</td>
+		                    </tr>
+							<tr>
+		                        <td class="field"><span>手机号</span></td>
+		                        <td colspan='3' id="modifyMobileView">$!{org.mobile}</td>
+		                    </tr>
+		                </table>
+						<h2 class='member-title line' id="blTitleView">
+							<div class='name'>营业执照</div>
+						</h2>
+						<div class="pic-upload clearfix noborder" id="blView">
+		                    <div class="pic-upload-info license">
+								<p style='overflow:hidden'><img src="${org.businessLicence}" id="modifyBusinessLicenceView" class="example fl" width="150" height="150"></p>
+		                    </div>
+		                </div>	
+		                -->
+				           <div class='member-info' id="orgBasicInfo">
+							<div class='img' id="orgLogoView">
+								<img src="$!{org.orgLogo}" id="modifyOrgLogoView" class="example" width="155" height="155">
+							</div>
+							<div class='list' id="orgInfoView">
+								<dl class='half_left'>
+									<dt>机构名称：</dt>
+									<dd id="modifyOrgNameView">$!{org.orgName}</dd>
+								</dl>
+								<dl class='half_right'>
+									<dt>机构所在地：</dt>
+									<dd id="modifyProvinceCityView">$!{org.province}  $!{org.city}</dd>
+								</dl>
+								<dl class='half_left'>
+									<dt>机构简称：</dt>
+									<dd id="modifyOrgShortNameView">$!{org.orgShortName}</dd>
+								</dl>
+								<dl class='half_right'>
+									<dt>法人代表：</dt>
+									<dd id="modifyArtificialPersonView">$!{org.artificialPerson}</dd>
+								</dl>
+								<dl class='text'>
+									<dt>机构简介：</dt>
+									<dd id="modifyOrgSummaryView" style="word-break:break-all;" class='textedit'>
+									  <span class='txtval'>$!{org.orgSummary}</span>
+								      <span class='more'>[更多]</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+						<div class='memberInfo-contact' id="orgContactPersonInfo">
+							<h2 class='member-title' id="applyInfoTitleView">
+								<div class='name'><i class='i-line'></i>机构联络人</div>
+							</h2>
+							<table class='table-content' width='100%' cellspacing='0' cellpadding='0'  id="applyInfoView">
+								<tr>
+									<th width='80'>姓名：</th>
+									<td id="modifyApplyNameView">$!{org.applyName}</td>
+									<th width='80'>座机：</th>
+									<td id="modifyTelephoneView">$!{org.telephone}</td>
+								</tr>
+								<tr>
+									<th>职位：</th>
+									<td id="modifyPositionView">$!{org.position}</td>
+									<th>手机号：</th>
+									<td id="modifyMobileView">$!{org.mobile}</td>
+								</tr>
+								<tr>
+									<th>邮箱：</th>
+									<td id="modifyEmailView">$!{org.email}</td>
+									<th></th>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+						<div class='license'>
+							<h2 class='member-title'  id="blTitleView">
+								<div class='name'><i class='i-line'></i>营业执照</div>
+							</h2>
+							<div class="pic"  id="blView">
+							   <img src="${org.businessLicence}" id="modifyBusinessLicenceView" class="example" width="580" height="300">
+							</div>
+		                </div>
+						<!-- 查看  end -->
+						
+						
+						
+						<!-- 修改  start -->
+						<form action="/account/modifyOrgInfo.jspa" id="form_1" method="POST" >
+						    <input type="hidden" name="orgLogo" id="orgLogo" value="$!{org.orgLogo}"/>
+						    <input type="hidden" name="orgName" id="orgNameValue" value="$!{org.orgName}"/>
+						    <input type="hidden" name="orgShortName" id="orgShortNameValue" value="$!{org.orgShortName}"/>
+						    <input type="hidden" name="province" id="provinceValue" value="$!{org.province}"/>
+						    <input type="hidden" name="city" id="cityValue" value="$!{org.city}"/>
+						    <input type="hidden" name="artificialPerson" id="artificialPersonValue" value="$!{org.artificialPerson}"/>
+						    <input type="hidden" name="orgSummary" id="orgSummaryValue" value="$!{org.orgSummary}"/>
+						    <input type="hidden" name="businessLicence" id="businessLicence" value="$!{org.businessLicence}"/>
+			                <input type="hidden" name="applyName" id="applyNameValue" value="$!{org.applyName}"/>
+			                <input type="hidden" name="position" id="positionValue" value="$!{org.position}"/>
+			                <input type="hidden" name="email" id="emailValue" value="$!{org.email}"/>
+			                <input type="hidden" name="telephone" id="telephoneValue" value="$!{org.telephone}"/>
+			                <input type="hidden" name="mobile" id="mobileValue" value="$!{org.mobile}"/>
+						</form>
+						<form id="uphead" enctype="multipart/form-data" action="http://up1.jrj.com.cn/upload" method="post" target="uploadimgw">
+		               	   <input type="hidden" name="channel" value="thead_attach" >
+		               	   
+					       <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://itougu.jrj.com.cn/account/uploadOrgImg.jspa" >
+					        <!--
+					       <input type="hidden" name="returnUrl" id="returnUrl_1" value="http://itougu.jrj.com.cn:8080/account/uploadImg.jspa" >
+					       -->
+					       <input type="hidden" name="imageFormats" value="150,75,50"/>
+					       <input type="hidden" name="sizeMax" value="10485760"/>
+					       <input type="hidden" name="sizisNeedGenScaleseMax" value="isNeedGenScales"/>
+							<div class="pic-upload noborder clearfix" id="modifyOrgLogo">
+			                    <div class="pic-upload-info">
+									<p style='overflow:hidden'><img src="$!{org.orgLogo}" class="example fl" id="exampleImg" width="150" height="150"></p>
+			                        <p class="mt10"><a id="upload-orgLogo"  class="btn btn-79-25">上传照片</a></p>
+			                    </div>
+			                    <div class="pic-upload-result clearfix">
+			                        <div class="result-1">
+			                            <img src="$!{org.orgLogo}" width="150" height="150">
+			                            <p>大</p>
+			                        </div>
+			                        <div class="result-2 tc">
+			                            <img src="$!{org.orgLogo}" width="75" height="75">
+			                            <p>中</p>
+			                            <img src="$!{org.orgLogo}" width="50" height="50" class="mt30">
+			                            <p>小</p>
+			                        </div>
+			                    </div>
+			                </div>	
+		                 <iframe frameborder="0" scrolling="no" width="0" height="0" name="uploadimgw" id="uploadimgw" target="_self" style='display:none'></iframe>
+                       </form>
+                
+						<table class="table-register mt30" id="modifyOrgInfo">
+		                    <tr>
+		                        <td class="field"><span class="required">*</span><span>机构名称</span></td>
+		                        <td>
+		                            <div class="dropdownlist-wrap mr10">
+		                              
+		                                <input id='txtCompany' type="text" class="txtbox" style="width:306px;" name="orgName" value="$!{org.orgName}" data-shortname="$!{org.orgName}"  readonly="readonly" disabled="disabled"/>
+		                                 <!--
+		                                <script>
+											$(function(){Company.getCompany()})
+										</script>
+										 
+										<div class="dropdownlist-cnt clearfix">
+											<div class="dropdownlist-cnt-left">
+												<p>索引</p>
+												<div>
+													<ul>
+														<li class="cur">A</li>
+														<li>B</li>
+														<li>C</li>
+														<li>D</li>
+														<li>E</li>
+														<li>F</li>
+														<li>G</li>
+														<li>H</li>
+														<li>I</li>
+														<li>J</li>
+														<li>K</li>
+														<li>L</li>
+														<li>M</li>
+														<li>N</li>
+														<li>O</li>
+														<li>P</li>
+														<li>Q</li>
+														<li>R</li>
+														<li>S</li>
+														<li>T</li>
+														<li>U</li>
+														<li>V</li>
+														<li>W</li>
+														<li>X</li>
+														<li>Y</li>
+														<li>Z</li>
+													</ul>
+												</div>
+											</div>
+											<div class="dropdownlist-cnt-right">
+												<div class="dropdown-item clearfix">
+													<div class="index"></div>
+													<div class="list">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+		                           -->
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <td class="field"><span class="required">*</span><span>机构简称</span></td>
+		                        <td>
+		                            <input  id="orgShortName" name="orgShortName" type="text" readonly="readonly" type="text" class="txtbox mr10" style="width:346px;" value="$!{org.orgShortName}" disabled="disabled"/>
+		                            <span class="msg-wrap middle">
+		                                 <span id="orgShortNameMsg" class="msg-info" style="display: none;">机构简称不能为空</span>
+                                         <i class="icon icon-error" style="display: none;" id="orgShortNameTag"></i>
+		                            </span>
+		                        </td>
+		                    </tr>
+		                 
+							<tr>
+		                       <td class="field"><span class="required">*</span><span>机构所在地</span></td>
+		                       <td>
+	                            <input type="hidden" value="$!{org.province}" id="province_hidden"/>
+	                        	<input type="hidden" value="$!{org.city}" id="city_hidden"/>
+	                            <select id="select1" name="province" onChange="InitCity(this.options[this.options.selectedIndex].text);$('#select2').resetSS();" ><option>省份</option></select>
+	                            <select id="select2" name="city"><option>城市</option></select>
+	                            <span class="msg-wrap middle">
+	                                <span class="msg-info" id="provinceMsg" style="color: rgb(204, 51, 51); display: none;">请选择机构所在地</span>
+	                            </span>
+                              </td>
+		                    </tr>
+		                    <tr>
+		                        <td class="field"><span class="required">*</span><span>法人代表</span></td>
+		                        <td>
+		                            <input type="text" class="txtbox mr10" style="width:306px;" id="artificialPerson" name="artificialPerson" value="$!{org.artificialPerson}" />
+		                             <span class="msg-wrap middle">
+		                               <span class="msg-info" style="color: rgb(204, 51, 51); display: none;" id="artificialPersonMsg">法人代表不能为空</span>
+		                            </span>
+		                        </td>
+		                    </tr>
+							<tr>
+		                        <td class="field">机构简介</td>
+		                        <td>
+		                            <textarea id="orgSummary" name="orgSummary" class='agency-text' style='width:550px; height:120px;' maxLength='500'>$!{org.orgSummary}</textarea>
+									<span class='gray'>0/500</span>
+									<span class="msg-wrap middle">
+									 <p class="msg-info" style="color: rgb(204, 51, 51);display:none;" id="orgSummaryMsg">机构简介不能为空</p>
+									</span>
+		                        </td>
+		                    </tr>
+		                </table>
+					
+						<h2 class='member-title line' id="modifyApplyInfoTitle">
+							<div class='name'>机构联络人</div>
+						</h2>
+						<table class="table-register mt30" id="modifyApplyInfo">
+		                    <tr>
+		                        <td class="field"><span class="required">*</span><span>姓名</span></td>
+		                        <td width='250'><input type="text" class="txtbox" style="width:140px;" id="applyName" name="applyName" value="$!{org.applyName}"/>
+		                              <div class="tip-msg">
+		                                <p class="error-msg" style="color: rgb(204, 51, 51);display: none;" id="applyNameMsg">姓名不能为空</p>
+										<i class="icon icon-right" style="display: none;"></i>
+		                             </div>
+		                        </td>
+		                        <td class="field"><span class="required">*</span><span>职位</span></td>
+		                        <td ><input type="text" class="txtbox" style="width:140px;" id="position" name="position" value="$!{org.position}"/>
+		                            <div class="tip-msg">
+		                                <p class="error-msg" style="color: rgb(204, 51, 51);display: none;" id="positionMsg">职位不能为空</p>
+										<i class="icon icon-right" style="display: none;"></i>
+		                            </div>
+		                        </td>
+		                    </tr>
+							<tr>
+		                        <td class="field"><span class="required">*</span><span>邮箱</span></td>
+		                        <td width='250'><input type="text" class="txtbox" style="width:140px;" id="email" name="email" value="$!{org.email}" />
+		                             <div class="tip-msg">
+		                                <p class="error-msg" style="color: rgb(204, 51, 51);display: none;" id="emailMsg">邮箱不能为空</p>
+										<i class="icon icon-right" style="display: none;"></i>
+		                            </div>
+		                        </td>
+		                        <td class="field"><span class="required">*</span><span>座机</span></td>
+		                        <td ><input type="text" class="txtbox" style="width:140px;" id="telephone" name="telephone" value="$!{org.telephone}"/>
+			                        <div class="tip-msg">
+		                                <p class="error-msg" style="color: rgb(204, 51, 51);display: none;" id="telephoneMsg">座机不能为空</p>
+		                                <p class="error-msg" style="color: rgb(204, 51, 51);display: none;" id="telephoneInfoMsg">请按格式输入：010-12345678</p>
+										<i class="icon icon-right" style="display: none;"></i>
+	                                </div>
+		                        </td>
+		                    </tr>
+							<tr>
+		                        <td class="field"><span class="required">*</span><span>手机号</span></td>
+		                        <td colspan='3'>
+		                         
+		                            #if ($org.mobile)
+			                            <div class="middle" id="mobile1">
+			                                <input name="mobile" value="$!{org.mobile}" id="txtMobile" type="text" class="txtbox"  readonly="readonly" maxlength="11" style="width:140px;" /><!--disabled-->
+			                                <a href="javascript:void(0);" class="link ml10" id="modify">修改</a>
+			                                <input class="btn btn-getcode ml5" id="vcode" style="display: none;" type="button" value="获取验证码"/>
+			                                
+			                                <a href="javascript:void(0);" class="link ml10" style="display: none;" id="cancel">取消修改</a>
+			                            </div>
+			                          #else
+			                             <div class="middle">
+			                                <input name="mobile" id="txtMobile" type="text" class="txtbox" maxlength="11" style="width:140px;" /><!--disabled-->
+			                               <!-- <a href="javascript:void(0);" class="link ml10" id="modify">修改</a>-->
+			                              <!--  <a href="javascript:void(0);" class="btn btn-getcode ml5" id="vcode"><获取验证码</a>--><!--btn-getcode-disable-->
+			                                <input class="btn btn-getcode ml5" id="vcode" type="button" value="获取验证码"/>
+			                                <span class="msg-wrap middle" style="margin-top:0;">
+			                                    <span class="msg-info" style="color: rgb(204, 51, 51);display: none;" id="mobileMsg">请填入您的11位手机号</span>
+			                                </span>
+			                            </div>
+			                          #end
+		                        </td>
+		                    </tr>
+							<tr>
+		                        <td class="field" style="display: none;" id="mobileVcode"><span class="required">*</span><span>验证码</span></td>
+		                        <td colspan='3'>
+									<input id="txtVCode" type="text" class="txtbox mr10" style="width:140px;display: none;" />
+									<span class="msg-wrap middle">
+		                                <span class="msg-info" style="display: none;">相关提示</span>
+										<i class="icon icon-right" style="display: none;"></i>
+		                            </span>
+								</td>
+		                    </tr>
+		                </table>
+						<h2 class='member-title line' id="modifyBlTitle">
+							<div class='name'>营业执照</div>
+						</h2>
+						<form id="upcard" enctype="multipart/form-data"  action="http://up3.jrj.com.cn/upload" method="post" target="uploadimgw_1">
+			                <input type="hidden" name="sizeMax" id="sizeMax" value="10485760" />
+			                 <input type="hidden" name="channel" id="channel" value="tcard_attach"/>
+			                 <input type="hidden" name="returnUrl" id="returnUrl_normal" value="http://itougu.jrj.com.cn/account/uploadOrgImg.jspa"/>
+			                 <input type="hidden" id="cardPath" value="1"/>
+						<div class="pic-upload clearfix noborder" id="modifyBl">
+		                    <div class="license">
+								<p><img id="cardId" src="$!{org.businessLicence}" class="example" width="580" height="300"></p>
+								<p class="red" style="display:none;clear: both;" id="business_image_id">营业执照副本不能为空</p>
+		                        <p class="mt10">
+		                        <a id="upload-fake"  class="btn btn-79-25" style='position:relative;'>
+		                                                                                       上传照片<input id="File2" type="file" name="filename" class="file-control-input" />
+		                        </a></p>
+		                    </div>
+		                </div>	
+		                 <iframe frameborder="0" scrolling="no" width="0" height="0" name="uploadimgw_1" id="uploadimgw_1" target="_self" style='display:none'></iframe>
+                        </form>
+						<div class="table-submit" id="modifyOperate">
+		                     <a href="javascript:void(0)" class="btn-red" id="saveBtn">保存</a>
+		                     <a href="javascript:void(0)" class="btn-gray" id="cancelBtn">取消</a>
+		                </div>
+					</div>
+				</div>
+			</div>
+    </div>
+    <!-- 结束 -->
+       <!--site-main-right-->
+     </div>
+     
+    <script src="http://js.jrjimg.cn/itougu/account/initCity.js"></script>
+	<script src="http://js.jrjimg.cn/itougu/account/modifyOrg.js"></script> 
+
+	<script type="text/javascript">
+	
+	//submit form
+	$("#saveBtn,#saveView").click(function(){
+		//修改后的orgLogo
+		var modifyOrgLogo = "" ;
+		//修改后的orgName
+		var modifyOrgName = "";
+		//修改后的orgShortName
+		var modifyOrgShortName = "";
+		//修改后的province
+		var modifyProvince = "";
+		//修改后的city
+		var modifyCity = "";
+		//修改后的artificialPerson
+		var modifyArtificialPerson = "";
+		//修改后的orgSummary
+		var modifyOrgSummary = "";
+		//修改后的applyName
+		var modifyApplyName ="" ;
+		//修改后的position
+		var modifyPosition = "" ;
+		//修改后的email
+		var modifyEmail = "" ;
+		//修改后的telephone
+		var modifyTelephone = "" ;
+		//修改后的mobile
+		var modifyMobile = "" ;
+		//修改后的business_licence
+		var modifyBusinessLicence = "";
+		
+		//修改必填项的数量
+	    var i = 0;
+		//提交前先看验证是否通过
+		if(!preSubmit()){
+	    	 return false;
+	     }
+		
+		//取orgLogo,验证是否修改，如果修改则i+1
+		var orgLogoOld = '$!{org.orgLogo}';
+		var orgLogoNew = $("#orgLogo").val();
+		if(orgLogoOld!=orgLogoNew){
+			modifyOrgLogo = orgLogoNew ;
+			i++;
+		}else{
+			modifyOrgLogo = orgLogoOld;
+		}
+		//取机构名称,验证是否修改，如果修改则i+1
+		var orgNameOld = '$!{org.orgName}';
+		var orgNameNew = $("#txtCompany").val();
+		if(orgNameOld!=orgNameNew){
+			modifyOrgName = orgNameNew;
+			i++;
+		}else{
+			modifyOrgName = orgNameOld;
+		}
+		//取机构简称,验证是否修改，如果修改则i+1
+		var orgShortNameOld = '$!{org.orgShortName}';
+		var orgShortNameNew = $("#orgShortName").val();
+		if(orgShortNameOld!=orgShortNameNew){
+			modifyOrgShortName = orgShortNameNew;
+			i++;
+		}else{
+			modifyOrgShortName = orgShortNameOld;
+		}
+		//取所在省直辖市,验证是否修改，如果修改则i+1
+		var provinceOld = '$!{org.province}';
+		var provinceNew = $("#select1").val();
+		if(provinceOld!=provinceNew){
+			modifyProvince = provinceNew;
+			i++;
+		}else{
+			modifyProvince = provinceOld;
+		}
+		//取所在市,验证是否修改，如果修改则i+1
+		var cityOld = '$!{org.city}';
+		var cityNew = $("#select2").val();
+		if(cityOld!=cityNew){
+			modifyCity = cityNew ;
+			i++;
+		}else{
+			modifyCity = cityOld ;
+		}
+		//取法人代表,验证是否修改，如果修改则i+1
+		var artificialPersonOld = '$!{org.artificialPerson}';
+		var artificialPersonNew = $("#artificialPerson").val();
+		if(artificialPersonOld!=artificialPersonNew){
+			modifyArtificialPerson = artificialPersonNew ;
+			i++;
+		}else{
+			modifyArtificialPerson = artificialPersonOld ;
+		}
+		//取机构简介,验证是否修改，如果修改则i+1
+		var orgSummaryOld = '$!{org.orgSummary.replaceAll("\r\n", "")}';
+		var orgSummaryNew = $("#orgSummary").val().replace(/[\r\n]/g, "");
+		if(orgSummaryOld!=orgSummaryNew){
+			i++;
+		}
+		modifyOrgSummary = $("#orgSummary").val();
+		//取申请人,验证是否修改，如果修改则i+1
+		var applyNameOld = '$!{org.applyName}';
+		var applyNameNew = $("#applyName").val();
+		if(applyNameOld!=applyNameNew){
+			modifyApplyName = applyNameNew;
+			i++;
+		}else{
+			modifyApplyName = applyNameOld;
+		}
+		//取职位,验证是否修改，如果修改则i+1
+		var positionOld = '$!{org.position}';
+		var positionNew = $("#position").val();
+		if(positionOld!=positionNew){
+			modifyPosition = positionNew;
+			i++;
+		}else{
+			modifyPosition = positionOld;
+		}
+		//取邮箱,验证是否修改，如果修改则i+1
+		var emailOld = '$!{org.email}';
+		var emailNew = $("#email").val();
+		if(emailOld!=emailNew){
+			modifyEmail = emailNew ;
+			i++;
+		}else{
+			modifyEmail = emailOld ;
+		}
+		//取座机,验证是否修改，如果修改则i+1
+		var telephoneOld = '$!{org.telephone}';
+		var telephoneNew = $("#telephone").val();
+		if(telephoneOld!=telephoneNew){
+			modifyTelephone = telephoneNew;
+			i++;
+		}else{
+			modifyTelephone = telephoneOld;
+		}
+		//取手机,验证是否修改，如果修改则i+1
+		var mobileOld = '$!{org.mobile}';
+		var mobileNew = $("#txtMobile").val();
+		if(mobileOld!=mobileNew){
+			modifyMobile = mobileNew;
+			i++;
+		}else{
+			modifyMobile = mobileOld;
+		}
+		//取营业执照,验证是否修改，如果修改则i+1
+		var businessLicenceOld = '$!{org.businessLicence}';
+		var businessLicenceNew = $("#businessLicence").val();
+		if(businessLicenceOld!=businessLicenceNew){
+			modifyBusinessLicence = businessLicenceNew;
+			i++;
+		}else{
+			modifyBusinessLicence = businessLicenceOld;
+		}
+		
+		
+		//alert("i="+i);
+		//必填项有修改的话，则条件后台
+		if(i>0){
+			 JRJ.Alerts.confirm({
+				title:'提示',
+				message:"<p>您修改的信息需要后台审核之后</p><p>才能生效，您确定修改?</p>",
+				okCallback:function(){
+	        		submitModifyOrgInfo(modifyOrgLogo,modifyOrgName,modifyOrgShortName,modifyProvince,modifyCity,modifyArtificialPerson,modifyOrgSummary,
+	                            modifyApplyName,modifyPosition,modifyEmail,modifyTelephone,modifyMobile,modifyBusinessLicence); 
+	        		$("#operatorArea .edit").hide();
+	        		$("#operatorArea").append('<span class="edit"><font color="red">修改的信息正在审核中....</font></span>');
+	        		
+    	    	 },
+        		 cancelCallback:function(){}
+        	 });
+		}else{
+			//显示编辑
+			$("#editView").show();
+			//把修改后的值赋值给各个属性，显示查看，隐藏修改
+			modifyViewOrgInfo(modifyOrgLogo,modifyOrgName,modifyOrgShortName,modifyProvince,modifyCity,modifyArtificialPerson,modifyOrgSummary,
+	                           modifyApplyName,modifyPosition,modifyEmail,modifyTelephone,modifyMobile,modifyBusinessLicence);
+		}
+		
+	});
+	
+	
+   </script>
+    <!--  
+    <script charset="utf-8" src="http://js.jrjimg.cn/common/foot/copyright-min.js"></script>-->
+    
+    <!--\#include virtual="/common_footer.html" -->
+    
+</body>
+</html>
+    

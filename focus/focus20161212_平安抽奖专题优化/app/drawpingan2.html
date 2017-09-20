@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>平安证券交易活动</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="平安证券、证券开户交易、Level-2" />
+    <meta name="description" content="活动期间，凡是通过爱投顾APP平台成功开通平安证券或首次入金及交易的用户，均可得30元话费和Level-2行情的使用权。" />
+
+    <style>
+        /* init */
+        body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td { margin: 0; padding: 0; }
+        body, button, input, select, textarea { font: 12px/24px "Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial; }
+        h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+        address, cite, em, i { font-style: normal; }
+        li { list-style: none; }
+        a { text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        legend { color: #000; }
+        fieldset, img { border: 0; }
+        button, input, select, textarea { font-size: 100%; line-height: normal; }
+        table { border-collapse: collapse; border-spacing: 0; }
+        input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; }
+
+        .clearfix:after, .wrapper:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+        .clearfix { display: inline-block; }
+        /* start commented backslash hack \*/
+        * html .clearfix { height: 1%; }
+        .clearfix { display: block; }
+        /* close commented backslash hack */
+        body { margin: 0; padding: 0;  background: #fed51b;  font-size: 20px; overflow-x: hidden;}
+        .fl{float: left;}.fr{float: right;}
+
+        /* fenxiang */
+        .focus-cont { padding-bottom: 0; /*max-width: 640px;*/ margin: 0 auto; position: relative; }
+        .loading-box { width: 100%; height:100%; background: rgba(0,0,0,0.8); position: fixed; left: 0; top: 0; bottom:0;  color: #fff; overflow: hidden; z-index: 3000;}
+        .track { position: absolute; top: 40%; left: 40%; width: 0px; height: 2px; }
+        .track .txt { position: absolute; top: -30px; left: 0; width: 300px; text-align: center; }
+        .track .txt span, .track .bar { position: relative; left: -40%; }
+        .track .bar { position: absolute; top: -40%; width: 100%; height: 100%; background: #f1f1f1; }
+        .layout-img { display:none; }
+        .bgbig { width: 100%; height: 100%; background: url(http://i0.jrjimg.cn/wap2014/wxbug/bgbig.png) repeat; position: fixed; top: 0; left: 0; z-index: 9998; }
+        .tsbox { position: fixed; top: 0; right: 0; z-index: 9999; }
+        .tsbox img { width: 98%; height: auto; display: block; margin: 0 auto; }
+
+        .share-img{ width:20px; height:20px; opacity:0;}
+        .w1000{  width: 300px;  margin: 0 auto;  }
+        .mb13{  margin-bottom: 13px;}
+        /*outer*/
+        .app_header{
+            width: 100%;
+            position: relative;
+        }
+        .app_header img{
+            width: 100%;
+            display: block;
+        }
+        .inner_01>ul{
+            width: 312px;
+            margin: 0 auto;
+            margin-top: 14px;
+        }
+        .inner_01>ul li{
+            width: 97px;
+            height: 97px;
+            line-height: 97px;
+            text-align: center;
+            color: white;
+            background: #28195b;
+            border-radius: 4px;
+            margin-left: 7px;
+            margin-top: 7px;
+            font-size: 15px;
+        }
+        .inner_01>ul .linhight{
+            line-height: 25px;
+            padding-top: 27px;
+            height: 70px;
+        }
+        .inner_01>div>div{
+            font-size: 15px;
+            line-height: 22px;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+            background-color: #28195b;
+            width: 100px;
+            border-radius: 11px; margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        .inner_01 div .about-btn{margin-left:37px;}
+        .inner_01 div .personprize{margin-right:32px;}
+        .inner_02{
+            padding:0 12px;
+        }
+        .inner_02>p{
+    
+        }
+        .inner_02>p>i{
+            display: inline-block;
+            width: 15px;
+            height: 18px;
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/icn02.png") 0 0 no-repeat;
+            background-size: 100% auto;
+            vertical-align: middle;
+            margin-right: 7px;
+        }
+        .inner_02>p>span{
+            display: inline-block;
+            width: 102px;
+            height: 19px;
+            background: #28195b;
+            line-height: 19px;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 9px 0 0 9px;
+            color: #ffffff;
+        }
+        .inner_02>ul{
+            color: inherit;
+            font-size: 15px;
+            color: #28195b;
+            margin:17px 19px;
+
+        }
+        .inner_02>ul li{
+            list-style:disc;
+            line-height: 20px;
+            font-size: 15px;
+        }
+        .inner_02>.btn_joinIn{
+            height: 36px;
+            line-height: 36px;
+            width: 100%;
+            font-size: 19px;
+            background: #28195b;
+            border-radius: 18px;
+            text-align: center;
+            margin-bottom: 22px;
+            margin-top: 12px;
+            color: #fff;
+        }
+        .inner_03_head{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .inner_03_head>h1{
+            font-size: 26px;
+            color: #28195b;
+            line-height: 100%;
+            text-indent: 22px;
+        }
+        .inner_03_head>p{
+            color: #000000;
+            font-size: 12px;
+            line-height: 12px;
+            margin-top: 6px;
+        }
+        .sanjiao{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-top: 12px solid #28195b;
+        }
+        .inner_03_info{
+            height: 164px;
+            width: 100%;
+            background: #ffffff;
+            padding-top: 20px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+        .inner_03_info>.sanjiaoborder{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 41px solid #28195b;
+            border-right: 63px solid transparent;
+        }
+        .inner_03_info>ul>li>div{
+            width: 88px;
+            height: 88px;
+            background: #000000;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .inner_03_info>ul>li>div>img{
+            width: 100%;
+            display: block;
+            border: 1px solid #000;
+        }
+        .inner_03_info>ul>li{
+            width: 100px;
+            text-align: center;
+        }
+        .inner_03_info>ul>li>b{
+            color: #28195b;
+            font-size: 14px;
+        }
+        .inner_03_info>ul>li>p{
+            color: #28195b;
+            font-size: 11px;
+        }
+        .inner_03_info>ul>li>a{
+            display: inline-block;
+            width:90px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: #dc4b9b;
+            font-size: 12px;
+            color: #fff;
+            text-align: left;
+            padding-left: 7px;
+            text-align: center;
+        }
+        .inner_03_info>ul>li>a>span{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-left: 5px solid #fff;
+            border-bottom: 5px solid transparent;
+            margin-left: 4px;
+        }
+        .inner_03_info>ul>li>div>span{
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/icn02.png") no-repeat;
+            background-size: 100% auto;
+            background-position: 0 -18px;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            display: inline-block;
+            width: 15px;
+            height: 25px;
+        }
+        .inner_04>p{
+            color: #28195b;
+            font-size: 17px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 10px;
+
+        }
+        .inner_04>ul{
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        .inner_04>ul li{
+            margin-top: 7px;
+            line-height: 29px;
+            color:#28195b ;
+            font-size: 17px;
+
+        }
+        .inner_04>ul li>span{
+            display: inline-block;
+            width: 29px;
+            height: 29px;
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/icn01.png") no-repeat;
+            background-size: 100% auto;
+            vertical-align: middle;
+            margin-right: 11px;
+        }
+        .inner_04>ul li:first-child>span{
+            background-position: 0px 0px;
+        }
+        .inner_04>ul li:first-child+li>span{
+           background-position: 0px -35px;
+        }
+        .inner_04>ul li:first-child+li+li>span{
+            background-position: 0px -72px;
+        }
+        .inner_04>ul li:first-child+li+li+li>span{
+            background-position: 0px -108px;
+        }
+
+        .header_sign>span{
+            width: 25px;
+            height: 13px;
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/icn03.png") no-repeat;
+            background-size: 100% auto;
+            vertical-align: middle;
+            position: absolute;
+            display: inline-block;
+        }
+        .inner_04>.header_sign{
+            margin-top: 15px;
+        }
+        .inner_04>.header_sign>.left{
+            top: 18px;
+            margin-left: -120px;
+        }
+        .inner_04>.header_sign>.right{
+            top: 18px;
+            margin-left: 100px;
+        }
+        .header_sign>.left{
+            background-position: 0px -15px;
+            left: 50%  ;
+            top:6px;
+            margin-left: -134px;
+        }
+        .header_sign>.right{
+            background-position: 0px 0px;
+            left: 50%;
+            top: 6px;
+            margin-left: 110px;
+        }
+        .header_sign{
+            font-size: 19px;
+            color: #28195b;
+            text-align: center;
+            position: relative;
+            font-weight: bold;
+        }
+        .inner_03>p{
+            line-height: 28px;
+            font-size: 0.7rem;
+            color: #000000;
+            text-align: center;
+        }
+        .inner_05>.sanjiao{
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+
+        .inner05_cknr>div{
+            margin:7px 0;
+        }
+        .inner05_cknr>a{
+            display: inline-block;
+            height: 27px;
+            line-height: 27px;
+            color: #fff;
+            font-size: 15px;
+            background: #612cfa;
+            border-radius: 13.5px;
+            width: 98%;
+            text-align: center;
+        }
+        .inner_06{
+            background: #ffffff;
+            color: #28195b;
+            margin-bottom: 18px;
+            position: relative;
+            display: none;
+        }
+        .inner_06_text{
+            padding: 0 11px;
+            border-left: 7px solid #28195b;
+            padding-top: 12px;
+            padding-bottom: 33px;
+        }
+        .inner_06_text>div{
+            font-size: 17px;
+            text-align: center;
+            padding-bottom: 16px;
+        }
+        .inner_06_text>p{
+            font-size: 0.5rem;
+            line-height: 14px;
+        }
+        .inner_06_text>p>b{
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .inner_07{
+            color: #28195b;
+            margin-bottom: 50px;
+        }
+        .inner_07_text{
+            font-size: 0.5rem;
+            margin-bottom: 30px;
+            line-height: 14px;
+        }
+        .inner_07_info{
+            font-size: 15px;
+            text-align: center;
+            line-height: 22px;
+        }
+        .btn_kh{
+            width: 40%;
+            margin: 0 4%;
+            display: inline-block;
+            /*background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/btn_kh.png") no-repeat;*/
+            /*background-size: 100% auto;*/
+        }
+        .btn_fx{
+            width: 40%;
+            margin: 0 4%;
+            display: inline-block;
+            /*background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/btn_fx.png") no-repeat;*/
+            /*background-size: 100% auto;*/
+        }
+        .btn_yq{
+            width: 288px;
+            height: 68px;
+            margin-top: 13px;
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/btn_yq.png") no-repeat;
+            background-size: 100% auto;
+        }
+        .app_header>div{
+            position: absolute;
+            width: 100%;
+            bottom: 6%;
+        }
+        .inner_06>.sanjiaoborder{
+            position: absolute;
+            bottom: 0px;
+            right: 0 ;
+            width: 0;
+            height: 0;
+            border-bottom:52px solid #28195b;
+            border-left: 80px solid transparent;
+        }
+        .inner06_show{
+            background: #ffffff;
+            color: #28195b;
+            margin-bottom: 18px;
+            position: relative;
+        }
+        .inner06_show>div{
+            padding: 0 11px;
+            border-left: 7px solid #28195b;
+            padding: 10px 0;
+            font-size: 17px;
+            text-align: center;
+            line-height: 28px;
+        }
+        .inner06_show>div>span{
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/btn_show.png") no-repeat;
+            background-size: 100% auto;
+            position: absolute;
+            right: 22px;
+            top: 10px;
+        }
+
+/*choujiang*/
+        .box ul li.current{ position:relative; z-index:1; background:#fed51b; color:white; -webkit-box-sizing:border-box;}
+        .box ul li.current{ background:url('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/hover.png') no-repeat; background-size:contain;}
+/*pop*/
+        .pop{ perspective:600px; -webkit-perspective:600px; transition-duration:.5s; -webkit-transition-duration:.5s; display:box; display:-webkit-box; box-align:center; -webkit-box-align:center; box-pack:center; -webkit-box-pack:center; position:fixed; z-index:999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
+        .pop .close{ position:absolute; right:-10px; top:-10px; width:30px; height:30px; background:#fdeb01; border-radius:100%; }
+        .pop .close .v-line,.pop .close .h-line{ transform:rotate(45deg); -webkit-transform:rotate(45deg); position:absolute; left:20%; top:50%; width:60%; height:3px; margin-top:-1px; background:#000;}
+        .pop .close .h-line{ transform:rotate(-45deg); -webkit-transform:rotate(-45deg);}
+        .pop .pop-cnt{ display:box; display:-webkit-box; box-orient:vertical; -webkit-box-orient:vertical; transform:rotateX(180deg) scale(.1); -webkit-transform:rotateX(180deg) scale(.1); opacity:0; transition-duration:.5s; -webkit-transition-duration:.5s;  position:relative; z-index:999; max-width:80%; min-width:60%; padding:15px; border-radius:10px; background:#fffbeb; color:#d27c34; }
+        .pop .submit{ height:40px; margin-top:10px; text-align:center; }
+        .pop .submit .btn{ display:inline-block; height:35px; line-height:35px; padding:0 15px; color:#fff; font-weight:bold; border-radius:5px; font-weight:normal; font-size:14px; text-align:center; background:#e74536;}
+        .pop .submit .btn.gray{ background:#a3a3a3; margin-left:15px; color:#fff;}
+        .pop .submit .btn:nth-child(2){ margin-left:15px; }
+        .pop .content{ display:box; display:-webkit-box; box-orient:vertical; -webkit-box-orient:vertical; box-flex:1; -webkit-box-flex:1; padding:15px 10px 20px; box-sizing:border-box; -webkit-box-sizing:border-box; overflow:hidden;}
+        .pop .error{ display:none; opacity:0; box-sizing:border-box; -webkit-box-sizing:border-box;transition-duration:.5s; -webkit-transition-duration:.5s; height:0px; line-height:0px; margin-bottom:10px; padding:0 5px; text-align:center; color:#f0000a; border:1px solid #ff8085; border-radius:5px; font-size:.75rem; background:#ffffdc;}
+        .re_box{ display:box; display:-webkit-box; box-orient:vertical; -webkit-box-orient:vertical; box-flex:1; -webkit-box-flex:1; padding:15px 10px 20px; box-sizing:border-box; -webkit-box-sizing:border-box; overflow-y: scroll; max-height: 183px; }
+        .record{box-flex:1; -webkit-box-flex:1; display:box; display:-webkit-box; box-orient:vertical; -webkit-box-orient:vertical; }
+        .record ul{display:-webkit-box; display:box; box-orient:horizontal; -webkit-box-orient:horizontal;}
+        .record ul li{ box-flex:1; -webkit-box-flex:1; }
+        .record .tit{ height:25px; line-height:25px; border-bottom:1px solid #e9e0bd; font-size:12px; color:#878C92;}
+        .record .cnt{ box-flex:1; -webkit-flex:1; font-size:12px; color:#333;   }
+        .record .cnt ul{ border-bottom:1px solid #f3e4aa; }
+        .record .cnt li{ height:30px; line-height:30px;}
+        .record li:last-child{ text-align:right;}
+
+        .record p{ font-size:12px; padding-top:5px; color:#999;}
+        .yiwen{ font-size:12px; padding-top:5px; color:#999;}
+        #loadding{ line-height:22px; margin-top:5px; text-align: center; color: #B2B2B2;}
+        #loadding i{ display:inline-block; width: 1.5625rem; height: 1.5625rem; margin-right: $s2; vertical-align: middle; background: url('http://i0.jrjimg.cn/zqt-m/webview/transaction/firm/src/images/error_icon.png');  background-size: contain;}
+
+        .it_outer_alert{
+            width: 100%;
+            z-index: 998;
+            position: absolute;
+
+        }
+        .b_opacity{
+            opacity: 0.7;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top:0;
+            left: 0;
+            z-index: 996;
+            background-color: black;
+        }
+        /* -------------------------------- dialog -------------------------------- */
+        .md-slidein-show { visibility: visible; z-index: 200; }
+        .md-slidein-show .md-overlay { opacity: 1; visibility: visible; -moz-transition: all 1s; -o-transition: all 1s; -webkit-transition: all 1s; transition: all 1s; }
+        .md-slidein-show .focus-dlg { visibility: visible; opacity: 1;-moz-transform:scale(1); -ms-transform:scale(1); -o-transform:scale(1); -webkit-transform:scale(1); transform:scale(1);}
+
+        .focus-dlg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; opacity: 0; visibility: hidden; -moz-transform: scale(.5); -ms-transform: scale(.5); -o-transform: scale(.5); -webkit-transform: scale(.5); transform: scale(.5);  -moz-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -o-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -webkit-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); transition: transform .3s cubic-bezier(.17,.67,.42,1.22); display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }
+        .md-overlay { position: fixed; width: 100%; height: 100%; visibility: hidden; top: 0; left: 0; z-index: 1000; opacity: 0; background: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#50000000',EndColorStr='#50000000'); -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+        /* -------------------------------- dialog end-------------------------------- */
+        .dlg-time{
+            width: 80%;
+            padding: 5%;
+            background: #fff;
+            position: relative;
+        }
+        .dlg-time>.tit{
+            text-align: center;
+            font-size: 16px;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+        .dlg-time>p{
+            font-size: 14px;
+            line-height: 16px;
+            color: #323132;
+        }
+        .slider-wrap{
+            padding-bottom: 3.825rem;
+        }
+        .input{
+            margin-top: 10px;
+        }
+        .input>input{
+            height: 2.25rem;
+            font-size:1rem;
+        }
+        .input>#txtPhone{
+            width: 100%;
+        }
+        .input>#txtCode{
+
+        }
+        .dlg-time .dlg-btn-wrap { width:100%;height:3.125rem;bottom:0;left:0;border-top:1px solid #d5d5d5;position: absolute; }
+        .dlg-time .dlg-btn {display:block; height:3rem;line-height:3rem;text-align:center; font-size:0.875rem;color: #878C92;-webkit-box-flex: 1; -webkit-flex: 1; -moz-flex: 1; -ms-flex: 1; flex: 1;    width: 50%;  float: left;  box-sizing: border-box;}
+        .dlg-time .dlg-btn:first-child { border-right:1px solid #d5d5d5; }
+        .dlg-time .dlg-btn:hover,.dlg-time .dlg-btn:active { background:#ddd; }
+
+
+        .dlg-cnt{font-size: 1rem;padding-bottom: 3.825rem;}
+        .bgbig { width: 100%; height: 100%; background: url(http://i0.jrjimg.cn/wap2014/wxbug/bgbig.png) repeat; position: fixed; top: 0; left: 0; z-index: 9998; }
+        .tsbox { position: fixed; top: 0; right: 0; z-index: 9999; }
+        .tsbox img { width: 98%; height: auto; display: block; margin: 0 auto; }
+
+        .b_opacity{
+            filter:alpha(opacity=70);
+            -moz-opacity:0.7;
+            -khtml-opacity:0.7;
+            opacity: 0.7;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top:0;
+            left: 0;
+            z-index: 996;
+            background-color: black;
+            display: none;
+        }
+        .alert{
+            width: 259px;
+            height: 277px;
+            position: fixed;
+            z-index: 997;
+            top: 50%;
+            left: 50%;
+            margin-left: -129.5px;
+            margin-top:-138.5px;
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/icn_inning.png") 0 0 no-repeat;
+            background-size: 100% auto;
+            display: none;
+        }
+        .alert>p{
+            text-align: center;
+            font-size: 19px;
+            line-height: 28px;
+            color: #ffffff;
+            margin-top: 26px;
+            width: 80%;
+            margin-left:20px;
+        }
+        .alert>.close_btn{
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            right: 0;
+            top:0;
+            cursor: pointer;
+            background: url("http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/btn_close.png") 0 0 no-repeat;
+            background-size:100% auto;
+            -webkit-background-size:100% auto;
+        }
+
+         .item-cur{
+            background:#771cf2 !important;
+            text-shadow: 2px 2px 10px #fff;
+            box-shadow: inset 0px 0px 10px #fff;
+            -webkit-text-shadow: 2px 2px 10px #fff;
+            -webkit-box-shadow: inset 0px 0px 10px #fff;
+            -moz-text-shadow: 2px 2px 10px #fff;
+            -moz-box-shadow: inset 0px 0px 10px #fff;
+        }
+        .inner_02>p>a{
+            font-size: 12px;
+            background: #fff;
+            padding: 2px;
+            border-radius: 4px;
+        }
+        /*优化*/
+.prizeall{overflow: hidden;position: relative;height:100px;margin: 18px 18px 0;}
+.prizeall .focus-lottery-list-scroll{position: absolute;top:0;left:0;}
+.focus-lottery-list-wrap{background:#ffd100;overflow: hidden;margin-top: 20px;height: 100px;}
+.focus-lottery-list{padding:0 35px;}
+.focus-lottery-list li{float:none !important;font-size:18px;height: 30px;line-height: 30px;float: none;}
+.focus-lottery-list li div{float:left;width:33%;line-height: 30px;border-bottom:1px dotted #c49c9c;text-overflow:ellipsis;white-space:nowrap;word-wrap:break-word;overflow:hidden;text-align: center;color: #28195b;line-height: 24px; font-size: 15px;}
+.focus-lottery-list li .redbold{ font-weight: bold; }
+.focus-lottery-list li a{color: #c49c9c;}
+.personprize{font-size: 14px;color: #28195b;}
+.in{font-size: 16px;line-height: 25px;background: #ffffff;z-index: 990;}
+.in p span{float: left;width:50%;text-align: center; color:#28195b; font-weight:normal;}
+/* -------------------------------- dialog -------------------------------- */
+.md-slidein-show2 { visibility: visible; z-index: 200; }
+.md-slidein-show2 .md-overlay2 { opacity: 1; visibility: visible; -moz-transition: all 1s; -o-transition: all 1s; -webkit-transition: all 1s; transition: all 1s; }
+.md-slidein-show2 .focus-dlg2 { visibility: visible; opacity: 1;-moz-transform:scale(1); -ms-transform:scale(1); -o-transform:scale(1); -webkit-transform:scale(1); transform:scale(1);}
+.focus-dlg2 { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; opacity: 0; visibility: hidden; -moz-transform: scale(.5); -ms-transform: scale(.5); -o-transform: scale(.5); -webkit-transform: scale(.5); transform: scale(.5);  -moz-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -o-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); -webkit-transition: transform .3s cubic-bezier(.17,.67,.42,1.22); transition: transform .3s cubic-bezier(.17,.67,.42,1.22); display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }
+.md-overlay2 { position: fixed; width: 100%; height: 100%; visibility: hidden; top: 0; left: 0; z-index: 1000; opacity: 0; background: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#50000000',EndColorStr='#50000000'); -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+.dlg-time2 {width: 80%;padding: 5%;background: #fff; position: relative;padding-bottom: 65px;}
+.dlg-time2 .dlg-btn-wrap { width:100%;height:3.125rem;bottom:0;left:0;border-top:1px solid #d5d5d5;position: absolute; }
+.dlg-time2 .dlg-btn {display:block; height:3rem;line-height:3rem;text-align:center; font-size:0.875rem;color: #878C92;-webkit-box-flex: 1; -webkit-flex: 1; -moz-flex: 1; -ms-flex: 1; flex: 1;    width: 50%;  float: left;  box-sizing: border-box;}
+.dlg-time2 .dlg-btn:first-child { border-right:1px solid #d5d5d5; }
+.dlg-time2 .dlg-btn:hover,.dlg-time .dlg-btn:active { background:#ddd; }
+
+    </style>
+
+</head>
+<body>
+
+<!--dialog-->
+<div class="focus-dlg"></div>
+<div class="md-overlay"></div>
+<div class="focus-dlg2">
+    <div class="dlg-time2">
+        <div class="in"></div>
+        <div class="dlg-btn-wrap layout-box">
+            <a class="dlg-btn">取消</a>
+            <a class="dlg-btn">确认</a>
+        </div>
+    </div>
+</div>
+<div class="md-overlay2"></div>
+<!--dialog-->
+
+<div class="tsbox" style="display:none;"><img src="http://i0.jrjimg.cn/wap2014/wxbug/newtcphone.png" /></div>
+<div class="bgbig" style="display:none;"></div>
+
+<script type="text/template" id="dlg-time">
+    <div class="dlg-time">
+        <div class="tit">注意</div>
+        <p>请保持在开户时输入的手机号与此号码一致，否则无法收到话费奖励。</p>
+        <div class="slider-wrap">
+            <div class="input">
+                <input id="txtPhone" type="tel" maxLength="11" placeholder="输入手机号码，参加平安活动得豪礼">
+            </div>
+            <div class="input">
+                <input id="txtCode" placeholder="请输入验证码" maxLength="4" style="width: 50%;vertical-align: middle;">
+                <img id="img_captcha" src="" style="height: 2.5rem; display: inline-block;width: 46%;vertical-align: middle;float: right;">
+            </div>
+        </div>
+        <div class="dlg-btn-wrap layout-box">
+            <a class="dlg-btn dlg-close">取消</a>
+            <a class="dlg-btn submit">确认</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="dlg-did-lottery">
+    <div class="dlg-time">
+        <div class="tit">提示</div>
+        <div class="dlg-cnt">
+            <p class="dlg-text">每天只能抽奖一次哦~不要贪心,明天再来吧</p>
+        </div>
+        <div class="dlg-btn-wrap layout-box">
+            <a class="dlg-btn dlg-close">取消</a>
+            <a class="dlg-btn submit">确认</a>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="dlg-did-lottery2">
+    <div class="dlg-time">
+        <div class="tit">绑定抽奖规则</div>
+        <div class="dlg-cnt">
+            <p>在爱投顾开户成功并绑定平安证券账号用户每日登录爱投顾官网或APP，均可进行一次活动抽奖。奖品池包括10台iPhone7、暴风魔镜4代、1g金条、30元现金、不等额优惠券、50元话费、3个月Level-2。</p>
+        </div>
+        <div class="dlg-btn-wrap layout-box">
+            <a class="dlg-btn dlg-close">取消</a>
+            <a class="dlg-btn submit">确认</a>
+        </div>
+    </div>
+</script>
+
+
+
+<div class="outer">
+    <div class="app_header">
+        <img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/bg_header.png">
+        <div>
+            <div class="btn_kh"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/btn_kh.png" ></div>
+            <div class="btn_fx fenx"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/btn_fx.png" ></div>
+        </div>
+    </div>
+    <div class="inner_01 lottery box" id="lottery">
+        <ul class="clearfix">
+            <li class="fl b1 item">iPhone7</li>
+            <li class="fl b2 item">30元现金</li>
+            <li class="fl b3 item">1g金条</li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl b8 item">优惠券</li>
+            <li class="fl btn-lottery"><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/li_05.png" ></li>
+            <li class="fl b4 item">明天再来~</li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl b7 linhight item">Level-2<br/>3个月</li>
+            <li class="fl b6 item">50元话费</li>
+            <li class="fl b5 item">暴风魔镜4代</li>
+        </ul>
+        <div class="clearfix">
+            <div class="about-btn fl">抽奖规则?</div>
+            <div class="personprize fr">
+                <span>中奖记录</span>
+            </div>
+        </div>
+    </div>
+
+        <div class="inner_02 w1000">
+            <p>
+                <i></i><span>邀请名单公示区</span>
+                <a href="http://itougu.jrj.com.cn/view/170934.jspa">邀请发奖啦</a>
+                <a href="http://itougu.jrj.com.cn/view/169160.jspa">iPhone7已发出！</a>
+            </p>
+            <ul>
+                <li> 三分钟闪电开户</li>
+                <li>万2.5低佣炒股，全国多家网点</li>
+                <li>交易流畅稳定</li>
+            </ul>
+        </div>
+        <div class="prizeall">
+            <div class="focus-lottery-list-scroll" style="visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; height: 165px;">
+                <ul class="focus-lottery-list clearfix" style="margin: 0px; padding: 0px; position: relative; list-style-type: none; z-index: 1; height: 495px; top: -275px;"></ul>
+            </div>
+        </div>
+        <div class="inner_03 ">
+            <div class="inner_03_head">
+                <h1>首次交易福利！</h1>
+                <span class="sanjiao"></span>
+            </div>
+            <div class="header_sign"><span class="left"></span>爱投顾二大金牌达人服务<span class="right"></span></div>
+            <p>服务期：11月11日-12月30日，服务内参都为直接授权</p>
+            <div class="inner_03_info">
+                <div class="sanjiaoborder"></div>
+                <ul class="clearfix w1000">
+                    <li class="fl">
+                        <div><span></span><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/user/h5_user02.png" ></div>
+                        <b>沐阳</b>
+                        <p>顶级私募研究员</p>
+                        <a href="http://itougu.jrj.com.cn/account/adviser/120217010043425631/5?tgqdcode=9356TGYM" class="focus-link">查看投资专栏 <span></span></a>
+                    </li>
+                    <li class="fl">
+                        <div><span></span><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/user/h5_user03.png" ></div>
+                        <b>刘飞勇</b>
+                        <p>二十年行业经验</p>
+                        <a href="http://itougu.jrj.com.cn/account/adviser/150218010049607830/5?tgqdcode=A99JZ96R" class="focus-link">查看投资专栏 <span></span></a>
+                    </li>
+                    <li class="fl">
+                        <div><img src="http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/user/h5_div.png" ></div>
+                        <b>更多精彩</b>
+                        <p>尽在爱投顾</p>
+                        <a id="goOpenAccount">开户交易<span></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="inner_04 w1000">
+            <div class="header_sign"><span class="left"></span>1年Level-2千档行情<br/>和50元话费<span class="right"></span></div>
+            <ul>
+                <li><span></span>千档行情，行情0.01秒刷新</li>
+                <li><span></span>投资组合、实时资讯无缝对接</li>
+                <li><span></span>买卖点精准提示，不错过机会</li>
+                <li><span></span>数据全面，资金流向清晰明了</li>
+            </ul>
+        </div>
+
+        <div class="inner06_show w1000">
+            <div>
+                其他活动&奖品领取说明
+                <span></span>
+            </div>
+        </div>
+        <div class="inner_06 w1000">
+            <div class="inner_06_text">
+                <div><b>其他活动</b></div>
+                <p class="mb13">
+                    <b>开转户平安证券：</b><br/>
+                    活动期间，在爱投顾平台成功开通平安证券并绑定资金账号的
+                    用户，可得Level-2行情3个月的免费使用权。
+                </p>
+                <p class="mb13">
+                    <b>邀请奖励：</b><br/>
+                    登录爱投顾分享活动链接，每邀请1个好友在爱投顾开户平安证券并首次交易就可获得30元话费，以往在爱投顾开户平安证券的用户都可参与。
+                </p>
+                <p class="mb13">
+                    *并且活动期间，每日不定时会有惊喜给到交易用户，如300元
+                    优惠券，盈利宝加息券、高手组合、财经大咖见面会门票、
+                    电影票、腾讯乐视会员、畅销书等等。
+                </p>
+                <div><b>奖品领取说明</b></div>
+                <p>1、在爱投顾开户成功并交易的用户（开户手机号须与爱投顾绑定手机号一致），交易后5个工作日发放50元话费、沐阳、刘飞勇投资专栏和Level-2；<br/>
+                    2、开户或交易后，用户可凭借爱投顾用户名和密码在Level-2上登录使用，届时还会发送下载地址及开通短信提醒；<br/>
+                    3、邀请奖励和每日用户抽奖礼品，都会在10个工作日发放，因iPhone 7、暴风魔镜4、金条等实物需收集用户地址，请参与用户在活动期间保持手机畅通，活动结束后1个月内无法联系用户视为放弃奖励。
+                </p>
+                </div>
+            <div class="sanjiaoborder"></div>
+        </div>
+        <div class="inner_07 w1000">
+            <p class="inner_07_text">
+                本活动为“爱投顾”独家主办，活动奖励均由“爱投顾”发放，用户
+                可拨打客服电话咨询活动详情：400-166-1188。<br/>
+                活动最终解释权归爱投顾所有。
+            </p>
+            <p class="inner_07_info">
+                <b>
+                    弱水三千，只取一瓢；一人三户，我选平安<br/>
+                    爱投顾交易平台，给你行云流水
+                </b>
+            </p>
+            <div class="btn_yq fenx"></div>
+        </div>
+</div>
+
+
+<!--中奖弹窗-->
+<div class="b_opacity"></div>
+<div class="alert">
+    <span class="close_btn"></span>
+    <p>
+        <span class="lotteryMsg"></span>
+    </p>
+</div>
+<!--中奖弹窗-->
+
+
+<script src="http://js.jrjimg.cn/lib/jquery-1.7.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/wechat-share-without-amd.js"></script>
+
+<script>
+    var Misc = {
+        isItougu:'itougu'=='${source}',
+        passportId:'${ssoId}',
+        brokerId:'PAZQ',
+        device:function(){
+            var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+                    IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+                    IS_IOS = IS_IPAD || IS_IPHONE,
+                    IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+                    IS_MOBILE = IS_IOS || IS_ANDROID;
+
+            return {
+                IS_IPAD: IS_IPAD,
+                IS_IPHONE: IS_IPHONE,
+                IS_IOS: IS_IOS,
+                IS_ANDROID: IS_ANDROID,
+                IS_MOBILE: IS_MOBILE
+            };
+        },
+        isWechat:function(){
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        getQueryString: function(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        },
+        goDownload: function () {
+            var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+                IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+                IS_IOS = IS_IPAD || IS_IPHONE,
+                IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+                IS_MOBILE = IS_IOS || IS_ANDROID;
+
+
+            function is_weixin() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            function is_weixin_ios() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger" && browser.versions.ios == true)
+                { return true; } else { return false; }
+            };
+
+            $(".bgbig").unbind().click(function(){
+                $(".tsbox,.bgbig").hide();
+            });
+            
+            if (is_weixin() == true) {
+                $(".tsbox,.bgbig").show();
+            } else if (is_weixin_ios() == true) {
+                window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.jrj.tougu";
+            } else if (IS_IOS) {
+                var iFrame = document.createElement('iframe');
+                iFrame.style.display = "none";
+                iFrame.src = 'aitougu://';
+
+                document.body.appendChild(iFrame);
+
+                    setTimeout(function () {
+                        if (!document.webkitHidden) {
+                            window.location.href = 'https://itunes.apple.com/cn/app/ai-tou-gu/id935173185?mt=8';
+                        }
+                    }, 25);
+                } else if (IS_ANDROID) {
+                    var iFrame = document.createElement('iframe');
+                    iFrame.style.display = "none";
+                    iFrame.src = 'aitougu://';
+                    document.body.appendChild(iFrame);
+                    setTimeout(function () {
+                        if (!document.webkitHidden) {
+                            window.location.href = 'http://sjcms.jrj.com.cn/app_tg.php?channel=45H8NXD27';
+                        }
+                    }, 25);
+                }
+
+        },
+        getCaptcha:function(){
+            $.ajax({
+                url:'https://t.jrj.com.cn/sapi/v2/activity/generateImgCode',
+                dataType:'jsonp',
+                data:{},
+                type:'post',
+                contentType:'application/json; charset=utf-8',
+                success:function(data){
+                    $('#img_captcha').attr('src','data:img/jpg;base64,'+data.data.image);
+                    Misc.key = data.data.key;
+                },
+                error:function(data){
+                }
+            });
+        },
+        showSignupDlg:function(){
+
+            $('.focus-dlg').html($('#dlg-time').html());
+            $('html').addClass('md-slidein-show');
+            Misc.getCaptcha();
+            $('#img_captcha').unbind().bind('click',function(){
+                Misc.getCaptcha();
+            });
+            $('.layout-box .dlg-close').unbind().click(function (e) {
+                // e.stopPropagation();
+                $('html').removeClass('md-slidein-show');
+            });
+            $('.layout-box .submit').unbind().bind('click', function () {
+                // $('.trading-link').text(window.slider.element.defaultValue);
+                if($.trim($('#txtPhone').val()).length == 0){
+                    alert('请输入手机号');
+                    return;
+                }
+
+                if(!/^0?1[3|4|5|7|8|][0-9]\d{8}$/.test($.trim($('#txtPhone').val()))){
+                    alert('您输入的手机号不正确');
+                    return;
+                }
+
+                if($('#txtCode').val().length == 0){
+                    alert('请输入验证码');
+                    return;
+                }
+
+                $.ajax({
+                    url:'https://t.jrj.com.cn/sapi/v2/activity/join',
+                    dataType:'jsonp',
+                    data:{
+                        mobile:$.trim($('#txtPhone').val()),
+                        yqcode:Misc.getQueryString('userId')||'',
+                        brokerId:Misc.brokerId,
+                        txtCode:$.trim($('#txtCode').val()),
+                        key:Misc.key
+                    },
+                    type:'post',
+                    contentType:'application/json; charset=utf-8',
+                    success:function(data){
+                        if(data.retcode == 0 || data.retcode == 10001){
+                            $('html').removeClass('md-slidein-show');
+                            alert('恭喜您，参加活动成功！下载爱投顾APP，开户平安并首次交易即可享受8080元豪礼');
+                            Misc.goDownload();
+                        }else{
+                            Misc.getCaptcha();
+                            alert(data.msg);
+                        }
+                    },
+                    error:function(data){
+                    }
+                });
+
+            })
+
+        },
+        didLottery : function(data){//已经抽过一次了
+            $('.focus-dlg').html($('#dlg-did-lottery').html());
+            $('.focus-dlg .dlg-text').text(data.data.lotteryMsg);
+            
+            $('html').addClass('md-slidein-show');
+            
+            $('.layout-box .dlg-close').unbind().click(function (e) {
+                // e.stopPropagation();
+                $('html').removeClass('md-slidein-show');
+            });
+
+            $('.layout-box .submit').unbind().click(function (e) {
+                // e.stopPropagation();
+                $('html').removeClass('md-slidein-show');
+            });
+        },
+        guize : function(data){
+            $('.focus-dlg').html($('#dlg-did-lottery2').html());
+            $('html').addClass('md-slidein-show');
+            
+            $('.layout-box .dlg-close').unbind().click(function (e) {
+                // e.stopPropagation();
+                $('html').removeClass('md-slidein-show');
+            });
+
+            $('.layout-box .submit').unbind().click(function (e) {
+                // e.stopPropagation();
+                $('html').removeClass('md-slidein-show');
+            });
+        },
+        bingo:function(data){
+
+            $('.alert .lotteryMsg').text(data.data.lotteryMsg);
+
+            $('.alert').show();
+            $('.b_opacity').show();
+
+            $('.alert .close_btn').click(function(e){
+                e.preventDefault();
+                $('.alert').hide();
+                $('.b_opacity').hide();
+            });
+        }
+
+    };
+
+    (function(){
+
+        //开户按钮
+        $('.btn_kh').click(function(){
+            if(Misc.isItougu){
+                if(Misc.passportId != 'null'){
+                    window.location.href = 'http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                Misc.showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpingan_kaihu', 'WT.ti', 'ITOUGU_drawpingan_kaihu')
+        });
+
+        //分享
+        $('.btn_fx, .btn_yq').click(function(){
+            if(Misc.isItougu){
+                if(Misc.passportId != 'null'){
+                    var href = 'http://www.itougu.com/?share={"title":"'
+								+ encodeURI('来爱投顾参加平安证券活动，立得8080元豪礼')
+								+ '","content":"' + encodeURI('平安交易立得50元话费，二大投资内参和1年level-2。')
+								+ '","url":"' + encodeURI(window.location.href.split('?')[0] + '?userId=' + Misc.passportId)
+								+ '","imgurl":"' + encodeURI('http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/wechat.png') + '"}';
+                    window.location.href = href;
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+                
+            }else{
+                Misc.showSignupDlg();
+            }
+            dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpingan_fenxiang', 'WT.ti', 'ITOUGU_drawpingan_fenxiang')
+        });
+
+        InitWeChatShare({
+            shareTitle: '来爱投顾参加平安证券活动，立得8080元豪礼',
+            shareLink: window.location.href,
+            shareDesc: '平安交易立得50元话费，二大投资内参和1年level-2。',
+            shareImg: 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20161031/h5/wechat.png'
+        });
+
+        //去参赛
+        $('.btn_joinIn').click(function(){
+            window.location.href = 'http://i0.jrjimg.cn/zqt-red-1000/focus/focus20160924/app/?tgqdcode=2X3686AWG&itougu=false&userId='+Misc.getQueryString('userId');
+        });
+
+        $('.focus-link').click(function(e){
+            if(!Misc.isItougu){
+                e.preventDefault();
+                Misc.showSignupDlg();
+            }
+        });
+        
+        $('#goOpenAccount').click(function(){
+            if(Misc.isItougu){
+                if(Misc.passportId != 'null'){
+                    window.location.href = 'http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                }else{
+                    jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                }
+            }else{
+                Misc.showSignupDlg();
+            }
+        });
+
+        //抽奖
+        (function(){
+            var lottery={
+                index:0,	//当前转动到哪个位置
+                count:0,	//总共有多少个位置
+                timer:0,	//setTimeout的ID，用clearTimeout清除
+                speed:200,	//初始转动速度
+                times:0,	//转动次数
+                cycle:50,	//转动基本次数：即至少需要转动多少次再进入抽奖环节
+                prize:-1,	//中奖位置
+                init:function(selector){
+                    this.obj = $(selector);
+                    this.count = this.obj.find(".item").length;
+                },
+                roll:function(){
+                    var index = this.index;
+                    var count = this.count;
+                    var lottery = this.obj;
+                    $(lottery).find(".b"+(index+1)).removeClass("item-cur");
+                    index += 1;
+                    if (index>count-1) {
+                        index = 0;
+                    };
+                    $(lottery).find(".b"+(index+1)).addClass("item-cur");
+                    this.index=index;
+                    return false;
+                },
+                stop:function(index){
+                    this.prize=index;
+                    return false;
+                }
+            };
+            function roll(){
+                lottery.times += 1;
+                lottery.roll();
+                if (lottery.times > lottery.cycle+10 && lottery.prize==lottery.index) {
+                    clearTimeout(lottery.timer);
+                    lottery.prize=-1;
+                    lottery.speed=200;
+                    lottery.times=0;
+                    click=false;
+
+                    setTimeout(function(){
+                        if(lottery.callback){
+                            lottery.callback();
+                        }
+                    },1000);
+
+                }else{
+                    if (lottery.times<lottery.cycle) {
+                        lottery.speed -= 10;
+                    }else{
+                        if (lottery.times > lottery.cycle+10 && ((lottery.prize==0 && lottery.index==7) || lottery.prize==lottery.index+1)) {
+                            lottery.speed += 110;
+                        }else{
+                            lottery.speed += 20;
+                        }
+                    }
+                    if (lottery.speed<40) {
+                        lottery.speed=40;
+                    }
+                    lottery.timer = setTimeout(roll,lottery.speed);
+                }
+                return false;
+            }
+
+            window.clicked=false;
+            lottery.init('#lottery');
+            $(".btn-lottery").click(function(){
+                if(Misc.isItougu){
+
+                    if(Misc.passportId == 'null'){
+                        jrj.jsCallNative('108', JSON.stringify({ returnUrl: encodeURI(window.location.href) }));
+                        return;
+                    }
+
+                    if (window.clicked) {
+                        return;
+                    }
+                    window.clicked = true;
+
+                    $.ajax({
+                        url:'http://t.jrj.com/sapi/v3/activity/lottery',
+                        dataType:'jsonp',
+                        data:{
+                            brokerId:Misc.brokerId,
+                            matchId:1,
+                            userId:Misc.passportId
+                        },
+                        type:'post',
+                        contentType:'application/json; charset=utf-8',
+                        success:function(data){
+                            window.clicked = false;
+                            
+                            if(data.retcode == 0){
+
+                                if(data.data.type==-1||data.data.type==-2){//未开户
+                                    alert(data.data.lotteryMsg);
+                                    window.location.href = 'http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                                    return;
+                                }
+
+                                else if(data.data.type==-7){//未绑定
+                                    alert(data.data.lotteryMsg);
+                                    window.location.href = 'http://t.jrj.com.cn/openAccount/activity/index.jspa?type=openAccount&broker=pazq';
+                                    return;
+
+                                }
+                                else if(data.data.type==-3){//当已抽奖
+                                    Misc.didLottery(data);
+                                    return;
+                                }
+
+                                var posMap = {'0':3,
+                                            '1':7,
+                                            '2':6,
+                                            '3':5,
+                                            '4':7,
+                                            '5':7,
+                                            '6':3,
+                                            '7':3};
+                                lottery.prize = posMap[data.data.goodsid];//这里设置得奖位置  (index-1)
+                                lottery.callback = function(){
+                                    //抽奖完成事件
+                                    Misc.bingo(data);
+                                };
+                                roll();
+                            } else {
+                                alert(data.data.lotteryMsg);
+                            }
+
+                            
+                        },
+                        error:function(data){
+                            window.clicked = false;
+                        },
+                        complete:function(){
+                            window.clicked = false;
+                        }
+                    });
+
+                } else {
+
+                    Misc.showSignupDlg();
+
+                }
+				dcsMultiTrack('DCS.dcsuri', 'ITOUGU_drawpingan_choujiang', 'WT.ti', 'ITOUGU_drawpingan_choujiang')
+            });
+        })();
+
+
+
+        //其他活动
+        $('.inner06_show>div>span').click(function(){
+            $('.inner06_show').hide();
+            $('.inner_06').show();
+        });
+
+        //规则
+        $('.about-btn').click(function(){
+            Misc.guize();
+        });
+        
+
+
+    })();
+    
+
+
+</script>
+
+<script src="http://js.jrj.com.cn/common/foot/jrj_dcs_tag-min.js"></script>
+<!--优化-->
+<script src="http://i0.jrjimg.cn/zqt-red-1000/focus/common/js/jquery.jcarousellite.pauseOnHover-min.js"></script>
+<script>
+    $.ajax({
+        url: "https://t.jrj.com.cn/sapi/v3/activity/queryMatchWinningRecord?matchId=1"
+        , data: {}
+        , dataType: 'json'
+        , success: function (_data) {
+            if (_data.retcode == 0) {
+                var str='';
+                _data.data.items=_data.data.items.reverse();
+                for(var i=0;i<_data.data.items.length;i++){
+                    str+='<li class="clearfix"><div>'+_data.data.items[i].winGoodsTime+'</div><div>'+_data.data.items[i].mobile+'</div><div>'+_data.data.items[i].goodsName+'</div></li>'
+                }
+                $('.focus-lottery-list').html(str);
+                $(".focus-lottery-list-scroll").jCarouselLite({
+                    auto: 2000,
+                    speed: 500,
+                    circular: true,
+                    vertical:true,
+                    visible: 3,
+                    pauseOnHover:true
+                });
+                $('.focus-lottery-list li div').each(function(){
+                    if($(this).html()=='iPhone7'){
+                        $(this).addClass('redbold');
+                    }
+                });
+            }
+        }
+    });
+    $('.personprize').click(function(){
+        $('html').addClass('md-slidein-show2');
+    });
+    if('${ssoId}'.length>=18){
+        $('.personprize').show();
+        $.ajax({
+            url: "http://t.jrj.com.cn/sapi/v3/activity/queryUserWinningRecord?matchId=1&userId=${ssoId}"
+            , data: {}
+            , dataType: 'jsonp'
+            , jsonp: 'callback'
+            , success: function (_data) {
+                if (_data.retcode == 0) {
+                    if(_data.data.items.length>0){
+                        var str='<p class="clearfix"><span class="span1">中奖时间</span><span class="span2">中奖奖品</span></p>';
+                        for(var i=0;i<_data.data.items.length;i++){
+                            str+='<p class="clearfix"><span class="span1">'+_data.data.items[i].winGoodsTime+'</span><span class="span2">'+_data.data.items[i].goodsName+'</span></p>';
+                        }
+                        $('.in').html($('.in').html()+str);
+                        $('.in p span').each(function(){
+                        if($(this).html()=='iPhone7'){
+                            $(this).addClass('redbold');
+                        }
+                    });
+                    }else{
+                        $('.in').html($('.in').html()+'暂无中奖记录');
+                    }
+                    
+                }
+            }
+        });
+   }else{
+        $('.personprize').hide();
+   }
+   $('.dlg-time2 .dlg-btn').each(function(){
+        $(this).click(function(){
+            $('html').removeClass('md-slidein-show2');
+        });
+   });
+</script>
+</body>
+</html>

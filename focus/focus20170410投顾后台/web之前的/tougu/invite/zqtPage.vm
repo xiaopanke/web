@@ -1,0 +1,49 @@
+#if(!$!zqtPage.obj)
+	<div class="empty-wrap middle tc f16">
+		<img src="http://js.jrjimg.cn/zqt-red-1000/images/icon-alert.png">
+		<span class="ml10">暂无记录</span>
+		<a href="/account/invite/index.jspa?from=zqt" class="link ml20">马上邀请</a>
+	</div>
+#else
+	 <table class="table-general table-general-p3 mt20">
+          <thead>
+              <tr>
+                  <th class="tc" style="width:40px;">序号</th>
+                  <th class="tc">时间</th>
+                  <th class="tc">用户名称</th>
+                  <th class="tc">券商</th>
+                  <th class="tc last" style="width:140px;">邀请状态</th>
+              </tr>
+          </thead>
+          <tbody id="zqt-body">
+              #foreach($info in $zqtPage.obj)
+				<tr>
+				    <td class="tc">$velocityCount</td>
+				    <td class="tc">$!info.timeDisplay</td>
+				    <td class="tc">$!info.passportName</td>
+				    <td class="tc">$!info.brokerName</td>
+				    <td class="tc last">$!info.statusDisplay</td>
+				</tr>
+				#end
+          </tbody>
+      </table>
+      <script type="text/javascript">
+	      $(function() {
+	    	  $("#zqt_pager_data").pagefoot({
+					pagesize : $zqtPage.pageCount,
+					count : $zqtPage.total,
+					css : "",
+					//current : ${p},
+					//displaynum : 5,
+					//displaylastNum : 1,
+					previous : "上一页",
+					next : "下一页",
+					enableArrowKey : true,
+					paging : function(page) {
+						$("#zqt-table").load("/account/invite/turnPage.jspa?pageNo="+page.current+"&system=ZQT");
+					}
+				});
+	          $("#zqt_pager_data").append('<span class="total">共${zqtPage.total}条记录</span>');
+	      })
+		</script>
+#end

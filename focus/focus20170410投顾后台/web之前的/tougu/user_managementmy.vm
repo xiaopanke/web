@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>$!{userName}的用户管理-爱投顾-金融界</title>
+    <meta name="keywords" content="$!{userName}的用户管理-爱投顾-金融界" />
+    <meta name="description" content="$!{userName}的用户管理-爱投顾-金融界" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+
+    <!--\#include virtual="/common_head_css.html" -->
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/dialog.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/js/editor/editor.css" rel="stylesheet" />
+    <link href="http://js.jrjimg.cn/zqt-red-1000/css/v3/jrj.ui.tooltip.min.css" rel="stylesheet" />
+    <style>
+      .my-member-wrap .icon-pay-user {
+        background: url(http://js.jrjimg.cn/zqt-red-1000/images/v3/icon-pay-user.png) no-repeat;
+        display: inline-block;
+        width: 77px;
+        height: 22px;
+        margin-left: 10px;
+      }
+      .tooltip-wrap{border-radius: 4px;box-shadow: 0px 3px 6px 0px rgba(206,210,222,0.83); overflow: hidden !important;}
+      .row-pic-layer { position:absolute;width:480px;background: #fff; }
+      .row-pic-layer .inner { padding:17px;  }
+      .row-pic-layer .layer-row-1 img { float:left;width:88px;height: 88px;  }
+      .row-pic-layer .layer-row-1-right{float:left;margin-left:20px;width:338px;}
+      .row-pic-layer .layer-row-1-right span {font-size:16px;color:#878C92;}
+      .row-pic-layer .layer-row-1-right .name {font-size:16px;color:#333;margin-right: 16px; }
+      .row-pic-layer .layer-row-1-right .clearfix { width:340px; }
+      .row-pic-layer .layer-row-1-right .clearfix div { width: 112px;border-right:1px solid #DBDBDB;float: left;text-align: center;margin-top:10px; }
+      .row-pic-layer .layer-row-1-right .clearfix div.last { border:0; }
+      .row-pic-layer .layer-row-1-right .clearfix div p { font-size:20px;color:#5B6B88; }
+      .row-pic-layer .layer-row-1-right .clearfix div p.field { font-size:14px;color:#878C92;padding-top:5px; }
+      .row-pic-layer .layer-row-2 { color:#878C92; font-size:14px;padding: 15px 0 0 0;}
+      .fansdate{ margin-top: 10px;}
+      .fansdate h3{float: left;font-size: 20px;font-weight: normal; line-height: 40px;} 
+      .fansdate h3 span{ color: #fb5e00;}
+      .fansdate div{float: right; margin-top: 5px;}
+      .fansdate div em{float: left; margin: 0 15px; line-height: 26px;font-size: 14px;}
+      .fansdate div .cur{ border-bottom:4px solid #659bf5;}
+      .statistic-block{height: auto; padding:0;border-bottom: none;}
+      .statistic-block .statistic-block-item{border-bottom: 1px solid #ddd;}
+    </style>
+</head>
+<body>
+    <!--# include virtual="/site_top_header.html" -->
+    <!--bread-crumb-->
+    <div class="site-breadcrumb">
+        <div class="wrapper">
+            <a href="/">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:void(0);" class="cur">投顾空间</a>
+        </div>
+    </div>
+    <!--bread-crumb-->
+    <div class="wrapper">
+		<!--site-main-left-->
+		<!--# include virtual="/tgself.html" -->
+		<!--site-main-left-->
+
+         <!--site-main-right-->
+         <div class="site-main-right">
+             <h2 class="block-title">用户统计</h2>
+             <div class="fansdate clearfix">
+                 <h3>总粉丝数：<span id="fansNum"></span></h3>
+                 <div>
+                     <em class="cur">昨日</em>
+                     <em>近七天</em>
+                     <em>近30天</em>
+                 </div>
+             </div>
+             <input type="hidden" id="adviserId" value="$!{adviserId}" />
+             <div class="statistic-block statistic-block-2 mt10 clearfix">
+              
+                    <div class="statistic-block-item statistic-block-item-1">
+                        <p>新增粉丝数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-2">
+                        <p>取关粉丝数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-3">
+                        <p>净增长用户数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-1">
+                        <p>直播间访问人数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-2">
+                        <p>直播间互动人数</p>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="statistic-block-item statistic-block-item-3">
+                        <p>文章阅读人数</p>
+                        <p class="num">0</p>
+                    </div>
+     
+             </div>
+                
+             <div class="my-points my-member-wrap mt25">
+				<div class="tab-switch-s3 sort-bar-02" style="position:relative;z-index:100;">
+              
+                    <div class="fr" style="display:inline-block;">
+              
+						<span id="btn-setting" class="btn-setting btn-setting0 fl" style="margin-right:10px">设定我的签约条件</span>
+                        <!-- 
+                        <a href="/message/group/list.jspa" title="" class="btn-setting fl" style="background:none;padding-left:0">群发记录</a>
+                         -->
+                        <a id="sendMessageRecord" href="/message/group/list.jspa?menuId=1" title="" class="btn-setting fl" style="background:none;padding-left:0;margin-right:10px;display:blank;">发送记录</a>
+                        <div class="userWj fl" style="display:inline-block;width:113px;">
+                            <a id="sign" data-chatroom="true" class="btn btn-113-30 fr" href="javascript:void(0)" title="" data-type="user" style="display:blank;">群发私信</a>
+                            <a id="fan" class="btn btn-113-30 fr" href="javascript:void(0)" title="" data-type="fans" style="display:none;">向粉丝群发</a>
+                            <a id="auth" class="btn btn-113-30 fr" href="javascript:void(0)" title="" data-type="auth" style="display:none;">添加授权</a>
+                            <!-- 
+                            <a href="#" class="btn btn-113-30 fr" id="btn-send-all">向用户群发</a>
+                            <div class="select">
+                                <a id="fan" href="javascript:void(0)" title="" data-type="fans">向粉丝用户群发</a>
+                                <a id="sign" href="javascript:void(0)" title="" data-type="user">向签约用户群发</a>
+                            </div>
+                             -->
+                        </div>
+                	</div>
+
+	                <span id="menu_1" style="padding:0 7px" class="tab-switch-s3-item tab-switch-s3-item-cur">签约用户</span>
+	                <span id="menu_2" style="padding:0 7px" class="tab-switch-s3-item">粉丝用户</span>
+	                <span id="menu_3" style="padding:0 7px" class="tab-switch-s3-item">付费用户</span>
+					<span id="menu_4" style="padding:0 7px" class="tab-switch-s3-item">授权用户</span>
+                </div>
+
+                <!-- load data -->
+                <div id="con_1" class="tab-cnt clearfix" style="border-right:1px solid #ddd; border-left:1px solid #ddd;"></div>
+                <div id="con_2" class="tab-cnt clearfix" style="border-right:1px solid #ddd; border-left:1px solid #ddd; display : none"></div>
+                <div id="con_3" class="tab-cnt clearfix" style="border-right:1px solid #ddd; border-left:1px solid #ddd; display : none"></div>
+                <div id="con_4" class="tab-cnt clearfix" style="border-right:1px solid #ddd; border-left:1px solid #ddd; display : none"></div>
+            </div>
+            <!--site-main-right-->
+        </div>
+    </div>
+	<!--\#include virtual="/common_head_js.html" -->
+    
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/EditorConfig.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/editor/JRJEditor.js"></script>
+    <script src="http://js.jrjimg.cn/lib/ui/jquery.pagefoot-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/TabSwitch.2.0-min.js"></script>
+    <script src="http://js.jrjimg.cn/itougu/account/relation_user.js?20161212"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/mustache-min.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v2/mouseenterDelay.js"></script>
+    <script src="http://js.jrjimg.cn/zqt-red-1000/js/v3/jrj.ui.tooltip.js"></script>
+
+    <script type="text/javascript">
+    
+        $(function () {
+        	initTab();
+	        signTab.show();
+            
+            //scroll
+            $(window).scroll(function () {
+                //$(window).scrollTop()这个方法是当前滚动条滚动的距离
+                //$(window).height()获取当前窗体的高度
+                //$(document).height()获取当前文档的高度
+                var bot = 200; //bot是底部距离的高度
+                if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                    //当底部基本距离+滚动的高度 >= 文档的高度-窗体的高度时；
+                    //我们需要去异步加载数据了
+                    //me.getData();
+                    //$container.masonry('reload');
+                    $('.loading').show();
+
+                    setTimeout(function () {
+                        $('.loading').hide();
+                    }, 3000);
+                }
+            });
+
+
+           $('.userWj .select a').click(function () {
+             if ($(this).attr('data-type') == 'user') {
+                if($("#fansNum").html() != '0'){
+                
+              	  	$("#btn-send-all").attr("data-type","user");
+                    JRJ.Dialogs.iframeDialog({
+                        content: [''].join(''),
+                        loadingImg: '',
+                        width: 712,
+                        hasBtn: false,
+                        hasOkBtn: false,
+                        okBtnText: '',
+                        title: '向 签约用户 群发',
+                        titleRight: '',
+                        bottomContent: '',
+                        protocolHtml: '',
+                        hasCancelBtn: false,
+                        enableKeyCtrl: true,
+                        ifrSrc: '/message/sendMsg.jspa',
+                        ifrReHeight: false,
+                        isFixed: true,//defaultCf.isFixed,
+                        okCallback: function () {
+                        },
+                        cancelCallback: function () {
+                            return true;
+                        }
+                    });
+                }else{
+                    //没有签约用户效果
+		            JRJ.MiniAlerts.prompt({
+		                trigger: '#btn-send-all',
+		                message: "<p>您还没有签约用户</p>"
+		            });
+                }
+             }else{
+                $("#btn-send-all").attr("data-type","fans");
+                 if($("#fansNum").html() != '0'){
+                    JRJ.Dialogs.iframeDialog({
+                        content: [''].join(''),
+                        loadingImg: '',
+                        width: 712,
+                        hasBtn: false,
+                        hasOkBtn: false,
+                        okBtnText: '',
+                        title: '向 粉丝用户 群发',
+                        titleRight: '',
+                        bottomContent: '',
+                        protocolHtml: '',
+                        hasCancelBtn: false,
+                        enableKeyCtrl: true,
+                        ifrSrc: '/message/sendMsg.jspa',
+                        ifrReHeight: false,
+                        isFixed: true,//defaultCf.isFixed,
+                        okCallback: function () {
+                        },
+                        cancelCallback: function () {
+                            return true;
+                        }
+                    });
+                }else{
+                    //没有粉丝用户效果
+		            JRJ.MiniAlerts.prompt({
+		                trigger: '#btn-send-all',
+		                message: "<p>您还没有粉丝</p>"
+		            });
+                }
+             }
+           });
+
+           //向粉丝群发
+           $('#fan').click(function () {
+            	$(".btn.btn-57-23").attr("data-type","");
+            	//判断粉丝数是否大于0
+            	if($("#fansNum").html() != '0'){
+                    JRJ.Dialogs.iframeDialog({
+                        content: [''].join(''),
+                        loadingImg: '',
+                        width: 712,
+                        hasBtn: false,
+                        hasOkBtn: false,
+                        okBtnText: '',
+                        title: '向 粉丝 群发',
+                        titleRight: '',
+                        bottomContent: '',
+                        protocolHtml: '',
+                        hasCancelBtn: false,
+                        enableKeyCtrl: true,
+                        ifrSrc: '/message/sendMsg.jspa?_='+new Date().getTime(),
+                        ifrReHeight: false,
+                        isFixed: true,//defaultCf.isFixed,
+                        okCallback: function () {
+                        },
+                        cancelCallback: function () {
+                            return true;
+                        }
+                    });
+                }else{
+                    //没有粉丝用户效果
+		            JRJ.MiniAlerts.prompt({
+		                trigger: '#fan',
+		                message: "<p>您还没有粉丝</p>"
+		            });
+                }
+           });
+
+            window.success = function () {
+                JRJ.MiniAlerts.prompt({
+                    message: "<p>发送成功</p>"
+                });
+            };
+
+			//设置签约条件
+			$(".btn-setting0").on("click",function(){
+					JRJ.Dialogs.standardDialog({
+					title: "设置签约条件",
+					width:426,
+					content: ['<div class="dialog-cnt">',
+									'<p>用户类型</p>',
+									'<ul class="custom-checkbox clearfix fl" style="width:390px;border-bottom:1px solid #666;padding-bottom:10px;"><li class="checked">A股</li></ul>',
+									'<p class="note-nopadding" style="line-height:40px;">以下签约条件设置正在开发中……</p>',
+									'<p class="note-nopadding">1、用户资金量条件</p>',
+									'<p class="note-nopadding">2、开户的券商条件</p>',
+									'<p class="note-nopadding">3、设置用户佣金</p>',
+							  '</div>'].join(''),
+					okBtnText: "确认",
+					cancelBtnText: "取消",
+					hasCloseBtn: true,
+					hasOkBtn: true,
+					hasCancelBtn: false,
+					okCallback: function () { },
+					cancelCallback: function () { },
+					isFixed: true
+				});
+			});
+            // 向用户群发
+            var _timer = null;
+            $(".userWj .select").hide();
+            $(".userWj").mouseenter(function(e){
+            	e.stopPropagation();
+            	window.clearTimeout(_timer);
+               $(this).children(".select").show();
+            }).mouseleave(function(e){
+            	e.stopPropagation();
+            	var self = this;
+            	_timer = window.setTimeout(function(){
+            		$(self).children(".select").hide();
+            	},300);
+            });
+            $(".userWj .select a").click(function(){
+               var text=$(this).text();
+               //$(".userWj .btn-113-30").text(text);
+            });
+            
+            $('.select').mouseenter(function(e){
+            	e.stopPropagation();
+            	window.clearTimeout(_timer);
+            	$(this).show();
+            });
+
+            //20150108
+
+            //授权用户
+            var authPermission = "";
+            $.ajax({
+            	url:'/account/auth/getPermission.jspa',
+            	dataType:'json'            	
+           	}).done(function(data){
+           		if(data && data.resultCode){
+      				if(data.resultCode==0){
+      					authPermission = "";
+      				}else{
+      					authPermission = "您的授权功能无法使用，请向站方申请！";
+      				}
+           		}
+         	});
+            $('#auth').bind('click', function(){
+            	var isvalid = $(this).attr('isValid');
+            	if(authPermission.length>0){
+            		JRJ.Dialogs.standardDialog({
+	                    title: "提示",
+	                    width: 550,
+	                    customClass: 'dialog-auth',
+	                    content: ['<div class="dialog-cnt">',
+	                              authPermission,
+	                              '</div>'].join(''),
+	                    okBtnText: "确认",
+	                    cancelBtnText: "取消",
+	                    hasCloseBtn: true,
+	                    hasOkBtn: true,
+	                    hasCancelBtn: false,
+	                    okCallback: function () {} 
+            		});
+            	}else{
+	            	JRJ.Dialogs.standardDialog({
+	                    title: "添加授权",
+	                    width: 550,
+	                    customClass: 'dialog-auth',
+	                    content: ['<div class="dialog-cnt">',
+	                                    '<table>',
+	                                        '<tr>',
+	                                            '<td class="field">用户名</td>',
+	                                            '<td><input id="tboxUserName" type="text" class="txtbox" style="width:215px;" /><span id="errorUserName" class="red  error-msg ml5"></span></td>',
+	                                        '</tr>',
+	                                        '<tr>',
+	                                            '<td class="field">服务类型</td>',
+	                                            '<td>',
+	    									        '<ul class="custom-checkbox clearfix fl" id="choseProdType"><li class="" ative-data="1">组合跟投</li><li class="" ative-data="2">投资内参</li></ul><span id="errorProducts" class="red  error-msg ml5"></span>',
+	                                            '</td>',
+	                                        '</tr>',
+	                                        '<tr id="productsListRow" style="display:none;">',
+	                                            '<td class="field">&nbsp;</td>',
+	                                            '<td id="productsList" class="products-wrap"></td>',
+	                                        '</tr>',
+	                                    '</table>',
+	                                    '<p id="createError" class="red" style="display:none;"></p>',
+	                                    '<p class="note">提示：用户可免费查看授权的投资内参或组合跟投(20个交易日内)</p>',
+	                              '</div>'].join(''),
+	                    okBtnText: "确认",
+	                    cancelBtnText: "取消",
+	                    hasCloseBtn: true,
+	                    hasOkBtn: true,
+	                    hasCancelBtn: true,
+	                    okCallback: function () {
+	                    	var prods = new Array();
+	                    	$('input[name="cBoxroducts"]:checked').each(function(){
+	                    		var p = {};
+	                    		p.productId = $(this).attr('active-pId');
+	                    		p.productName = $(this).attr('active-pName');
+	                    		prods.push(p);
+	                    	});
+	                    	
+	                    	if($('#tboxUserName').attr('userId') && prods.length>0){
+								var prodType = $('.custom-checkbox li.checked').attr('ative-data'), name=$('#tboxUserName').val();
+								$.ajax({
+									url:'/account/auth/createAuth.jspa',
+									type:'POST',
+									data:{userName:name,productType:prodType, products:JSON.stringify(prods)},
+									dataType:'json'
+								}).done(function(data){
+									if(data&&data.resultCode=='0'){
+										show_user(0);
+										JRJ.Dialogs.close();
+									}else{
+										$('#createError').text('授权失败').show();
+									}
+								}).fail(function(){
+									$('#createError').text('error').show();
+								});
+	            				
+							}else{
+								$('#errorProducts').text('请选择授权服务');
+							}
+	                    	return true;
+	                    },
+	                    cancelCallback: function () { },
+	                    isFixed: true
+	                });
+					
+	            	if(!$("#tboxUserName").data("events") || !$("#tboxUserName").data("events")["focusout"]){
+		            	$('#tboxUserName').on('focusout', function(){
+		            		$.ajax({
+		            			url:'/account/auth/checkUserExists.jspa',
+	           					type:'POST',
+	           					data:{userName:$('#tboxUserName').val()},
+		            			dataType:'html',
+		            			async: false
+		            		}).done(function(data){
+		            			if(data){
+		            				$('#tboxUserName').attr('userId',data);
+		            			}else{
+		            				$('#errorUserName').html('用户不存在');
+		            			}
+		            		}).fail(function(){
+		            			$('#errorUserName').html('用户不存在');
+		            		})
+		            	})
+	            	}
+	            	if(!$("#tboxUserName").data("events") || !$("#tboxUserName").data("events")["focus"]){
+		            	$('#tboxUserName').on('focus', function(){
+		            		$('#tboxUserName').html('').attr('userId','');
+	           				$('#errorUserName').html('');
+	           				$('#errorProducts').html('');
+	           				$('#createError').html('').hide();
+		            	})
+	            	}
+	            	
+	            	if(!$('.custom-checkbox li').data("events") || !$('.custom-checkbox li').data("events")["mouseenter"]){
+		            	$('.custom-checkbox li').mouseenter(function () {
+		                    if (!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+		                        $(this).addClass('hover');
+		                    }
+		                }).mouseleave(function () {
+		                    $(this).removeClass('hover');
+		                });
+	            	}
+	            	
+	        		if(!$(".custom-checkbox li").data("events") || !$(".custom-checkbox li").data("events")["click"]){
+		            	$('.custom-checkbox li').on('click',function(e){
+		            		if($('#tboxUserName').attr('userId')){
+			            		if(!$(this).hasClass('checked') && !$(this).hasClass('disable') && !$(this).hasClass('editable')) {
+			            			$(".custom-checkbox li").removeClass('checked');
+			            			$(this).addClass('checked');
+			           				$('#errorProducts').html('');
+			           				$('#createError').html('').hide();
+			           				
+				            		var type = $(e.target).attr('ative-data');
+				            		var html = '';
+			            			$('#productsList').html('');
+				            		if(type==1){
+			            				$.ajax({
+					            			url:'/portfolio/auth/my/plist.jspa?uid='+$('#tboxUserName').attr('userId'),
+					            			dataType:'json'
+					            		}).done(function(data){
+					            			if(data && data.success){
+					            				for(var i in data.plist){
+					            					if(data.plist[i].subscribed){
+					            						html += '<li class="middle"><span class="checkbox-wrap"></span><span>' + data.plist[i].pname + '</span><span class="red">已订阅</span></li>';
+					            					}else{
+					            						html += '<li class="middle"><span class="checkbox-wrap"><input name="cBoxroducts" type="checkbox" active-pId="' + data.plist[i].pid + '" active-pName="' + data.plist[i].pname + '" /></span><span>'+ data.plist[i].pname +'</span></li>';
+					            					}			            					
+					            				}
+						            			$('#productsListRow').show();
+					            				$('#productsList').html('<ul class="products clearfix">' + html + '</ul>');
+					            			}else{
+						            			$('#productsListRow').show();
+					            				$('#productsList').html('暂无可授权组合');
+					            			}
+					            		}).fail(function(){
+					            			$('#productsListRow').show();
+				            				$('#productsList').html('暂无可授权组合');
+					            		});
+				            		}else if(type==2){
+				            			$.ajax({
+					            			url:'/tips/auth/my/tlist.jspa?uid='+$('#tboxUserName').attr('userId'),
+					            			dataType:'json'
+					            		}).done(function(data){
+					            			if(data && data.success && data.tlist && data.tlist.length>0){
+					            				for(var i in data.tlist){
+					            					t = data.tlist[i];
+					            					if(t.isBuy){
+					            						html += '<li class="middle"><span class="checkbox-wrap"></span><span>' + t.tipName + '</span><span class="red">已订阅</span></li>';
+					            					}else{
+					            						html += '<li class="middle"><span class="checkbox-wrap"><input name="cBoxroducts" type="checkbox" active-pId="' + t.tipId + '" active-pName="' + t.tipName + '" /></span><span>'+ t.tipName +'</span></li>';
+					            					}			            					
+					            				}
+						            			$('#productsListRow').show();
+					            				$('#productsList').html('<ul class="products clearfix">' + html + '</ul>');
+					            			}else{
+						            			$('#productsListRow').show();
+					            				$('#productsList').html('暂无可授权内参产品');
+					            			}
+					            		}).fail(function(){
+					            			$('#productsListRow').show();
+				            				$('#productsList').html('暂无可授权内参产品');
+					            		});
+				            		}
+			                    }
+		            		}else{
+		            			$('#errorUserName').html('用户不存在');
+		            		}
+		            	});
+		            }
+            	}
+            });
+            
+            //后面优化的20170504
+
+
+        });
+    </script>
+
+    <!--\#include virtual="/common_footer.html" -->
+</body>
+</html>
