@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>nativeUI Example</title>
+<script type="text/javascript">
+// H5 plus事件处理
+function plusReady(){
+	// 弹出系统提示对话框
+	plus.nativeUI.alert( "Plus is ready!", function(){
+		console.log( "User pressed!" );
+	}, "nativeUI", "OK" );
+}
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}
+</script>
+</head>
+<body>
+弹出系统提示对话框
+</body>
+</html>
