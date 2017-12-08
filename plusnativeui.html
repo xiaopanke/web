@@ -1,24 +1,25 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>nativeUI Example</title>
-<script type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<title>nativeUI Example</title>
+		<script type="text/javascript">
 // H5 plus事件处理
 function plusReady(){
-// 弹出提示信息对话框
-plus.nativeUI.confirm( "Are you sure ready?", function(e){
-console.log( (e.index==0)?"Yes!":"No!" );
-}, "nativeUI", ["Yes","No"] );
+	// 弹出系统提示对话框
+	plus.nativeUI.alert( "Plus is ready!", function(){
+		console.log( "User pressed!" );
+	}, "nativeUI", "OK" );
 }
 if(window.plus){
-plusReady();
+	plusReady();
 }else{
-document.addEventListener("plusready",plusReady,false);
+	document.addEventListener("plusready",plusReady,false);
 }
-</script>
-</head>
-<body>
-弹出系统确认对话框
-</body>
-</html> 
+		</script>
+	</head>
+	<body>
+	弹出系统提示对话框
+	</body>
+</html>
